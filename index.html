@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Board Game Collection</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>My Board Game Collection</h1>
+            <p class="username">@koraytugay on BoardGameGeek</p>
+        </header>
+
+        <div id="loading" class="loading">
+            <div class="spinner"></div>
+            <p>Loading your collection...</p>
+        </div>
+
+        <div id="error" class="error" style="display: none;"></div>
+
+        <div id="stats" class="stats" style="display: none;">
+            <div class="stat-card">
+                <span class="stat-number" id="total-games">0</span>
+                <span class="stat-label">Total Games</span>
+            </div>
+        </div>
+
+        <div id="games-grid" class="games-grid"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
