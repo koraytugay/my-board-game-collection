@@ -1,5 +1,9 @@
 const USERNAME = 'koraytugay';
-const BGG_API_URL = `https://boardgamegeek.com/xmlapi2/collection?username=${USERNAME}&own=1&stats=1`;
+const CORS_PROXY = 'https://corsproxy.io/?';
+const BGG_API_URL = `${CORS_PROXY}https://boardgamegeek.com/xmlapi2/collection?username=${USERNAME}&own=1&stats=1`;
+
+let allGames = [];
+let currentSort = 'name';
 
 async function fetchCollection() {
     const loadingEl = document.getElementById('loading');
@@ -51,20 +55,22 @@ async function fetchCollection() {
                 minPlayers,
                 maxPlayers,
                 playingTime,
-                objectId
+                objectId,
+                complexity: 0
             };
         });
 
-        games.sort((a, b) => a.name.localeCompare(b.name));
+        allGames = games;
+        sortGames('name');
+
+        fetchComplexityRatings();
 
         loadingEl.style.display = 'none';
         statsEl.style.display = 'flex';
+        document.getElementById('controls').style.display = 'flex';
         document.getElementById('total-games').textContent = games.length;
 
-        games.forEach(game => {
-            const gameCard = createGameCard(game);
-            gamesGridEl.appendChild(gameCard);
-        });
+        renderGames();
 
     } catch (error) {
         console.error('Error fetching collection:', error);
@@ -109,8 +115,13 @@ function createGameCard(game) {
     time.className = 'meta-item';
     time.innerHTML = `<span>⏱️</span> ${game.playingTime} min`;
 
+    const complexity = document.createElement('div');
+    complexity.className = 'meta-item';
+    complexity.innerHTML = `<span>🧩</span> ${game.complexity.toFixed(2)}`;
+
     meta.appendChild(players);
     meta.appendChild(time);
+    meta.appendChild(complexity);
 
     info.appendChild(name);
     info.appendChild(year);
@@ -120,6 +131,69 @@ function createGameCard(game) {
     card.appendChild(info);
 
     return card;
+}
+
+window.sortGames = function(sortBy) {
+    currentSort = sortBy;
+
+    if (sortBy === 'name') {
+        allGames.sort((a, b) => a.name.localeCompare(b.name));
+    } else if (sortBy === 'complexity-asc') {
+        allGames.sort((a, b) => a.complexity - b.complexity);
+    } else if (sortBy === 'complexity-desc') {
+        allGames.sort((a, b) => b.complexity - a.complexity);
+    }
+
+    renderGames();
+}
+
+function renderGames() {
+    const gamesGridEl = document.getElementById('games-grid');
+    gamesGridEl.innerHTML = '';
+
+    allGames.forEach(game => {
+        const gameCard = createGameCard(game);
+        gamesGridEl.appendChild(gameCard);
+    });
+}
+
+async function fetchComplexityRatings() {
+    const batchSize = 20;
+    const batches = [];
+
+    for (let i = 0; i < allGames.length; i += batchSize) {
+        batches.push(allGames.slice(i, i + batchSize));
+    }
+
+    for (const batch of batches) {
+        const gameIds = batch.map(g => g.objectId).join(',');
+
+        try {
+            const response = await fetch(`${CORS_PROXY}https://boardgamegeek.com/xmlapi2/thing?id=${gameIds}&stats=1`);
+            const xmlText = await response.text();
+            const parser = new DOMParser();
+            const xmlDoc = parser.parseFromString(xmlText, 'text/xml');
+
+            const items = xmlDoc.querySelectorAll('item');
+
+            items.forEach(item => {
+                const objectId = item.getAttribute('id');
+                const averageweight = item.querySelector('statistics ratings averageweight')?.getAttribute('value') || '0';
+                const complexity = parseFloat(averageweight);
+
+                const game = allGames.find(g => g.objectId === objectId);
+                if (game) {
+                    game.complexity = complexity;
+                }
+            });
+
+            renderGames();
+
+            await new Promise(resolve => setTimeout(resolve, 100));
+        } catch (error) {
+            console.error('Error fetching complexity ratings batch:', error);
+        }
+    }
 }
 
 fetchCollection();

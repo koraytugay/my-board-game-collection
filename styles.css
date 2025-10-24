@@ -91,6 +91,42 @@ header h1 {
     margin-top: 5px;
 }
 
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.controls label {
+    font-weight: 600;
+    color: #333;
+}
+
+.controls select {
+    padding: 10px 20px;
+    font-size: 1em;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    background: white;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+}
+
+.controls select:hover {
+    border-color: #999;
+}
+
+.controls select:focus {
+    outline: none;
+    border-color: #333;
+}
+
 .games-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));

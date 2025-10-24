@@ -27,6 +27,15 @@
             </div>
         </div>
 
+        <div id="controls" class="controls" style="display: none;">
+            <label for="sort-select">Sort by:</label>
+            <select id="sort-select" onchange="sortGames(this.value)">
+                <option value="name">Name</option>
+                <option value="complexity-asc">Complexity (Low to High)</option>
+                <option value="complexity-desc">Complexity (High to Low)</option>
+            </select>
+        </div>
+
         <div id="games-grid" class="games-grid"></div>
     </div>
 
