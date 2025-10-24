@@ -28,12 +28,35 @@
         </div>
 
         <div id="controls" class="controls" style="display: none;">
-            <label for="sort-select">Sort by:</label>
-            <select id="sort-select" onchange="sortGames(this.value)">
-                <option value="name">Name</option>
-                <option value="complexity-asc">Complexity (Low to High)</option>
-                <option value="complexity-desc">Complexity (High to Low)</option>
-            </select>
+            <div class="controls-left">
+                <label for="sort-select">Sort by:</label>
+                <select id="sort-select" onchange="sortGames(this.value)">
+                    <option value="name">Name</option>
+                    <option value="rating-desc">Rating (High to Low)</option>
+                    <option value="rating-asc">Rating (Low to High)</option>
+                    <option value="complexity-asc">Complexity (Low to High)</option>
+                    <option value="complexity-desc">Complexity (High to Low)</option>
+                    <option value="year-desc">Year (Newest First)</option>
+                    <option value="year-asc">Year (Oldest First)</option>
+                </select>
+            </div>
+
+            <div class="controls-right">
+                <label class="checkbox-label">
+                    <input type="checkbox" id="solo-mode" onchange="toggleSoloMode(this.checked)">
+                    Solo Mode
+                </label>
+
+                <label for="best-at-select">Best At:</label>
+                <select id="best-at-select" onchange="filterBestAt(this.value)">
+                    <option value="all">All</option>
+                    <option value="2">2 Players</option>
+                    <option value="3">3 Players</option>
+                    <option value="4">4 Players</option>
+                    <option value="5">5 Players</option>
+                    <option value="6">6 Players</option>
+                </select>
+            </div>
         </div>
 
         <div id="games-grid" class="games-grid"></div>

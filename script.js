@@ -4,6 +4,8 @@ const BGG_API_URL = `${CORS_PROXY}https://boardgamegeek.com/xmlapi2/collection?u
 
 let allGames = [];
 let currentSort = 'name';
+let soloModeFilter = false;
+let bestAtFilter = 'all';
 
 async function fetchCollection() {
     const loadingEl = document.getElementById('loading');
@@ -56,7 +58,9 @@ async function fetchCollection() {
                 maxPlayers,
                 playingTime,
                 objectId,
-                complexity: 0
+                complexity: 0,
+                rating: 0,
+                bestAt: []
             };
         });
 
@@ -119,9 +123,14 @@ function createGameCard(game) {
     complexity.className = 'meta-item';
     complexity.innerHTML = `<span>🧩</span> ${game.complexity.toFixed(2)}`;
 
+    const rating = document.createElement('div');
+    rating.className = 'meta-item';
+    rating.innerHTML = `<span>⭐</span> ${game.rating.toFixed(2)}`;
+
     meta.appendChild(players);
     meta.appendChild(time);
     meta.appendChild(complexity);
+    meta.appendChild(rating);
 
     info.appendChild(name);
     info.appendChild(year);
@@ -142,6 +151,22 @@ window.sortGames = function(sortBy) {
         allGames.sort((a, b) => a.complexity - b.complexity);
     } else if (sortBy === 'complexity-desc') {
         allGames.sort((a, b) => b.complexity - a.complexity);
+    } else if (sortBy === 'rating-asc') {
+        allGames.sort((a, b) => a.rating - b.rating);
+    } else if (sortBy === 'rating-desc') {
+        allGames.sort((a, b) => b.rating - a.rating);
+    } else if (sortBy === 'year-asc') {
+        allGames.sort((a, b) => {
+            const yearA = a.yearPublished === 'N/A' ? 9999 : parseInt(a.yearPublished);
+            const yearB = b.yearPublished === 'N/A' ? 9999 : parseInt(b.yearPublished);
+            return yearA - yearB;
+        });
+    } else if (sortBy === 'year-desc') {
+        allGames.sort((a, b) => {
+            const yearA = a.yearPublished === 'N/A' ? 0 : parseInt(a.yearPublished);
+            const yearB = b.yearPublished === 'N/A' ? 0 : parseInt(b.yearPublished);
+            return yearB - yearA;
+        });
     }
 
     renderGames();
@@ -151,10 +176,33 @@ function renderGames() {
     const gamesGridEl = document.getElementById('games-grid');
     gamesGridEl.innerHTML = '';
 
-    allGames.forEach(game => {
+    let filteredGames = allGames;
+
+    if (soloModeFilter) {
+        filteredGames = filteredGames.filter(game => game.minPlayers === '1');
+    }
+
+    if (bestAtFilter !== 'all') {
+        const playerCount = parseInt(bestAtFilter);
+        filteredGames = filteredGames.filter(game => game.bestAt.includes(playerCount));
+    }
+
+    document.getElementById('total-games').textContent = filteredGames.length;
+
+    filteredGames.forEach(game => {
         const gameCard = createGameCard(game);
         gamesGridEl.appendChild(gameCard);
     });
+}
+
+window.toggleSoloMode = function(checked) {
+    soloModeFilter = checked;
+    renderGames();
+}
+
+window.filterBestAt = function(value) {
+    bestAtFilter = value;
+    renderGames();
 }
 
 async function fetchComplexityRatings() {
@@ -180,10 +228,31 @@ async function fetchComplexityRatings() {
                 const objectId = item.getAttribute('id');
                 const averageweight = item.querySelector('statistics ratings averageweight')?.getAttribute('value') || '0';
                 const complexity = parseFloat(averageweight);
+                const average = item.querySelector('statistics ratings average')?.getAttribute('value') || '0';
+                const rating = parseFloat(average);
+
+                const bestAt = [];
+                const poll = item.querySelector('poll[name="suggested_numplayers"]');
+                if (poll) {
+                    const results = poll.querySelectorAll('results');
+                    results.forEach(result => {
+                        const numPlayers = result.getAttribute('numplayers');
+                        const bestVotes = parseInt(result.querySelector('result[value="Best"]')?.getAttribute('numvotes') || '0');
+                        const recommendedVotes = parseInt(result.querySelector('result[value="Recommended"]')?.getAttribute('numvotes') || '0');
+                        const notRecommendedVotes = parseInt(result.querySelector('result[value="Not Recommended"]')?.getAttribute('numvotes') || '0');
+                        const totalVotes = bestVotes + recommendedVotes + notRecommendedVotes;
+
+                        if (totalVotes > 0 && bestVotes > recommendedVotes && bestVotes > notRecommendedVotes) {
+                            bestAt.push(parseInt(numPlayers));
+                        }
+                    });
+                }
 
                 const game = allGames.find(g => g.objectId === objectId);
                 if (game) {
                     game.complexity = complexity;
+                    game.rating = rating;
+                    game.bestAt = bestAt;
                 }
             });
 
