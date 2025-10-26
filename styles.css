@@ -203,8 +203,9 @@ header h1 {
 }
 
 .game-meta {
-    display: flex;
-    gap: 15px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
     margin-top: 15px;
     padding-top: 15px;
     border-top: 1px solid #eee;

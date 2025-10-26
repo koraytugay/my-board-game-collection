@@ -48,6 +48,7 @@ async function fetchCollection() {
             const minPlayers = item.querySelector('stats')?.getAttribute('minplayers') || '?';
             const maxPlayers = item.querySelector('stats')?.getAttribute('maxplayers') || '?';
             const playingTime = item.querySelector('stats')?.getAttribute('playingtime') || '?';
+            const numPlays = item.querySelector('numplays')?.textContent || '0';
             const objectId = item.getAttribute('objectid');
 
             return {
@@ -57,6 +58,7 @@ async function fetchCollection() {
                 minPlayers,
                 maxPlayers,
                 playingTime,
+                numPlays: parseInt(numPlays),
                 objectId,
                 complexity: 0,
                 rating: 0,
@@ -127,10 +129,15 @@ function createGameCard(game) {
     rating.className = 'meta-item';
     rating.innerHTML = `<span>⭐</span> ${game.rating.toFixed(2)}`;
 
+    const plays = document.createElement('div');
+    plays.className = 'meta-item';
+    plays.innerHTML = `<span>🎲</span> ${game.numPlays} plays`;
+
     meta.appendChild(players);
     meta.appendChild(time);
     meta.appendChild(complexity);
     meta.appendChild(rating);
+    meta.appendChild(plays);
 
     info.appendChild(name);
     info.appendChild(year);
@@ -155,6 +162,10 @@ window.sortGames = function(sortBy) {
         allGames.sort((a, b) => a.rating - b.rating);
     } else if (sortBy === 'rating-desc') {
         allGames.sort((a, b) => b.rating - a.rating);
+    } else if (sortBy === 'plays-asc') {
+        allGames.sort((a, b) => a.numPlays - b.numPlays);
+    } else if (sortBy === 'plays-desc') {
+        allGames.sort((a, b) => b.numPlays - a.numPlays);
     } else if (sortBy === 'year-asc') {
         allGames.sort((a, b) => {
             const yearA = a.yearPublished === 'N/A' ? 9999 : parseInt(a.yearPublished);
