@@ -1,11 +1,10 @@
 const USERNAME = 'koraytugay';
 const CORS_PROXY = 'https://corsproxy.io/?';
-const BGG_API_URL = `${CORS_PROXY}https://boardgamegeek.com/xmlapi2/collection?username=${USERNAME}&own=1&stats=1`;
+const COLLECTION_XML_FILE = 'collection.xml';
 
 let allGames = [];
 let currentSort = 'name';
 let soloModeFilter = false;
-let bestAtFilter = 'all';
 
 async function fetchCollection() {
     const loadingEl = document.getElementById('loading');
@@ -14,7 +13,7 @@ async function fetchCollection() {
     const gamesGridEl = document.getElementById('games-grid');
 
     try {
-        const response = await fetch(BGG_API_URL);
+        const response = await fetch(COLLECTION_XML_FILE);
 
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
@@ -50,6 +49,10 @@ async function fetchCollection() {
             const playingTime = item.querySelector('stats')?.getAttribute('playingtime') || '?';
             const numPlays = item.querySelector('numplays')?.textContent || '0';
             const objectId = item.getAttribute('objectid');
+            const ratingValue = item.querySelector('stats rating average')?.getAttribute('value') || '0';
+            const rating = parseFloat(ratingValue);
+            const myRatingValue = item.querySelector('stats rating')?.getAttribute('value') || '0';
+            const myRating = parseFloat(myRatingValue);
 
             return {
                 name,
@@ -60,16 +63,13 @@ async function fetchCollection() {
                 playingTime,
                 numPlays: parseInt(numPlays),
                 objectId,
-                complexity: 0,
-                rating: 0,
-                bestAt: []
+                rating,
+                myRating
             };
         });
 
         allGames = games;
         sortGames('name');
-
-        fetchComplexityRatings();
 
         loadingEl.style.display = 'none';
         statsEl.style.display = 'flex';
@@ -121,13 +121,13 @@ function createGameCard(game) {
     time.className = 'meta-item';
     time.innerHTML = `<span>⏱️</span> ${game.playingTime} min`;
 
-    const complexity = document.createElement('div');
-    complexity.className = 'meta-item';
-    complexity.innerHTML = `<span>🧩</span> ${game.complexity.toFixed(2)}`;
-
     const rating = document.createElement('div');
     rating.className = 'meta-item';
     rating.innerHTML = `<span>⭐</span> ${game.rating.toFixed(2)}`;
+
+    const myRating = document.createElement('div');
+    myRating.className = 'meta-item';
+    myRating.innerHTML = `<span>💚</span> ${game.myRating.toFixed(2)}`;
 
     const plays = document.createElement('div');
     plays.className = 'meta-item';
@@ -135,8 +135,8 @@ function createGameCard(game) {
 
     meta.appendChild(players);
     meta.appendChild(time);
-    meta.appendChild(complexity);
     meta.appendChild(rating);
+    meta.appendChild(myRating);
     meta.appendChild(plays);
 
     info.appendChild(name);
@@ -154,14 +154,14 @@ window.sortGames = function(sortBy) {
 
     if (sortBy === 'name') {
         allGames.sort((a, b) => a.name.localeCompare(b.name));
-    } else if (sortBy === 'complexity-asc') {
-        allGames.sort((a, b) => a.complexity - b.complexity);
-    } else if (sortBy === 'complexity-desc') {
-        allGames.sort((a, b) => b.complexity - a.complexity);
     } else if (sortBy === 'rating-asc') {
         allGames.sort((a, b) => a.rating - b.rating);
     } else if (sortBy === 'rating-desc') {
         allGames.sort((a, b) => b.rating - a.rating);
+    } else if (sortBy === 'myrating-asc') {
+        allGames.sort((a, b) => a.myRating - b.myRating);
+    } else if (sortBy === 'myrating-desc') {
+        allGames.sort((a, b) => b.myRating - a.myRating);
     } else if (sortBy === 'plays-asc') {
         allGames.sort((a, b) => a.numPlays - b.numPlays);
     } else if (sortBy === 'plays-desc') {
@@ -193,11 +193,6 @@ function renderGames() {
         filteredGames = filteredGames.filter(game => game.minPlayers === '1');
     }
 
-    if (bestAtFilter !== 'all') {
-        const playerCount = parseInt(bestAtFilter);
-        filteredGames = filteredGames.filter(game => game.bestAt.includes(playerCount));
-    }
-
     document.getElementById('total-games').textContent = filteredGames.length;
 
     filteredGames.forEach(game => {
@@ -209,71 +204,6 @@ function renderGames() {
 window.toggleSoloMode = function(checked) {
     soloModeFilter = checked;
     renderGames();
-}
-
-window.filterBestAt = function(value) {
-    bestAtFilter = value;
-    renderGames();
-}
-
-async function fetchComplexityRatings() {
-    const batchSize = 20;
-    const batches = [];
-
-    for (let i = 0; i < allGames.length; i += batchSize) {
-        batches.push(allGames.slice(i, i + batchSize));
-    }
-
-    for (const batch of batches) {
-        const gameIds = batch.map(g => g.objectId).join(',');
-
-        try {
-            const response = await fetch(`${CORS_PROXY}https://boardgamegeek.com/xmlapi2/thing?id=${gameIds}&stats=1`);
-            const xmlText = await response.text();
-            const parser = new DOMParser();
-            const xmlDoc = parser.parseFromString(xmlText, 'text/xml');
-
-            const items = xmlDoc.querySelectorAll('item');
-
-            items.forEach(item => {
-                const objectId = item.getAttribute('id');
-                const averageweight = item.querySelector('statistics ratings averageweight')?.getAttribute('value') || '0';
-                const complexity = parseFloat(averageweight);
-                const average = item.querySelector('statistics ratings average')?.getAttribute('value') || '0';
-                const rating = parseFloat(average);
-
-                const bestAt = [];
-                const poll = item.querySelector('poll[name="suggested_numplayers"]');
-                if (poll) {
-                    const results = poll.querySelectorAll('results');
-                    results.forEach(result => {
-                        const numPlayers = result.getAttribute('numplayers');
-                        const bestVotes = parseInt(result.querySelector('result[value="Best"]')?.getAttribute('numvotes') || '0');
-                        const recommendedVotes = parseInt(result.querySelector('result[value="Recommended"]')?.getAttribute('numvotes') || '0');
-                        const notRecommendedVotes = parseInt(result.querySelector('result[value="Not Recommended"]')?.getAttribute('numvotes') || '0');
-                        const totalVotes = bestVotes + recommendedVotes + notRecommendedVotes;
-
-                        if (totalVotes > 0 && bestVotes > recommendedVotes && bestVotes > notRecommendedVotes) {
-                            bestAt.push(parseInt(numPlayers));
-                        }
-                    });
-                }
-
-                const game = allGames.find(g => g.objectId === objectId);
-                if (game) {
-                    game.complexity = complexity;
-                    game.rating = rating;
-                    game.bestAt = bestAt;
-                }
-            });
-
-            renderGames();
-
-            await new Promise(resolve => setTimeout(resolve, 100));
-        } catch (error) {
-            console.error('Error fetching complexity ratings batch:', error);
-        }
-    }
 }
 
 fetchCollection();
