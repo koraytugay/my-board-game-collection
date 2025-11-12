@@ -1,6 +1,6 @@
 const USERNAME = 'koraytugay';
 const CORS_PROXY = 'https://corsproxy.io/?';
-const COLLECTION_XML_FILE = 'collection.xml';
+const COLLECTION_XML_FILE = 'https://raw.githubusercontent.com/koraytugay/my-board-game-collection/refs/heads/main/collection.xml';
 
 let allGames = [];
 let currentSort = 'name';
