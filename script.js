@@ -354,4 +354,64 @@ function loadDarkModePreference() {
     }
 }
 
+// Random Game Picker
+let currentRandomGame = null;
+
+window.pickRandomGame = function() {
+    const filteredGames = applyAllFilters(allGames);
+
+    if (filteredGames.length === 0) {
+        alert('No games match your current filters!');
+        return;
+    }
+
+    const randomIndex = Math.floor(Math.random() * filteredGames.length);
+    currentRandomGame = filteredGames[randomIndex];
+
+    displayRandomGame(currentRandomGame);
+
+    const modal = document.getElementById('random-modal');
+    modal.style.display = 'flex';
+}
+
+function displayRandomGame(game) {
+    document.getElementById('random-game-img').src = game.thumbnail || 'https://via.placeholder.com/300x300?text=No+Image';
+    document.getElementById('random-game-name').textContent = game.name;
+    document.getElementById('random-game-year').textContent = game.yearPublished !== 'N/A' ? `(${game.yearPublished})` : '';
+
+    const metaEl = document.getElementById('random-game-meta');
+    metaEl.innerHTML = `
+        <div class="meta-item"><span>👥</span> ${game.minPlayers}-${game.maxPlayers} players</div>
+        <div class="meta-item"><span>⏱️</span> ${game.playingTime} min</div>
+        <div class="meta-item"><span>⭐</span> ${game.rating.toFixed(2)}</div>
+        <div class="meta-item"><span>💚</span> ${game.myRating.toFixed(2)}</div>
+        <div class="meta-item"><span>🎲</span> ${game.numPlays} plays</div>
+    `;
+}
+
+window.closeRandomModal = function() {
+    document.getElementById('random-modal').style.display = 'none';
+}
+
+window.openRandomGameBGG = function() {
+    if (currentRandomGame) {
+        window.open(`https://boardgamegeek.com/boardgame/${currentRandomGame.objectId}`, '_blank');
+    }
+}
+
+// Setup random game button
+document.addEventListener('DOMContentLoaded', () => {
+    const randomBtn = document.getElementById('random-game-btn');
+    if (randomBtn) {
+        randomBtn.addEventListener('click', pickRandomGame);
+    }
+
+    // Keyboard shortcut: 'r' for random
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'r' && !e.ctrlKey && !e.metaKey && e.target.tagName !== 'INPUT' && e.target.tagName !== 'SELECT') {
+            pickRandomGame();
+        }
+    });
+});
+
 fetchCollection();

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collection Challenges - My Board Game Collection</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="challenges.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Collection Challenges</h1>
+            <p class="username">@koraytugay on BoardGameGeek</p>
+            <nav class="page-nav">
+                <a href="index.html" class="nav-link">← Back to Collection</a>
+            </nav>
+        </header>
+
+        <div id="loading" class="loading">
+            <div class="spinner"></div>
+            <p>Loading your challenges...</p>
+        </div>
+
+        <div id="error" class="error" style="display: none;"></div>
+
+        <!-- Unplayed Games Challenge -->
+        <section class="challenge-section">
+            <div class="challenge-header">
+                <h2>🎮 Unplayed Games</h2>
+                <p class="challenge-description">Your shelf of shame</p>
+            </div>
+
+            <div class="challenge-stats">
+                <div class="challenge-stat">
+                    <span class="stat-number" id="unplayed-remaining">0</span>
+                    <span class="stat-label">Unplayed Games</span>
+                </div>
+                <div class="challenge-stat">
+                    <span class="stat-number" id="unplayed-percentage">0%</span>
+                    <span class="stat-label">Percentage of Collection</span>
+                </div>
+            </div>
+
+            <div class="progress-bar">
+                <div id="unplayed-progress-bar" class="progress-fill">
+                    <span id="unplayed-progress-text"></span>
+                </div>
+            </div>
+
+            <div id="unplayed-games" class="challenge-games-grid">
+                <!-- Unplayed games will be listed here -->
+            </div>
+        </section>
+
+        <!-- Personal Bests -->
+        <section class="challenge-section">
+            <div class="challenge-header">
+                <h2>🏆 Personal Bests</h2>
+                <p class="challenge-description">Your collection milestones</p>
+            </div>
+
+            <div class="achievements-grid">
+                <div class="achievement-card">
+                    <div class="achievement-icon">🎲</div>
+                    <div class="achievement-info">
+                        <h3>Most Played</h3>
+                        <p id="most-played-game">-</p>
+                        <span id="most-played-count" class="achievement-value">0 plays</span>
+                    </div>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-icon">⭐</div>
+                    <div class="achievement-info">
+                        <h3>Highest Rated</h3>
+                        <p id="highest-rated-game">-</p>
+                        <span id="highest-rated-value" class="achievement-value">0.00</span>
+                    </div>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-icon">📅</div>
+                    <div class="achievement-info">
+                        <h3>Oldest Game</h3>
+                        <p id="oldest-game">-</p>
+                        <span id="oldest-year" class="achievement-value">-</span>
+                    </div>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-icon">✨</div>
+                    <div class="achievement-info">
+                        <h3>Newest Game</h3>
+                        <p id="newest-game">-</p>
+                        <span id="newest-year" class="achievement-value">-</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <script src="challenges.js"></script>
+</body>
+</html>

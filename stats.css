@@ -78,18 +78,91 @@
     font-weight: 600;
 }
 
-.chart-container {
-    background: white;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-    overflow-x: auto;
+/* Most Played List */
+.most-played-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
-.chart-container canvas {
-    display: block;
-    width: 100%;
-    max-width: 100%;
+.most-played-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+body.dark-mode .most-played-item {
+    background: #2a2a2a;
+}
+
+.most-played-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.most-played-rank {
+    font-size: 2em;
+    font-weight: bold;
+    color: #999;
+    min-width: 60px;
+    text-align: center;
+}
+
+.most-played-img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+.most-played-info {
+    flex: 1;
+}
+
+.most-played-info h3 {
+    font-size: 1.3em;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+body.dark-mode .most-played-info h3 {
+    color: #e0e0e0;
+}
+
+.most-played-info p {
+    color: #666;
+    font-size: 0.95em;
+}
+
+body.dark-mode .most-played-info p {
+    color: #b0b0b0;
+}
+
+.most-played-plays {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 80px;
+}
+
+.plays-number {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #4CAF50;
+    line-height: 1;
+}
+
+.plays-label {
+    font-size: 0.9em;
+    color: #999;
+    margin-top: 5px;
 }
 
 .insights-grid {
@@ -167,6 +240,32 @@
     }
 
     .insight-number {
+        font-size: 2em;
+    }
+
+    .most-played-item {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .most-played-rank {
+        min-width: 40px;
+        font-size: 1.5em;
+    }
+
+    .most-played-img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .most-played-plays {
+        width: 100%;
+        flex-direction: row;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .plays-number {
         font-size: 2em;
     }
 }
