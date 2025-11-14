@@ -1,4 +1,4 @@
-<items totalitems="92" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse" pubdate="Fri, 14 Nov 2025 01:30:51 +0000">
+<items totalitems="93" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse" pubdate="Fri, 14 Nov 2025 01:42:18 +0000">
 		<item objecttype="thing" objectid="140934" subtype="boardgame" collid="137662446">
 	<name sortindex="1">Arboretum</name>
 		<yearpublished>2015</yearpublished>			<image>https://cf.geekdo-images.com/XYOn10oXBrDqHySf0jvnyQ__original/img/RMi0pEsP8agfH-tgYkeRGilD3oo=/0x0/filters:format(png)/pic4172124.png</image>
@@ -749,6 +749,18 @@ Overall: a mediocre experience for me. Nice theme and artwork, but too long, too
 																<rank type="family" id="5499" name="familygames" friendlyname="Family Game Rank" value="412" bayesaverage="6.56787" />
 											</ranks>		</rating>
 			</stats>	<status own="1" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="0"  preordered="0" lastmodified="2025-10-22 19:25:10" />
+	<numplays>0</numplays>							</item>
+		<item objecttype="thing" objectid="441707" subtype="boardgame" collid="138582839">
+	<name sortindex="1">Pixies: Flower Power</name>
+		<yearpublished>2025</yearpublished>			<image>https://cf.geekdo-images.com/W7EssIlLtPX7Sq621-JUKg__original/img/GkDorI3EccMirtccJgY3WCXIavo=/0x0/filters:format(png)/pic8788158.png</image>
+		<thumbnail>https://cf.geekdo-images.com/W7EssIlLtPX7Sq621-JUKg__small/img/0OZkXoHadTg6qbCmlPGOJETNvqs=/fit-in/200x150/filters:strip_icc()/pic8788158.png</thumbnail>
+		<stats minplayers="2"																	maxplayers="6"																	minplaytime="30"																	maxplaytime="30"																	playingtime="30"																	numowned="975" >
+				<rating value="6">			<usersrated value="114" />			<average value="7.51556" />
+			<bayesaverage value="5.59274" />			<stddev value="1.28838" />
+			<median value="0" />			<ranks>
+												<rank type="subtype" id="1" name="boardgame" friendlyname="Board Game Rank" value="Not Ranked" bayesaverage="5.59274" />
+											</ranks>		</rating>
+			</stats>	<status own="1" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="0"  preordered="0" lastmodified="2025-11-13 19:42:11" />
 	<numplays>0</numplays>							</item>
 		<item objecttype="thing" objectid="368017" subtype="boardgame" collid="137662457">
 	<name sortindex="1">Point City</name>
