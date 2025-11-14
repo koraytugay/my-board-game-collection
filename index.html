@@ -11,6 +11,9 @@
         <header>
             <h1>My Board Game Collection</h1>
             <p class="username">@koraytugay on BoardGameGeek</p>
+            <nav class="page-nav">
+                <a href="stats.html" class="nav-link">View Statistics</a>
+            </nav>
         </header>
 
         <div id="loading" class="loading">
@@ -25,29 +28,100 @@
                 <span class="stat-number" id="total-games">0</span>
                 <span class="stat-label">Total Games</span>
             </div>
+            <div class="stat-card">
+                <span class="stat-number" id="total-plays">0</span>
+                <span class="stat-label">Total Plays</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number" id="avg-rating">0</span>
+                <span class="stat-label">Avg Rating</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number" id="unplayed-games">0</span>
+                <span class="stat-label">Unplayed</span>
+            </div>
         </div>
 
         <div id="controls" class="controls" style="display: none;">
-            <div class="controls-left">
-                <label for="sort-select">Sort by:</label>
-                <select id="sort-select" onchange="sortGames(this.value)">
-                    <option value="name">Name</option>
-                    <option value="rating-desc">Rating (High to Low)</option>
-                    <option value="rating-asc">Rating (Low to High)</option>
-                    <option value="myrating-desc">My Rating (High to Low)</option>
-                    <option value="myrating-asc">My Rating (Low to High)</option>
-                    <option value="plays-desc">Plays (Most to Least)</option>
-                    <option value="plays-asc">Plays (Least to Most)</option>
-                    <option value="year-desc">Year (Newest First)</option>
-                    <option value="year-asc">Year (Oldest First)</option>
-                </select>
+            <div class="controls-row">
+                <div class="control-group">
+                    <label for="sort-select">Sort by:</label>
+                    <select id="sort-select" onchange="sortGames(this.value)">
+                        <option value="name">Name</option>
+                        <option value="rating-desc">Rating (High to Low)</option>
+                        <option value="rating-asc">Rating (Low to High)</option>
+                        <option value="myrating-desc">My Rating (High to Low)</option>
+                        <option value="myrating-asc">My Rating (Low to High)</option>
+                        <option value="plays-desc">Plays (Most to Least)</option>
+                        <option value="plays-asc">Plays (Least to Most)</option>
+                        <option value="year-desc">Year (Newest First)</option>
+                        <option value="year-asc">Year (Oldest First)</option>
+                    </select>
+                </div>
+
+                <div class="control-group">
+                    <label for="view-mode">View:</label>
+                    <select id="view-mode" onchange="changeViewMode(this.value)">
+                        <option value="grid">Grid</option>
+                        <option value="compact">Compact</option>
+                        <option value="list">List</option>
+                    </select>
+                </div>
+
+                <div class="control-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="dark-mode" onchange="toggleDarkMode(this.checked)">
+                        Dark Mode
+                    </label>
+                </div>
             </div>
 
-            <div class="controls-right">
-                <label class="checkbox-label">
-                    <input type="checkbox" id="solo-mode" onchange="toggleSoloMode(this.checked)">
-                    Solo Mode
-                </label>
+            <div class="controls-row">
+                <div class="control-group">
+                    <label for="search-input">Search:</label>
+                    <input type="text" id="search-input" placeholder="Filter by name..." oninput="applyFilters()">
+                </div>
+
+                <div class="control-group">
+                    <label for="player-count">Players:</label>
+                    <select id="player-count" onchange="applyFilters()">
+                        <option value="all">All</option>
+                        <option value="1">1 (Solo)</option>
+                        <option value="2">2</option>
+                        <option value="2-only">2 Player Only</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5+</option>
+                    </select>
+                </div>
+
+                <div class="control-group">
+                    <label for="play-time">Play Time:</label>
+                    <select id="play-time" onchange="applyFilters()">
+                        <option value="all">All</option>
+                        <option value="0-30">Under 30 min</option>
+                        <option value="30-60">30-60 min</option>
+                        <option value="60-120">60-120 min</option>
+                        <option value="120-999">Over 120 min</option>
+                    </select>
+                </div>
+
+                <div class="control-group">
+                    <label for="rating-filter">Rating:</label>
+                    <select id="rating-filter" onchange="applyFilters()">
+                        <option value="all">All</option>
+                        <option value="8+">8.0+</option>
+                        <option value="7+">7.0+</option>
+                        <option value="6+">6.0+</option>
+                    </select>
+                </div>
+
+                <div class="control-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="unplayed-only" onchange="applyFilters()">
+                        Unplayed Only
+                    </label>
+                </div>
             </div>
         </div>
 

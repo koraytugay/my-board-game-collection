@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collection Statistics - My Board Game Collection</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="stats.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Collection Statistics</h1>
+            <p class="username">@koraytugay on BoardGameGeek</p>
+            <nav class="page-nav">
+                <a href="index.html" class="nav-link">← Back to Collection</a>
+            </nav>
+        </header>
+
+        <div id="loading" class="loading">
+            <div class="spinner"></div>
+            <p>Loading statistics...</p>
+        </div>
+
+        <div id="error" class="error" style="display: none;"></div>
+
+        <div id="stats-content" style="display: none;">
+            <!-- Overview Stats -->
+            <section class="stats-section">
+                <h2>Collection Overview</h2>
+                <div class="stats-cards">
+                    <div class="stat-card-large">
+                        <span class="stat-icon">🎲</span>
+                        <span class="stat-number" id="total-games">0</span>
+                        <span class="stat-label">Total Games</span>
+                    </div>
+                    <div class="stat-card-large">
+                        <span class="stat-icon">🎮</span>
+                        <span class="stat-number" id="total-plays">0</span>
+                        <span class="stat-label">Total Plays</span>
+                    </div>
+                    <div class="stat-card-large">
+                        <span class="stat-icon">⭐</span>
+                        <span class="stat-number" id="avg-rating">0</span>
+                        <span class="stat-label">Avg BGG Rating</span>
+                    </div>
+                    <div class="stat-card-large">
+                        <span class="stat-icon">💚</span>
+                        <span class="stat-number" id="avg-my-rating">0</span>
+                        <span class="stat-label">Avg My Rating</span>
+                    </div>
+                    <div class="stat-card-large">
+                        <span class="stat-icon">⏱️</span>
+                        <span class="stat-number" id="avg-playtime">0</span>
+                        <span class="stat-label">Avg Play Time (min)</span>
+                    </div>
+                    <div class="stat-card-large">
+                        <span class="stat-icon">🏆</span>
+                        <span class="stat-number" id="most-played-name">-</span>
+                        <span class="stat-label">Most Played Game</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Charts -->
+            <section class="stats-section">
+                <h2>Publication Year Distribution</h2>
+                <div class="chart-container">
+                    <canvas id="year-chart"></canvas>
+                </div>
+            </section>
+
+            <section class="stats-section">
+                <h2>Player Count Distribution</h2>
+                <div class="chart-container">
+                    <canvas id="player-chart"></canvas>
+                </div>
+            </section>
+
+            <section class="stats-section">
+                <h2>Play Time Distribution</h2>
+                <div class="chart-container">
+                    <canvas id="playtime-chart"></canvas>
+                </div>
+            </section>
+
+            <section class="stats-section">
+                <h2>Rating Distribution</h2>
+                <div class="chart-container">
+                    <canvas id="rating-chart"></canvas>
+                </div>
+            </section>
+
+            <section class="stats-section">
+                <h2>Top 10 Most Played Games</h2>
+                <div class="chart-container">
+                    <canvas id="most-played-chart"></canvas>
+                </div>
+            </section>
+
+            <section class="stats-section">
+                <h2>Additional Insights</h2>
+                <div class="insights-grid">
+                    <div class="insight-card">
+                        <h3>Solo Games</h3>
+                        <p class="insight-number" id="solo-games-count">0</p>
+                        <p class="insight-description">Games playable solo</p>
+                    </div>
+                    <div class="insight-card">
+                        <h3>Unplayed Games</h3>
+                        <p class="insight-number" id="unplayed-count">0</p>
+                        <p class="insight-description">Games with 0 plays</p>
+                    </div>
+                    <div class="insight-card">
+                        <h3>High Rated</h3>
+                        <p class="insight-number" id="high-rated-count">0</p>
+                        <p class="insight-description">BGG rating 7.5+</p>
+                    </div>
+                    <div class="insight-card">
+                        <h3>Recent Additions</h3>
+                        <p class="insight-number" id="recent-games-count">0</p>
+                        <p class="insight-description">Published 2020+</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script src="stats.js"></script>
+</body>
+</html>

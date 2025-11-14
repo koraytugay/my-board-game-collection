@@ -4,7 +4,14 @@ const COLLECTION_XML_FILE = 'https://raw.githubusercontent.com/koraytugay/my-boa
 
 let allGames = [];
 let currentSort = 'name';
-let soloModeFilter = false;
+let currentViewMode = 'grid';
+let filters = {
+    search: '',
+    playerCount: 'all',
+    playTime: 'all',
+    rating: 'all',
+    unplayedOnly: false
+};
 
 async function fetchCollection() {
     const loadingEl = document.getElementById('loading');
@@ -70,13 +77,14 @@ async function fetchCollection() {
 
         allGames = games;
         sortGames('name');
+        updateStats();
 
         loadingEl.style.display = 'none';
         statsEl.style.display = 'flex';
-        document.getElementById('controls').style.display = 'flex';
-        document.getElementById('total-games').textContent = games.length;
+        document.getElementById('controls').style.display = 'block';
 
         renderGames();
+        loadDarkModePreference();
 
     } catch (error) {
         console.error('Error fetching collection:', error);
@@ -90,6 +98,46 @@ function createGameCard(game) {
     const card = document.createElement('div');
     card.className = 'game-card';
     card.onclick = () => window.open(`https://boardgamegeek.com/boardgame/${game.objectId}`, '_blank');
+
+    // Add badges container
+    const badges = document.createElement('div');
+    badges.className = 'game-badges';
+
+    // Add badges based on game properties
+    if (game.numPlays === 0) {
+        const badge = document.createElement('span');
+        badge.className = 'badge badge-unplayed';
+        badge.textContent = 'Unplayed';
+        badges.appendChild(badge);
+    }
+
+    if (game.minPlayers === '1') {
+        const badge = document.createElement('span');
+        badge.className = 'badge badge-solo';
+        badge.textContent = 'Solo';
+        badges.appendChild(badge);
+    }
+
+    if (game.rating >= 8.0) {
+        const badge = document.createElement('span');
+        badge.className = 'badge badge-highly-rated';
+        badge.textContent = 'Highly Rated';
+        badges.appendChild(badge);
+    }
+
+    if (game.myRating > 0 && game.myRating >= 8.0) {
+        const badge = document.createElement('span');
+        badge.className = 'badge badge-favorite';
+        badge.textContent = 'Favorite';
+        badges.appendChild(badge);
+    }
+
+    if (game.numPlays >= 10) {
+        const badge = document.createElement('span');
+        badge.className = 'badge badge-frequently-played';
+        badge.textContent = `${game.numPlays} plays`;
+        badges.appendChild(badge);
+    }
 
     const img = document.createElement('img');
     img.className = 'game-thumbnail';
@@ -143,6 +191,9 @@ function createGameCard(game) {
     info.appendChild(year);
     info.appendChild(meta);
 
+    if (badges.children.length > 0) {
+        card.appendChild(badges);
+    }
     card.appendChild(img);
     card.appendChild(info);
 
@@ -186,14 +237,12 @@ window.sortGames = function(sortBy) {
 function renderGames() {
     const gamesGridEl = document.getElementById('games-grid');
     gamesGridEl.innerHTML = '';
+    gamesGridEl.className = `games-grid view-${currentViewMode}`;
 
-    let filteredGames = allGames;
+    let filteredGames = applyAllFilters(allGames);
 
-    if (soloModeFilter) {
-        filteredGames = filteredGames.filter(game => game.minPlayers === '1');
-    }
-
-    document.getElementById('total-games').textContent = filteredGames.length;
+    // Update all stats based on filtered games
+    updateStatsForGames(filteredGames);
 
     filteredGames.forEach(game => {
         const gameCard = createGameCard(game);
@@ -201,9 +250,108 @@ function renderGames() {
     });
 }
 
-window.toggleSoloMode = function(checked) {
-    soloModeFilter = checked;
+function applyAllFilters(games) {
+    return games.filter(game => {
+        // Search filter
+        if (filters.search && !game.name.toLowerCase().includes(filters.search.toLowerCase())) {
+            return false;
+        }
+
+        // Player count filter
+        if (filters.playerCount !== 'all') {
+            const min = parseInt(game.minPlayers);
+            const max = parseInt(game.maxPlayers);
+
+            if (filters.playerCount === '2-only') {
+                // 2 Player Only: games designed specifically for 2 players
+                if (min !== 2 || max !== 2) return false;
+            } else {
+                const count = parseInt(filters.playerCount);
+                if (count === 5) {
+                    if (max < 5) return false;
+                } else {
+                    if (min > count || max < count) return false;
+                }
+            }
+        }
+
+        // Play time filter
+        if (filters.playTime !== 'all') {
+            const time = parseInt(game.playingTime);
+            const [minTime, maxTime] = filters.playTime.split('-').map(t => parseInt(t));
+
+            if (maxTime) {
+                if (time < minTime || time > maxTime) return false;
+            } else {
+                if (time < minTime) return false;
+            }
+        }
+
+        // Rating filter
+        if (filters.rating !== 'all') {
+            const minRating = parseFloat(filters.rating);
+            if (game.rating < minRating) return false;
+        }
+
+        // Unplayed filter
+        if (filters.unplayedOnly && game.numPlays > 0) {
+            return false;
+        }
+
+        return true;
+    });
+}
+
+function updateStats() {
+    updateStatsForGames(allGames);
+}
+
+function updateStatsForGames(games) {
+    const totalGames = games.length;
+    const totalPlays = games.reduce((sum, game) => sum + game.numPlays, 0);
+    const validRatings = games.filter(g => g.rating > 0);
+    const avgRating = validRatings.length > 0
+        ? (validRatings.reduce((sum, game) => sum + game.rating, 0) / validRatings.length).toFixed(2)
+        : '0.00';
+    const unplayedGames = games.filter(g => g.numPlays === 0).length;
+
+    document.getElementById('total-games').textContent = totalGames;
+    document.getElementById('total-plays').textContent = totalPlays;
+    document.getElementById('avg-rating').textContent = avgRating;
+    document.getElementById('unplayed-games').textContent = unplayedGames;
+}
+
+window.applyFilters = function() {
+    filters.search = document.getElementById('search-input').value;
+    filters.playerCount = document.getElementById('player-count').value;
+    filters.playTime = document.getElementById('play-time').value;
+    filters.rating = document.getElementById('rating-filter').value;
+    filters.unplayedOnly = document.getElementById('unplayed-only').checked;
+
     renderGames();
+}
+
+window.changeViewMode = function(mode) {
+    currentViewMode = mode;
+    renderGames();
+}
+
+window.toggleDarkMode = function(enabled) {
+    if (enabled) {
+        document.body.classList.add('dark-mode');
+        localStorage.setItem('darkMode', 'enabled');
+    } else {
+        document.body.classList.remove('dark-mode');
+        localStorage.setItem('darkMode', 'disabled');
+    }
+}
+
+function loadDarkModePreference() {
+    const darkMode = localStorage.getItem('darkMode');
+    if (darkMode === 'enabled') {
+        document.body.classList.add('dark-mode');
+        document.getElementById('dark-mode').checked = true;
+    }
 }
 
 fetchCollection();
