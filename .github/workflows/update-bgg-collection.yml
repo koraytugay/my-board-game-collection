@@ -1,0 +1,81 @@
+name: Update BGG collection
+
+on:
+  schedule:
+    # Runs every day at 06:05 UTC (1:05 AM Toronto during EST, 2:05 AM during EDT)
+    - cron: "5 6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-bgg-collection
+  cancel-in-progress: false
+
+jobs:
+  fetch-and-commit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Fetch BGG collection (polls for 202 until ready)
+        env:
+          BGG_USER: koraytugay
+          BGG_PASSWORD: ${{ secrets.BGG_PASSWORD }}
+        run: |
+          set -euo pipefail
+          URL="https://boardgamegeek.com/xmlapi2/collection?username=${BGG_USER}&own=1&stats=1"
+
+          # If your collection is public, you can omit COOKIE_HEADER and the -H below.
+          COOKIE_HEADER="Cookie: bggusername=${BGG_USER}; bggpassword=${BGG_PASSWORD}"
+
+          # Poll up to ~3 minutes if BGG responds 202 (queued)
+          for i in {1..10}; do
+            status=$(curl -sS -o collection.raw.xml -w "%{http_code}" \
+              "$URL" \
+              -H 'accept: application/xml' \
+              -H 'user-agent: GitHubAction (curl)' \
+              -H "$COOKIE_HEADER")
+            if [ "$status" = "202" ]; then
+              echo "BGG is preparing the file (HTTP 202). Sleeping 20s..."
+              sleep 20
+            elif [ "$status" = "200" ]; then
+              break
+            else
+              echo "Unexpected HTTP status: $status"
+              exit 1
+            fi
+          done
+
+      - name: Trim XML prolog and keep from <items …>
+        run: |
+          set -euo pipefail
+          # Keep everything starting at the first line that begins with <items
+          # (handles cases where the first line is: <?xml version="1.0" ...?>)
+          awk 'BEGIN{p=0} $0 ~ /^<items[[:space:]>]/ {p=1} p' collection.raw.xml > collection.xml
+
+          if ! grep -qE '^<items[[:space:]>]' collection.xml; then
+            echo "Failed to find <items ...> in response."
+            echo "First 20 lines for debugging:"
+            head -n 20 collection.raw.xml || true
+            exit 1
+          fi
+
+      - name: Commit & push if changed
+        run: |
+          set -euo pipefail
+          if git diff --quiet -- collection.xml; then
+            echo "No changes to commit."
+            exit 0
+          fi
+
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add collection.xml
+          git commit -m "chore: update collection.xml ($(date -u +%F))"
+          git push
