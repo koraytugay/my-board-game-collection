@@ -28,7 +28,7 @@ jobs:
           BGG_PASSWORD: ${{ secrets.BGG_PASSWORD }}
         run: |
           set -euo pipefail
-          URL="https://boardgamegeek.com/xmlapi2/collection?username=${BGG_USER}&own=1&stats=1"
+          URL="https://boardgamegeek.com/xmlapi2/collection?username=koraytugay&own=1&stats=1&excludesubtype=boardgameexpansion"
 
           # If your collection is public, you can omit COOKIE_HEADER and the -H below.
           COOKIE_HEADER="Cookie: bggusername=${BGG_USER}; bggpassword=${BGG_PASSWORD}"
