@@ -168,6 +168,7 @@ function createGameCard(game) {
                 <div class="meta-item"><span>👥</span> ${game.minPlayers}-${game.maxPlayers}</div>
                 <div class="meta-item"><span>⏱️</span> ${game.playingTime} min</div>
                 <div class="meta-item"><span>⭐</span> ${game.rating.toFixed(1)}</div>
+                ${game.myRating > 0 ? `<div class="meta-item"><span>💚</span> ${game.myRating.toFixed(1)}</div>` : ''}
                 <div class="meta-item"><span>🎲</span> ${game.numPlays} plays</div>
             </div>
         </div>
