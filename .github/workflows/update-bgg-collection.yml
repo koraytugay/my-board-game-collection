@@ -40,7 +40,6 @@ jobs:
             echo "Starting fetch for $NAME..."
             
             for i in {1..15}; do
-              # Capture HTTP code and response body
               status=$(curl -sS -o "$TARGET" -w "%{http_code}" \
                 "$URL" \
                 -H 'accept: application/xml' \
@@ -48,21 +47,15 @@ jobs:
                 -H "$COOKIE_HEADER")
               
               if [ "$status" = "200" ]; then
-                # Check if it's actually BGG XML and not an error page
                 if grep -qE "(<items|<plays)" "$TARGET"; then
                   echo "SUCCESS: $NAME fetched correctly."
                   return 0
-                else
-                  echo "WARNING: Received 200 but content is not valid BGG XML. Retrying..."
                 fi
               elif [ "$status" = "202" ]; then
-                echo "BGG is preparing $NAME (202). Sleeping 20s (Attempt $i)..."
-              else
-                echo "Attempt $i failed: HTTP $status. Retrying in 20s..."
+                echo "BGG is preparing $NAME (202). Sleeping 20s..."
               fi
               sleep 20
             done
-            echo "ERROR: Failed to fetch $NAME after multiple attempts."
             return 1
           }
 
@@ -71,7 +64,8 @@ jobs:
 
           # 2. Monthly Logic
           CURRENT_MONTH=$(date +%Y-%m)
-          PREV_MONTH=$(date -d "last month" +%Y-%m 2>/dev/null || date -v-1m +%Y-%m)
+          # Get previous month in a cross-platform way (Ubuntu uses -d)
+          PREV_MONTH=$(date -d "last month" +%Y-%m)
 
           fetch_month() {
             local TARGET=$1
@@ -80,15 +74,7 @@ jobs:
             fetch_data "https://boardgamegeek.com/xmlapi2/plays?username=${BGG_USER}&mindate=${START}&maxdate=${END}" "plays/${TARGET}.xml" "Plays for $TARGET" || true
           }
 
-          # --- ONE-TIME BACKFILL ---
-          for m in 2025-09 2025-10 2025-11 2025-12 2026-01 2026-02; do
-            if [ ! -f "plays/${m}.xml" ] || [ ! -s "plays/${m}.xml" ] || ! grep -q "<plays" "plays/${m}.xml"; then
-              fetch_month "$m"
-              sleep 5
-            fi
-          done
-
-          # --- REGULAR UPDATES ---
+          # Always update the last two months to catch any late play reporting
           fetch_month "$PREV_MONTH"
           sleep 5
           fetch_month "$CURRENT_MONTH"
@@ -96,8 +82,6 @@ jobs:
       - name: Commit & push if changed
         run: |
           set -euo pipefail
-          
-          # Force add directory to ensure untracked files are seen
           git add collection.xml plays/
 
           if git diff --quiet --staged; then
@@ -108,5 +92,5 @@ jobs:
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git commit -m "chore: update collection and play archives ($(date -u +%F))"
+          git commit -m "chore: update collection and monthly play archives ($(date -u +%F))"
           git push
