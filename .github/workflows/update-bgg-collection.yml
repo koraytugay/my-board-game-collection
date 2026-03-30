@@ -22,17 +22,22 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Fetch BGG collection
+      - name: Fetch BGG Data
         env:
           BGG_USER: koraytugay
           BGG_PASSWORD: ${{ secrets.BGG_PASSWORD }}
         run: |
           set -euo pipefail
-          URL="https://boardgamegeek.com/xmlapi2/collection?username=${BGG_USER}&own=1&stats=1&excludesubtype=boardgameexpansion"
+          
+          # Common settings
+          USER_AGENT="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
           COOKIE_HEADER="Cookie: bggusername=${BGG_USER}; bggpassword=${BGG_PASSWORD}"
           
+          # 1. Fetch Collection
+          COLLECTION_URL="https://www.boardgamegeek.com/xmlapi2/collection?username=${BGG_USER}&own=1&stats=1&excludesubtype=boardgameexpansion"
+          echo "Fetching collection..."
           for i in {1..10}; do
-            curl -sS -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36" -H "$COOKIE_HEADER" -o collection.xml "$URL"
+            curl -sS -A "$USER_AGENT" -H "$COOKIE_HEADER" -o collection.xml "$COLLECTION_URL"
             if grep -q "<items" collection.xml; then
               echo "Collection fetch successful."
               break
@@ -41,28 +46,26 @@ jobs:
             sleep 30
           done
 
-      - name: Fetch BGG plays
-        env:
-          BGG_USER: koraytugay
-        run: |
-          set -euo pipefail
-          # Use XMLAPI v1 for plays
-          URL="https://boardgamegeek.com/xmlapi/plays?username=${BGG_USER}"
-          
-          for i in {1..5}; do
-            curl -sS -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36" -o plays.xml "$URL"
+          # 2. Fetch Plays
+          PLAYS_URL="https://www.boardgamegeek.com/xmlapi2/plays?username=${BGG_USER}"
+          echo "Fetching plays..."
+          for i in {1..10}; do
+            curl -sS -A "$USER_AGENT" -H "$COOKIE_HEADER" -o plays.xml "$PLAYS_URL"
             if grep -q "<plays" plays.xml; then
               echo "Plays fetch successful."
-              # Check if it actually has play data (not just an empty <plays> tag)
               if grep -q "<play" plays.xml; then
                 echo "Found play entries."
               else
-                echo "Warning: No play entries found in XML."
+                echo "Warning: No play entries found in XML response."
+                # Print first few lines of empty response for debug
+                head -n 5 plays.xml
               fi
               break
             fi
             echo "Waiting for BGG plays (attempt $i)..."
-            sleep 20
+            # If BGG is rate limiting, it might help to see the response
+            head -n 5 plays.xml || true
+            sleep 30
           done
 
       - name: Commit & push if changed
