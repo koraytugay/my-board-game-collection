@@ -47,8 +47,9 @@ jobs:
               exit 1
             fi
           done
-          # Remove XML prolog more robustly (|| true prevents exit code 1 if not found)
-          grep -v "<?xml" collection.raw.xml > collection.xml || true
+          # Remove XML prolog more robustly using sed to only target the start of the file
+          sed -i 's/^<?xml[^>]*?>//' collection.raw.xml
+          cat collection.raw.xml > collection.xml
 
       - name: Fetch BGG plays (last 100 plays)
         env:
@@ -58,8 +59,9 @@ jobs:
           URL="https://boardgamegeek.com/xmlapi2/plays?username=${BGG_USER}"
           curl -sS -o plays.raw.xml "$URL"
           
-          # Remove XML prolog more robustly
-          grep -v "<?xml" plays.raw.xml > plays.xml || true
+          # Remove XML prolog more robustly using sed to only target the start of the file
+          sed -i 's/^<?xml[^>]*?>//' plays.raw.xml
+          cat plays.raw.xml > plays.xml
 
       - name: Commit & push if changed
         run: |
