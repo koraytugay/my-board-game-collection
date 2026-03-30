@@ -47,23 +47,24 @@ jobs:
               exit 1
             fi
           done
-          awk 'BEGIN{p=0} $0 ~ /^<items[[:space:]>]/ {p=1} p' collection.raw.xml > collection.xml
+          # Remove XML prolog more robustly
+          grep -v "<?xml" collection.raw.xml > collection.xml
 
-      - name: Fetch BGG plays (last 365 days)
+      - name: Fetch BGG plays (last 100 plays)
         env:
           BGG_USER: koraytugay
         run: |
           set -euo pipefail
-          # Fetch recent plays (up to 100 per page, page 1)
           URL="https://boardgamegeek.com/xmlapi2/plays?username=${BGG_USER}"
           curl -sS -o plays.raw.xml "$URL"
           
-          # Keep from <plays ...>
-          awk 'BEGIN{p=0} $0 ~ /^<plays[[:space:]>]/ {p=1} p' plays.raw.xml > plays.xml
+          # Remove XML prolog more robustly
+          grep -v "<?xml" plays.raw.xml > plays.xml
 
       - name: Commit & push if changed
         run: |
           set -euo pipefail
+          # Check if either file has changed
           if git diff --quiet -- collection.xml plays.xml; then
             echo "No changes to commit."
             exit 0
