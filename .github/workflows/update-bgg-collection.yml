@@ -49,18 +49,13 @@ jobs:
           done
 
           # 2. Logic for Monthly Plays
-          CURRENT_MONTH=$(date +%Y-%m)
-          FIRST_DAY=$(date +%d)
-          
           fetch_month() {
             local TARGET=$1
             local START="${TARGET}-01"
             local END="${TARGET}-31"
             echo "Fetching plays for $TARGET..."
-            # Use xmlapi2 as it handles date filtering much better
             URL="https://boardgamegeek.com/xmlapi2/plays?username=${BGG_USER}&mindate=${START}&maxdate=${END}"
             
-            # Use the known working curl pattern
             for i in {1..5}; do
               status=$(curl -sS -o "plays/${TARGET}.xml" -w "%{http_code}" \
                 "$URL" \
@@ -78,7 +73,6 @@ jobs:
           }
 
           # --- ONE-TIME BACKFILL ---
-          # We only backfill if the file doesn't already exist
           for m in 2025-09 2025-10 2025-11 2025-12 2026-01 2026-02; do
             if [ ! -f "plays/${m}.xml" ] || [ ! -s "plays/${m}.xml" ]; then
               fetch_month "$m"
@@ -87,14 +81,13 @@ jobs:
           done
 
           # --- REGULAR UPDATES ---
-          # Always fetch current month
+          # Always fetch current month AND previous month to catch late entries
+          CURRENT_MONTH=$(date +%Y-%m)
+          PREV_MONTH=$(date -d "last month" +%Y-%m 2>/dev/null || date -v-1m +%Y-%m)
+          
+          fetch_month "$PREV_MONTH"
+          sleep 5
           fetch_month "$CURRENT_MONTH"
-
-          # On the 1st or 2nd, seal the previous month
-          if [ "$FIRST_DAY" = "01" ] || [ "$FIRST_DAY" = "02" ]; then
-            PREV_MONTH=$(date -d "last month" +%Y-%m 2>/dev/null || date -v-1m +%Y-%m)
-            fetch_month "$PREV_MONTH"
-          fi
 
       - name: Commit & push if changed
         run: |
@@ -108,5 +101,5 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
           git add collection.xml plays/
-          git commit -m "chore: update collection and monthly play archives ($(date -u +%F))"
+          git commit -m "chore: update collection and play archives for current and last month ($(date -u +%F))"
           git push
