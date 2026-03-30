@@ -37,9 +37,10 @@ jobs:
             local URL=$1
             local TARGET=$2
             local NAME=$3
-            echo "Fetching $NAME..."
+            echo "Starting fetch for $NAME..."
             
-            for i in {1..12}; do
+            for i in {1..15}; do
+              # Capture HTTP code and response body
               status=$(curl -sS -o "$TARGET" -w "%{http_code}" \
                 "$URL" \
                 -H 'accept: application/xml' \
@@ -47,20 +48,26 @@ jobs:
                 -H "$COOKIE_HEADER")
               
               if [ "$status" = "200" ]; then
-                echo "$NAME fetch successful (200)."
-                break
+                # Check if it's actually BGG XML and not an error page
+                if grep -qE "(<items|<plays)" "$TARGET"; then
+                  echo "SUCCESS: $NAME fetched correctly."
+                  return 0
+                else
+                  echo "WARNING: Received 200 but content is not valid BGG XML. Retrying..."
+                fi
               elif [ "$status" = "202" ]; then
-                echo "BGG is preparing $NAME (202). Sleeping 20s..."
-                sleep 20
+                echo "BGG is preparing $NAME (202). Sleeping 20s (Attempt $i)..."
               else
-                echo "Attempt $i: HTTP $status. Retrying in 20s..."
-                sleep 20
+                echo "Attempt $i failed: HTTP $status. Retrying in 20s..."
               fi
+              sleep 20
             done
+            echo "ERROR: Failed to fetch $NAME after multiple attempts."
+            return 1
           }
 
           # 1. Fetch Collection
-          fetch_data "https://boardgamegeek.com/xmlapi2/collection?username=${BGG_USER}&own=1&stats=1&excludesubtype=boardgameexpansion" "collection.xml" "Collection"
+          fetch_data "https://boardgamegeek.com/xmlapi2/collection?username=${BGG_USER}&own=1&stats=1&excludesubtype=boardgameexpansion" "collection.xml" "Collection" || true
 
           # 2. Monthly Logic
           CURRENT_MONTH=$(date +%Y-%m)
@@ -70,7 +77,7 @@ jobs:
             local TARGET=$1
             local START="${TARGET}-01"
             local END="${TARGET}-31"
-            fetch_data "https://boardgamegeek.com/xmlapi2/plays?username=${BGG_USER}&mindate=${START}&maxdate=${END}" "plays/${TARGET}.xml" "Plays for $TARGET"
+            fetch_data "https://boardgamegeek.com/xmlapi2/plays?username=${BGG_USER}&mindate=${START}&maxdate=${END}" "plays/${TARGET}.xml" "Plays for $TARGET" || true
           }
 
           # --- ONE-TIME BACKFILL ---
@@ -89,7 +96,11 @@ jobs:
       - name: Commit & push if changed
         run: |
           set -euo pipefail
-          if git diff --quiet -- collection.xml plays/; then
+          
+          # Force add directory to ensure untracked files are seen
+          git add collection.xml plays/
+
+          if git diff --quiet --staged; then
             echo "No changes to commit."
             exit 0
           fi
@@ -97,6 +108,5 @@ jobs:
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add collection.xml plays/
           git commit -m "chore: update collection and play archives ($(date -u +%F))"
           git push
