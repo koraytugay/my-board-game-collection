@@ -31,14 +31,14 @@ jobs:
           URL="https://boardgamegeek.com/xmlapi2/collection?username=${BGG_USER}&own=1&stats=1&excludesubtype=boardgameexpansion"
           COOKIE_HEADER="Cookie: bggusername=${BGG_USER}; bggpassword=${BGG_PASSWORD}"
           
-          # Poll BGG (they often return 202 while generating the XML)
           for i in {1..10}; do
-            curl -sS -A "curl/7.68.0" -H "$COOKIE_HEADER" -o collection.xml "$URL"
+            curl -sS -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36" -H "$COOKIE_HEADER" -o collection.xml "$URL"
             if grep -q "<items" collection.xml; then
+              echo "Collection fetch successful."
               break
             fi
-            echo "Waiting for BGG collection... (attempt $i)"
-            sleep 20
+            echo "Waiting for BGG collection (attempt $i)..."
+            sleep 30
           done
 
       - name: Fetch BGG plays
@@ -46,16 +46,23 @@ jobs:
           BGG_USER: koraytugay
         run: |
           set -euo pipefail
-          # Use XMLAPI v1 for plays as it is more stable for collection-wide dumps
+          # Use XMLAPI v1 for plays
           URL="https://boardgamegeek.com/xmlapi/plays?username=${BGG_USER}"
           
           for i in {1..5}; do
-            curl -sS -A "curl/7.68.0" -o plays.xml "$URL"
+            curl -sS -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36" -o plays.xml "$URL"
             if grep -q "<plays" plays.xml; then
+              echo "Plays fetch successful."
+              # Check if it actually has play data (not just an empty <plays> tag)
+              if grep -q "<play" plays.xml; then
+                echo "Found play entries."
+              else
+                echo "Warning: No play entries found in XML."
+              fi
               break
             fi
-            echo "Waiting for BGG plays... (attempt $i)"
-            sleep 10
+            echo "Waiting for BGG plays (attempt $i)..."
+            sleep 20
           done
 
       - name: Commit & push if changed
