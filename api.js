@@ -1,7 +1,5 @@
 const USERNAME = 'koraytugay';
-// Using relative paths to avoid CORS issues on GitHub Pages
 const COLLECTION_XML_FILE = 'collection.xml';
-const PLAYS_XML_FILE = 'plays.xml';
 
 async function getCollection() {
     try {
@@ -61,9 +59,12 @@ async function getCollection() {
     }
 }
 
-async function getPlays() {
+async function getPlaysForMonth(year, month) {
+    const monthStr = String(month + 1).padStart(2, '0');
+    const fileName = `plays/${year}-${monthStr}.xml`;
+    
     try {
-        const response = await fetch(PLAYS_XML_FILE);
+        const response = await fetch(fileName);
 
         if (!response.ok) {
             if (response.status === 404) return [];
@@ -86,7 +87,7 @@ async function getPlays() {
             };
         });
     } catch (error) {
-        console.error('Error fetching plays:', error);
+        console.warn(`Could not load plays for ${year}-${monthStr}:`, error);
         return [];
     }
 }

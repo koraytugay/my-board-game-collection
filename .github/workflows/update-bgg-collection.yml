@@ -2,7 +2,7 @@ name: Update BGG collection
 
 on:
   schedule:
-    # Runs every day at 06:05 UTC (1:05 AM Toronto during EST, 2:05 AM during EDT)
+    # Runs every day at 06:05 UTC
     - cron: "5 6 * * *"
   workflow_dispatch:
 
@@ -31,7 +31,8 @@ jobs:
           
           COOKIE_HEADER="Cookie: bggusername=${BGG_USER}; bggpassword=${BGG_PASSWORD}"
           USER_AGENT="GitHubAction (curl)"
-          
+          mkdir -p plays
+
           # 1. Fetch Collection
           COLLECTION_URL="https://boardgamegeek.com/xmlapi2/collection?username=${BGG_USER}&own=1&stats=1&excludesubtype=boardgameexpansion"
           echo "Fetching collection..."
@@ -41,46 +42,64 @@ jobs:
               -H 'accept: application/xml' \
               -H "user-agent: $USER_AGENT" \
               -H "$COOKIE_HEADER")
-            
             if [ "$status" = "200" ] && grep -q "<items" collection.xml; then
-              echo "Collection fetch successful."
               break
-            elif [ "$status" = "202" ]; then
-              echo "BGG is preparing (202). Sleeping..."
-              sleep 20
-            else
-              echo "Attempt $i: HTTP $status. Retrying..."
-              sleep 20
             fi
+            sleep 20
           done
 
-          # 2. Fetch Plays (Multiple pages to cover Dec/Jan/Feb)
-          echo "Fetching plays (Multiple Pages)..."
-          > plays.raw.xml
-          for page in {1..5}; do
-            echo "Fetching page $page..."
-            PLAYS_URL="https://boardgamegeek.com/xmlapi/plays?username=${BGG_USER}&page=${page}"
-            curl -sS -A "$USER_AGENT" -o "page${page}.xml" "$PLAYS_URL"
+          # 2. Logic for Monthly Plays
+          CURRENT_MONTH=$(date +%Y-%m)
+          FIRST_DAY=$(date +%d)
+          
+          fetch_month() {
+            local TARGET=$1
+            local START="${TARGET}-01"
+            local END="${TARGET}-31"
+            echo "Fetching plays for $TARGET..."
+            # Use xmlapi2 as it handles date filtering much better
+            URL="https://boardgamegeek.com/xmlapi2/plays?username=${BGG_USER}&mindate=${START}&maxdate=${END}"
             
-            if grep -q "<play " "page${page}.xml"; then
-              # Extract play nodes and append to raw file
-              grep -o "<play [^>]*>.*</play>" "page${page}.xml" >> plays.raw.xml || true
-              sleep 5 # Be kind to BGG API
-            else
-              echo "No more plays found on page $page."
-              break
+            # Use the known working curl pattern
+            for i in {1..5}; do
+              status=$(curl -sS -o "plays/${TARGET}.xml" -w "%{http_code}" \
+                "$URL" \
+                -H 'accept: application/xml' \
+                -H "user-agent: $USER_AGENT" \
+                -H "$COOKIE_HEADER")
+              
+              if [ "$status" = "200" ] && grep -q "<plays" "plays/${TARGET}.xml"; then
+                echo "Fetch successful for $TARGET."
+                break
+              fi
+              echo "Attempt $i failed for $TARGET (HTTP $status). Retrying..."
+              sleep 10
+            done
+          }
+
+          # --- ONE-TIME BACKFILL ---
+          # We only backfill if the file doesn't already exist
+          for m in 2025-09 2025-10 2025-11 2025-12 2026-01 2026-02; do
+            if [ ! -f "plays/${m}.xml" ] || [ ! -s "plays/${m}.xml" ]; then
+              fetch_month "$m"
+              sleep 5
             fi
           done
 
-          # Wrap in a root tag
-          echo '<plays>' > plays.xml
-          cat plays.raw.xml >> plays.xml
-          echo '</plays>' >> plays.xml
+          # --- REGULAR UPDATES ---
+          # Always fetch current month
+          fetch_month "$CURRENT_MONTH"
+
+          # On the 1st or 2nd, seal the previous month
+          if [ "$FIRST_DAY" = "01" ] || [ "$FIRST_DAY" = "02" ]; then
+            PREV_MONTH=$(date -d "last month" +%Y-%m 2>/dev/null || date -v-1m +%Y-%m)
+            fetch_month "$PREV_MONTH"
+          fi
 
       - name: Commit & push if changed
         run: |
           set -euo pipefail
-          if git diff --quiet -- collection.xml plays.xml; then
+          if git diff --quiet -- collection.xml plays/; then
             echo "No changes to commit."
             exit 0
           fi
@@ -88,6 +107,6 @@ jobs:
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add collection.xml plays.xml
-          git commit -m "chore: update collection and extended play history ($(date -u +%F))"
+          git add collection.xml plays/
+          git commit -m "chore: update collection and monthly play archives ($(date -u +%F))"
           git push

@@ -8,34 +8,42 @@ async function initCalendar() {
     const errorEl = document.getElementById('error');
 
     try {
-        // Fetch both collection (for images) and plays
-        [allGames, allPlays] = await Promise.all([
-            getCollection(),
-            getPlays()
-        ]);
+        // Fetch collection once
+        allGames = await getCollection();
         
         loadingEl.style.display = 'none';
         contentEl.style.display = 'block';
         
         loadDarkMode();
-        renderCalendar();
         
-        document.getElementById('prev-month').addEventListener('click', () => {
+        // Initial render with current month data
+        await updateMonthData();
+        
+        document.getElementById('prev-month').addEventListener('click', async () => {
             currentDate.setMonth(currentDate.getMonth() - 1);
-            renderCalendar();
+            await updateMonthData();
         });
         
-        document.getElementById('next-month').addEventListener('click', () => {
+        document.getElementById('next-month').addEventListener('click', async () => {
             currentDate.setMonth(currentDate.getMonth() + 1);
-            renderCalendar();
+            await updateMonthData();
         });
 
     } catch (error) {
         console.error('Error loading calendar:', error);
         loadingEl.style.display = 'none';
         errorEl.style.display = 'block';
-        errorEl.textContent = 'Failed to load play data.';
+        errorEl.textContent = 'Failed to load initial data.';
     }
+}
+
+async function updateMonthData() {
+    const year = currentDate.getFullYear();
+    const month = currentDate.getMonth();
+    
+    // Fetch only the file for the month we are looking at
+    allPlays = await getPlaysForMonth(year, month);
+    renderCalendar();
 }
 
 function renderCalendar() {
