@@ -47,8 +47,8 @@ jobs:
               exit 1
             fi
           done
-          # Remove XML prolog more robustly
-          grep -v "<?xml" collection.raw.xml > collection.xml
+          # Remove XML prolog more robustly (|| true prevents exit code 1 if not found)
+          grep -v "<?xml" collection.raw.xml > collection.xml || true
 
       - name: Fetch BGG plays (last 100 plays)
         env:
@@ -59,7 +59,7 @@ jobs:
           curl -sS -o plays.raw.xml "$URL"
           
           # Remove XML prolog more robustly
-          grep -v "<?xml" plays.raw.xml > plays.xml
+          grep -v "<?xml" plays.raw.xml > plays.xml || true
 
       - name: Commit & push if changed
         run: |
