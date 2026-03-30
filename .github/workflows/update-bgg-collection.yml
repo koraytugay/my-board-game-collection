@@ -22,52 +22,32 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Fetch BGG collection (polls for 202 until ready)
+      - name: Fetch BGG collection
         env:
           BGG_USER: koraytugay
           BGG_PASSWORD: ${{ secrets.BGG_PASSWORD }}
         run: |
           set -euo pipefail
-          URL="https://boardgamegeek.com/xmlapi2/collection?username=koraytugay&own=1&stats=1&excludesubtype=boardgameexpansion"
+          URL="https://boardgamegeek.com/xmlapi2/collection?username=${BGG_USER}&own=1&stats=1&excludesubtype=boardgameexpansion"
           COOKIE_HEADER="Cookie: bggusername=${BGG_USER}; bggpassword=${BGG_PASSWORD}"
-
+          
+          # Poll BGG (they often return 202 while generating the XML)
           for i in {1..10}; do
-            status=$(curl -sS -o collection.raw.xml -w "%{http_code}" \
-              "$URL" \
-              -H 'accept: application/xml' \
-              -H 'user-agent: GitHubAction (curl)' \
-              -H "$COOKIE_HEADER")
-            if [ "$status" = "202" ]; then
-              echo "BGG is preparing the file (HTTP 202). Sleeping 20s..."
-              sleep 20
-            elif [ "$status" = "200" ]; then
+            curl -sS -H "user-agent: GitHubAction" -H "$COOKIE_HEADER" -o collection.xml "$URL"
+            if grep -q "<items" collection.xml; then
               break
-            else
-              echo "Unexpected HTTP status: $status"
-              exit 1
             fi
+            echo "Waiting for BGG... (attempt $i)"
+            sleep 20
           done
-          # Strip prolog safely if it exists, otherwise just copy
-          if grep -q "<?xml" collection.raw.xml; then
-            sed 's/<?xml[^>]*?>//' collection.raw.xml > collection.xml
-          else
-            cat collection.raw.xml > collection.xml
-          fi
 
-      - name: Fetch BGG plays (last 100 plays)
+      - name: Fetch BGG plays
         env:
           BGG_USER: koraytugay
         run: |
           set -euo pipefail
           URL="https://boardgamegeek.com/xmlapi2/plays?username=${BGG_USER}"
-          curl -sS -o plays.raw.xml "$URL"
-          
-          # Strip prolog safely if it exists, otherwise just copy
-          if grep -q "<?xml" plays.raw.xml; then
-            sed 's/<?xml[^>]*?>//' plays.raw.xml > plays.xml
-          else
-            cat plays.raw.xml > plays.xml
-          fi
+          curl -sS -H "user-agent: GitHubAction" -o plays.xml "$URL"
 
       - name: Commit & push if changed
         run: |
