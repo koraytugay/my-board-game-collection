@@ -32,7 +32,7 @@ jobs:
           COOKIE_HEADER="Cookie: bggusername=${BGG_USER}; bggpassword=${BGG_PASSWORD}"
           USER_AGENT="GitHubAction (curl)"
           
-          # 1. Fetch Collection (Original Working Logic)
+          # 1. Fetch Collection
           COLLECTION_URL="https://boardgamegeek.com/xmlapi2/collection?username=${BGG_USER}&own=1&stats=1&excludesubtype=boardgameexpansion"
           echo "Fetching collection..."
           for i in {1..10}; do
@@ -43,35 +43,39 @@ jobs:
               -H "$COOKIE_HEADER")
             
             if [ "$status" = "200" ] && grep -q "<items" collection.xml; then
-              echo "Collection fetch successful (HTTP $status)."
+              echo "Collection fetch successful."
               break
             elif [ "$status" = "202" ]; then
-              echo "BGG is preparing the file (HTTP 202). Sleeping 20s..."
+              echo "BGG is preparing (202). Sleeping..."
               sleep 20
             else
-              echo "Attempt $i: HTTP $status. Retrying in 20s..."
+              echo "Attempt $i: HTTP $status. Retrying..."
               sleep 20
             fi
           done
 
-          # 2. Fetch Plays (Applying same logic)
-          PLAYS_URL="https://boardgamegeek.com/xmlapi2/plays?username=${BGG_USER}"
-          echo "Fetching plays..."
-          for i in {1..5}; do
-            status=$(curl -sS -o plays.xml -w "%{http_code}" \
-              "$PLAYS_URL" \
-              -H 'accept: application/xml' \
-              -H "user-agent: $USER_AGENT" \
-              -H "$COOKIE_HEADER")
+          # 2. Fetch Plays (Multiple pages to cover Dec/Jan/Feb)
+          echo "Fetching plays (Multiple Pages)..."
+          > plays.raw.xml
+          for page in {1..5}; do
+            echo "Fetching page $page..."
+            PLAYS_URL="https://boardgamegeek.com/xmlapi/plays?username=${BGG_USER}&page=${page}"
+            curl -sS -A "$USER_AGENT" -o "page${page}.xml" "$PLAYS_URL"
             
-            if [ "$status" = "200" ] && grep -q "<plays" plays.xml; then
-              echo "Plays fetch successful (HTTP $status)."
-              break
+            if grep -q "<play " "page${page}.xml"; then
+              # Extract play nodes and append to raw file
+              grep -o "<play [^>]*>.*</play>" "page${page}.xml" >> plays.raw.xml || true
+              sleep 5 # Be kind to BGG API
             else
-              echo "Attempt $i: HTTP $status. Retrying in 20s..."
-              sleep 20
+              echo "No more plays found on page $page."
+              break
             fi
           done
+
+          # Wrap in a root tag
+          echo '<plays>' > plays.xml
+          cat plays.raw.xml >> plays.xml
+          echo '</plays>' >> plays.xml
 
       - name: Commit & push if changed
         run: |
@@ -85,5 +89,5 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
           git add collection.xml plays.xml
-          git commit -m "chore: update collection and plays ($(date -u +%F))"
+          git commit -m "chore: update collection and extended play history ($(date -u +%F))"
           git push
