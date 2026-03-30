@@ -33,58 +33,55 @@ jobs:
           USER_AGENT="GitHubAction (curl)"
           mkdir -p plays
 
-          # 1. Fetch Collection
-          COLLECTION_URL="https://boardgamegeek.com/xmlapi2/collection?username=${BGG_USER}&own=1&stats=1&excludesubtype=boardgameexpansion"
-          echo "Fetching collection..."
-          for i in {1..10}; do
-            status=$(curl -sS -o collection.xml -w "%{http_code}" \
-              "$COLLECTION_URL" \
-              -H 'accept: application/xml' \
-              -H "user-agent: $USER_AGENT" \
-              -H "$COOKIE_HEADER")
-            if [ "$status" = "200" ] && grep -q "<items" collection.xml; then
-              break
-            fi
-            sleep 20
-          done
-
-          # 2. Logic for Monthly Plays
-          fetch_month() {
-            local TARGET=$1
-            local START="${TARGET}-01"
-            local END="${TARGET}-31"
-            echo "Fetching plays for $TARGET..."
-            URL="https://boardgamegeek.com/xmlapi2/plays?username=${BGG_USER}&mindate=${START}&maxdate=${END}"
+          fetch_data() {
+            local URL=$1
+            local TARGET=$2
+            local NAME=$3
+            echo "Fetching $NAME..."
             
-            for i in {1..5}; do
-              status=$(curl -sS -o "plays/${TARGET}.xml" -w "%{http_code}" \
+            for i in {1..12}; do
+              status=$(curl -sS -o "$TARGET" -w "%{http_code}" \
                 "$URL" \
                 -H 'accept: application/xml' \
                 -H "user-agent: $USER_AGENT" \
                 -H "$COOKIE_HEADER")
               
-              if [ "$status" = "200" ] && grep -q "<plays" "plays/${TARGET}.xml"; then
-                echo "Fetch successful for $TARGET."
+              if [ "$status" = "200" ]; then
+                echo "$NAME fetch successful (200)."
                 break
+              elif [ "$status" = "202" ]; then
+                echo "BGG is preparing $NAME (202). Sleeping 20s..."
+                sleep 20
+              else
+                echo "Attempt $i: HTTP $status. Retrying in 20s..."
+                sleep 20
               fi
-              echo "Attempt $i failed for $TARGET (HTTP $status). Retrying..."
-              sleep 10
             done
+          }
+
+          # 1. Fetch Collection
+          fetch_data "https://boardgamegeek.com/xmlapi2/collection?username=${BGG_USER}&own=1&stats=1&excludesubtype=boardgameexpansion" "collection.xml" "Collection"
+
+          # 2. Monthly Logic
+          CURRENT_MONTH=$(date +%Y-%m)
+          PREV_MONTH=$(date -d "last month" +%Y-%m 2>/dev/null || date -v-1m +%Y-%m)
+
+          fetch_month() {
+            local TARGET=$1
+            local START="${TARGET}-01"
+            local END="${TARGET}-31"
+            fetch_data "https://boardgamegeek.com/xmlapi2/plays?username=${BGG_USER}&mindate=${START}&maxdate=${END}" "plays/${TARGET}.xml" "Plays for $TARGET"
           }
 
           # --- ONE-TIME BACKFILL ---
           for m in 2025-09 2025-10 2025-11 2025-12 2026-01 2026-02; do
-            if [ ! -f "plays/${m}.xml" ] || [ ! -s "plays/${m}.xml" ]; then
+            if [ ! -f "plays/${m}.xml" ] || [ ! -s "plays/${m}.xml" ] || ! grep -q "<plays" "plays/${m}.xml"; then
               fetch_month "$m"
               sleep 5
             fi
           done
 
           # --- REGULAR UPDATES ---
-          # Always fetch current month AND previous month to catch late entries
-          CURRENT_MONTH=$(date +%Y-%m)
-          PREV_MONTH=$(date -d "last month" +%Y-%m 2>/dev/null || date -v-1m +%Y-%m)
-          
           fetch_month "$PREV_MONTH"
           sleep 5
           fetch_month "$CURRENT_MONTH"
@@ -101,5 +98,5 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
           git add collection.xml plays/
-          git commit -m "chore: update collection and play archives for current and last month ($(date -u +%F))"
+          git commit -m "chore: update collection and play archives ($(date -u +%F))"
           git push
