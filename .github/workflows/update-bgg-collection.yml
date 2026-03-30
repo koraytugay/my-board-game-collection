@@ -47,9 +47,12 @@ jobs:
               exit 1
             fi
           done
-          # Remove XML prolog more robustly using sed to only target the start of the file
-          sed -i 's/^<?xml[^>]*?>//' collection.raw.xml
-          cat collection.raw.xml > collection.xml
+          # Strip prolog safely if it exists, otherwise just copy
+          if grep -q "<?xml" collection.raw.xml; then
+            sed 's/<?xml[^>]*?>//' collection.raw.xml > collection.xml
+          else
+            cat collection.raw.xml > collection.xml
+          fi
 
       - name: Fetch BGG plays (last 100 plays)
         env:
@@ -59,14 +62,16 @@ jobs:
           URL="https://boardgamegeek.com/xmlapi2/plays?username=${BGG_USER}"
           curl -sS -o plays.raw.xml "$URL"
           
-          # Remove XML prolog more robustly using sed to only target the start of the file
-          sed -i 's/^<?xml[^>]*?>//' plays.raw.xml
-          cat plays.raw.xml > plays.xml
+          # Strip prolog safely if it exists, otherwise just copy
+          if grep -q "<?xml" plays.raw.xml; then
+            sed 's/<?xml[^>]*?>//' plays.raw.xml > plays.xml
+          else
+            cat plays.raw.xml > plays.xml
+          fi
 
       - name: Commit & push if changed
         run: |
           set -euo pipefail
-          # Check if either file has changed
           if git diff --quiet -- collection.xml plays.xml; then
             echo "No changes to commit."
             exit 0
