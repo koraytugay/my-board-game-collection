@@ -57,12 +57,21 @@ function renderCalendar() {
     const firstDay = new Date(year, month, 1);
     const lastDay = new Date(year, month + 1, 0);
     
+    // Adjust for Monday start (0=Sun, 1=Mon, ..., 6=Sat)
+    // Convert: Sun(0)->6, Mon(1)->0, Tue(2)->1, ..., Sat(6)->5
+    let startOffset = firstDay.getDay() - 1;
+    if (startOffset === -1) startOffset = 6;
+
     const startDay = new Date(firstDay);
-    startDay.setDate(firstDay.getDate() - firstDay.getDay());
+    startDay.setDate(firstDay.getDate() - startOffset);
+
+    // End of grid (ensuring a full week)
+    let endOffset = 7 - lastDay.getDay();
+    if (lastDay.getDay() === 0) endOffset = 0; // Already Sun
 
     const endDay = new Date(lastDay);
-    if (endDay.getDay() < 6) {
-        endDay.setDate(lastDay.getDate() + (6 - lastDay.getDay()));
+    if (endOffset > 0 && endOffset < 7) {
+        endDay.setDate(lastDay.getDate() + endOffset);
     }
 
     let loopDay = new Date(startDay);
