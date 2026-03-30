@@ -1,13 +1,16 @@
 let allPlays = [];
 let allGames = [];
 let currentDate = new Date();
-
 async function initCalendar() {
     const loadingEl = document.getElementById('loading');
     const contentEl = document.getElementById('calendar-content');
     const errorEl = document.getElementById('error');
 
     try {
+        // Set to 1st of the month to avoid overflow bugs (e.g., March 30 -> Feb 30 becomes March 2)
+        currentDate.setDate(1);
+
+        // Fetch collection once
         allGames = await getCollection();
         
         loadingEl.style.display = 'none';
