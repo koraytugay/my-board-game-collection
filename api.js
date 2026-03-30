@@ -1,6 +1,7 @@
 const USERNAME = 'koraytugay';
-const COLLECTION_XML_FILE = 'https://raw.githubusercontent.com/koraytugay/my-board-game-collection/refs/heads/main/collection.xml';
-const PLAYS_XML_FILE = 'https://raw.githubusercontent.com/koraytugay/my-board-game-collection/refs/heads/main/plays.xml';
+// Using relative paths to avoid CORS issues on GitHub Pages
+const COLLECTION_XML_FILE = 'collection.xml';
+const PLAYS_XML_FILE = 'plays.xml';
 
 async function getCollection() {
     try {
