@@ -152,7 +152,6 @@ function createGameCard(game) {
     if (game.minPlayers <= 1) badgesHtml += '<span class="badge badge-solo">Solo</span>';
     if (game.rating >= 8) badgesHtml += '<span class="badge badge-highly-rated">Highly Rated</span>';
     if (game.myRating >= 9) badgesHtml += '<span class="badge badge-favorite">Favorite</span>';
-    if (game.numPlays >= 10) badgesHtml += '<span class="badge badge-frequently-played">Frequent</span>';
 
     card.innerHTML = `
         <div class="game-badges">
