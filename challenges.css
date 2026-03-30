@@ -457,6 +457,66 @@ body.dark-mode .game-selector-info h4 {
     color: #999;
 }
 
+/* Club Challenges */
+.club-challenges-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.club-card {
+    background: #f8f8f8;
+    padding: 25px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    transition: all 0.3s ease;
+}
+
+body.dark-mode .club-card {
+    background: #1a1a1a;
+}
+
+.club-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.club-card h3 {
+    font-size: 1.2em;
+    color: #333;
+    text-align: center;
+}
+
+body.dark-mode .club-card h3 {
+    color: #e0e0e0;
+}
+
+.club-stats {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.club-count {
+    font-size: 3em;
+    font-weight: 800;
+    color: #333;
+    line-height: 1;
+}
+
+body.dark-mode .club-count {
+    color: #e0e0e0;
+}
+
+.club-label {
+    font-size: 0.9em;
+    color: #999;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
 /* Mobile Responsive */
 @media (max-width: 768px) {
     .challenge-section {

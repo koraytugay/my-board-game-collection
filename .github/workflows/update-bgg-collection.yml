@@ -29,11 +29,8 @@ jobs:
         run: |
           set -euo pipefail
           URL="https://boardgamegeek.com/xmlapi2/collection?username=koraytugay&own=1&stats=1&excludesubtype=boardgameexpansion"
-
-          # If your collection is public, you can omit COOKIE_HEADER and the -H below.
           COOKIE_HEADER="Cookie: bggusername=${BGG_USER}; bggpassword=${BGG_PASSWORD}"
 
-          # Poll up to ~3 minutes if BGG responds 202 (queued)
           for i in {1..10}; do
             status=$(curl -sS -o collection.raw.xml -w "%{http_code}" \
               "$URL" \
@@ -50,25 +47,24 @@ jobs:
               exit 1
             fi
           done
-
-      - name: Trim XML prolog and keep from <items …>
-        run: |
-          set -euo pipefail
-          # Keep everything starting at the first line that begins with <items
-          # (handles cases where the first line is: <?xml version="1.0" ...?>)
           awk 'BEGIN{p=0} $0 ~ /^<items[[:space:]>]/ {p=1} p' collection.raw.xml > collection.xml
 
-          if ! grep -qE '^<items[[:space:]>]' collection.xml; then
-            echo "Failed to find <items ...> in response."
-            echo "First 20 lines for debugging:"
-            head -n 20 collection.raw.xml || true
-            exit 1
-          fi
+      - name: Fetch BGG plays (last 365 days)
+        env:
+          BGG_USER: koraytugay
+        run: |
+          set -euo pipefail
+          # Fetch recent plays (up to 100 per page, page 1)
+          URL="https://boardgamegeek.com/xmlapi2/plays?username=${BGG_USER}"
+          curl -sS -o plays.raw.xml "$URL"
+          
+          # Keep from <plays ...>
+          awk 'BEGIN{p=0} $0 ~ /^<plays[[:space:]>]/ {p=1} p' plays.raw.xml > plays.xml
 
       - name: Commit & push if changed
         run: |
           set -euo pipefail
-          if git diff --quiet -- collection.xml; then
+          if git diff --quiet -- collection.xml plays.xml; then
             echo "No changes to commit."
             exit 0
           fi
@@ -76,6 +72,6 @@ jobs:
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add collection.xml
-          git commit -m "chore: update collection.xml ($(date -u +%F))"
+          git add collection.xml plays.xml
+          git commit -m "chore: update collection and plays ($(date -u +%F))"
           git push

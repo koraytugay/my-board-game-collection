@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Play Calendar - My Board Game Collection</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .calendar-container {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+        }
+        body.dark-mode .calendar-container {
+            background: #2a2a2a;
+        }
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 10px;
+        }
+        .calendar-day-label {
+            text-align: center;
+            font-weight: bold;
+            color: #666;
+            padding: 10px;
+            text-transform: uppercase;
+            font-size: 0.8em;
+        }
+        .calendar-day {
+            min-height: 100px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 8px;
+            transition: all 0.2s ease;
+            background: #fafafa;
+        }
+        body.dark-mode .calendar-day {
+            border-color: #444;
+            background: #1a1a1a;
+        }
+        .calendar-day.today {
+            border: 2px solid #4CAF50;
+            background: #e8f5e9;
+        }
+        body.dark-mode .calendar-day.today {
+            background: #1b3d1f;
+        }
+        .day-number {
+            font-weight: bold;
+            font-size: 0.9em;
+            color: #999;
+            margin-bottom: 5px;
+            display: block;
+        }
+        .play-entry {
+            font-size: 0.75em;
+            background: #333;
+            color: white;
+            padding: 3px 6px;
+            border-radius: 4px;
+            margin-bottom: 3px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            cursor: pointer;
+        }
+        .play-entry:hover {
+            opacity: 0.8;
+        }
+        .month-nav-btn {
+            background: none;
+            border: 2px solid #333;
+            padding: 5px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.2s ease;
+        }
+        body.dark-mode .month-nav-btn {
+            border-color: #e0e0e0;
+            color: #e0e0e0;
+        }
+        .month-nav-btn:hover {
+            background: #333;
+            color: white;
+        }
+        #current-month-display {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        .calendar-day.other-month {
+            opacity: 0.3;
+        }
+        @media (max-width: 768px) {
+            .calendar-day {
+                min-height: 60px;
+                padding: 4px;
+            }
+            .play-entry {
+                font-size: 0.6em;
+                padding: 2px 4px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Play Calendar</h1>
+            <nav class="page-nav">
+                <a href="index.html" class="nav-link">← Back to Collection</a>
+            </nav>
+        </header>
+
+        <div id="loading" class="loading">
+            <div class="spinner"></div>
+            <p>Loading plays...</p>
+        </div>
+
+        <div id="error" class="error" style="display: none;"></div>
+
+        <div id="calendar-content" style="display: none;">
+            <div class="calendar-container">
+                <div class="calendar-header">
+                    <button id="prev-month" class="month-nav-btn">&lt; Prev</button>
+                    <div id="current-month-display">March 2026</div>
+                    <button id="next-month" class="month-nav-btn">Next &gt;</button>
+                </div>
+                <div class="calendar-grid" id="calendar-grid">
+                    <!-- Day labels -->
+                    <div class="calendar-day-label">Sun</div>
+                    <div class="calendar-day-label">Mon</div>
+                    <div class="calendar-day-label">Tue</div>
+                    <div class="calendar-day-label">Wed</div>
+                    <div class="calendar-day-label">Thu</div>
+                    <div class="calendar-day-label">Fri</div>
+                    <div class="calendar-day-label">Sat</div>
+                    <!-- Days will be populated by JS -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="api.js"></script>
+    <script src="calendar.js"></script>
+</body>
+</html>

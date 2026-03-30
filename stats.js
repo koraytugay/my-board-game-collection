@@ -1,137 +1,63 @@
-const COLLECTION_XML_FILE = 'https://raw.githubusercontent.com/koraytugay/my-board-game-collection/refs/heads/main/collection.xml';
-
 let allGames = [];
 
-async function fetchCollection() {
+async function fetchStats() {
     const loadingEl = document.getElementById('loading');
     const errorEl = document.getElementById('error');
-    const statsContentEl = document.getElementById('stats-content');
+    const contentEl = document.getElementById('stats-content');
 
     try {
-        const response = await fetch(COLLECTION_XML_FILE);
-
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-
-        const xmlText = await response.text();
-        const parser = new DOMParser();
-        const xmlDoc = parser.parseFromString(xmlText, 'text/xml');
-
-        const errorNode = xmlDoc.querySelector('parsererror');
-        if (errorNode) {
-            throw new Error('Error parsing XML response');
-        }
-
-        const items = xmlDoc.querySelectorAll('item');
-
-        if (items.length === 0) {
-            throw new Error('No games found in collection');
-        }
-
-        const games = Array.from(items).map(item => {
-            const name = item.querySelector('name')?.textContent || 'Unknown Game';
-            const yearPublished = item.querySelector('yearpublished')?.textContent || 'N/A';
-            const thumbnail = item.querySelector('thumbnail')?.textContent || '';
-            const image = item.querySelector('image')?.textContent || thumbnail;
-            const minPlayers = item.querySelector('stats')?.getAttribute('minplayers') || '?';
-            const maxPlayers = item.querySelector('stats')?.getAttribute('maxplayers') || '?';
-            const playingTime = item.querySelector('stats')?.getAttribute('playingtime') || '?';
-            const numPlays = item.querySelector('numplays')?.textContent || '0';
-            const objectId = item.getAttribute('objectid');
-            const ratingValue = item.querySelector('stats rating average')?.getAttribute('value') || '0';
-            const rating = parseFloat(ratingValue);
-            const myRatingValue = item.querySelector('stats rating')?.getAttribute('value') || '0';
-            const myRating = parseFloat(myRatingValue);
-
-            return {
-                name,
-                yearPublished,
-                thumbnail: image || thumbnail,
-                minPlayers,
-                maxPlayers,
-                playingTime: parseInt(playingTime) || 0,
-                numPlays: parseInt(numPlays),
-                objectId,
-                rating,
-                myRating
-            };
-        });
-
-        allGames = games;
-
-        calculateStatistics();
+        allGames = await getCollection();
+        updateOverviewStats();
         renderMostPlayed();
+        renderMilestones();
+        renderRatingChart();
+        updateInsights();
 
         loadingEl.style.display = 'none';
-        statsContentEl.style.display = 'block';
+        contentEl.style.display = 'block';
 
     } catch (error) {
-        console.error('Error fetching collection:', error);
+        console.error('Error fetching stats:', error);
         loadingEl.style.display = 'none';
         errorEl.style.display = 'block';
-        errorEl.textContent = `Failed to load collection: ${error.message}`;
+        errorEl.textContent = `Failed to load statistics: ${error.message}`;
     }
 }
 
-function calculateStatistics() {
-    // Basic stats
+function updateOverviewStats() {
     const totalGames = allGames.length;
     const totalPlays = allGames.reduce((sum, game) => sum + game.numPlays, 0);
-
-    const validRatings = allGames.filter(g => g.rating > 0);
-    const avgRating = validRatings.length > 0
-        ? validRatings.reduce((sum, game) => sum + game.rating, 0) / validRatings.length
+    
+    const ratedGames = allGames.filter(game => game.rating > 0);
+    const avgRating = ratedGames.length > 0 
+        ? ratedGames.reduce((sum, game) => sum + game.rating, 0) / ratedGames.length 
         : 0;
 
-    const validMyRatings = allGames.filter(g => g.myRating > 0);
-    const avgMyRating = validMyRatings.length > 0
-        ? validMyRatings.reduce((sum, game) => sum + game.myRating, 0) / validMyRatings.length
+    const myRatedGames = allGames.filter(game => game.myRating > 0);
+    const avgMyRating = myRatedGames.length > 0
+        ? myRatedGames.reduce((sum, game) => sum + game.myRating, 0) / myRatedGames.length
         : 0;
 
-    const validPlayTimes = allGames.filter(g => g.playingTime > 0);
-    const avgPlayTime = validPlayTimes.length > 0
-        ? Math.round(validPlayTimes.reduce((sum, game) => sum + game.playingTime, 0) / validPlayTimes.length)
-        : 0;
+    const avgPlayTime = Math.round(allGames.reduce((sum, game) => sum + game.playingTime, 0) / totalGames);
+    const mostPlayed = [...allGames].sort((a, b) => b.numPlays - a.numPlays)[0];
 
-    const mostPlayed = allGames.reduce((max, game) =>
-        game.numPlays > max.numPlays ? game : max
-    , allGames[0]);
-
-    // Additional insights
-    const soloGames = allGames.filter(g => g.minPlayers === '1').length;
-    const unplayedGames = allGames.filter(g => g.numPlays === 0).length;
-    const highRatedGames = allGames.filter(g => g.rating >= 7.5).length;
-    const recentGames = allGames.filter(g => {
-        const year = parseInt(g.yearPublished);
-        return !isNaN(year) && year >= 2020;
-    }).length;
-
-    // Update DOM
     document.getElementById('total-games').textContent = totalGames;
     document.getElementById('total-plays').textContent = totalPlays;
-    document.getElementById('avg-rating').textContent = avgRating.toFixed(2);
-    document.getElementById('avg-my-rating').textContent = avgMyRating > 0 ? avgMyRating.toFixed(2) : 'N/A';
+    document.getElementById('avg-rating').textContent = avgRating.toFixed(1);
+    document.getElementById('avg-my-rating').textContent = avgMyRating > 0 ? avgMyRating.toFixed(1) : 'N/A';
     document.getElementById('avg-playtime').textContent = avgPlayTime;
-    document.getElementById('most-played-name').textContent = mostPlayed.name;
-
-    document.getElementById('solo-games-count').textContent = soloGames;
-    document.getElementById('unplayed-count').textContent = unplayedGames;
-    document.getElementById('high-rated-count').textContent = highRatedGames;
-    document.getElementById('recent-games-count').textContent = recentGames;
+    document.getElementById('most-played-name').textContent = mostPlayed ? mostPlayed.name : '-';
 }
 
 function renderMostPlayed() {
     const container = document.getElementById('most-played-list');
-
-    // Get top 10 most played games
     const topGames = [...allGames]
         .sort((a, b) => b.numPlays - a.numPlays)
         .slice(0, 10)
         .filter(g => g.numPlays > 0);
 
     if (topGames.length === 0) {
-        container.innerHTML = '<p style="text-align: center; color: #999; padding: 40px;">No play data available</p>';
+        container.innerHTML = '<p class="empty-state">No play data available</p>';
         return;
     }
 
@@ -151,4 +77,63 @@ function renderMostPlayed() {
     `).join('');
 }
 
-fetchCollection();
+function renderMilestones() {
+    const hIndex = calculateHIndex(allGames);
+    const dimeCount = allGames.filter(g => g.numPlays >= 10).length;
+    const nickelCount = allGames.filter(g => g.numPlays >= 5).length;
+
+    document.getElementById('h-index-val').textContent = hIndex;
+    document.getElementById('dime-club-count').textContent = dimeCount;
+    document.getElementById('nickel-club-count').textContent = nickelCount;
+}
+
+function renderRatingChart() {
+    const container = document.getElementById('rating-chart');
+    
+    // Initialize distribution for 10 down to 1
+    const distribution = {};
+    for (let i = 10; i >= 1; i--) {
+        distribution[i] = 0;
+    }
+
+    allGames.forEach(game => {
+        const r = Math.floor(game.myRating);
+        if (r >= 1 && r <= 10) {
+            distribution[r]++;
+        }
+    });
+
+    const maxCount = Math.max(...Object.values(distribution));
+    
+    container.innerHTML = Object.entries(distribution)
+        .sort((a, b) => b[0] - a[0]) // Ensure 10 to 1 order
+        .map(([label, count]) => {
+            const percentage = maxCount > 0 ? (count / maxCount) * 100 : 0;
+            return `
+                <div class="chart-row">
+                    <div class="chart-label">${label}</div>
+                    <div class="chart-bar-container">
+                        <div class="chart-bar" style="width: ${percentage}%"></div>
+                        <span class="chart-count">${count}</span>
+                    </div>
+                </div>
+            `;
+        }).join('');
+}
+
+function updateInsights() {
+    const soloGames = allGames.filter(g => g.minPlayers <= 1).length;
+    const unplayedGames = allGames.filter(g => g.numPlays === 0).length;
+    const highRatedGames = allGames.filter(g => g.rating >= 7.5).length;
+    const recentGames = allGames.filter(g => {
+        const year = parseInt(g.yearPublished);
+        return !isNaN(year) && year >= 2020;
+    }).length;
+
+    document.getElementById('solo-games-count').textContent = soloGames;
+    document.getElementById('unplayed-count').textContent = unplayedGames;
+    document.getElementById('high-rated-count').textContent = highRatedGames;
+    document.getElementById('recent-games-count').textContent = recentGames;
+}
+
+document.addEventListener('DOMContentLoaded', fetchStats);

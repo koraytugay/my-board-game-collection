@@ -53,6 +53,42 @@
             </div>
         </section>
 
+        <!-- Club Challenges -->
+        <section class="challenge-section">
+            <div class="challenge-header">
+                <h2>📈 Play Depth Challenges</h2>
+                <p class="challenge-description">Building the Nickel and Dime clubs</p>
+            </div>
+
+            <div class="club-challenges-grid">
+                <div class="club-card dime">
+                    <h3>Dime Club (10+ Plays)</h3>
+                    <div class="club-stats">
+                        <span class="club-count" id="dime-count">0</span>
+                        <span class="club-label">Games</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div id="dime-progress-bar" class="progress-fill" style="background: #c0c0c0;">
+                            <span id="dime-progress-text"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="club-card nickel">
+                    <h3>Nickel Club (5+ Plays)</h3>
+                    <div class="club-stats">
+                        <span class="club-count" id="nickel-count">0</span>
+                        <span class="club-label">Games</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div id="nickel-progress-bar" class="progress-fill" style="background: #cd7f32;">
+                            <span id="nickel-progress-text"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Personal Bests -->
         <section class="challenge-section">
             <div class="challenge-header">
@@ -98,6 +134,7 @@
 
     </div>
 
+    <script src="api.js"></script>
     <script src="challenges.js"></script>
 </body>
 </html>

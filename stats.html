@@ -70,6 +70,37 @@
                 </div>
             </section>
 
+            <!-- Play Milestones & Charts -->
+            <div class="stats-grid-two-cols">
+                <section class="stats-section">
+                    <h2>Play Milestones</h2>
+                    <div class="milestone-cards">
+                        <div class="milestone-card h-index">
+                            <span class="milestone-label">H-Index</span>
+                            <span class="milestone-number" id="h-index-val">0</span>
+                            <span class="milestone-sub">Games played X times</span>
+                        </div>
+                        <div class="milestone-card dime">
+                            <span class="milestone-label">Dime Club</span>
+                            <span class="milestone-number" id="dime-club-count">0</span>
+                            <span class="milestone-sub">Games with 10+ plays</span>
+                        </div>
+                        <div class="milestone-card nickel">
+                            <span class="milestone-label">Nickel Club</span>
+                            <span class="milestone-number" id="nickel-club-count">0</span>
+                            <span class="milestone-sub">Games with 5+ plays</span>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="stats-section">
+                    <h2>My Rating Distribution</h2>
+                    <div id="rating-chart" class="css-chart">
+                        <!-- Populated by JS -->
+                    </div>
+                </section>
+            </div>
+
             <section class="stats-section">
                 <h2>Additional Insights</h2>
                 <div class="insights-grid">
@@ -98,6 +129,7 @@
         </div>
     </div>
 
+    <script src="api.js"></script>
     <script src="stats.js"></script>
 </body>
 </html>

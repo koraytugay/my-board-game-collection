@@ -165,6 +165,133 @@ body.dark-mode .most-played-info p {
     margin-top: 5px;
 }
 
+.stats-grid-two-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 60px;
+}
+
+.milestone-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.milestone-card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border-left: 8px solid #eee;
+    transition: transform 0.3s ease;
+}
+
+.milestone-card:hover {
+    transform: translateX(10px);
+}
+
+.milestone-card.h-index { border-color: #ffd700; }
+.milestone-card.dime { border-color: #c0c0c0; }
+.milestone-card.nickel { border-color: #cd7f32; }
+
+.milestone-label {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.milestone-number {
+    font-size: 3em;
+    font-weight: 800;
+    color: #333;
+    margin: 5px 0;
+}
+
+.milestone-sub {
+    font-size: 0.85em;
+    color: #999;
+}
+
+/* CSS Chart Styles */
+.css-chart {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    min-height: 300px;
+    justify-content: center;
+}
+
+.chart-row {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.chart-label {
+    width: 60px;
+    font-weight: bold;
+    color: #666;
+    text-align: right;
+    font-size: 0.9em;
+}
+
+.chart-bar-container {
+    flex: 1;
+    height: 24px;
+    background: #f0f0f0;
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+}
+
+.chart-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #4CAF50, #8BC34A);
+    border-radius: 12px;
+    transition: width 1s ease-out;
+}
+
+.chart-count {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.85em;
+    font-weight: bold;
+    color: #333;
+}
+
+body.dark-mode .milestone-card,
+body.dark-mode .css-chart {
+    background: #2a2a2a;
+}
+
+body.dark-mode .milestone-number,
+body.dark-mode .chart-count {
+    color: #e0e0e0;
+}
+
+body.dark-mode .chart-bar-container {
+    background: #444;
+}
+
+@media (max-width: 992px) {
+    .stats-grid-two-cols {
+        grid-template-columns: 1fr;
+    }
+}
+
 .insights-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
