@@ -8,15 +8,12 @@ async function initCalendar() {
     const errorEl = document.getElementById('error');
 
     try {
-        // Fetch collection once
         allGames = await getCollection();
         
         loadingEl.style.display = 'none';
         contentEl.style.display = 'block';
         
         loadDarkMode();
-        
-        // Initial render with current month data
         await updateMonthData();
         
         document.getElementById('prev-month').addEventListener('click', async () => {
@@ -40,8 +37,6 @@ async function initCalendar() {
 async function updateMonthData() {
     const year = currentDate.getFullYear();
     const month = currentDate.getMonth();
-    
-    // Fetch only the file for the month we are looking at
     allPlays = await getPlaysForMonth(year, month);
     renderCalendar();
 }
@@ -50,7 +45,6 @@ function renderCalendar() {
     const gridEl = document.getElementById('calendar-grid');
     const monthDisplay = document.getElementById('current-month-display');
     
-    // Clear existing days (keep labels)
     const labels = gridEl.querySelectorAll('.calendar-day-label');
     gridEl.innerHTML = '';
     labels.forEach(label => gridEl.appendChild(label));
@@ -90,24 +84,45 @@ function renderCalendar() {
         const dayPlays = allPlays.filter(p => p.date === dateStr);
         
         if (dayPlays.length > 0) {
+            // Aggregate plays by gameId
+            const aggregated = {};
+            dayPlays.forEach(play => {
+                const id = play.gameId;
+                if (!aggregated[id]) {
+                    aggregated[id] = {
+                        name: play.gameName,
+                        id: play.gameId,
+                        count: 0
+                    };
+                }
+                aggregated[id].count += play.quantity;
+            });
+
             const playsContainer = document.createElement('div');
             playsContainer.className = 'calendar-plays-container';
             
-            dayPlays.forEach(play => {
-                const gameData = allGames.find(g => g.objectId === play.gameId);
+            Object.values(aggregated).forEach(entry => {
+                const gameData = allGames.find(g => g.objectId === entry.id);
                 const playEl = document.createElement('div');
                 playEl.className = 'play-thumbnail-entry';
                 
+                let imgHtml = '';
                 if (gameData && gameData.thumbnail) {
-                    playEl.innerHTML = `
-                        <img src="${gameData.thumbnail}" alt="${play.gameName}" title="${play.gameName}${play.quantity > 1 ? ` (x${play.quantity})` : ''}">
-                    `;
+                    imgHtml = `<img src="${gameData.thumbnail}" alt="${entry.name}">`;
                 } else {
-                    playEl.className = 'play-entry';
-                    playEl.textContent = play.gameName;
+                    // Fallback for games not in collection
+                    imgHtml = `<div class="play-placeholder-img"><span>?</span></div>`;
                 }
+
+                playEl.innerHTML = `
+                    <div class="thumbnail-wrapper">
+                        ${imgHtml}
+                        ${entry.count > 1 ? `<span class="play-count-badge">x${entry.count}</span>` : ''}
+                    </div>
+                    <span class="game-name-tooltip">${entry.name}</span>
+                `;
                 
-                playEl.onclick = () => window.open(`https://boardgamegeek.com/boardgame/${play.gameId}`, '_blank');
+                playEl.onclick = () => window.open(`https://boardgamegeek.com/boardgame/${entry.id}`, '_blank');
                 playsContainer.appendChild(playEl);
             });
             dayEl.appendChild(playsContainer);
