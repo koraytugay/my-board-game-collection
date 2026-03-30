@@ -6,12 +6,18 @@
     <title>Play Calendar - My Board Game Collection</title>
     <link rel="stylesheet" href="styles.css">
     <style>
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+        }
         .calendar-container {
             background: white;
             border-radius: 15px;
-            padding: 30px;
+            padding: 20px;
             box-shadow: 0 5px 20px rgba(0,0,0,0.1);
             margin-bottom: 40px;
+            width: 100%;
+            overflow-x: auto;
         }
         body.dark-mode .calendar-container {
             background: #2a2a2a;
@@ -24,8 +30,9 @@
         }
         .calendar-grid {
             display: grid;
-            grid-template-columns: repeat(7, 1fr);
+            grid-template-columns: repeat(7, minmax(150px, 1fr));
             gap: 10px;
+            min-width: 1100px;
         }
         .calendar-day-label {
             text-align: center;
@@ -36,10 +43,10 @@
             font-size: 0.8em;
         }
         .calendar-day {
-            min-height: 100px;
+            min-height: 150px;
             border: 1px solid #eee;
             border-radius: 8px;
-            padding: 8px;
+            padding: 10px;
             transition: all 0.2s ease;
             background: #fafafa;
         }
@@ -56,28 +63,16 @@
         }
         .day-number {
             font-weight: bold;
-            font-size: 0.9em;
+            font-size: 1.1em;
             color: #999;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
             display: block;
-        }
-        .play-entry {
-            font-size: 0.75em;
-            background: #333;
-            color: white;
-            padding: 3px 6px;
-            border-radius: 4px;
-            margin-bottom: 3px;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            cursor: pointer;
         }
         .calendar-plays-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 8px;
-            margin-top: 8px;
+            gap: 6px;
+            margin-top: 5px;
         }
         .play-thumbnail-entry {
             display: flex;
@@ -89,20 +84,20 @@
         }
         .thumbnail-wrapper {
             position: relative;
-            width: 100px;
-            height: 100px;
+            width: 80px;
+            height: 80px;
             transition: transform 0.2s ease;
         }
         .play-thumbnail-entry:hover .thumbnail-wrapper {
-            transform: scale(1.05);
+            transform: scale(1.1);
             z-index: 10;
         }
         .thumbnail-wrapper img, .play-placeholder-img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border-radius: 8px;
-            box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+            border-radius: 6px;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.3);
         }
         .play-placeholder-img {
             background: #eee;
@@ -111,8 +106,8 @@
             justify-content: center;
             color: #999;
             font-weight: bold;
-            font-size: 2em;
-            border: 2px dashed #ccc;
+            font-size: 1.5em;
+            border: 1px dashed #ccc;
         }
         body.dark-mode .play-placeholder-img {
             background: #333;
@@ -120,15 +115,15 @@
         }
         .play-count-badge {
             position: absolute;
-            top: -8px;
-            right: -8px;
+            top: -6px;
+            right: -6px;
             background: #4CAF50;
             color: white;
-            font-size: 0.9em;
+            font-size: 0.8em;
             font-weight: bold;
-            padding: 4px 8px;
-            border-radius: 12px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+            padding: 3px 6px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.4);
             border: 2px solid white;
             z-index: 2;
         }
@@ -154,13 +149,25 @@
         .play-thumbnail-entry:hover .game-name-tooltip {
             display: block;
         }
-        @media (max-width: 1200px) {
-            .calendar-plays-container {
-                grid-template-columns: 1fr;
-            }
+        .play-entry {
+            font-size: 0.75em;
+            background: #333;
+            color: white;
+            padding: 3px 6px;
+            border-radius: 4px;
+            margin-bottom: 3px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            cursor: pointer;
+        }
+        @media (max-width: 1400px) {
             .thumbnail-wrapper {
-                width: 80px;
-                height: 80px;
+                width: 60px;
+                height: 60px;
+            }
+            .calendar-grid {
+                grid-template-columns: repeat(7, minmax(130px, 1fr));
             }
         }
         .play-entry:hover {
