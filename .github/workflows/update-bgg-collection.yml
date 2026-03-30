@@ -33,11 +33,11 @@ jobs:
           
           # Poll BGG (they often return 202 while generating the XML)
           for i in {1..10}; do
-            curl -sS -H "user-agent: GitHubAction" -H "$COOKIE_HEADER" -o collection.xml "$URL"
+            curl -sS -A "curl/7.68.0" -H "$COOKIE_HEADER" -o collection.xml "$URL"
             if grep -q "<items" collection.xml; then
               break
             fi
-            echo "Waiting for BGG... (attempt $i)"
+            echo "Waiting for BGG collection... (attempt $i)"
             sleep 20
           done
 
@@ -46,8 +46,17 @@ jobs:
           BGG_USER: koraytugay
         run: |
           set -euo pipefail
-          URL="https://boardgamegeek.com/xmlapi2/plays?username=${BGG_USER}"
-          curl -sS -H "user-agent: GitHubAction" -o plays.xml "$URL"
+          # Use XMLAPI v1 for plays as it is more stable for collection-wide dumps
+          URL="https://boardgamegeek.com/xmlapi/plays?username=${BGG_USER}"
+          
+          for i in {1..5}; do
+            curl -sS -A "curl/7.68.0" -o plays.xml "$URL"
+            if grep -q "<plays" plays.xml; then
+              break
+            fi
+            echo "Waiting for BGG plays... (attempt $i)"
+            sleep 10
+          done
 
       - name: Commit & push if changed
         run: |
