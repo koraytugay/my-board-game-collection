@@ -69,7 +69,10 @@ function renderCalendar() {
         if (loopDay.getMonth() !== month) dayEl.classList.add('other-month');
         if (loopDay.toDateString() === today.toDateString()) dayEl.classList.add('today');
         
-        const dateStr = loopDay.toISOString().split('T')[0];
+        const yearStr = loopDay.getFullYear();
+        const monthStr = String(loopDay.getMonth() + 1).padStart(2, '0');
+        const dayStr = String(loopDay.getDate()).padStart(2, '0');
+        const dateStr = `${yearStr}-${monthStr}-${dayStr}`;
         
         dayEl.innerHTML = `<span class="day-number">${loopDay.getDate()}</span>`;
         
