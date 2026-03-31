@@ -136,4 +136,14 @@ function updateInsights() {
     document.getElementById('recent-games-count').textContent = recentGames;
 }
 
-document.addEventListener('DOMContentLoaded', fetchStats);
+function loadDarkModePreference() {
+    const isDark = localStorage.getItem('darkMode') === 'true';
+    if (isDark) {
+        document.body.classList.add('dark-mode');
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    loadDarkModePreference();
+    fetchStats();
+});

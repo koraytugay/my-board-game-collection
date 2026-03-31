@@ -100,4 +100,14 @@ function renderPersonalBests() {
     }
 }
 
-document.addEventListener('DOMContentLoaded', fetchChallenges);
+function loadDarkModePreference() {
+    const isDark = localStorage.getItem('darkMode') === 'true';
+    if (isDark) {
+        document.body.classList.add('dark-mode');
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    loadDarkModePreference();
+    fetchChallenges();
+});
