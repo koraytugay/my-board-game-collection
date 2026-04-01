@@ -60,7 +60,7 @@ jobs:
           }
 
           # 1. Fetch Collection (Expanded to include 'played' games for thumbnails)
-          fetch_data "https://boardgamegeek.com/xmlapi2/collection?username=${BGG_USER}&stats=1" "collection.xml" "Collection" || true
+          fetch_data "https://boardgamegeek.com/xmlapi2/collection?username=${BGG_USER}&stats=1&subtype=boardgame,boardgameexpansion" "collection.xml" "Collection" || true
 
           # 2. Monthly Logic
           CURRENT_MONTH=$(date +%Y-%m)

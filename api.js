@@ -1,7 +1,7 @@
 const USERNAME = 'koraytugay';
 const COLLECTION_XML_FILE = 'collection.xml';
 
-async function getCollection() {
+async function getCollection(onlyOwned = true) {
     try {
         const response = await fetch(COLLECTION_XML_FILE);
 
@@ -18,13 +18,27 @@ async function getCollection() {
             throw new Error('Error parsing XML response');
         }
 
-        const items = xmlDoc.querySelectorAll('item');
+        let items = Array.from(xmlDoc.querySelectorAll('item'));
+
+        if (onlyOwned) {
+            items = items.filter(item => {
+                const status = item.querySelector('status');
+                const isOwned = status && status.getAttribute('own') === '1';
+                const isBoardGame = item.getAttribute('subtype') === 'boardgame';
+                
+                // Most expansions are returned as 'boardgame' but have 'Not Ranked' in their rank
+                const rank = item.querySelector('rank[name="boardgame"]');
+                const isRanked = rank && rank.getAttribute('value') !== 'Not Ranked';
+
+                return isOwned && isBoardGame && isRanked;
+            });
+        }
 
         if (items.length === 0) {
             throw new Error('No games found in collection');
         }
 
-        return Array.from(items).map(item => {
+        return items.map(item => {
             const name = item.querySelector('name')?.textContent || 'Unknown Game';
             const yearPublished = item.querySelector('yearpublished')?.textContent || 'N/A';
             const thumbnail = item.querySelector('thumbnail')?.textContent || '';

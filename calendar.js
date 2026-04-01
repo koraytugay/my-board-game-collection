@@ -10,8 +10,8 @@ async function initCalendar() {
         // Set to 1st of the month to avoid overflow bugs (e.g., March 30 -> Feb 30 becomes March 2)
         currentDate.setDate(1);
 
-        // Fetch collection once
-        allGames = await getCollection();
+        // Fetch collection once, including unowned games for thumbnails
+        allGames = await getCollection(false);
         
         loadingEl.style.display = 'none';
         contentEl.style.display = 'block';
