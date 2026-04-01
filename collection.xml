@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<items totalitems="121" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse" pubdate="Wed, 01 Apr 2026 20:54:51 +0000">
+<items totalitems="121" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse" pubdate="Wed, 01 Apr 2026 23:08:25 +0000">
 		<item objecttype="thing" objectid="422732" subtype="boardgame" collid="139245354">
 	<name sortindex="1">Agent Avenue</name>
 		<yearpublished>2024</yearpublished>			<image>https://cf.geekdo-images.com/qC5YwZANir1Cmg6d-1UUpQ__original/img/26YgtJFY_7vKONVD87cHDb1pWRs=/0x0/filters:format(png)/pic8427963.png</image>
@@ -51,7 +51,7 @@
 								<rank type="family" id="5499" name="familygames" friendlyname="Family Game Rank" value="17" bayesaverage="7.61599" />
 											</ranks>		</rating>
 			</stats>	<status own="1" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="0"  preordered="0" lastmodified="2025-10-22 19:17:52" />
-	<numplays>4</numplays>							</item>
+	<numplays>5</numplays>							</item>
 		<item objecttype="thing" objectid="299571" subtype="boardgame" collid="137662426">
 	<name sortindex="1">Bandida</name>
 		<yearpublished>2020</yearpublished>			<image>https://cf.geekdo-images.com/NxzxMSGrXnhZHEQc_1_zfQ__original/img/PqjOV4zujhvuAohuS5NsyNgo06I=/0x0/filters:format(jpeg)/pic5471628.jpg</image>
@@ -292,13 +292,13 @@
 		<yearpublished>2027</yearpublished>			<image>https://cf.geekdo-images.com/t09C6AsUI_ApPp1wm6XH-A__original/img/WQf1HQPi_vxKPQcEaAg4JH4QN4s=/0x0/filters:format(jpeg)/pic9437664.jpg</image>
 		<thumbnail>https://cf.geekdo-images.com/t09C6AsUI_ApPp1wm6XH-A__small/img/lWiEAHzffNgUril8iJFaFaLWq-g=/fit-in/200x150/filters:strip_icc()/pic9437664.jpg</thumbnail>
 		<stats minplayers="1"																	maxplayers="5"																	minplaytime="100"																	maxplaytime="100"																	playingtime="100"																	numowned="21" >
-				<rating value="1">			<usersrated value="692" />			<average value="4.76358" />
+				<rating value="N/A">			<usersrated value="692" />			<average value="4.76358" />
 			<bayesaverage value="5.34145" />			<stddev value="4.3265" />
 			<median value="0" />			<ranks>
 												<rank type="subtype" id="1" name="boardgame" friendlyname="Board Game Rank" value="Not Ranked" bayesaverage="5.34145" />
 											</ranks>		</rating>
-			</stats>	<status own="0" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="0"  preordered="0" lastmodified="2026-03-21 10:24:45" />
-	<numplays>0</numplays>			<comment>yuck!</comment>				</item>
+			</stats>	<status own="0" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="0"  preordered="0" lastmodified="2026-04-01 16:48:03" />
+	<numplays>0</numplays>							</item>
 		<item objecttype="thing" objectid="2719" subtype="boardgame" collid="141249023">
 	<name sortindex="1">Connect Four</name>
 		<yearpublished>1974</yearpublished>			<image>https://cf.geekdo-images.com/I_ZPIWEvFlrMa8caT4UD-w__original/img/w93rimjstxQr4BVmaZ_Tl5pQGOw=/0x0/filters:format(jpeg)/pic859430.jpg</image>
