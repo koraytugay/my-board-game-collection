@@ -27,8 +27,9 @@ async function getCollection(onlyOwned = true) {
                 const isBoardGame = item.getAttribute('subtype') === 'boardgame';
                 
                 // Most expansions are returned as 'boardgame' but have 'Not Ranked' in their rank
-                const rank = item.querySelector('rank[name="boardgame"]');
-                const isRanked = rank && rank.getAttribute('value') !== 'Not Ranked';
+                const ranks = item.querySelectorAll('rank');
+                const boardGameRank = Array.from(ranks).find(r => r.getAttribute('name') === 'boardgame');
+                const isRanked = boardGameRank && boardGameRank.getAttribute('value') !== 'Not Ranked';
 
                 return isOwned && isBoardGame && isRanked;
             });
