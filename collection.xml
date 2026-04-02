@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<items totalitems="121" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse" pubdate="Wed, 01 Apr 2026 23:08:25 +0000">
+<items totalitems="115" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse" pubdate="Thu, 02 Apr 2026 00:48:54 +0000">
 		<item objecttype="thing" objectid="422732" subtype="boardgame" collid="139245354">
 	<name sortindex="1">Agent Avenue</name>
 		<yearpublished>2024</yearpublished>			<image>https://cf.geekdo-images.com/qC5YwZANir1Cmg6d-1UUpQ__original/img/26YgtJFY_7vKONVD87cHDb1pWRs=/0x0/filters:format(png)/pic8427963.png</image>
@@ -557,32 +557,6 @@ I like the idea behind the game, building a forest ecosystem sounds great, and t
 On top of that, cards that let you draw with effects like &quot;whenever you play a tree card&quot; feel unbalanced. If someone gets those early, they gain a huge advantage since they no longer need to spend turns drawing.
 
 Overall: a mediocre experience for me. Nice theme and artwork, but too long, too repetitive, and lacking real tension in the choices.</comment>				</item>
-		<item objecttype="thing" objectid="412576" subtype="boardgame" collid="137662631">
-	<name sortindex="1">Forest Shuffle: Alpine</name>
-		<yearpublished>2024</yearpublished>			<image>https://cf.geekdo-images.com/DHrlMA2XJr5T5IsO_X0Z3w__original/img/C0GOJ_wWW8s1wbMn6VTl74LRe18=/0x0/filters:format(jpeg)/pic7998961.jpg</image>
-		<thumbnail>https://cf.geekdo-images.com/DHrlMA2XJr5T5IsO_X0Z3w__small/img/IlSD7ds4GhNqbljlvotFU3mJtDY=/fit-in/200x150/filters:strip_icc()/pic7998961.jpg</thumbnail>
-		<stats minplayers="2"																	maxplayers="5"																	minplaytime="60"																	maxplaytime="60"																	playingtime="60"																	numowned="14469" >
-				<rating value="6">			<usersrated value="3140" />			<average value="8.20869" />
-			<bayesaverage value="7.02776" />			<stddev value="1.05922" />
-			<median value="0" />			<ranks>
-												<rank type="subtype" id="1" name="boardgame" friendlyname="Board Game Rank" value="Not Ranked" bayesaverage="7.02776" />
-																<rank type="family" id="5497" name="strategygames" friendlyname="Strategy Game Rank" value="Not Ranked" bayesaverage="7.21229" />
-								<rank type="family" id="5499" name="familygames" friendlyname="Family Game Rank" value="Not Ranked" bayesaverage="7.25712" />
-											</ranks>		</rating>
-			</stats>	<status own="1" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="0"  preordered="0" lastmodified="2025-11-02 16:43:10" />
-	<numplays>0</numplays>							</item>
-		<item objecttype="thing" objectid="438231" subtype="boardgame" collid="137664636">
-	<name sortindex="1">Forest Shuffle: Exploration</name>
-		<yearpublished>2025</yearpublished>			<image>https://cf.geekdo-images.com/fnP6thsGty30uFGZEDzXRg__original/img/Scax25XBdCrC2uI8ls0lbjqPso4=/0x0/filters:format(jpeg)/pic8675693.jpg</image>
-		<thumbnail>https://cf.geekdo-images.com/fnP6thsGty30uFGZEDzXRg__small/img/ibF1r3N8j9-XLuJXBgXfYsXMzUY=/fit-in/200x150/filters:strip_icc()/pic8675693.jpg</thumbnail>
-		<stats minplayers="1"																	maxplayers="5"																	minplaytime="60"																	maxplaytime="60"																	playingtime="60"																	numowned="7307" >
-				<rating value="6">			<usersrated value="1012" />			<average value="7.7202" />
-			<bayesaverage value="6.15583" />			<stddev value="1.44823" />
-			<median value="0" />			<ranks>
-												<rank type="subtype" id="1" name="boardgame" friendlyname="Board Game Rank" value="Not Ranked" bayesaverage="6.15583" />
-											</ranks>		</rating>
-			</stats>	<status own="1" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="0"  preordered="0" lastmodified="2025-11-02 16:43:12" />
-	<numplays>0</numplays>							</item>
 		<item objecttype="thing" objectid="414317" subtype="boardgame" collid="137662303">
 	<name sortindex="1">Harmonies</name>
 		<yearpublished>2024</yearpublished>			<image>https://cf.geekdo-images.com/A_XP2_VN3ugyqPhezowB_w__original/img/_Rv8lSr3fC1oDRkrQleQW2H2yCs=/0x0/filters:format(png)/pic8026369.png</image>
@@ -779,18 +753,6 @@ Overall: a mediocre experience for me. Nice theme and artwork, but too long, too
 											</ranks>		</rating>
 			</stats>	<status own="1" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="0"  preordered="0" lastmodified="2025-12-22 17:14:10" />
 	<numplays>27</numplays>							</item>
-		<item objecttype="thing" objectid="280191" subtype="boardgame" collid="140029574">
-	<name sortindex="1">Machi Koro: The Harbor &amp; Millionaire&#039;s Row Expansions</name>
-		<yearpublished>2019</yearpublished>			<image>https://cf.geekdo-images.com/JoGqdNJqUgL-lpcSxyzhtQ__original/img/AdLMDlWcux6rGb-f-5RLAWF_KL4=/0x0/filters:format(jpeg)/pic4835385.jpg</image>
-		<thumbnail>https://cf.geekdo-images.com/JoGqdNJqUgL-lpcSxyzhtQ__small/img/ctIBnZ9ifPPa3Ehv5gVQSV13_tQ=/fit-in/200x150/filters:strip_icc()/pic4835385.jpg</thumbnail>
-		<stats minplayers="2"																	maxplayers="5"																	minplaytime="30"																	maxplaytime="30"																	playingtime="30"																	numowned="1723" >
-				<rating value="2">			<usersrated value="403" />			<average value="7.17236" />
-			<bayesaverage value="5.71669" />			<stddev value="1.47438" />
-			<median value="0" />			<ranks>
-												<rank type="subtype" id="1" name="boardgame" friendlyname="Board Game Rank" value="Not Ranked" bayesaverage="5.71669" />
-											</ranks>		</rating>
-			</stats>	<status own="1" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="0"  preordered="0" lastmodified="2025-12-21 21:30:46" />
-	<numplays>0</numplays>			<comment>Not sure why it is so highly rated. Ruins the game completely. Avoid.</comment>				</item>
 		<item objecttype="thing" objectid="396749" subtype="boardgame" collid="137662644">
 	<name sortindex="1">Magic Maze Tower</name>
 		<yearpublished>2024</yearpublished>			<image>https://cf.geekdo-images.com/Pd1YHgoMBJkV6N8Nhc_TeQ__original/img/wqBlg8x3KrnkrqHnebZZx0NnlMk=/0x0/filters:format(png)/pic8291661.png</image>
@@ -997,18 +959,6 @@ Overall: a mediocre experience for me. Nice theme and artwork, but too long, too
 											</ranks>		</rating>
 			</stats>	<status own="1" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="0"  preordered="0" lastmodified="2025-12-30 17:03:40" />
 	<numplays>2</numplays>							</item>
-		<item objecttype="thing" objectid="441707" subtype="boardgame" collid="138582839">
-	<name sortindex="1">Pixies: Flower Power</name>
-		<yearpublished>2025</yearpublished>			<image>https://cf.geekdo-images.com/W7EssIlLtPX7Sq621-JUKg__original/img/GkDorI3EccMirtccJgY3WCXIavo=/0x0/filters:format(png)/pic8788158.png</image>
-		<thumbnail>https://cf.geekdo-images.com/W7EssIlLtPX7Sq621-JUKg__small/img/0OZkXoHadTg6qbCmlPGOJETNvqs=/fit-in/200x150/filters:strip_icc()/pic8788158.png</thumbnail>
-		<stats minplayers="2"																	maxplayers="6"																	minplaytime="30"																	maxplaytime="30"																	playingtime="30"																	numowned="1845" >
-				<rating value="N/A">			<usersrated value="230" />			<average value="7.61945" />
-			<bayesaverage value="5.67833" />			<stddev value="1.23296" />
-			<median value="0" />			<ranks>
-												<rank type="subtype" id="1" name="boardgame" friendlyname="Board Game Rank" value="Not Ranked" bayesaverage="5.67833" />
-											</ranks>		</rating>
-			</stats>	<status own="1" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="0"  preordered="0" lastmodified="2025-11-13 19:43:20" />
-	<numplays>0</numplays>							</item>
 		<item objecttype="thing" objectid="368017" subtype="boardgame" collid="137662457">
 	<name sortindex="1">Point City</name>
 		<yearpublished>2023</yearpublished>			<image>https://cf.geekdo-images.com/-wcx_m4j86mTFAJ_kWz8eA__original/img/xqzKVJi-qRQAYHIUgpIz3kveNfQ=/0x0/filters:format(jpeg)/pic6998174.jpg</image>
@@ -1165,31 +1115,6 @@ Overall: a mediocre experience for me. Nice theme and artwork, but too long, too
 											</ranks>		</rating>
 			</stats>	<status own="1" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="0"  preordered="0" lastmodified="2025-10-22 19:28:28" />
 	<numplays>4</numplays>							</item>
-		<item objecttype="thing" objectid="442250" subtype="boardgame" collid="137664643">
-	<name sortindex="1">Sea Salt &amp; Paper: Extra Pepper</name>
-		<yearpublished>2025</yearpublished>			<image>https://cf.geekdo-images.com/cJNYlNxgzUOj59rYOKUC8g__original/img/MOVm4qZbZrkQN7_AqBfGm-BMsEQ=/0x0/filters:format(png)/pic8822830.png</image>
-		<thumbnail>https://cf.geekdo-images.com/cJNYlNxgzUOj59rYOKUC8g__small/img/uQwYaaNlYpC51BLyuL95u5FhYKo=/fit-in/200x150/filters:strip_icc()/pic8822830.png</thumbnail>
-		<stats minplayers="2"																	maxplayers="4"																	minplaytime="30"																	maxplaytime="45"																	playingtime="45"																	numowned="6233" >
-				<rating value="8">			<usersrated value="868" />			<average value="8.0366" />
-			<bayesaverage value="6.16383" />			<stddev value="1.27593" />
-			<median value="0" />			<ranks>
-												<rank type="subtype" id="1" name="boardgame" friendlyname="Board Game Rank" value="Not Ranked" bayesaverage="6.16383" />
-											</ranks>		</rating>
-			</stats>	<status own="1" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="0"  preordered="0" lastmodified="2025-10-22 21:26:37" />
-	<numplays>0</numplays>							</item>
-		<item objecttype="thing" objectid="396545" subtype="boardgame" collid="137664639">
-	<name sortindex="1">Sea Salt &amp; Paper: Extra Salt</name>
-		<yearpublished>2023</yearpublished>			<image>https://cf.geekdo-images.com/9jDNDtPC0s-eATSWly8oEg__original/img/5PL-OXwTjbWiYiDCPdhJa5j_E8Q=/0x0/filters:format(jpeg)/pic7731597.jpg</image>
-		<thumbnail>https://cf.geekdo-images.com/9jDNDtPC0s-eATSWly8oEg__small/img/qGTssy-U4rf5zTilJPd3nl3c1Nk=/fit-in/200x150/filters:strip_icc()/pic7731597.jpg</thumbnail>
-		<stats minplayers="2"																	maxplayers="4"																	minplaytime="30"																	maxplaytime="45"																	playingtime="45"																	numowned="14972" >
-				<rating value="8">			<usersrated value="3023" />			<average value="7.79275" />
-			<bayesaverage value="6.7637" />			<stddev value="1.20639" />
-			<median value="0" />			<ranks>
-												<rank type="subtype" id="1" name="boardgame" friendlyname="Board Game Rank" value="Not Ranked" bayesaverage="6.7637" />
-																<rank type="family" id="5499" name="familygames" friendlyname="Family Game Rank" value="Not Ranked" bayesaverage="6.95822" />
-											</ranks>		</rating>
-			</stats>	<status own="1" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="0"  preordered="0" lastmodified="2025-10-22 21:26:29" />
-	<numplays>0</numplays>							</item>
 		<item objecttype="thing" objectid="1198" subtype="boardgame" collid="142981141">
 	<name sortindex="1">SET</name>
 		<yearpublished>1988</yearpublished>			<image>https://cf.geekdo-images.com/uEtWO_Ag8OxbG6NkSZbH6A__original/img/io2YlTwg9Be3eNt5BgWOsvpjPVU=/0x0/filters:format(png)/pic7627182.png</image>
