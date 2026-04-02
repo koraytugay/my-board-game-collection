@@ -1,6 +1,13 @@
-<?xml version="1.0" encoding="utf-8"?><plays username="koraytugay" userid="4151779" total="2" page="1" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse">
+<?xml version="1.0" encoding="utf-8"?><plays username="koraytugay" userid="4151779" total="3" page="1" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse">
 <play id="112279024" date="2026-04-01" quantity="1" length="30" incomplete="0" nowinstats="0" location="">
 			<item name="Azul" objecttype="thing" objectid="230802">
+				<subtypes>
+										<subtype value="boardgame" />
+									</subtypes>
+			</item>
+								</play>
+	<play id="112285407" date="2026-04-01" quantity="1" length="30" incomplete="0" nowinstats="0" location="">
+			<item name="Dungeons, Dice &amp; Danger" objecttype="thing" objectid="349463">
 				<subtypes>
 										<subtype value="boardgame" />
 									</subtypes>
