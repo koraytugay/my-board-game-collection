@@ -38,11 +38,31 @@ async function getCollection(onlyOwned = true) {
             const yearPublished = item.querySelector('yearpublished')?.textContent || 'N/A';
             const thumbnail = item.querySelector('thumbnail')?.textContent || '';
             const image = item.querySelector('image')?.textContent || thumbnail;
+            const objectId = item.getAttribute('objectid');
+
+            // Resolve local images
+            // Since we don't know the extension (jpg vs png), we check common ones or assume jpg
+            // In a real environment, we'd check if the file exists on the server, but here
+            // we'll assume the downloader did its job. We'll use .jpg as default but BGG uses many.
+            // A better way is to check the extension from the original URL.
+            const getLocalPath = (url, type) => {
+                if (!url) return '';
+                try {
+                    const urlObj = new URL(url);
+                    const ext = urlObj.pathname.split('.').pop() || 'jpg';
+                    return `images/${type}/${objectId}.${ext}`;
+                } catch (e) {
+                    return url;
+                }
+            };
+
+            const localThumbnail = getLocalPath(thumbnail, 'thumbnails');
+            const localImage = getLocalPath(image, 'full');
+
             const minPlayers = parseInt(item.querySelector('stats')?.getAttribute('minplayers')) || 0;
             const maxPlayers = parseInt(item.querySelector('stats')?.getAttribute('maxplayers')) || 0;
             const playingTime = parseInt(item.querySelector('stats')?.getAttribute('playingtime')) || 0;
             const numPlays = parseInt(item.querySelector('numplays')?.textContent) || 0;
-            const objectId = item.getAttribute('objectid');
             const ratingValue = item.querySelector('stats rating average')?.getAttribute('value') || '0';
             const rating = parseFloat(ratingValue);
             const myRatingValue = item.querySelector('stats rating')?.getAttribute('value') || '0';
@@ -51,8 +71,8 @@ async function getCollection(onlyOwned = true) {
             return {
                 name,
                 yearPublished,
-                thumbnail: image || thumbnail,
-                image: image || thumbnail,
+                thumbnail: localThumbnail || thumbnail,
+                image: localImage || image || localThumbnail || thumbnail,
                 minPlayers,
                 maxPlayers,
                 playingTime,

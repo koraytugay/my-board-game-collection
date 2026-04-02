@@ -79,10 +79,13 @@ jobs:
           sleep 5
           fetch_month "$CURRENT_MONTH"
 
+      - name: Download New Images
+        run: node download-images.js
+
       - name: Commit & push if changed
         run: |
           set -euo pipefail
-          git add collection.xml plays/
+          git add collection.xml plays/ images/
 
           if git diff --quiet --staged; then
             echo "No changes to commit."
