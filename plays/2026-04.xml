@@ -1,5 +1,27 @@
-<?xml version="1.0" encoding="utf-8"?><plays username="koraytugay" userid="4151779" total="7" page="1" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse">
-<play id="112318268" date="2026-04-02" quantity="1" length="30" incomplete="0" nowinstats="0" location="">
+<?xml version="1.0" encoding="utf-8"?><plays username="koraytugay" userid="4151779" total="10" page="1" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse">
+<play id="112362147" date="2026-04-03" quantity="1" length="20" incomplete="0" nowinstats="0" location="">
+			<item name="Chess" objecttype="thing" objectid="171">
+				<subtypes>
+										<subtype value="boardgame" />
+									</subtypes>
+			</item>
+								</play>
+	<play id="112367858" date="2026-04-03" quantity="1" length="30" incomplete="0" nowinstats="0" location="">
+			<item name="Dungeons, Dice &amp; Danger" objecttype="thing" objectid="349463">
+				<subtypes>
+										<subtype value="boardgame" />
+									</subtypes>
+			</item>
+								</play>
+	<play id="112367873" date="2026-04-03" quantity="2" length="30" incomplete="0" nowinstats="0" location="">
+			<item name="Fantasy Realms: Greek Legends" objecttype="thing" objectid="428664">
+				<subtypes>
+										<subtype value="boardgame" />
+										<subtype value="boardgameimplementation" />
+									</subtypes>
+			</item>
+								</play>
+	<play id="112318268" date="2026-04-02" quantity="1" length="30" incomplete="0" nowinstats="0" location="">
 			<item name="Dungeons, Dice &amp; Danger" objecttype="thing" objectid="349463">
 				<subtypes>
 										<subtype value="boardgame" />
