@@ -10,7 +10,16 @@ async function fetchCollection() {
     const controlsEl = document.getElementById('controls');
 
     try {
-        allGames = await getCollection();
+        const [collection, lastPlayDates] = await Promise.all([
+            getCollection(),
+            getLastPlayDates()
+        ]);
+        
+        allGames = collection.map(game => ({
+            ...game,
+            lastPlayed: lastPlayDates[game.objectId] || ''
+        }));
+        
         filteredGames = [...allGames];
         
         updateStats();
@@ -65,6 +74,16 @@ function sortGames(criteria) {
                 return b.numPlays - a.numPlays;
             case 'plays-asc':
                 return a.numPlays - b.numPlays;
+            case 'recently-played':
+                if (!a.lastPlayed && !b.lastPlayed) return 0;
+                if (!a.lastPlayed) return 1;
+                if (!b.lastPlayed) return -1;
+                return b.lastPlayed.localeCompare(a.lastPlayed);
+            case 'least-recently-played':
+                if (!a.lastPlayed && !b.lastPlayed) return 0;
+                if (!a.lastPlayed) return 1;
+                if (!b.lastPlayed) return -1;
+                return a.lastPlayed.localeCompare(b.lastPlayed);
             case 'year-desc':
                 return parseInt(b.yearPublished) - parseInt(a.yearPublished);
             case 'year-asc':
@@ -170,10 +189,10 @@ function createGameCard(game) {
                 <div class="meta-item"><span>⭐</span> ${game.rating.toFixed(1)}</div>
                 ${game.myRating > 0 ? `<div class="meta-item"><span>💚</span> ${game.myRating.toFixed(1)}</div>` : ''}
                 <div class="meta-item"><span>🎲</span> ${game.numPlays} plays</div>
-            </div>
-        </div>
-    `;
-
+                ${game.lastPlayed ? `<div class="meta-item"><span>📅</span> ${game.lastPlayed}</div>` : ''}
+                </div>
+                </div>
+                `;
     return card;
 }
 
@@ -219,6 +238,7 @@ function pickRandomGame() {
         <div class="meta-item"><span>⭐</span> ${currentRandomGame.rating.toFixed(2)}</div>
         ${currentRandomGame.myRating > 0 ? `<div class="meta-item"><span>💚</span> ${currentRandomGame.myRating.toFixed(2)}</div>` : ''}
         <div class="meta-item"><span>🎲</span> ${currentRandomGame.numPlays} plays</div>
+        ${currentRandomGame.lastPlayed ? `<div class="meta-item"><span>📅</span> Last played: ${currentRandomGame.lastPlayed}</div>` : ''}
     `;
 
     document.getElementById('random-modal').style.display = 'flex';

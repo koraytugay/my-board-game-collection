@@ -121,6 +121,31 @@ async function getPlaysForMonth(year, month) {
     }
 }
 
+async function getLastPlayDates() {
+    const dates = {};
+    const now = new Date();
+    const fetchPromises = [];
+
+    // Fetch last 12 months of plays in parallel
+    for (let i = 0; i < 12; i++) {
+        const d = new Date(now.getFullYear(), now.getMonth() - i, 1);
+        fetchPromises.push(getPlaysForMonth(d.getFullYear(), d.getMonth()));
+    }
+
+    const allMonthlyPlays = await Promise.all(fetchPromises);
+    
+    allMonthlyPlays.forEach(plays => {
+        plays.forEach(play => {
+            const gameId = play.gameId;
+            if (!dates[gameId] || play.date > dates[gameId]) {
+                dates[gameId] = play.date;
+            }
+        });
+    });
+
+    return dates;
+}
+
 function calculateHIndex(games) {
     const plays = games.map(g => g.numPlays).sort((a, b) => b - a);
     let hIndex = 0;
