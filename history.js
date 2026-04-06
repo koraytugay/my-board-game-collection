@@ -80,14 +80,14 @@ function renderGroup(containerId, monthsData) {
         
         return `
             <div class="history-item" onclick="window.open('https://boardgamegeek.com/boardgame/${item.id}', '_blank')">
-                <img src="${thumbnail || 'https://via.placeholder.com/80x80?text=?'}" alt="${item.name}" class="history-item-img">
-                <div class="history-item-info">
-                    <h3>${item.name}</h3>
-                    <p>Last played: ${item.lastDate}</p>
-                </div>
+                <img src="${thumbnail || 'https://via.placeholder.com/180x180?text=?'}" alt="${item.name}" class="history-item-img">
                 <div class="history-item-plays">
                     <span class="plays-number">${item.count}</span>
                     <span class="plays-label">plays</span>
+                </div>
+                <div class="history-item-info">
+                    <h3>${item.name}</h3>
+                    <p>Last: ${item.lastDate}</p>
                 </div>
             </div>
         `;
