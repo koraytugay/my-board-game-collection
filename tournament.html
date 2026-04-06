@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Tournament - My Board Game Collection</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="tournament.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Game Tournament</h1>
+            <p class="subtitle">Pick your favorites in a head-to-head battle!</p>
+            <nav class="page-nav">
+                <a href="index.html" class="nav-link">← Back to Collection</a>
+            </nav>
+        </header>
+
+        <div id="loading" class="loading">
+            <div class="spinner"></div>
+            <p>Loading your collection...</p>
+        </div>
+
+        <div id="setup-view" class="setup-view" style="display: none;">
+            <h2>Choose Tournament Size</h2>
+            <div class="size-options">
+                <button class="btn btn-primary size-btn" data-size="8">8 Games</button>
+                <button class="btn btn-primary size-btn" data-size="16">16 Games</button>
+                <button class="btn btn-primary size-btn" data-size="32">32 Games</button>
+                <button class="btn btn-secondary size-btn" data-size="all">Whole Collection</button>
+            </div>
+            <p class="hint">Games will be selected randomly from your collection.</p>
+        </div>
+
+        <div id="matchup-view" class="matchup-view" style="display: none;">
+            <div class="tournament-progress">
+                <div class="progress-info">
+                    <span id="round-name">Round 1</span>
+                    <span id="match-count">Match 1 of 4</span>
+                </div>
+                <div class="progress-bar-container">
+                    <div id="progress-bar" class="progress-bar" style="width: 0%"></div>
+                </div>
+            </div>
+
+            <div class="vs-container">
+                <div id="game-a" class="game-choice">
+                    <div class="game-image-wrapper">
+                        <img src="" alt="" class="game-image">
+                    </div>
+                    <div class="game-details">
+                        <h2 class="game-name">Game A</h2>
+                        <p class="game-year"></p>
+                    </div>
+                    <button class="btn btn-primary select-btn">Pick This One</button>
+                </div>
+
+                <div class="vs-divider">VS</div>
+
+                <div id="game-b" class="game-choice">
+                    <div class="game-image-wrapper">
+                        <img src="" alt="" class="game-image">
+                    </div>
+                    <div class="game-details">
+                        <h2 class="game-name">Game B</h2>
+                        <p class="game-year"></p>
+                    </div>
+                    <button class="btn btn-primary select-btn">Pick This One</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="winner-view" class="winner-view" style="display: none;">
+            <h2>🏆 The Champion! 🏆</h2>
+            <div id="champion-display" class="champion-display">
+                <!-- Champion details will be injected here -->
+            </div>
+            <div class="actions">
+                <button id="restart-btn" class="btn btn-primary">Start New Tournament</button>
+                <a href="index.html" class="btn btn-secondary">Back to Collection</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="api.js"></script>
+    <script src="tournament.js"></script>
+</body>
+</html>
