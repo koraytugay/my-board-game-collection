@@ -81,8 +81,8 @@ function sortGames(criteria) {
                 return b.lastPlayed.localeCompare(a.lastPlayed);
             case 'least-recently-played':
                 if (!a.lastPlayed && !b.lastPlayed) return 0;
-                if (!a.lastPlayed) return 1;
-                if (!b.lastPlayed) return -1;
+                if (!a.lastPlayed) return -1;
+                if (!b.lastPlayed) return 1;
                 return a.lastPlayed.localeCompare(b.lastPlayed);
             case 'year-desc':
                 return parseInt(b.yearPublished) - parseInt(a.yearPublished);
