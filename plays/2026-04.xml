@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><plays username="koraytugay" userid="4151779" total="19" page="1" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse">
+<?xml version="1.0" encoding="utf-8"?><plays username="koraytugay" userid="4151779" total="20" page="1" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse">
 <play id="112446805" date="2026-04-05" quantity="1" length="30" incomplete="0" nowinstats="0" location="">
 			<item name="Lost Cities" objecttype="thing" objectid="50">
 				<subtypes>
@@ -11,6 +11,13 @@
 				<subtypes>
 										<subtype value="boardgame" />
 										<subtype value="boardgameintegration" />
+									</subtypes>
+			</item>
+								</play>
+	<play id="112477808" date="2026-04-05" quantity="2" length="60" incomplete="0" nowinstats="0" location="">
+			<item name="Splendor" objecttype="thing" objectid="148228">
+				<subtypes>
+										<subtype value="boardgame" />
 									</subtypes>
 			</item>
 								</play>
