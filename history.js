@@ -56,22 +56,15 @@ function processAndRender(plays, currentYear, currentMonth) {
 
         let timeframe = '';
         
-        // Months diff for "Within Last 6 Months" (0 = this month)
-        const monthsDiff = (currentYear - playYear) * 12 + (currentMonth - playMonth);
-
-        // 1. Within This Month
+        // 1. Within This Month (Current calendar month)
         if (playYear === currentYear && playMonth === currentMonth) {
             timeframe = 'this-month';
         } 
-        // 2. Within Last 6 Months (including this month technically, but this-month handled above)
-        else if (monthsDiff < 6) {
-            timeframe = 'last-6-months';
-        }
-        // 3. Within This Year (Jan 1st to today)
+        // 2. Within This Year (Jan 1st to today, excluding current month)
         else if (playYear === currentYear) {
             timeframe = 'this-year';
         }
-        // 4. Within Last Year (Previous calendar year)
+        // 3. Within Last Year (Previous calendar year)
         else if (playYear === currentYear - 1) {
             timeframe = 'last-year';
         }
@@ -89,7 +82,6 @@ function processAndRender(plays, currentYear, currentMonth) {
     // Bucket games by timeframe
     const buckets = {
         'this-month': [],
-        'last-6-months': [],
         'this-year': [],
         'last-year': []
     };
@@ -100,7 +92,6 @@ function processAndRender(plays, currentYear, currentMonth) {
 
     // Render each bucket
     renderBucket('this-month-list', buckets['this-month']);
-    renderBucket('last-6-months-list', buckets['last-6-months']);
     renderBucket('this-year-list', buckets['this-year']);
     renderBucket('last-year-list', buckets['last-year']);
 }
