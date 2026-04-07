@@ -1,11 +1,11 @@
 .history-section {
-    margin-bottom: 60px;
+    margin-bottom: 50px;
 }
 
 .history-section h2 {
-    font-size: 2em;
+    font-size: 1.8em;
     color: #333;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
     padding-bottom: 10px;
     border-bottom: 3px solid #333;
 }
@@ -17,118 +17,68 @@ body.dark-mode .history-section h2 {
 
 .history-list {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-    gap: 25px;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 15px;
 }
 
 .history-item {
-    background: white;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
     position: relative;
-    aspect-ratio: 1 / 1.4;
-}
-
-body.dark-mode .history-item {
-    background: #2a2a2a;
+    aspect-ratio: 1 / 1;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .history-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    z-index: 10;
 }
 
 .history-item-img {
     width: 100%;
-    height: 180px;
+    height: 100%;
     object-fit: cover;
 }
 
-.history-item-info {
-    padding: 12px;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.history-item-info h3 {
-    font-size: 1em;
-    margin: 0 0 5px 0;
-    color: #333;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    line-height: 1.2;
-}
-
-body.dark-mode .history-item-info h3 {
-    color: #e0e0e0;
-}
-
-.history-item-info p {
-    font-size: 0.75em;
-    color: #666;
-    margin: 0;
-}
-
-body.dark-mode .history-item-info p {
-    color: #b0b0b0;
-}
-
-.history-item-plays {
+/* Tooltip similar to calendar */
+.game-name-tooltip {
+    visibility: hidden;
+    width: 140px;
+    background-color: rgba(0, 0, 0, 0.85);
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px;
     position: absolute;
-    top: 10px;
-    right: 10px;
-    background: rgba(76, 175, 80, 0.9);
-    color: white;
-    padding: 5px 10px;
-    border-radius: 20px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 4px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    z-index: 100;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 0.8em;
+    pointer-events: none;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
-.history-item-plays .plays-number {
-    font-size: 1.2em;
-    font-weight: bold;
-}
-
-.history-item-plays .plays-label {
-    font-size: 0.7em;
-    text-transform: uppercase;
-    font-weight: bold;
+.history-item:hover .game-name-tooltip {
+    visibility: visible;
+    opacity: 1;
 }
 
 .empty-state {
     grid-column: 1 / -1;
-    text-align: center;
     color: #999;
     font-style: italic;
-    padding: 40px;
-    background: #f9f9f9;
-    border-radius: 15px;
+    padding: 20px 0;
 }
 
-body.dark-mode .empty-state {
-    background: #1a1a1a;
-}
-
-@media (max-width: 480px) {
+@media (max-width: 600px) {
     .history-list {
-        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-        gap: 15px;
-    }
-    
-    .history-item-img {
-        height: 140px;
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        gap: 10px;
     }
 }
