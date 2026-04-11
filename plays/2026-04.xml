@@ -1,5 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?><plays username="koraytugay" userid="4151779" total="31" page="1" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse">
-<play id="112615375" date="2026-04-09" quantity="2" length="30" incomplete="0" nowinstats="0" location="">
+<?xml version="1.0" encoding="utf-8"?><plays username="koraytugay" userid="4151779" total="32" page="1" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse">
+<play id="112652328" date="2026-04-10" quantity="2" length="30" incomplete="0" nowinstats="0" location="">
+			<item name="Chess" objecttype="thing" objectid="171">
+				<subtypes>
+										<subtype value="boardgame" />
+									</subtypes>
+			</item>
+								</play>
+	<play id="112615375" date="2026-04-09" quantity="2" length="30" incomplete="0" nowinstats="0" location="">
 			<item name="Chess" objecttype="thing" objectid="171">
 				<subtypes>
 										<subtype value="boardgame" />
