@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<items totalitems="118" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse" pubdate="Sun, 19 Apr 2026 16:22:47 +0000">
+<items totalitems="119" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse" pubdate="Mon, 20 Apr 2026 08:14:17 +0000">
 		<item objecttype="thing" objectid="422732" subtype="boardgame" collid="139245354">
 	<name sortindex="1">Agent Avenue</name>
 		<yearpublished>2024</yearpublished>			<image>https://cf.geekdo-images.com/qC5YwZANir1Cmg6d-1UUpQ__original/img/26YgtJFY_7vKONVD87cHDb1pWRs=/0x0/filters:format(png)/pic8427963.png</image>
@@ -1469,6 +1469,19 @@ Overall: a mediocre experience for me. Nice theme and artwork, but too long, too
 											</ranks>		</rating>
 			</stats>	<status own="1" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="0"  preordered="0" lastmodified="2025-10-25 14:17:55" />
 	<numplays>2</numplays>							</item>
+		<item objecttype="thing" objectid="234621" subtype="boardgame" collid="144729202">
+	<name sortindex="1">Tybor the Builder</name>
+		<yearpublished>2017</yearpublished>			<image>https://cf.geekdo-images.com/7__fttX_Kcqpp_IRFHPyTg__original/img/sZ9i6SniJT0v871BBxn7JREkAIA=/0x0/filters:format(jpeg)/pic5875452.jpg</image>
+		<thumbnail>https://cf.geekdo-images.com/7__fttX_Kcqpp_IRFHPyTg__small/img/PHKWD_1tRbgytxBXNAcqiaCc4os=/fit-in/200x150/filters:strip_icc()/pic5875452.jpg</thumbnail>
+		<stats minplayers="2"																	maxplayers="4"																	minplaytime="30"																	maxplaytime="30"																	playingtime="30"																	numowned="3109" >
+				<rating value="N/A">			<usersrated value="1472" />			<average value="6.91256" />
+			<bayesaverage value="6.04845" />			<stddev value="1.15174" />
+			<median value="0" />			<ranks>
+												<rank type="subtype" id="1" name="boardgame" friendlyname="Board Game Rank" value="2912" bayesaverage="6.04845" />
+																<rank type="family" id="5497" name="strategygames" friendlyname="Strategy Game Rank" value="1343" bayesaverage="6.1764" />
+											</ranks>		</rating>
+			</stats>	<status own="0" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="1" wishlist="0"  preordered="0" lastmodified="2026-04-19 19:11:26" />
+	<numplays>0</numplays>							</item>
 		<item objecttype="thing" objectid="46396" subtype="boardgame" collid="144106240">
 	<name sortindex="1">Ubongo 3D</name>
 		<yearpublished>2009</yearpublished>			<image>https://cf.geekdo-images.com/WDzyiNLC4jxbxVLvovGp8w__original/img/p4_7s9oSB64a7nZe05RSR6KDi8k=/0x0/filters:format(jpeg)/pic6220818.jpg</image>
