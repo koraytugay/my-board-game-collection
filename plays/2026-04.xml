@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><plays username="koraytugay" userid="4151779" total="48" page="1" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse">
+<?xml version="1.0" encoding="utf-8"?><plays username="koraytugay" userid="4151779" total="49" page="1" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse">
 <play id="113042231" date="2026-04-20" quantity="1" length="30" incomplete="0" nowinstats="0" location="">
 			<item name="Cyberion" objecttype="thing" objectid="376893">
 				<subtypes>
@@ -10,6 +10,14 @@
 			<item name="Cyberion" objecttype="thing" objectid="376893">
 				<subtypes>
 										<subtype value="boardgame" />
+									</subtypes>
+			</item>
+								</play>
+	<play id="113047004" date="2026-04-20" quantity="1" length="20" incomplete="0" nowinstats="0" location="">
+			<item name="Ubongo 3D" objecttype="thing" objectid="46396">
+				<subtypes>
+										<subtype value="boardgame" />
+										<subtype value="boardgameimplementation" />
 									</subtypes>
 			</item>
 								</play>
