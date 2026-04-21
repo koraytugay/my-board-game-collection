@@ -1,5 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?><plays username="koraytugay" userid="4151779" total="49" page="1" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse">
-<play id="113042231" date="2026-04-20" quantity="1" length="30" incomplete="0" nowinstats="0" location="">
+<?xml version="1.0" encoding="utf-8"?><plays username="koraytugay" userid="4151779" total="51" page="1" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse">
+<play id="113051455" date="2026-04-20" quantity="3" length="60" incomplete="0" nowinstats="0" location="">
+			<item name="Chess" objecttype="thing" objectid="171">
+				<subtypes>
+										<subtype value="boardgame" />
+									</subtypes>
+			</item>
+								</play>
+	<play id="113042231" date="2026-04-20" quantity="1" length="30" incomplete="0" nowinstats="0" location="">
 			<item name="Cyberion" objecttype="thing" objectid="376893">
 				<subtypes>
 										<subtype value="boardgame" />
@@ -8,6 +15,13 @@
 								</play>
 	<play id="113034033" date="2026-04-20" quantity="1" length="60" incomplete="0" nowinstats="0" location="">
 			<item name="Cyberion" objecttype="thing" objectid="376893">
+				<subtypes>
+										<subtype value="boardgame" />
+									</subtypes>
+			</item>
+								</play>
+	<play id="113050173" date="2026-04-20" quantity="1" length="30" incomplete="0" nowinstats="0" location="">
+			<item name="Harmonies" objecttype="thing" objectid="414317">
 				<subtypes>
 										<subtype value="boardgame" />
 									</subtypes>
