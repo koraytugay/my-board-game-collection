@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<items totalitems="120" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse" pubdate="Sat, 25 Apr 2026 17:07:15 +0000">
+<items totalitems="122" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse" pubdate="Sun, 26 Apr 2026 07:44:22 +0000">
 		<item objecttype="thing" objectid="422732" subtype="boardgame" collid="139245354">
 	<name sortindex="1">Agent Avenue</name>
 		<yearpublished>2024</yearpublished>			<image>https://cf.geekdo-images.com/qC5YwZANir1Cmg6d-1UUpQ__original/img/26YgtJFY_7vKONVD87cHDb1pWRs=/0x0/filters:format(png)/pic8427963.png</image>
@@ -324,7 +324,7 @@
 																<rank type="family" id="5497" name="strategygames" friendlyname="Strategy Game Rank" value="1102" bayesaverage="6.33664" />
 											</ranks>		</rating>
 			</stats>	<status own="1" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="0"  preordered="0" lastmodified="2026-04-17 21:05:57" />
-	<numplays>9</numplays>							</item>
+	<numplays>10</numplays>							</item>
 		<item objecttype="thing" objectid="380887" subtype="boardgame" collid="137662439">
 	<name sortindex="1">Deduckto</name>
 		<yearpublished>2023</yearpublished>			<image>https://cf.geekdo-images.com/XPMVnqs8kBmgpUJ372vDQg__original/img/pztgTywEI1RSK5EBnmTDv8cTYuM=/0x0/filters:format(png)/pic7596364.png</image>
@@ -429,6 +429,18 @@
 											</ranks>		</rating>
 			</stats>	<status own="0" prevowned="1" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="0"  preordered="0" lastmodified="2026-01-04 12:36:50" />
 	<numplays>0</numplays>			<comment>Some puzzles are just way too easy and others are very very difficult. There is no story. It is just &quot;ok what is the next puzzle?&quot;. And they are not even fun. Also why can&#039;t they give a few copies of the cards you need to destroy so you can play a few times? Only a handful of components need to be cut but everything else goes into trash. Just give a few copies of those few components we need to cut/tear etc so make it at least playable a few times in the family!</comment>				</item>
+		<item objecttype="thing" objectid="396727" subtype="boardgame" collid="144899478">
+	<name sortindex="1">Fantasy Map Maker</name>
+		<yearpublished>2024</yearpublished>			<image>https://cf.geekdo-images.com/mP3fxVHV60FSqQt6GvCf8Q__original/img/f54aPIhhZ9JQj_kTIEMjVo8rBYI=/0x0/filters:format(jpeg)/pic9341190.jpg</image>
+		<thumbnail>https://cf.geekdo-images.com/mP3fxVHV60FSqQt6GvCf8Q__small/img/vdTyR8FyEp53YkjnT2dbKSvya9g=/fit-in/200x150/filters:strip_icc()/pic9341190.jpg</thumbnail>
+		<stats minplayers="1"																	maxplayers="100"																	minplaytime="30"																	maxplaytime="60"																	playingtime="60"																	numowned="132" >
+				<rating value="N/A">			<usersrated value="40" />			<average value="8.1825" />
+			<bayesaverage value="5.53665" />			<stddev value="1.61832" />
+			<median value="0" />			<ranks>
+												<rank type="subtype" id="1" name="boardgame" friendlyname="Board Game Rank" value="15201" bayesaverage="5.53665" />
+											</ranks>		</rating>
+			</stats>	<status own="0" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="1" wishlist="0"  preordered="0" lastmodified="2026-04-25 15:14:19" />
+	<numplays>0</numplays>							</item>
 		<item objecttype="thing" objectid="223040" subtype="boardgame" collid="137662260">
 	<name sortindex="1">Fantasy Realms</name>
 		<yearpublished>2017</yearpublished>			<image>https://cf.geekdo-images.com/A7IOpPt-lHrMYsbRmxXWdQ__original/img/kaYIVoFZkbWe0z80bvcqJdFCNlo=/0x0/filters:format(jpeg)/pic6177962.jpg</image>
@@ -1088,6 +1100,19 @@ Overall: a mediocre experience for me. Nice theme and artwork, but too long, too
 											</ranks>		</rating>
 			</stats>	<status own="1" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="0"  preordered="0" lastmodified="2026-03-07 19:30:56" />
 	<numplays>6</numplays>							</item>
+		<item objecttype="thing" objectid="418542" subtype="boardgame" collid="144904556">
+	<name sortindex="1">Rome: Fate of an Empire</name>
+		<yearpublished>2024</yearpublished>			<image>https://cf.geekdo-images.com/j9-tUxt8GLw_al9Ja4t7MQ__original/img/Zqz4VnqixDKJRuqbZp8o4d3rBMc=/0x0/filters:format(png)/pic8129791.png</image>
+		<thumbnail>https://cf.geekdo-images.com/j9-tUxt8GLw_al9Ja4t7MQ__small/img/55MrQq0qtTdnv6LrDFxSRQ1ojUE=/fit-in/200x150/filters:strip_icc()/pic8129791.png</thumbnail>
+		<stats minplayers="1"																	maxplayers="1"																	minplaytime="60"																	maxplaytime="90"																	playingtime="90"																	numowned="2203" >
+				<rating value="N/A">			<usersrated value="526" />			<average value="7.93924" />
+			<bayesaverage value="5.92437" />			<stddev value="1.28572" />
+			<median value="0" />			<ranks>
+												<rank type="subtype" id="1" name="boardgame" friendlyname="Board Game Rank" value="3662" bayesaverage="5.92437" />
+																<rank type="family" id="5497" name="strategygames" friendlyname="Strategy Game Rank" value="1564" bayesaverage="6.0467" />
+											</ranks>		</rating>
+			</stats>	<status own="0" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="1" wishlist="0"  preordered="0" lastmodified="2026-04-25 18:07:33" />
+	<numplays>0</numplays>							</item>
 		<item objecttype="thing" objectid="342562" subtype="boardgame" collid="139400296">
 	<name sortindex="1">ROVE: Results-Oriented Versatile Explorer</name>
 		<yearpublished>2021</yearpublished>			<image>https://cf.geekdo-images.com/-BTMmbHaR16DRt0OEh5arA__original/img/COMPKUG73b0TGpzmtES2Rl8PmCk=/0x0/filters:format(png)/pic6494257.png</image>
