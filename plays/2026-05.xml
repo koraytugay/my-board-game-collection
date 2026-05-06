@@ -1,5 +1,41 @@
-<?xml version="1.0" encoding="utf-8"?><plays username="koraytugay" userid="4151779" total="7" page="1" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse">
-<play id="113552677" date="2026-05-03" quantity="1" length="20" incomplete="0" nowinstats="0" location="">
+<?xml version="1.0" encoding="utf-8"?><plays username="koraytugay" userid="4151779" total="12" page="1" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse">
+<play id="113611147" date="2026-05-05" quantity="2" length="30" incomplete="0" nowinstats="0" location="">
+			<item name="Chess" objecttype="thing" objectid="171">
+				<subtypes>
+										<subtype value="boardgame" />
+									</subtypes>
+			</item>
+								</play>
+	<play id="113611130" date="2026-05-05" quantity="1" length="10" incomplete="0" nowinstats="0" location="">
+			<item name="SET" objecttype="thing" objectid="1198">
+				<subtypes>
+										<subtype value="boardgame" />
+									</subtypes>
+			</item>
+								</play>
+	<play id="113611132" date="2026-05-05" quantity="1" length="20" incomplete="0" nowinstats="0" location="">
+			<item name="Swish" objecttype="thing" objectid="99219">
+				<subtypes>
+										<subtype value="boardgame" />
+									</subtypes>
+			</item>
+								</play>
+	<play id="113611136" date="2026-05-05" quantity="1" length="10" incomplete="0" nowinstats="0" location="">
+			<item name="Tucano" objecttype="thing" objectid="318556">
+				<subtypes>
+										<subtype value="boardgame" />
+									</subtypes>
+			</item>
+								</play>
+	<play id="113604559" date="2026-05-05" quantity="1" length="20" incomplete="0" nowinstats="0" location="">
+			<item name="Ubongo 3D" objecttype="thing" objectid="46396">
+				<subtypes>
+										<subtype value="boardgame" />
+										<subtype value="boardgameimplementation" />
+									</subtypes>
+			</item>
+								</play>
+	<play id="113552677" date="2026-05-03" quantity="1" length="20" incomplete="0" nowinstats="0" location="">
 			<item name="Sky Team" objecttype="thing" objectid="373106">
 				<subtypes>
 										<subtype value="boardgame" />
