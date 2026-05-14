@@ -1,5 +1,21 @@
-<?xml version="1.0" encoding="utf-8"?><plays username="koraytugay" userid="4151779" total="20" page="1" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse">
-<play id="113766073" date="2026-05-09" quantity="1" length="30" incomplete="0" nowinstats="0" location="">
+<?xml version="1.0" encoding="utf-8"?><plays username="koraytugay" userid="4151779" total="22" page="1" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse">
+<play id="113904856" date="2026-05-13" quantity="1" length="20" incomplete="0" nowinstats="0" location="">
+			<item name="Point Galaxy" objecttype="thing" objectid="431998">
+				<subtypes>
+										<subtype value="boardgame" />
+										<subtype value="boardgameimplementation" />
+									</subtypes>
+			</item>
+								</play>
+	<play id="113904855" date="2026-05-13" quantity="1" length="20" incomplete="0" nowinstats="0" location="">
+			<item name="Ubongo 3D" objecttype="thing" objectid="46396">
+				<subtypes>
+										<subtype value="boardgame" />
+										<subtype value="boardgameimplementation" />
+									</subtypes>
+			</item>
+								</play>
+	<play id="113766073" date="2026-05-09" quantity="1" length="30" incomplete="0" nowinstats="0" location="">
 			<item name="Cyberion" objecttype="thing" objectid="376893">
 				<subtypes>
 										<subtype value="boardgame" />
