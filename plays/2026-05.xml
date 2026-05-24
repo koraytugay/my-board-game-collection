@@ -1,5 +1,52 @@
-<?xml version="1.0" encoding="utf-8"?><plays username="koraytugay" userid="4151779" total="34" page="1" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse">
-<play id="114220530" date="2026-05-22" quantity="3" length="60" incomplete="0" nowinstats="0" location="">
+<?xml version="1.0" encoding="utf-8"?><plays username="koraytugay" userid="4151779" total="40" page="1" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse">
+<play id="114264862" date="2026-05-23" quantity="1" length="10" incomplete="0" nowinstats="0" location="">
+			<item name="BraveRats" objecttype="thing" objectid="112373">
+				<subtypes>
+										<subtype value="boardgame" />
+									</subtypes>
+			</item>
+								</play>
+	<play id="114264849" date="2026-05-23" quantity="3" length="30" incomplete="0" nowinstats="0" location="">
+			<item name="Similo" objecttype="thing" objectid="268620">
+				<subtypes>
+										<subtype value="boardgame" />
+										<subtype value="boardgameimplementation" />
+									</subtypes>
+			</item>
+								</play>
+	<play id="114292403" date="2026-05-23" quantity="1" length="45" incomplete="0" nowinstats="0" location="">
+			<item name="Under Falling Skies" objecttype="thing" objectid="306735">
+				<subtypes>
+										<subtype value="boardgame" />
+										<subtype value="boardgameimplementation" />
+									</subtypes>
+			</item>
+								</play>
+	<play id="114281189" date="2026-05-23" quantity="1" length="45" incomplete="0" nowinstats="0" location="">
+			<item name="Under Falling Skies" objecttype="thing" objectid="306735">
+				<subtypes>
+										<subtype value="boardgame" />
+										<subtype value="boardgameimplementation" />
+									</subtypes>
+			</item>
+								</play>
+	<play id="114274859" date="2026-05-23" quantity="1" length="60" incomplete="0" nowinstats="0" location="">
+			<item name="Under Falling Skies" objecttype="thing" objectid="306735">
+				<subtypes>
+										<subtype value="boardgame" />
+										<subtype value="boardgameimplementation" />
+									</subtypes>
+			</item>
+								</play>
+	<play id="114264874" date="2026-05-23" quantity="1" length="10" incomplete="0" nowinstats="0" location="">
+			<item name="UNO: Show 'Em No Mercy" objecttype="thing" objectid="399088">
+				<subtypes>
+										<subtype value="boardgame" />
+										<subtype value="boardgameimplementation" />
+									</subtypes>
+			</item>
+								</play>
+	<play id="114220530" date="2026-05-22" quantity="3" length="60" incomplete="0" nowinstats="0" location="">
 			<item name="Chess" objecttype="thing" objectid="171">
 				<subtypes>
 										<subtype value="boardgame" />
