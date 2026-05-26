@@ -1,5 +1,20 @@
-<?xml version="1.0" encoding="utf-8"?><plays username="koraytugay" userid="4151779" total="43" page="1" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse">
-<play id="114340964" date="2026-05-24" quantity="2" length="30" incomplete="0" nowinstats="0" location="">
+<?xml version="1.0" encoding="utf-8"?><plays username="koraytugay" userid="4151779" total="45" page="1" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse">
+<play id="114398795" date="2026-05-25" quantity="3" length="20" incomplete="0" nowinstats="0" location="">
+			<item name="Chess" objecttype="thing" objectid="171">
+				<subtypes>
+										<subtype value="boardgame" />
+									</subtypes>
+			</item>
+								</play>
+	<play id="114398757" date="2026-05-25" quantity="1" length="30" incomplete="0" nowinstats="0" location="">
+			<item name="Under Falling Skies" objecttype="thing" objectid="306735">
+				<subtypes>
+										<subtype value="boardgame" />
+										<subtype value="boardgameimplementation" />
+									</subtypes>
+			</item>
+								</play>
+	<play id="114340964" date="2026-05-24" quantity="2" length="30" incomplete="0" nowinstats="0" location="">
 			<item name="Chess" objecttype="thing" objectid="171">
 				<subtypes>
 										<subtype value="boardgame" />
