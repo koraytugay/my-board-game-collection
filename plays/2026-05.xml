@@ -1,5 +1,27 @@
-<?xml version="1.0" encoding="utf-8"?><plays username="koraytugay" userid="4151779" total="45" page="1" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse">
-<play id="114398795" date="2026-05-25" quantity="3" length="20" incomplete="0" nowinstats="0" location="">
+<?xml version="1.0" encoding="utf-8"?><plays username="koraytugay" userid="4151779" total="48" page="1" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse">
+<play id="114428519" date="2026-05-26" quantity="2" length="20" incomplete="0" nowinstats="0" location="">
+			<item name="Chess" objecttype="thing" objectid="171">
+				<subtypes>
+										<subtype value="boardgame" />
+									</subtypes>
+			</item>
+								</play>
+	<play id="114418613" date="2026-05-26" quantity="1" length="20" incomplete="0" nowinstats="0" location="">
+			<item name="ROVE: Results-Oriented Versatile Explorer" objecttype="thing" objectid="342562">
+				<subtypes>
+										<subtype value="boardgame" />
+										<subtype value="boardgameintegration" />
+									</subtypes>
+			</item>
+								</play>
+	<play id="114428510" date="2026-05-26" quantity="1" length="45" incomplete="0" nowinstats="0" location="">
+			<item name="Sky Team" objecttype="thing" objectid="373106">
+				<subtypes>
+										<subtype value="boardgame" />
+									</subtypes>
+			</item>
+								</play>
+	<play id="114398795" date="2026-05-25" quantity="3" length="20" incomplete="0" nowinstats="0" location="">
 			<item name="Chess" objecttype="thing" objectid="171">
 				<subtypes>
 										<subtype value="boardgame" />
