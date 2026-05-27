@@ -37,17 +37,19 @@ jobs:
             local URL=$1
             local TARGET=$2
             local NAME=$3
+            local TMP_FILE="tmp_fetch.xml"
             echo "Starting fetch for $NAME..."
             
             for i in {1..15}; do
-              status=$(curl -sS -o "$TARGET" -w "%{http_code}" \
+              status=$(curl -sS -o "$TMP_FILE" -w "%{http_code}" \
                 "$URL" \
                 -H 'accept: application/xml' \
                 -H "user-agent: $USER_AGENT" \
                 -H "$COOKIE_HEADER")
               
               if [ "$status" = "200" ]; then
-                if grep -qE "(<items|<plays)" "$TARGET"; then
+                if grep -qE "(<items|<plays)" "$TMP_FILE"; then
+                  mv "$TMP_FILE" "$TARGET"
                   echo "SUCCESS: $NAME fetched correctly."
                   return 0
                 fi
@@ -56,6 +58,7 @@ jobs:
               fi
               sleep 20
             done
+            rm -f "$TMP_FILE"
             return 1
           }
 
