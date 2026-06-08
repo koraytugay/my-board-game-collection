@@ -1,5 +1,19 @@
-<?xml version="1.0" encoding="utf-8"?><plays username="koraytugay" userid="4151779" total="1" page="1" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse">
-<play id="114659256" date="2026-06-01" quantity="1" length="60" incomplete="0" nowinstats="0" location="">
+<?xml version="1.0" encoding="utf-8"?><plays username="koraytugay" userid="4151779" total="3" page="1" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse">
+<play id="114893838" date="2026-06-07" quantity="2" length="30" incomplete="0" nowinstats="0" location="">
+			<item name="Captain Flip" objecttype="thing" objectid="393325">
+				<subtypes>
+										<subtype value="boardgame" />
+									</subtypes>
+			</item>
+								</play>
+	<play id="114879949" date="2026-06-07" quantity="3" length="30" incomplete="0" nowinstats="0" location="">
+			<item name="Chess" objecttype="thing" objectid="171">
+				<subtypes>
+										<subtype value="boardgame" />
+									</subtypes>
+			</item>
+								</play>
+	<play id="114659256" date="2026-06-01" quantity="1" length="60" incomplete="0" nowinstats="0" location="">
 			<item name="Calico" objecttype="thing" objectid="283155">
 				<subtypes>
 										<subtype value="boardgame" />
