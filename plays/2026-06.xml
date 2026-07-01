@@ -1,5 +1,27 @@
-<?xml version="1.0" encoding="utf-8"?><plays username="koraytugay" userid="4151779" total="15" page="1" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse">
-<play id="115669882" date="2026-06-29" quantity="2" length="20" incomplete="0" nowinstats="0" location="">
+<?xml version="1.0" encoding="utf-8"?><plays username="koraytugay" userid="4151779" total="18" page="1" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse">
+<play id="115704784" date="2026-06-30" quantity="1" length="20" incomplete="0" nowinstats="0" location="">
+			<item name="Poison" objecttype="thing" objectid="17025">
+				<subtypes>
+										<subtype value="boardgame" />
+										<subtype value="boardgameimplementation" />
+									</subtypes>
+			</item>
+								</play>
+	<play id="115704764" date="2026-06-30" quantity="2" length="20" incomplete="0" nowinstats="0" location="">
+			<item name="SET" objecttype="thing" objectid="1198">
+				<subtypes>
+										<subtype value="boardgame" />
+									</subtypes>
+			</item>
+								</play>
+	<play id="115704766" date="2026-06-30" quantity="1" length="10" incomplete="0" nowinstats="0" location="">
+			<item name="Swish" objecttype="thing" objectid="99219">
+				<subtypes>
+										<subtype value="boardgame" />
+									</subtypes>
+			</item>
+								</play>
+	<play id="115669882" date="2026-06-29" quantity="2" length="20" incomplete="0" nowinstats="0" location="">
 			<item name="Onitama" objecttype="thing" objectid="160477">
 				<subtypes>
 										<subtype value="boardgame" />
