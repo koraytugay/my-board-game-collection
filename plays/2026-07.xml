@@ -1,6 +1,13 @@
-<?xml version="1.0" encoding="utf-8"?><plays username="koraytugay" userid="4151779" total="2" page="1" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse">
+<?xml version="1.0" encoding="utf-8"?><plays username="koraytugay" userid="4151779" total="3" page="1" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse">
 <play id="115722416" date="2026-07-01" quantity="1" length="10" incomplete="0" nowinstats="0" location="">
 			<item name="Agent Avenue" objecttype="thing" objectid="422732">
+				<subtypes>
+										<subtype value="boardgame" />
+									</subtypes>
+			</item>
+								</play>
+	<play id="115765038" date="2026-07-01" quantity="1" length="30" incomplete="0" nowinstats="0" location="">
+			<item name="SCOUT" objecttype="thing" objectid="291453">
 				<subtypes>
 										<subtype value="boardgame" />
 									</subtypes>
