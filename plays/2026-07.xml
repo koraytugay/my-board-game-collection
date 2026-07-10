@@ -1,5 +1,19 @@
-<?xml version="1.0" encoding="utf-8"?><plays username="koraytugay" userid="4151779" total="13" page="1" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse">
-<play id="115998282" date="2026-07-08" quantity="1" length="30" incomplete="0" nowinstats="0" location="">
+<?xml version="1.0" encoding="utf-8"?><plays username="koraytugay" userid="4151779" total="15" page="1" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse">
+<play id="116026132" date="2026-07-09" quantity="2" length="10" incomplete="0" nowinstats="0" location="">
+			<item name="Onitama" objecttype="thing" objectid="160477">
+				<subtypes>
+										<subtype value="boardgame" />
+									</subtypes>
+			</item>
+								</play>
+	<play id="116026129" date="2026-07-09" quantity="1" length="30" incomplete="0" nowinstats="0" location="">
+			<item name="SCOUT" objecttype="thing" objectid="291453">
+				<subtypes>
+										<subtype value="boardgame" />
+									</subtypes>
+			</item>
+								</play>
+	<play id="115998282" date="2026-07-08" quantity="1" length="30" incomplete="0" nowinstats="0" location="">
 			<item name="The Crew: The Quest for Planet Nine" objecttype="thing" objectid="284083">
 				<subtypes>
 										<subtype value="boardgame" />
