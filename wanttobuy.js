@@ -90,39 +90,15 @@ function sortGames(criteria) {
 }
 
 function applyFilters() {
-    const searchTerm = document.getElementById('search-input').value.toLowerCase();
-    const playerCount = document.getElementById('player-count').value;
-    const playTime = document.getElementById('play-time').value;
-    const ratingFilter = document.getElementById('rating-filter').value;
+    const inStockOnly = document.getElementById('in-stock-only').checked;
 
     filteredGames = allGames.filter(game => {
-        const matchesSearch = game.name.toLowerCase().includes(searchTerm);
-        
-        let matchesPlayers = true;
-        if (playerCount !== 'all') {
-            if (playerCount === '2-only') {
-                matchesPlayers = game.minPlayers === 2 && game.maxPlayers === 2;
-            } else if (playerCount === '5') {
-                matchesPlayers = game.maxPlayers >= 5;
-            } else {
-                const count = parseInt(playerCount);
-                matchesPlayers = count >= game.minPlayers && count <= game.maxPlayers;
-            }
+        if (inStockOnly) {
+            const isAvailableBgb = game.availability?.boardGameBliss?.available;
+            const isAvailable401 = game.availability?.fourZeroOneGames?.available;
+            return isAvailableBgb || isAvailable401;
         }
-
-        let matchesTime = true;
-        if (playTime !== 'all') {
-            const [min, max] = playTime.split('-').map(Number);
-            matchesTime = game.playingTime >= min && game.playingTime <= max;
-        }
-
-        let matchesRating = true;
-        if (ratingFilter !== 'all') {
-            const minRating = parseFloat(ratingFilter);
-            matchesRating = game.rating >= minRating;
-        }
-
-        return matchesSearch && matchesPlayers && matchesTime && matchesRating;
+        return true;
     });
 
     renderGames();

@@ -158,50 +158,16 @@
 
                 <div class="control-group">
                     <label class="checkbox-label">
+                        <input type="checkbox" id="in-stock-only" onchange="applyFilters()">
+                        In Stock Only
+                    </label>
+                </div>
+
+                <div class="control-group">
+                    <label class="checkbox-label">
                         <input type="checkbox" id="dark-mode" onchange="toggleDarkMode(this.checked)">
                         Dark Mode
                     </label>
-                </div>
-            </div>
-
-            <div class="controls-row">
-                <div class="control-group">
-                    <label for="search-input">Search:</label>
-                    <input type="text" id="search-input" placeholder="Filter by name..." oninput="applyFilters()">
-                </div>
-
-                <div class="control-group">
-                    <label for="player-count">Players:</label>
-                    <select id="player-count" onchange="applyFilters()">
-                        <option value="all">All</option>
-                        <option value="1">1 (Solo)</option>
-                        <option value="2">2</option>
-                        <option value="2-only">2 Player Only</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5+</option>
-                    </select>
-                </div>
-
-                <div class="control-group">
-                    <label for="play-time">Play Time:</label>
-                    <select id="play-time" onchange="applyFilters()">
-                        <option value="all">All</option>
-                        <option value="0-30">Under 30 min</option>
-                        <option value="30-60">30-60 min</option>
-                        <option value="60-120">60-120 min</option>
-                        <option value="120-999">Over 120 min</option>
-                    </select>
-                </div>
-
-                <div class="control-group">
-                    <label for="rating-filter">Rating:</label>
-                    <select id="rating-filter" onchange="applyFilters()">
-                        <option value="all">All</option>
-                        <option value="8+">8.0+</option>
-                        <option value="7+">7.0+</option>
-                        <option value="6+">6.0+</option>
-                    </select>
                 </div>
             </div>
         </div>
