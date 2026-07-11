@@ -85,10 +85,13 @@ jobs:
       - name: Download New Images
         run: node download-images.js
 
+      - name: Check Game Availability
+        run: node check-availability.js
+
       - name: Commit & push if changed
         run: |
           set -euo pipefail
-          git add collection.xml plays/ images/
+          git add collection.xml plays/ images/ availability.json
 
           if git diff --quiet --staged; then
             echo "No changes to commit."

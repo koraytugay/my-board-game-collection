@@ -14,6 +14,83 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Want to Buy - My Board Game Collection</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        .store-availability {
+            margin-top: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            border-top: 1px solid #eee;
+            padding-top: 12px;
+        }
+        body.dark-mode .store-availability {
+            border-top-color: #444;
+        }
+        .store-btn {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 12px;
+            font-size: 0.8em;
+            font-weight: bold;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .store-btn-bgb {
+            background: #e1f5fe;
+            color: #0288d1;
+            border: 1px solid #b3e5fc;
+        }
+        body.dark-mode .store-btn-bgb {
+            background: #0d3c52;
+            color: #81d4fa;
+            border-color: #0288d1;
+        }
+        .store-btn-bgb:hover {
+            background: #0288d1;
+            color: white;
+        }
+        .store-btn-401 {
+            background: #ffebee;
+            color: #c62828;
+            border: 1px solid #ffcdd2;
+        }
+        body.dark-mode .store-btn-401 {
+            background: #4a121a;
+            color: #ef9a9a;
+            border-color: #c62828;
+        }
+        .store-btn-401:hover {
+            background: #c62828;
+            color: white;
+        }
+        .store-btn-out {
+            opacity: 0.6;
+        }
+        .store-btn-out:hover {
+            opacity: 1;
+        }
+        .store-name {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .store-status {
+            font-size: 0.85em;
+            padding: 2px 6px;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+        .store-status-instock {
+            background: #4CAF50;
+            color: white;
+        }
+        .store-status-outofstock {
+            background: #9e9e9e;
+            color: white;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -52,8 +129,8 @@
                 <span class="stat-label">Solo Playable</span>
             </div>
             <div class="stat-card">
-                <span class="stat-number" id="two-player-games">0</span>
-                <span class="stat-label">2-Player Friendly</span>
+                <span class="stat-number" id="in-stock-games">0</span>
+                <span class="stat-label">In Stock Now</span>
             </div>
         </div>
 

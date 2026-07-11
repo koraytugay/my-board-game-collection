@@ -10,11 +10,19 @@ async function fetchCollection() {
     const controlsEl = document.getElementById('controls');
 
     try {
-        const collection = await getCollection('wanttobuy');
+        // Fetch BGG collection and availability in parallel
+        const [collection, availabilityRes] = await Promise.all([
+            getCollection('wanttobuy'),
+            fetch('availability.json').then(res => res.ok ? res.json() : {}).catch(() => ({}))
+        ]);
         
         allGames = collection.map(game => ({
             ...game,
-            lastPlayed: ''
+            lastPlayed: '',
+            availability: availabilityRes[game.objectId] || {
+                boardGameBliss: { available: false, price: null, url: null },
+                fourZeroOneGames: { available: false, price: null, url: null }
+            }
         }));
         
         filteredGames = [...allGames];
@@ -45,12 +53,17 @@ function updateStats() {
         : 0;
         
     const soloGames = allGames.filter(game => game.minPlayers <= 1).length;
-    const twoPlayerGames = allGames.filter(game => game.minPlayers <= 2 && game.maxPlayers >= 2).length;
+    
+    // Count how many wanted games are in stock at either BoardGameBliss or 401 Games
+    const inStockGames = allGames.filter(game => 
+        game.availability?.boardGameBliss?.available || 
+        game.availability?.fourZeroOneGames?.available
+    ).length;
 
     document.getElementById('total-games').textContent = totalGames;
     document.getElementById('avg-rating').textContent = avgRating.toFixed(1);
     document.getElementById('solo-games').textContent = soloGames;
-    document.getElementById('two-player-games').textContent = twoPlayerGames;
+    document.getElementById('in-stock-games').textContent = inStockGames;
 }
 
 function sortGames(criteria) {
@@ -140,11 +153,59 @@ function renderGames() {
 function createGameCard(game) {
     const card = document.createElement('div');
     card.className = 'game-card';
-    card.onclick = () => window.open(`https://boardgamegeek.com/boardgame/${game.objectId}`, '_blank');
+    card.onclick = (e) => {
+        // Prevent opening BGG page if user is clicking a store link
+        if (e.target.closest('.store-btn')) return;
+        window.open(`https://boardgamegeek.com/boardgame/${game.objectId}`, '_blank');
+    };
 
     let badgesHtml = '';
+    
+    // Check if in stock at either store to add a special badge
+    const isAvailableBgb = game.availability?.boardGameBliss?.available;
+    const isAvailable401 = game.availability?.fourZeroOneGames?.available;
+    
+    if (isAvailableBgb || isAvailable401) {
+        badgesHtml += '<span class="badge badge-favorite">In Stock</span>';
+    }
+    
     if (game.minPlayers <= 1) badgesHtml += '<span class="badge badge-solo">Solo</span>';
     if (game.rating >= 8) badgesHtml += '<span class="badge badge-highly-rated">Highly Rated</span>';
+
+    // Build store availability HTML
+    let storeHtml = '';
+    const bgb = game.availability?.boardGameBliss;
+    const fof = game.availability?.fourZeroOneGames;
+
+    if ((bgb && bgb.url) || (fof && fof.url)) {
+        storeHtml += '<div class="store-availability">';
+        
+        if (bgb && bgb.url) {
+            const statusClass = bgb.available ? 'store-status-instock' : 'store-status-outofstock';
+            const statusText = bgb.available ? 'In Stock' : 'Out of Stock';
+            const priceText = bgb.price ? `$${bgb.price}` : '';
+            storeHtml += `
+                <a href="${bgb.url}" target="_blank" class="store-btn store-btn-bgb ${bgb.available ? '' : 'store-btn-out'}">
+                    <span class="store-name">🍁 BoardGameBliss</span>
+                    <span>${priceText} <span class="store-status ${statusClass}">${statusText}</span></span>
+                </a>
+            `;
+        }
+        
+        if (fof && fof.url) {
+            const statusClass = fof.available ? 'store-status-instock' : 'store-status-outofstock';
+            const statusText = fof.available ? 'In Stock' : 'Out of Stock';
+            const priceText = fof.price ? `$${fof.price}` : '';
+            storeHtml += `
+                <a href="${fof.url}" target="_blank" class="store-btn store-btn-401 ${fof.available ? '' : 'store-btn-out'}">
+                    <span class="store-name">🎲 401 Games</span>
+                    <span>${priceText} <span class="store-status ${statusClass}">${statusText}</span></span>
+                </a>
+            `;
+        }
+        
+        storeHtml += '</div>';
+    }
 
     card.innerHTML = `
         <div class="game-badges">
@@ -162,6 +223,7 @@ function createGameCard(game) {
                 <div class="meta-item"><span>⏱️</span> ${game.playingTime} min</div>
                 <div class="meta-item"><span>⭐</span> ${game.rating.toFixed(1)}</div>
             </div>
+            ${storeHtml}
         </div>
     `;
     return card;
