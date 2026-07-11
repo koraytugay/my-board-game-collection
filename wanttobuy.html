@@ -12,28 +12,28 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Board Game Collection</title>
+    <title>Want to Buy - My Board Game Collection</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>My Board Game Collection</h1>
+            <h1>Want to Buy List</h1>
             <p class="username">@koraytugay on BoardGameGeek</p>
             <nav class="page-nav">
+                <a href="index.html" class="nav-link">← Back to Collection</a>
                 <a href="history.html" class="nav-link">Play History</a>
                 <a href="stats.html" class="nav-link">View Statistics</a>
                 <a href="challenges.html" class="nav-link">Collection Challenges</a>
                 <a href="calendar.html" class="nav-link">Play Calendar</a>
                 <a href="tournament.html" class="nav-link">Game Tournament</a>
-                <a href="wanttobuy.html" class="nav-link">Want to Buy</a>
                 <button id="random-game-btn" class="nav-link nav-button">🎲 Random Game</button>
             </nav>
         </header>
 
         <div id="loading" class="loading">
             <div class="spinner"></div>
-            <p>Loading your collection...</p>
+            <p>Loading wanted games...</p>
         </div>
 
         <div id="error" class="error" style="display: none;"></div>
@@ -41,19 +41,19 @@
         <div id="stats" class="stats" style="display: none;">
             <div class="stat-card">
                 <span class="stat-number" id="total-games">0</span>
-                <span class="stat-label">Total Games</span>
-            </div>
-            <div class="stat-card">
-                <span class="stat-number" id="total-plays">0</span>
-                <span class="stat-label">Total Plays</span>
+                <span class="stat-label">Total Wanted</span>
             </div>
             <div class="stat-card">
                 <span class="stat-number" id="avg-rating">0</span>
-                <span class="stat-label">Avg Rating</span>
+                <span class="stat-label">Avg BGG Rating</span>
             </div>
             <div class="stat-card">
-                <span class="stat-number" id="unplayed-games">0</span>
-                <span class="stat-label">Unplayed</span>
+                <span class="stat-number" id="solo-games">0</span>
+                <span class="stat-label">Solo Playable</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number" id="two-player-games">0</span>
+                <span class="stat-label">2-Player Friendly</span>
             </div>
         </div>
 
@@ -65,12 +65,6 @@
                         <option value="name">Name</option>
                         <option value="rating-desc">Rating (High to Low)</option>
                         <option value="rating-asc">Rating (Low to High)</option>
-                        <option value="myrating-desc">My Rating (High to Low)</option>
-                        <option value="myrating-asc">My Rating (Low to High)</option>
-                        <option value="plays-desc">Plays (Most to Least)</option>
-                        <option value="plays-asc">Plays (Least to Most)</option>
-                        <option value="recently-played">Most Recently Played</option>
-                        <option value="least-recently-played">Least Recently Played</option>
                         <option value="year-desc">Year (Newest First)</option>
                         <option value="year-asc">Year (Oldest First)</option>
                     </select>
@@ -132,13 +126,6 @@
                         <option value="6+">6.0+</option>
                     </select>
                 </div>
-
-                <div class="control-group">
-                    <label class="checkbox-label">
-                        <input type="checkbox" id="unplayed-only" onchange="applyFilters()">
-                        Unplayed Only
-                    </label>
-                </div>
             </div>
         </div>
 
@@ -150,7 +137,7 @@
         <div class="modal-overlay" onclick="closeRandomModal()"></div>
         <div class="modal-content">
             <button class="modal-close" onclick="closeRandomModal()">×</button>
-            <h2>🎲 Random Game Pick</h2>
+            <h2>🎲 Random Pick from Want to Buy</h2>
             <div id="random-game-display" class="random-game-display">
                 <img id="random-game-img" class="random-game-img" src="" alt="">
                 <div class="random-game-info">
@@ -167,6 +154,6 @@
     </div>
 
     <script src="api.js"></script>
-    <script src="script.js"></script>
+    <script src="wanttobuy.js"></script>
 </body>
 </html>

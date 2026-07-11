@@ -20,7 +20,14 @@ async function getCollection(onlyOwned = true) {
 
         let items = Array.from(xmlDoc.querySelectorAll('item'));
 
-        if (onlyOwned) {
+        if (onlyOwned === 'wanttobuy') {
+            items = items.filter(item => {
+                const status = item.querySelector('status');
+                const isWantToBuy = status && status.getAttribute('wanttobuy') === '1';
+                const isBoardGame = item.getAttribute('subtype') === 'boardgame';
+                return isWantToBuy && isBoardGame;
+            });
+        } else if (onlyOwned === true) {
             items = items.filter(item => {
                 const status = item.querySelector('status');
                 const isOwned = status && status.getAttribute('own') === '1';
