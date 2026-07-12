@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<items totalitems="181" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse" pubdate="Sat, 11 Jul 2026 19:16:06 +0000">
+<items totalitems="182" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse" pubdate="Sun, 12 Jul 2026 01:05:03 +0000">
 		<item objecttype="thing" objectid="457611" subtype="boardgame" collid="147266443">
 	<name sortindex="1">52 Duels</name>
 		<yearpublished>2025</yearpublished>			<image>https://cf.geekdo-images.com/wHfxMgTJnq3od5lTuytGtg__original/img/MgaLOmRYx2TlG4_LK3fvfdC1T7Y=/0x0/filters:format(jpeg)/pic9205150.jpg</image>
@@ -769,6 +769,18 @@ Sorry if this sounds harsh. You may end up loving it, I just didn&#039;t enjoy i
 											</ranks>		</rating>
 			</stats>	<status own="1" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="0"  preordered="0" lastmodified="2026-03-24 20:51:22" />
 	<numplays>4</numplays>			<comment>Most of the time the story makes zero sense due to card shuffling. Idea is good but in practice you are just reading a bunch of related but inconsistent storyline.</comment>				</item>
+		<item objecttype="thing" objectid="439209" subtype="boardgame" collid="147299347">
+	<name sortindex="1">Figment</name>
+		<yearpublished>2025</yearpublished>			<image>https://cf.geekdo-images.com/LFIs-oR76N3Dc1FbS6DkDQ__original/img/cr5Q5aVNf0w7RPHaUIJu92uLdSQ=/0x0/filters:format(png)/pic9057134.png</image>
+		<thumbnail>https://cf.geekdo-images.com/LFIs-oR76N3Dc1FbS6DkDQ__small/img/ccFKs90rpzuHgdZFIdo8j2EhfUI=/fit-in/200x150/filters:strip_icc()/pic9057134.png</thumbnail>
+		<stats minplayers="1"																	maxplayers="6"																	minplaytime="30"																	maxplaytime="30"																	playingtime="30"																	numowned="408" >
+				<rating value="N/A">			<usersrated value="181" />			<average value="6.89453" />
+			<bayesaverage value="5.5945" />			<stddev value="1.49656" />
+			<median value="0" />			<ranks>
+												<rank type="subtype" id="1" name="boardgame" friendlyname="Board Game Rank" value="9768" bayesaverage="5.5945" />
+											</ranks>		</rating>
+			</stats>	<status own="0" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="1" wishlist="0"  preordered="0" lastmodified="2026-07-11 18:19:34" />
+	<numplays>0</numplays>							</item>
 		<item objecttype="thing" objectid="226605" subtype="boardgame" collid="137662475">
 	<name sortindex="1">Fire Tower</name>
 		<yearpublished>2019</yearpublished>			<image>https://cf.geekdo-images.com/smRx-veml48bWTsDJFzisQ__original/img/mohzMKSzwV8rK5gsW1cIHz3dJww=/0x0/filters:format(jpeg)/pic4081152.jpg</image>
@@ -1512,7 +1524,7 @@ Overall: a mediocre experience for me. Nice theme and artwork, but too long, too
 																<rank type="family" id="5499" name="familygames" friendlyname="Family Game Rank" value="159" bayesaverage="6.95162" />
 											</ranks>		</rating>
 			</stats>	<status own="1" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="0"  preordered="0" lastmodified="2025-10-22 19:27:07" />
-	<numplays>1</numplays>							</item>
+	<numplays>2</numplays>							</item>
 		<item objecttype="thing" objectid="17025" subtype="boardgame" collid="137662377">
 	<name sortindex="1">Poison</name>
 		<yearpublished>2005</yearpublished>			<image>https://cf.geekdo-images.com/tTaHGpCEQLnl3B4s078Dwg__original/img/3i27aT0vrkZCBW8ilLwbvvUkcoo=/0x0/filters:format(jpeg)/pic8968937.jpg</image>
