@@ -4,7 +4,7 @@ const https = require('https');
 const COLLECTION_FILE = 'collection.xml';
 const OUTPUT_FILE = 'availability.json';
 
-// Helper to make HTTPS requests in Node and automatically follow redirects
+// Helper to make HTTPS requests in Node and automatically follow redirects (JSON response)
 function fetchJson(url) {
     return new Promise((resolve, reject) => {
         const options = {
@@ -33,6 +33,38 @@ function fetchJson(url) {
                 } catch (e) {
                     resolve(null);
                 }
+            });
+        }).on('error', (err) => {
+            resolve(null);
+        });
+    });
+}
+
+// Helper to make HTTPS requests in Node and automatically follow redirects (HTML response)
+function fetchHtml(url) {
+    return new Promise((resolve, reject) => {
+        const options = {
+            headers: {
+                'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+            }
+        };
+        https.get(url, options, (res) => {
+            if (res.statusCode === 302 || res.statusCode === 301) {
+                const redirectUrl = res.headers.location;
+                if (redirectUrl) {
+                    fetchHtml(redirectUrl).then(resolve).catch(reject);
+                    return;
+                }
+            }
+            if (res.statusCode !== 200) {
+                resolve(null);
+                return;
+            }
+
+            let data = '';
+            res.on('data', (chunk) => { data += chunk; });
+            res.on('end', () => {
+                resolve(data);
             });
         }).on('error', (err) => {
             resolve(null);
@@ -83,6 +115,149 @@ function isMatch(bggName, shopifyProduct) {
     return nBgg === nShopify || nShopify.startsWith(nBgg) || nBgg.startsWith(nShopify);
 }
 
+// Parser for GeekStop Games HTML
+function parseGeekStopGames(html, gameName) {
+    if (!html) return null;
+    const regex = /<h3><a href="\/game\.php\?([^"]+)"[^>]*>([^<]+)<\/a>[\s\S]*?<span>\s*\$([0-9.]+)\s*<\/span>[\s\S]*?<span[^>]*style\s*=\s*['\x22][^'\x22]*(?:color:\s*([^;'\x22\s]+))[^'\x22]*['\x22][^>]*>([^<]+)<\/span>/gi;
+    let match;
+    const products = [];
+    while ((match = regex.exec(html)) !== null) {
+        const urlParam = match[1];
+        const title = match[2].trim();
+        const price = match[3].trim();
+        const color = match[4] || '';
+        const stockText = match[5].trim();
+        const available = stockText.toLowerCase().includes('in stock') || color.toLowerCase().includes('green');
+        
+        products.push({
+            title,
+            price,
+            available,
+            url: `https://www.geekstopgames.com/game.php?${urlParam}`,
+            type: 'Board Games'
+        });
+    }
+    
+    return products.find(p => isMatch(gameName, p)) || null;
+}
+
+// Parser for Great Boardgames Waterloo HTML
+function parseGreatBoardgames(html, gameName) {
+    if (!html) return null;
+    
+    const cards = html.split('<div class="product card border-0">');
+    const products = [];
+    
+    for (let i = 1; i < cards.length; i++) {
+        const cardHtml = cards[i];
+        
+        const linkMatch = /<a href="(https:\/\/www\.greatboardgames\.ca\/games\/[^"]+)" class="text-dark">([^<]+)<\/a>/i.exec(cardHtml);
+        if (!linkMatch) continue;
+        
+        const url = linkMatch[1];
+        const title = linkMatch[2].trim();
+        
+        const priceMatch = /<span class="">\s*\$([0-9.]+)\s*<\/span>/i.exec(cardHtml);
+        const price = priceMatch ? priceMatch[1].trim() : null;
+        
+        const available = cardHtml.includes('class="btn btn-outline-dark btn-product-left addToCart"') || cardHtml.includes('addToCart');
+        
+        products.push({
+            title,
+            price,
+            available,
+            url,
+            type: 'Board Games'
+        });
+    }
+    
+    return products.find(p => isMatch(gameName, p)) || null;
+}
+
+// Parser for Meeplemart HTML
+function parseMeeplemart(html, gameName) {
+    if (!html) return null;
+    
+    const items = html.split('<div class="CategoryItem">');
+    const products = [];
+    
+    for (let i = 1; i < items.length; i++) {
+        const itemHtml = items[i];
+        
+        const linkMatch = /class="CategoryItemName"><a[^>]*href="([^"]+)"[^>]*>([^<]+)<\/a>/i.exec(itemHtml);
+        if (!linkMatch) continue;
+        
+        const path = linkMatch[1];
+        const title = linkMatch[2].trim();
+        const url = `https://www.meeplemart.com${path}`;
+        
+        const priceMatch = /class=[\x27"]CategoryProductPrice[\x27"]>\s*\$([0-9.]+)\s*<\/span>/i.exec(itemHtml);
+        const price = priceMatch ? priceMatch[1].trim() : null;
+        
+        const available = itemHtml.includes('class="CategoryProductAddToCart') || itemHtml.includes('value="Add to Cart"');
+        
+        products.push({
+            title,
+            price,
+            available,
+            url,
+            type: 'Board Games'
+        });
+    }
+    
+    return products.find(p => isMatch(gameName, p)) || null;
+}
+
+// Parser for Amazon.ca HTML
+function parseAmazon(html, gameName) {
+    if (!html) return null;
+    
+    const items = html.split('data-component-type="s-search-result"');
+    const products = [];
+    
+    for (let i = 1; i < items.length; i++) {
+        const itemHtml = items[i];
+        
+        const asinMatch = /data-asin="([^"]+)"/.exec(itemHtml);
+        if (!asinMatch) continue;
+        const asin = asinMatch[1];
+        
+        let title = '';
+        const titleMatch = /<span class="a-size-base-plus a-color-base a-text-normal"[^>]*>([^<]+)<\/span>/i.exec(itemHtml)
+                        || /<span class="a-size-medium a-color-base a-text-normal"[^>]*>([^<]+)<\/span>/i.exec(itemHtml)
+                        || /alt="([^"]+)"/i.exec(itemHtml)
+                        || /aria-label="([^"]+)"/i.exec(itemHtml);
+        if (titleMatch) {
+            title = titleMatch[1].trim();
+        }
+        
+        if (!title) continue;
+        
+        const brandMatch = /<span class="a-size-base-plus a-color-base">([^<]+)<\/span>/i.exec(itemHtml);
+        if (brandMatch) {
+            const brand = brandMatch[1].trim();
+            if (!title.toLowerCase().includes(brand.toLowerCase())) {
+                title = `${brand} - ${title}`;
+            }
+        }
+        
+        const priceMatch = /<span class="a-price"[^>]*>\s*<span class="a-offscreen">\s*\$([0-9.]+)\s*<\/span>/i.exec(itemHtml);
+        const price = priceMatch ? priceMatch[1].trim() : null;
+        
+        const available = price !== null;
+        
+        products.push({
+            title,
+            price,
+            available,
+            url: `https://www.amazon.ca/dp/${asin}`,
+            type: 'Board Games'
+        });
+    }
+    
+    return products.find(p => isMatch(gameName, p)) || null;
+}
+
 async function checkAvailability() {
     console.log('Starting board game availability check...');
     if (!fs.existsSync(COLLECTION_FILE)) {
@@ -120,17 +295,27 @@ async function checkAvailability() {
         console.log(`[${i+1}/${wantedGames.length}] Checking availability for: "${game.name}"...`);
         const query = cleanName(game.name);
 
-        const [bgbRes, fofRes] = await Promise.all([
+        const [bgbRes, fofRes, lvlRes, geekHtml, gbgHtml, meepleHtml, amazonHtml] = await Promise.all([
             fetchJson(`https://www.boardgamebliss.com/search/suggest.json?q=${encodeURIComponent(query)}&resources[type]=product`),
-            fetchJson(`https://store.401games.ca/search/suggest.json?q=${encodeURIComponent(query)}&resources[type]=product`)
+            fetchJson(`https://store.401games.ca/search/suggest.json?q=${encodeURIComponent(query)}&resources[type]=product`),
+            fetchJson(`https://www.lvlupgames.ca/search/suggest.json?q=${encodeURIComponent(query)}&resources[type]=product`),
+            fetchHtml(`https://www.geekstopgames.com/gameSearch.php?search=${encodeURIComponent(query)}`),
+            fetchHtml(`https://www.greatboardgames.ca/search?q=${encodeURIComponent(query)}`),
+            fetchHtml(`https://www.meeplemart.com/store/Search.aspx?SearchTerms=${encodeURIComponent(query)}`),
+            fetchHtml(`https://www.amazon.ca/s?k=${encodeURIComponent(query + " board game")}`)
         ]);
 
         const availability = {
             boardGameBliss: { available: false, price: null, url: null },
-            fourZeroOneGames: { available: false, price: null, url: null }
+            fourZeroOneGames: { available: false, price: null, url: null },
+            lvlUpGames: { available: false, price: null, url: null },
+            geekStopGames: { available: false, price: null, url: null },
+            greatBoardgames: { available: false, price: null, url: null },
+            meeplemart: { available: false, price: null, url: null },
+            amazonCa: { available: false, price: null, url: null }
         };
 
-        // Parse Board Game Bliss results
+        // Parse Board Game Bliss
         if (bgbRes?.resources?.results?.products) {
             const products = bgbRes.resources.results.products;
             const matchProduct = products.find(p => isMatch(game.name, p));
@@ -143,7 +328,7 @@ async function checkAvailability() {
             }
         }
 
-        // Parse 401 Games results
+        // Parse 401 Games
         if (fofRes?.resources?.results?.products) {
             const products = fofRes.resources.results.products;
             const matchProduct = products.find(p => isMatch(game.name, p));
@@ -154,6 +339,59 @@ async function checkAvailability() {
                     url: `https://store.401games.ca${matchProduct.url}`
                 };
             }
+        }
+
+        // Parse LVLUP Games
+        if (lvlRes?.resources?.results?.products) {
+            const products = lvlRes.resources.results.products;
+            const matchProduct = products.find(p => isMatch(game.name, p));
+            if (matchProduct) {
+                availability.lvlUpGames = {
+                    available: matchProduct.available ?? false,
+                    price: matchProduct.price || null,
+                    url: `https://www.lvlupgames.ca${matchProduct.url}`
+                };
+            }
+        }
+
+        // Parse GeekStop Games
+        const geekMatch = parseGeekStopGames(geekHtml, game.name);
+        if (geekMatch) {
+            availability.geekStopGames = {
+                available: geekMatch.available,
+                price: geekMatch.price,
+                url: geekMatch.url
+            };
+        }
+
+        // Parse Great Boardgames Waterloo
+        const gbgMatch = parseGreatBoardgames(gbgHtml, game.name);
+        if (gbgMatch) {
+            availability.greatBoardgames = {
+                available: gbgMatch.available,
+                price: gbgMatch.price,
+                url: gbgMatch.url
+            };
+        }
+
+        // Parse Meeplemart
+        const meepleMatch = parseMeeplemart(meepleHtml, game.name);
+        if (meepleMatch) {
+            availability.meeplemart = {
+                available: meepleMatch.available,
+                price: meepleMatch.price,
+                url: meepleMatch.url
+            };
+        }
+
+        // Parse Amazon.ca
+        const amazonMatch = parseAmazon(amazonHtml, game.name);
+        if (amazonMatch) {
+            availability.amazonCa = {
+                available: amazonMatch.available,
+                price: amazonMatch.price,
+                url: amazonMatch.url
+            };
         }
 
         availabilityData[game.objectId] = availability;

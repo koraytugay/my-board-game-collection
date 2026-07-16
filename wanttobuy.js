@@ -21,7 +21,12 @@ async function fetchCollection() {
             lastPlayed: '',
             availability: availabilityRes[game.objectId] || {
                 boardGameBliss: { available: false, price: null, url: null },
-                fourZeroOneGames: { available: false, price: null, url: null }
+                fourZeroOneGames: { available: false, price: null, url: null },
+                lvlUpGames: { available: false, price: null, url: null },
+                geekStopGames: { available: false, price: null, url: null },
+                greatBoardgames: { available: false, price: null, url: null },
+                meeplemart: { available: false, price: null, url: null },
+                amazonCa: { available: false, price: null, url: null }
             }
         }));
         
@@ -54,10 +59,15 @@ function updateStats() {
         
     const soloGames = allGames.filter(game => game.minPlayers <= 1).length;
     
-    // Count how many wanted games are in stock at either BoardGameBliss or 401 Games
+    // Count how many wanted games are in stock at any store
     const inStockGames = allGames.filter(game => 
         game.availability?.boardGameBliss?.available || 
-        game.availability?.fourZeroOneGames?.available
+        game.availability?.fourZeroOneGames?.available ||
+        game.availability?.lvlUpGames?.available ||
+        game.availability?.geekStopGames?.available ||
+        game.availability?.greatBoardgames?.available ||
+        game.availability?.meeplemart?.available ||
+        game.availability?.amazonCa?.available
     ).length;
 
     document.getElementById('total-games').textContent = totalGames;
@@ -94,9 +104,13 @@ function applyFilters() {
 
     filteredGames = allGames.filter(game => {
         if (inStockOnly) {
-            const isAvailableBgb = game.availability?.boardGameBliss?.available;
-            const isAvailable401 = game.availability?.fourZeroOneGames?.available;
-            return isAvailableBgb || isAvailable401;
+            return game.availability?.boardGameBliss?.available || 
+                   game.availability?.fourZeroOneGames?.available ||
+                   game.availability?.lvlUpGames?.available ||
+                   game.availability?.geekStopGames?.available ||
+                   game.availability?.greatBoardgames?.available ||
+                   game.availability?.meeplemart?.available ||
+                   game.availability?.amazonCa?.available;
         }
         return true;
     });
@@ -137,11 +151,16 @@ function createGameCard(game) {
 
     let badgesHtml = '';
     
-    // Check if in stock at either store to add a special badge
-    const isAvailableBgb = game.availability?.boardGameBliss?.available;
-    const isAvailable401 = game.availability?.fourZeroOneGames?.available;
+    // Check if in stock at any store to add a special badge
+    const isInStock = game.availability?.boardGameBliss?.available || 
+                      game.availability?.fourZeroOneGames?.available ||
+                      game.availability?.lvlUpGames?.available ||
+                      game.availability?.geekStopGames?.available ||
+                      game.availability?.greatBoardgames?.available ||
+                      game.availability?.meeplemart?.available ||
+                      game.availability?.amazonCa?.available;
     
-    if (isAvailableBgb || isAvailable401) {
+    if (isInStock) {
         badgesHtml += '<span class="badge badge-favorite">In Stock</span>';
     }
     
@@ -152,33 +171,35 @@ function createGameCard(game) {
     let storeHtml = '';
     const bgb = game.availability?.boardGameBliss;
     const fof = game.availability?.fourZeroOneGames;
+    const lvl = game.availability?.lvlUpGames;
+    const geek = game.availability?.geekStopGames;
+    const gbg = game.availability?.greatBoardgames;
+    const meeple = game.availability?.meeplemart;
+    const amzn = game.availability?.amazonCa;
 
-    if ((bgb && bgb.url) || (fof && fof.url)) {
+    if ((bgb && bgb.url) || (fof && fof.url) || (lvl && lvl.url) || (geek && geek.url) || (gbg && gbg.url) || (meeple && meeple.url) || (amzn && amzn.url)) {
         storeHtml += '<div class="store-availability">';
         
-        if (bgb && bgb.url) {
-            const statusClass = bgb.available ? 'store-status-instock' : 'store-status-outofstock';
-            const statusText = bgb.available ? 'In Stock' : 'Out of Stock';
-            const priceText = bgb.price ? `$${bgb.price}` : '';
-            storeHtml += `
-                <a href="${bgb.url}" target="_blank" class="store-btn store-btn-bgb ${bgb.available ? '' : 'store-btn-out'}">
-                    <span class="store-name">🍁 BoardGameBliss</span>
+        const renderStoreBtn = (store, name, btnClass) => {
+            if (!store || !store.url) return '';
+            const statusClass = store.available ? 'store-status-instock' : 'store-status-outofstock';
+            const statusText = store.available ? 'In Stock' : 'Out of Stock';
+            const priceText = store.price ? `$${store.price}` : '';
+            return `
+                <a href="${store.url}" target="_blank" class="store-btn ${btnClass} ${store.available ? '' : 'store-btn-out'}">
+                    <span class="store-name">${name}</span>
                     <span>${priceText} <span class="store-status ${statusClass}">${statusText}</span></span>
                 </a>
             `;
-        }
-        
-        if (fof && fof.url) {
-            const statusClass = fof.available ? 'store-status-instock' : 'store-status-outofstock';
-            const statusText = fof.available ? 'In Stock' : 'Out of Stock';
-            const priceText = fof.price ? `$${fof.price}` : '';
-            storeHtml += `
-                <a href="${fof.url}" target="_blank" class="store-btn store-btn-401 ${fof.available ? '' : 'store-btn-out'}">
-                    <span class="store-name">🎲 401 Games</span>
-                    <span>${priceText} <span class="store-status ${statusClass}">${statusText}</span></span>
-                </a>
-            `;
-        }
+        };
+
+        storeHtml += renderStoreBtn(bgb, '🍁 BoardGameBliss', 'store-btn-bgb');
+        storeHtml += renderStoreBtn(fof, '🎲 401 Games', 'store-btn-401');
+        storeHtml += renderStoreBtn(lvl, '⚔️ LVLUP Games', 'store-btn-lvlup');
+        storeHtml += renderStoreBtn(geek, '👓 GeekStop Games', 'store-btn-geekstop');
+        storeHtml += renderStoreBtn(gbg, '🏰 Great Boardgames', 'store-btn-greatbg');
+        storeHtml += renderStoreBtn(meeple, '👾 Meeplemart', 'store-btn-meeplemart');
+        storeHtml += renderStoreBtn(amzn, '🛒 Amazon.ca', 'store-btn-amazon');
         
         storeHtml += '</div>';
     }
