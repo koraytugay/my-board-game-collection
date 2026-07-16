@@ -24,8 +24,9 @@ async function getCollection(onlyOwned = true) {
             items = items.filter(item => {
                 const status = item.querySelector('status');
                 const isWantToBuy = status && status.getAttribute('wanttobuy') === '1';
-                const isBoardGame = item.getAttribute('subtype') === 'boardgame';
-                return isWantToBuy && isBoardGame;
+                const subtype = item.getAttribute('subtype');
+                const isValidType = subtype === 'boardgame' || subtype === 'boardgameexpansion';
+                return isWantToBuy && isValidType;
             });
         } else if (onlyOwned === true) {
             items = items.filter(item => {
