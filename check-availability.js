@@ -317,6 +317,16 @@ async function checkAvailability() {
         return;
     }
 
+    // Load existing availability.json to preserve old data and timestamps
+    let existingData = {};
+    if (fs.existsSync(OUTPUT_FILE)) {
+        try {
+            existingData = JSON.parse(fs.readFileSync(OUTPUT_FILE, 'utf8'));
+        } catch (e) {
+            console.error('Error reading existing availability.json:', e);
+        }
+    }
+
     const content = fs.readFileSync(COLLECTION_FILE, 'utf8');
     const itemRegex = /<item objecttype="thing" objectid="(\d+)"[^>]*>([\s\S]*?)<\/item>/g;
     let match;
@@ -344,175 +354,286 @@ async function checkAvailability() {
 
     for (let i = 0; i < wantedGames.length; i++) {
         const game = wantedGames[i];
-        console.log(`[${i+1}/${wantedGames.length}] Checking availability for: "${game.name}"...`);
         const query = cleanName(game.name);
 
-        const [bgbRes, fofRes, lvlRes, adjRes, gbgHtml, meepleHtml, amazonHtml, wfsRes, f2fRes, hairytRes, banditRes] = await Promise.all([
-            fetchJson(`https://www.boardgamebliss.com/search/suggest.json?q=${encodeURIComponent(query)}&resources[type]=product`),
-            fetchJson(`https://store.401games.ca/search/suggest.json?q=${encodeURIComponent(query)}&resources[type]=product`),
-            fetchJson(`https://www.lvlupgames.ca/search/suggest.json?q=${encodeURIComponent(query)}&resources[type]=product`),
-            fetchJson(`https://www.asdesjeux.com/search/suggest.json?q=${encodeURIComponent(query)}&resources[type]=product`),
-            fetchHtml(`https://www.greatboardgames.ca/search?q=${encodeURIComponent(query)}`),
-            fetchHtml(`https://www.meeplemart.com/store/Search.aspx?SearchTerms=${encodeURIComponent(query)}`),
-            fetchHtml(`https://www.amazon.ca/s?k=${encodeURIComponent(query + " board game")}`),
-            fetchJson(`https://www.woodforsheep.ca/search/suggest.json?q=${encodeURIComponent(query)}&resources[type]=product`),
-            fetchJson(`https://facetofacegames.com/search/suggest.json?q=${encodeURIComponent(query)}&resources[type]=product`),
-            fetchJson(`https://hairyt.com/search/suggest.json?q=${encodeURIComponent(query)}&resources[type]=product`),
-            fetchJson(`https://boardgamebandit.ca/search/suggest.json?q=${encodeURIComponent(query)}&resources[type]=product`)
-        ]);
-
-        const availability = {
-            boardGameBliss: { available: false, price: null, url: null },
-            fourZeroOneGames: { available: false, price: null, url: null },
-            lvlUpGames: { available: false, price: null, url: null },
-            asDesJeux: { available: false, price: null, url: null },
-            greatBoardgames: { available: false, price: null, url: null },
-            meeplemart: { available: false, price: null, url: null },
-            amazonCa: { available: false, price: null, url: null },
-            woodForSheep: { available: false, price: null, url: null },
-            faceToFaceGames: { available: false, price: null, url: null },
-            hairyTarantula: { available: false, price: null, url: null },
-            boardGameBandit: { available: false, price: null, url: null }
+        const storeConfigs = {
+            boardGameBliss: {
+                type: 'json',
+                url: `https://www.boardgamebliss.com/search/suggest.json?q=${encodeURIComponent(query)}&resources[type]=product`,
+                parser: (res, gameName) => {
+                    if (res?.resources?.results?.products) {
+                        const products = res.resources.results.products;
+                        const matchProduct = products.find(p => isMatch(gameName, p));
+                        if (matchProduct) {
+                            return {
+                                available: matchProduct.available ?? false,
+                                price: matchProduct.price || null,
+                                url: `https://www.boardgamebliss.com${matchProduct.url}`
+                            };
+                        }
+                    }
+                    return null;
+                }
+            },
+            fourZeroOneGames: {
+                type: 'json',
+                url: `https://store.401games.ca/search/suggest.json?q=${encodeURIComponent(query)}&resources[type]=product`,
+                parser: (res, gameName) => {
+                    if (res?.resources?.results?.products) {
+                        const products = res.resources.results.products;
+                        const matchProduct = products.find(p => isMatch(gameName, p));
+                        if (matchProduct) {
+                            return {
+                                available: matchProduct.available ?? false,
+                                price: matchProduct.price || null,
+                                url: `https://store.401games.ca${matchProduct.url}`
+                            };
+                        }
+                    }
+                    return null;
+                }
+            },
+            lvlUpGames: {
+                type: 'json',
+                url: `https://www.lvlupgames.ca/search/suggest.json?q=${encodeURIComponent(query)}&resources[type]=product`,
+                parser: (res, gameName) => {
+                    if (res?.resources?.results?.products) {
+                        const products = res.resources.results.products;
+                        const matchProduct = products.find(p => isMatch(gameName, p));
+                        if (matchProduct) {
+                            return {
+                                available: matchProduct.available ?? false,
+                                price: matchProduct.price || null,
+                                url: `https://www.lvlupgames.ca${matchProduct.url}`
+                            };
+                        }
+                    }
+                    return null;
+                }
+            },
+            asDesJeux: {
+                type: 'json',
+                url: `https://www.asdesjeux.com/search/suggest.json?q=${encodeURIComponent(query)}&resources[type]=product`,
+                parser: (res, gameName) => {
+                    if (res?.resources?.results?.products) {
+                        const products = res.resources.results.products;
+                        const matchProduct = products.find(p => isMatch(gameName, p));
+                        if (matchProduct) {
+                            return {
+                                available: matchProduct.available ?? false,
+                                price: matchProduct.price || null,
+                                url: `https://www.asdesjeux.com${matchProduct.url}`
+                            };
+                        }
+                    }
+                    return null;
+                }
+            },
+            greatBoardgames: {
+                type: 'html',
+                url: `https://www.greatboardgames.ca/search?q=${encodeURIComponent(query)}`,
+                parser: (html, gameName) => {
+                    const match = parseGreatBoardgames(html, gameName);
+                    if (match) {
+                        return {
+                            available: match.available,
+                            price: match.price,
+                            url: match.url
+                        };
+                    }
+                    return null;
+                }
+            },
+            meeplemart: {
+                type: 'html',
+                url: `https://www.meeplemart.com/store/Search.aspx?SearchTerms=${encodeURIComponent(query)}`,
+                parser: (html, gameName) => {
+                    const match = parseMeeplemart(html, gameName);
+                    if (match) {
+                        return {
+                            available: match.available,
+                            price: match.price,
+                            url: match.url
+                        };
+                    }
+                    return null;
+                }
+            },
+            amazonCa: {
+                type: 'html',
+                url: `https://www.amazon.ca/s?k=${encodeURIComponent(query + " board game")}`,
+                parser: (html, gameName) => {
+                    const match = parseAmazon(html, gameName);
+                    if (match) {
+                        return {
+                            available: match.available,
+                            price: match.price,
+                            url: match.url
+                        };
+                    }
+                    return null;
+                }
+            },
+            woodForSheep: {
+                type: 'json',
+                url: `https://www.woodforsheep.ca/search/suggest.json?q=${encodeURIComponent(query)}&resources[type]=product`,
+                parser: (res, gameName) => {
+                    if (res?.resources?.results?.products) {
+                        const products = res.resources.results.products;
+                        const matchProduct = products.find(p => isMatch(gameName, p));
+                        if (matchProduct) {
+                            return {
+                                available: matchProduct.available ?? false,
+                                price: matchProduct.price || null,
+                                url: `https://www.woodforsheep.ca${matchProduct.url}`
+                            };
+                        }
+                    }
+                    return null;
+                }
+            },
+            faceToFaceGames: {
+                type: 'json',
+                url: `https://facetofacegames.com/search/suggest.json?q=${encodeURIComponent(query)}&resources[type]=product`,
+                parser: (res, gameName) => {
+                    if (res?.resources?.results?.products) {
+                        const products = res.resources.results.products;
+                        const matchProduct = products.find(p => isMatch(gameName, p));
+                        if (matchProduct) {
+                            return {
+                                available: matchProduct.available ?? false,
+                                price: matchProduct.price || null,
+                                url: `https://facetofacegames.com${matchProduct.url}`
+                            };
+                        }
+                    }
+                    return null;
+                }
+            },
+            hairyTarantula: {
+                type: 'json',
+                url: `https://hairyt.com/search/suggest.json?q=${encodeURIComponent(query)}&resources[type]=product`,
+                parser: (res, gameName) => {
+                    if (res?.resources?.results?.products) {
+                        const products = res.resources.results.products;
+                        const matchProduct = products.find(p => isMatch(gameName, p));
+                        if (matchProduct) {
+                            return {
+                                available: matchProduct.available ?? false,
+                                price: matchProduct.price || null,
+                                url: `https://hairyt.com${matchProduct.url}`
+                            };
+                        }
+                    }
+                    return null;
+                }
+            },
+            boardGameBandit: {
+                type: 'json',
+                url: `https://boardgamebandit.ca/search/suggest.json?q=${encodeURIComponent(query)}&resources[type]=product`,
+                parser: (res, gameName) => {
+                    if (res?.resources?.results?.products) {
+                        const products = res.resources.results.products;
+                        const matchProduct = products.find(p => isMatch(gameName, p));
+                        if (matchProduct) {
+                            return {
+                                available: matchProduct.available ?? false,
+                                price: matchProduct.price || null,
+                                url: `https://boardgamebandit.ca${matchProduct.url}`
+                            };
+                        }
+                    }
+                    return null;
+                }
+            }
         };
 
-        // Parse Board Game Bliss
-        if (bgbRes?.resources?.results?.products) {
-            const products = bgbRes.resources.results.products;
-            const matchProduct = products.find(p => isMatch(game.name, p));
-            if (matchProduct) {
-                availability.boardGameBliss = {
-                    available: matchProduct.available ?? false,
-                    price: matchProduct.price || null,
-                    url: `https://www.boardgamebliss.com${matchProduct.url}`
+        const availability = {};
+        const fetchPromises = [];
+        const storeKeys = Object.keys(storeConfigs);
+        const skippedStores = [];
+
+        for (const storeKey of storeKeys) {
+            const config = storeConfigs[storeKey];
+            const existingStoreData = existingData[game.objectId]?.[storeKey];
+
+            let shouldFetch = true;
+            if (existingStoreData && existingStoreData.lastChecked && existingStoreData.lastCheckSuccess !== false) {
+                const lastCheckedTime = new Date(existingStoreData.lastChecked).getTime();
+                const sixHoursAgo = Date.now() - (6 * 60 * 60 * 1000);
+                if (lastCheckedTime > sixHoursAgo) {
+                    shouldFetch = false;
+                }
+            }
+
+            if (!shouldFetch) {
+                skippedStores.push(storeKey);
+                availability[storeKey] = {
+                    available: existingStoreData.available ?? false,
+                    price: existingStoreData.price ?? null,
+                    url: existingStoreData.url ?? null,
+                    lastChecked: existingStoreData.lastChecked,
+                    lastCheckSuccess: existingStoreData.lastCheckSuccess ?? true
                 };
+            } else {
+                const fetchPromise = (async () => {
+                    try {
+                        const res = config.type === 'json' 
+                            ? await fetchJson(config.url)
+                            : await fetchHtml(config.url);
+
+                        if (res === null) {
+                            throw new Error(`Fetch returned null (timeout/error)`);
+                        }
+
+                        const parsed = config.parser(res, game.name);
+                        if (parsed) {
+                            availability[storeKey] = {
+                                available: parsed.available,
+                                price: parsed.price,
+                                url: parsed.url,
+                                lastChecked: new Date().toISOString(),
+                                lastCheckSuccess: true
+                            };
+                        } else {
+                            availability[storeKey] = {
+                                available: false,
+                                price: null,
+                                url: null,
+                                lastChecked: new Date().toISOString(),
+                                lastCheckSuccess: true
+                            };
+                        }
+                    } catch (err) {
+                        availability[storeKey] = {
+                            available: existingStoreData?.available ?? false,
+                            price: existingStoreData?.price ?? null,
+                            url: existingStoreData?.url ?? null,
+                            lastChecked: existingStoreData?.lastChecked ?? null,
+                            lastCheckSuccess: false
+                        };
+                    }
+                })();
+                fetchPromises.push(fetchPromise);
             }
         }
 
-        // Parse 401 Games
-        if (fofRes?.resources?.results?.products) {
-            const products = fofRes.resources.results.products;
-            const matchProduct = products.find(p => isMatch(game.name, p));
-            if (matchProduct) {
-                availability.fourZeroOneGames = {
-                    available: matchProduct.available ?? false,
-                    price: matchProduct.price || null,
-                    url: `https://store.401games.ca${matchProduct.url}`
-                };
-            }
+        if (skippedStores.length > 0) {
+            console.log(`[${i+1}/${wantedGames.length}] "${game.name}": skipped ${skippedStores.length} stores checked within 6 hours. Checking remaining ${fetchPromises.length} stores...`);
+        } else {
+            console.log(`[${i+1}/${wantedGames.length}] "${game.name}": Checking all 11 stores...`);
         }
 
-        // Parse LVLUP Games
-        if (lvlRes?.resources?.results?.products) {
-            const products = lvlRes.resources.results.products;
-            const matchProduct = products.find(p => isMatch(game.name, p));
-            if (matchProduct) {
-                availability.lvlUpGames = {
-                    available: matchProduct.available ?? false,
-                    price: matchProduct.price || null,
-                    url: `https://www.lvlupgames.ca${matchProduct.url}`
-                };
-            }
-        }
-
-        // Parse As des Jeux
-        if (adjRes?.resources?.results?.products) {
-            const products = adjRes.resources.results.products;
-            const matchProduct = products.find(p => isMatch(game.name, p));
-            if (matchProduct) {
-                availability.asDesJeux = {
-                    available: matchProduct.available ?? false,
-                    price: matchProduct.price || null,
-                    url: `https://www.asdesjeux.com${matchProduct.url}`
-                };
-            }
-        }
-
-        // Parse Great Boardgames Waterloo
-        const gbgMatch = parseGreatBoardgames(gbgHtml, game.name);
-        if (gbgMatch) {
-            availability.greatBoardgames = {
-                available: gbgMatch.available,
-                price: gbgMatch.price,
-                url: gbgMatch.url
-            };
-        }
-
-        // Parse Meeplemart
-        const meepleMatch = parseMeeplemart(meepleHtml, game.name);
-        if (meepleMatch) {
-            availability.meeplemart = {
-                available: meepleMatch.available,
-                price: meepleMatch.price,
-                url: meepleMatch.url
-            };
-        }
-
-        // Parse Amazon.ca
-        const amazonMatch = parseAmazon(amazonHtml, game.name);
-        if (amazonMatch) {
-            availability.amazonCa = {
-                available: amazonMatch.available,
-                price: amazonMatch.price,
-                url: amazonMatch.url
-            };
-        }
-
-        // Parse Wood for Sheep
-        if (wfsRes?.resources?.results?.products) {
-            const products = wfsRes.resources.results.products;
-            const matchProduct = products.find(p => isMatch(game.name, p));
-            if (matchProduct) {
-                availability.woodForSheep = {
-                    available: matchProduct.available ?? false,
-                    price: matchProduct.price || null,
-                    url: `https://www.woodforsheep.ca${matchProduct.url}`
-                };
-            }
-        }
-
-        // Parse Face to Face Games
-        if (f2fRes?.resources?.results?.products) {
-            const products = f2fRes.resources.results.products;
-            const matchProduct = products.find(p => isMatch(game.name, p));
-            if (matchProduct) {
-                availability.faceToFaceGames = {
-                    available: matchProduct.available ?? false,
-                    price: matchProduct.price || null,
-                    url: `https://facetofacegames.com${matchProduct.url}`
-                };
-            }
-        }
-
-        // Parse Hairy Tarantula
-        if (hairytRes?.resources?.results?.products) {
-            const products = hairytRes.resources.results.products;
-            const matchProduct = products.find(p => isMatch(game.name, p));
-            if (matchProduct) {
-                availability.hairyTarantula = {
-                    available: matchProduct.available ?? false,
-                    price: matchProduct.price || null,
-                    url: `https://hairyt.com${matchProduct.url}`
-                };
-            }
-        }
-
-        // Parse Board Game Bandit
-        if (banditRes?.resources?.results?.products) {
-            const products = banditRes.resources.results.products;
-            const matchProduct = products.find(p => isMatch(game.name, p));
-            if (matchProduct) {
-                availability.boardGameBandit = {
-                    available: matchProduct.available ?? false,
-                    price: matchProduct.price || null,
-                    url: `https://boardgamebandit.ca${matchProduct.url}`
-                };
-            }
+        if (fetchPromises.length > 0) {
+            await Promise.all(fetchPromises);
         }
 
         availabilityData[game.objectId] = availability;
         
         // Politeness delay
-        await new Promise(r => setTimeout(r, 3000));
+        if (fetchPromises.length > 0) {
+            await new Promise(r => setTimeout(r, 3000));
+        }
     }
 
     fs.writeFileSync(OUTPUT_FILE, JSON.stringify(availabilityData, null, 2), 'utf8');
