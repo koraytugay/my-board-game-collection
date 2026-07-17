@@ -5,6 +5,10 @@ on:
     # Runs every 6 hours (at minute 25 of the hour to avoid peak load)
     - cron: "25 */6 * * *"
   workflow_dispatch:
+  workflow_run:
+    workflows: ["Update BGG collection"]
+    types:
+      - completed
 
 permissions:
   contents: write
@@ -16,6 +20,7 @@ concurrency:
 jobs:
   check-availability:
     runs-on: ubuntu-latest
+    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
     steps:
       - name: Checkout
         uses: actions/checkout@v6
