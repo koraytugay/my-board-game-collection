@@ -316,6 +316,18 @@ function parseAmazon(html, gameName) {
     return products.find(p => isMatch(gameName, p)) || null;
 }
 
+function decodeXmlEntities(str) {
+    return str
+        .replace(/&amp;/g, '&')
+        .replace(/&lt;/g, '<')
+        .replace(/&gt;/g, '>')
+        .replace(/&quot;/g, '"')
+        .replace(/&#039;/g, "'")
+        .replace(/&apos;/g, "'")
+        .replace(/&#x27;/g, "'")
+        .replace(/&#(\d+);/g, (match, dec) => String.fromCharCode(dec));
+}
+
 async function checkAvailability() {
     console.log('Starting board game availability check...');
     if (!fs.existsSync(COLLECTION_FILE)) {
@@ -339,7 +351,7 @@ async function checkAvailability() {
             if (nameMatch) {
                 wantedGames.push({
                     objectId,
-                    name: nameMatch[1].trim()
+                    name: decodeXmlEntities(nameMatch[1].trim())
                 });
             }
         }
@@ -515,7 +527,7 @@ async function checkAvailability() {
         availabilityData[game.objectId] = availability;
         
         // Politeness delay
-        await new Promise(r => setTimeout(r, 500));
+        await new Promise(r => setTimeout(r, 3000));
     }
 
     fs.writeFileSync(OUTPUT_FILE, JSON.stringify(availabilityData, null, 2), 'utf8');
