@@ -5,69 +5,127 @@ const COLLECTION_FILE = 'collection.xml';
 const OUTPUT_FILE = 'availability.json';
 
 // Helper to make HTTPS requests in Node and automatically follow redirects (JSON response)
-function fetchJson(url) {
+function fetchJson(url, redirectCount = 0) {
+    if (redirectCount > 5) {
+        console.error(`Too many redirects for: ${url}`);
+        return Promise.resolve(null);
+    }
     return new Promise((resolve, reject) => {
         const options = {
             headers: {
                 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
-            }
+            },
+            timeout: 10000 // 10 seconds timeout
         };
-        https.get(url, options, (res) => {
+        let resolved = false;
+
+        const req = https.get(url, options, (res) => {
             if (res.statusCode === 302 || res.statusCode === 301) {
                 const redirectUrl = res.headers.location;
                 if (redirectUrl) {
-                    fetchJson(redirectUrl).then(resolve).catch(reject);
+                    if (!resolved) {
+                        resolved = true;
+                        fetchJson(redirectUrl, redirectCount + 1).then(resolve).catch(reject);
+                    }
                     return;
                 }
             }
             if (res.statusCode !== 200) {
-                resolve(null);
+                if (!resolved) {
+                    resolved = true;
+                    resolve(null);
+                }
                 return;
             }
 
             let data = '';
             res.on('data', (chunk) => { data += chunk; });
             res.on('end', () => {
-                try {
-                    resolve(JSON.parse(data));
-                } catch (e) {
-                    resolve(null);
+                if (!resolved) {
+                    resolved = true;
+                    try {
+                        resolve(JSON.parse(data));
+                    } catch (e) {
+                        resolve(null);
+                    }
                 }
             });
-        }).on('error', (err) => {
-            resolve(null);
+        });
+
+        req.on('timeout', () => {
+            req.destroy();
+            if (!resolved) {
+                resolved = true;
+                resolve(null);
+            }
+        });
+
+        req.on('error', (err) => {
+            if (!resolved) {
+                resolved = true;
+                resolve(null);
+            }
         });
     });
 }
 
 // Helper to make HTTPS requests in Node and automatically follow redirects (HTML response)
-function fetchHtml(url) {
+function fetchHtml(url, redirectCount = 0) {
+    if (redirectCount > 5) {
+        console.error(`Too many redirects for: ${url}`);
+        return Promise.resolve(null);
+    }
     return new Promise((resolve, reject) => {
         const options = {
             headers: {
                 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
-            }
+            },
+            timeout: 10000 // 10 seconds timeout
         };
-        https.get(url, options, (res) => {
+        let resolved = false;
+
+        const req = https.get(url, options, (res) => {
             if (res.statusCode === 302 || res.statusCode === 301) {
                 const redirectUrl = res.headers.location;
                 if (redirectUrl) {
-                    fetchHtml(redirectUrl).then(resolve).catch(reject);
+                    if (!resolved) {
+                        resolved = true;
+                        fetchHtml(redirectUrl, redirectCount + 1).then(resolve).catch(reject);
+                    }
                     return;
                 }
             }
             if (res.statusCode !== 200) {
-                resolve(null);
+                if (!resolved) {
+                    resolved = true;
+                    resolve(null);
+                }
                 return;
             }
 
             let data = '';
             res.on('data', (chunk) => { data += chunk; });
             res.on('end', () => {
-                resolve(data);
+                if (!resolved) {
+                    resolved = true;
+                    resolve(data);
+                }
             });
-        }).on('error', (err) => {
-            resolve(null);
+        });
+
+        req.on('timeout', () => {
+            req.destroy();
+            if (!resolved) {
+                resolved = true;
+                resolve(null);
+            }
+        });
+
+        req.on('error', (err) => {
+            if (!resolved) {
+                resolved = true;
+                resolve(null);
+            }
         });
     });
 }
