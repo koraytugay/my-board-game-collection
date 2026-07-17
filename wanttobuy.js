@@ -26,7 +26,11 @@ async function fetchCollection() {
                 geekStopGames: { available: false, price: null, url: null },
                 greatBoardgames: { available: false, price: null, url: null },
                 meeplemart: { available: false, price: null, url: null },
-                amazonCa: { available: false, price: null, url: null }
+                amazonCa: { available: false, price: null, url: null },
+                woodForSheep: { available: false, price: null, url: null },
+                faceToFaceGames: { available: false, price: null, url: null },
+                hairyTarantula: { available: false, price: null, url: null },
+                boardGameBandit: { available: false, price: null, url: null }
             }
         }));
         
@@ -67,7 +71,11 @@ function updateStats() {
         game.availability?.geekStopGames?.available ||
         game.availability?.greatBoardgames?.available ||
         game.availability?.meeplemart?.available ||
-        game.availability?.amazonCa?.available
+        game.availability?.amazonCa?.available ||
+        game.availability?.woodForSheep?.available ||
+        game.availability?.faceToFaceGames?.available ||
+        game.availability?.hairyTarantula?.available ||
+        game.availability?.boardGameBandit?.available
     ).length;
 
     document.getElementById('total-games').textContent = totalGames;
@@ -110,7 +118,11 @@ function applyFilters() {
                    game.availability?.geekStopGames?.available ||
                    game.availability?.greatBoardgames?.available ||
                    game.availability?.meeplemart?.available ||
-                   game.availability?.amazonCa?.available;
+                   game.availability?.amazonCa?.available ||
+                   game.availability?.woodForSheep?.available ||
+                   game.availability?.faceToFaceGames?.available ||
+                   game.availability?.hairyTarantula?.available ||
+                   game.availability?.boardGameBandit?.available;
         }
         return true;
     });
@@ -158,7 +170,11 @@ function createGameCard(game) {
                       game.availability?.geekStopGames?.available ||
                       game.availability?.greatBoardgames?.available ||
                       game.availability?.meeplemart?.available ||
-                      game.availability?.amazonCa?.available;
+                      game.availability?.amazonCa?.available ||
+                      game.availability?.woodForSheep?.available ||
+                      game.availability?.faceToFaceGames?.available ||
+                      game.availability?.hairyTarantula?.available ||
+                      game.availability?.boardGameBandit?.available;
     
     if (isInStock) {
         badgesHtml += '<span class="badge badge-favorite">In Stock</span>';
@@ -176,8 +192,12 @@ function createGameCard(game) {
     const gbg = game.availability?.greatBoardgames;
     const meeple = game.availability?.meeplemart;
     const amzn = game.availability?.amazonCa;
+    const wfs = game.availability?.woodForSheep;
+    const f2f = game.availability?.faceToFaceGames;
+    const ht = game.availability?.hairyTarantula;
+    const bgbnd = game.availability?.boardGameBandit;
 
-    if ((bgb && bgb.url) || (fof && fof.url) || (lvl && lvl.url) || (geek && geek.url) || (gbg && gbg.url) || (meeple && meeple.url) || (amzn && amzn.url)) {
+    if ((bgb && bgb.url) || (fof && fof.url) || (lvl && lvl.url) || (geek && geek.url) || (gbg && gbg.url) || (meeple && meeple.url) || (amzn && amzn.url) || (wfs && wfs.url) || (f2f && f2f.url) || (ht && ht.url) || (bgbnd && bgbnd.url)) {
         storeHtml += '<div class="store-availability">';
         
         const renderStoreBtn = (store, name, btnClass) => {
@@ -200,6 +220,10 @@ function createGameCard(game) {
         storeHtml += renderStoreBtn(gbg, '🏰 Great Boardgames', 'store-btn-greatbg');
         storeHtml += renderStoreBtn(meeple, '👾 Meeplemart', 'store-btn-meeplemart');
         storeHtml += renderStoreBtn(amzn, '🛒 Amazon.ca', 'store-btn-amazon');
+        storeHtml += renderStoreBtn(wfs, '🐑 Wood for Sheep', 'store-btn-wfs');
+        storeHtml += renderStoreBtn(f2f, '🤝 Face to Face', 'store-btn-f2f');
+        storeHtml += renderStoreBtn(ht, '🕷️ Hairy Tarantula', 'store-btn-hairyt');
+        storeHtml += renderStoreBtn(bgbnd, '🦝 Board Game Bandit', 'store-btn-bandit');
         
         storeHtml += '</div>';
     }

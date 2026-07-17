@@ -295,14 +295,18 @@ async function checkAvailability() {
         console.log(`[${i+1}/${wantedGames.length}] Checking availability for: "${game.name}"...`);
         const query = cleanName(game.name);
 
-        const [bgbRes, fofRes, lvlRes, geekHtml, gbgHtml, meepleHtml, amazonHtml] = await Promise.all([
+        const [bgbRes, fofRes, lvlRes, geekHtml, gbgHtml, meepleHtml, amazonHtml, wfsRes, f2fRes, hairytRes, banditRes] = await Promise.all([
             fetchJson(`https://www.boardgamebliss.com/search/suggest.json?q=${encodeURIComponent(query)}&resources[type]=product`),
             fetchJson(`https://store.401games.ca/search/suggest.json?q=${encodeURIComponent(query)}&resources[type]=product`),
             fetchJson(`https://www.lvlupgames.ca/search/suggest.json?q=${encodeURIComponent(query)}&resources[type]=product`),
             fetchHtml(`https://www.geekstopgames.com/gameSearch.php?search=${encodeURIComponent(query)}`),
             fetchHtml(`https://www.greatboardgames.ca/search?q=${encodeURIComponent(query)}`),
             fetchHtml(`https://www.meeplemart.com/store/Search.aspx?SearchTerms=${encodeURIComponent(query)}`),
-            fetchHtml(`https://www.amazon.ca/s?k=${encodeURIComponent(query + " board game")}`)
+            fetchHtml(`https://www.amazon.ca/s?k=${encodeURIComponent(query + " board game")}`),
+            fetchJson(`https://www.woodforsheep.ca/search/suggest.json?q=${encodeURIComponent(query)}&resources[type]=product`),
+            fetchJson(`https://facetofacegames.com/search/suggest.json?q=${encodeURIComponent(query)}&resources[type]=product`),
+            fetchJson(`https://hairyt.com/search/suggest.json?q=${encodeURIComponent(query)}&resources[type]=product`),
+            fetchJson(`https://boardgamebandit.ca/search/suggest.json?q=${encodeURIComponent(query)}&resources[type]=product`)
         ]);
 
         const availability = {
@@ -312,7 +316,11 @@ async function checkAvailability() {
             geekStopGames: { available: false, price: null, url: null },
             greatBoardgames: { available: false, price: null, url: null },
             meeplemart: { available: false, price: null, url: null },
-            amazonCa: { available: false, price: null, url: null }
+            amazonCa: { available: false, price: null, url: null },
+            woodForSheep: { available: false, price: null, url: null },
+            faceToFaceGames: { available: false, price: null, url: null },
+            hairyTarantula: { available: false, price: null, url: null },
+            boardGameBandit: { available: false, price: null, url: null }
         };
 
         // Parse Board Game Bliss
@@ -392,6 +400,58 @@ async function checkAvailability() {
                 price: amazonMatch.price,
                 url: amazonMatch.url
             };
+        }
+
+        // Parse Wood for Sheep
+        if (wfsRes?.resources?.results?.products) {
+            const products = wfsRes.resources.results.products;
+            const matchProduct = products.find(p => isMatch(game.name, p));
+            if (matchProduct) {
+                availability.woodForSheep = {
+                    available: matchProduct.available ?? false,
+                    price: matchProduct.price || null,
+                    url: `https://www.woodforsheep.ca${matchProduct.url}`
+                };
+            }
+        }
+
+        // Parse Face to Face Games
+        if (f2fRes?.resources?.results?.products) {
+            const products = f2fRes.resources.results.products;
+            const matchProduct = products.find(p => isMatch(game.name, p));
+            if (matchProduct) {
+                availability.faceToFaceGames = {
+                    available: matchProduct.available ?? false,
+                    price: matchProduct.price || null,
+                    url: `https://facetofacegames.com${matchProduct.url}`
+                };
+            }
+        }
+
+        // Parse Hairy Tarantula
+        if (hairytRes?.resources?.results?.products) {
+            const products = hairytRes.resources.results.products;
+            const matchProduct = products.find(p => isMatch(game.name, p));
+            if (matchProduct) {
+                availability.hairyTarantula = {
+                    available: matchProduct.available ?? false,
+                    price: matchProduct.price || null,
+                    url: `https://hairyt.com${matchProduct.url}`
+                };
+            }
+        }
+
+        // Parse Board Game Bandit
+        if (banditRes?.resources?.results?.products) {
+            const products = banditRes.resources.results.products;
+            const matchProduct = products.find(p => isMatch(game.name, p));
+            if (matchProduct) {
+                availability.boardGameBandit = {
+                    available: matchProduct.available ?? false,
+                    price: matchProduct.price || null,
+                    url: `https://boardgamebandit.ca${matchProduct.url}`
+                };
+            }
         }
 
         availabilityData[game.objectId] = availability;
