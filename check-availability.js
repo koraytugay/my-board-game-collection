@@ -31,6 +31,7 @@ function fetchJson(url, redirectCount = 0) {
                 }
             }
             if (res.statusCode !== 200) {
+                console.warn(`[WARNING] fetchJson failed for ${url} with status: ${res.statusCode}`);
                 if (!resolved) {
                     resolved = true;
                     resolve(null);
@@ -46,6 +47,7 @@ function fetchJson(url, redirectCount = 0) {
                     try {
                         resolve(JSON.parse(data));
                     } catch (e) {
+                        console.error(`[ERROR] JSON parse failed for ${url}: ${e.message}`);
                         resolve(null);
                     }
                 }
@@ -54,6 +56,7 @@ function fetchJson(url, redirectCount = 0) {
 
         req.on('timeout', () => {
             req.destroy();
+            console.error(`[ERROR] Timeout (10s) fetching JSON from: ${url}`);
             if (!resolved) {
                 resolved = true;
                 resolve(null);
@@ -61,6 +64,7 @@ function fetchJson(url, redirectCount = 0) {
         });
 
         req.on('error', (err) => {
+            console.error(`[ERROR] HTTPS error fetching JSON from ${url}: ${err.message}`);
             if (!resolved) {
                 resolved = true;
                 resolve(null);
@@ -96,6 +100,7 @@ function fetchHtml(url, redirectCount = 0) {
                 }
             }
             if (res.statusCode !== 200) {
+                console.warn(`[WARNING] fetchHtml failed for ${url} with status: ${res.statusCode}`);
                 if (!resolved) {
                     resolved = true;
                     resolve(null);
@@ -115,6 +120,7 @@ function fetchHtml(url, redirectCount = 0) {
 
         req.on('timeout', () => {
             req.destroy();
+            console.error(`[ERROR] Timeout (10s) fetching HTML from: ${url}`);
             if (!resolved) {
                 resolved = true;
                 resolve(null);
@@ -122,6 +128,7 @@ function fetchHtml(url, redirectCount = 0) {
         });
 
         req.on('error', (err) => {
+            console.error(`[ERROR] HTTPS error fetching HTML from ${url}: ${err.message}`);
             if (!resolved) {
                 resolved = true;
                 resolve(null);
