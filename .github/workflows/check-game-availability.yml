@@ -1,0 +1,43 @@
+name: Check Game Availability
+
+on:
+  schedule:
+    # Runs every 6 hours (at minute 25 of the hour to avoid peak load)
+    - cron: "25 */6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: check-game-availability
+  cancel-in-progress: false
+
+jobs:
+  check-availability:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Check Game Availability
+        run: node check-availability.js
+
+      - name: Commit & push if changed
+        run: |
+          set -euo pipefail
+          git add availability.json
+
+          if git diff --quiet --staged; then
+            echo "No changes to commit."
+            exit 0
+          fi
+
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git pull --rebase origin ${{ github.ref_name }}
+          git commit -m "chore: update game availability ($(date -u +%F))"
+          git push

@@ -85,13 +85,10 @@ jobs:
       - name: Download New Images
         run: node download-images.js
 
-      - name: Check Game Availability
-        run: node check-availability.js
-
       - name: Commit & push if changed
         run: |
           set -euo pipefail
-          git add collection.xml plays/ images/ availability.json
+          git add collection.xml plays/ images/
 
           if git diff --quiet --staged; then
             echo "No changes to commit."
@@ -101,5 +98,6 @@ jobs:
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
+          git pull --rebase origin ${{ github.ref_name }}
           git commit -m "chore: update collection and monthly play archives ($(date -u +%F))"
           git push
