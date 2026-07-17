@@ -28,7 +28,10 @@ jobs:
           fetch-depth: 0
 
       - name: Check Game Availability
-        run: node check-availability.js
+        run: |
+          node check-availability.js
+          echo "First pass finished. Starting second pass to retry failed/timed-out requests..."
+          node check-availability.js
 
       - name: Commit & push if changed
         run: |
