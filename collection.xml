@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<items totalitems="193" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse" pubdate="Thu, 16 Jul 2026 23:28:31 +0000">
+<items totalitems="194" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse" pubdate="Fri, 17 Jul 2026 00:53:31 +0000">
 		<item objecttype="thing" objectid="457611" subtype="boardgame" collid="147266443">
 	<name sortindex="1">52 Duels</name>
 		<yearpublished>2025</yearpublished>			<image>https://cf.geekdo-images.com/wHfxMgTJnq3od5lTuytGtg__original/img/MgaLOmRYx2TlG4_LK3fvfdC1T7Y=/0x0/filters:format(jpeg)/pic9205150.jpg</image>
@@ -1778,6 +1778,20 @@ Overall: a mediocre experience for me. Nice theme and artwork, but too long, too
 											</ranks>		</rating>
 			</stats>	<status own="1" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="0"  preordered="0" lastmodified="2026-03-11 16:48:43" />
 	<numplays>14</numplays>							</item>
+		<item objecttype="thing" objectid="377470" subtype="boardgame" collid="147464056">
+	<name sortindex="1">Sail</name>
+		<yearpublished>2023</yearpublished>			<image>https://cf.geekdo-images.com/WdYRHQ_ILHTV_ECMGF27Gw__original/img/i9rMBmWzjVl2Aep-xUqWg4u0ADA=/0x0/filters:format(jpeg)/pic7267575.jpg</image>
+		<thumbnail>https://cf.geekdo-images.com/WdYRHQ_ILHTV_ECMGF27Gw__small/img/y8Hlu0-CQDQAO6d6zM8YJ3dVevI=/fit-in/200x150/filters:strip_icc()/pic7267575.jpg</thumbnail>
+		<stats minplayers="2"																	maxplayers="2"																	minplaytime="20"																	maxplaytime="20"																	playingtime="20"																	numowned="12699" >
+				<rating value="N/A">			<usersrated value="4894" />			<average value="7.26002" />
+			<bayesaverage value="6.67449" />			<stddev value="1.20491" />
+			<median value="0" />			<ranks>
+												<rank type="subtype" id="1" name="boardgame" friendlyname="Board Game Rank" value="962" bayesaverage="6.67449" />
+																<rank type="family" id="5497" name="strategygames" friendlyname="Strategy Game Rank" value="582" bayesaverage="6.77576" />
+								<rank type="family" id="5499" name="familygames" friendlyname="Family Game Rank" value="228" bayesaverage="6.80299" />
+											</ranks>		</rating>
+			</stats>	<status own="0" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="1" wishlist="0"  preordered="0" lastmodified="2026-07-16 19:52:16" />
+	<numplays>0</numplays>							</item>
 		<item objecttype="thing" objectid="438975" subtype="boardgame" collid="147266582">
 	<name sortindex="1">Sail Legacy</name>
 		<yearpublished>2026</yearpublished>			<image>https://cf.geekdo-images.com/lRNcxndptSAF_-_pULQl5w__original/img/GF-ON0XJNb_XaXoEWUTGO-cLbC8=/0x0/filters:format(jpeg)/pic8694781.jpg</image>
