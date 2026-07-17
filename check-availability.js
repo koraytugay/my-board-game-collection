@@ -347,10 +347,11 @@ async function checkAvailability() {
         console.log(`[${i+1}/${wantedGames.length}] Checking availability for: "${game.name}"...`);
         const query = cleanName(game.name);
 
-        const [bgbRes, fofRes, lvlRes, gbgHtml, meepleHtml, amazonHtml, wfsRes, f2fRes, hairytRes, banditRes] = await Promise.all([
+        const [bgbRes, fofRes, lvlRes, adjRes, gbgHtml, meepleHtml, amazonHtml, wfsRes, f2fRes, hairytRes, banditRes] = await Promise.all([
             fetchJson(`https://www.boardgamebliss.com/search/suggest.json?q=${encodeURIComponent(query)}&resources[type]=product`),
             fetchJson(`https://store.401games.ca/search/suggest.json?q=${encodeURIComponent(query)}&resources[type]=product`),
             fetchJson(`https://www.lvlupgames.ca/search/suggest.json?q=${encodeURIComponent(query)}&resources[type]=product`),
+            fetchJson(`https://www.asdesjeux.com/search/suggest.json?q=${encodeURIComponent(query)}&resources[type]=product`),
             fetchHtml(`https://www.greatboardgames.ca/search?q=${encodeURIComponent(query)}`),
             fetchHtml(`https://www.meeplemart.com/store/Search.aspx?SearchTerms=${encodeURIComponent(query)}`),
             fetchHtml(`https://www.amazon.ca/s?k=${encodeURIComponent(query + " board game")}`),
@@ -364,6 +365,7 @@ async function checkAvailability() {
             boardGameBliss: { available: false, price: null, url: null },
             fourZeroOneGames: { available: false, price: null, url: null },
             lvlUpGames: { available: false, price: null, url: null },
+            asDesJeux: { available: false, price: null, url: null },
             greatBoardgames: { available: false, price: null, url: null },
             meeplemart: { available: false, price: null, url: null },
             amazonCa: { available: false, price: null, url: null },
@@ -408,6 +410,19 @@ async function checkAvailability() {
                     available: matchProduct.available ?? false,
                     price: matchProduct.price || null,
                     url: `https://www.lvlupgames.ca${matchProduct.url}`
+                };
+            }
+        }
+
+        // Parse As des Jeux
+        if (adjRes?.resources?.results?.products) {
+            const products = adjRes.resources.results.products;
+            const matchProduct = products.find(p => isMatch(game.name, p));
+            if (matchProduct) {
+                availability.asDesJeux = {
+                    available: matchProduct.available ?? false,
+                    price: matchProduct.price || null,
+                    url: `https://www.asdesjeux.com${matchProduct.url}`
                 };
             }
         }
