@@ -23,7 +23,6 @@ async function fetchCollection() {
                 boardGameBliss: { available: false, price: null, url: null },
                 fourZeroOneGames: { available: false, price: null, url: null },
                 lvlUpGames: { available: false, price: null, url: null },
-                geekStopGames: { available: false, price: null, url: null },
                 greatBoardgames: { available: false, price: null, url: null },
                 meeplemart: { available: false, price: null, url: null },
                 amazonCa: { available: false, price: null, url: null },
@@ -68,7 +67,6 @@ function updateStats() {
         game.availability?.boardGameBliss?.available || 
         game.availability?.fourZeroOneGames?.available ||
         game.availability?.lvlUpGames?.available ||
-        game.availability?.geekStopGames?.available ||
         game.availability?.greatBoardgames?.available ||
         game.availability?.meeplemart?.available ||
         game.availability?.amazonCa?.available ||
@@ -115,7 +113,6 @@ function applyFilters() {
             return game.availability?.boardGameBliss?.available || 
                    game.availability?.fourZeroOneGames?.available ||
                    game.availability?.lvlUpGames?.available ||
-                   game.availability?.geekStopGames?.available ||
                    game.availability?.greatBoardgames?.available ||
                    game.availability?.meeplemart?.available ||
                    game.availability?.amazonCa?.available ||
@@ -167,7 +164,6 @@ function createGameCard(game) {
     const isInStock = game.availability?.boardGameBliss?.available || 
                       game.availability?.fourZeroOneGames?.available ||
                       game.availability?.lvlUpGames?.available ||
-                      game.availability?.geekStopGames?.available ||
                       game.availability?.greatBoardgames?.available ||
                       game.availability?.meeplemart?.available ||
                       game.availability?.amazonCa?.available ||
@@ -188,7 +184,6 @@ function createGameCard(game) {
     const bgb = game.availability?.boardGameBliss;
     const fof = game.availability?.fourZeroOneGames;
     const lvl = game.availability?.lvlUpGames;
-    const geek = game.availability?.geekStopGames;
     const gbg = game.availability?.greatBoardgames;
     const meeple = game.availability?.meeplemart;
     const amzn = game.availability?.amazonCa;
@@ -197,7 +192,7 @@ function createGameCard(game) {
     const ht = game.availability?.hairyTarantula;
     const bgbnd = game.availability?.boardGameBandit;
 
-    if ((bgb && bgb.url) || (fof && fof.url) || (lvl && lvl.url) || (geek && geek.url) || (gbg && gbg.url) || (meeple && meeple.url) || (amzn && amzn.url) || (wfs && wfs.url) || (f2f && f2f.url) || (ht && ht.url) || (bgbnd && bgbnd.url)) {
+    if ((bgb && bgb.url) || (fof && fof.url) || (lvl && lvl.url) || (gbg && gbg.url) || (meeple && meeple.url) || (amzn && amzn.url) || (wfs && wfs.url) || (f2f && f2f.url) || (ht && ht.url) || (bgbnd && bgbnd.url)) {
         storeHtml += '<div class="store-availability">';
         
         const renderStoreBtn = (store, name, btnClass) => {
@@ -216,7 +211,6 @@ function createGameCard(game) {
         storeHtml += renderStoreBtn(bgb, '🍁 BoardGameBliss', 'store-btn-bgb');
         storeHtml += renderStoreBtn(fof, '🎲 401 Games', 'store-btn-401');
         storeHtml += renderStoreBtn(lvl, '⚔️ LVLUP Games', 'store-btn-lvlup');
-        storeHtml += renderStoreBtn(geek, '👓 GeekStop Games', 'store-btn-geekstop');
         storeHtml += renderStoreBtn(gbg, '🏰 Great Boardgames', 'store-btn-greatbg');
         storeHtml += renderStoreBtn(meeple, '👾 Meeplemart', 'store-btn-meeplemart');
         storeHtml += renderStoreBtn(amzn, '🛒 Amazon.ca', 'store-btn-amazon');

@@ -180,31 +180,6 @@ function isMatch(bggName, shopifyProduct) {
     return nBgg === nShopify || nShopify.startsWith(nBgg) || nBgg.startsWith(nShopify);
 }
 
-// Parser for GeekStop Games HTML
-function parseGeekStopGames(html, gameName) {
-    if (!html) return null;
-    const regex = /<h3><a href="\/game\.php\?([^"]+)"[^>]*>([^<]+)<\/a>[\s\S]*?<span>\s*\$([0-9.]+)\s*<\/span>[\s\S]*?<span[^>]*style\s*=\s*['\x22][^'\x22]*(?:color:\s*([^;'\x22\s]+))[^'\x22]*['\x22][^>]*>([^<]+)<\/span>/gi;
-    let match;
-    const products = [];
-    while ((match = regex.exec(html)) !== null) {
-        const urlParam = match[1];
-        const title = match[2].trim();
-        const price = match[3].trim();
-        const color = match[4] || '';
-        const stockText = match[5].trim();
-        const available = stockText.toLowerCase().includes('in stock') || color.toLowerCase().includes('green');
-        
-        products.push({
-            title,
-            price,
-            available,
-            url: `https://www.geekstopgames.com/game.php?${urlParam}`,
-            type: 'Board Games'
-        });
-    }
-    
-    return products.find(p => isMatch(gameName, p)) || null;
-}
 
 // Parser for Great Boardgames Waterloo HTML
 function parseGreatBoardgames(html, gameName) {
@@ -372,11 +347,10 @@ async function checkAvailability() {
         console.log(`[${i+1}/${wantedGames.length}] Checking availability for: "${game.name}"...`);
         const query = cleanName(game.name);
 
-        const [bgbRes, fofRes, lvlRes, geekHtml, gbgHtml, meepleHtml, amazonHtml, wfsRes, f2fRes, hairytRes, banditRes] = await Promise.all([
+        const [bgbRes, fofRes, lvlRes, gbgHtml, meepleHtml, amazonHtml, wfsRes, f2fRes, hairytRes, banditRes] = await Promise.all([
             fetchJson(`https://www.boardgamebliss.com/search/suggest.json?q=${encodeURIComponent(query)}&resources[type]=product`),
             fetchJson(`https://store.401games.ca/search/suggest.json?q=${encodeURIComponent(query)}&resources[type]=product`),
             fetchJson(`https://www.lvlupgames.ca/search/suggest.json?q=${encodeURIComponent(query)}&resources[type]=product`),
-            fetchHtml(`https://www.geekstopgames.com/gameSearch.php?search=${encodeURIComponent(query)}`),
             fetchHtml(`https://www.greatboardgames.ca/search?q=${encodeURIComponent(query)}`),
             fetchHtml(`https://www.meeplemart.com/store/Search.aspx?SearchTerms=${encodeURIComponent(query)}`),
             fetchHtml(`https://www.amazon.ca/s?k=${encodeURIComponent(query + " board game")}`),
@@ -390,7 +364,6 @@ async function checkAvailability() {
             boardGameBliss: { available: false, price: null, url: null },
             fourZeroOneGames: { available: false, price: null, url: null },
             lvlUpGames: { available: false, price: null, url: null },
-            geekStopGames: { available: false, price: null, url: null },
             greatBoardgames: { available: false, price: null, url: null },
             meeplemart: { available: false, price: null, url: null },
             amazonCa: { available: false, price: null, url: null },
@@ -437,16 +410,6 @@ async function checkAvailability() {
                     url: `https://www.lvlupgames.ca${matchProduct.url}`
                 };
             }
-        }
-
-        // Parse GeekStop Games
-        const geekMatch = parseGeekStopGames(geekHtml, game.name);
-        if (geekMatch) {
-            availability.geekStopGames = {
-                available: geekMatch.available,
-                price: geekMatch.price,
-                url: geekMatch.url
-            };
         }
 
         // Parse Great Boardgames Waterloo
