@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<items totalitems="199" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse" pubdate="Fri, 17 Jul 2026 22:08:13 +0000">
+<items totalitems="200" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse" pubdate="Sat, 18 Jul 2026 07:56:01 +0000">
 		<item objecttype="thing" objectid="457611" subtype="boardgame" collid="147266443">
 	<name sortindex="1">52 Duels</name>
 		<yearpublished>2025</yearpublished>			<image>https://cf.geekdo-images.com/wHfxMgTJnq3od5lTuytGtg__original/img/MgaLOmRYx2TlG4_LK3fvfdC1T7Y=/0x0/filters:format(jpeg)/pic9205150.jpg</image>
@@ -1135,14 +1135,14 @@ Overall: a mediocre experience for me. Nice theme and artwork, but too long, too
 		<yearpublished>2016</yearpublished>			<image>https://cf.geekdo-images.com/c0m3gwZTcfKoLI63ASio8g__original/img/HT6NQPT0cSFcZXjSewtjTO_NBAE=/0x0/filters:format(png)/pic8443569.png</image>
 		<thumbnail>https://cf.geekdo-images.com/c0m3gwZTcfKoLI63ASio8g__small/img/4p4Xydg0tze9UFcd6oUbCnVyxCw=/fit-in/200x150/filters:strip_icc()/pic8443569.png</thumbnail>
 		<stats minplayers="2"																	maxplayers="4"																	minplaytime="15"																	maxplaytime="25"																	playingtime="25"																	numowned="91967" >
-				<rating value="6">			<usersrated value="53314" />			<average value="7.28716" />
+				<rating value="7">			<usersrated value="53314" />			<average value="7.28716" />
 			<bayesaverage value="7.16885" />			<stddev value="1.12636" />
 			<median value="0" />			<ranks>
 												<rank type="subtype" id="1" name="boardgame" friendlyname="Board Game Rank" value="330" bayesaverage="7.16885" />
 																<rank type="family" id="5499" name="familygames" friendlyname="Family Game Rank" value="79" bayesaverage="7.18304" />
 											</ranks>		</rating>
-			</stats>	<status own="1" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="0"  preordered="0" lastmodified="2026-04-13 12:05:42" />
-	<numplays>0</numplays>							</item>
+			</stats>	<status own="1" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="0"  preordered="0" lastmodified="2026-07-17 21:38:04" />
+	<numplays>2</numplays>							</item>
 		<item objecttype="thing" objectid="464263" subtype="boardgame" collid="147489160">
 	<name sortindex="1">Kingdomino: The Lost Treasures</name>
 		<yearpublished>2026</yearpublished>			<image>https://cf.geekdo-images.com/TmOOxW4yHi0tESnekZvIxQ__original/img/j-NemVcLy5uSzWTlHl9i1pfRg90=/0x0/filters:format(png)/pic9418435.png</image>
@@ -2358,6 +2358,19 @@ Overall: a mediocre experience for me. Nice theme and artwork, but too long, too
 												<rank type="subtype" id="1" name="boardgame" friendlyname="Board Game Rank" value="Not Ranked" bayesaverage="Not Ranked" />
 											</ranks>		</rating>
 			</stats>	<status own="1" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="0"  preordered="0" lastmodified="2026-07-06 13:34:06" />
+	<numplays>0</numplays>							</item>
+		<item objecttype="thing" objectid="35472" subtype="boardgame" collid="147496200">
+	<name sortindex="1">Triovision</name>
+		<yearpublished>2008</yearpublished>			<image>https://cf.geekdo-images.com/Sc9rImgjxQRlstA1hIFfpQ__original/img/GW-K5AgAb76r6kNUXRoOQcXsfdA=/0x0/filters:format(jpeg)/pic3329401.jpg</image>
+		<thumbnail>https://cf.geekdo-images.com/Sc9rImgjxQRlstA1hIFfpQ__small/img/PPflqKT9UHc60gI6asyW70aODBA=/fit-in/200x150/filters:strip_icc()/pic3329401.jpg</thumbnail>
+		<stats minplayers="1"																	maxplayers="6"																	minplaytime="20"																	maxplaytime="20"																	playingtime="20"																	numowned="493" >
+				<rating value="N/A">			<usersrated value="284" />			<average value="6.35444" />
+			<bayesaverage value="5.57921" />			<stddev value="1.57189" />
+			<median value="0" />			<ranks>
+												<rank type="subtype" id="1" name="boardgame" friendlyname="Board Game Rank" value="10676" bayesaverage="5.57921" />
+																<rank type="family" id="4666" name="abstracts" friendlyname="Abstract Game Rank" value="614" bayesaverage="5.68581" />
+											</ranks>		</rating>
+			</stats>	<status own="0" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="1" wishlist="0"  preordered="0" lastmodified="2026-07-17 20:26:15" />
 	<numplays>0</numplays>							</item>
 		<item objecttype="thing" objectid="318556" subtype="boardgame" collid="137662339">
 	<name sortindex="1">Tucano</name>
