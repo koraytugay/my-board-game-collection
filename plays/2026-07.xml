@@ -1,5 +1,20 @@
-<?xml version="1.0" encoding="utf-8"?><plays username="koraytugay" userid="4151779" total="23" page="1" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse">
-<play id="116349664" date="2026-07-17" quantity="2" length="30" incomplete="0" nowinstats="0" location="">
+<?xml version="1.0" encoding="utf-8"?><plays username="koraytugay" userid="4151779" total="25" page="1" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse">
+<play id="116382332" date="2026-07-18" quantity="2" length="30" incomplete="0" nowinstats="0" location="">
+			<item name="Kingdomino" objecttype="thing" objectid="204583">
+				<subtypes>
+										<subtype value="boardgame" />
+										<subtype value="boardgameintegration" />
+									</subtypes>
+			</item>
+								</play>
+	<play id="116382349" date="2026-07-18" quantity="2" length="30" incomplete="0" nowinstats="0" location="">
+			<item name="Sky Team" objecttype="thing" objectid="373106">
+				<subtypes>
+										<subtype value="boardgame" />
+									</subtypes>
+			</item>
+								</play>
+	<play id="116349664" date="2026-07-17" quantity="2" length="30" incomplete="0" nowinstats="0" location="">
 			<item name="Kingdomino" objecttype="thing" objectid="204583">
 				<subtypes>
 										<subtype value="boardgame" />
