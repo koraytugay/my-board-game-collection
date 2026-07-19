@@ -516,6 +516,13 @@
       "lastChecked": "2026-07-19T04:02:42.721Z",
       "lastCheckSuccess": true
     },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "url": null,
+      "lastChecked": "2026-07-19T04:05:54.228Z",
+      "lastCheckSuccess": true
+    },
     "woodForSheep": {
       "available": false,
       "price": "20.49",
@@ -542,13 +549,6 @@
       "price": "9.96",
       "url": "https://boardgamebandit.ca/products/dr-eureka-board-game-canada?_pos=1&_psq=Dr.+Eureka&_psid=46edf0b49&_ss=e&_v=1.0",
       "lastChecked": "2026-07-19T04:02:41.695Z",
-      "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "url": null,
-      "lastChecked": "2026-07-19T04:05:54.228Z",
       "lastCheckSuccess": true
     }
   },
@@ -595,6 +595,13 @@
       "lastChecked": "2026-07-19T04:02:15.893Z",
       "lastCheckSuccess": true
     },
+    "amazonCa": {
+      "available": true,
+      "price": "55.89",
+      "url": "https://www.amazon.ca/dp/B07TNVYHWS",
+      "lastChecked": "2026-07-19T08:23:44.375Z",
+      "lastCheckSuccess": true
+    },
     "woodForSheep": {
       "available": false,
       "price": null,
@@ -622,13 +629,6 @@
       "url": "https://boardgamebandit.ca/products/coffee-roaster-board-game-canada?_pos=1&_psq=Coffee+Roaster&_psid=207ccc1ca&_ss=e&_v=1.0",
       "lastChecked": "2026-07-19T04:02:15.592Z",
       "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": true,
-      "price": "55.89",
-      "url": "https://www.amazon.ca/dp/B07TNVYHWS",
-      "lastChecked": "2026-07-18T19:37:24.655Z",
-      "lastCheckSuccess": false
     }
   },
   "227758": {
@@ -674,6 +674,13 @@
       "lastChecked": "2026-07-19T04:03:38.532Z",
       "lastCheckSuccess": true
     },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "url": null,
+      "lastChecked": "2026-07-19T04:06:05.315Z",
+      "lastCheckSuccess": true
+    },
     "woodForSheep": {
       "available": false,
       "price": null,
@@ -700,13 +707,6 @@
       "price": null,
       "url": null,
       "lastChecked": "2026-07-19T04:03:38.235Z",
-      "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "url": null,
-      "lastChecked": "2026-07-19T04:06:05.315Z",
       "lastCheckSuccess": true
     }
   },
@@ -2728,6 +2728,13 @@
       "lastChecked": "2026-07-19T04:03:57.199Z",
       "lastCheckSuccess": true
     },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "url": null,
+      "lastChecked": "2026-07-19T04:06:09.057Z",
+      "lastCheckSuccess": true
+    },
     "woodForSheep": {
       "available": false,
       "price": null,
@@ -2754,13 +2761,6 @@
       "price": null,
       "url": null,
       "lastChecked": "2026-07-19T04:03:56.622Z",
-      "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "url": null,
-      "lastChecked": "2026-07-19T04:06:09.057Z",
       "lastCheckSuccess": true
     }
   },
@@ -3044,6 +3044,13 @@
       "lastChecked": "2026-07-19T04:04:12.231Z",
       "lastCheckSuccess": true
     },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "url": null,
+      "lastChecked": "2026-07-19T04:06:12.882Z",
+      "lastCheckSuccess": true
+    },
     "woodForSheep": {
       "available": false,
       "price": null,
@@ -3070,13 +3077,6 @@
       "price": null,
       "url": null,
       "lastChecked": "2026-07-19T04:04:11.549Z",
-      "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "url": null,
-      "lastChecked": "2026-07-19T04:06:12.882Z",
       "lastCheckSuccess": true
     }
   },
@@ -3712,85 +3712,6 @@
       "lastCheckSuccess": true
     }
   },
-  "453526": {
-    "boardGameBliss": {
-      "available": true,
-      "price": "23.95",
-      "url": "https://www.boardgamebliss.com/products/got-five?_pos=1&_psq=Got+Five%21&_psid=76f75f3c9&_ss=e&_v=1.0",
-      "lastChecked": "2026-07-19T04:03:11.986Z",
-      "lastCheckSuccess": true
-    },
-    "fourZeroOneGames": {
-      "available": true,
-      "price": "25.95",
-      "url": "https://store.401games.ca/products/got-five?_pos=1&_psq=Got+Five%21&_psid=a748fb45f&_ss=e&_v=1.0",
-      "lastChecked": "2026-07-19T04:03:12.031Z",
-      "lastCheckSuccess": true
-    },
-    "lvlUpGames": {
-      "available": true,
-      "price": "26.95",
-      "url": "https://www.lvlupgames.ca/products/got-five?_pos=1&_psq=Got+Five%21&_psid=96799aee6&_ss=e&_v=1.0",
-      "lastChecked": "2026-07-19T04:03:12.006Z",
-      "lastCheckSuccess": true
-    },
-    "asDesJeux": {
-      "available": true,
-      "price": "34.99",
-      "url": "https://www.asdesjeux.com/products/got-five-ml?_pos=1&_psq=Got+Five%21&_psid=d1f6680e4&_ss=e&_v=1.0",
-      "lastChecked": "2026-07-19T04:03:12.021Z",
-      "lastCheckSuccess": true
-    },
-    "greatBoardgames": {
-      "available": false,
-      "price": null,
-      "url": null,
-      "lastChecked": "2026-07-19T04:03:12.326Z",
-      "lastCheckSuccess": true
-    },
-    "meeplemart": {
-      "available": false,
-      "price": null,
-      "url": null,
-      "lastChecked": "2026-07-19T04:03:12.387Z",
-      "lastCheckSuccess": true
-    },
-    "woodForSheep": {
-      "available": false,
-      "price": null,
-      "url": null,
-      "lastChecked": "2026-07-19T04:03:11.965Z",
-      "lastCheckSuccess": true
-    },
-    "faceToFaceGames": {
-      "available": false,
-      "price": null,
-      "url": null,
-      "lastChecked": "2026-07-19T04:03:12.069Z",
-      "lastCheckSuccess": true
-    },
-    "hairyTarantula": {
-      "available": false,
-      "price": null,
-      "url": null,
-      "lastChecked": "2026-07-19T04:03:11.981Z",
-      "lastCheckSuccess": true
-    },
-    "boardGameBandit": {
-      "available": false,
-      "price": null,
-      "url": null,
-      "lastChecked": "2026-07-19T04:03:12.051Z",
-      "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "url": null,
-      "lastChecked": "2026-07-19T04:05:57.942Z",
-      "lastCheckSuccess": true
-    }
-  },
   "453913": {
     "boardGameBliss": {
       "available": false,
@@ -4229,6 +4150,13 @@
       "lastChecked": "2026-07-19T04:02:01.312Z",
       "lastCheckSuccess": true
     },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "url": null,
+      "lastChecked": "2026-07-19T04:05:47.462Z",
+      "lastCheckSuccess": true
+    },
     "woodForSheep": {
       "available": false,
       "price": null,
@@ -4255,13 +4183,6 @@
       "price": null,
       "url": null,
       "lastChecked": "2026-07-19T04:02:00.980Z",
-      "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "url": null,
-      "lastChecked": "2026-07-19T04:05:47.462Z",
       "lastCheckSuccess": true
     }
   },
@@ -4660,85 +4581,6 @@
       "lastCheckSuccess": true
     }
   },
-  "464263": {
-    "boardGameBliss": {
-      "available": true,
-      "price": "6.95",
-      "url": "https://www.boardgamebliss.com/products/kingdomino-the-lost-treasures?_pos=1&_psq=Kingdomino%3A+The+Lost+Treasures&_psid=eaf89a20c&_ss=e&_v=1.0",
-      "lastChecked": "2026-07-19T04:03:30.498Z",
-      "lastCheckSuccess": true
-    },
-    "fourZeroOneGames": {
-      "available": false,
-      "price": null,
-      "url": null,
-      "lastChecked": "2026-07-19T04:03:30.509Z",
-      "lastCheckSuccess": true
-    },
-    "lvlUpGames": {
-      "available": false,
-      "price": null,
-      "url": null,
-      "lastChecked": "2026-07-19T04:03:30.535Z",
-      "lastCheckSuccess": true
-    },
-    "asDesJeux": {
-      "available": false,
-      "price": null,
-      "url": null,
-      "lastChecked": "2026-07-19T04:03:30.533Z",
-      "lastCheckSuccess": true
-    },
-    "greatBoardgames": {
-      "available": false,
-      "price": null,
-      "url": null,
-      "lastChecked": "2026-07-19T04:03:30.788Z",
-      "lastCheckSuccess": true
-    },
-    "meeplemart": {
-      "available": false,
-      "price": null,
-      "url": null,
-      "lastChecked": "2026-07-19T04:03:30.872Z",
-      "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "url": null,
-      "lastChecked": "2026-07-19T04:03:31.334Z",
-      "lastCheckSuccess": true
-    },
-    "woodForSheep": {
-      "available": false,
-      "price": null,
-      "url": null,
-      "lastChecked": "2026-07-19T04:03:30.498Z",
-      "lastCheckSuccess": true
-    },
-    "faceToFaceGames": {
-      "available": false,
-      "price": null,
-      "url": null,
-      "lastChecked": "2026-07-19T04:03:30.461Z",
-      "lastCheckSuccess": true
-    },
-    "hairyTarantula": {
-      "available": false,
-      "price": null,
-      "url": null,
-      "lastChecked": "2026-07-19T04:03:30.527Z",
-      "lastCheckSuccess": true
-    },
-    "boardGameBandit": {
-      "available": false,
-      "price": null,
-      "url": null,
-      "lastChecked": "2026-07-19T04:03:30.462Z",
-      "lastCheckSuccess": true
-    }
-  },
   "465735": {
     "boardGameBliss": {
       "available": true,
@@ -4782,6 +4624,13 @@
       "lastChecked": "2026-07-19T04:03:27.319Z",
       "lastCheckSuccess": true
     },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "url": null,
+      "lastChecked": "2026-07-19T04:06:01.632Z",
+      "lastCheckSuccess": true
+    },
     "woodForSheep": {
       "available": false,
       "price": null,
@@ -4808,13 +4657,6 @@
       "price": null,
       "url": null,
       "lastChecked": "2026-07-19T04:03:26.844Z",
-      "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "url": null,
-      "lastChecked": "2026-07-19T04:06:01.632Z",
       "lastCheckSuccess": true
     }
   },
