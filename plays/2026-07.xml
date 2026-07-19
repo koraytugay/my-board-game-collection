@@ -1,9 +1,25 @@
-<?xml version="1.0" encoding="utf-8"?><plays username="koraytugay" userid="4151779" total="25" page="1" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse">
+<?xml version="1.0" encoding="utf-8"?><plays username="koraytugay" userid="4151779" total="27" page="1" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse">
 <play id="116382332" date="2026-07-18" quantity="2" length="30" incomplete="0" nowinstats="0" location="">
 			<item name="Kingdomino" objecttype="thing" objectid="204583">
 				<subtypes>
 										<subtype value="boardgame" />
 										<subtype value="boardgameintegration" />
+									</subtypes>
+			</item>
+								</play>
+	<play id="116402020" date="2026-07-18" quantity="1" length="20" incomplete="0" nowinstats="0" location="">
+			<item name="Marvel: Remix" objecttype="thing" objectid="359152">
+				<subtypes>
+										<subtype value="boardgame" />
+										<subtype value="boardgameimplementation" />
+										<subtype value="boardgameintegration" />
+									</subtypes>
+			</item>
+								</play>
+	<play id="116402024" date="2026-07-18" quantity="1" length="30" incomplete="0" nowinstats="0" location="">
+			<item name="Point City" objecttype="thing" objectid="368017">
+				<subtypes>
+										<subtype value="boardgame" />
 									</subtypes>
 			</item>
 								</play>
