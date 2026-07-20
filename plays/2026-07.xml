@@ -1,5 +1,20 @@
-<?xml version="1.0" encoding="utf-8"?><plays username="koraytugay" userid="4151779" total="27" page="1" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse">
-<play id="116382332" date="2026-07-18" quantity="2" length="30" incomplete="0" nowinstats="0" location="">
+<?xml version="1.0" encoding="utf-8"?><plays username="koraytugay" userid="4151779" total="29" page="1" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse">
+<play id="116457237" date="2026-07-19" quantity="1" length="45" incomplete="0" nowinstats="0" location="">
+			<item name="The Crew: The Quest for Planet Nine" objecttype="thing" objectid="284083">
+				<subtypes>
+										<subtype value="boardgame" />
+									</subtypes>
+			</item>
+								</play>
+	<play id="116445345" date="2026-07-19" quantity="1" length="15" incomplete="0" nowinstats="0" location="">
+			<item name="Deduckto" objecttype="thing" objectid="380887">
+				<subtypes>
+										<subtype value="boardgame" />
+										<subtype value="boardgameimplementation" />
+									</subtypes>
+			</item>
+								</play>
+	<play id="116382332" date="2026-07-18" quantity="2" length="30" incomplete="0" nowinstats="0" location="">
 			<item name="Kingdomino" objecttype="thing" objectid="204583">
 				<subtypes>
 										<subtype value="boardgame" />
