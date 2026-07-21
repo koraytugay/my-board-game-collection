@@ -71,13 +71,13 @@ jobs:
           let items = [];
           if (fs.existsSync("collection_bg.xml")) {
               const bg = fs.readFileSync("collection_bg.xml", "utf8");
-              const bgMatches = bg.match(/<item[\s\S]*?<\/item>/g) || [];
+              const bgMatches = bg.match(/<item\b[\s\S]*?<\/item>/g) || [];
               items.push(...bgMatches);
               fs.unlinkSync("collection_bg.xml");
           }
           if (fs.existsSync("collection_exp.xml")) {
               const exp = fs.readFileSync("collection_exp.xml", "utf8");
-              const expMatches = exp.match(/<item[\s\S]*?<\/item>/g) || [];
+              const expMatches = exp.match(/<item\b[\s\S]*?<\/item>/g) || [];
               items.push(...expMatches);
               fs.unlinkSync("collection_exp.xml");
           }
