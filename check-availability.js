@@ -510,24 +510,6 @@ async function checkAvailability() {
                     return null;
                 }
             },
-            hairyTarantula: {
-                type: 'json',
-                url: `https://hairyt.com/search/suggest.json?q=${encodeURIComponent(query)}&resources[type]=product`,
-                parser: (res, gameName) => {
-                    if (res?.resources?.results?.products) {
-                        const products = res.resources.results.products;
-                        const matchProduct = products.find(p => isMatch(gameName, p));
-                        if (matchProduct) {
-                            return {
-                                available: matchProduct.available ?? false,
-                                price: matchProduct.price || null,
-                                url: `https://hairyt.com${matchProduct.url}`
-                            };
-                        }
-                    }
-                    return null;
-                }
-            },
             boardGameBandit: {
                 type: 'json',
                 url: `https://boardgamebandit.ca/search/suggest.json?q=${encodeURIComponent(query)}&resources[type]=product`,
@@ -621,7 +603,7 @@ async function checkAvailability() {
         if (skippedStores.length > 0) {
             console.log(`[${i+1}/${wantedGames.length}] "${game.name}": skipped ${skippedStores.length} stores checked within 6 hours. Checking remaining ${fetchPromises.length} stores...`);
         } else {
-            console.log(`[${i+1}/${wantedGames.length}] "${game.name}": Checking all 11 stores...`);
+            console.log(`[${i+1}/${wantedGames.length}] "${game.name}": Checking all ${storeKeys.length} stores...`);
         }
 
         if (fetchPromises.length > 0) {

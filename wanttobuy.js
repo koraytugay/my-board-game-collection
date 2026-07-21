@@ -29,7 +29,6 @@ async function fetchCollection() {
                 amazonCa: { available: false, price: null, url: null },
                 woodForSheep: { available: false, price: null, url: null },
                 faceToFaceGames: { available: false, price: null, url: null },
-                hairyTarantula: { available: false, price: null, url: null },
                 boardGameBandit: { available: false, price: null, url: null }
             }
         }));
@@ -74,7 +73,6 @@ function updateStats() {
         game.availability?.amazonCa?.available ||
         game.availability?.woodForSheep?.available ||
         game.availability?.faceToFaceGames?.available ||
-        game.availability?.hairyTarantula?.available ||
         game.availability?.boardGameBandit?.available
     ).length;
 
@@ -121,7 +119,6 @@ function applyFilters() {
                    game.availability?.amazonCa?.available ||
                    game.availability?.woodForSheep?.available ||
                    game.availability?.faceToFaceGames?.available ||
-                   game.availability?.hairyTarantula?.available ||
                    game.availability?.boardGameBandit?.available;
         }
         return true;
@@ -173,7 +170,6 @@ function createGameCard(game) {
                       game.availability?.amazonCa?.available ||
                       game.availability?.woodForSheep?.available ||
                       game.availability?.faceToFaceGames?.available ||
-                      game.availability?.hairyTarantula?.available ||
                       game.availability?.boardGameBandit?.available;
     
     if (isInStock) {
@@ -194,10 +190,9 @@ function createGameCard(game) {
     const amzn = game.availability?.amazonCa;
     const wfs = game.availability?.woodForSheep;
     const f2f = game.availability?.faceToFaceGames;
-    const ht = game.availability?.hairyTarantula;
     const bgbnd = game.availability?.boardGameBandit;
 
-    if ((bgb && bgb.url) || (fof && fof.url) || (lvl && lvl.url) || (adj && adj.url) || (gbg && gbg.url) || (meeple && meeple.url) || (amzn && amzn.url) || (wfs && wfs.url) || (f2f && f2f.url) || (ht && ht.url) || (bgbnd && bgbnd.url)) {
+    if ((bgb && bgb.url) || (fof && fof.url) || (lvl && lvl.url) || (adj && adj.url) || (gbg && gbg.url) || (meeple && meeple.url) || (amzn && amzn.url) || (wfs && wfs.url) || (f2f && f2f.url) || (bgbnd && bgbnd.url)) {
         storeHtml += '<div class="store-availability">';
         
         const renderStoreBtn = (store, name, btnClass) => {
@@ -222,7 +217,6 @@ function createGameCard(game) {
         storeHtml += renderStoreBtn(amzn, '🛒 Amazon.ca', 'store-btn-amazon');
         storeHtml += renderStoreBtn(wfs, '🐑 Wood for Sheep', 'store-btn-wfs');
         storeHtml += renderStoreBtn(f2f, '🤝 Face to Face', 'store-btn-f2f');
-        storeHtml += renderStoreBtn(ht, '🕷️ Hairy Tarantula', 'store-btn-hairyt');
         storeHtml += renderStoreBtn(bgbnd, '🦝 Board Game Bandit', 'store-btn-bandit');
         
         storeHtml += '</div>';
