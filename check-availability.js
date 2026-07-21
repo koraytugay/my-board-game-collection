@@ -509,24 +509,6 @@ async function checkAvailability() {
                     }
                     return null;
                 }
-            },
-            boardGameBandit: {
-                type: 'json',
-                url: `https://boardgamebandit.ca/search/suggest.json?q=${encodeURIComponent(query)}&resources[type]=product`,
-                parser: (res, gameName) => {
-                    if (res?.resources?.results?.products) {
-                        const products = res.resources.results.products;
-                        const matchProduct = products.find(p => isMatch(gameName, p));
-                        if (matchProduct) {
-                            return {
-                                available: matchProduct.available ?? false,
-                                price: matchProduct.price || null,
-                                url: `https://boardgamebandit.ca${matchProduct.url}`
-                            };
-                        }
-                    }
-                    return null;
-                }
             }
         };
 

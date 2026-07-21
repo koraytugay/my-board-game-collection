@@ -28,8 +28,7 @@ async function fetchCollection() {
                 meeplemart: { available: false, price: null, url: null },
                 amazonCa: { available: false, price: null, url: null },
                 woodForSheep: { available: false, price: null, url: null },
-                faceToFaceGames: { available: false, price: null, url: null },
-                boardGameBandit: { available: false, price: null, url: null }
+                faceToFaceGames: { available: false, price: null, url: null }
             }
         }));
         
@@ -72,8 +71,7 @@ function updateStats() {
         game.availability?.meeplemart?.available ||
         game.availability?.amazonCa?.available ||
         game.availability?.woodForSheep?.available ||
-        game.availability?.faceToFaceGames?.available ||
-        game.availability?.boardGameBandit?.available
+        game.availability?.faceToFaceGames?.available
     ).length;
 
     document.getElementById('total-games').textContent = totalGames;
@@ -118,8 +116,7 @@ function applyFilters() {
                    game.availability?.meeplemart?.available ||
                    game.availability?.amazonCa?.available ||
                    game.availability?.woodForSheep?.available ||
-                   game.availability?.faceToFaceGames?.available ||
-                   game.availability?.boardGameBandit?.available;
+                   game.availability?.faceToFaceGames?.available;
         }
         return true;
     });
@@ -169,8 +166,7 @@ function createGameCard(game) {
                       game.availability?.meeplemart?.available ||
                       game.availability?.amazonCa?.available ||
                       game.availability?.woodForSheep?.available ||
-                      game.availability?.faceToFaceGames?.available ||
-                      game.availability?.boardGameBandit?.available;
+                      game.availability?.faceToFaceGames?.available;
     
     if (isInStock) {
         badgesHtml += '<span class="badge badge-favorite">In Stock</span>';
@@ -190,9 +186,8 @@ function createGameCard(game) {
     const amzn = game.availability?.amazonCa;
     const wfs = game.availability?.woodForSheep;
     const f2f = game.availability?.faceToFaceGames;
-    const bgbnd = game.availability?.boardGameBandit;
 
-    if ((bgb && bgb.url) || (fof && fof.url) || (lvl && lvl.url) || (adj && adj.url) || (gbg && gbg.url) || (meeple && meeple.url) || (amzn && amzn.url) || (wfs && wfs.url) || (f2f && f2f.url) || (bgbnd && bgbnd.url)) {
+    if ((bgb && bgb.url) || (fof && fof.url) || (lvl && lvl.url) || (adj && adj.url) || (gbg && gbg.url) || (meeple && meeple.url) || (amzn && amzn.url) || (wfs && wfs.url) || (f2f && f2f.url)) {
         storeHtml += '<div class="store-availability">';
         
         const renderStoreBtn = (store, name, btnClass) => {
@@ -217,7 +212,6 @@ function createGameCard(game) {
         storeHtml += renderStoreBtn(amzn, '🛒 Amazon.ca', 'store-btn-amazon');
         storeHtml += renderStoreBtn(wfs, '🐑 Wood for Sheep', 'store-btn-wfs');
         storeHtml += renderStoreBtn(f2f, '🤝 Face to Face', 'store-btn-f2f');
-        storeHtml += renderStoreBtn(bgbnd, '🦝 Board Game Bandit', 'store-btn-bandit');
         
         storeHtml += '</div>';
     }
