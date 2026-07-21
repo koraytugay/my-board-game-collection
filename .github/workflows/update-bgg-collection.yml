@@ -68,23 +68,35 @@ jobs:
 
           node -e '
           const fs = require("fs");
-          let items = [];
-          if (fs.existsSync("collection_bg.xml")) {
-              const bg = fs.readFileSync("collection_bg.xml", "utf8");
-              const bgMatches = bg.match(/<item\b[\s\S]*?<\/item>/g) || [];
-              items.push(...bgMatches);
-              fs.unlinkSync("collection_bg.xml");
-          }
+          const itemMap = new Map();
+
           if (fs.existsSync("collection_exp.xml")) {
               const exp = fs.readFileSync("collection_exp.xml", "utf8");
               const expMatches = exp.match(/<item\b[\s\S]*?<\/item>/g) || [];
-              items.push(...expMatches);
+              for (const item of expMatches) {
+                  const idMatch = item.match(/objectid="(\d+)"/);
+                  if (idMatch) itemMap.set(idMatch[1], item);
+              }
               fs.unlinkSync("collection_exp.xml");
           }
-          if (items.length > 0) {
+
+          if (fs.existsSync("collection_bg.xml")) {
+              const bg = fs.readFileSync("collection_bg.xml", "utf8");
+              const bgMatches = bg.match(/<item\b[\s\S]*?<\/item>/g) || [];
+              for (const item of bgMatches) {
+                  const idMatch = item.match(/objectid="(\d+)"/);
+                  if (idMatch && !itemMap.has(idMatch[1])) {
+                      itemMap.set(idMatch[1], item);
+                  }
+              }
+              fs.unlinkSync("collection_bg.xml");
+          }
+
+          if (itemMap.size > 0) {
+              const items = Array.from(itemMap.values());
               const xml = `<?xml version="1.0" encoding="utf-8"?><items totalitems="${items.length}">${items.join("\n")}</items>`;
               fs.writeFileSync("collection.xml", xml, "utf8");
-              console.log(`Successfully merged ${items.length} items into collection.xml`);
+              console.log(`Successfully merged ${items.length} unique items into collection.xml`);
           }
           '
 

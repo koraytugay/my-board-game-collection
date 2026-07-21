@@ -18,7 +18,18 @@ async function getCollection(onlyOwned = true) {
             throw new Error('Error parsing XML response');
         }
 
-        let items = Array.from(xmlDoc.querySelectorAll('item'));
+        let rawItems = Array.from(xmlDoc.querySelectorAll('item'));
+
+        // Deduplicate items by objectid, prioritizing boardgameexpansion subtype
+        const itemMap = new Map();
+        rawItems.forEach(item => {
+            const id = item.getAttribute('objectid');
+            const subtype = item.getAttribute('subtype');
+            if (!itemMap.has(id) || subtype === 'boardgameexpansion') {
+                itemMap.set(id, item);
+            }
+        });
+        let items = Array.from(itemMap.values());
 
         if (onlyOwned === 'wanttobuy') {
             items = items.filter(item => {
