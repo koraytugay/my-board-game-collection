@@ -62,8 +62,31 @@ jobs:
             return 1
           }
 
-          # 1. Fetch Collection (Expanded to include 'played' games for thumbnails, including expansions)
-          fetch_data "https://boardgamegeek.com/xmlapi2/collection?username=${BGG_USER}&stats=1" "collection.xml" "Collection" || true
+          # 1. Fetch Collection (Fetch base games and expansions separately so BGG tags subtypes correctly)
+          fetch_data "https://boardgamegeek.com/xmlapi2/collection?username=${BGG_USER}&stats=1&subtype=boardgame" "collection_bg.xml" "Base Games" || true
+          fetch_data "https://boardgamegeek.com/xmlapi2/collection?username=${BGG_USER}&stats=1&subtype=boardgameexpansion" "collection_exp.xml" "Expansions" || true
+
+          node -e '
+          const fs = require("fs");
+          let items = [];
+          if (fs.existsSync("collection_bg.xml")) {
+              const bg = fs.readFileSync("collection_bg.xml", "utf8");
+              const bgMatches = bg.match(/<item[\s\S]*?<\/item>/g) || [];
+              items.push(...bgMatches);
+              fs.unlinkSync("collection_bg.xml");
+          }
+          if (fs.existsSync("collection_exp.xml")) {
+              const exp = fs.readFileSync("collection_exp.xml", "utf8");
+              const expMatches = exp.match(/<item[\s\S]*?<\/item>/g) || [];
+              items.push(...expMatches);
+              fs.unlinkSync("collection_exp.xml");
+          }
+          if (items.length > 0) {
+              const xml = `<?xml version="1.0" encoding="utf-8"?><items totalitems="${items.length}">${items.join("\n")}</items>`;
+              fs.writeFileSync("collection.xml", xml, "utf8");
+              console.log(`Successfully merged ${items.length} items into collection.xml`);
+          }
+          '
 
           # 2. Monthly Logic
           CURRENT_MONTH=$(date +%Y-%m)
