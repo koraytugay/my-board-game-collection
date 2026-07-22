@@ -172,6 +172,13 @@
       "lastChecked": "2026-07-22T19:55:05.266Z",
       "lastCheckSuccess": true
     },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "url": null,
+      "lastChecked": "2026-07-22T19:56:21.176Z",
+      "lastCheckSuccess": true
+    },
     "woodForSheep": {
       "available": false,
       "price": null,
@@ -184,13 +191,6 @@
       "price": null,
       "url": null,
       "lastChecked": "2026-07-22T19:55:05.032Z",
-      "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "url": null,
-      "lastChecked": "2026-07-22T19:56:21.176Z",
       "lastCheckSuccess": true
     }
   },
@@ -302,6 +302,13 @@
       "lastChecked": "2026-07-22T19:50:42.360Z",
       "lastCheckSuccess": true
     },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "url": null,
+      "lastChecked": "2026-07-22T19:55:36.367Z",
+      "lastCheckSuccess": true
+    },
     "woodForSheep": {
       "available": false,
       "price": null,
@@ -314,13 +321,6 @@
       "price": null,
       "url": null,
       "lastChecked": "2026-07-22T19:50:41.834Z",
-      "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "url": null,
-      "lastChecked": "2026-07-22T19:55:36.367Z",
       "lastCheckSuccess": true
     }
   },
@@ -692,6 +692,13 @@
       "lastChecked": "2026-07-22T19:52:16.308Z",
       "lastCheckSuccess": true
     },
+    "amazonCa": {
+      "available": true,
+      "price": "63.73",
+      "url": "https://www.amazon.ca/dp/B0GCP4R5SL",
+      "lastChecked": "2026-07-22T19:55:56.933Z",
+      "lastCheckSuccess": true
+    },
     "woodForSheep": {
       "available": false,
       "price": null,
@@ -704,13 +711,6 @@
       "price": null,
       "url": null,
       "lastChecked": "2026-07-22T19:52:16.270Z",
-      "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": true,
-      "price": "63.73",
-      "url": "https://www.amazon.ca/dp/B0GCP4R5SL",
-      "lastChecked": "2026-07-22T19:55:56.933Z",
       "lastCheckSuccess": true
     }
   },
@@ -952,6 +952,13 @@
       "lastChecked": "2026-07-22T19:51:05.778Z",
       "lastCheckSuccess": true
     },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "url": null,
+      "lastChecked": "2026-07-22T19:55:44.407Z",
+      "lastCheckSuccess": true
+    },
     "woodForSheep": {
       "available": false,
       "price": null,
@@ -965,12 +972,70 @@
       "url": null,
       "lastChecked": "2026-07-22T19:51:05.132Z",
       "lastCheckSuccess": true
+    }
+  },
+  "216600": {
+    "boardGameBliss": {
+      "available": false,
+      "price": "44.95",
+      "url": "https://www.boardgamebliss.com/products/fantastic-factories?_pos=1&_psq=Fantastic+Factories&_psid=bdac66377&_ss=e",
+      "lastChecked": "2026-07-22T20:25:07.466Z",
+      "lastCheckSuccess": true
     },
-    "amazonCa": {
+    "fourZeroOneGames": {
+      "available": true,
+      "price": "44.95",
+      "url": "https://store.401games.ca/products/fantastic-factories?_pos=1&_psq=Fantastic+Factories&_psid=ccac405b2&_ss=e",
+      "lastChecked": "2026-07-22T20:25:07.480Z",
+      "lastCheckSuccess": true
+    },
+    "lvlUpGames": {
+      "available": false,
+      "price": "37.95",
+      "url": "https://www.lvlupgames.ca/products/fantastic-factories?_pos=1&_psq=Fantastic+Factories&_psid=ae728c0c1&_ss=e",
+      "lastChecked": "2026-07-22T20:25:07.466Z",
+      "lastCheckSuccess": true
+    },
+    "asDesJeux": {
       "available": false,
       "price": null,
       "url": null,
-      "lastChecked": "2026-07-22T19:55:44.407Z",
+      "lastChecked": "2026-07-22T20:25:07.476Z",
+      "lastCheckSuccess": true
+    },
+    "greatBoardgames": {
+      "available": false,
+      "price": "36.95",
+      "url": "https://www.greatboardgames.ca/games/fantastic-factories",
+      "lastChecked": "2026-07-22T20:25:07.683Z",
+      "lastCheckSuccess": true
+    },
+    "meeplemart": {
+      "available": false,
+      "price": null,
+      "url": null,
+      "lastChecked": "2026-07-22T20:25:08.016Z",
+      "lastCheckSuccess": true
+    },
+    "amazonCa": {
+      "available": true,
+      "price": "69.83",
+      "url": "https://www.amazon.ca/dp/B07YXB9CY5",
+      "lastChecked": "2026-07-22T20:25:08.037Z",
+      "lastCheckSuccess": true
+    },
+    "woodForSheep": {
+      "available": false,
+      "price": null,
+      "url": null,
+      "lastChecked": "2026-07-22T20:25:07.402Z",
+      "lastCheckSuccess": true
+    },
+    "faceToFaceGames": {
+      "available": false,
+      "price": null,
+      "url": null,
+      "lastChecked": "2026-07-22T20:25:07.414Z",
       "lastCheckSuccess": true
     }
   },
@@ -1277,6 +1342,13 @@
       "lastChecked": "2026-07-22T19:50:57.834Z",
       "lastCheckSuccess": true
     },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "url": null,
+      "lastChecked": "2026-07-22T19:55:40.550Z",
+      "lastCheckSuccess": true
+    },
     "woodForSheep": {
       "available": false,
       "price": null,
@@ -1289,13 +1361,6 @@
       "price": null,
       "url": null,
       "lastChecked": "2026-07-22T19:50:57.679Z",
-      "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "url": null,
-      "lastChecked": "2026-07-22T19:55:40.550Z",
       "lastCheckSuccess": true
     }
   },
@@ -1364,6 +1429,71 @@
       "lastCheckSuccess": true
     }
   },
+  "319035": {
+    "boardGameBliss": {
+      "available": false,
+      "price": "24.95",
+      "url": "https://www.boardgamebliss.com/products/fantastic-factories-manufactions?_pos=1&_psq=Fantastic+Factories%3A+Manufactions&_psid=19a9fd6d3&_ss=e",
+      "lastChecked": "2026-07-22T20:24:59.837Z",
+      "lastCheckSuccess": true
+    },
+    "fourZeroOneGames": {
+      "available": false,
+      "price": "24.95",
+      "url": "https://store.401games.ca/products/fantastic-factories-manufactions?_pos=1&_psq=Fantastic+Factories%3A+Manufactions&_psid=a6df4bc09&_ss=e",
+      "lastChecked": "2026-07-22T20:24:59.806Z",
+      "lastCheckSuccess": true
+    },
+    "lvlUpGames": {
+      "available": false,
+      "price": null,
+      "url": null,
+      "lastChecked": "2026-07-22T20:25:00.040Z",
+      "lastCheckSuccess": true
+    },
+    "asDesJeux": {
+      "available": false,
+      "price": null,
+      "url": null,
+      "lastChecked": "2026-07-22T20:24:59.931Z",
+      "lastCheckSuccess": true
+    },
+    "greatBoardgames": {
+      "available": false,
+      "price": "23.95",
+      "url": "https://www.greatboardgames.ca/games/fantastic-factories-1",
+      "lastChecked": "2026-07-22T20:25:00.370Z",
+      "lastCheckSuccess": true
+    },
+    "meeplemart": {
+      "available": false,
+      "price": null,
+      "url": null,
+      "lastChecked": "2026-07-22T20:25:00.468Z",
+      "lastCheckSuccess": true
+    },
+    "amazonCa": {
+      "available": true,
+      "price": "69.83",
+      "url": "https://www.amazon.ca/dp/B07YXB9CY5",
+      "lastChecked": "2026-07-22T20:25:00.472Z",
+      "lastCheckSuccess": true
+    },
+    "woodForSheep": {
+      "available": false,
+      "price": null,
+      "url": null,
+      "lastChecked": "2026-07-22T20:25:00.160Z",
+      "lastCheckSuccess": true
+    },
+    "faceToFaceGames": {
+      "available": false,
+      "price": null,
+      "url": null,
+      "lastChecked": "2026-07-22T20:25:00.160Z",
+      "lastCheckSuccess": true
+    }
+  },
   "319793": {
     "boardGameBliss": {
       "available": false,
@@ -1426,6 +1556,71 @@
       "price": null,
       "url": null,
       "lastChecked": "2026-07-22T19:52:35.760Z",
+      "lastCheckSuccess": true
+    }
+  },
+  "320242": {
+    "boardGameBliss": {
+      "available": false,
+      "price": "14.95",
+      "url": "https://www.boardgamebliss.com/products/fantastic-factories-subterfuge?_pos=1&_psq=Fantastic+Factories%3A+Subterfuge&_psid=5f949dc7b&_ss=e",
+      "lastChecked": "2026-07-22T20:25:03.645Z",
+      "lastCheckSuccess": true
+    },
+    "fourZeroOneGames": {
+      "available": true,
+      "price": "14.95",
+      "url": "https://store.401games.ca/products/fantastic-factories-subterfuge?_pos=1&_psq=Fantastic+Factories%3A+Subterfuge&_psid=5dc9e20cb&_ss=e",
+      "lastChecked": "2026-07-22T20:25:03.736Z",
+      "lastCheckSuccess": true
+    },
+    "lvlUpGames": {
+      "available": false,
+      "price": null,
+      "url": null,
+      "lastChecked": "2026-07-22T20:25:03.651Z",
+      "lastCheckSuccess": true
+    },
+    "asDesJeux": {
+      "available": false,
+      "price": null,
+      "url": null,
+      "lastChecked": "2026-07-22T20:25:03.641Z",
+      "lastCheckSuccess": true
+    },
+    "greatBoardgames": {
+      "available": false,
+      "price": "18.95",
+      "url": "https://www.greatboardgames.ca/games/fantastic-factories-1-1",
+      "lastChecked": "2026-07-22T20:25:03.898Z",
+      "lastCheckSuccess": true
+    },
+    "meeplemart": {
+      "available": false,
+      "price": null,
+      "url": null,
+      "lastChecked": "2026-07-22T20:25:04.121Z",
+      "lastCheckSuccess": true
+    },
+    "amazonCa": {
+      "available": true,
+      "price": "69.83",
+      "url": "https://www.amazon.ca/dp/B07YXB9CY5",
+      "lastChecked": "2026-07-22T20:25:04.276Z",
+      "lastCheckSuccess": true
+    },
+    "woodForSheep": {
+      "available": false,
+      "price": null,
+      "url": null,
+      "lastChecked": "2026-07-22T20:25:03.614Z",
+      "lastCheckSuccess": true
+    },
+    "faceToFaceGames": {
+      "available": false,
+      "price": null,
+      "url": null,
+      "lastChecked": "2026-07-22T20:25:03.627Z",
       "lastCheckSuccess": true
     }
   },
@@ -1537,6 +1732,13 @@
       "lastChecked": "2026-07-22T19:55:24.345Z",
       "lastCheckSuccess": true
     },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "url": null,
+      "lastChecked": "2026-07-22T19:56:29.127Z",
+      "lastCheckSuccess": true
+    },
     "woodForSheep": {
       "available": false,
       "price": null,
@@ -1549,13 +1751,6 @@
       "price": null,
       "url": null,
       "lastChecked": "2026-07-22T19:55:23.951Z",
-      "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "url": null,
-      "lastChecked": "2026-07-22T19:56:29.127Z",
       "lastCheckSuccess": true
     }
   },
@@ -1862,6 +2057,13 @@
       "lastChecked": "2026-07-22T19:52:24.043Z",
       "lastCheckSuccess": true
     },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "url": null,
+      "lastChecked": "2026-07-22T19:56:01.346Z",
+      "lastCheckSuccess": true
+    },
     "woodForSheep": {
       "available": false,
       "price": null,
@@ -1874,13 +2076,6 @@
       "price": null,
       "url": null,
       "lastChecked": "2026-07-22T19:52:23.599Z",
-      "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "url": null,
-      "lastChecked": "2026-07-22T19:56:01.346Z",
       "lastCheckSuccess": true
     }
   },
@@ -2512,6 +2707,13 @@
       "lastChecked": "2026-07-22T19:55:12.526Z",
       "lastCheckSuccess": true
     },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "url": null,
+      "lastChecked": "2026-07-22T19:56:25.109Z",
+      "lastCheckSuccess": true
+    },
     "woodForSheep": {
       "available": false,
       "price": null,
@@ -2524,13 +2726,6 @@
       "price": null,
       "url": null,
       "lastChecked": "2026-07-22T19:55:12.460Z",
-      "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "url": null,
-      "lastChecked": "2026-07-22T19:56:25.109Z",
       "lastCheckSuccess": true
     }
   },
@@ -3552,6 +3747,13 @@
       "lastChecked": "2026-07-22T19:53:34.988Z",
       "lastCheckSuccess": true
     },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "url": null,
+      "lastChecked": "2026-07-22T19:56:08.457Z",
+      "lastCheckSuccess": true
+    },
     "woodForSheep": {
       "available": false,
       "price": null,
@@ -3564,13 +3766,6 @@
       "price": null,
       "url": null,
       "lastChecked": "2026-07-22T19:53:34.711Z",
-      "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "url": null,
-      "lastChecked": "2026-07-22T19:56:08.457Z",
       "lastCheckSuccess": true
     }
   },
@@ -4007,6 +4202,13 @@
       "lastChecked": "2026-07-22T19:52:40.162Z",
       "lastCheckSuccess": true
     },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "url": null,
+      "lastChecked": "2026-07-22T20:25:11.671Z",
+      "lastCheckSuccess": true
+    },
     "woodForSheep": {
       "available": false,
       "price": null,
@@ -4020,13 +4222,6 @@
       "url": null,
       "lastChecked": "2026-07-22T19:52:39.856Z",
       "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "url": null,
-      "lastChecked": "2026-07-22T08:35:19.096Z",
-      "lastCheckSuccess": false
     }
   },
   "453446": {
@@ -4137,6 +4332,13 @@
       "lastChecked": "2026-07-22T19:54:30.731Z",
       "lastCheckSuccess": true
     },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "url": null,
+      "lastChecked": "2026-07-22T19:56:13.168Z",
+      "lastCheckSuccess": true
+    },
     "woodForSheep": {
       "available": false,
       "price": null,
@@ -4149,13 +4351,6 @@
       "price": null,
       "url": null,
       "lastChecked": "2026-07-22T19:54:30.476Z",
-      "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "url": null,
-      "lastChecked": "2026-07-22T19:56:13.168Z",
       "lastCheckSuccess": true
     }
   },
@@ -4722,6 +4917,13 @@
       "lastChecked": "2026-07-22T19:51:16.835Z",
       "lastCheckSuccess": true
     },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "url": null,
+      "lastChecked": "2026-07-22T19:55:48.531Z",
+      "lastCheckSuccess": true
+    },
     "woodForSheep": {
       "available": false,
       "price": null,
@@ -4734,13 +4936,6 @@
       "price": null,
       "url": null,
       "lastChecked": "2026-07-22T19:51:16.553Z",
-      "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "url": null,
-      "lastChecked": "2026-07-22T19:55:48.531Z",
       "lastCheckSuccess": true
     }
   },
@@ -4787,6 +4982,13 @@
       "lastChecked": "2026-07-22T19:51:48.187Z",
       "lastCheckSuccess": true
     },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "url": null,
+      "lastChecked": "2026-07-22T19:55:53.294Z",
+      "lastCheckSuccess": true
+    },
     "woodForSheep": {
       "available": false,
       "price": null,
@@ -4799,13 +5001,6 @@
       "price": null,
       "url": null,
       "lastChecked": "2026-07-22T19:51:47.764Z",
-      "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "url": null,
-      "lastChecked": "2026-07-22T19:55:53.294Z",
       "lastCheckSuccess": true
     }
   },
@@ -5242,6 +5437,13 @@
       "lastChecked": "2026-07-22T19:54:53.371Z",
       "lastCheckSuccess": true
     },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "url": null,
+      "lastChecked": "2026-07-22T19:56:17.187Z",
+      "lastCheckSuccess": true
+    },
     "woodForSheep": {
       "available": false,
       "price": null,
@@ -5254,13 +5456,6 @@
       "price": null,
       "url": null,
       "lastChecked": "2026-07-22T19:54:52.788Z",
-      "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "url": null,
-      "lastChecked": "2026-07-22T19:56:17.187Z",
       "lastCheckSuccess": true
     }
   },
