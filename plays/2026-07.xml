@@ -1,5 +1,34 @@
-<?xml version="1.0" encoding="utf-8"?><plays username="koraytugay" userid="4151779" total="29" page="1" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse">
-<play id="116457237" date="2026-07-19" quantity="1" length="45" incomplete="0" nowinstats="0" location="">
+<?xml version="1.0" encoding="utf-8"?><plays username="koraytugay" userid="4151779" total="33" page="1" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse">
+<play id="116529189" date="2026-07-21" quantity="1" length="30" incomplete="0" nowinstats="0" location="">
+			<item name="Point City" objecttype="thing" objectid="368017">
+				<subtypes>
+										<subtype value="boardgame" />
+									</subtypes>
+			</item>
+								</play>
+	<play id="116529204" date="2026-07-21" quantity="1" length="30" incomplete="0" nowinstats="0" location="">
+			<item name="SCOUT" objecttype="thing" objectid="291453">
+				<subtypes>
+										<subtype value="boardgame" />
+									</subtypes>
+			</item>
+								</play>
+	<play id="116529196" date="2026-07-21" quantity="2" length="30" incomplete="0" nowinstats="0" location="">
+			<item name="Similo" objecttype="thing" objectid="268620">
+				<subtypes>
+										<subtype value="boardgame" />
+										<subtype value="boardgameimplementation" />
+									</subtypes>
+			</item>
+								</play>
+	<play id="116529192" date="2026-07-21" quantity="1" length="30" incomplete="0" nowinstats="0" location="">
+			<item name="Sky Team" objecttype="thing" objectid="373106">
+				<subtypes>
+										<subtype value="boardgame" />
+									</subtypes>
+			</item>
+								</play>
+	<play id="116457237" date="2026-07-19" quantity="1" length="45" incomplete="0" nowinstats="0" location="">
 			<item name="The Crew: The Quest for Planet Nine" objecttype="thing" objectid="284083">
 				<subtypes>
 										<subtype value="boardgame" />
