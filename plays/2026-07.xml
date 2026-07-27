@@ -1,5 +1,20 @@
-<?xml version="1.0" encoding="utf-8"?><plays username="koraytugay" userid="4151779" total="37" page="1" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse">
-<play id="116692879" date="2026-07-25" quantity="1" length="20" incomplete="0" nowinstats="0" location="">
+<?xml version="1.0" encoding="utf-8"?><plays username="koraytugay" userid="4151779" total="39" page="1" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse">
+<play id="116743777" date="2026-07-26" quantity="1" length="10" incomplete="0" nowinstats="0" location="">
+			<item name="Deduckto" objecttype="thing" objectid="380887">
+				<subtypes>
+										<subtype value="boardgame" />
+										<subtype value="boardgameimplementation" />
+									</subtypes>
+			</item>
+								</play>
+	<play id="116743756" date="2026-07-26" quantity="2" length="30" incomplete="0" nowinstats="0" location="">
+			<item name="Fantasy Realms" objecttype="thing" objectid="223040">
+				<subtypes>
+										<subtype value="boardgame" />
+									</subtypes>
+			</item>
+								</play>
+	<play id="116692879" date="2026-07-25" quantity="1" length="20" incomplete="0" nowinstats="0" location="">
 			<item name="SCOUT" objecttype="thing" objectid="291453">
 				<subtypes>
 										<subtype value="boardgame" />
