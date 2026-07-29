@@ -1,5 +1,20 @@
-<?xml version="1.0" encoding="utf-8"?><plays username="koraytugay" userid="4151779" total="43" page="1" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse">
-<play id="116783020" date="2026-07-27" quantity="2" length="30" incomplete="0" nowinstats="0" location="">
+<?xml version="1.0" encoding="utf-8"?><plays username="koraytugay" userid="4151779" total="45" page="1" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse">
+<play id="116818887" date="2026-07-28" quantity="1" length="30" incomplete="0" nowinstats="0" location="">
+			<item name="Cartographers" objecttype="thing" objectid="263918">
+				<subtypes>
+										<subtype value="boardgame" />
+										<subtype value="boardgameintegration" />
+									</subtypes>
+			</item>
+								</play>
+	<play id="116818879" date="2026-07-28" quantity="1" length="30" incomplete="0" nowinstats="0" location="">
+			<item name="Trash Pandas" objecttype="thing" objectid="216439">
+				<subtypes>
+										<subtype value="boardgame" />
+									</subtypes>
+			</item>
+								</play>
+	<play id="116783020" date="2026-07-27" quantity="2" length="30" incomplete="0" nowinstats="0" location="">
 			<item name="Got Five!" objecttype="thing" objectid="453526">
 				<subtypes>
 										<subtype value="boardgame" />
