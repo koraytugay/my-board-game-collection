@@ -121,6 +121,7 @@
 			<item name="Point City" objecttype="thing" objectid="368017">
 				<subtypes>
 										<subtype value="boardgame" />
+										<subtype value="boardgameimplementation" />
 									</subtypes>
 			</item>
 								</play>
@@ -182,6 +183,7 @@
 			<item name="Point City" objecttype="thing" objectid="368017">
 				<subtypes>
 										<subtype value="boardgame" />
+										<subtype value="boardgameimplementation" />
 									</subtypes>
 			</item>
 								</play>
