@@ -327,6 +327,24 @@ async function checkAvailability() {
         }
     }
 
+    // Load skipped sellers list
+    let skippedSellers = [];
+    if (fs.existsSync('skipped-sellers.json')) {
+        try {
+            skippedSellers = JSON.parse(fs.readFileSync('skipped-sellers.json', 'utf8'));
+        } catch (e) {
+            console.error('Error reading skipped-sellers.json:', e);
+        }
+    } else if (fs.existsSync('skipped-sellers.js')) {
+        try {
+            skippedSellers = require('./skipped-sellers.js');
+        } catch (e) {
+            console.error('Error reading skipped-sellers.js:', e);
+        }
+    }
+    if (!Array.isArray(skippedSellers)) skippedSellers = [];
+    console.log(`Loaded ${skippedSellers.length} skipped seller(s).`);
+
     const content = fs.readFileSync(COLLECTION_FILE, 'utf8');
     const itemRegex = /<item objecttype="thing" objectid="(\d+)"[^>]*>([\s\S]*?)<\/item>/g;
     let match;
@@ -517,8 +535,16 @@ async function checkAvailability() {
                     if (res?.products && Array.isArray(res.products) && res.products.length > 0) {
                         const caProducts = res.products.filter(p => p.itemlocation_code === 'CA' || p.itemlocation === 'Canada');
                         const productsToSearch = caProducts.length > 0 ? caProducts : res.products;
-                        if (productsToSearch.length > 0) {
-                            const sorted = [...productsToSearch].sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
+                        
+                        // Filter out sellers in skippedSellers list (case-insensitive)
+                        const allowedProducts = productsToSearch.filter(p => {
+                            const sellerName = p.linkeduser?.username;
+                            if (!sellerName) return true;
+                            return !skippedSellers.some(s => s.toLowerCase() === sellerName.toLowerCase());
+                        });
+
+                        if (allowedProducts.length > 0) {
+                            const sorted = [...allowedProducts].sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
                             const match = sorted[0];
                             const symbol = match.currencysymbol || '$';
                             const priceFormatted = `${symbol}${match.price} ${match.currency}`;
