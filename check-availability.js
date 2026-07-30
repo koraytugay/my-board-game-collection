@@ -545,13 +545,22 @@ async function checkAvailability() {
 
                         if (allowedProducts.length > 0) {
                             const sorted = [...allowedProducts].sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
-                            const match = sorted[0];
-                            const symbol = match.currencysymbol || '$';
-                            const priceFormatted = `${symbol}${match.price} ${match.currency}`;
+                            const listings = sorted.map(match => {
+                                const symbol = match.currencysymbol || '$';
+                                return {
+                                    price: `${symbol}${match.price} ${match.currency}`,
+                                    seller: match.linkeduser?.username || 'Unknown',
+                                    condition: match.prettycondition || '',
+                                    url: `https://boardgamegeek.com${match.producthref}`
+                                };
+                            });
+
+                            const primary = listings[0];
                             return {
                                 available: true,
-                                price: priceFormatted,
-                                url: `https://boardgamegeek.com${match.producthref}`
+                                price: primary.price,
+                                url: primary.url,
+                                listings: listings
                             };
                         }
                     }

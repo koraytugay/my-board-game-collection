@@ -217,7 +217,19 @@ function createGameCard(game) {
         storeHtml += renderStoreBtn(amzn, '🛒 Amazon.ca', 'store-btn-amazon');
         storeHtml += renderStoreBtn(wfs, '🐑 Wood for Sheep', 'store-btn-wfs');
         storeHtml += renderStoreBtn(f2f, '🤝 Face to Face', 'store-btn-f2f');
-        storeHtml += renderStoreBtn(bggmkt, '🏷️ BGG Market (CA)', 'store-btn-bggmkt');
+        
+        if (bggmkt && bggmkt.listings && Array.isArray(bggmkt.listings) && bggmkt.listings.length > 0) {
+            bggmkt.listings.forEach(listing => {
+                const label = listing.seller ? `🏷️ BGG (${listing.seller})` : '🏷️ BGG Market (CA)';
+                storeHtml += renderStoreBtn({
+                    available: true,
+                    price: listing.price,
+                    url: listing.url
+                }, label, 'store-btn-bggmkt');
+            });
+        } else {
+            storeHtml += renderStoreBtn(bggmkt, '🏷️ BGG Market (CA)', 'store-btn-bggmkt');
+        }
         
         storeHtml += '</div>';
     }

@@ -67,7 +67,15 @@
       "available": true,
       "price": "$30.00 USD",
       "url": "https://boardgamegeek.com/market/product/4012139",
-      "lastChecked": "2026-07-30T20:13:02.279Z",
+      "listings": [
+        {
+          "price": "$30.00 USD",
+          "seller": "randommagic",
+          "condition": "Very Good",
+          "url": "https://boardgamegeek.com/market/product/4012139"
+        }
+      ],
+      "lastChecked": "2026-07-30T20:28:49.446Z",
       "lastCheckSuccess": true
     }
   },
@@ -139,7 +147,8 @@
       "available": false,
       "price": null,
       "url": null,
-      "lastChecked": "2026-07-30T20:09:55.302Z",
+      "listings": [],
+      "lastChecked": "2026-07-30T20:28:37.660Z",
       "lastCheckSuccess": true
     }
   },
@@ -211,7 +220,21 @@
       "available": true,
       "price": "C$12.50 CAD",
       "url": "https://boardgamegeek.com/market/product/4072471",
-      "lastChecked": "2026-07-30T20:11:30.388Z",
+      "listings": [
+        {
+          "price": "C$12.50 CAD",
+          "seller": "Terra4mer",
+          "condition": "Very Good",
+          "url": "https://boardgamegeek.com/market/product/4072471"
+        },
+        {
+          "price": "C$300.00 CAD",
+          "seller": "xamQC",
+          "condition": "New",
+          "url": "https://boardgamegeek.com/market/product/1069271"
+        }
+      ],
+      "lastChecked": "2026-07-30T20:28:43.325Z",
       "lastCheckSuccess": true
     }
   },
@@ -283,7 +306,8 @@
       "available": false,
       "price": null,
       "url": null,
-      "lastChecked": "2026-07-30T20:12:12.843Z",
+      "listings": [],
+      "lastChecked": "2026-07-30T20:28:46.162Z",
       "lastCheckSuccess": true
     }
   },
@@ -355,7 +379,8 @@
       "available": false,
       "price": null,
       "url": null,
-      "lastChecked": "2026-07-30T20:13:52.588Z",
+      "listings": [],
+      "lastChecked": "2026-07-30T20:28:52.720Z",
       "lastCheckSuccess": true
     }
   },
@@ -427,7 +452,8 @@
       "available": false,
       "price": null,
       "url": null,
-      "lastChecked": "2026-07-30T20:10:54.256Z",
+      "listings": [],
+      "lastChecked": "2026-07-30T20:28:41.184Z",
       "lastCheckSuccess": true
     }
   },
@@ -499,7 +525,27 @@
       "available": true,
       "price": "C$25.75 CAD",
       "url": "https://boardgamegeek.com/market/product/4082184",
-      "lastChecked": "2026-07-30T20:09:24.657Z",
+      "listings": [
+        {
+          "price": "C$25.75 CAD",
+          "seller": "Terra4mer",
+          "condition": "Like New",
+          "url": "https://boardgamegeek.com/market/product/4082184"
+        },
+        {
+          "price": "C$45.00 CAD",
+          "seller": "ronjeremy",
+          "condition": "Very Good",
+          "url": "https://boardgamegeek.com/market/product/3973117"
+        },
+        {
+          "price": "C$50.00 CAD",
+          "seller": "AlexandreLegrand",
+          "condition": "Like New",
+          "url": "https://boardgamegeek.com/market/product/3960797"
+        }
+      ],
+      "lastChecked": "2026-07-30T20:28:35.772Z",
       "lastCheckSuccess": true
     }
   },
@@ -571,7 +617,8 @@
       "available": false,
       "price": null,
       "url": null,
-      "lastChecked": "2026-07-30T20:12:30.489Z",
+      "listings": [],
+      "lastChecked": "2026-07-30T20:28:47.333Z",
       "lastCheckSuccess": true
     }
   },
@@ -643,7 +690,8 @@
       "available": false,
       "price": null,
       "url": null,
-      "lastChecked": "2026-07-30T20:13:12.928Z",
+      "listings": [],
+      "lastChecked": "2026-07-30T20:28:50.145Z",
       "lastCheckSuccess": true
     }
   },
@@ -715,7 +763,8 @@
       "available": false,
       "price": null,
       "url": null,
-      "lastChecked": "2026-07-30T20:09:20.770Z",
+      "listings": [],
+      "lastChecked": "2026-07-30T20:28:35.526Z",
       "lastCheckSuccess": true
     }
   },
@@ -787,7 +836,8 @@
       "available": false,
       "price": null,
       "url": null,
-      "lastChecked": "2026-07-30T20:11:48.460Z",
+      "listings": [],
+      "lastChecked": "2026-07-30T20:28:44.499Z",
       "lastCheckSuccess": true
     }
   },
@@ -856,10 +906,11 @@
       "lastCheckSuccess": true
     },
     "bggMarket": {
-      "available": true,
-      "price": "C$15.00 CAD",
-      "url": "https://boardgamegeek.com/market/product/3816314",
-      "lastChecked": "2026-07-30T20:12:27.171Z",
+      "available": false,
+      "price": null,
+      "url": null,
+      "listings": [],
+      "lastChecked": "2026-07-30T20:28:47.101Z",
       "lastCheckSuccess": true
     }
   },
@@ -931,7 +982,8 @@
       "available": false,
       "price": null,
       "url": null,
-      "lastChecked": "2026-07-30T20:10:59.042Z",
+      "listings": [],
+      "lastChecked": "2026-07-30T20:28:41.419Z",
       "lastCheckSuccess": true
     }
   },
@@ -1003,7 +1055,15 @@
       "available": true,
       "price": "C$20.00 CAD",
       "url": "https://boardgamegeek.com/market/product/3917612",
-      "lastChecked": "2026-07-30T20:10:40.341Z",
+      "listings": [
+        {
+          "price": "C$20.00 CAD",
+          "seller": "boetie77",
+          "condition": "Very Good",
+          "url": "https://boardgamegeek.com/market/product/3917612"
+        }
+      ],
+      "lastChecked": "2026-07-30T20:28:40.478Z",
       "lastCheckSuccess": true
     }
   },
@@ -1075,7 +1135,15 @@
       "available": true,
       "price": "C$60.00 CAD",
       "url": "https://boardgamegeek.com/market/product/4051608",
-      "lastChecked": "2026-07-30T20:09:16.868Z",
+      "listings": [
+        {
+          "price": "C$60.00 CAD",
+          "seller": "MMGrad",
+          "condition": "Like New",
+          "url": "https://boardgamegeek.com/market/product/4051608"
+        }
+      ],
+      "lastChecked": "2026-07-30T20:28:35.289Z",
       "lastCheckSuccess": true
     }
   },
@@ -1147,7 +1215,15 @@
       "available": true,
       "price": "C$45.00 CAD",
       "url": "https://boardgamegeek.com/market/product/3652579",
-      "lastChecked": "2026-07-30T20:10:10.084Z",
+      "listings": [
+        {
+          "price": "C$45.00 CAD",
+          "seller": "Plume2",
+          "condition": "Like New",
+          "url": "https://boardgamegeek.com/market/product/3652579"
+        }
+      ],
+      "lastChecked": "2026-07-30T20:28:38.600Z",
       "lastCheckSuccess": true
     }
   },
@@ -1219,7 +1295,8 @@
       "available": false,
       "price": null,
       "url": null,
-      "lastChecked": "2026-07-30T20:09:47.666Z",
+      "listings": [],
+      "lastChecked": "2026-07-30T20:28:37.192Z",
       "lastCheckSuccess": true
     }
   },
@@ -1291,7 +1368,21 @@
       "available": true,
       "price": "C$3.00 CAD",
       "url": "https://boardgamegeek.com/market/product/3048285",
-      "lastChecked": "2026-07-30T20:11:05.877Z",
+      "listings": [
+        {
+          "price": "C$3.00 CAD",
+          "seller": "Panfivan",
+          "condition": "New",
+          "url": "https://boardgamegeek.com/market/product/3048285"
+        },
+        {
+          "price": "$55.00 USD",
+          "seller": "Timeac",
+          "condition": "Very Good",
+          "url": "https://boardgamegeek.com/market/product/2912947"
+        }
+      ],
+      "lastChecked": "2026-07-30T20:28:41.656Z",
       "lastCheckSuccess": true
     }
   },
@@ -1363,7 +1454,8 @@
       "available": false,
       "price": null,
       "url": null,
-      "lastChecked": "2026-07-30T20:13:56.055Z",
+      "listings": [],
+      "lastChecked": "2026-07-30T20:28:52.953Z",
       "lastCheckSuccess": true
     }
   },
@@ -1435,7 +1527,8 @@
       "available": false,
       "price": null,
       "url": null,
-      "lastChecked": "2026-07-30T20:10:02.820Z",
+      "listings": [],
+      "lastChecked": "2026-07-30T20:28:38.129Z",
       "lastCheckSuccess": true
     }
   },
@@ -1507,7 +1600,8 @@
       "available": false,
       "price": null,
       "url": null,
-      "lastChecked": "2026-07-30T20:12:37.561Z",
+      "listings": [],
+      "lastChecked": "2026-07-30T20:28:47.806Z",
       "lastCheckSuccess": true
     }
   },
@@ -1579,7 +1673,8 @@
       "available": false,
       "price": null,
       "url": null,
-      "lastChecked": "2026-07-30T20:12:48.217Z",
+      "listings": [],
+      "lastChecked": "2026-07-30T20:28:48.506Z",
       "lastCheckSuccess": true
     }
   },
@@ -1651,7 +1746,8 @@
       "available": false,
       "price": null,
       "url": null,
-      "lastChecked": "2026-07-30T20:11:55.334Z",
+      "listings": [],
+      "lastChecked": "2026-07-30T20:28:44.962Z",
       "lastCheckSuccess": true
     }
   },
@@ -1723,7 +1819,8 @@
       "available": false,
       "price": null,
       "url": null,
-      "lastChecked": "2026-07-30T20:09:40.017Z",
+      "listings": [],
+      "lastChecked": "2026-07-30T20:28:36.712Z",
       "lastCheckSuccess": true
     }
   },
@@ -1795,7 +1892,8 @@
       "available": false,
       "price": null,
       "url": null,
-      "lastChecked": "2026-07-30T20:12:55.304Z",
+      "listings": [],
+      "lastChecked": "2026-07-30T20:28:48.972Z",
       "lastCheckSuccess": true
     }
   },
@@ -1867,7 +1965,8 @@
       "available": false,
       "price": null,
       "url": null,
-      "lastChecked": "2026-07-30T20:08:50.588Z",
+      "listings": [],
+      "lastChecked": "2026-07-30T20:28:33.632Z",
       "lastCheckSuccess": true
     }
   },
@@ -1939,7 +2038,8 @@
       "available": false,
       "price": null,
       "url": null,
-      "lastChecked": "2026-07-30T20:11:23.169Z",
+      "listings": [],
+      "lastChecked": "2026-07-30T20:28:42.838Z",
       "lastCheckSuccess": true
     }
   },
@@ -2011,7 +2111,15 @@
       "available": true,
       "price": "$10.00 USD",
       "url": "https://boardgamegeek.com/market/product/3692643",
-      "lastChecked": "2026-07-30T20:08:54.644Z",
+      "listings": [
+        {
+          "price": "$10.00 USD",
+          "seller": "macfuddy",
+          "condition": "New",
+          "url": "https://boardgamegeek.com/market/product/3692643"
+        }
+      ],
+      "lastChecked": "2026-07-30T20:28:33.868Z",
       "lastCheckSuccess": true
     }
   },
@@ -2083,7 +2191,8 @@
       "available": false,
       "price": null,
       "url": null,
-      "lastChecked": "2026-07-30T20:21:53.171Z",
+      "listings": [],
+      "lastChecked": "2026-07-30T20:28:36.479Z",
       "lastCheckSuccess": true
     }
   },
@@ -2155,7 +2264,8 @@
       "available": false,
       "price": null,
       "url": null,
-      "lastChecked": "2026-07-30T20:14:10.191Z",
+      "listings": [],
+      "lastChecked": "2026-07-30T20:28:53.888Z",
       "lastCheckSuccess": true
     }
   },
@@ -2227,7 +2337,8 @@
       "available": false,
       "price": null,
       "url": null,
-      "lastChecked": "2026-07-30T20:10:21.282Z",
+      "listings": [],
+      "lastChecked": "2026-07-30T20:28:39.305Z",
       "lastCheckSuccess": true
     }
   },
@@ -2299,7 +2410,8 @@
       "available": false,
       "price": null,
       "url": null,
-      "lastChecked": "2026-07-30T20:14:06.700Z",
+      "listings": [],
+      "lastChecked": "2026-07-30T20:28:53.654Z",
       "lastCheckSuccess": true
     }
   },
@@ -2371,7 +2483,8 @@
       "available": false,
       "price": null,
       "url": null,
-      "lastChecked": "2026-07-30T20:12:09.181Z",
+      "listings": [],
+      "lastChecked": "2026-07-30T20:28:45.929Z",
       "lastCheckSuccess": true
     }
   },
@@ -2443,7 +2556,8 @@
       "available": false,
       "price": null,
       "url": null,
-      "lastChecked": "2026-07-30T20:11:16.201Z",
+      "listings": [],
+      "lastChecked": "2026-07-30T20:28:42.362Z",
       "lastCheckSuccess": true
     }
   },
@@ -2515,7 +2629,21 @@
       "available": true,
       "price": "C$35.00 CAD",
       "url": "https://boardgamegeek.com/market/product/4071480",
-      "lastChecked": "2026-07-30T20:11:44.932Z",
+      "listings": [
+        {
+          "price": "C$35.00 CAD",
+          "seller": "Downblaw",
+          "condition": "Like New",
+          "url": "https://boardgamegeek.com/market/product/4071480"
+        },
+        {
+          "price": "C$60.00 CAD",
+          "seller": "JamesJakeJones",
+          "condition": "Like New",
+          "url": "https://boardgamegeek.com/market/product/3924479"
+        }
+      ],
+      "lastChecked": "2026-07-30T20:28:44.266Z",
       "lastCheckSuccess": true
     }
   },
@@ -2587,7 +2715,8 @@
       "available": false,
       "price": null,
       "url": null,
-      "lastChecked": "2026-07-30T20:11:12.777Z",
+      "listings": [],
+      "lastChecked": "2026-07-30T20:28:42.125Z",
       "lastCheckSuccess": true
     }
   },
@@ -2659,7 +2788,8 @@
       "available": false,
       "price": null,
       "url": null,
-      "lastChecked": "2026-07-30T20:09:32.146Z",
+      "listings": [],
+      "lastChecked": "2026-07-30T20:28:36.243Z",
       "lastCheckSuccess": true
     }
   },
@@ -2731,7 +2861,8 @@
       "available": false,
       "price": null,
       "url": null,
-      "lastChecked": "2026-07-30T20:14:03.141Z",
+      "listings": [],
+      "lastChecked": "2026-07-30T20:28:53.420Z",
       "lastCheckSuccess": true
     }
   },
@@ -2803,7 +2934,8 @@
       "available": false,
       "price": null,
       "url": null,
-      "lastChecked": "2026-07-30T20:09:01.959Z",
+      "listings": [],
+      "lastChecked": "2026-07-30T20:28:34.340Z",
       "lastCheckSuccess": true
     }
   },
@@ -2875,7 +3007,8 @@
       "available": false,
       "price": null,
       "url": null,
-      "lastChecked": "2026-07-30T20:10:44.381Z",
+      "listings": [],
+      "lastChecked": "2026-07-30T20:28:40.715Z",
       "lastCheckSuccess": true
     }
   },
@@ -2947,7 +3080,8 @@
       "available": false,
       "price": null,
       "url": null,
-      "lastChecked": "2026-07-30T20:13:38.364Z",
+      "listings": [],
+      "lastChecked": "2026-07-30T20:28:51.787Z",
       "lastCheckSuccess": true
     }
   },
@@ -3019,7 +3153,8 @@
       "available": false,
       "price": null,
       "url": null,
-      "lastChecked": "2026-07-30T20:10:25.260Z",
+      "listings": [],
+      "lastChecked": "2026-07-30T20:28:39.540Z",
       "lastCheckSuccess": true
     }
   },
@@ -3091,7 +3226,8 @@
       "available": false,
       "price": null,
       "url": null,
-      "lastChecked": "2026-07-30T20:12:19.960Z",
+      "listings": [],
+      "lastChecked": "2026-07-30T20:28:46.631Z",
       "lastCheckSuccess": true
     }
   },
@@ -3163,7 +3299,8 @@
       "available": false,
       "price": null,
       "url": null,
-      "lastChecked": "2026-07-30T20:10:36.941Z",
+      "listings": [],
+      "lastChecked": "2026-07-30T20:28:40.243Z",
       "lastCheckSuccess": true
     }
   },
@@ -3235,7 +3372,8 @@
       "available": false,
       "price": null,
       "url": null,
-      "lastChecked": "2026-07-30T20:14:13.719Z",
+      "listings": [],
+      "lastChecked": "2026-07-30T20:28:54.122Z",
       "lastCheckSuccess": true
     }
   },
@@ -3307,7 +3445,8 @@
       "available": false,
       "price": null,
       "url": null,
-      "lastChecked": "2026-07-30T20:13:59.577Z",
+      "listings": [],
+      "lastChecked": "2026-07-30T20:28:53.186Z",
       "lastCheckSuccess": true
     }
   },
@@ -3379,7 +3518,8 @@
       "available": false,
       "price": null,
       "url": null,
-      "lastChecked": "2026-07-30T20:13:31.197Z",
+      "listings": [],
+      "lastChecked": "2026-07-30T20:28:51.320Z",
       "lastCheckSuccess": true
     }
   },
@@ -3451,7 +3591,8 @@
       "available": false,
       "price": null,
       "url": null,
-      "lastChecked": "2026-07-30T20:10:17.763Z",
+      "listings": [],
+      "lastChecked": "2026-07-30T20:28:39.069Z",
       "lastCheckSuccess": true
     }
   },
@@ -3523,7 +3664,8 @@
       "available": false,
       "price": null,
       "url": null,
-      "lastChecked": "2026-07-30T20:11:33.719Z",
+      "listings": [],
+      "lastChecked": "2026-07-30T20:28:43.559Z",
       "lastCheckSuccess": true
     }
   },
@@ -3595,7 +3737,8 @@
       "available": false,
       "price": null,
       "url": null,
-      "lastChecked": "2026-07-30T20:12:58.793Z",
+      "listings": [],
+      "lastChecked": "2026-07-30T20:28:49.208Z",
       "lastCheckSuccess": true
     }
   },
@@ -3667,7 +3810,8 @@
       "available": false,
       "price": null,
       "url": null,
-      "lastChecked": "2026-07-30T20:13:09.383Z",
+      "listings": [],
+      "lastChecked": "2026-07-30T20:28:49.912Z",
       "lastCheckSuccess": true
     }
   },
@@ -3739,7 +3883,15 @@
       "available": true,
       "price": "$15.00 USD",
       "url": "https://boardgamegeek.com/market/product/4010582",
-      "lastChecked": "2026-07-30T20:12:16.328Z",
+      "listings": [
+        {
+          "price": "$15.00 USD",
+          "seller": "mshahrukh",
+          "condition": "New",
+          "url": "https://boardgamegeek.com/market/product/4010582"
+        }
+      ],
+      "lastChecked": "2026-07-30T20:28:46.397Z",
       "lastCheckSuccess": true
     }
   },
@@ -3811,7 +3963,8 @@
       "available": false,
       "price": null,
       "url": null,
-      "lastChecked": "2026-07-30T20:13:34.892Z",
+      "listings": [],
+      "lastChecked": "2026-07-30T20:28:51.553Z",
       "lastCheckSuccess": true
     }
   },
@@ -3883,7 +4036,8 @@
       "available": false,
       "price": null,
       "url": null,
-      "lastChecked": "2026-07-30T20:09:09.211Z",
+      "listings": [],
+      "lastChecked": "2026-07-30T20:28:34.812Z",
       "lastCheckSuccess": true
     }
   },
@@ -3955,7 +4109,8 @@
       "available": false,
       "price": null,
       "url": null,
-      "lastChecked": "2026-07-30T20:11:51.787Z",
+      "listings": [],
+      "lastChecked": "2026-07-30T20:28:44.729Z",
       "lastCheckSuccess": true
     }
   },
@@ -4027,7 +4182,8 @@
       "available": false,
       "price": null,
       "url": null,
-      "lastChecked": "2026-07-30T20:12:02.243Z",
+      "listings": [],
+      "lastChecked": "2026-07-30T20:28:45.428Z",
       "lastCheckSuccess": true
     }
   },
@@ -4099,7 +4255,8 @@
       "available": false,
       "price": null,
       "url": null,
-      "lastChecked": "2026-07-30T20:12:05.742Z",
+      "listings": [],
+      "lastChecked": "2026-07-30T20:28:45.683Z",
       "lastCheckSuccess": true
     }
   },
@@ -4171,7 +4328,8 @@
       "available": false,
       "price": null,
       "url": null,
-      "lastChecked": "2026-07-30T20:12:34.004Z",
+      "listings": [],
+      "lastChecked": "2026-07-30T20:28:47.573Z",
       "lastCheckSuccess": true
     }
   },
@@ -4243,7 +4401,8 @@
       "available": false,
       "price": null,
       "url": null,
-      "lastChecked": "2026-07-30T20:13:16.635Z",
+      "listings": [],
+      "lastChecked": "2026-07-30T20:28:50.380Z",
       "lastCheckSuccess": true
     }
   },
@@ -4315,7 +4474,8 @@
       "available": false,
       "price": null,
       "url": null,
-      "lastChecked": "2026-07-30T20:11:09.262Z",
+      "listings": [],
+      "lastChecked": "2026-07-30T20:28:41.891Z",
       "lastCheckSuccess": true
     }
   },
@@ -4387,7 +4547,8 @@
       "available": false,
       "price": null,
       "url": null,
-      "lastChecked": "2026-07-30T20:12:44.816Z",
+      "listings": [],
+      "lastChecked": "2026-07-30T20:28:48.272Z",
       "lastCheckSuccess": true
     }
   },
@@ -4459,7 +4620,8 @@
       "available": false,
       "price": null,
       "url": null,
-      "lastChecked": "2026-07-30T20:12:23.335Z",
+      "listings": [],
+      "lastChecked": "2026-07-30T20:28:46.865Z",
       "lastCheckSuccess": true
     }
   },
@@ -4531,7 +4693,8 @@
       "available": false,
       "price": null,
       "url": null,
-      "lastChecked": "2026-07-30T20:10:33.340Z",
+      "listings": [],
+      "lastChecked": "2026-07-30T20:28:40.008Z",
       "lastCheckSuccess": true
     }
   },
@@ -4603,7 +4766,8 @@
       "available": false,
       "price": null,
       "url": null,
-      "lastChecked": "2026-07-30T20:11:41.425Z",
+      "listings": [],
+      "lastChecked": "2026-07-30T20:28:44.027Z",
       "lastCheckSuccess": true
     }
   },
@@ -4675,7 +4839,8 @@
       "available": false,
       "price": null,
       "url": null,
-      "lastChecked": "2026-07-30T20:13:24.080Z",
+      "listings": [],
+      "lastChecked": "2026-07-30T20:28:50.848Z",
       "lastCheckSuccess": true
     }
   },
@@ -4747,7 +4912,8 @@
       "available": false,
       "price": null,
       "url": null,
-      "lastChecked": "2026-07-30T20:11:19.563Z",
+      "listings": [],
+      "lastChecked": "2026-07-30T20:28:42.603Z",
       "lastCheckSuccess": true
     }
   },
@@ -4819,7 +4985,8 @@
       "available": false,
       "price": null,
       "url": null,
-      "lastChecked": "2026-07-30T20:10:06.188Z",
+      "listings": [],
+      "lastChecked": "2026-07-30T20:28:38.363Z",
       "lastCheckSuccess": true
     }
   },
@@ -4891,7 +5058,8 @@
       "available": false,
       "price": null,
       "url": null,
-      "lastChecked": "2026-07-30T20:09:51.542Z",
+      "listings": [],
+      "lastChecked": "2026-07-30T20:28:37.427Z",
       "lastCheckSuccess": true
     }
   },
@@ -4963,7 +5131,8 @@
       "available": false,
       "price": null,
       "url": null,
-      "lastChecked": "2026-07-30T20:11:26.704Z",
+      "listings": [],
+      "lastChecked": "2026-07-30T20:28:43.074Z",
       "lastCheckSuccess": true
     }
   },
@@ -5035,7 +5204,8 @@
       "available": false,
       "price": null,
       "url": null,
-      "lastChecked": "2026-07-30T20:13:27.584Z",
+      "listings": [],
+      "lastChecked": "2026-07-30T20:28:51.085Z",
       "lastCheckSuccess": true
     }
   },
@@ -5107,7 +5277,8 @@
       "available": false,
       "price": null,
       "url": null,
-      "lastChecked": "2026-07-30T20:13:20.504Z",
+      "listings": [],
+      "lastChecked": "2026-07-30T20:28:50.614Z",
       "lastCheckSuccess": true
     }
   },
@@ -5179,7 +5350,8 @@
       "available": false,
       "price": null,
       "url": null,
-      "lastChecked": "2026-07-30T20:12:51.798Z",
+      "listings": [],
+      "lastChecked": "2026-07-30T20:28:48.739Z",
       "lastCheckSuccess": true
     }
   },
@@ -5251,7 +5423,8 @@
       "available": false,
       "price": null,
       "url": null,
-      "lastChecked": "2026-07-30T20:10:48.250Z",
+      "listings": [],
+      "lastChecked": "2026-07-30T20:28:40.949Z",
       "lastCheckSuccess": true
     }
   },
@@ -5323,7 +5496,8 @@
       "available": false,
       "price": null,
       "url": null,
-      "lastChecked": "2026-07-30T20:09:13.082Z",
+      "listings": [],
+      "lastChecked": "2026-07-30T20:28:35.048Z",
       "lastCheckSuccess": true
     }
   },
@@ -5395,7 +5569,8 @@
       "available": false,
       "price": null,
       "url": null,
-      "lastChecked": "2026-07-30T20:09:05.434Z",
+      "listings": [],
+      "lastChecked": "2026-07-30T20:28:34.575Z",
       "lastCheckSuccess": true
     }
   },
@@ -5467,7 +5642,8 @@
       "available": false,
       "price": null,
       "url": null,
-      "lastChecked": "2026-07-30T20:09:43.873Z",
+      "listings": [],
+      "lastChecked": "2026-07-30T20:28:36.956Z",
       "lastCheckSuccess": true
     }
   },
@@ -5539,7 +5715,8 @@
       "available": false,
       "price": null,
       "url": null,
-      "lastChecked": "2026-07-30T20:14:17.443Z",
+      "listings": [],
+      "lastChecked": "2026-07-30T20:28:54.356Z",
       "lastCheckSuccess": true
     }
   },
@@ -5611,7 +5788,8 @@
       "available": false,
       "price": null,
       "url": null,
-      "lastChecked": "2026-07-30T20:10:13.907Z",
+      "listings": [],
+      "lastChecked": "2026-07-30T20:28:38.834Z",
       "lastCheckSuccess": true
     }
   },
@@ -5683,7 +5861,8 @@
       "available": false,
       "price": null,
       "url": null,
-      "lastChecked": "2026-07-30T20:13:48.957Z",
+      "listings": [],
+      "lastChecked": "2026-07-30T20:28:52.486Z",
       "lastCheckSuccess": true
     }
   },
@@ -5755,7 +5934,8 @@
       "available": false,
       "price": null,
       "url": null,
-      "lastChecked": "2026-07-30T20:09:59.057Z",
+      "listings": [],
+      "lastChecked": "2026-07-30T20:28:37.895Z",
       "lastCheckSuccess": true
     }
   },
@@ -5827,7 +6007,8 @@
       "available": false,
       "price": null,
       "url": null,
-      "lastChecked": "2026-07-30T20:10:29.418Z",
+      "listings": [],
+      "lastChecked": "2026-07-30T20:28:39.773Z",
       "lastCheckSuccess": true
     }
   },
@@ -5899,7 +6080,8 @@
       "available": false,
       "price": null,
       "url": null,
-      "lastChecked": "2026-07-30T20:13:45.429Z",
+      "listings": [],
+      "lastChecked": "2026-07-30T20:28:52.252Z",
       "lastCheckSuccess": true
     }
   },
@@ -5971,7 +6153,8 @@
       "available": false,
       "price": null,
       "url": null,
-      "lastChecked": "2026-07-30T20:11:37.475Z",
+      "listings": [],
+      "lastChecked": "2026-07-30T20:28:43.794Z",
       "lastCheckSuccess": true
     }
   },
@@ -6043,7 +6226,8 @@
       "available": false,
       "price": null,
       "url": null,
-      "lastChecked": "2026-07-30T20:08:58.112Z",
+      "listings": [],
+      "lastChecked": "2026-07-30T20:28:34.104Z",
       "lastCheckSuccess": true
     }
   },
@@ -6115,7 +6299,8 @@
       "available": false,
       "price": null,
       "url": null,
-      "lastChecked": "2026-07-30T20:11:58.744Z",
+      "listings": [],
+      "lastChecked": "2026-07-30T20:28:45.194Z",
       "lastCheckSuccess": true
     }
   },
@@ -6187,7 +6372,8 @@
       "available": false,
       "price": null,
       "url": null,
-      "lastChecked": "2026-07-30T20:09:28.386Z",
+      "listings": [],
+      "lastChecked": "2026-07-30T20:28:36.008Z",
       "lastCheckSuccess": true
     }
   },
@@ -6259,7 +6445,8 @@
       "available": false,
       "price": null,
       "url": null,
-      "lastChecked": "2026-07-30T20:12:41.087Z",
+      "listings": [],
+      "lastChecked": "2026-07-30T20:28:48.039Z",
       "lastCheckSuccess": true
     }
   },
@@ -6331,7 +6518,8 @@
       "available": false,
       "price": null,
       "url": null,
-      "lastChecked": "2026-07-30T20:13:41.880Z",
+      "listings": [],
+      "lastChecked": "2026-07-30T20:28:52.018Z",
       "lastCheckSuccess": true
     }
   },
@@ -6403,7 +6591,8 @@
       "available": false,
       "price": null,
       "url": null,
-      "lastChecked": "2026-07-30T20:13:05.695Z",
+      "listings": [],
+      "lastChecked": "2026-07-30T20:28:49.680Z",
       "lastCheckSuccess": true
     }
   }
