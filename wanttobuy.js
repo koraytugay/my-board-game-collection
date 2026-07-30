@@ -28,7 +28,8 @@ async function fetchCollection() {
                 meeplemart: { available: false, price: null, url: null },
                 amazonCa: { available: false, price: null, url: null },
                 woodForSheep: { available: false, price: null, url: null },
-                faceToFaceGames: { available: false, price: null, url: null }
+                faceToFaceGames: { available: false, price: null, url: null },
+                bggMarket: { available: false, price: null, url: null }
             }
         }));
         
@@ -71,7 +72,8 @@ function updateStats() {
         game.availability?.meeplemart?.available ||
         game.availability?.amazonCa?.available ||
         game.availability?.woodForSheep?.available ||
-        game.availability?.faceToFaceGames?.available
+        game.availability?.faceToFaceGames?.available ||
+        game.availability?.bggMarket?.available
     ).length;
 
     document.getElementById('total-games').textContent = totalGames;
@@ -116,7 +118,8 @@ function applyFilters() {
                    game.availability?.meeplemart?.available ||
                    game.availability?.amazonCa?.available ||
                    game.availability?.woodForSheep?.available ||
-                   game.availability?.faceToFaceGames?.available;
+                   game.availability?.faceToFaceGames?.available ||
+                   game.availability?.bggMarket?.available;
         }
         return true;
     });
@@ -166,7 +169,8 @@ function createGameCard(game) {
                       game.availability?.meeplemart?.available ||
                       game.availability?.amazonCa?.available ||
                       game.availability?.woodForSheep?.available ||
-                      game.availability?.faceToFaceGames?.available;
+                      game.availability?.faceToFaceGames?.available ||
+                      game.availability?.bggMarket?.available;
     
     if (isInStock) {
         badgesHtml += '<span class="badge badge-favorite">In Stock</span>';
@@ -186,15 +190,16 @@ function createGameCard(game) {
     const amzn = game.availability?.amazonCa;
     const wfs = game.availability?.woodForSheep;
     const f2f = game.availability?.faceToFaceGames;
+    const bggmkt = game.availability?.bggMarket;
 
-    if ((bgb && bgb.url) || (fof && fof.url) || (lvl && lvl.url) || (adj && adj.url) || (gbg && gbg.url) || (meeple && meeple.url) || (amzn && amzn.url) || (wfs && wfs.url) || (f2f && f2f.url)) {
+    if ((bgb && bgb.url) || (fof && fof.url) || (lvl && lvl.url) || (adj && adj.url) || (gbg && gbg.url) || (meeple && meeple.url) || (amzn && amzn.url) || (wfs && wfs.url) || (f2f && f2f.url) || (bggmkt && bggmkt.url)) {
         storeHtml += '<div class="store-availability">';
         
         const renderStoreBtn = (store, name, btnClass) => {
             if (!store || !store.url) return '';
             const statusClass = store.available ? 'store-status-instock' : 'store-status-outofstock';
             const statusText = store.available ? 'In Stock' : 'Out of Stock';
-            const priceText = store.price ? `$${store.price}` : '';
+            const priceText = store.price ? (String(store.price).match(/^[$C$€£]/) ? store.price : `$${store.price}`) : '';
             return `
                 <a href="${store.url}" target="_blank" class="store-btn ${btnClass} ${store.available ? '' : 'store-btn-out'}">
                     <span class="store-name">${name}</span>
@@ -212,6 +217,7 @@ function createGameCard(game) {
         storeHtml += renderStoreBtn(amzn, '🛒 Amazon.ca', 'store-btn-amazon');
         storeHtml += renderStoreBtn(wfs, '🐑 Wood for Sheep', 'store-btn-wfs');
         storeHtml += renderStoreBtn(f2f, '🤝 Face to Face', 'store-btn-f2f');
+        storeHtml += renderStoreBtn(bggmkt, '🏷️ BGG Market (CA)', 'store-btn-bggmkt');
         
         storeHtml += '</div>';
     }

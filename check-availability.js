@@ -509,6 +509,28 @@ async function checkAvailability() {
                     }
                     return null;
                 }
+            },
+            bggMarket: {
+                type: 'json',
+                url: (game) => `https://api.geekdo.com/api/market/products?ajax=1&browsetype=browse&country=CA&marketdomain=boardgame&nosession=1&objectid=${game.objectId}&objecttype=thing&pageid=1&productstate=active&stock=instock`,
+                parser: (res, gameName) => {
+                    if (res?.products && Array.isArray(res.products) && res.products.length > 0) {
+                        const caProducts = res.products.filter(p => p.itemlocation_code === 'CA' || p.itemlocation === 'Canada');
+                        const productsToSearch = caProducts.length > 0 ? caProducts : res.products;
+                        if (productsToSearch.length > 0) {
+                            const sorted = [...productsToSearch].sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
+                            const match = sorted[0];
+                            const symbol = match.currencysymbol || '$';
+                            const priceFormatted = `${symbol}${match.price} ${match.currency}`;
+                            return {
+                                available: true,
+                                price: priceFormatted,
+                                url: `https://boardgamegeek.com${match.producthref}`
+                            };
+                        }
+                    }
+                    return null;
+                }
             }
         };
 
@@ -542,9 +564,10 @@ async function checkAvailability() {
             } else {
                 const fetchPromise = (async () => {
                     try {
+                        const targetUrl = typeof config.url === 'function' ? config.url(game) : config.url;
                         const res = config.type === 'json' 
-                            ? await fetchJson(config.url)
-                            : await fetchHtml(config.url);
+                            ? await fetchJson(targetUrl)
+                            : await fetchHtml(targetUrl);
 
                         if (res === null) {
                             throw new Error(`Fetch returned null (timeout/error)`);
