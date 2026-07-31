@@ -62,34 +62,28 @@ jobs:
             return 1
           }
 
-          # 1. Fetch Collection (Fetch base games and expansions separately so BGG tags subtypes correctly)
+          # 1. Fetch Collection (Fetch base games, expansions, and trade items)
           fetch_data "https://boardgamegeek.com/xmlapi2/collection?username=${BGG_USER}&stats=1&subtype=boardgame" "collection_bg.xml" "Base Games" || true
           fetch_data "https://boardgamegeek.com/xmlapi2/collection?username=${BGG_USER}&stats=1&subtype=boardgameexpansion" "collection_exp.xml" "Expansions" || true
+          fetch_data "https://boardgamegeek.com/xmlapi2/collection?username=${BGG_USER}&stats=1&trade=1" "collection_trade.xml" "For Trade Items" || true
 
           node -e '
           const fs = require("fs");
           const itemMap = new Map();
 
-          if (fs.existsSync("collection_exp.xml")) {
-              const exp = fs.readFileSync("collection_exp.xml", "utf8");
-              const expMatches = exp.match(/<item\b[\s\S]*?<\/item>/g) || [];
-              for (const item of expMatches) {
-                  const idMatch = item.match(/objectid="(\d+)"/);
-                  if (idMatch) itemMap.set(idMatch[1], item);
-              }
-              fs.unlinkSync("collection_exp.xml");
-          }
-
-          if (fs.existsSync("collection_bg.xml")) {
-              const bg = fs.readFileSync("collection_bg.xml", "utf8");
-              const bgMatches = bg.match(/<item\b[\s\S]*?<\/item>/g) || [];
-              for (const item of bgMatches) {
-                  const idMatch = item.match(/objectid="(\d+)"/);
-                  if (idMatch && !itemMap.has(idMatch[1])) {
-                      itemMap.set(idMatch[1], item);
+          const filesToProcess = ["collection_exp.xml", "collection_trade.xml", "collection_bg.xml"];
+          for (const file of filesToProcess) {
+              if (fs.existsSync(file)) {
+                  const content = fs.readFileSync(file, "utf8");
+                  const matches = content.match(/<item\b[\s\S]*?<\/item>/g) || [];
+                  for (const item of matches) {
+                      const idMatch = item.match(/objectid="(\d+)"/);
+                      if (idMatch && !itemMap.has(idMatch[1])) {
+                          itemMap.set(idMatch[1], item);
+                      }
                   }
+                  fs.unlinkSync(file);
               }
-              fs.unlinkSync("collection_bg.xml");
           }
 
           if (itemMap.size > 0) {
