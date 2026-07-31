@@ -12,29 +12,100 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Board Game Collection</title>
+    <title>For Sale - My Board Game Collection</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        .game-comment {
+            margin-top: 12px;
+            padding: 10px 12px;
+            background: #f8f9fa;
+            border-left: 3px solid #e65100;
+            border-radius: 4px;
+            font-size: 0.85em;
+            color: #444;
+            line-height: 1.4;
+            white-space: pre-line;
+        }
+        body.dark-mode .game-comment {
+            background: #2a2a2a;
+            color: #ccc;
+            border-left-color: #ff9800;
+        }
+        .badge-forsale {
+            background: #e65100;
+            color: white;
+        }
+        .empty-state {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 60px 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            margin: 20px 0;
+        }
+        body.dark-mode .empty-state {
+            background: #2d2d2d;
+            color: #e0e0e0;
+        }
+        .empty-state-icon {
+            font-size: 3.5em;
+            margin-bottom: 15px;
+        }
+        .empty-state h3 {
+            font-size: 1.4em;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        body.dark-mode .empty-state h3 {
+            color: #fff;
+        }
+        .empty-state p {
+            color: #666;
+            max-width: 500px;
+            margin: 0 auto 20px;
+            line-height: 1.5;
+        }
+        body.dark-mode .empty-state p {
+            color: #aaa;
+        }
+        .bgg-link-btn {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 8px 14px;
+            background: #e65100;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 0.85em;
+            font-weight: bold;
+            transition: background 0.2s ease;
+        }
+        .bgg-link-btn:hover {
+            background: #bf360c;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>My Board Game Collection</h1>
+            <h1>For Sale List</h1>
             <p class="username">@koraytugay on BoardGameGeek</p>
             <nav class="page-nav">
+                <a href="index.html" class="nav-link">← Back to Collection</a>
                 <a href="history.html" class="nav-link">Play History</a>
                 <a href="stats.html" class="nav-link">View Statistics</a>
                 <a href="challenges.html" class="nav-link">Collection Challenges</a>
                 <a href="calendar.html" class="nav-link">Play Calendar</a>
                 <a href="tournament.html" class="nav-link">Game Tournament</a>
                 <a href="wanttobuy.html" class="nav-link">Want to Buy</a>
-                <a href="forsale.html" class="nav-link">For Sale</a>
                 <button id="random-game-btn" class="nav-link nav-button">🎲 Random Game</button>
             </nav>
         </header>
 
         <div id="loading" class="loading">
             <div class="spinner"></div>
-            <p>Loading your collection...</p>
+            <p>Loading items for sale...</p>
         </div>
 
         <div id="error" class="error" style="display: none;"></div>
@@ -42,19 +113,19 @@
         <div id="stats" class="stats" style="display: none;">
             <div class="stat-card">
                 <span class="stat-number" id="total-games">0</span>
-                <span class="stat-label">Total Games</span>
+                <span class="stat-label">Total For Sale</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number" id="avg-rating">0</span>
+                <span class="stat-label">Avg BGG Rating</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number" id="solo-games">0</span>
+                <span class="stat-label">Solo Playable</span>
             </div>
             <div class="stat-card">
                 <span class="stat-number" id="total-plays">0</span>
                 <span class="stat-label">Total Plays</span>
-            </div>
-            <div class="stat-card">
-                <span class="stat-number" id="avg-rating">0</span>
-                <span class="stat-label">Avg Rating</span>
-            </div>
-            <div class="stat-card">
-                <span class="stat-number" id="unplayed-games">0</span>
-                <span class="stat-label">Unplayed</span>
             </div>
         </div>
 
@@ -66,14 +137,9 @@
                         <option value="name">Name</option>
                         <option value="rating-desc">Rating (High to Low)</option>
                         <option value="rating-asc">Rating (Low to High)</option>
-                        <option value="myrating-desc">My Rating (High to Low)</option>
-                        <option value="myrating-asc">My Rating (Low to High)</option>
-                        <option value="plays-desc">Plays (Most to Least)</option>
-                        <option value="plays-asc">Plays (Least to Most)</option>
-                        <option value="recently-played">Most Recently Played</option>
-                        <option value="least-recently-played">Least Recently Played</option>
                         <option value="year-desc">Year (Newest First)</option>
                         <option value="year-asc">Year (Oldest First)</option>
+                        <option value="plays-desc">Plays (Most First)</option>
                     </select>
                 </div>
 
@@ -93,54 +159,6 @@
                     </label>
                 </div>
             </div>
-
-            <div class="controls-row">
-                <div class="control-group">
-                    <label for="search-input">Search:</label>
-                    <input type="text" id="search-input" placeholder="Filter by name..." oninput="applyFilters()">
-                </div>
-
-                <div class="control-group">
-                    <label for="player-count">Players:</label>
-                    <select id="player-count" onchange="applyFilters()">
-                        <option value="all">All</option>
-                        <option value="1">1 (Solo)</option>
-                        <option value="2">2</option>
-                        <option value="2-only">2 Player Only</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5+</option>
-                    </select>
-                </div>
-
-                <div class="control-group">
-                    <label for="play-time">Play Time:</label>
-                    <select id="play-time" onchange="applyFilters()">
-                        <option value="all">All</option>
-                        <option value="0-30">Under 30 min</option>
-                        <option value="30-60">30-60 min</option>
-                        <option value="60-120">60-120 min</option>
-                        <option value="120-999">Over 120 min</option>
-                    </select>
-                </div>
-
-                <div class="control-group">
-                    <label for="rating-filter">Rating:</label>
-                    <select id="rating-filter" onchange="applyFilters()">
-                        <option value="all">All</option>
-                        <option value="8+">8.0+</option>
-                        <option value="7+">7.0+</option>
-                        <option value="6+">6.0+</option>
-                    </select>
-                </div>
-
-                <div class="control-group">
-                    <label class="checkbox-label">
-                        <input type="checkbox" id="unplayed-only" onchange="applyFilters()">
-                        Unplayed Only
-                    </label>
-                </div>
-            </div>
         </div>
 
         <div id="games-grid" class="games-grid"></div>
@@ -151,7 +169,7 @@
         <div class="modal-overlay" onclick="closeRandomModal()"></div>
         <div class="modal-content">
             <button class="modal-close" onclick="closeRandomModal()">×</button>
-            <h2>🎲 Random Game Pick</h2>
+            <h2>🎲 Random Pick from For Sale</h2>
             <div id="random-game-display" class="random-game-display">
                 <img id="random-game-img" class="random-game-img" src="" alt="">
                 <div class="random-game-info">
@@ -168,6 +186,6 @@
     </div>
 
     <script src="api.js"></script>
-    <script src="script.js"></script>
+    <script src="forsale.js"></script>
 </body>
 </html>

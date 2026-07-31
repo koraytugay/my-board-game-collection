@@ -39,6 +39,14 @@ async function getCollection(onlyOwned = true) {
                 const isValidType = subtype === 'boardgame' || subtype === 'boardgameexpansion';
                 return isWantToBuy && isValidType;
             });
+        } else if (onlyOwned === 'forsale' || onlyOwned === 'fortrade') {
+            items = items.filter(item => {
+                const status = item.querySelector('status');
+                const isForSale = status && status.getAttribute('fortrade') === '1';
+                const subtype = item.getAttribute('subtype');
+                const isValidType = subtype === 'boardgame' || subtype === 'boardgameexpansion';
+                return isForSale && isValidType;
+            });
         } else if (onlyOwned === true) {
             items = items.filter(item => {
                 const status = item.querySelector('status');
@@ -49,7 +57,7 @@ async function getCollection(onlyOwned = true) {
         }
 
         if (items.length === 0) {
-            throw new Error('No games found in collection');
+            return [];
         }
 
         return items.map(item => {
@@ -58,6 +66,7 @@ async function getCollection(onlyOwned = true) {
             const thumbnail = item.querySelector('thumbnail')?.textContent || '';
             const image = item.querySelector('image')?.textContent || thumbnail;
             const objectId = item.getAttribute('objectid');
+            const comment = item.querySelector('comment')?.textContent || '';
 
             // Resolve local images
             // Since we don't know the extension (jpg vs png), we check common ones or assume jpg
@@ -87,6 +96,11 @@ async function getCollection(onlyOwned = true) {
             const myRatingValue = item.querySelector('stats rating')?.getAttribute('value') || '0';
             const myRating = parseFloat(myRatingValue);
 
+            const status = item.querySelector('status');
+            const isForSale = status ? status.getAttribute('fortrade') === '1' : false;
+            const isWantToBuy = status ? status.getAttribute('wanttobuy') === '1' : false;
+            const isOwned = status ? status.getAttribute('own') === '1' : false;
+
             return {
                 name,
                 yearPublished,
@@ -98,7 +112,11 @@ async function getCollection(onlyOwned = true) {
                 numPlays,
                 objectId,
                 rating,
-                myRating
+                myRating,
+                comment,
+                isForSale,
+                isWantToBuy,
+                isOwned
             };
         });
     } catch (error) {
