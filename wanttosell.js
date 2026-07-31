@@ -10,7 +10,7 @@ async function fetchCollection() {
     const controlsEl = document.getElementById('controls');
 
     try {
-        const collection = await getCollection('forsale');
+        const collection = await getCollection('wanttosell');
         
         allGames = collection.map(game => ({
             ...game,
@@ -29,7 +29,7 @@ async function fetchCollection() {
         loadDarkModePreference();
 
     } catch (error) {
-        console.error('Error fetching for sale collection:', error);
+        console.error('Error fetching want to sell collection:', error);
         loadingEl.style.display = 'none';
         errorEl.style.display = 'block';
         errorEl.textContent = `Failed to load games for sale: ${error.message}`;
@@ -98,7 +98,7 @@ function renderGames() {
         gamesGridEl.innerHTML = `
             <div class="empty-state">
                 <div class="empty-state-icon">🏷️</div>
-                <h3>No Games Currently For Sale</h3>
+                <h3>No Games Currently Want to Sell</h3>
                 <p>There are no games marked as "For Trade / For Sale" in your BoardGameGeek collection right now.</p>
                 <a href="https://boardgamegeek.com/collection/user/koraytugay" target="_blank" class="bgg-link-btn">
                     Manage Collection on BGG ↗
@@ -122,7 +122,7 @@ function createGameCard(game) {
         window.open(`https://boardgamegeek.com/boardgame/${game.objectId}`, '_blank');
     };
 
-    let badgesHtml = '<span class="badge badge-forsale">For Sale</span>';
+    let badgesHtml = '<span class="badge badge-forsale">Want to Sell</span>';
     
     if (game.minPlayers <= 1) badgesHtml += '<span class="badge badge-solo">Solo</span>';
     if (game.rating >= 8) badgesHtml += '<span class="badge badge-highly-rated">Highly Rated</span>';

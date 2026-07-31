@@ -39,7 +39,7 @@ async function getCollection(onlyOwned = true) {
                 const isValidType = subtype === 'boardgame' || subtype === 'boardgameexpansion';
                 return isWantToBuy && isValidType;
             });
-        } else if (onlyOwned === 'forsale' || onlyOwned === 'fortrade') {
+        } else if (onlyOwned === 'wanttosell' || onlyOwned === 'forsale' || onlyOwned === 'fortrade') {
             items = items.filter(item => {
                 const status = item.querySelector('status');
                 const isForSale = status && status.getAttribute('fortrade') === '1';
