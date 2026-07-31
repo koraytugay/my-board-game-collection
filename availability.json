@@ -42,6 +42,13 @@
       "lastChecked": "2026-07-31T20:03:12.725Z",
       "lastCheckSuccess": true
     },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "url": null,
+      "lastChecked": "2026-07-31T20:05:05.519Z",
+      "lastCheckSuccess": true
+    },
     "woodForSheep": {
       "available": true,
       "price": "47.49",
@@ -61,13 +68,6 @@
       "price": "$30.00 USD",
       "url": "https://boardgamegeek.com/market/product/4012139",
       "lastChecked": "2026-07-31T20:03:12.371Z",
-      "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "url": null,
-      "lastChecked": "2026-07-31T20:05:05.519Z",
       "lastCheckSuccess": true
     }
   },
@@ -622,7 +622,7 @@
       "available": false,
       "price": null,
       "url": null,
-      "lastChecked": "2026-07-31T14:42:31.941Z",
+      "lastChecked": "2026-07-31T23:53:51.017Z",
       "lastCheckSuccess": true
     },
     "woodForSheep": {
@@ -935,78 +935,6 @@
       "lastCheckSuccess": true
     }
   },
-  "181345": {
-    "boardGameBliss": {
-      "available": false,
-      "price": "23.99",
-      "url": "https://www.boardgamebliss.com/products/dr-eureka?_pos=1&_psq=Dr.+Eureka&_psid=e73767685&_ss=e",
-      "lastChecked": "2026-07-31T20:00:08.398Z",
-      "lastCheckSuccess": true
-    },
-    "fourZeroOneGames": {
-      "available": true,
-      "price": "23.95",
-      "url": "https://store.401games.ca/products/dr-eureka?_pos=1&_psq=Dr.+Eureka&_psid=8a64c3218&_ss=e",
-      "lastChecked": "2026-07-31T20:00:08.355Z",
-      "lastCheckSuccess": true
-    },
-    "lvlUpGames": {
-      "available": true,
-      "price": "25.95",
-      "url": "https://www.lvlupgames.ca/products/dr-eureka?_pos=1&_psq=Dr.+Eureka&_psid=273fb94c7&_ss=e",
-      "lastChecked": "2026-07-31T20:00:08.334Z",
-      "lastCheckSuccess": true
-    },
-    "asDesJeux": {
-      "available": true,
-      "price": "34.99",
-      "url": "https://www.asdesjeux.com/products/blue-orange-dr-eureka?_pos=1&_psq=Dr.+Eureka&_psid=2c718cc7d&_ss=e",
-      "lastChecked": "2026-07-31T20:00:08.369Z",
-      "lastCheckSuccess": true
-    },
-    "greatBoardgames": {
-      "available": false,
-      "price": null,
-      "url": null,
-      "lastChecked": "2026-07-31T20:00:08.562Z",
-      "lastCheckSuccess": true
-    },
-    "meeplemart": {
-      "available": false,
-      "price": null,
-      "url": null,
-      "lastChecked": "2026-07-31T20:00:08.747Z",
-      "lastCheckSuccess": true
-    },
-    "woodForSheep": {
-      "available": false,
-      "price": "20.49",
-      "url": "https://www.woodforsheep.ca/products/dr-eureka?_pos=1&_psq=Dr.+Eureka&_psid=795576d10&_ss=e",
-      "lastChecked": "2026-07-31T20:00:08.370Z",
-      "lastCheckSuccess": true
-    },
-    "faceToFaceGames": {
-      "available": false,
-      "price": null,
-      "url": null,
-      "lastChecked": "2026-07-31T20:00:08.295Z",
-      "lastCheckSuccess": true
-    },
-    "bggMarket": {
-      "available": true,
-      "price": "C$20.00 CAD",
-      "url": "https://boardgamegeek.com/market/product/3917612",
-      "lastChecked": "2026-07-31T20:00:08.179Z",
-      "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": true,
-      "price": "46.82",
-      "url": "https://www.amazon.ca/dp/B01CKI02RU",
-      "lastChecked": "2026-07-31T20:04:43.282Z",
-      "lastCheckSuccess": true
-    }
-  },
   "191300": {
     "boardGameBliss": {
       "available": false,
@@ -1198,7 +1126,7 @@
       "available": false,
       "price": null,
       "url": null,
-      "lastChecked": "2026-07-31T14:42:24.401Z",
+      "lastChecked": "2026-07-31T23:53:44.715Z",
       "lastCheckSuccess": true
     },
     "woodForSheep": {
@@ -1879,11 +1807,25 @@
       "lastChecked": "2026-07-31T20:00:49.829Z",
       "lastCheckSuccess": true
     },
+    "fourZeroOneGames": {
+      "available": false,
+      "price": null,
+      "url": null,
+      "lastChecked": "2026-07-31T20:04:46.484Z",
+      "lastCheckSuccess": true
+    },
     "lvlUpGames": {
       "available": false,
       "price": "23.95",
       "url": "https://www.lvlupgames.ca/products/happy-city?_pos=1&_psq=Happy+City&_psid=f91a39f4b&_ss=e",
       "lastChecked": "2026-07-31T20:00:49.862Z",
+      "lastCheckSuccess": true
+    },
+    "asDesJeux": {
+      "available": false,
+      "price": null,
+      "url": null,
+      "lastChecked": "2026-07-31T20:04:46.463Z",
       "lastCheckSuccess": true
     },
     "greatBoardgames": {
@@ -1900,32 +1842,18 @@
       "lastChecked": "2026-07-31T20:00:50.286Z",
       "lastCheckSuccess": true
     },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "url": null,
+      "lastChecked": "2026-07-31T20:04:47.148Z",
+      "lastCheckSuccess": true
+    },
     "woodForSheep": {
       "available": false,
       "price": null,
       "url": null,
       "lastChecked": "2026-07-31T20:00:49.808Z",
-      "lastCheckSuccess": true
-    },
-    "bggMarket": {
-      "available": false,
-      "price": null,
-      "url": null,
-      "lastChecked": "2026-07-31T20:00:49.677Z",
-      "lastCheckSuccess": true
-    },
-    "asDesJeux": {
-      "available": false,
-      "price": null,
-      "url": null,
-      "lastChecked": "2026-07-31T20:04:46.463Z",
-      "lastCheckSuccess": true
-    },
-    "fourZeroOneGames": {
-      "available": false,
-      "price": null,
-      "url": null,
-      "lastChecked": "2026-07-31T20:04:46.484Z",
       "lastCheckSuccess": true
     },
     "faceToFaceGames": {
@@ -1935,11 +1863,11 @@
       "lastChecked": "2026-07-31T20:04:46.576Z",
       "lastCheckSuccess": true
     },
-    "amazonCa": {
+    "bggMarket": {
       "available": false,
       "price": null,
       "url": null,
-      "lastChecked": "2026-07-31T20:04:47.148Z",
+      "lastChecked": "2026-07-31T20:00:49.677Z",
       "lastCheckSuccess": true
     }
   },
@@ -2490,6 +2418,13 @@
       "lastChecked": "2026-07-31T20:01:16.984Z",
       "lastCheckSuccess": true
     },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "url": null,
+      "lastChecked": "2026-07-31T20:04:54.246Z",
+      "lastCheckSuccess": true
+    },
     "woodForSheep": {
       "available": false,
       "price": "58.49",
@@ -2509,13 +2444,6 @@
       "price": "C$60.00 CAD",
       "url": "https://boardgamegeek.com/market/product/3924479",
       "lastChecked": "2026-07-31T20:01:16.369Z",
-      "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "url": null,
-      "lastChecked": "2026-07-31T20:04:54.246Z",
       "lastCheckSuccess": true
     }
   },
@@ -2706,6 +2634,13 @@
       "lastChecked": "2026-07-31T20:04:16.783Z",
       "lastCheckSuccess": true
     },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "url": null,
+      "lastChecked": "2026-07-31T20:05:13.178Z",
+      "lastCheckSuccess": true
+    },
     "woodForSheep": {
       "available": false,
       "price": null,
@@ -2725,13 +2660,6 @@
       "price": null,
       "url": null,
       "lastChecked": "2026-07-31T20:04:16.323Z",
-      "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "url": null,
-      "lastChecked": "2026-07-31T20:05:13.178Z",
       "lastCheckSuccess": true
     }
   },
@@ -3858,6 +3786,13 @@
       "lastChecked": "2026-07-31T20:03:46.069Z",
       "lastCheckSuccess": true
     },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "url": null,
+      "lastChecked": "2026-07-31T20:05:09.350Z",
+      "lastCheckSuccess": true
+    },
     "woodForSheep": {
       "available": false,
       "price": null,
@@ -3877,13 +3812,6 @@
       "price": null,
       "url": null,
       "lastChecked": "2026-07-31T20:03:45.705Z",
-      "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "url": null,
-      "lastChecked": "2026-07-31T20:05:09.350Z",
       "lastCheckSuccess": true
     }
   },
@@ -4002,6 +3930,13 @@
       "lastChecked": "2026-07-31T20:01:24.698Z",
       "lastCheckSuccess": true
     },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "url": null,
+      "lastChecked": "2026-07-31T20:04:57.951Z",
+      "lastCheckSuccess": true
+    },
     "woodForSheep": {
       "available": false,
       "price": null,
@@ -4021,13 +3956,6 @@
       "price": null,
       "url": null,
       "lastChecked": "2026-07-31T20:01:24.034Z",
-      "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "url": null,
-      "lastChecked": "2026-07-31T20:04:57.951Z",
       "lastCheckSuccess": true
     }
   },
@@ -4146,6 +4074,13 @@
       "lastChecked": "2026-07-31T20:01:45.876Z",
       "lastCheckSuccess": true
     },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "url": null,
+      "lastChecked": "2026-07-31T20:05:01.772Z",
+      "lastCheckSuccess": true
+    },
     "woodForSheep": {
       "available": false,
       "price": null,
@@ -4165,13 +4100,6 @@
       "price": null,
       "url": null,
       "lastChecked": "2026-07-31T20:01:44.006Z",
-      "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "url": null,
-      "lastChecked": "2026-07-31T20:05:01.772Z",
       "lastCheckSuccess": true
     }
   },
@@ -5047,11 +4975,25 @@
       "lastChecked": "2026-07-31T20:00:53.462Z",
       "lastCheckSuccess": true
     },
+    "fourZeroOneGames": {
+      "available": false,
+      "price": null,
+      "url": null,
+      "lastChecked": "2026-07-31T20:04:50.327Z",
+      "lastCheckSuccess": true
+    },
     "lvlUpGames": {
       "available": false,
       "price": null,
       "url": null,
       "lastChecked": "2026-07-31T20:00:53.448Z",
+      "lastCheckSuccess": true
+    },
+    "asDesJeux": {
+      "available": false,
+      "price": null,
+      "url": null,
+      "lastChecked": "2026-07-31T20:04:50.311Z",
       "lastCheckSuccess": true
     },
     "greatBoardgames": {
@@ -5094,20 +5036,6 @@
       "price": null,
       "url": null,
       "lastChecked": "2026-07-31T20:00:53.328Z",
-      "lastCheckSuccess": true
-    },
-    "asDesJeux": {
-      "available": false,
-      "price": null,
-      "url": null,
-      "lastChecked": "2026-07-31T20:04:50.311Z",
-      "lastCheckSuccess": true
-    },
-    "fourZeroOneGames": {
-      "available": false,
-      "price": null,
-      "url": null,
-      "lastChecked": "2026-07-31T20:04:50.327Z",
       "lastCheckSuccess": true
     }
   },
@@ -5734,7 +5662,7 @@
       "available": false,
       "price": null,
       "url": null,
-      "lastChecked": "2026-07-31T14:42:28.150Z",
+      "lastChecked": "2026-07-31T23:53:47.893Z",
       "lastCheckSuccess": true
     },
     "woodForSheep": {
