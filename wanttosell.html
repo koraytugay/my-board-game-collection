@@ -31,10 +31,6 @@
             color: #ccc;
             border-left-color: #ff9800;
         }
-        .badge-forsale {
-            background: #e65100;
-            color: white;
-        }
         .empty-state {
             grid-column: 1 / -1;
             text-align: center;
@@ -116,16 +112,16 @@
                 <span class="stat-label">Total Want to Sell</span>
             </div>
             <div class="stat-card">
-                <span class="stat-number" id="avg-rating">0</span>
-                <span class="stat-label">Avg BGG Rating</span>
-            </div>
-            <div class="stat-card">
-                <span class="stat-number" id="solo-games">0</span>
-                <span class="stat-label">Solo Playable</span>
-            </div>
-            <div class="stat-card">
                 <span class="stat-number" id="total-plays">0</span>
                 <span class="stat-label">Total Plays</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number" id="avg-rating">0</span>
+                <span class="stat-label">Avg Rating</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number" id="unplayed-games">0</span>
+                <span class="stat-label">Unplayed</span>
             </div>
         </div>
 
@@ -137,9 +133,14 @@
                         <option value="name">Name</option>
                         <option value="rating-desc">Rating (High to Low)</option>
                         <option value="rating-asc">Rating (Low to High)</option>
+                        <option value="myrating-desc">My Rating (High to Low)</option>
+                        <option value="myrating-asc">My Rating (Low to High)</option>
+                        <option value="plays-desc">Plays (Most to Least)</option>
+                        <option value="plays-asc">Plays (Least to Most)</option>
+                        <option value="recently-played">Most Recently Played</option>
+                        <option value="least-recently-played">Least Recently Played</option>
                         <option value="year-desc">Year (Newest First)</option>
                         <option value="year-asc">Year (Oldest First)</option>
-                        <option value="plays-desc">Plays (Most First)</option>
                     </select>
                 </div>
 
@@ -156,6 +157,47 @@
                     <label class="checkbox-label">
                         <input type="checkbox" id="dark-mode" onchange="toggleDarkMode(this.checked)">
                         Dark Mode
+                    </label>
+                </div>
+            </div>
+
+            <div class="controls-row">
+                <div class="control-group">
+                    <label for="search-input">Search:</label>
+                    <input type="text" id="search-input" placeholder="Filter by name..." oninput="applyFilters()">
+                </div>
+
+                <div class="control-group">
+                    <label for="player-count">Players:</label>
+                    <select id="player-count" onchange="applyFilters()">
+                        <option value="all">All</option>
+                        <option value="1">1 (Solo)</option>
+                        <option value="2">2</option>
+                        <option value="2-only">2 Player Only</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5+">5+</option>
+                    </select>
+                </div>
+
+                <div class="control-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="unplayed-only" onchange="applyFilters()">
+                        Unplayed Only
+                    </label>
+                </div>
+
+                <div class="control-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="solo-only" onchange="applyFilters()">
+                        Solo Only
+                    </label>
+                </div>
+
+                <div class="control-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="favorites-only" onchange="applyFilters()">
+                        Favorites Only
                     </label>
                 </div>
             </div>

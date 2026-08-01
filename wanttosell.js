@@ -10,11 +10,14 @@ async function fetchCollection() {
     const controlsEl = document.getElementById('controls');
 
     try {
-        const collection = await getCollection('wanttosell');
+        const [collection, lastPlayDates] = await Promise.all([
+            getCollection('wanttosell'),
+            getLastPlayDates()
+        ]);
         
         allGames = collection.map(game => ({
             ...game,
-            lastPlayed: ''
+            lastPlayed: lastPlayDates[game.objectId] || ''
         }));
         
         filteredGames = [...allGames];
@@ -29,28 +32,27 @@ async function fetchCollection() {
         loadDarkModePreference();
 
     } catch (error) {
-        console.error('Error fetching want to sell collection:', error);
+        console.error('Error fetching collection:', error);
         loadingEl.style.display = 'none';
         errorEl.style.display = 'block';
-        errorEl.textContent = `Failed to load games for sale: ${error.message}`;
+        errorEl.textContent = `Failed to load collection: ${error.message}`;
     }
 }
 
 function updateStats() {
     const totalGames = allGames.length;
+    const totalPlays = allGames.reduce((sum, game) => sum + game.numPlays, 0);
+    const unplayedGames = allGames.filter(game => game.numPlays === 0).length;
     
     const ratedGames = allGames.filter(game => game.rating > 0);
     const avgRating = ratedGames.length > 0 
         ? ratedGames.reduce((sum, game) => sum + game.rating, 0) / ratedGames.length 
         : 0;
-        
-    const soloGames = allGames.filter(game => game.minPlayers <= 1).length;
-    const totalPlays = allGames.reduce((sum, game) => sum + (game.numPlays || 0), 0);
 
     document.getElementById('total-games').textContent = totalGames;
-    document.getElementById('avg-rating').textContent = avgRating.toFixed(1);
-    document.getElementById('solo-games').textContent = soloGames;
     document.getElementById('total-plays').textContent = totalPlays;
+    document.getElementById('avg-rating').textContent = avgRating.toFixed(1);
+    document.getElementById('unplayed-games').textContent = unplayedGames;
 }
 
 function sortGames(criteria) {
@@ -64,12 +66,28 @@ function sortGames(criteria) {
                 return b.rating - a.rating;
             case 'rating-asc':
                 return a.rating - b.rating;
+            case 'myrating-desc':
+                return b.myRating - a.myRating;
+            case 'myrating-asc':
+                return a.myRating - b.myRating;
+            case 'plays-desc':
+                return b.numPlays - a.numPlays;
+            case 'plays-asc':
+                return a.numPlays - b.numPlays;
+            case 'recently-played':
+                if (!a.lastPlayed && !b.lastPlayed) return 0;
+                if (!a.lastPlayed) return 1;
+                if (!b.lastPlayed) return -1;
+                return b.lastPlayed.localeCompare(a.lastPlayed);
+            case 'least-recently-played':
+                if (!a.lastPlayed && !b.lastPlayed) return 0;
+                if (!a.lastPlayed) return -1;
+                if (!b.lastPlayed) return 1;
+                return a.lastPlayed.localeCompare(b.lastPlayed);
             case 'year-desc':
                 return parseInt(b.yearPublished) - parseInt(a.yearPublished);
             case 'year-asc':
                 return parseInt(a.yearPublished) - parseInt(b.yearPublished);
-            case 'plays-desc':
-                return (b.numPlays || 0) - (a.numPlays || 0);
             default:
                 return 0;
         }
@@ -79,7 +97,48 @@ function sortGames(criteria) {
 }
 
 function applyFilters() {
-    filteredGames = [...allGames];
+    const searchTerm = document.getElementById('search-input')?.value.toLowerCase() || '';
+    const playerCount = document.getElementById('player-count')?.value || 'all';
+    const unplayedOnly = document.getElementById('unplayed-only')?.checked || false;
+    const soloOnly = document.getElementById('solo-only')?.checked || false;
+    const favoritesOnly = document.getElementById('favorites-only')?.checked || false;
+
+    filteredGames = allGames.filter(game => {
+        // Search filter
+        if (searchTerm && !game.name.toLowerCase().includes(searchTerm)) {
+            return false;
+        }
+
+        // Unplayed filter
+        if (unplayedOnly && game.numPlays > 0) {
+            return false;
+        }
+
+        // Solo filter
+        if (soloOnly && game.minPlayers > 1) {
+            return false;
+        }
+
+        // Favorites filter
+        if (favoritesOnly && game.myRating < 9) {
+            return false;
+        }
+
+        // Player count filter
+        if (playerCount !== 'all') {
+            if (playerCount === '2-only') {
+                if (game.minPlayers !== 2 || game.maxPlayers !== 2) return false;
+            } else if (playerCount === '5+') {
+                if (game.maxPlayers < 5) return false;
+            } else {
+                const count = parseInt(playerCount);
+                if (game.minPlayers > count || game.maxPlayers < count) return false;
+            }
+        }
+
+        return true;
+    });
+
     renderGames();
 }
 
@@ -98,8 +157,8 @@ function renderGames() {
         gamesGridEl.innerHTML = `
             <div class="empty-state">
                 <div class="empty-state-icon">🏷️</div>
-                <h3>No Games Currently Want to Sell</h3>
-                <p>There are no games marked as "For Trade / For Sale" in your BoardGameGeek collection right now.</p>
+                <h3>No Games Match Your Filters</h3>
+                <p>There are no games matching your current criteria.</p>
                 <a href="https://boardgamegeek.com/collection/user/koraytugay" target="_blank" class="bgg-link-btn">
                     Manage Collection on BGG ↗
                 </a>
@@ -117,15 +176,13 @@ function renderGames() {
 function createGameCard(game) {
     const card = document.createElement('div');
     card.className = 'game-card';
-    card.onclick = (e) => {
-        if (e.target.closest('.bgg-link-btn')) return;
-        window.open(`https://boardgamegeek.com/boardgame/${game.objectId}`, '_blank');
-    };
+    card.onclick = () => window.open(`https://boardgamegeek.com/boardgame/${game.objectId}`, '_blank');
 
-    let badgesHtml = '<span class="badge badge-forsale">Want to Sell</span>';
-    
+    let badgesHtml = '';
+    if (game.numPlays === 0) badgesHtml += '<span class="badge badge-unplayed">Unplayed</span>';
     if (game.minPlayers <= 1) badgesHtml += '<span class="badge badge-solo">Solo</span>';
     if (game.rating >= 8) badgesHtml += '<span class="badge badge-highly-rated">Highly Rated</span>';
+    if (game.myRating >= 9) badgesHtml += '<span class="badge badge-favorite">Favorite</span>';
 
     let commentHtml = '';
     if (game.comment && game.comment.trim() !== '') {
@@ -147,14 +204,11 @@ function createGameCard(game) {
                 <div class="meta-item"><span>👥</span> ${game.minPlayers}-${game.maxPlayers}</div>
                 <div class="meta-item"><span>⏱️</span> ${game.playingTime} min</div>
                 <div class="meta-item"><span>⭐</span> ${game.rating.toFixed(1)}</div>
-                ${game.numPlays > 0 ? `<div class="meta-item"><span>🎲</span> ${game.numPlays} plays</div>` : ''}
+                ${game.myRating > 0 ? `<div class="meta-item"><span>💚</span> ${game.myRating.toFixed(1)}</div>` : ''}
+                <div class="meta-item"><span>🎲</span> ${game.numPlays} plays</div>
+                ${game.lastPlayed ? `<div class="meta-item"><span>📅</span> ${game.lastPlayed}</div>` : ''}
             </div>
             ${commentHtml}
-            <div style="margin-top: 10px;">
-                <a href="https://boardgamegeek.com/boardgame/${game.objectId}" target="_blank" class="bgg-link-btn">
-                    View on BGG ↗
-                </a>
-            </div>
         </div>
     `;
     return card;
@@ -211,6 +265,9 @@ function pickRandomGame() {
         <div class="meta-item"><span>👥</span> ${currentRandomGame.minPlayers}-${currentRandomGame.maxPlayers} players</div>
         <div class="meta-item"><span>⏱️</span> ${currentRandomGame.playingTime} min</div>
         <div class="meta-item"><span>⭐</span> ${currentRandomGame.rating.toFixed(2)}</div>
+        ${currentRandomGame.myRating > 0 ? `<div class="meta-item"><span>💚</span> ${currentRandomGame.myRating.toFixed(2)}</div>` : ''}
+        <div class="meta-item"><span>🎲</span> ${currentRandomGame.numPlays} plays</div>
+        ${currentRandomGame.lastPlayed ? `<div class="meta-item"><span>📅</span> Last played: ${currentRandomGame.lastPlayed}</div>` : ''}
     `;
 
     document.getElementById('random-modal').style.display = 'flex';
