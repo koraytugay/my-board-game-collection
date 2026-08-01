@@ -71,15 +71,18 @@ jobs:
           const fs = require("fs");
           const itemMap = new Map();
 
-          const filesToProcess = ["collection_exp.xml", "collection_trade.xml", "collection_bg.xml"];
+          const filesToProcess = ["collection_trade.xml", "collection_exp.xml", "collection_bg.xml"];
           for (const file of filesToProcess) {
               if (fs.existsSync(file)) {
                   const content = fs.readFileSync(file, "utf8");
                   const matches = content.match(/<item\b[\s\S]*?<\/item>/g) || [];
                   for (const item of matches) {
                       const idMatch = item.match(/objectid="(\d+)"/);
-                      if (idMatch && !itemMap.has(idMatch[1])) {
-                          itemMap.set(idMatch[1], item);
+                      if (idMatch) {
+                          const id = idMatch[1];
+                          if (!itemMap.has(id) || item.includes("fortrade=\"1\"")) {
+                              itemMap.set(id, item);
+                          }
                       }
                   }
                   fs.unlinkSync(file);
