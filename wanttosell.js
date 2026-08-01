@@ -184,11 +184,6 @@ function createGameCard(game) {
     if (game.rating >= 8) badgesHtml += '<span class="badge badge-highly-rated">Highly Rated</span>';
     if (game.myRating >= 9) badgesHtml += '<span class="badge badge-favorite">Favorite</span>';
 
-    let commentHtml = '';
-    if (game.comment && game.comment.trim() !== '') {
-        commentHtml = `<div class="game-comment">💬 ${escapeHtml(game.comment)}</div>`;
-    }
-
     card.innerHTML = `
         <div class="game-badges">
             ${badgesHtml}
@@ -208,7 +203,6 @@ function createGameCard(game) {
                 <div class="meta-item"><span>🎲</span> ${game.numPlays} plays</div>
                 ${game.lastPlayed ? `<div class="meta-item"><span>📅</span> ${game.lastPlayed}</div>` : ''}
             </div>
-            ${commentHtml}
         </div>
     `;
     return card;
