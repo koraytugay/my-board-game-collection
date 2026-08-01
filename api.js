@@ -92,9 +92,9 @@ async function getCollection(onlyOwned = true) {
             const playingTime = parseInt(item.querySelector('stats')?.getAttribute('playingtime')) || 0;
             const numPlays = parseInt(item.querySelector('numplays')?.textContent) || 0;
             const ratingValue = item.querySelector('stats rating average')?.getAttribute('value') || '0';
-            const rating = parseFloat(ratingValue);
+            const rating = parseFloat(ratingValue) || 0;
             const myRatingValue = item.querySelector('stats rating')?.getAttribute('value') || '0';
-            const myRating = parseFloat(myRatingValue);
+            const myRating = parseFloat(myRatingValue) || 0;
 
             const status = item.querySelector('status');
             const isForSale = status ? status.getAttribute('fortrade') === '1' : false;
