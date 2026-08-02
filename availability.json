@@ -1526,11 +1526,25 @@
       "lastChecked": "2026-08-02T08:28:39.831Z",
       "lastCheckSuccess": true
     },
+    "lvlUpGames": {
+      "available": false,
+      "price": "32.95",
+      "url": "https://www.lvlupgames.ca/products/my-city?_pos=1&_psq=My+City&_psid=287ea1c03&_ss=e",
+      "lastChecked": "2026-08-02T08:28:56.490Z",
+      "lastCheckSuccess": true
+    },
     "asDesJeux": {
       "available": false,
       "price": "41.99",
       "url": "https://www.asdesjeux.com/products/my-city?_pos=1&_psq=My+City&_psid=56059ca04&_ss=e",
       "lastChecked": "2026-08-02T08:28:39.835Z",
+      "lastCheckSuccess": true
+    },
+    "greatBoardgames": {
+      "available": true,
+      "price": "37.95",
+      "url": "https://www.greatboardgames.ca/games/my-city",
+      "lastChecked": "2026-08-02T08:40:55.034Z",
       "lastCheckSuccess": true
     },
     "meeplemart": {
@@ -1567,20 +1581,6 @@
       "url": null,
       "lastChecked": "2026-08-02T08:28:39.833Z",
       "lastCheckSuccess": true
-    },
-    "lvlUpGames": {
-      "available": false,
-      "price": "32.95",
-      "url": "https://www.lvlupgames.ca/products/my-city?_pos=1&_psq=My+City&_psid=287ea1c03&_ss=e",
-      "lastChecked": "2026-08-02T08:28:56.490Z",
-      "lastCheckSuccess": true
-    },
-    "greatBoardgames": {
-      "available": false,
-      "price": null,
-      "url": null,
-      "lastChecked": null,
-      "lastCheckSuccess": false
     }
   },
   "306182": {
