@@ -253,8 +253,8 @@ async function generateRecommendations() {
     // Sort descending by match score
     candidates.sort((a, b) => b.matchScore - a.matchScore);
 
-    // Select TOP 80 recommendations AFTER all excluded games are removed
-    const topRecommendations = candidates.slice(0, 80);
+    // Select TOP 200 recommendations AFTER all excluded games are removed
+    const topRecommendations = candidates.slice(0, 200);
 
     console.log(`\nFetching high-resolution 492x600 cover images for top ${topRecommendations.length} recommendations...`);
     for (let i = 0; i < topRecommendations.length; i++) {
