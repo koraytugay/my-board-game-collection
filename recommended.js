@@ -211,18 +211,15 @@ function createGameCard(game) {
     const actionsContainer = card.querySelector('.game-actions');
     const wontBuyBtn = document.createElement('button');
     wontBuyBtn.className = 'btn-wont-buy';
-    wontBuyBtn.innerHTML = '📋 Copy cURL (Don\'t Buy)';
-    wontBuyBtn.onclick = (e) => copyCurlCommand(e, game, wontBuyBtn);
+    wontBuyBtn.innerHTML = '💻 Copy Console JS (Don\'t Buy)';
+    wontBuyBtn.onclick = (e) => copyConsoleScript(e, game, wontBuyBtn);
 
     actionsContainer.appendChild(wontBuyBtn);
 
     return card;
 }
 
-function generateCurlCommand(game) {
-    const cookieInput = document.getElementById('bgg-cookie-input');
-    const userCookie = (cookieInput && cookieInput.value.trim()) ? cookieInput.value.trim() : 'YOUR_BGG_COOKIE_HERE';
-
+function generateConsoleScript(game) {
     const payload = JSON.stringify({
         item: {
             collid: 0,
@@ -238,40 +235,24 @@ function generateCurlCommand(game) {
         }
     });
 
-    return `curl 'https://boardgamegeek.com/api/collectionitem' \\
-  -H 'accept: application/json, text/plain, */*' \\
-  -H 'accept-language: en-US,en;q=0.9,tr;q=0.8,la;q=0.7' \\
-  -H 'cache-control: no-cache' \\
-  -H 'content-type: application/json;charset=UTF-8' \\
-  -b '${userCookie}' \\
-  -H 'dnt: 1' \\
-  -H 'origin: https://boardgamegeek.com' \\
-  -H 'pragma: no-cache' \\
-  -H 'priority: u=1, i' \\
-  -H 'referer: https://boardgamegeek.com/boardgame/${game.objectId}' \\
-  -H 'sec-ch-ua: "Google Chrome";v="147", "Not.A/Brand";v="8", "Chromium";v="147"' \\
-  -H 'sec-ch-ua-mobile: ?0' \\
-  -H 'sec-ch-ua-platform: "macOS"' \\
-  -H 'sec-fetch-dest: empty' \\
-  -H 'sec-fetch-mode: cors' \\
-  -H 'sec-fetch-site: same-origin' \\
-  -H 'user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36' \\
-  --data-raw '${payload}'`;
+    const safeName = game.name.replace(/['"\\]/g, '\\$&');
+
+    return `fetch('https://boardgamegeek.com/api/collectionitem', { method: 'POST', headers: { 'Content-Type': 'application/json;charset=UTF-8', 'Accept': 'application/json, text/plain, */*' }, credentials: 'include', body: JSON.stringify(${payload}) }).then(r => { if(r.ok) console.log('✅ Added "${safeName}" to BGG wishlist (Don\\'t Buy This)!'); else console.error('❌ Failed:', r.status); }).catch(console.error);`;
 }
 
-async function copyCurlCommand(event, game, button) {
+async function copyConsoleScript(event, game, button) {
     if (event) {
         event.stopPropagation();
     }
 
-    const curlCmd = generateCurlCommand(game);
+    const scriptCode = generateConsoleScript(game);
 
     try {
         if (navigator.clipboard && navigator.clipboard.writeText) {
-            await navigator.clipboard.writeText(curlCmd);
+            await navigator.clipboard.writeText(scriptCode);
         } else {
             const textarea = document.createElement('textarea');
-            textarea.value = curlCmd;
+            textarea.value = scriptCode;
             textarea.style.position = 'fixed';
             textarea.style.opacity = '0';
             document.body.appendChild(textarea);
@@ -282,16 +263,16 @@ async function copyCurlCommand(event, game, button) {
 
         const originalText = button.innerHTML;
         button.className = 'btn-wont-buy success';
-        button.innerHTML = '✓ Copied cURL!';
-        showToast(`Copied cURL command for <strong>"${escapeHtml(game.name)}"</strong> to clipboard!`);
+        button.innerHTML = '✓ Copied JS!';
+        showToast(`Copied console code for <strong>"${escapeHtml(game.name)}"</strong>! Paste & run in your browser console on boardgamegeek.com.`);
 
         setTimeout(() => {
             button.className = 'btn-wont-buy';
             button.innerHTML = originalText;
-        }, 3000);
+        }, 3500);
 
     } catch (err) {
-        console.error('Failed to copy curl command:', err);
+        console.error('Failed to copy JS snippet:', err);
         showToast(`Failed to copy to clipboard`, true);
     }
 }
