@@ -9,7 +9,7 @@ const THUMBNAILS_DIR = path.join(IMAGES_DIR, 'thumbnails');
 const FULL_DIR = path.join(IMAGES_DIR, 'full');
 const USER_AGENT = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)';
 
-// Ensure directories exist
+// Ensure image directories exist
 [IMAGES_DIR, THUMBNAILS_DIR, FULL_DIR].forEach(dir => {
     if (!fs.existsSync(dir)) {
         fs.mkdirSync(dir, { recursive: true });
@@ -74,53 +74,75 @@ function downloadFile(url, dest) {
     });
 }
 
+/**
+ * Normalize game titles to catch alternative editions / re-releases of owned games
+ */
+function normalizeTitle(title) {
+    if (!title) return '';
+    return title.toLowerCase()
+                .replace(/\([^)]*\)/g, '') // remove year/edition in parentheses
+                .replace(/[^a-z0-9\s]/g, '') // remove special characters
+                .replace(/\s+/g, ' ') // normalize whitespace
+                .trim();
+}
+
+/**
+ * Extract all owned item IDs and normalized names from collection.xml
+ */
 function getOwnedGamesWithRatings() {
     if (!fs.existsSync(COLLECTION_FILE)) {
         console.error(`Collection file not found at ${COLLECTION_FILE}`);
-        return { ownedIds: new Set(), ratedOwnedGames: [] };
+        return { ownedIds: new Set(), ownedNames: new Set(), ratedOwnedGames: [] };
     }
 
     const xmlContent = fs.readFileSync(COLLECTION_FILE, 'utf8');
     const ownedIds = new Set();
+    const ownedNames = new Set();
     const ratedOwnedGames = [];
 
-    const itemRegex = /<item\b[^>]*objectid="(\d+)"[^>]*subtype="([^"]+)"[^>]*>([\s\S]*?)<\/item>/g;
+    const itemBlockRegex = /<item\b([\s\S]*?)<\/item>/g;
     let match;
 
-    while ((match = itemRegex.exec(xmlContent)) !== null) {
-        const objectId = match[1];
-        const subtype = match[2];
-        const itemBody = match[3];
-
+    while ((match = itemBlockRegex.exec(xmlContent)) !== null) {
+        const itemBody = match[1];
+        const idMatch = /objectid="(\d+)"/.exec(itemBody);
+        const subtypeMatch = /subtype="([^"]+)"/.exec(itemBody);
         const isOwned = /<status\b[^>]*own="1"/.test(itemBody);
-        if (isOwned) {
+
+        if (idMatch && isOwned) {
+            const objectId = idMatch[1];
+            const subtype = subtypeMatch ? subtypeMatch[1] : 'boardgame';
             ownedIds.add(objectId);
 
-            if (subtype === 'boardgame') {
-                const nameMatch = /<name\b[^>]*>([^<]+)<\/name>/.exec(itemBody);
-                const name = nameMatch ? nameMatch[1].trim() : 'Unknown Game';
+            const nameMatch = /<name\b[^>]*>([^<]+)<\/name>/.exec(itemBody);
+            if (nameMatch && nameMatch[1]) {
+                const normName = normalizeTitle(nameMatch[1]);
+                if (normName) ownedNames.add(normName);
 
-                const ratingMatch = /<rating\b[^>]*value="([^"]+)"/.exec(itemBody);
-                let userRating = 0.0;
-                if (ratingMatch && ratingMatch[1] && ratingMatch[1] !== 'N/A') {
-                    userRating = parseFloat(ratingMatch[1]) || 0.0;
-                }
+                if (subtype === 'boardgame') {
+                    const name = nameMatch[1].trim();
+                    const ratingMatch = /<rating\b[^>]*value="([^"]+)"/.exec(itemBody);
+                    let userRating = 0.0;
+                    if (ratingMatch && ratingMatch[1] && ratingMatch[1] !== 'N/A') {
+                        userRating = parseFloat(ratingMatch[1]) || 0.0;
+                    }
 
-                if (userRating >= 5.0) {
-                    ratedOwnedGames.push({ objectId, name, userRating });
+                    if (userRating >= 5.0) {
+                        ratedOwnedGames.push({ objectId, name, userRating });
+                    }
                 }
             }
         }
     }
 
     ratedOwnedGames.sort((a, b) => b.userRating - a.userRating);
-    return { ownedIds, ratedOwnedGames };
+    return { ownedIds, ownedNames, ratedOwnedGames };
 }
 
 async function generateRecommendations() {
     console.log('--- Generating Game Recommendations ---');
-    const { ownedIds, ratedOwnedGames } = getOwnedGamesWithRatings();
-    console.log(`Found ${ownedIds.size} owned items. ${ratedOwnedGames.length} owned board games rated >= 5.0.`);
+    const { ownedIds, ownedNames, ratedOwnedGames } = getOwnedGamesWithRatings();
+    console.log(`Found ${ownedIds.size} owned IDs, ${ownedNames.size} unique owned titles. ${ratedOwnedGames.length} owned board games rated >= 5.0.`);
 
     if (ratedOwnedGames.length === 0) {
         fs.writeFileSync(OUTPUT_FILE, JSON.stringify({ generatedAt: new Date().toISOString(), total: 0, recommendations: [] }, null, 2));
@@ -149,8 +171,11 @@ async function generateRecommendations() {
             const r = recs[recIdx];
             const item = r.item || {};
             const recId = String(item.id || '');
+            const recName = item.name || '';
+            const normRecName = normalizeTitle(recName);
 
-            if (!recId || ownedIds.has(recId)) {
+            // STRICT FILTERING: Exclude if owned by ID or by normalized name
+            if (!recId || ownedIds.has(recId) || ownedNames.has(normRecName)) {
                 continue;
             }
 
@@ -164,7 +189,6 @@ async function generateRecommendations() {
                 const yearPublished = r.yearpublished || 'N/A';
                 const description = r.description || '';
                 
-                // Use standard BGG cover thumbnail/image (r.image), NEVER hero topImage
                 let coverUrl = '';
                 if (r.image && typeof r.image === 'object') {
                     coverUrl = r.image['src@2x'] || r.image.src || '';
@@ -172,7 +196,7 @@ async function generateRecommendations() {
 
                 candidateMap.set(recId, {
                     objectId: recId,
-                    name: item.name || 'Unknown Game',
+                    name: recName || 'Unknown Game',
                     yearPublished,
                     bggRating: Math.round(bggRating * 100) / 100,
                     bggRank: bggRankVal,
@@ -199,7 +223,14 @@ async function generateRecommendations() {
         }
     }
 
-    console.log(`\nFound ${candidateMap.size} unique candidate recommendations.`);
+    // Safety pass: Remove any candidate matching owned IDs or normalized titles
+    for (const [id, cand] of candidateMap.entries()) {
+        if (ownedIds.has(id) || ownedNames.has(normalizeTitle(cand.name))) {
+            candidateMap.delete(id);
+        }
+    }
+
+    console.log(`\nFound ${candidateMap.size} unique candidate recommendations (after strict owned game removal).`);
 
     const candidates = Array.from(candidateMap.values());
     for (const c of candidates) {
@@ -215,29 +246,47 @@ async function generateRecommendations() {
         c.recommendedBy.sort((a, b) => b.userRating - a.userRating || a.bggRecRank - b.bggRecRank);
     }
 
+    // Sort descending by match score
     candidates.sort((a, b) => b.matchScore - a.matchScore);
+
+    // Select TOP 40 recommendations AFTER all owned games are removed
     const topRecommendations = candidates.slice(0, 40);
 
-    // Download box cover images for top recommendations locally
-    console.log(`Downloading box cover images for top ${topRecommendations.length} recommendations...`);
-    for (const rec of topRecommendations) {
-        if (!rec.coverUrl) continue;
-        try {
-            const ext = path.extname(new URL(rec.coverUrl).pathname) || '.jpg';
-            const localThumb = path.join(THUMBNAILS_DIR, `${rec.objectId}${ext}`);
-            const localFull = path.join(FULL_DIR, `${rec.objectId}${ext}`);
+    console.log(`\nFetching high-resolution 492x600 cover images for top ${topRecommendations.length} recommendations...`);
+    for (let i = 0; i < topRecommendations.length; i++) {
+        const rec = topRecommendations[i];
+        
+        const geekUrl = `https://api.geekdo.com/api/geekitems?objectid=${rec.objectId}&objecttype=boardgame`;
+        const geekData = await fetchJson(geekUrl);
+        await sleep(150);
 
-            if (!fs.existsSync(localThumb)) {
-                await downloadFile(rec.coverUrl, localThumb);
+        let highResUrl = rec.coverUrl;
+        if (geekData && geekData.item) {
+            if (geekData.item['imageurl@2x']) {
+                highResUrl = geekData.item['imageurl@2x'];
+            } else if (geekData.item.imageurl) {
+                highResUrl = geekData.item.imageurl;
             }
-            if (!fs.existsSync(localFull)) {
-                await downloadFile(rec.coverUrl, localFull);
-            }
+        }
 
-            rec.thumbnail = `images/thumbnails/${rec.objectId}${ext}`;
-            rec.image = `images/full/${rec.objectId}${ext}`;
-        } catch (e) {
-            // Keep remote coverUrl if local download fails
+        if (highResUrl) {
+            try {
+                const ext = path.extname(new URL(highResUrl).pathname) || '.jpg';
+                const localThumb = path.join(THUMBNAILS_DIR, `${rec.objectId}${ext}`);
+                const localFull = path.join(FULL_DIR, `${rec.objectId}${ext}`);
+
+                const thumbSuccess = await downloadFile(highResUrl, localThumb);
+                const fullSuccess = await downloadFile(highResUrl, localFull);
+
+                if (thumbSuccess || fs.existsSync(localThumb)) {
+                    rec.thumbnail = `images/thumbnails/${rec.objectId}${ext}`;
+                }
+                if (fullSuccess || fs.existsSync(localFull)) {
+                    rec.image = `images/full/${rec.objectId}${ext}`;
+                }
+            } catch (e) {
+                console.error(`Error downloading image for ${rec.name}:`, e);
+            }
         }
     }
 
@@ -248,7 +297,7 @@ async function generateRecommendations() {
     };
 
     fs.writeFileSync(OUTPUT_FILE, JSON.stringify(outputData, null, 2), 'utf8');
-    console.log(`Saved top ${topRecommendations.length} recommendations to ${OUTPUT_FILE}`);
+    console.log(`Saved top ${topRecommendations.length} high-resolution recommendations to ${OUTPUT_FILE}`);
 }
 
 generateRecommendations().catch(err => {
