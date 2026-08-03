@@ -87,7 +87,7 @@ function normalizeTitle(title) {
 }
 
 /**
- * Extract owned games, rated games, and excluded games (owned, wishlist priority 5 "Don't Buy", or prevowned)
+ * Extract owned games, rated games, and excluded games (owned, want to buy, wishlist priority 5 "Don't Buy", or prevowned)
  */
 function getCollectionData() {
     if (!fs.existsSync(COLLECTION_FILE)) {
@@ -109,10 +109,11 @@ function getCollectionData() {
         const subtypeMatch = /subtype="([^"]+)"/.exec(itemBody);
         
         const isOwned = /<status\b[^>]*own="1"/.test(itemBody);
+        const isWantToBuy = /<status\b[^>]*wanttobuy="1"/.test(itemBody);
         const isWishlist5 = /<status\b[^>]*wishlistpriority="5"/.test(itemBody);
         const isPrevOwned = /<status\b[^>]*prevowned="1"/.test(itemBody);
 
-        if (idMatch && (isOwned || isWishlist5 || isPrevOwned)) {
+        if (idMatch && (isOwned || isWantToBuy || isWishlist5 || isPrevOwned)) {
             const objectId = idMatch[1];
             const subtype = subtypeMatch ? subtypeMatch[1] : 'boardgame';
             excludedIds.add(objectId);
@@ -145,7 +146,7 @@ function getCollectionData() {
 async function generateRecommendations() {
     console.log('--- Generating Game Recommendations ---');
     const { excludedIds, excludedNames, ratedOwnedGames } = getCollectionData();
-    console.log(`Found ${excludedIds.size} excluded IDs/titles (owned, wishlist priority 5, or prevowned). ${ratedOwnedGames.length} owned board games rated >= 5.0.`);
+    console.log(`Found ${excludedIds.size} excluded IDs/titles (owned, wanttobuy, wishlist priority 5, or prevowned). ${ratedOwnedGames.length} owned board games rated >= 5.0.`);
 
     if (ratedOwnedGames.length === 0) {
         fs.writeFileSync(OUTPUT_FILE, JSON.stringify({ generatedAt: new Date().toISOString(), total: 0, recommendations: [] }, null, 2));
@@ -177,7 +178,7 @@ async function generateRecommendations() {
             const recName = item.name || '';
             const normRecName = normalizeTitle(recName);
 
-            // STRICT FILTERING: Exclude if owned, prevowned, or marked wishlist priority 5
+            // STRICT FILTERING: Exclude if owned, wanttobuy, prevowned, or marked wishlist priority 5
             if (!recId || excludedIds.has(recId) || excludedNames.has(normRecName)) {
                 continue;
             }
