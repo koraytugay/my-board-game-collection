@@ -6162,6 +6162,13 @@
       "lastChecked": "2026-08-03T09:51:34.785Z",
       "lastCheckSuccess": true
     },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "url": null,
+      "lastChecked": "2026-08-03T09:56:22.125Z",
+      "lastCheckSuccess": true
+    },
     "woodForSheep": {
       "available": false,
       "price": null,
@@ -6181,13 +6188,6 @@
       "price": null,
       "url": null,
       "lastChecked": "2026-08-03T09:51:34.064Z",
-      "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "url": null,
-      "lastChecked": "2026-08-03T09:56:22.125Z",
       "lastCheckSuccess": true
     }
   },
