@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-03T17:57:31.921Z",
+  "generatedAt": "2026-08-03T18:03:52.355Z",
   "total": 40,
   "recommendations": [
     {
@@ -630,72 +630,6 @@
         }
       ],
       "matchScore": 41
-    },
-    {
-      "objectId": "129622",
-      "name": "Love Letter",
-      "yearPublished": "2012",
-      "bggRating": 7.23,
-      "bggRank": 371,
-      "numVoters": 72156,
-      "numFans": 2857,
-      "coverUrl": "https://cf.geekdo-images.com/T1ltXwapFUtghS9A7_tf4g__square100@2x/img/x0a6ChTGRo9Di78JwKIzW7i14-w=/0x0:1364x1364/200x200/filters:strip_icc()/pic1401448.jpg",
-      "thumbnail": "images/thumbnails/129622.jpg",
-      "image": "images/full/129622.jpg",
-      "description": "Can you get a letter to the princess or remove all your rivals? You win either way!",
-      "rawScore": 12.101652573282777,
-      "recommendedBy": [
-        {
-          "ownedId": "284083",
-          "ownedName": "The Crew: The Quest for Planet Nine",
-          "userRating": 9,
-          "bggRecRank": 6,
-          "contributionScore": 3.31
-        },
-        {
-          "ownedId": "133473",
-          "ownedName": "Sushi Go!",
-          "userRating": 8,
-          "bggRecRank": 12,
-          "contributionScore": 1.85
-        },
-        {
-          "ownedId": "163412",
-          "ownedName": "Patchwork",
-          "userRating": 8,
-          "bggRecRank": 18,
-          "contributionScore": 1.51
-        },
-        {
-          "ownedId": "1198",
-          "ownedName": "SET",
-          "userRating": 8,
-          "bggRecRank": 19,
-          "contributionScore": 1.47
-        },
-        {
-          "ownedId": "230802",
-          "ownedName": "Azul",
-          "userRating": 8,
-          "bggRecRank": 21,
-          "contributionScore": 1.4
-        },
-        {
-          "ownedId": "160477",
-          "ownedName": "Onitama",
-          "userRating": 8,
-          "bggRecRank": 22,
-          "contributionScore": 1.36
-        },
-        {
-          "ownedId": "54043",
-          "ownedName": "Jaipur",
-          "userRating": 8,
-          "bggRecRank": 28,
-          "contributionScore": 1.21
-        }
-      ],
-      "matchScore": 30.4
     },
     {
       "objectId": "324856",
@@ -2109,6 +2043,37 @@
         }
       ],
       "matchScore": 12.5
+    },
+    {
+      "objectId": "43570",
+      "name": "Friday",
+      "yearPublished": "2011",
+      "bggRating": 7.11,
+      "bggRank": 594,
+      "numVoters": 23343,
+      "numFans": 1288,
+      "coverUrl": "https://cf.geekdo-images.com/7bBUuYUIyKIBDh_UnNa_Fw__square100@2x/img/ytoJfJSif1PcoWshNcbKpqq75ic=/200x200/filters:strip_icc()/pic1513328.jpg",
+      "thumbnail": "images/thumbnails/43570.jpg",
+      "image": "images/full/43570.jpg",
+      "description": "Only Friday can help Robinson Crusoe survive the hazards of this deserted island.",
+      "rawScore": 10.022430123549661,
+      "recommendedBy": [
+        {
+          "ownedId": "334590",
+          "ownedName": "For Northwood! A Solo Trick-Taking Game",
+          "userRating": 9,
+          "bggRecRank": 5,
+          "contributionScore": 3.62
+        },
+        {
+          "ownedId": "306735",
+          "ownedName": "Under Falling Skies",
+          "userRating": 8,
+          "bggRecRank": 1,
+          "contributionScore": 6.4
+        }
+      ],
+      "matchScore": 12.4
     }
   ]
 }
