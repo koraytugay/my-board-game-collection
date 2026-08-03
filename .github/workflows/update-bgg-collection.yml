@@ -62,16 +62,17 @@ jobs:
             return 1
           }
 
-          # 1. Fetch Collection (Fetch base games, expansions, and trade items)
+          # 1. Fetch Collection (Fetch base games, expansions, trade items, and wishlist items)
           fetch_data "https://boardgamegeek.com/xmlapi2/collection?username=${BGG_USER}&stats=1&subtype=boardgame" "collection_bg.xml" "Base Games" || true
           fetch_data "https://boardgamegeek.com/xmlapi2/collection?username=${BGG_USER}&stats=1&subtype=boardgameexpansion" "collection_exp.xml" "Expansions" || true
           fetch_data "https://boardgamegeek.com/xmlapi2/collection?username=${BGG_USER}&stats=1&trade=1" "collection_trade.xml" "For Trade Items" || true
+          fetch_data "https://boardgamegeek.com/xmlapi2/collection?username=${BGG_USER}&stats=1&wishlist=1" "collection_wish.xml" "Wishlist Items" || true
 
           node -e '
           const fs = require("fs");
           const itemMap = new Map();
 
-          const filesToProcess = ["collection_trade.xml", "collection_exp.xml", "collection_bg.xml"];
+          const filesToProcess = ["collection_wish.xml", "collection_trade.xml", "collection_exp.xml", "collection_bg.xml"];
           for (const file of filesToProcess) {
               if (fs.existsSync(file)) {
                   const content = fs.readFileSync(file, "utf8");

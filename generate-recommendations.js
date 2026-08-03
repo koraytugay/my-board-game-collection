@@ -75,7 +75,7 @@ function downloadFile(url, dest) {
 }
 
 /**
- * Normalize game titles to catch alternative editions / re-releases of owned games
+ * Normalize game titles to catch alternative editions / re-releases of excluded games
  */
 function normalizeTitle(title) {
     if (!title) return '';
@@ -87,17 +87,17 @@ function normalizeTitle(title) {
 }
 
 /**
- * Extract all owned item IDs and normalized names from collection.xml
+ * Extract owned games, rated games, and excluded games (owned, wishlist priority 5 "Don't Buy", or prevowned)
  */
-function getOwnedGamesWithRatings() {
+function getCollectionData() {
     if (!fs.existsSync(COLLECTION_FILE)) {
         console.error(`Collection file not found at ${COLLECTION_FILE}`);
-        return { ownedIds: new Set(), ownedNames: new Set(), ratedOwnedGames: [] };
+        return { excludedIds: new Set(), excludedNames: new Set(), ratedOwnedGames: [] };
     }
 
     const xmlContent = fs.readFileSync(COLLECTION_FILE, 'utf8');
-    const ownedIds = new Set();
-    const ownedNames = new Set();
+    const excludedIds = new Set();
+    const excludedNames = new Set();
     const ratedOwnedGames = [];
 
     const itemBlockRegex = /<item\b([\s\S]*?)<\/item>/g;
@@ -107,19 +107,22 @@ function getOwnedGamesWithRatings() {
         const itemBody = match[1];
         const idMatch = /objectid="(\d+)"/.exec(itemBody);
         const subtypeMatch = /subtype="([^"]+)"/.exec(itemBody);
+        
         const isOwned = /<status\b[^>]*own="1"/.test(itemBody);
+        const isWishlist5 = /<status\b[^>]*wishlistpriority="5"/.test(itemBody);
+        const isPrevOwned = /<status\b[^>]*prevowned="1"/.test(itemBody);
 
-        if (idMatch && isOwned) {
+        if (idMatch && (isOwned || isWishlist5 || isPrevOwned)) {
             const objectId = idMatch[1];
             const subtype = subtypeMatch ? subtypeMatch[1] : 'boardgame';
-            ownedIds.add(objectId);
+            excludedIds.add(objectId);
 
             const nameMatch = /<name\b[^>]*>([^<]+)<\/name>/.exec(itemBody);
             if (nameMatch && nameMatch[1]) {
                 const normName = normalizeTitle(nameMatch[1]);
-                if (normName) ownedNames.add(normName);
+                if (normName) excludedNames.add(normName);
 
-                if (subtype === 'boardgame') {
+                if (isOwned && subtype === 'boardgame') {
                     const name = nameMatch[1].trim();
                     const ratingMatch = /<rating\b[^>]*value="([^"]+)"/.exec(itemBody);
                     let userRating = 0.0;
@@ -136,20 +139,19 @@ function getOwnedGamesWithRatings() {
     }
 
     ratedOwnedGames.sort((a, b) => b.userRating - a.userRating);
-    return { ownedIds, ownedNames, ratedOwnedGames };
+    return { excludedIds, excludedNames, ratedOwnedGames };
 }
 
 async function generateRecommendations() {
     console.log('--- Generating Game Recommendations ---');
-    const { ownedIds, ownedNames, ratedOwnedGames } = getOwnedGamesWithRatings();
-    console.log(`Found ${ownedIds.size} owned IDs, ${ownedNames.size} unique owned titles. ${ratedOwnedGames.length} owned board games rated >= 5.0.`);
+    const { excludedIds, excludedNames, ratedOwnedGames } = getCollectionData();
+    console.log(`Found ${excludedIds.size} excluded IDs/titles (owned, wishlist priority 5, or prevowned). ${ratedOwnedGames.length} owned board games rated >= 5.0.`);
 
     if (ratedOwnedGames.length === 0) {
         fs.writeFileSync(OUTPUT_FILE, JSON.stringify({ generatedAt: new Date().toISOString(), total: 0, recommendations: [] }, null, 2));
         return;
     }
 
-    // Analyze recommendations derived from top 50 rated owned games
     const gamesToAnalyze = ratedOwnedGames.slice(0, 50);
     console.log(`Analyzing recommendations derived from top ${gamesToAnalyze.length} rated owned games...`);
 
@@ -175,8 +177,8 @@ async function generateRecommendations() {
             const recName = item.name || '';
             const normRecName = normalizeTitle(recName);
 
-            // STRICT FILTERING: Exclude if owned by ID or by normalized name
-            if (!recId || ownedIds.has(recId) || ownedNames.has(normRecName)) {
+            // STRICT FILTERING: Exclude if owned, prevowned, or marked wishlist priority 5
+            if (!recId || excludedIds.has(recId) || excludedNames.has(normRecName)) {
                 continue;
             }
 
@@ -224,14 +226,14 @@ async function generateRecommendations() {
         }
     }
 
-    // Safety pass: Remove any candidate matching owned IDs or normalized titles
+    // Safety pass: Remove any candidate matching excluded IDs or normalized titles
     for (const [id, cand] of candidateMap.entries()) {
-        if (ownedIds.has(id) || ownedNames.has(normalizeTitle(cand.name))) {
+        if (excludedIds.has(id) || excludedNames.has(normalizeTitle(cand.name))) {
             candidateMap.delete(id);
         }
     }
 
-    console.log(`\nFound ${candidateMap.size} unique candidate recommendations (after strict owned game removal).`);
+    console.log(`\nFound ${candidateMap.size} unique candidate recommendations (after strict exclusion filtering).`);
 
     const candidates = Array.from(candidateMap.values());
     for (const c of candidates) {
@@ -250,7 +252,7 @@ async function generateRecommendations() {
     // Sort descending by match score
     candidates.sort((a, b) => b.matchScore - a.matchScore);
 
-    // Select TOP 80 recommendations AFTER all owned games are removed
+    // Select TOP 80 recommendations AFTER all excluded games are removed
     const topRecommendations = candidates.slice(0, 80);
 
     console.log(`\nFetching high-resolution 492x600 cover images for top ${topRecommendations.length} recommendations...`);

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-03T18:07:49.906Z",
+  "generatedAt": "2026-08-03T18:21:29.965Z",
   "total": 80,
   "recommendations": [
     {
@@ -88,100 +88,6 @@
         }
       ],
       "matchScore": 90
-    },
-    {
-      "objectId": "173346",
-      "name": "7 Wonders Duel",
-      "yearPublished": "2015",
-      "bggRating": 8.08,
-      "bggRank": 24,
-      "numVoters": 109836,
-      "numFans": 7019,
-      "coverUrl": "https://cf.geekdo-images.com/zdagMskTF7wJBPjX74XsRw__square100@2x/img/xNee3M-jWc5u5sMjn7IyvWFJ4qQ=/200x200/filters:strip_icc()/pic2576399.jpg",
-      "thumbnail": "images/thumbnails/173346.jpg",
-      "image": "images/full/173346.jpg",
-      "description": "Science? Military? What will you draft to win this head-to-head version of 7 Wonders?",
-      "rawScore": 22.803506859338647,
-      "recommendedBy": [
-        {
-          "ownedId": "284083",
-          "ownedName": "The Crew: The Quest for Planet Nine",
-          "userRating": 9,
-          "bggRecRank": 7,
-          "contributionScore": 3.06
-        },
-        {
-          "ownedId": "230802",
-          "ownedName": "Azul",
-          "userRating": 8,
-          "bggRecRank": 4,
-          "contributionScore": 3.2
-        },
-        {
-          "ownedId": "373106",
-          "ownedName": "Sky Team",
-          "userRating": 8,
-          "bggRecRank": 6,
-          "contributionScore": 2.61
-        },
-        {
-          "ownedId": "54043",
-          "ownedName": "Jaipur",
-          "userRating": 8,
-          "bggRecRank": 9,
-          "contributionScore": 2.13
-        },
-        {
-          "ownedId": "163412",
-          "ownedName": "Patchwork",
-          "userRating": 8,
-          "bggRecRank": 9,
-          "contributionScore": 2.13
-        },
-        {
-          "ownedId": "367220",
-          "ownedName": "Sea Salt &amp; Paper",
-          "userRating": 8,
-          "bggRecRank": 14,
-          "contributionScore": 1.71
-        },
-        {
-          "ownedId": "274960",
-          "ownedName": "Point Salad",
-          "userRating": 8,
-          "bggRecRank": 17,
-          "contributionScore": 1.55
-        },
-        {
-          "ownedId": "295947",
-          "ownedName": "Cascadia",
-          "userRating": 8,
-          "bggRecRank": 21,
-          "contributionScore": 1.4
-        },
-        {
-          "ownedId": "133473",
-          "ownedName": "Sushi Go!",
-          "userRating": 8,
-          "bggRecRank": 23,
-          "contributionScore": 1.33
-        },
-        {
-          "ownedId": "263918",
-          "ownedName": "Cartographers",
-          "userRating": 7,
-          "bggRecRank": 5,
-          "contributionScore": 2.19
-        },
-        {
-          "ownedId": "204583",
-          "ownedName": "Kingdomino",
-          "userRating": 7,
-          "bggRecRank": 11,
-          "contributionScore": 1.48
-        }
-      ],
-      "matchScore": 89.6
     },
     {
       "objectId": "364073",
@@ -1721,58 +1627,6 @@
         }
       ],
       "matchScore": 23.7
-    },
-    {
-      "objectId": "416851",
-      "name": "Castle Combo",
-      "yearPublished": "2024",
-      "bggRating": 7.68,
-      "bggRank": 214,
-      "numVoters": 15572,
-      "numFans": 1532,
-      "coverUrl": "https://cf.geekdo-images.com/rGomBfj0FGrZM-w3h5HFWQ__square100@2x/img/48LSmSEi_Vgt8HYAMEFq-fnox9c=/0x0:1084x1084/200x200/filters:strip_icc()/pic8250341.png",
-      "thumbnail": "images/thumbnails/416851.png",
-      "image": "images/full/416851.png",
-      "description": "Combine medieval villagers and castle dwellers to score points.",
-      "rawScore": 10.87629295216278,
-      "recommendedBy": [
-        {
-          "ownedId": "414317",
-          "ownedName": "Harmonies",
-          "userRating": 8,
-          "bggRecRank": 5,
-          "contributionScore": 2.86
-        },
-        {
-          "ownedId": "353545",
-          "ownedName": "Next Station: London",
-          "userRating": 8,
-          "bggRecRank": 7,
-          "contributionScore": 2.42
-        },
-        {
-          "ownedId": "367220",
-          "ownedName": "Sea Salt &amp; Paper",
-          "userRating": 8,
-          "bggRecRank": 8,
-          "contributionScore": 2.26
-        },
-        {
-          "ownedId": "373106",
-          "ownedName": "Sky Team",
-          "userRating": 8,
-          "bggRecRank": 16,
-          "contributionScore": 1.6
-        },
-        {
-          "ownedId": "393325",
-          "ownedName": "Captain Flip",
-          "userRating": 7,
-          "bggRecRank": 8,
-          "contributionScore": 1.73
-        }
-      ],
-      "matchScore": 23.2
     },
     {
       "objectId": "356123",
@@ -4049,6 +3903,82 @@
         }
       ],
       "matchScore": 10
+    },
+    {
+      "objectId": "217861",
+      "name": "Paper Tales",
+      "yearPublished": "2017",
+      "bggRating": 7.01,
+      "bggRank": 1236,
+      "numVoters": 5662,
+      "numFans": 241,
+      "coverUrl": "https://cf.geekdo-images.com/V62ulI0ifY0LIGocVuKCIQ__square100@2x/img/lTT4sySkkUpnq3s-tkiKzL4FQP0=/200x200/filters:strip_icc()/pic4043983.jpg",
+      "thumbnail": "images/thumbnails/217861.jpg",
+      "image": "images/full/217861.jpg",
+      "description": "Fight for dominance across four rounds. Long enough for generations to grow and die.",
+      "rawScore": 7.9084944665313035,
+      "recommendedBy": [
+        {
+          "ownedId": "359152",
+          "ownedName": "Marvel: Remix",
+          "userRating": 8,
+          "bggRecRank": 1,
+          "contributionScore": 6.4
+        },
+        {
+          "ownedId": "223040",
+          "ownedName": "Fantasy Realms",
+          "userRating": 8,
+          "bggRecRank": 18,
+          "contributionScore": 1.51
+        }
+      ],
+      "matchScore": 9.6
+    },
+    {
+      "objectId": "410991",
+      "name": "Looot",
+      "yearPublished": "2024",
+      "bggRating": 7.06,
+      "bggRank": 1827,
+      "numVoters": 2670,
+      "numFans": 314,
+      "coverUrl": "https://cf.geekdo-images.com/8SdHEMhje07oT9_AlqmGPg__square100@2x/img/DfXVS8PnfuzLcioldUvdL1yG9G0=/200x200/filters:strip_icc()/pic7963549.jpg",
+      "thumbnail": "images/thumbnails/410991.jpg",
+      "image": "images/full/410991.jpg",
+      "description": "Gather resources and capture buildings to develop your fjord.",
+      "rawScore": 5.581228409712394,
+      "recommendedBy": [
+        {
+          "ownedId": "353545",
+          "ownedName": "Next Station: London",
+          "userRating": 8,
+          "bggRecRank": 17,
+          "contributionScore": 1.55
+        },
+        {
+          "ownedId": "403116",
+          "ownedName": "Next Station: Paris",
+          "userRating": 8,
+          "bggRecRank": 23,
+          "contributionScore": 1.33
+        },
+        {
+          "ownedId": "464261",
+          "ownedName": "Next Station: Berlin",
+          "userRating": 8,
+          "bggRecRank": 25,
+          "contributionScore": 1.28
+        },
+        {
+          "ownedId": "393325",
+          "ownedName": "Captain Flip",
+          "userRating": 7,
+          "bggRecRank": 12,
+          "contributionScore": 1.41
+        }
+      ],
+      "matchScore": 9.6
     }
   ]
 }
