@@ -1,5 +1,29 @@
-<?xml version="1.0" encoding="utf-8"?><plays username="koraytugay" userid="4151779" total="3" page="1" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse">
-<play id="116988170" date="2026-08-01" quantity="2" length="30" incomplete="0" nowinstats="0" location="">
+<?xml version="1.0" encoding="utf-8"?><plays username="koraytugay" userid="4151779" total="6" page="1" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse">
+<play id="117042267" date="2026-08-02" quantity="2" length="30" incomplete="0" nowinstats="0" location="">
+			<item name="Arkham Horror: Lovecraft Letter" objecttype="thing" objectid="424784">
+				<subtypes>
+										<subtype value="boardgame" />
+										<subtype value="boardgameimplementation" />
+									</subtypes>
+			</item>
+								</play>
+	<play id="117042260" date="2026-08-02" quantity="1" length="10" incomplete="0" nowinstats="0" location="">
+			<item name="Dice Pool Party" objecttype="thing" objectid="445045">
+				<subtypes>
+										<subtype value="boardgame" />
+										<subtype value="boardgameimplementation" />
+									</subtypes>
+			</item>
+								</play>
+	<play id="117046208" date="2026-08-02" quantity="2" length="30" incomplete="0" nowinstats="0" location="">
+			<item name="Infinity Gauntlet: A Love Letter Game" objecttype="thing" objectid="304285">
+				<subtypes>
+										<subtype value="boardgame" />
+										<subtype value="boardgameimplementation" />
+									</subtypes>
+			</item>
+								</play>
+	<play id="116988170" date="2026-08-01" quantity="2" length="30" incomplete="0" nowinstats="0" location="">
 			<item name="Arkham Horror: Lovecraft Letter" objecttype="thing" objectid="424784">
 				<subtypes>
 										<subtype value="boardgame" />
