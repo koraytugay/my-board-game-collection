@@ -25,6 +25,7 @@ async function fetchRecommendations() {
         allGames = data.recommendations || [];
         filteredGames = [...allGames];
 
+        populateSourceGameFilter();
         updateStats();
         sortGames(currentSort);
 
@@ -40,6 +41,30 @@ async function fetchRecommendations() {
         errorEl.style.display = 'block';
         errorEl.textContent = `Failed to load recommendations: ${error.message}`;
     }
+}
+
+function populateSourceGameFilter() {
+    const filterSelect = document.getElementById('source-game-filter');
+    if (!filterSelect) return;
+
+    const sourceMap = new Map(); // ownedId -> ownedName
+    allGames.forEach(rec => {
+        if (Array.isArray(rec.recommendedBy)) {
+            rec.recommendedBy.forEach(s => {
+                sourceMap.set(s.ownedId, s.ownedName);
+            });
+        }
+    });
+
+    const sortedSources = Array.from(sourceMap.entries()).sort((a, b) => a[1].localeCompare(b[1]));
+
+    filterSelect.innerHTML = '<option value="all">All Games</option>';
+    sortedSources.forEach(([id, name]) => {
+        const option = document.createElement('option');
+        option.value = id;
+        option.textContent = name;
+        filterSelect.appendChild(option);
+    });
 }
 
 function updateStats() {
@@ -86,6 +111,7 @@ function sortGames(criteria) {
 function applyFilters() {
     const searchTerm = document.getElementById('search-input').value.toLowerCase();
     const ratingFilter = document.getElementById('rating-filter').value;
+    const sourceGameVal = document.getElementById('source-game-filter').value;
 
     filteredGames = allGames.filter(game => {
         const matchesName = game.name.toLowerCase().includes(searchTerm);
@@ -98,7 +124,12 @@ function applyFilters() {
             matchesRating = game.bggRating >= minRating;
         }
 
-        return matchesSearch && matchesRating;
+        let matchesSourceGame = true;
+        if (sourceGameVal !== 'all') {
+            matchesSourceGame = game.recommendedBy.some(s => s.ownedId === sourceGameGameVal || s.ownedId === sourceGameVal);
+        }
+
+        return matchesSearch && matchesRating && matchesSourceGame;
     });
 
     renderGames();
