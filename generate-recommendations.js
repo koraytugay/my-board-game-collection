@@ -80,9 +80,9 @@ function downloadFile(url, dest) {
 function normalizeTitle(title) {
     if (!title) return '';
     return title.toLowerCase()
-                .replace(/\([^)]*\)/g, '') // remove year/edition in parentheses
-                .replace(/[^a-z0-9\s]/g, '') // remove special characters
-                .replace(/\s+/g, ' ') // normalize whitespace
+                .replace(/\([^)]*\)/g, '')
+                .replace(/[^a-z0-9\s]/g, '')
+                .replace(/\s+/g, ' ')
                 .trim();
 }
 
@@ -149,7 +149,8 @@ async function generateRecommendations() {
         return;
     }
 
-    const gamesToAnalyze = ratedOwnedGames.slice(0, 35);
+    // Analyze recommendations derived from top 50 rated owned games
+    const gamesToAnalyze = ratedOwnedGames.slice(0, 50);
     console.log(`Analyzing recommendations derived from top ${gamesToAnalyze.length} rated owned games...`);
 
     const candidateMap = new Map();
@@ -160,7 +161,7 @@ async function generateRecommendations() {
         
         console.log(`[${i + 1}/${gamesToAnalyze.length}] Fetching BGG recs for: "${source.name}" (User Score: ${source.userRating})...`);
         const json = await fetchJson(apiUrl);
-        await sleep(350);
+        await sleep(300);
 
         if (!json || !Array.isArray(json.recs)) {
             continue;
@@ -249,8 +250,8 @@ async function generateRecommendations() {
     // Sort descending by match score
     candidates.sort((a, b) => b.matchScore - a.matchScore);
 
-    // Select TOP 40 recommendations AFTER all owned games are removed
-    const topRecommendations = candidates.slice(0, 40);
+    // Select TOP 80 recommendations AFTER all owned games are removed
+    const topRecommendations = candidates.slice(0, 80);
 
     console.log(`\nFetching high-resolution 492x600 cover images for top ${topRecommendations.length} recommendations...`);
     for (let i = 0; i < topRecommendations.length; i++) {
@@ -258,7 +259,7 @@ async function generateRecommendations() {
         
         const geekUrl = `https://api.geekdo.com/api/geekitems?objectid=${rec.objectId}&objecttype=boardgame`;
         const geekData = await fetchJson(geekUrl);
-        await sleep(150);
+        await sleep(120);
 
         let highResUrl = rec.coverUrl;
         if (geekData && geekData.item) {
