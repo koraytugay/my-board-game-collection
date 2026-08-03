@@ -219,9 +219,10 @@ function createGameCard(game) {
     return card;
 }
 
-const BGG_COOKIE = 'YOUR_BGG_COOKIE_HERE';
-
 function generateCurlCommand(game) {
+    const cookieInput = document.getElementById('bgg-cookie-input');
+    const userCookie = (cookieInput && cookieInput.value.trim()) ? cookieInput.value.trim() : 'YOUR_BGG_COOKIE_HERE';
+
     const payload = JSON.stringify({
         item: {
             collid: 0,
@@ -242,7 +243,7 @@ function generateCurlCommand(game) {
   -H 'accept-language: en-US,en;q=0.9,tr;q=0.8,la;q=0.7' \\
   -H 'cache-control: no-cache' \\
   -H 'content-type: application/json;charset=UTF-8' \\
-  -b '${BGG_COOKIE}' \\
+  -b '${userCookie}' \\
   -H 'dnt: 1' \\
   -H 'origin: https://boardgamegeek.com' \\
   -H 'pragma: no-cache' \\
