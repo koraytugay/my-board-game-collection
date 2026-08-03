@@ -204,9 +204,125 @@ function createGameCard(game) {
                     ${extraChip}
                 </div>
             </div>
+            <div class="game-actions" style="margin-top: 12px; padding-top: 10px; border-top: 1px solid rgba(0,0,0,0.08);"></div>
         </div>
     `;
+
+    const actionsContainer = card.querySelector('.game-actions');
+    const wontBuyBtn = document.createElement('button');
+    wontBuyBtn.className = 'btn-wont-buy';
+
+    if (isWontBuy(game.objectId)) {
+        wontBuyBtn.className = 'btn-wont-buy success';
+        wontBuyBtn.innerHTML = '✓ Added to Won\'t Buy';
+        wontBuyBtn.disabled = true;
+    } else {
+        wontBuyBtn.innerHTML = '🚫 Don\'t Buy This';
+        wontBuyBtn.onclick = (e) => addToWontBuy(e, game, wontBuyBtn);
+    }
+
+    actionsContainer.appendChild(wontBuyBtn);
+
     return card;
+}
+
+async function addToWontBuy(event, game, button) {
+    if (event) {
+        event.stopPropagation();
+    }
+
+    if (button.disabled) return;
+
+    const originalText = button.innerHTML;
+    button.disabled = true;
+    button.innerHTML = '<span class="spinner-small"></span> Adding...';
+
+    const payload = {
+        item: {
+            collid: 0,
+            pp_currency: "USD",
+            cv_currency: "USD",
+            objecttype: "thing",
+            objectid: String(game.objectId),
+            status: {
+                wishlist: true
+            },
+            objectname: game.name,
+            wishlistpriority: 5,
+            acquisitiondate: null,
+            invdate: null
+        }
+    };
+
+    try {
+        const response = await fetch('https://boardgamegeek.com/api/collectionitem', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json, text/plain, */*',
+                'Content-Type': 'application/json;charset=UTF-8'
+            },
+            credentials: 'include',
+            body: JSON.stringify(payload)
+        });
+
+        if (!response.ok) {
+            throw new Error(`BGG returned status ${response.status}`);
+        }
+
+        markGameAsWontBuy(game.objectId);
+        button.className = 'btn-wont-buy success';
+        button.innerHTML = '✓ Added to Won\'t Buy';
+        button.disabled = true;
+        showToast(`"<strong>${escapeHtml(game.name)}</strong>" added to BGG wishlist (Don't Buy This).`);
+
+    } catch (error) {
+        console.error('Error sending request to BGG:', error);
+        button.className = 'btn-wont-buy error';
+        button.innerHTML = '❌ Failed (Log into BGG)';
+        showToast(`Failed to update BGG for "${escapeHtml(game.name)}". Please make sure you are logged into boardgamegeek.com in your browser.`, true);
+
+        setTimeout(() => {
+            button.disabled = false;
+            button.className = 'btn-wont-buy';
+            button.innerHTML = originalText;
+        }, 4000);
+    }
+}
+
+const wontBuyGames = new Set();
+
+function isWontBuy(objectId) {
+    return wontBuyGames.has(String(objectId));
+}
+
+function markGameAsWontBuy(objectId) {
+    wontBuyGames.add(String(objectId));
+}
+
+function showToast(message, isError = false) {
+    let toastContainer = document.getElementById('toast-container');
+    if (!toastContainer) {
+        toastContainer = document.createElement('div');
+        toastContainer.id = 'toast-container';
+        toastContainer.className = 'toast-container';
+        document.body.appendChild(toastContainer);
+    }
+
+    const toast = document.createElement('div');
+    toast.className = `toast ${isError ? 'toast-error' : 'toast-success'}`;
+    toast.innerHTML = message;
+    toastContainer.appendChild(toast);
+
+    setTimeout(() => {
+        toast.classList.add('show');
+    }, 10);
+
+    setTimeout(() => {
+        toast.classList.remove('show');
+        setTimeout(() => {
+            toast.remove();
+        }, 300);
+    }, 4000);
 }
 
 function changeViewMode(mode) {
