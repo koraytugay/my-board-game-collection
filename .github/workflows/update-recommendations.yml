@@ -2,8 +2,8 @@ name: Update Game Recommendations
 
 on:
   schedule:
-    # Runs every day at 07:05 UTC (after collection update at 06:05 UTC)
-    - cron: "5 7 * * *"
+    # Runs every day at 06:00 UTC
+    - cron: "0 6 * * *"
   workflow_dispatch:
 
 permissions:
@@ -34,7 +34,7 @@ jobs:
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
           git pull --rebase --autostash origin ${{ github.ref_name }} || true
 
