@@ -38,10 +38,10 @@ jobs:
 
           git pull --rebase --autostash origin ${{ github.ref_name }} || true
 
-          git add recommendations.json
+          git add recommendations.json images/
 
           if git diff --quiet --staged; then
-            echo "No changes to recommendations.json to commit."
+            echo "No changes to recommendations to commit."
             exit 0
           fi
 

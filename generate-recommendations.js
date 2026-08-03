@@ -4,20 +4,24 @@ const https = require('https');
 
 const COLLECTION_FILE = path.join(__dirname, 'collection.xml');
 const OUTPUT_FILE = path.join(__dirname, 'recommendations.json');
+const IMAGES_DIR = path.join(__dirname, 'images');
+const THUMBNAILS_DIR = path.join(IMAGES_DIR, 'thumbnails');
+const FULL_DIR = path.join(IMAGES_DIR, 'full');
 const USER_AGENT = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)';
 
-/**
- * Utility delay helper
- */
+// Ensure directories exist
+[IMAGES_DIR, THUMBNAILS_DIR, FULL_DIR].forEach(dir => {
+    if (!fs.existsSync(dir)) {
+        fs.mkdirSync(dir, { recursive: true });
+    }
+});
+
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-/**
- * Fetch URL content as JSON
- */
 function fetchJson(url) {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
         const req = https.get(url, {
             headers: {
                 'User-Agent': USER_AGENT,
@@ -25,7 +29,7 @@ function fetchJson(url) {
             }
         }, (res) => {
             if (res.statusCode !== 200) {
-                res.resume(); // consume response data to free up memory
+                res.resume();
                 return resolve(null);
             }
             let data = '';
@@ -38,7 +42,7 @@ function fetchJson(url) {
                 }
             });
         });
-        req.on('error', (err) => resolve(null));
+        req.on('error', () => resolve(null));
         req.setTimeout(8000, () => {
             req.destroy();
             resolve(null);
@@ -46,9 +50,30 @@ function fetchJson(url) {
     });
 }
 
-/**
- * Parse owned board games and user ratings from collection.xml
- */
+function downloadFile(url, dest) {
+    return new Promise((resolve) => {
+        if (!url || url.trim() === '') {
+            return resolve(false);
+        }
+        const file = fs.createWriteStream(dest);
+        https.get(url, { headers: { 'User-Agent': USER_AGENT } }, (response) => {
+            if (response.statusCode !== 200) {
+                file.close();
+                fs.unlink(dest, () => {});
+                return resolve(false);
+            }
+            response.pipe(file);
+            file.on('finish', () => {
+                file.close();
+                resolve(true);
+            });
+        }).on('error', () => {
+            fs.unlink(dest, () => {});
+            resolve(false);
+        });
+    });
+}
+
 function getOwnedGamesWithRatings() {
     if (!fs.existsSync(COLLECTION_FILE)) {
         console.error(`Collection file not found at ${COLLECTION_FILE}`);
@@ -59,7 +84,6 @@ function getOwnedGamesWithRatings() {
     const ownedIds = new Set();
     const ratedOwnedGames = [];
 
-    // Match each <item> block in collection.xml
     const itemRegex = /<item\b[^>]*objectid="(\d+)"[^>]*subtype="([^"]+)"[^>]*>([\s\S]*?)<\/item>/g;
     let match;
 
@@ -82,42 +106,31 @@ function getOwnedGamesWithRatings() {
                     userRating = parseFloat(ratingMatch[1]) || 0.0;
                 }
 
-                if (userRating >= 5.0) { // Consider games user rated 5 or higher
-                    ratedOwnedGames.push({
-                        objectId,
-                        name,
-                        userRating
-                    });
+                if (userRating >= 5.0) {
+                    ratedOwnedGames.push({ objectId, name, userRating });
                 }
             }
         }
     }
 
-    // Sort owned rated games descending by user rating
     ratedOwnedGames.sort((a, b) => b.userRating - a.userRating);
-
     return { ownedIds, ratedOwnedGames };
 }
 
-/**
- * Calculate recommendation scores and aggregate BGG recs
- */
 async function generateRecommendations() {
     console.log('--- Generating Game Recommendations ---');
     const { ownedIds, ratedOwnedGames } = getOwnedGamesWithRatings();
     console.log(`Found ${ownedIds.size} owned items. ${ratedOwnedGames.length} owned board games rated >= 5.0.`);
 
     if (ratedOwnedGames.length === 0) {
-        console.log('No rated owned games found to base recommendations on.');
         fs.writeFileSync(OUTPUT_FILE, JSON.stringify({ generatedAt: new Date().toISOString(), total: 0, recommendations: [] }, null, 2));
         return;
     }
 
-    // Process top 35 rated owned games to get deep recommendations
     const gamesToAnalyze = ratedOwnedGames.slice(0, 35);
     console.log(`Analyzing recommendations derived from top ${gamesToAnalyze.length} rated owned games...`);
 
-    const candidateMap = new Map(); // rec_id -> candidate object
+    const candidateMap = new Map();
 
     for (let i = 0; i < gamesToAnalyze.length; i++) {
         const source = gamesToAnalyze[i];
@@ -125,7 +138,7 @@ async function generateRecommendations() {
         
         console.log(`[${i + 1}/${gamesToAnalyze.length}] Fetching BGG recs for: "${source.name}" (User Score: ${source.userRating})...`);
         const json = await fetchJson(apiUrl);
-        await sleep(350); // Respectful rate limiting
+        await sleep(350);
 
         if (!json || !Array.isArray(json.recs)) {
             continue;
@@ -138,15 +151,11 @@ async function generateRecommendations() {
             const recId = String(item.id || '');
 
             if (!recId || ownedIds.has(recId)) {
-                continue; // Skip owned games
+                continue;
             }
 
-            // Calculations:
-            // 1. User rating weight: (rating / 10)^2 * 10
             const userWeight = Math.pow(source.userRating / 10.0, 2) * 10.0;
-            // 2. Rank weight: decay by rank (1st rec = 1.0, 2nd rec = 0.707, etc.)
             const rankWeight = 1.0 / Math.sqrt(recIdx + 1);
-            // 3. Contribution score
             const contributionScore = userWeight * rankWeight;
 
             if (!candidateMap.has(recId)) {
@@ -155,19 +164,10 @@ async function generateRecommendations() {
                 const yearPublished = r.yearpublished || 'N/A';
                 const description = r.description || '';
                 
-                // Image handling
-                let thumbnail = '';
-                if (r.image && typeof r.image === 'object' && r.image.src) {
-                    thumbnail = r.image.src;
-                } else if (r.topImage && r.topImage.src) {
-                    thumbnail = r.topImage.src;
-                }
-
-                let fullImage = '';
-                if (r.topImage && r.topImage.src) {
-                    fullImage = r.topImage.src;
-                } else {
-                    fullImage = thumbnail;
+                // Use standard BGG cover thumbnail/image (r.image), NEVER hero topImage
+                let coverUrl = '';
+                if (r.image && typeof r.image === 'object') {
+                    coverUrl = r.image['src@2x'] || r.image.src || '';
                 }
 
                 candidateMap.set(recId, {
@@ -178,8 +178,9 @@ async function generateRecommendations() {
                     bggRank: bggRankVal,
                     numVoters: r.numvoters || 0,
                     numFans: r.numfans || 0,
-                    thumbnail,
-                    image: fullImage,
+                    coverUrl,
+                    thumbnail: coverUrl,
+                    image: coverUrl,
                     description,
                     rawScore: 0.0,
                     recommendedBy: []
@@ -198,31 +199,47 @@ async function generateRecommendations() {
         }
     }
 
-    console.log(`\nFound ${candidateMap.size} unique candidate recommendations across owned games.`);
+    console.log(`\nFound ${candidateMap.size} unique candidate recommendations.`);
 
-    // Final scoring calculation
     const candidates = Array.from(candidateMap.values());
     for (const c of candidates) {
-        // Synergy multiplier for multiple sources
         const numSources = c.recommendedBy.length;
         const synergyMultiplier = 1.0 + 0.25 * (numSources - 1);
         
-        // Quality multiplier based on BGG rating (scaled around 7.0)
         let qualityMultiplier = c.bggRating > 0 ? (c.bggRating / 7.2) : 1.0;
         qualityMultiplier = Math.max(0.85, Math.min(1.25, qualityMultiplier));
 
         const finalScore = c.rawScore * synergyMultiplier * qualityMultiplier;
         c.matchScore = Math.round(finalScore * 10) / 10;
         
-        // Sort candidate sources descending by user rating
         c.recommendedBy.sort((a, b) => b.userRating - a.userRating || a.bggRecRank - b.bggRecRank);
     }
 
-    // Sort candidates descending by match score
     candidates.sort((a, b) => b.matchScore - a.matchScore);
-
-    // Keep top 40 recommendations
     const topRecommendations = candidates.slice(0, 40);
+
+    // Download box cover images for top recommendations locally
+    console.log(`Downloading box cover images for top ${topRecommendations.length} recommendations...`);
+    for (const rec of topRecommendations) {
+        if (!rec.coverUrl) continue;
+        try {
+            const ext = path.extname(new URL(rec.coverUrl).pathname) || '.jpg';
+            const localThumb = path.join(THUMBNAILS_DIR, `${rec.objectId}${ext}`);
+            const localFull = path.join(FULL_DIR, `${rec.objectId}${ext}`);
+
+            if (!fs.existsSync(localThumb)) {
+                await downloadFile(rec.coverUrl, localThumb);
+            }
+            if (!fs.existsSync(localFull)) {
+                await downloadFile(rec.coverUrl, localFull);
+            }
+
+            rec.thumbnail = `images/thumbnails/${rec.objectId}${ext}`;
+            rec.image = `images/full/${rec.objectId}${ext}`;
+        } catch (e) {
+            // Keep remote coverUrl if local download fails
+        }
+    }
 
     const outputData = {
         generatedAt: new Date().toISOString(),
