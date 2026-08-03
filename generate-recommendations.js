@@ -110,10 +110,11 @@ function getCollectionData() {
         
         const isOwned = /<status\b[^>]*own="1"/.test(itemBody);
         const isWantToBuy = /<status\b[^>]*wanttobuy="1"/.test(itemBody);
+        const isWishlist = /<status\b[^>]*wishlist="1"/.test(itemBody);
         const isWishlist5 = /<status\b[^>]*wishlistpriority="5"/.test(itemBody);
         const isPrevOwned = /<status\b[^>]*prevowned="1"/.test(itemBody);
 
-        if (idMatch && (isOwned || isWantToBuy || isWishlist5 || isPrevOwned)) {
+        if (idMatch && (isOwned || isWantToBuy || isWishlist || isWishlist5 || isPrevOwned)) {
             const objectId = idMatch[1];
             const subtype = subtypeMatch ? subtypeMatch[1] : 'boardgame';
             excludedIds.add(objectId);
