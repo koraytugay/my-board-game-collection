@@ -51,7 +51,7 @@ function populateSourceGameFilter() {
     allGames.forEach(rec => {
         if (Array.isArray(rec.recommendedBy)) {
             rec.recommendedBy.forEach(s => {
-                sourceMap.set(s.ownedId, s.ownedName);
+                sourceMap.set(String(s.ownedId), s.ownedName);
             });
         }
     });
@@ -82,10 +82,10 @@ function updateStats() {
 }
 
 function sortGames(criteria) {
-    currentSort = criteria;
+    currentSort = criteria || currentSort;
 
     allGames.sort((a, b) => {
-        switch (criteria) {
+        switch (currentSort) {
             case 'match-desc':
                 return b.matchScore - a.matchScore;
             case 'name':
@@ -109,24 +109,28 @@ function sortGames(criteria) {
 }
 
 function applyFilters() {
-    const searchTerm = document.getElementById('search-input').value.toLowerCase();
-    const ratingFilter = document.getElementById('rating-filter').value;
-    const sourceGameVal = document.getElementById('source-game-filter').value;
+    const searchInput = document.getElementById('search-input');
+    const ratingFilter = document.getElementById('rating-filter');
+    const sourceGameFilter = document.getElementById('source-game-filter');
+
+    const searchTerm = searchInput ? searchInput.value.toLowerCase().trim() : '';
+    const ratingVal = ratingFilter ? ratingFilter.value : 'all';
+    const sourceGameVal = sourceGameFilter ? sourceGameFilter.value : 'all';
 
     filteredGames = allGames.filter(game => {
         const matchesName = game.name.toLowerCase().includes(searchTerm);
-        const matchesSource = game.recommendedBy.some(s => s.ownedName.toLowerCase().includes(searchTerm));
-        const matchesSearch = matchesName || matchesSource;
+        const matchesSource = Array.isArray(game.recommendedBy) && game.recommendedBy.some(s => s.ownedName.toLowerCase().includes(searchTerm));
+        const matchesSearch = !searchTerm || matchesName || matchesSource;
 
         let matchesRating = true;
-        if (ratingFilter !== 'all') {
-            const minRating = parseFloat(ratingFilter.replace('+', ''));
+        if (ratingVal !== 'all') {
+            const minRating = parseFloat(ratingVal.replace('+', ''));
             matchesRating = game.bggRating >= minRating;
         }
 
         let matchesSourceGame = true;
         if (sourceGameVal !== 'all') {
-            matchesSourceGame = game.recommendedBy.some(s => s.ownedId === sourceGameGameVal || s.ownedId === sourceGameVal);
+            matchesSourceGame = Array.isArray(game.recommendedBy) && game.recommendedBy.some(s => String(s.ownedId) === String(sourceGameVal) || s.ownedName === sourceGameVal);
         }
 
         return matchesSearch && matchesRating && matchesSourceGame;
