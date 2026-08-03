@@ -219,7 +219,7 @@ function createGameCard(game) {
     return card;
 }
 
-const BGG_COOKIE = `bggusername=koraytugay; bggpassword=accdk1x47t5byftuvc10pxiheomigzujs; _ga=GA1.2.2117955430.1776477918; _ga_GMNMCY4DVM=GS2.1.s1776736205$o16$g1$t1776740522$j15$l0$h0; _cfuvid=B9k0oJ1bg8DLP6ulZ_hS9zsBcgcwKBDv0BFkYGqg0_8-1785380531.2946482-1.0.1.1-ITsy30mZw3iEtsLUhNKZP_6mxt_Zh2JusgjuilAbrm0; SessionID=a5f57b01aa7496a99632b3ff529f0a5701dd6d38u4151779; FCCDCF=%5Bnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2C%5B%5B32%2C%22%5B%5C%22f81b26cf-35ce-4b5c-838c-45f7e66f9289%5C%22%2C%5B1776480188%2C449000000%5D%5D%22%5D%5D%5D; FCNEC=%5B%5B%22AKsRol84Fz5KoQR4VQ6XPkSu-dugAOgwRTstenjmcF3o5PP5oB4uoatrnes1YiiqiIDAZAU8dwHm88qOx1Tew9_B-BtedjuGk3fV0SLIYuqejEtjW7BvqD66vVHHteLHt72KXyzgvSSyHpHcjsgALT3t_yTJRAa88A%3D%3D%22%5D%5D`;
+const BGG_COOKIE = 'YOUR_BGG_COOKIE_HERE';
 
 function generateCurlCommand(game) {
     const payload = JSON.stringify({
