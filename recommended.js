@@ -1,4 +1,4 @@
-// recommended.js - Handling Recommended Games UI (matching index.html layout)
+// recommended.js - Handling Recommended Games UI
 
 let allGames = [];
 let filteredGames = [];
@@ -137,8 +137,15 @@ function createGameCard(game) {
         badgesHtml += `<span class="badge badge-highly-rated">#${game.bggRank} BGG</span>`;
     }
 
-    const sourceNames = game.recommendedBy.slice(0, 3).map(s => s.ownedName).join(', ');
-    const fullSources = game.recommendedBy.map(s => `${s.ownedName} (${s.userRating}/10)`).join('\n• ');
+    const sourcesHtml = game.recommendedBy.slice(0, 4).map(s => `
+        <span style="display: inline-flex; align-items: center; gap: 4px; background: rgba(99, 102, 241, 0.12); color: #4f46e5; padding: 2px 7px; border-radius: 6px; font-size: 0.78rem; font-weight: 600;">
+            ${escapeHtml(s.ownedName)}
+            <span style="background: #4f46e5; color: white; padding: 1px 4px; border-radius: 3px; font-size: 0.7rem; font-weight: 700;">★${s.userRating}</span>
+        </span>
+    `).join('');
+
+    const extraCount = game.recommendedBy.length > 4 ? game.recommendedBy.length - 4 : 0;
+    const extraChip = extraCount > 0 ? `<span style="font-size: 0.75rem; color: #777; margin-left: 2px;">+${extraCount} more</span>` : '';
 
     card.innerHTML = `
         <div class="game-badges">
@@ -154,7 +161,13 @@ function createGameCard(game) {
             <div class="game-meta">
                 <div class="meta-item"><span>🏆</span> Rank #${game.bggRank || 'N/A'}</div>
                 <div class="meta-item"><span>⭐</span> ${game.bggRating.toFixed(1)}</div>
-                <div class="meta-item" style="grid-column: 1 / -1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="Recommended based on:\n• ${escapeHtml(fullSources)}"><span>💡</span> Rec by: ${escapeHtml(sourceNames)}${game.recommendedBy.length > 3 ? '...' : ''}</div>
+            </div>
+            <div style="margin-top: 12px; padding-top: 10px; border-top: 1px solid rgba(0,0,0,0.08);">
+                <div style="font-size: 0.78rem; font-weight: 700; color: #666; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px;">Based on games you love:</div>
+                <div style="display: flex; flex-wrap: wrap; gap: 4px; align-items: center;">
+                    ${sourcesHtml}
+                    ${extraChip}
+                </div>
             </div>
         </div>
     `;
