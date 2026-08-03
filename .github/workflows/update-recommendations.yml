@@ -1,0 +1,49 @@
+name: Update Game Recommendations
+
+on:
+  schedule:
+    # Runs every day at 07:05 UTC (after collection update at 06:05 UTC)
+    - cron: "5 7 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-recommendations
+  cancel-in-progress: false
+
+jobs:
+  generate-recommendations:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Generate Recommendations
+        run: node generate-recommendations.js
+
+      - name: Commit & push if changed
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]"
+
+          git pull --rebase --autostash origin ${{ github.ref_name }} || true
+
+          git add recommendations.json
+
+          if git diff --quiet --staged; then
+            echo "No changes to recommendations.json to commit."
+            exit 0
+          fi
+
+          git commit -m "chore: update game recommendations ($(date -u +%F))"
+          git push
