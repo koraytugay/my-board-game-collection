@@ -181,7 +181,7 @@ function createGameCard(game) {
     let badgesHtml = '';
     badgesHtml += `<span class="badge badge-favorite">🔥 Match ${game.matchScore}</span>`;
 
-    const sourcesHtml = game.recommendedBy.slice(0, 5).map(s => {
+    const sourcesHtml = game.recommendedBy.map(s => {
         const thumbUrl = ownedThumbnailMap.get(String(s.ownedId)) || `images/thumbnails/${s.ownedId}.jpg`;
         return `
             <div class="source-thumb-chip" title="${escapeHtml(s.ownedName)} (★${s.userRating})">
@@ -194,9 +194,6 @@ function createGameCard(game) {
             </div>
         `;
     }).join('');
-
-    const extraCount = game.recommendedBy.length > 5 ? game.recommendedBy.length - 5 : 0;
-    const extraChip = extraCount > 0 ? `<span style="font-size: 0.75rem; color: #777; margin-left: 4px; font-weight: 600;">+${extraCount} more</span>` : '';
 
     const playersText = (game.minPlayers && game.maxPlayers) 
         ? (game.minPlayers === game.maxPlayers ? `${game.minPlayers}` : `${game.minPlayers}-${game.maxPlayers}`)
@@ -222,7 +219,6 @@ function createGameCard(game) {
                 <div style="font-size: 0.78rem; font-weight: 700; color: #666; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px;">Based on games you love:</div>
                 <div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center;">
                     ${sourcesHtml}
-                    ${extraChip}
                 </div>
             </div>
             <div class="game-actions" style="margin-top: 15px; padding-top: 12px; border-top: 1px solid #eee;"></div>
