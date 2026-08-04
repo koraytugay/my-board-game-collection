@@ -154,8 +154,8 @@ async function generateRecommendations() {
         return;
     }
 
-    const gamesToAnalyze = ratedOwnedGames.slice(0, 50);
-    console.log(`Analyzing recommendations derived from top ${gamesToAnalyze.length} rated owned games...`);
+    const gamesToAnalyze = ratedOwnedGames.filter(g => g.userRating >= 7.0);
+    console.log(`Analyzing recommendations derived from all ${gamesToAnalyze.length} owned games rated >= 7.0...`);
 
     const candidateMap = new Map();
 
