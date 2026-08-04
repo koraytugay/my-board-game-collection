@@ -1,5 +1,35 @@
-<?xml version="1.0" encoding="utf-8"?><plays username="koraytugay" userid="4151779" total="9" page="1" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse">
-<play id="117081038" date="2026-08-03" quantity="2" length="30" incomplete="0" nowinstats="0" location="">
+<?xml version="1.0" encoding="utf-8"?><plays username="koraytugay" userid="4151779" total="13" page="1" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse">
+<play id="117110038" date="2026-08-04" quantity="2" length="20" incomplete="0" nowinstats="0" location="">
+			<item name="Arkham Horror: Lovecraft Letter" objecttype="thing" objectid="424784">
+				<subtypes>
+										<subtype value="boardgame" />
+										<subtype value="boardgameimplementation" />
+									</subtypes>
+			</item>
+								</play>
+	<play id="117101013" date="2026-08-04" quantity="3" length="60" incomplete="0" nowinstats="0" location="">
+			<item name="Chess" objecttype="thing" objectid="171">
+				<subtypes>
+										<subtype value="boardgame" />
+									</subtypes>
+			</item>
+								</play>
+	<play id="117102320" date="2026-08-04" quantity="1" length="20" incomplete="0" nowinstats="0" location="">
+			<item name="Next Station: Berlin" objecttype="thing" objectid="464261">
+				<subtypes>
+										<subtype value="boardgame" />
+										<subtype value="boardgameimplementation" />
+									</subtypes>
+			</item>
+								</play>
+	<play id="117115088" date="2026-08-04" quantity="1" length="45" incomplete="0" nowinstats="0" location="">
+			<item name="Trekking Through History" objecttype="thing" objectid="353288">
+				<subtypes>
+										<subtype value="boardgame" />
+									</subtypes>
+			</item>
+								</play>
+	<play id="117081038" date="2026-08-03" quantity="2" length="30" incomplete="0" nowinstats="0" location="">
 			<item name="Chess" objecttype="thing" objectid="171">
 				<subtypes>
 										<subtype value="boardgame" />
