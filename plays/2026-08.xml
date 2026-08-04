@@ -1,6 +1,20 @@
-<?xml version="1.0" encoding="utf-8"?><plays username="koraytugay" userid="4151779" total="7" page="1" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse">
-<play id="117070999" date="2026-08-03" quantity="1" length="30" incomplete="0" nowinstats="0" location="">
+<?xml version="1.0" encoding="utf-8"?><plays username="koraytugay" userid="4151779" total="9" page="1" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse">
+<play id="117081038" date="2026-08-03" quantity="2" length="30" incomplete="0" nowinstats="0" location="">
+			<item name="Chess" objecttype="thing" objectid="171">
+				<subtypes>
+										<subtype value="boardgame" />
+									</subtypes>
+			</item>
+								</play>
+	<play id="117070999" date="2026-08-03" quantity="1" length="30" incomplete="0" nowinstats="0" location="">
 			<item name="Forest Shuffle" objecttype="thing" objectid="391163">
+				<subtypes>
+										<subtype value="boardgame" />
+									</subtypes>
+			</item>
+								</play>
+	<play id="117081033" date="2026-08-03" quantity="4" length="30" incomplete="0" nowinstats="0" location="">
+			<item name="Got Five!" objecttype="thing" objectid="453526">
 				<subtypes>
 										<subtype value="boardgame" />
 									</subtypes>
