@@ -426,6 +426,58 @@ body.dark-mode .stat-label {
     gap: 5px;
 }
 
+/* Source Game 50x50 Thumbnails */
+.source-thumb-chip {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+    flex-shrink: 0;
+    background: #f0f0f0;
+}
+
+.source-thumb-chip:hover {
+    transform: scale(1.1);
+    z-index: 5;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.source-thumb-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.source-thumb-rating {
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    background: rgba(79, 70, 229, 0.92);
+    color: white;
+    font-size: 0.65rem;
+    font-weight: 700;
+    padding: 1px 4px;
+    border-radius: 4px;
+    line-height: 1;
+    backdrop-filter: blur(2px);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+
+body.dark-mode .source-thumb-chip {
+    border-color: rgba(255, 255, 255, 0.15);
+    background: #333;
+}
+
+body.dark-mode .source-games-section {
+    border-top-color: #333 !important;
+}
+
 /* Don't Buy This Button */
 .btn-wont-buy {
     width: 100%;
