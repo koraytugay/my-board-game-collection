@@ -180,9 +180,6 @@ function createGameCard(game) {
 
     let badgesHtml = '';
     badgesHtml += `<span class="badge badge-favorite">🔥 Match ${game.matchScore}</span>`;
-    if (game.bggRank) {
-        badgesHtml += `<span class="badge badge-highly-rated">#${game.bggRank} BGG</span>`;
-    }
 
     const sourcesHtml = game.recommendedBy.slice(0, 5).map(s => {
         const thumbUrl = ownedThumbnailMap.get(String(s.ownedId)) || `images/thumbnails/${s.ownedId}.jpg`;
@@ -201,6 +198,10 @@ function createGameCard(game) {
     const extraCount = game.recommendedBy.length > 5 ? game.recommendedBy.length - 5 : 0;
     const extraChip = extraCount > 0 ? `<span style="font-size: 0.75rem; color: #777; margin-left: 4px; font-weight: 600;">+${extraCount} more</span>` : '';
 
+    const playersText = (game.minPlayers && game.maxPlayers) 
+        ? (game.minPlayers === game.maxPlayers ? `${game.minPlayers}` : `${game.minPlayers}-${game.maxPlayers}`)
+        : null;
+
     card.innerHTML = `
         <div class="game-badges">
             ${badgesHtml}
@@ -213,8 +214,9 @@ function createGameCard(game) {
             <div class="game-year">${game.yearPublished !== 'N/A' ? game.yearPublished : ''}</div>
             <div class="game-name">${escapeHtml(game.name)}</div>
             <div class="game-meta">
-                <div class="meta-item"><span>🏆</span> Rank #${game.bggRank || 'N/A'}</div>
-                <div class="meta-item"><span>⭐</span> ${game.bggRating.toFixed(1)}</div>
+                ${playersText ? `<div class="meta-item"><span>👥</span> ${playersText}</div>` : ''}
+                ${game.playingTime ? `<div class="meta-item"><span>⏱️</span> ${game.playingTime} min</div>` : ''}
+                <div class="meta-item"><span>⭐</span> ${game.bggRating ? game.bggRating.toFixed(1) : 'N/A'}</div>
             </div>
             <div class="source-games-section" style="margin-top: 15px; padding-top: 12px; border-top: 1px solid #eee;">
                 <div style="font-size: 0.78rem; font-weight: 700; color: #666; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px;">Based on games you love:</div>

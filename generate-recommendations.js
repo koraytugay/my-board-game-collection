@@ -272,6 +272,9 @@ async function generateRecommendations() {
             } else if (geekData.item.imageurl) {
                 highResUrl = geekData.item.imageurl;
             }
+            rec.minPlayers = parseInt(geekData.item.minplayers) || 0;
+            rec.maxPlayers = parseInt(geekData.item.maxplayers) || 0;
+            rec.playingTime = parseInt(geekData.item.playingtime || geekData.item.maxplaytime || geekData.item.minplaytime) || 0;
         }
 
         if (highResUrl) {
