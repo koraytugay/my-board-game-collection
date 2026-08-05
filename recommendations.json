@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-08-04T22:51:26.847Z",
-  "total": 200,
+  "generatedAt": "2026-08-05T01:17:08.150Z",
+  "total": 400,
   "recommendations": [
     {
       "objectId": "98778",
@@ -1758,7 +1758,7 @@
       "bggRating": 7.76,
       "bggRank": 117,
       "numVoters": 27851,
-      "numFans": 1516,
+      "numFans": 1515,
       "coverUrl": "https://cf.geekdo-images.com/hHZWXnUTMYDd_KTAM6Jwlw__square100@2x/img/LAj7pWMJcMNL9oFhR1JWcIiDGmc=/0x0:558x558/200x200/filters:strip_icc()/pic3759421.jpg",
       "thumbnail": "images/thumbnails/225694.jpg",
       "image": "images/full/225694.jpg",
@@ -2233,7 +2233,7 @@
       "bggRating": 7.41,
       "bggRank": 624,
       "numVoters": 7024,
-      "numFans": 435,
+      "numFans": 436,
       "coverUrl": "https://cf.geekdo-images.com/1gQABuftAVgk1qshkMyDEw__square100@2x/img/dD3RBi-dbCrySFmWejvtci0SLuI=/0x0:1504x1504/200x200/filters:strip_icc()/pic6125184.jpg",
       "thumbnail": "images/thumbnails/336794.jpg",
       "image": "images/full/336794.jpg",
@@ -3092,7 +3092,7 @@
       "bggRating": 7.54,
       "bggRank": 228,
       "numVoters": 23814,
-      "numFans": 1233,
+      "numFans": 1234,
       "coverUrl": "https://cf.geekdo-images.com/MHhQxXVjiaa6C-04nGiIWw__square100@2x/img/SKGk_WaEEq0PTtFM-f1ZyBTp6uc=/200x200/filters:strip_icc()/pic6640638.jpg",
       "thumbnail": "images/thumbnails/242302.jpg",
       "image": "images/full/242302.jpg",
@@ -3915,7 +3915,7 @@
       "bggRating": 7.62,
       "bggRank": 1754,
       "numVoters": 1578,
-      "numFans": 225,
+      "numFans": 226,
       "coverUrl": "https://cf.geekdo-images.com/GGIrwKsyRa_ciMe2WPkvIw__square100@2x/img/WAKRhd5MCABNvHLDJVY406CTsaw=/200x200/filters:strip_icc()/pic7454921.jpg",
       "thumbnail": "images/thumbnails/342032.jpg",
       "image": "images/full/342032.jpg",
@@ -8488,7 +8488,7 @@
       "bggRating": 7.42,
       "bggRank": 677,
       "numVoters": 6526,
-      "numFans": 461,
+      "numFans": 462,
       "coverUrl": "https://cf.geekdo-images.com/l-NBWJ1gIcfOCfrvAw8qvw__square100@2x/img/TX-W6V1HDvVFGSEHhydxgNhORvw=/200x200/filters:strip_icc()/pic6389125.jpg",
       "thumbnail": "images/thumbnails/346965.jpg",
       "image": "images/full/346965.jpg",
@@ -8677,6 +8677,5721 @@
       "minPlayers": 1,
       "maxPlayers": 2,
       "playingTime": 30
+    },
+    {
+      "objectId": "265256",
+      "name": "PUSH",
+      "yearPublished": "2018",
+      "bggRating": 6.79,
+      "bggRank": 2109,
+      "numVoters": 3332,
+      "numFans": 141,
+      "coverUrl": "https://cf.geekdo-images.com/6mcfJ0qM9BW-tVi8ylg_uQ__square100@2x/img/JeMljskbS4En8DExGiT5zusBSXQ=/0x25:1700x1981/fit-in/200x200/filters:fill(blur):strip_icc()/pic5197222.jpg",
+      "thumbnail": "images/thumbnails/265256.jpg",
+      "image": "images/full/265256.jpg",
+      "description": "Push your luck to collect the best stacks, but beware, a die roll can wipe you out.",
+      "rawScore": 2.9613856854500304,
+      "recommendedBy": [
+        {
+          "ownedId": "380887",
+          "ownedName": "Deduckto",
+          "userRating": 7,
+          "bggRecRank": 6,
+          "contributionScore": 2
+        },
+        {
+          "ownedId": "266083",
+          "ownedName": "L.L.A.M.A.",
+          "userRating": 7,
+          "bggRecRank": 26,
+          "contributionScore": 0.96
+        }
+      ],
+      "matchScore": 3.5,
+      "minPlayers": 2,
+      "maxPlayers": 6,
+      "playingTime": 25
+    },
+    {
+      "objectId": "40692",
+      "name": "Small World",
+      "yearPublished": "2009",
+      "bggRating": 7.19,
+      "bggRank": 410,
+      "numVoters": 75254,
+      "numFans": 4508,
+      "coverUrl": "https://cf.geekdo-images.com/aoPM07XzoceB-RydLh08zA__square100@2x/img/pASkXg5Z1csNd4wya5mA_0bxA-0=/200x200/filters:strip_icc()/pic428828.jpg",
+      "thumbnail": "images/thumbnails/40692.jpg",
+      "image": "images/full/40692.jpg",
+      "description": "Control one fantasy race after another to expand quickly throughout the land.",
+      "rawScore": 2.8129949799223146,
+      "recommendedBy": [
+        {
+          "ownedId": "143884",
+          "ownedName": "Machi Koro",
+          "userRating": 7,
+          "bggRecRank": 7,
+          "contributionScore": 1.85
+        },
+        {
+          "ownedId": "34635",
+          "ownedName": "Stone Age",
+          "userRating": 7,
+          "bggRecRank": 26,
+          "contributionScore": 0.96
+        }
+      ],
+      "matchScore": 3.5,
+      "minPlayers": 2,
+      "maxPlayers": 5,
+      "playingTime": 80
+    },
+    {
+      "objectId": "2223",
+      "name": "UNO",
+      "yearPublished": "1971",
+      "bggRating": 5.48,
+      "bggRank": 30927,
+      "numVoters": 34304,
+      "numFans": 736,
+      "coverUrl": "https://cf.geekdo-images.com/-DHiHBBSnvaLu0Do8CIykQ__square100@2x/img/fNl5dFqbd5l8PeO3PlG13NN7znw=/0x0:336x336/200x200/filters:strip_icc()/pic8204165.jpg",
+      "thumbnail": "images/thumbnails/2223.jpg",
+      "image": "images/full/2223.jpg",
+      "description": "Get rid of your cards first, but don't forget to say \"UNO\"!",
+      "rawScore": 3.240906080438343,
+      "recommendedBy": [
+        {
+          "ownedId": "171",
+          "ownedName": "Chess",
+          "userRating": 8,
+          "bggRecRank": 18,
+          "contributionScore": 1.51
+        },
+        {
+          "ownedId": "1219",
+          "ownedName": "Labyrinth",
+          "userRating": 7,
+          "bggRecRank": 8,
+          "contributionScore": 1.73
+        }
+      ],
+      "matchScore": 3.4,
+      "minPlayers": 2,
+      "maxPlayers": 10,
+      "playingTime": 30
+    },
+    {
+      "objectId": "381278",
+      "name": "Dracula vs Van Helsing",
+      "yearPublished": "2023",
+      "bggRating": 7.41,
+      "bggRank": 1169,
+      "numVoters": 3254,
+      "numFans": 391,
+      "coverUrl": "https://cf.geekdo-images.com/RbNAitZatR7g82u_9OBV8A__square100@2x/img/28D0SABcSXdQz3RD4bPOqJt-GQo=/0x0:1591x1591/200x200/filters:strip_icc()/pic7453834.jpg",
+      "thumbnail": "images/thumbnails/381278.jpg",
+      "image": "images/full/381278.jpg",
+      "description": "Suspenseful fight of Dracula and Van Helsing in Whitby.",
+      "rawScore": 2.6517377623947294,
+      "recommendedBy": [
+        {
+          "ownedId": "216497",
+          "ownedName": "District Noir",
+          "userRating": 8,
+          "bggRecRank": 21,
+          "contributionScore": 1.4
+        },
+        {
+          "ownedId": "367220",
+          "ownedName": "Sea Salt &amp; Paper",
+          "userRating": 8,
+          "bggRecRank": 26,
+          "contributionScore": 1.26
+        }
+      ],
+      "matchScore": 3.4,
+      "minPlayers": 2,
+      "maxPlayers": 2,
+      "playingTime": 45
+    },
+    {
+      "objectId": "269207",
+      "name": "The Taverns of Tiefenthal",
+      "yearPublished": "2019",
+      "bggRating": 7.57,
+      "bggRank": 250,
+      "numVoters": 17279,
+      "numFans": 1257,
+      "coverUrl": "https://cf.geekdo-images.com/H-AU-nhjCbaxWlWj_O-eFw__square100@2x/img/57hfgxNekcshLjDy0gTWu-Y0p18=/200x200/filters:strip_icc()/pic4873141.jpg",
+      "thumbnail": "images/thumbnails/269207.jpg",
+      "image": "images/full/269207.jpg",
+      "description": "\"Build your way to the best Tavern in town with this deckbuilding dice drafting game\"",
+      "rawScore": 3.2000000000000006,
+      "recommendedBy": [
+        {
+          "ownedId": "223040",
+          "ownedName": "Fantasy Realms",
+          "userRating": 8,
+          "bggRecRank": 4,
+          "contributionScore": 3.2
+        }
+      ],
+      "matchScore": 3.4,
+      "minPlayers": 2,
+      "maxPlayers": 4,
+      "playingTime": 60
+    },
+    {
+      "objectId": "232832",
+      "name": "Century: Golem Edition",
+      "yearPublished": "2017",
+      "bggRating": 7.58,
+      "bggRank": 277,
+      "numVoters": 14320,
+      "numFans": 858,
+      "coverUrl": "https://cf.geekdo-images.com/1bihoShOuqaCuZJXB3Q2gQ__square100@2x/img/3_Vk19Re_Fbd0KPYLtHbhhK3-1k=/0x0:1500x1500/200x200/filters:strip_icc()/pic3936124.jpg",
+      "thumbnail": "images/thumbnails/232832.jpg",
+      "image": "images/full/232832.jpg",
+      "description": "Snatch up costly crystals and synthesize them to create wondrous golems.",
+      "rawScore": 2.596165158947109,
+      "recommendedBy": [
+        {
+          "ownedId": "160477",
+          "ownedName": "Onitama",
+          "userRating": 8,
+          "bggRecRank": 22,
+          "contributionScore": 1.36
+        },
+        {
+          "ownedId": "133473",
+          "ownedName": "Sushi Go!",
+          "userRating": 8,
+          "bggRecRank": 27,
+          "contributionScore": 1.23
+        }
+      ],
+      "matchScore": 3.4,
+      "minPlayers": 2,
+      "maxPlayers": 5,
+      "playingTime": 45
+    },
+    {
+      "objectId": "415092",
+      "name": "Prey",
+      "yearPublished": "2024",
+      "bggRating": 6.71,
+      "bggRank": 5597,
+      "numVoters": 585,
+      "numFans": 44,
+      "coverUrl": "https://cf.geekdo-images.com/rWIlXK_CA1oNiIh6uG05GQ__square100@2x/img/SrXrY3zTcJ7PMoCPkckssH31NjA=/0x0:769x769/200x200/filters:strip_icc()/pic8046728.jpg",
+      "thumbnail": "images/thumbnails/415092.jpg",
+      "image": "images/full/415092.jpg",
+      "description": "Play trick-taking to hit your bids, but FLIP your cards halfway through the game.",
+      "rawScore": 3.695041722813606,
+      "recommendedBy": [
+        {
+          "ownedId": "400113",
+          "ownedName": "Panda Panda",
+          "userRating": 8,
+          "bggRecRank": 3,
+          "contributionScore": 3.7
+        }
+      ],
+      "matchScore": 3.4,
+      "minPlayers": 3,
+      "maxPlayers": 4,
+      "playingTime": 30
+    },
+    {
+      "objectId": "352591",
+      "name": "The Royal Limited",
+      "yearPublished": "2023",
+      "bggRating": 7.04,
+      "bggRank": 5532,
+      "numVoters": 469,
+      "numFans": 54,
+      "coverUrl": "https://cf.geekdo-images.com/AMrQErlzUmsE8ac8qxGe7w__square100@2x/img/kt_xR7SvHX0-LZkqeg7bgbmHnOY=/0x0:445x445/200x200/filters:strip_icc()/pic7422259.png",
+      "thumbnail": "images/thumbnails/352591.png",
+      "image": "images/full/352591.png",
+      "description": "Place fancy train cars, loading them up with fancy passengers.",
+      "rawScore": 2.818074551902181,
+      "recommendedBy": [
+        {
+          "ownedId": "342562",
+          "ownedName": "ROVE: Results-Oriented Versatile Explorer",
+          "userRating": 8,
+          "bggRecRank": 18,
+          "contributionScore": 1.51
+        },
+        {
+          "ownedId": "378117",
+          "ownedName": "The Last Lighthouse",
+          "userRating": 7,
+          "bggRecRank": 14,
+          "contributionScore": 1.31
+        }
+      ],
+      "matchScore": 3.4,
+      "minPlayers": 1,
+      "maxPlayers": 1,
+      "playingTime": 20
+    },
+    {
+      "objectId": "424371",
+      "name": "Octocube",
+      "yearPublished": "2025",
+      "bggRating": 6.74,
+      "bggRank": 14529,
+      "numVoters": 100,
+      "numFans": 14,
+      "coverUrl": "https://cf.geekdo-images.com/FuHGBf5aaYoxqO1t7u-vZw__square100@2x/img/BHLaVf79etmBxrmqP-fvefk6w6Y=/200x200/filters:strip_icc()/pic8398933.png",
+      "thumbnail": "images/thumbnails/424371.png",
+      "image": "images/full/424371.png",
+      "description": "Playful Octopus compete to collect objects.",
+      "rawScore": 2.9208361765850723,
+      "recommendedBy": [
+        {
+          "ownedId": "445045",
+          "ownedName": "Dice Pool Party",
+          "userRating": 7,
+          "bggRecRank": 8,
+          "contributionScore": 1.73
+        },
+        {
+          "ownedId": "453526",
+          "ownedName": "Got Five!",
+          "userRating": 7,
+          "bggRecRank": 17,
+          "contributionScore": 1.19
+        }
+      ],
+      "matchScore": 3.4,
+      "minPlayers": 2,
+      "maxPlayers": 4,
+      "playingTime": 25
+    },
+    {
+      "objectId": "436046",
+      "name": "One Round?",
+      "yearPublished": "2025",
+      "bggRating": 7.03,
+      "bggRank": 6074,
+      "numVoters": 395,
+      "numFans": 31,
+      "coverUrl": "https://cf.geekdo-images.com/sDu5MUd1e3_X1ByqVaLp1g__square100@2x/img/2ZUTyE_H5x3XwfzVPYunOPXQNcs=/0x66:662x728/200x200/filters:strip_icc()/pic8615102.png",
+      "thumbnail": "images/thumbnails/436046.png",
+      "image": "images/full/436046.png",
+      "description": "Place words correctly to create a harmonious circle.",
+      "rawScore": 3.4648232278140823,
+      "recommendedBy": [
+        {
+          "ownedId": "453526",
+          "ownedName": "Got Five!",
+          "userRating": 7,
+          "bggRecRank": 2,
+          "contributionScore": 3.46
+        }
+      ],
+      "matchScore": 3.4,
+      "minPlayers": 2,
+      "maxPlayers": 12,
+      "playingTime": 15
+    },
+    {
+      "objectId": "269595",
+      "name": "Copenhagen",
+      "yearPublished": "2019",
+      "bggRating": 6.92,
+      "bggRank": 1555,
+      "numVoters": 4530,
+      "numFans": 223,
+      "coverUrl": "https://cf.geekdo-images.com/9rxcvgJyZ4_gJ651hMBU_A__square100@2x/img/zNLrIjzZ-dxknucLCduxnMeg8QQ=/200x200/filters:strip_icc()/pic4518807.jpg",
+      "thumbnail": "images/thumbnails/269595.jpg",
+      "image": "images/full/269595.jpg",
+      "description": "Polyomino your way to the grandest facades in the Danish capital.",
+      "rawScore": 2.7406525629105625,
+      "recommendedBy": [
+        {
+          "ownedId": "63975",
+          "ownedName": "Mountain Goats",
+          "userRating": 8,
+          "bggRecRank": 17,
+          "contributionScore": 1.55
+        },
+        {
+          "ownedId": "251412",
+          "ownedName": "On Tour",
+          "userRating": 7,
+          "bggRecRank": 17,
+          "contributionScore": 1.19
+        }
+      ],
+      "matchScore": 3.3,
+      "minPlayers": 2,
+      "maxPlayers": 4,
+      "playingTime": 40
+    },
+    {
+      "objectId": "446249",
+      "name": "Piñatas",
+      "yearPublished": "2025",
+      "bggRating": 7.37,
+      "bggRank": 4377,
+      "numVoters": 535,
+      "numFans": 52,
+      "coverUrl": "https://cf.geekdo-images.com/UMtB1Fb4PxWdzbzscYbOmg__square100@2x/img/LIff6QPZgWntkINr6leeOz1As2c=/200x200/filters:strip_icc()/pic8873948.jpg",
+      "thumbnail": "images/thumbnails/446249.jpg",
+      "image": "images/full/446249.jpg",
+      "description": "A trick-taker about going out as late as possible, without being last.",
+      "rawScore": 3.2000000000000006,
+      "recommendedBy": [
+        {
+          "ownedId": "400113",
+          "ownedName": "Panda Panda",
+          "userRating": 8,
+          "bggRecRank": 4,
+          "contributionScore": 3.2
+        }
+      ],
+      "matchScore": 3.3,
+      "minPlayers": 2,
+      "maxPlayers": 5,
+      "playingTime": 40
+    },
+    {
+      "objectId": "272993",
+      "name": "Dragonrealm",
+      "yearPublished": "2019",
+      "bggRating": 6.95,
+      "bggRank": 4055,
+      "numVoters": 947,
+      "numFans": 79,
+      "coverUrl": "https://cf.geekdo-images.com/izl-fQWG77J6GWcy7cAhKQ__square100@2x/img/9KlWbj3SdQx77AwanJumjslY2PU=/0x0:1000x1000/200x200/filters:strip_icc()/pic4781299.jpg",
+      "thumbnail": "images/thumbnails/272993.jpg",
+      "image": "images/full/272993.jpg",
+      "description": "Use card melds to capture fantasy locations and amass treasure.",
+      "rawScore": 3.4648232278140823,
+      "recommendedBy": [
+        {
+          "ownedId": "216439",
+          "ownedName": "Trash Pandas",
+          "userRating": 7,
+          "bggRecRank": 2,
+          "contributionScore": 3.46
+        }
+      ],
+      "matchScore": 3.3,
+      "minPlayers": 2,
+      "maxPlayers": 4,
+      "playingTime": 30
+    },
+    {
+      "objectId": "205059",
+      "name": "Mansions of Madness: Second Edition",
+      "yearPublished": "2016",
+      "bggRating": 7.91,
+      "bggRank": 79,
+      "numVoters": 40618,
+      "numFans": 4077,
+      "coverUrl": "https://cf.geekdo-images.com/LIooA9bTdjnE9qmhjL-UFw__square100@2x/img/I60Uk2oPsbiV0u_onRxI6HNgUxc=/200x200/filters:strip_icc()/pic3118622.jpg",
+      "thumbnail": "images/thumbnails/205059.jpg",
+      "image": "images/full/205059.jpg",
+      "description": "Cling to your sanity as you investigate Lovecraftian horrors.",
+      "rawScore": 2.886751345948129,
+      "recommendedBy": [
+        {
+          "ownedId": "424784",
+          "ownedName": "Arkham Horror: Lovecraft Letter",
+          "userRating": 10,
+          "bggRecRank": 12,
+          "contributionScore": 2.89
+        }
+      ],
+      "matchScore": 3.2,
+      "minPlayers": 1,
+      "maxPlayers": 5,
+      "playingTime": 180
+    },
+    {
+      "objectId": "332944",
+      "name": "Sobek: 2 Players",
+      "yearPublished": "2021",
+      "bggRating": 7.13,
+      "bggRank": 1586,
+      "numVoters": 3128,
+      "numFans": 221,
+      "coverUrl": "https://cf.geekdo-images.com/BAsvubJSF40047knaPXRQQ__square100@2x/img/WnGn3bflm8KKxPcdnbomzBB0224=/200x200/filters:strip_icc()/pic6696884.jpg",
+      "thumbnail": "images/thumbnails/332944.jpg",
+      "image": "images/full/332944.jpg",
+      "description": "Pick the good tiles but beware of your opponent's possibilities.",
+      "rawScore": 2.6239944731441103,
+      "recommendedBy": [
+        {
+          "ownedId": "216497",
+          "ownedName": "District Noir",
+          "userRating": 8,
+          "bggRecRank": 28,
+          "contributionScore": 1.21
+        },
+        {
+          "ownedId": "393325",
+          "ownedName": "Captain Flip",
+          "userRating": 7,
+          "bggRecRank": 12,
+          "contributionScore": 1.41
+        }
+      ],
+      "matchScore": 3.2,
+      "minPlayers": 2,
+      "maxPlayers": 2,
+      "playingTime": 20
+    },
+    {
+      "objectId": "431481",
+      "name": "A Place for All My Books",
+      "yearPublished": "2025",
+      "bggRating": 7.49,
+      "bggRank": 1975,
+      "numVoters": 1696,
+      "numFans": 422,
+      "coverUrl": "https://cf.geekdo-images.com/aPj94RRrT5oliCph1zaVbw__square100@2x/img/xHtIgV6DIRH4CmJKpMIx5LrS95E=/0x0:1635x1635/200x200/filters:strip_icc()/pic8519566.png",
+      "thumbnail": "images/thumbnails/431481.png",
+      "image": "images/full/431481.png",
+      "description": "Acquire, arrange, and admire your books as you complete rewarding projects!",
+      "rawScore": 2.46846900840806,
+      "recommendedBy": [
+        {
+          "ownedId": "360503",
+          "ownedName": "Downtown Farmers Market",
+          "userRating": 8,
+          "bggRecRank": 19,
+          "contributionScore": 1.47
+        },
+        {
+          "ownedId": "431998",
+          "ownedName": "Point Galaxy",
+          "userRating": 7,
+          "bggRecRank": 24,
+          "contributionScore": 1
+        }
+      ],
+      "matchScore": 3.2,
+      "minPlayers": 1,
+      "maxPlayers": 4,
+      "playingTime": 60
+    },
+    {
+      "objectId": "369880",
+      "name": "Beer & Bread",
+      "yearPublished": "2022",
+      "bggRating": 7.3,
+      "bggRank": 736,
+      "numVoters": 7170,
+      "numFans": 689,
+      "coverUrl": "https://cf.geekdo-images.com/vPRTRJce1GOsUf6M_dWd-g__square100@2x/img/3LSlkXNnhzYQ2hJvbb56wfenXdo=/200x200/filters:strip_icc()/pic7064178.jpg",
+      "thumbnail": "images/thumbnails/369880.jpg",
+      "image": "images/full/369880.jpg",
+      "description": "Two villages face off in the traditions of brewing beer and baking bread.",
+      "rawScore": 2.543978563594806,
+      "recommendedBy": [
+        {
+          "ownedId": "353545",
+          "ownedName": "Next Station: London",
+          "userRating": 8,
+          "bggRecRank": 23,
+          "contributionScore": 1.33
+        },
+        {
+          "ownedId": "414317",
+          "ownedName": "Harmonies",
+          "userRating": 8,
+          "bggRecRank": 28,
+          "contributionScore": 1.21
+        }
+      ],
+      "matchScore": 3.2,
+      "minPlayers": 2,
+      "maxPlayers": 2,
+      "playingTime": 45
+    },
+    {
+      "objectId": "366456",
+      "name": "My Shelfie",
+      "yearPublished": "2022",
+      "bggRating": 6.54,
+      "bggRank": 2753,
+      "numVoters": 3283,
+      "numFans": 205,
+      "coverUrl": "https://cf.geekdo-images.com/Sgg2B7kxtx8fFXz_2mPefA__square100@2x/img/FPBww5UFeZ2kzeh4XE3VBn00DgU=/200x200/filters:strip_icc()/pic7193695.png",
+      "thumbnail": "images/thumbnails/366456.png",
+      "image": "images/full/366456.png",
+      "description": "Fill your shelves in a winning way!",
+      "rawScore": 2.807413970319859,
+      "recommendedBy": [
+        {
+          "ownedId": "403116",
+          "ownedName": "Next Station: Paris",
+          "userRating": 8,
+          "bggRecRank": 15,
+          "contributionScore": 1.65
+        },
+        {
+          "ownedId": "380165",
+          "ownedName": "Next Station: Tokyo",
+          "userRating": 7,
+          "bggRecRank": 18,
+          "contributionScore": 1.15
+        }
+      ],
+      "matchScore": 3.2,
+      "minPlayers": 2,
+      "maxPlayers": 4,
+      "playingTime": 30
+    },
+    {
+      "objectId": "355208",
+      "name": "Q-Less",
+      "yearPublished": "2018",
+      "bggRating": 8.07,
+      "bggRank": 7972,
+      "numVoters": 142,
+      "numFans": 28,
+      "coverUrl": "https://cf.geekdo-images.com/8Zl2tgvYtJYubTe4YCrzXw__square100@2x/img/u5idWqsdekxauytBOokwPZWBD2c=/200x200/filters:strip_icc()/pic7033934.jpg",
+      "thumbnail": "images/thumbnails/355208.jpg",
+      "image": "images/full/355208.jpg",
+      "description": "Roll letter dice in this crossword solitaire game.",
+      "rawScore": 2.8621670111997313,
+      "recommendedBy": [
+        {
+          "ownedId": "191095",
+          "ownedName": "Scoundrel",
+          "userRating": 8,
+          "bggRecRank": 5,
+          "contributionScore": 2.86
+        }
+      ],
+      "matchScore": 3.2,
+      "minPlayers": 1,
+      "maxPlayers": 1,
+      "playingTime": 0
+    },
+    {
+      "objectId": "387378",
+      "name": "MLEM: Space Agency",
+      "yearPublished": "2024",
+      "bggRating": 7.15,
+      "bggRank": 977,
+      "numVoters": 6351,
+      "numFans": 512,
+      "coverUrl": "https://cf.geekdo-images.com/CQ9o1kqExmBpHcPMVk0qwQ__square100@2x/img/7d93pnyTawhyzQ-RwwF1xRXxYKY=/200x200/filters:strip_icc()/pic7926071.jpg",
+      "thumbnail": "images/thumbnails/387378.jpg",
+      "image": "images/full/387378.jpg",
+      "description": "Send your cats throughout the solar system to occupy planets and moons.",
+      "rawScore": 2.5996668097263678,
+      "recommendedBy": [
+        {
+          "ownedId": "367220",
+          "ownedName": "Sea Salt &amp; Paper",
+          "userRating": 8,
+          "bggRecRank": 23,
+          "contributionScore": 1.33
+        },
+        {
+          "ownedId": "266083",
+          "ownedName": "L.L.A.M.A.",
+          "userRating": 7,
+          "bggRecRank": 15,
+          "contributionScore": 1.27
+        }
+      ],
+      "matchScore": 3.2,
+      "minPlayers": 2,
+      "maxPlayers": 5,
+      "playingTime": 60
+    },
+    {
+      "objectId": "318182",
+      "name": "Imperium: Legends",
+      "yearPublished": "2021",
+      "bggRating": 7.84,
+      "bggRank": 455,
+      "numVoters": 5075,
+      "numFans": 550,
+      "coverUrl": "https://cf.geekdo-images.com/-6AnQ0BuCM8u1lqAwTe8Rw__square100@2x/img/ny7d6-3xLkgWNgeL7mnTznWMUHA=/0x447:1000x1447/200x200/filters:strip_icc()/pic5623567.jpg",
+      "thumbnail": "images/thumbnails/318182.jpg",
+      "image": "images/full/318182.jpg",
+      "description": "Compete to become the most dominant empire the world has ever seen!",
+      "rawScore": 2.3765944975103515,
+      "recommendedBy": [
+        {
+          "ownedId": "306735",
+          "ownedName": "Under Falling Skies",
+          "userRating": 8,
+          "bggRecRank": 21,
+          "contributionScore": 1.4
+        },
+        {
+          "ownedId": "352697",
+          "ownedName": "Resist!",
+          "userRating": 7,
+          "bggRecRank": 25,
+          "contributionScore": 0.98
+        }
+      ],
+      "matchScore": 3.2,
+      "minPlayers": 1,
+      "maxPlayers": 4,
+      "playingTime": 160
+    },
+    {
+      "objectId": "370913",
+      "name": "Star Wars: The Clone Wars",
+      "yearPublished": "2022",
+      "bggRating": 7.51,
+      "bggRank": 749,
+      "numVoters": 5087,
+      "numFans": 519,
+      "coverUrl": "https://cf.geekdo-images.com/3d4Yptz2IUC2ZAxtdPidig__square100@2x/img/d-vAnwRG3DcqBmLMLsfWOzwjY4U=/0x918:3056x3974/200x200/filters:strip_icc()/pic8211893.jpg",
+      "thumbnail": "images/thumbnails/370913.jpg",
+      "image": "images/full/370913.jpg",
+      "description": "Use your Jedi powers to fight off the Separatist threat — Pandemic-style.",
+      "rawScore": 3.0151134457776365,
+      "recommendedBy": [
+        {
+          "ownedId": "304285",
+          "ownedName": "Infinity Gauntlet: A Love Letter Game",
+          "userRating": 10,
+          "bggRecRank": 11,
+          "contributionScore": 3.02
+        }
+      ],
+      "matchScore": 3.1,
+      "minPlayers": 1,
+      "maxPlayers": 5,
+      "playingTime": 60
+    },
+    {
+      "objectId": "302280",
+      "name": "Shifting Stones",
+      "yearPublished": "2020",
+      "bggRating": 6.51,
+      "bggRank": 3000,
+      "numVoters": 3041,
+      "numFans": 169,
+      "coverUrl": "https://cf.geekdo-images.com/plgpLHkEWQX2cMvSzzLyew__square100@2x/img/7JU87sUW9g1DO83tW9VHm8p0YrU=/200x200/filters:strip_icc()/pic5238602.jpg",
+      "thumbnail": "images/thumbnails/302280.jpg",
+      "image": "images/full/302280.jpg",
+      "description": "Rearrange nine mystical stones to match ancient magical patterns and score.",
+      "rawScore": 2.7610790821862583,
+      "recommendedBy": [
+        {
+          "ownedId": "401636",
+          "ownedName": "Tacta",
+          "userRating": 8,
+          "bggRecRank": 21,
+          "contributionScore": 1.4
+        },
+        {
+          "ownedId": "63975",
+          "ownedName": "Mountain Goats",
+          "userRating": 8,
+          "bggRecRank": 22,
+          "contributionScore": 1.36
+        }
+      ],
+      "matchScore": 3.1,
+      "minPlayers": 1,
+      "maxPlayers": 5,
+      "playingTime": 20
+    },
+    {
+      "objectId": "253284",
+      "name": "Ticket to Ride: New York",
+      "yearPublished": "2018",
+      "bggRating": 6.88,
+      "bggRank": 1277,
+      "numVoters": 7785,
+      "numFans": 182,
+      "coverUrl": "https://cf.geekdo-images.com/v0YHI6x4g8dJdtSqaxMdiA__square100@2x/img/Jd175XUbw5x5cyC-xAQYYGO33AU=/200x200/filters:strip_icc()/pic4132194.jpg",
+      "thumbnail": "images/thumbnails/253284.jpg",
+      "image": "images/full/253284.jpg",
+      "description": "Catch a cab across Manhattan when low on time with this 15 minute express version.",
+      "rawScore": 3.2000000000000006,
+      "recommendedBy": [
+        {
+          "ownedId": "309113",
+          "ownedName": "Ticket to Ride: Amsterdam",
+          "userRating": 8,
+          "bggRecRank": 4,
+          "contributionScore": 3.2
+        }
+      ],
+      "matchScore": 3.1,
+      "minPlayers": 2,
+      "maxPlayers": 4,
+      "playingTime": 15
+    },
+    {
+      "objectId": "394961",
+      "name": "Penny Black",
+      "yearPublished": "2023",
+      "bggRating": 7.06,
+      "bggRank": 5327,
+      "numVoters": 477,
+      "numFans": 79,
+      "coverUrl": "https://cf.geekdo-images.com/NMDVnGBfnnP5waYs-h3w-Q__square100@2x/img/oEn3464wO_-kCbhxDiwIb7XPdpI=/200x200/filters:strip_icc()/pic7620884.jpg",
+      "thumbnail": "images/thumbnails/394961.jpg",
+      "image": "images/full/394961.jpg",
+      "description": "Stamp collecting strategy game!",
+      "rawScore": 3.2000000000000006,
+      "recommendedBy": [
+        {
+          "ownedId": "360503",
+          "ownedName": "Downtown Farmers Market",
+          "userRating": 8,
+          "bggRecRank": 4,
+          "contributionScore": 3.2
+        }
+      ],
+      "matchScore": 3.1,
+      "minPlayers": 2,
+      "maxPlayers": 4,
+      "playingTime": 20
+    },
+    {
+      "objectId": "316412",
+      "name": "The LOOP",
+      "yearPublished": "2020",
+      "bggRating": 7.69,
+      "bggRank": 506,
+      "numVoters": 5769,
+      "numFans": 794,
+      "coverUrl": "https://cf.geekdo-images.com/NPWdxDD5uLOBLBDdVgdLvA__square100@2x/img/E5tinFt4QutI1gqTLq54rYu7WFA=/200x200/filters:strip_icc()/pic6034093.png",
+      "thumbnail": "images/thumbnails/316412.png",
+      "image": "images/full/316412.png",
+      "description": "Team up to outwit Dr. Faux and save the timeline from collapsing!",
+      "rawScore": 2.8621670111997313,
+      "recommendedBy": [
+        {
+          "ownedId": "359152",
+          "ownedName": "Marvel: Remix",
+          "userRating": 8,
+          "bggRecRank": 5,
+          "contributionScore": 2.86
+        }
+      ],
+      "matchScore": 3.1,
+      "minPlayers": 1,
+      "maxPlayers": 4,
+      "playingTime": 60
+    },
+    {
+      "objectId": "177524",
+      "name": "ICECOOL",
+      "yearPublished": "2016",
+      "bggRating": 6.78,
+      "bggRank": 1213,
+      "numVoters": 12335,
+      "numFans": 387,
+      "coverUrl": "https://cf.geekdo-images.com/xVx8ex1fjO9C7W8rRvWdVQ__square100@2x/img/13b43ei73S8Jm_ZOQWfpQtzGq2I=/156x0:2143x1222/fit-in/200x200/filters:fill(blur):strip_icc()/pic3320017.png",
+      "thumbnail": "images/thumbnails/177524.png",
+      "image": "images/full/177524.png",
+      "description": "Flick high school penguins to catch fish without getting caught by the hall monitor.",
+      "rawScore": 2.673653149448258,
+      "recommendedBy": [
+        {
+          "ownedId": "153318",
+          "ownedName": "Dimension",
+          "userRating": 7,
+          "bggRecRank": 10,
+          "contributionScore": 1.55
+        },
+        {
+          "ownedId": "380887",
+          "ownedName": "Deduckto",
+          "userRating": 7,
+          "bggRecRank": 19,
+          "contributionScore": 1.12
+        }
+      ],
+      "matchScore": 3.1,
+      "minPlayers": 2,
+      "maxPlayers": 4,
+      "playingTime": 30
+    },
+    {
+      "objectId": "188",
+      "name": "Go",
+      "yearPublished": "-2200",
+      "bggRating": 7.66,
+      "bggRank": 238,
+      "numVoters": 18457,
+      "numFans": 1305,
+      "coverUrl": "https://cf.geekdo-images.com/6qAiZwWxSSKP2kFcA80cZg__square100@2x/img/SnMoa1XO-IDCzz4imgsnT7U64jQ=/200x200/filters:strip_icc()/pic1728832.jpg",
+      "thumbnail": "images/thumbnails/188.jpg",
+      "image": "images/full/188.jpg",
+      "description": "Use stones to control space in this ancient game with simple rules.",
+      "rawScore": 2.8621670111997313,
+      "recommendedBy": [
+        {
+          "ownedId": "171",
+          "ownedName": "Chess",
+          "userRating": 8,
+          "bggRecRank": 5,
+          "contributionScore": 2.86
+        }
+      ],
+      "matchScore": 3,
+      "minPlayers": 2,
+      "maxPlayers": 2,
+      "playingTime": 180
+    },
+    {
+      "objectId": "414174",
+      "name": "Big Sur",
+      "yearPublished": "2025",
+      "bggRating": 7.01,
+      "bggRank": 5339,
+      "numVoters": 506,
+      "numFans": 88,
+      "coverUrl": "https://cf.geekdo-images.com/ruO2ugbjSPswzbzFwnTZOw__square100@2x/img/uUERbUdxN71NECeLqLl2lVMUw8A=/0x0:957x957/200x200/filters:strip_icc()/pic8055176.png",
+      "thumbnail": "images/thumbnails/414174.png",
+      "image": "images/full/414174.png",
+      "description": "Travel along the Pacific Coast Highway checking out the scenery and landmarks.",
+      "rawScore": 2.452804134479532,
+      "recommendedBy": [
+        {
+          "ownedId": "360503",
+          "ownedName": "Downtown Farmers Market",
+          "userRating": 8,
+          "bggRecRank": 20,
+          "contributionScore": 1.43
+        },
+        {
+          "ownedId": "431998",
+          "ownedName": "Point Galaxy",
+          "userRating": 7,
+          "bggRecRank": 23,
+          "contributionScore": 1.02
+        }
+      ],
+      "matchScore": 3,
+      "minPlayers": 2,
+      "maxPlayers": 4,
+      "playingTime": 30
+    },
+    {
+      "objectId": "391497",
+      "name": "Tangram City",
+      "yearPublished": "2023",
+      "bggRating": 6.78,
+      "bggRank": 4816,
+      "numVoters": 753,
+      "numFans": 80,
+      "coverUrl": "https://cf.geekdo-images.com/Fa6s7o2zu1rlcduEUJ5wkg__square100@2x/img/lN0Np0ufVsnm2QiraIxRJxBGdMQ=/0x0:543x543/200x200/filters:strip_icc()/pic7997650.png",
+      "thumbnail": "images/thumbnails/391497.png",
+      "image": "images/full/391497.png",
+      "description": "Puzzle a harmonious city worthy of the queen to collect the most points.",
+      "rawScore": 2.5529091473539385,
+      "recommendedBy": [
+        {
+          "ownedId": "360503",
+          "ownedName": "Downtown Farmers Market",
+          "userRating": 8,
+          "bggRecRank": 22,
+          "contributionScore": 1.36
+        },
+        {
+          "ownedId": "431998",
+          "ownedName": "Point Galaxy",
+          "userRating": 7,
+          "bggRecRank": 17,
+          "contributionScore": 1.19
+        }
+      ],
+      "matchScore": 3,
+      "minPlayers": 1,
+      "maxPlayers": 5,
+      "playingTime": 40
+    },
+    {
+      "objectId": "453893",
+      "name": "Collect!",
+      "yearPublished": "2025",
+      "bggRating": 6.66,
+      "bggRank": 4867,
+      "numVoters": 874,
+      "numFans": 88,
+      "coverUrl": "https://cf.geekdo-images.com/4BOrkLzSy1Oquo3VwaToiA__square100@2x/img/Zu_Fht_mu9AjHZ6b36VzGk5StrQ=/0x468:826x1294/200x200/filters:strip_icc()/pic9091458.png",
+      "thumbnail": "images/thumbnails/453893.png",
+      "image": "images/full/453893.png",
+      "description": "Use animal powers to collect a quartet of one animal in a single group.",
+      "rawScore": 3.2000000000000006,
+      "recommendedBy": [
+        {
+          "ownedId": "464261",
+          "ownedName": "Next Station: Berlin",
+          "userRating": 8,
+          "bggRecRank": 4,
+          "contributionScore": 3.2
+        }
+      ],
+      "matchScore": 3,
+      "minPlayers": 2,
+      "maxPlayers": 5,
+      "playingTime": 30
+    },
+    {
+      "objectId": "264055",
+      "name": "Draftosaurus",
+      "yearPublished": "2019",
+      "bggRating": 7.08,
+      "bggRank": 680,
+      "numVoters": 17060,
+      "numFans": 636,
+      "coverUrl": "https://cf.geekdo-images.com/JahbLRZ_jEe8P8gisXUtJw__square100@2x/img/p7ZvlzVwjcpOLVczADKXZo9eGOw=/200x200/filters:strip_icc()/pic4447676.jpg",
+      "thumbnail": "images/thumbnails/264055.jpg",
+      "image": "images/full/264055.jpg",
+      "description": "A dinosaur park will always attract tourists – if you can place your species right.",
+      "rawScore": 2.4349410759380277,
+      "recommendedBy": [
+        {
+          "ownedId": "274960",
+          "ownedName": "Point Salad",
+          "userRating": 8,
+          "bggRecRank": 25,
+          "contributionScore": 1.28
+        },
+        {
+          "ownedId": "204583",
+          "ownedName": "Kingdomino",
+          "userRating": 7,
+          "bggRecRank": 18,
+          "contributionScore": 1.15
+        }
+      ],
+      "matchScore": 3,
+      "minPlayers": 2,
+      "maxPlayers": 5,
+      "playingTime": 15
+    },
+    {
+      "objectId": "408840",
+      "name": "Glass Garden",
+      "yearPublished": "2025",
+      "bggRating": 7.21,
+      "bggRank": 8757,
+      "numVoters": 175,
+      "numFans": 46,
+      "coverUrl": "https://cf.geekdo-images.com/_jUgtrhQCKHe3TMIrkwMMA__square100@2x/img/bzhjgJt5UptYczjPSQnCRB9XgI8=/0x0:1497x1497/200x200/filters:strip_icc()/pic8482221.png",
+      "thumbnail": "images/thumbnails/408840.png",
+      "image": "images/full/408840.png",
+      "description": "Foster succulent plants inside your terrarium while minding the invasive critters.",
+      "rawScore": 2.4041370959657526,
+      "recommendedBy": [
+        {
+          "ownedId": "342562",
+          "ownedName": "ROVE: Results-Oriented Versatile Explorer",
+          "userRating": 8,
+          "bggRecRank": 25,
+          "contributionScore": 1.28
+        },
+        {
+          "ownedId": "378117",
+          "ownedName": "The Last Lighthouse",
+          "userRating": 7,
+          "bggRecRank": 19,
+          "contributionScore": 1.12
+        }
+      ],
+      "matchScore": 3,
+      "minPlayers": 1,
+      "maxPlayers": 1,
+      "playingTime": 15
+    },
+    {
+      "objectId": "75223",
+      "name": "Utopia Engine",
+      "yearPublished": "2010",
+      "bggRating": 6.86,
+      "bggRank": 4496,
+      "numVoters": 970,
+      "numFans": 391,
+      "coverUrl": "https://cf.geekdo-images.com/HTsjNQHQQMf029lmvlOFqA__square100@2x/img/EaQQ4rd3mpLxTa_J4ODWWOpr48g=/1191x0:3117x703/fit-in/200x200/filters:fill(blur):strip_icc()/pic1827127.jpg",
+      "thumbnail": "images/thumbnails/75223.jpg",
+      "image": "images/full/75223.jpg",
+      "description": "To stop Doomsday, Isodoros must risk his own life to assemble a fabled device.",
+      "rawScore": 3.2000000000000006,
+      "recommendedBy": [
+        {
+          "ownedId": "191095",
+          "ownedName": "Scoundrel",
+          "userRating": 8,
+          "bggRecRank": 4,
+          "contributionScore": 3.2
+        }
+      ],
+      "matchScore": 3,
+      "minPlayers": 1,
+      "maxPlayers": 1,
+      "playingTime": 60
+    },
+    {
+      "objectId": "258036",
+      "name": "Between Two Castles of Mad King Ludwig",
+      "yearPublished": "2018",
+      "bggRating": 7.22,
+      "bggRank": 784,
+      "numVoters": 7402,
+      "numFans": 382,
+      "coverUrl": "https://cf.geekdo-images.com/IwczsFUMHhIyI_39wFaHWw__square100@2x/img/JnybssXSRkG7LDDgsw4XyQFiI2Q=/200x200/filters:strip_icc()/pic4285717.jpg",
+      "thumbnail": "images/thumbnails/258036.jpg",
+      "image": "images/full/258036.jpg",
+      "description": "Help your 2 neighboring players build the wackiest—but highest scoring—castles.",
+      "rawScore": 2.394508159514583,
+      "recommendedBy": [
+        {
+          "ownedId": "260180",
+          "ownedName": "Project L",
+          "userRating": 7,
+          "bggRecRank": 12,
+          "contributionScore": 1.41
+        },
+        {
+          "ownedId": "283155",
+          "ownedName": "Calico",
+          "userRating": 7,
+          "bggRecRank": 25,
+          "contributionScore": 0.98
+        }
+      ],
+      "matchScore": 3,
+      "minPlayers": 2,
+      "maxPlayers": 7,
+      "playingTime": 60
+    },
+    {
+      "objectId": "352574",
+      "name": "Fit to Print",
+      "yearPublished": "2023",
+      "bggRating": 7.3,
+      "bggRank": 1053,
+      "numVoters": 4263,
+      "numFans": 569,
+      "coverUrl": "https://cf.geekdo-images.com/MbLJUbvoRI_AS-KGfIkmNQ__square100@2x/img/GF3o3UQdowjx8NEFlHnlixjDxfM=/200x200/filters:strip_icc()/pic7161032.jpg",
+      "thumbnail": "images/thumbnails/352574.jpg",
+      "image": "images/full/352574.jpg",
+      "description": "Race to arrange the perfect front page of a woodland newspaper!",
+      "rawScore": 2.359223792388276,
+      "recommendedBy": [
+        {
+          "ownedId": "368017",
+          "ownedName": "Point City",
+          "userRating": 7,
+          "bggRecRank": 13,
+          "contributionScore": 1.36
+        },
+        {
+          "ownedId": "260180",
+          "ownedName": "Project L",
+          "userRating": 7,
+          "bggRecRank": 24,
+          "contributionScore": 1
+        }
+      ],
+      "matchScore": 3,
+      "minPlayers": 1,
+      "maxPlayers": 6,
+      "playingTime": 30
+    },
+    {
+      "objectId": "366162",
+      "name": "Clever 4Ever",
+      "yearPublished": "2022",
+      "bggRating": 7.61,
+      "bggRank": 1306,
+      "numVoters": 2283,
+      "numFans": 114,
+      "coverUrl": "https://cf.geekdo-images.com/sPi_5WA2TdMTNx0ZGeshTg__square100@2x/img/Gyxf2xCBpP5KqSuhPoqw95ErbwU=/0x0:1543x1543/200x200/filters:strip_icc()/pic7596285.jpg",
+      "thumbnail": "images/thumbnails/366162.jpg",
+      "image": "images/full/366162.jpg",
+      "description": "Draft dice to mark numbers on your scoresheet, comboing bonuses to power your points.",
+      "rawScore": 2.8290163190291664,
+      "recommendedBy": [
+        {
+          "ownedId": "131260",
+          "ownedName": "Qwixx",
+          "userRating": 7,
+          "bggRecRank": 3,
+          "contributionScore": 2.83
+        }
+      ],
+      "matchScore": 3,
+      "minPlayers": 1,
+      "maxPlayers": 4,
+      "playingTime": 30
+    },
+    {
+      "objectId": "3190",
+      "name": "Quixo",
+      "yearPublished": "1995",
+      "bggRating": 6.27,
+      "bggRank": 5934,
+      "numVoters": 1126,
+      "numFans": 53,
+      "coverUrl": "https://cf.geekdo-images.com/Iuh9lINb-kTIGgmPQZu3DA__square100@2x/img/Spg11WTvIB5PFqTe8h2_EUPurLE=/200x200/filters:strip_icc()/pic3488230.jpg",
+      "thumbnail": "images/thumbnails/3190.jpg",
+      "image": "images/full/3190.jpg",
+      "description": "Slide your blocks around to make five-in-a-row with this tic tac toe style game.",
+      "rawScore": 3.4648232278140823,
+      "recommendedBy": [
+        {
+          "ownedId": "99219",
+          "ownedName": "Swish",
+          "userRating": 7,
+          "bggRecRank": 2,
+          "contributionScore": 3.46
+        }
+      ],
+      "matchScore": 3,
+      "minPlayers": 2,
+      "maxPlayers": 4,
+      "playingTime": 15
+    },
+    {
+      "objectId": "266722",
+      "name": "Rumble Nation",
+      "yearPublished": "2017",
+      "bggRating": 7.44,
+      "bggRank": 1043,
+      "numVoters": 3396,
+      "numFans": 320,
+      "coverUrl": "https://cf.geekdo-images.com/B0V2pKNNy32oC53CC9b0NA__square100@2x/img/WGZfsQL70Lif8hQhZXSla1_lU0g=/0x171:1031x1202/200x200/filters:strip_icc()/pic8828234.jpg",
+      "thumbnail": "images/thumbnails/266722.jpg",
+      "image": "images/full/266722.jpg",
+      "description": "Warlords lead their clans to dominate Japan through the use of dice and domino logic.",
+      "rawScore": 2.2802083116364646,
+      "recommendedBy": [
+        {
+          "ownedId": "216497",
+          "ownedName": "District Noir",
+          "userRating": 8,
+          "bggRecRank": 25,
+          "contributionScore": 1.28
+        },
+        {
+          "ownedId": "172",
+          "ownedName": "For Sale",
+          "userRating": 7,
+          "bggRecRank": 24,
+          "contributionScore": 1
+        }
+      ],
+      "matchScore": 2.9,
+      "minPlayers": 2,
+      "maxPlayers": 4,
+      "playingTime": 40
+    },
+    {
+      "objectId": "408837",
+      "name": "ROVE Jr: Results-Oriented Versatile Explorer",
+      "yearPublished": "2024",
+      "bggRating": 7.3,
+      "bggRank": 9517,
+      "numVoters": 147,
+      "numFans": 20,
+      "coverUrl": "https://cf.geekdo-images.com/6pH4oesY73giyuOULcBsIw__square100@2x/img/z7vLZst5geRk-gXtNgVo2MMyNFo=/0x0:700x700/200x200/filters:strip_icc()/pic8113207.png",
+      "thumbnail": "images/thumbnails/408837.png",
+      "image": "images/full/408837.png",
+      "description": "Master the basics of ROVE’s modules with this introductory training course.",
+      "rawScore": 2.2553515765208427,
+      "recommendedBy": [
+        {
+          "ownedId": "342562",
+          "ownedName": "ROVE: Results-Oriented Versatile Explorer",
+          "userRating": 8,
+          "bggRecRank": 26,
+          "contributionScore": 1.26
+        },
+        {
+          "ownedId": "378117",
+          "ownedName": "The Last Lighthouse",
+          "userRating": 7,
+          "bggRecRank": 24,
+          "contributionScore": 1
+        }
+      ],
+      "matchScore": 2.9,
+      "minPlayers": 1,
+      "maxPlayers": 1,
+      "playingTime": 15
+    },
+    {
+      "objectId": "340364",
+      "name": "Machi Koro 2",
+      "yearPublished": "2021",
+      "bggRating": 7.08,
+      "bggRank": 1873,
+      "numVoters": 2725,
+      "numFans": 196,
+      "coverUrl": "https://cf.geekdo-images.com/NFIzv8Yr3_u7nc_PBoYntQ__square100@2x/img/Gpro6UwU1L3qc3qpbEXkzwHdm2o=/200x200/filters:strip_icc()/pic6221820.png",
+      "thumbnail": "images/thumbnails/340364.png",
+      "image": "images/full/340364.png",
+      "description": "Be the first to complete three landmarks to set your city apart!",
+      "rawScore": 2.3491370959657525,
+      "recommendedBy": [
+        {
+          "ownedId": "329954",
+          "ownedName": "Carcassonne: 20th Anniversary Edition",
+          "userRating": 7,
+          "bggRecRank": 16,
+          "contributionScore": 1.22
+        },
+        {
+          "ownedId": "260300",
+          "ownedName": "Dungeon Mayhem",
+          "userRating": 7,
+          "bggRecRank": 19,
+          "contributionScore": 1.12
+        }
+      ],
+      "matchScore": 2.9,
+      "minPlayers": 2,
+      "maxPlayers": 5,
+      "playingTime": 45
+    },
+    {
+      "objectId": "366322",
+      "name": "Skoventyr",
+      "yearPublished": "2023",
+      "bggRating": 7.32,
+      "bggRank": 4553,
+      "numVoters": 522,
+      "numFans": 129,
+      "coverUrl": "https://cf.geekdo-images.com/MmioTBYGXbqsnh1RiZWcuw__square100@2x/img/ZCMcrir2zeg1ZOqFXahxnikra6g=/0x126:544x670/200x200/filters:strip_icc()/pic7657964.jpg",
+      "thumbnail": "images/thumbnails/366322.jpg",
+      "image": "images/full/366322.jpg",
+      "description": "In the vibrant world of Danish folktales, defeat Gamle Erik or lose the forest.",
+      "rawScore": 2.8290163190291664,
+      "recommendedBy": [
+        {
+          "ownedId": "376893",
+          "ownedName": "Cyberion",
+          "userRating": 7,
+          "bggRecRank": 3,
+          "contributionScore": 2.83
+        }
+      ],
+      "matchScore": 2.9,
+      "minPlayers": 1,
+      "maxPlayers": 4,
+      "playingTime": 30
+    },
+    {
+      "objectId": "436217",
+      "name": "The Lord of the Rings: Fate of the Fellowship",
+      "yearPublished": "2025",
+      "bggRating": 8.34,
+      "bggRank": 68,
+      "numVoters": 10738,
+      "numFans": 3314,
+      "coverUrl": "https://cf.geekdo-images.com/scw36iBIad7l-rGzxPGcGg__square100@2x/img/vAAlY419N4WccR9-otLAn9p1s_0=/0x0:1694x1694/200x200/filters:strip_icc()/pic8662670.png",
+      "thumbnail": "images/thumbnails/436217.png",
+      "image": "images/full/436217.png",
+      "description": "As members of The Fellowship, embark on a journey to save—or doom—Middle-earth.",
+      "rawScore": 2.42535625036333,
+      "recommendedBy": [
+        {
+          "ownedId": "424784",
+          "ownedName": "Arkham Horror: Lovecraft Letter",
+          "userRating": 10,
+          "bggRecRank": 17,
+          "contributionScore": 2.43
+        }
+      ],
+      "matchScore": 2.8,
+      "minPlayers": 1,
+      "maxPlayers": 5,
+      "playingTime": 150
+    },
+    {
+      "objectId": "359893",
+      "name": "Sounds Fishy",
+      "yearPublished": "2022",
+      "bggRating": 6.73,
+      "bggRank": 3312,
+      "numVoters": 1738,
+      "numFans": 88,
+      "coverUrl": "https://cf.geekdo-images.com/rE37bpTHbMlei9RJYCJPoQ__square100@2x/img/0wh6WYrLcUC55wJIIXNyqB0WgAY=/0x0:477x477/200x200/filters:strip_icc()/pic6938099.png",
+      "thumbnail": "images/thumbnails/359893.png",
+      "image": "images/full/359893.png",
+      "description": "A fast-thinking, truth and lies, question game.",
+      "rawScore": 3.0151134457776365,
+      "recommendedBy": [
+        {
+          "ownedId": "411404",
+          "ownedName": "Power Hungry Pets",
+          "userRating": 10,
+          "bggRecRank": 11,
+          "contributionScore": 3.02
+        }
+      ],
+      "matchScore": 2.8,
+      "minPlayers": 4,
+      "maxPlayers": 10,
+      "playingTime": 30
+    },
+    {
+      "objectId": "369142",
+      "name": "Savernake Forest",
+      "yearPublished": "2023",
+      "bggRating": 7.06,
+      "bggRank": 2761,
+      "numVoters": 1573,
+      "numFans": 133,
+      "coverUrl": "https://cf.geekdo-images.com/L9czUzdXB6PFTkY7ibB8Ag__square100@2x/img/R29alxg0AsH1Q4m0gsFqgP4g9kI=/0x11:1503x1514/200x200/filters:strip_icc()/pic7141470.jpg",
+      "thumbnail": "images/thumbnails/369142.jpg",
+      "image": "images/full/369142.jpg",
+      "description": "Help your animal friends prepare for winter.",
+      "rawScore": 2.8621670111997313,
+      "recommendedBy": [
+        {
+          "ownedId": "309113",
+          "ownedName": "Ticket to Ride: Amsterdam",
+          "userRating": 8,
+          "bggRecRank": 5,
+          "contributionScore": 2.86
+        }
+      ],
+      "matchScore": 2.8,
+      "minPlayers": 2,
+      "maxPlayers": 4,
+      "playingTime": 40
+    },
+    {
+      "objectId": "181",
+      "name": "Risk",
+      "yearPublished": "1959",
+      "bggRating": 5.61,
+      "bggRank": 29946,
+      "numVoters": 38891,
+      "numFans": 1082,
+      "coverUrl": "https://cf.geekdo-images.com/Oem1TTtSgxOghRFCoyWRPw__square100@2x/img/Fo1kVTP3So-ZeUHxPgxiyJYzqvg=/0x0:600x600/200x200/filters:strip_icc()/pic4916782.jpg",
+      "thumbnail": "images/thumbnails/181.jpg",
+      "image": "images/full/181.jpg",
+      "description": "Will you conquer the world in this multi-player push-your-luck wargame?",
+      "rawScore": 2.6566852594496266,
+      "recommendedBy": [
+        {
+          "ownedId": "171",
+          "ownedName": "Chess",
+          "userRating": 8,
+          "bggRecRank": 19,
+          "contributionScore": 1.47
+        },
+        {
+          "ownedId": "1219",
+          "ownedName": "Labyrinth",
+          "userRating": 7,
+          "bggRecRank": 17,
+          "contributionScore": 1.19
+        }
+      ],
+      "matchScore": 2.8,
+      "minPlayers": 2,
+      "maxPlayers": 6,
+      "playingTime": 120
+    },
+    {
+      "objectId": "434865",
+      "name": "Lands of Amazement",
+      "yearPublished": "2025",
+      "bggRating": 6.63,
+      "bggRank": 11365,
+      "numVoters": 162,
+      "numFans": 27,
+      "coverUrl": "https://cf.geekdo-images.com/HfF3GFrDHPmwaA662TmXDA__square100@2x/img/C6egusmrsvxopw6aOfobytOeV4Q=/0x19:1497x1516/200x200/filters:strip_icc()/pic8904203.png",
+      "thumbnail": "images/thumbnails/434865.png",
+      "image": "images/full/434865.png",
+      "description": "Design a series of amusement parks, building your way up to the grandest one yet.",
+      "rawScore": 2.4613356054223896,
+      "recommendedBy": [
+        {
+          "ownedId": "342562",
+          "ownedName": "ROVE: Results-Oriented Versatile Explorer",
+          "userRating": 8,
+          "bggRecRank": 24,
+          "contributionScore": 1.31
+        },
+        {
+          "ownedId": "378117",
+          "ownedName": "The Last Lighthouse",
+          "userRating": 7,
+          "bggRecRank": 18,
+          "contributionScore": 1.15
+        }
+      ],
+      "matchScore": 2.8,
+      "minPlayers": 1,
+      "maxPlayers": 1,
+      "playingTime": 15
+    },
+    {
+      "objectId": "434860",
+      "name": "Dionysia",
+      "yearPublished": "2025",
+      "bggRating": 7.1,
+      "bggRank": 8471,
+      "numVoters": 209,
+      "numFans": 35,
+      "coverUrl": "https://cf.geekdo-images.com/wlVsIhY583RlWWGod770Og__square100@2x/img/peLgwyvTGCCb1FrF3nZbH14xL7U=/0x0:1497x1497/200x200/filters:strip_icc()/pic8598800.png",
+      "thumbnail": "images/thumbnails/434860.png",
+      "image": "images/full/434860.png",
+      "description": "Craft a compelling drama to win the favor of the god Dionysus in ancient Athens.",
+      "rawScore": 2.276364084413693,
+      "recommendedBy": [
+        {
+          "ownedId": "342562",
+          "ownedName": "ROVE: Results-Oriented Versatile Explorer",
+          "userRating": 8,
+          "bggRecRank": 27,
+          "contributionScore": 1.23
+        },
+        {
+          "ownedId": "378117",
+          "ownedName": "The Last Lighthouse",
+          "userRating": 7,
+          "bggRecRank": 22,
+          "contributionScore": 1.04
+        }
+      ],
+      "matchScore": 2.8,
+      "minPlayers": 2,
+      "maxPlayers": 2,
+      "playingTime": 15
+    },
+    {
+      "objectId": "408828",
+      "name": "Casinopolis",
+      "yearPublished": "2025",
+      "bggRating": 7.54,
+      "bggRank": 6802,
+      "numVoters": 226,
+      "numFans": 35,
+      "coverUrl": "https://cf.geekdo-images.com/iHb8WDiiwCpcqfG1YK2z4Q__square100@2x/img/7ChYLN1JFLHEtLU3gfuGMicULlA=/0x0:750x750/200x200/filters:strip_icc()/pic8612715.png",
+      "thumbnail": "images/thumbnails/408828.png",
+      "image": "images/full/408828.png",
+      "description": "Go for broke as you revitalize this gambler’s haven with new casinos.",
+      "rawScore": 2.152491753305916,
+      "recommendedBy": [
+        {
+          "ownedId": "342562",
+          "ownedName": "ROVE: Results-Oriented Versatile Explorer",
+          "userRating": 8,
+          "bggRecRank": 28,
+          "contributionScore": 1.21
+        },
+        {
+          "ownedId": "378117",
+          "ownedName": "The Last Lighthouse",
+          "userRating": 7,
+          "bggRecRank": 27,
+          "contributionScore": 0.94
+        }
+      ],
+      "matchScore": 2.8,
+      "minPlayers": 1,
+      "maxPlayers": 4,
+      "playingTime": 15
+    },
+    {
+      "objectId": "163967",
+      "name": "Tiny Epic Galaxies",
+      "yearPublished": "2015",
+      "bggRating": 7.32,
+      "bggRank": 398,
+      "numVoters": 22326,
+      "numFans": 1734,
+      "coverUrl": "https://cf.geekdo-images.com/c_87h8o0AOrfCO3hxMjjrA__square100@2x/img/YhN1YZJPf6Iyhi3MdMzegkF0QiA=/188x0:956x752/fit-in/200x200/filters:fill(blur):strip_icc()/pic2349732.jpg",
+      "thumbnail": "images/thumbnails/163967.jpg",
+      "image": "images/full/163967.jpg",
+      "description": "Roll your dice and colonize planets, utilizing your energy and culture.",
+      "rawScore": 2.21611232706148,
+      "recommendedBy": [
+        {
+          "ownedId": "306735",
+          "ownedName": "Under Falling Skies",
+          "userRating": 8,
+          "bggRecRank": 26,
+          "contributionScore": 1.26
+        },
+        {
+          "ownedId": "352697",
+          "ownedName": "Resist!",
+          "userRating": 7,
+          "bggRecRank": 26,
+          "contributionScore": 0.96
+        }
+      ],
+      "matchScore": 2.8,
+      "minPlayers": 1,
+      "maxPlayers": 5,
+      "playingTime": 45
+    },
+    {
+      "objectId": "364405",
+      "name": "Carcassonne Big Box 7",
+      "yearPublished": "2021",
+      "bggRating": 8.23,
+      "bggRank": null,
+      "numVoters": 1370,
+      "numFans": 169,
+      "coverUrl": "https://cf.geekdo-images.com/X_b-m2T7YsfG3hY1E0bqvg__square100@2x/img/JXqi-k9vZHHhPQ0FGTMGh0SXdb4=/441x0:2807x2366/200x200/filters:strip_icc()/pic6539643.png",
+      "thumbnail": "images/thumbnails/364405.png",
+      "image": "images/full/364405.png",
+      "description": "Carcassonne base game including 11 expansions.",
+      "rawScore": 2.4499999999999997,
+      "recommendedBy": [
+        {
+          "ownedId": "329954",
+          "ownedName": "Carcassonne: 20th Anniversary Edition",
+          "userRating": 7,
+          "bggRecRank": 4,
+          "contributionScore": 2.45
+        }
+      ],
+      "matchScore": 2.8,
+      "minPlayers": 2,
+      "maxPlayers": 6,
+      "playingTime": 35
+    },
+    {
+      "objectId": "183251",
+      "name": "Karuba",
+      "yearPublished": "2015",
+      "bggRating": 7.16,
+      "bggRank": 674,
+      "numVoters": 11982,
+      "numFans": 398,
+      "coverUrl": "https://cf.geekdo-images.com/hhV3JiYZUHEi_glLhC0v8w__square100@2x/img/Qpl1yC8BfsoWDAo03P4XPRSCX34=/0x0:1546x1546/200x200/filters:strip_icc()/pic2727088.jpg",
+      "thumbnail": "images/thumbnails/183251.jpg",
+      "image": "images/full/183251.jpg",
+      "description": "Forge a path through the jungle, pick up gems along the way and reach the temples.",
+      "rawScore": 2.2451745597610895,
+      "recommendedBy": [
+        {
+          "ownedId": "228504",
+          "ownedName": "Cat Lady",
+          "userRating": 7,
+          "bggRecRank": 15,
+          "contributionScore": 1.27
+        },
+        {
+          "ownedId": "153318",
+          "ownedName": "Dimension",
+          "userRating": 7,
+          "bggRecRank": 25,
+          "contributionScore": 0.98
+        }
+      ],
+      "matchScore": 2.8,
+      "minPlayers": 2,
+      "maxPlayers": 4,
+      "playingTime": 40
+    },
+    {
+      "objectId": "337787",
+      "name": "Summer Camp",
+      "yearPublished": "2021",
+      "bggRating": 7.09,
+      "bggRank": 1855,
+      "numVoters": 2614,
+      "numFans": 185,
+      "coverUrl": "https://cf.geekdo-images.com/KshsJJWgb265ZQjcxyZ89w__square100@2x/img/aL5wv785V0JKqjW9bvFvn5E4BKY=/200x200/filters:strip_icc()/pic6149210.jpg",
+      "thumbnail": "images/thumbnails/337787.jpg",
+      "image": "images/full/337787.jpg",
+      "description": "Collect cards and earn merit badges to become the ultimate summer camper.",
+      "rawScore": 2.3097883970073436,
+      "recommendedBy": [
+        {
+          "ownedId": "380887",
+          "ownedName": "Deduckto",
+          "userRating": 7,
+          "bggRecRank": 14,
+          "contributionScore": 1.31
+        },
+        {
+          "ownedId": "216439",
+          "ownedName": "Trash Pandas",
+          "userRating": 7,
+          "bggRecRank": 24,
+          "contributionScore": 1
+        }
+      ],
+      "matchScore": 2.8,
+      "minPlayers": 2,
+      "maxPlayers": 4,
+      "playingTime": 45
+    },
+    {
+      "objectId": "378200",
+      "name": "Triqueta",
+      "yearPublished": "2023",
+      "bggRating": 6.84,
+      "bggRank": 2806,
+      "numVoters": 1822,
+      "numFans": 126,
+      "coverUrl": "https://cf.geekdo-images.com/rAGKevIrE0vi48aoImuz9g__square100@2x/img/1ECzoudT-5qLEhye39sGTiDnqBo=/200x200/filters:strip_icc()/pic7976700.jpg",
+      "thumbnail": "images/thumbnails/378200.jpg",
+      "image": "images/full/378200.jpg",
+      "description": "Collect sets of mystical animal tokens and form perfect triquetas.",
+      "rawScore": 2.3405211183871897,
+      "recommendedBy": [
+        {
+          "ownedId": "445045",
+          "ownedName": "Dice Pool Party",
+          "userRating": 7,
+          "bggRecRank": 12,
+          "contributionScore": 1.41
+        },
+        {
+          "ownedId": "380887",
+          "ownedName": "Deduckto",
+          "userRating": 7,
+          "bggRecRank": 28,
+          "contributionScore": 0.93
+        }
+      ],
+      "matchScore": 2.8,
+      "minPlayers": 2,
+      "maxPlayers": 5,
+      "playingTime": 30
+    },
+    {
+      "objectId": "408770",
+      "name": "In the Footsteps of Marie Curie",
+      "yearPublished": "2024",
+      "bggRating": 6.78,
+      "bggRank": 4882,
+      "numVoters": 744,
+      "numFans": 106,
+      "coverUrl": "https://cf.geekdo-images.com/z7XZ5_k20MNN2gcxShqZwQ__square100@2x/img/adJxzzl8mmzj1g-QxSnHZc3epSQ=/200x200/filters:strip_icc()/pic7999443.png",
+      "thumbnail": "images/thumbnails/408770.png",
+      "image": "images/full/408770.png",
+      "description": "Help the famous scientist win her double Nobel Prize in this family game.",
+      "rawScore": 2.3390154807518115,
+      "recommendedBy": [
+        {
+          "ownedId": "453526",
+          "ownedName": "Got Five!",
+          "userRating": 7,
+          "bggRecRank": 13,
+          "contributionScore": 1.36
+        },
+        {
+          "ownedId": "445045",
+          "ownedName": "Dice Pool Party",
+          "userRating": 7,
+          "bggRecRank": 25,
+          "contributionScore": 0.98
+        }
+      ],
+      "matchScore": 2.8,
+      "minPlayers": 2,
+      "maxPlayers": 4,
+      "playingTime": 30
+    },
+    {
+      "objectId": "312786",
+      "name": "Poetry for Neanderthals",
+      "yearPublished": "2020",
+      "bggRating": 6.64,
+      "bggRank": 2387,
+      "numVoters": 3948,
+      "numFans": 166,
+      "coverUrl": "https://cf.geekdo-images.com/CDlBjXSPT-3Zyrj8ENBkvQ__square100@2x/img/wOs5gHfWt08gRdc-X8vzEfmAu-4=/57x0:1947x1262/fit-in/200x200/filters:fill(blur):strip_icc()/pic5702797.jpg",
+      "thumbnail": "images/thumbnails/312786.jpg",
+      "image": "images/full/312786.jpg",
+      "description": "A single-syllable word game in which you must speak good or get hit with stick!",
+      "rawScore": 2.389311655726842,
+      "recommendedBy": [
+        {
+          "ownedId": "260300",
+          "ownedName": "Dungeon Mayhem",
+          "userRating": 7,
+          "bggRecRank": 15,
+          "contributionScore": 1.27
+        },
+        {
+          "ownedId": "216439",
+          "ownedName": "Trash Pandas",
+          "userRating": 7,
+          "bggRecRank": 19,
+          "contributionScore": 1.12
+        }
+      ],
+      "matchScore": 2.8,
+      "minPlayers": 2,
+      "maxPlayers": 12,
+      "playingTime": 15
+    },
+    {
+      "objectId": "88",
+      "name": "Torres",
+      "yearPublished": "1999",
+      "bggRating": 7.08,
+      "bggRank": 851,
+      "numVoters": 10114,
+      "numFans": 253,
+      "coverUrl": "https://cf.geekdo-images.com/vLDgCpcL-beOsC5iWfZ9ig__square100@2x/img/WibBAGOqehxNiqZWwnIQ2ftL8js=/200x200/filters:strip_icc()/pic3515154.jpg",
+      "thumbnail": "images/thumbnails/88.jpg",
+      "image": "images/full/88.jpg",
+      "description": "Build towers and populate them with your knights to make it big in the Middle Ages.",
+      "rawScore": 2.8290163190291664,
+      "recommendedBy": [
+        {
+          "ownedId": "9674",
+          "ownedName": "Ingenious",
+          "userRating": 7,
+          "bggRecRank": 3,
+          "contributionScore": 2.83
+        }
+      ],
+      "matchScore": 2.8,
+      "minPlayers": 2,
+      "maxPlayers": 4,
+      "playingTime": 60
+    },
+    {
+      "objectId": "42215",
+      "name": "Tobago",
+      "yearPublished": "2009",
+      "bggRating": 7.1,
+      "bggRank": 723,
+      "numVoters": 12859,
+      "numFans": 603,
+      "coverUrl": "https://cf.geekdo-images.com/fuC2C10_6QK84R45Mseojw__square100@2x/img/Ac_VKUqSm744mob2ZjVfyfrSSBk=/200x200/filters:strip_icc()/pic596625.jpg",
+      "thumbnail": "images/thumbnails/42215.jpg",
+      "image": "images/full/42215.jpg",
+      "description": "Determine the location of a hidden treasure and race your opponents to it.",
+      "rawScore": 2.2451745597610895,
+      "recommendedBy": [
+        {
+          "ownedId": "9674",
+          "ownedName": "Ingenious",
+          "userRating": 7,
+          "bggRecRank": 15,
+          "contributionScore": 1.27
+        },
+        {
+          "ownedId": "34635",
+          "ownedName": "Stone Age",
+          "userRating": 7,
+          "bggRecRank": 25,
+          "contributionScore": 0.98
+        }
+      ],
+      "matchScore": 2.8,
+      "minPlayers": 2,
+      "maxPlayers": 4,
+      "playingTime": 60
+    },
+    {
+      "objectId": "448271",
+      "name": "The Lord of the Rings: The Two Towers – Trick-Taking Game",
+      "yearPublished": "2026",
+      "bggRating": 8.37,
+      "bggRank": 1114,
+      "numVoters": 1537,
+      "numFans": 372,
+      "coverUrl": "https://cf.geekdo-images.com/TSwHNId9CUCq-bxAGmNJiQ__square100@2x/img/eB2nHS_AxH9Fh4xbxDCxpmjmV-4=/0x988:909x1897/200x200/filters:strip_icc()/pic9044877.png",
+      "thumbnail": "images/thumbnails/448271.png",
+      "image": "images/full/448271.png",
+      "description": "Continue the ring's journey to Mordor.",
+      "rawScore": 2.3570226039551585,
+      "recommendedBy": [
+        {
+          "ownedId": "424784",
+          "ownedName": "Arkham Horror: Lovecraft Letter",
+          "userRating": 10,
+          "bggRecRank": 18,
+          "contributionScore": 2.36
+        }
+      ],
+      "matchScore": 2.7,
+      "minPlayers": 1,
+      "maxPlayers": 4,
+      "playingTime": 20
+    },
+    {
+      "objectId": "397598",
+      "name": "Dune: Imperium – Uprising",
+      "yearPublished": "2023",
+      "bggRating": 8.7,
+      "bggRank": 5,
+      "numVoters": 19525,
+      "numFans": 3248,
+      "coverUrl": "https://cf.geekdo-images.com/UVUkjMV_Q2paVUIUP30Vvw__square100@2x/img/N-wPvyGj69vuCWMD1-5bRhgDBqs=/200x200/filters:strip_icc()/pic7664424.jpg",
+      "thumbnail": "images/thumbnails/397598.jpg",
+      "image": "images/full/397598.jpg",
+      "description": "Deploy agents, build your deck, and engage in strategic battles to control Arrakis.",
+      "rawScore": 2.23606797749979,
+      "recommendedBy": [
+        {
+          "ownedId": "424784",
+          "ownedName": "Arkham Horror: Lovecraft Letter",
+          "userRating": 10,
+          "bggRecRank": 20,
+          "contributionScore": 2.24
+        }
+      ],
+      "matchScore": 2.7,
+      "minPlayers": 1,
+      "maxPlayers": 6,
+      "playingTime": 120
+    },
+    {
+      "objectId": "438417",
+      "name": "The Last Droids",
+      "yearPublished": "2025",
+      "bggRating": 6.68,
+      "bggRank": 6450,
+      "numVoters": 511,
+      "numFans": 87,
+      "coverUrl": "https://cf.geekdo-images.com/7ss8vpQG84U9z2mTHBaDQw__square100@2x/img/RmqN0gDIL7k6d8JPayXA7qJBm-0=/0x0:1677x1677/200x200/filters:strip_icc()/pic8700836.jpg",
+      "thumbnail": "images/thumbnails/438417.jpg",
+      "image": "images/full/438417.jpg",
+      "description": "Select the best robot wrecks, and build the most efficient droid collection.",
+      "rawScore": 2.8621670111997313,
+      "recommendedBy": [
+        {
+          "ownedId": "464261",
+          "ownedName": "Next Station: Berlin",
+          "userRating": 8,
+          "bggRecRank": 5,
+          "contributionScore": 2.86
+        }
+      ],
+      "matchScore": 2.7,
+      "minPlayers": 1,
+      "maxPlayers": 4,
+      "playingTime": 40
+    },
+    {
+      "objectId": "344258",
+      "name": "That Time You Killed Me",
+      "yearPublished": "2021",
+      "bggRating": 7.33,
+      "bggRank": 1465,
+      "numVoters": 2690,
+      "numFans": 377,
+      "coverUrl": "https://cf.geekdo-images.com/tcupSjoLMn9sKbnGxQU9Kg__square100@2x/img/CbgB2A0CXkW-Jf-Fo9K8zHtK04g=/200x200/filters:strip_icc()/pic6326925.jpg",
+      "thumbnail": "images/thumbnails/344258.jpg",
+      "image": "images/full/344258.jpg",
+      "description": "Prove yourself across all spacetime as the true inventor of the time machine.",
+      "rawScore": 2.6127890589687244,
+      "recommendedBy": [
+        {
+          "ownedId": "160477",
+          "ownedName": "Onitama",
+          "userRating": 8,
+          "bggRecRank": 6,
+          "contributionScore": 2.61
+        }
+      ],
+      "matchScore": 2.7,
+      "minPlayers": 2,
+      "maxPlayers": 2,
+      "playingTime": 30
+    },
+    {
+      "objectId": "446953",
+      "name": "Soda Jerk",
+      "yearPublished": "2025",
+      "bggRating": 6.85,
+      "bggRank": 4299,
+      "numVoters": 838,
+      "numFans": 104,
+      "coverUrl": "https://cf.geekdo-images.com/I6FgfbudjoDOV4LjyzXa2g__square100@2x/img/yMEe2jTHKVTyNWJmCUKGSe2i7oU=/0x0:384x384/200x200/filters:strip_icc()/pic8899402.jpg",
+      "thumbnail": "images/thumbnails/446953.jpg",
+      "image": "images/full/446953.jpg",
+      "description": "Carefully manage your hand to serve delicious beverages while being a jerk to others.",
+      "rawScore": 2.8621670111997313,
+      "recommendedBy": [
+        {
+          "ownedId": "400113",
+          "ownedName": "Panda Panda",
+          "userRating": 8,
+          "bggRecRank": 5,
+          "contributionScore": 2.86
+        }
+      ],
+      "matchScore": 2.7,
+      "minPlayers": 2,
+      "maxPlayers": 4,
+      "playingTime": 15
+    },
+    {
+      "objectId": "232988",
+      "name": "The Castles of Burgundy: The Dice Game",
+      "yearPublished": "2017",
+      "bggRating": 6.86,
+      "bggRank": 1672,
+      "numVoters": 4406,
+      "numFans": 176,
+      "coverUrl": "https://cf.geekdo-images.com/40dVQ-bi2p9cZNeU-8q2_g__square100@2x/img/sZo6HwLO9--mtqIdcczc7OT9VvA=/0x73:483x687/fit-in/200x200/filters:fill(blur):strip_icc()/pic3748929.jpg",
+      "thumbnail": "images/thumbnails/232988.jpg",
+      "image": "images/full/232988.jpg",
+      "description": "Develop idyllic farmlands, castles and towns using placement and timing.",
+      "rawScore": 2.8290163190291664,
+      "recommendedBy": [
+        {
+          "ownedId": "195314",
+          "ownedName": "Herbaceous",
+          "userRating": 7,
+          "bggRecRank": 3,
+          "contributionScore": 2.83
+        }
+      ],
+      "matchScore": 2.7,
+      "minPlayers": 1,
+      "maxPlayers": 5,
+      "playingTime": 30
+    },
+    {
+      "objectId": "347805",
+      "name": "Green Team Wins",
+      "yearPublished": "2022",
+      "bggRating": 6.96,
+      "bggRank": 1830,
+      "numVoters": 2969,
+      "numFans": 115,
+      "coverUrl": "https://cf.geekdo-images.com/CnbTdFLjxjuvX_HXgIDYGw__square100@2x/img/HugmVlmFyE-jDtYvDJ5jNF3dq6c=/0x16:607x623/200x200/filters:strip_icc()/pic6691185.png",
+      "thumbnail": "images/thumbnails/347805.png",
+      "image": "images/full/347805.png",
+      "description": "Get on the Green Team. Stay on the Green Team. And win.",
+      "rawScore": 2.205,
+      "recommendedBy": [
+        {
+          "ownedId": "153318",
+          "ownedName": "Dimension",
+          "userRating": 7,
+          "bggRecRank": 16,
+          "contributionScore": 1.22
+        },
+        {
+          "ownedId": "380887",
+          "ownedName": "Deduckto",
+          "userRating": 7,
+          "bggRecRank": 25,
+          "contributionScore": 0.98
+        }
+      ],
+      "matchScore": 2.7,
+      "minPlayers": 3,
+      "maxPlayers": 12,
+      "playingTime": 15
+    },
+    {
+      "objectId": "136063",
+      "name": "Forbidden Desert",
+      "yearPublished": "2013",
+      "bggRating": 7.06,
+      "bggRank": 614,
+      "numVoters": 32970,
+      "numFans": 1292,
+      "coverUrl": "https://cf.geekdo-images.com/OU26qQZoHJodxSFKiR5IzA__square100@2x/img/xbQsMbNoCxNMYP54XOzAkFUX8k8=/200x200/filters:strip_icc()/pic1528722.jpg",
+      "thumbnail": "images/thumbnails/136063.jpg",
+      "image": "images/full/136063.jpg",
+      "description": "Race to find parts to an ancient flying machine before you succumb to sand or sun.",
+      "rawScore": 2.176661704817694,
+      "recommendedBy": [
+        {
+          "ownedId": "153318",
+          "ownedName": "Dimension",
+          "userRating": 7,
+          "bggRecRank": 18,
+          "contributionScore": 1.15
+        },
+        {
+          "ownedId": "143884",
+          "ownedName": "Machi Koro",
+          "userRating": 7,
+          "bggRecRank": 23,
+          "contributionScore": 1.02
+        }
+      ],
+      "matchScore": 2.7,
+      "minPlayers": 2,
+      "maxPlayers": 5,
+      "playingTime": 45
+    },
+    {
+      "objectId": "237182",
+      "name": "Root",
+      "yearPublished": "2018",
+      "bggRating": 8.07,
+      "bggRank": 34,
+      "numVoters": 65394,
+      "numFans": 9434,
+      "coverUrl": "https://cf.geekdo-images.com/JUAUWaVUzeBgzirhZNmHHw__square100@2x/img/OX0C3t7LcRy0AXmAQUqhv7D_UFw=/201x0:1798x1597/200x200/filters:strip_icc()/pic4254509.jpg",
+      "thumbnail": "images/thumbnails/237182.jpg",
+      "image": "images/full/237182.jpg",
+      "description": "Decide the fate of the woodland as asymmetric factions fight for contrasting goals.",
+      "rawScore": 2.2941573387056176,
+      "recommendedBy": [
+        {
+          "ownedId": "424784",
+          "ownedName": "Arkham Horror: Lovecraft Letter",
+          "userRating": 10,
+          "bggRecRank": 19,
+          "contributionScore": 2.29
+        }
+      ],
+      "matchScore": 2.6,
+      "minPlayers": 2,
+      "maxPlayers": 4,
+      "playingTime": 90
+    },
+    {
+      "objectId": "318009",
+      "name": "Dinosaur Island: Rawr 'n Write",
+      "yearPublished": "2021",
+      "bggRating": 7.65,
+      "bggRank": 632,
+      "numVoters": 4698,
+      "numFans": 386,
+      "coverUrl": "https://cf.geekdo-images.com/xRP9jo5gfwhfFkgxQBgWTw__square100@2x/img/a5xIVggheJQrVMkeEnp8MVI66hU=/200x200/filters:strip_icc()/pic5622932.png",
+      "thumbnail": "images/thumbnails/318009.png",
+      "image": "images/full/318009.png",
+      "description": "Draw the most exciting dinosaur theme park known to humankind.",
+      "rawScore": 2.42535625036333,
+      "recommendedBy": [
+        {
+          "ownedId": "353288",
+          "ownedName": "Trekking Through History",
+          "userRating": 10,
+          "bggRecRank": 17,
+          "contributionScore": 2.43
+        }
+      ],
+      "matchScore": 2.6,
+      "minPlayers": 1,
+      "maxPlayers": 4,
+      "playingTime": 45
+    },
+    {
+      "objectId": "463441",
+      "name": "Flip 7: With A Vengeance",
+      "yearPublished": "2026",
+      "bggRating": 7.19,
+      "bggRank": 2472,
+      "numVoters": 1558,
+      "numFans": 106,
+      "coverUrl": "https://cf.geekdo-images.com/ZW3pPCcG069GkXkk7HSHlg__square100@2x/img/_bF4I0jnZiZ3B3khsCuw_plJ-I8=/0x11:629x640/200x200/filters:strip_icc()/pic9385115.jpg",
+      "thumbnail": "images/thumbnails/463441.jpg",
+      "image": "images/full/463441.jpg",
+      "description": "Flip 7 just got meaner! Lose and steal points with new cards.",
+      "rawScore": 2.6127890589687244,
+      "recommendedBy": [
+        {
+          "ownedId": "401636",
+          "ownedName": "Tacta",
+          "userRating": 8,
+          "bggRecRank": 6,
+          "contributionScore": 2.61
+        }
+      ],
+      "matchScore": 2.6,
+      "minPlayers": 3,
+      "maxPlayers": 28,
+      "playingTime": 20
+    },
+    {
+      "objectId": "305986",
+      "name": "Sequoia",
+      "yearPublished": "2020",
+      "bggRating": 6.59,
+      "bggRank": 3649,
+      "numVoters": 1627,
+      "numFans": 80,
+      "coverUrl": "https://cf.geekdo-images.com/EnZXwpt2pwHi8qQo8Anbuw__square100@2x/img/QgnDPoSWpBdZCMryJ-x_XpByW1o=/200x200/filters:strip_icc()/pic5313636.png",
+      "thumbnail": "images/thumbnails/305986.png",
+      "image": "images/full/305986.png",
+      "description": "Allocate your dice to grow the tallest tree in each region.  Beware the tiebreaker!",
+      "rawScore": 2.8621670111997313,
+      "recommendedBy": [
+        {
+          "ownedId": "360503",
+          "ownedName": "Downtown Farmers Market",
+          "userRating": 8,
+          "bggRecRank": 5,
+          "contributionScore": 2.86
+        }
+      ],
+      "matchScore": 2.6,
+      "minPlayers": 2,
+      "maxPlayers": 5,
+      "playingTime": 10
+    },
+    {
+      "objectId": "194626",
+      "name": "Happy Salmon",
+      "yearPublished": "2016",
+      "bggRating": 6.64,
+      "bggRank": 1801,
+      "numVoters": 7082,
+      "numFans": 193,
+      "coverUrl": "https://cf.geekdo-images.com/qiPO300rG73UqxJvpUe3og__square100@2x/img/zpWflFR6iVeEYR-lGDzZ1h1hg3M=/0x34:1033x1067/200x200/filters:strip_icc()/pic7354069.jpg",
+      "thumbnail": "images/thumbnails/194626.jpg",
+      "image": "images/full/194626.jpg",
+      "description": "High five, fist bump, switch places and have fun together. Be the fastest to win.",
+      "rawScore": 2.8290163190291664,
+      "recommendedBy": [
+        {
+          "ownedId": "380887",
+          "ownedName": "Deduckto",
+          "userRating": 7,
+          "bggRecRank": 3,
+          "contributionScore": 2.83
+        }
+      ],
+      "matchScore": 2.6,
+      "minPlayers": 3,
+      "maxPlayers": 8,
+      "playingTime": 2
+    },
+    {
+      "objectId": "36553",
+      "name": "Time's Up! Title Recall!",
+      "yearPublished": "2008",
+      "bggRating": 7.66,
+      "bggRank": 730,
+      "numVoters": 3787,
+      "numFans": 100,
+      "coverUrl": "https://cf.geekdo-images.com/XVqx-bp37COAHcyYUB7KNQ__square100@2x/img/jPZDnfWIXt9880XRsN-3uwHzN7E=/0x93:470x563/200x200/filters:strip_icc()/pic3690447.jpg",
+      "thumbnail": "images/thumbnails/36553.jpg",
+      "image": "images/full/36553.jpg",
+      "description": "Your teammates must guess titles of books and more while clues become more limited.",
+      "rawScore": 2.4499999999999997,
+      "recommendedBy": [
+        {
+          "ownedId": "153318",
+          "ownedName": "Dimension",
+          "userRating": 7,
+          "bggRecRank": 4,
+          "contributionScore": 2.45
+        }
+      ],
+      "matchScore": 2.6,
+      "minPlayers": 4,
+      "maxPlayers": 18,
+      "playingTime": 60
+    },
+    {
+      "objectId": "403468",
+      "name": "Aqua: Biodiversity in the Oceans",
+      "yearPublished": "2024",
+      "bggRating": 7.13,
+      "bggRank": 2656,
+      "numVoters": 1469,
+      "numFans": 189,
+      "coverUrl": "https://cf.geekdo-images.com/iwc8n9rjvmMEkEdTSZL1DQ__square100@2x/img/H-vDHdHI3vigTu4EMwgiF_SVkvQ=/200x200/filters:strip_icc()/pic7798319.jpg",
+      "thumbnail": "images/thumbnails/403468.jpg",
+      "image": "images/full/403468.jpg",
+      "description": "Create biodiverse habitats to attract life to your coral reef.",
+      "rawScore": 2.117393937854563,
+      "recommendedBy": [
+        {
+          "ownedId": "431998",
+          "ownedName": "Point Galaxy",
+          "userRating": 7,
+          "bggRecRank": 20,
+          "contributionScore": 1.1
+        },
+        {
+          "ownedId": "368017",
+          "ownedName": "Point City",
+          "userRating": 7,
+          "bggRecRank": 23,
+          "contributionScore": 1.02
+        }
+      ],
+      "matchScore": 2.6,
+      "minPlayers": 1,
+      "maxPlayers": 4,
+      "playingTime": 45
+    },
+    {
+      "objectId": "397931",
+      "name": "Deep Regrets",
+      "yearPublished": "2025",
+      "bggRating": 7.34,
+      "bggRank": 1172,
+      "numVoters": 4208,
+      "numFans": 1404,
+      "coverUrl": "https://cf.geekdo-images.com/WUvpRzsNSZgq1gyvjiQcWw__square100@2x/img/7O47fDQj1t4nnaE28CKNfmWZd0s=/0x908:2211x3119/200x200/filters:strip_icc()/pic8156363.jpg",
+      "thumbnail": "images/thumbnails/397931.jpg",
+      "image": "images/full/397931.jpg",
+      "description": "A game about fishing progressively more horrifying things out of the ocean.",
+      "rawScore": 2.5,
+      "recommendedBy": [
+        {
+          "ownedId": "424784",
+          "ownedName": "Arkham Horror: Lovecraft Letter",
+          "userRating": 10,
+          "bggRecRank": 16,
+          "contributionScore": 2.5
+        }
+      ],
+      "matchScore": 2.5,
+      "minPlayers": 1,
+      "maxPlayers": 5,
+      "playingTime": 150
+    },
+    {
+      "objectId": "181304",
+      "name": "Mysterium",
+      "yearPublished": "2015",
+      "bggRating": 7.19,
+      "bggRank": 453,
+      "numVoters": 49559,
+      "numFans": 2307,
+      "coverUrl": "https://cf.geekdo-images.com/1nQ3ZKudtDeAP7IiKE-kNg__square100@2x/img/tjw-koJIzZkoeBwcadFSI0B0F2g=/200x200/filters:strip_icc()/pic8625343.jpg",
+      "thumbnail": "images/thumbnails/181304.jpg",
+      "image": "images/full/181304.jpg",
+      "description": "Become a psychic and divine spectral visions to solve the murder of a restless ghost.",
+      "rawScore": 2.5,
+      "recommendedBy": [
+        {
+          "ownedId": "277085",
+          "ownedName": "Love Letter",
+          "userRating": 10,
+          "bggRecRank": 16,
+          "contributionScore": 2.5
+        }
+      ],
+      "matchScore": 2.5,
+      "minPlayers": 2,
+      "maxPlayers": 7,
+      "playingTime": 42
+    },
+    {
+      "objectId": "206940",
+      "name": "Carcassonne: Amazonas",
+      "yearPublished": "2016",
+      "bggRating": 7.01,
+      "bggRank": 2091,
+      "numVoters": 2367,
+      "numFans": 81,
+      "coverUrl": "https://cf.geekdo-images.com/_4RAdG5_9sBDHweuwo7jhw__square100@2x/img/nTnPYfToII4moXAnt6Ut2l3Qo6c=/0x130:1501x2145/fit-in/200x200/filters:fill(blur):strip_icc()/pic3147391.png",
+      "thumbnail": "images/thumbnails/206940.png",
+      "image": "images/full/206940.png",
+      "description": "Paddle down the Amazon as you explore the local villages and wildlife.",
+      "rawScore": 2.6127890589687244,
+      "recommendedBy": [
+        {
+          "ownedId": "309113",
+          "ownedName": "Ticket to Ride: Amsterdam",
+          "userRating": 8,
+          "bggRecRank": 6,
+          "contributionScore": 2.61
+        }
+      ],
+      "matchScore": 2.5,
+      "minPlayers": 2,
+      "maxPlayers": 5,
+      "playingTime": 35
+    },
+    {
+      "objectId": "266507",
+      "name": "Clank! Legacy: Acquisitions Incorporated",
+      "yearPublished": "2019",
+      "bggRating": 8.49,
+      "bggRank": 28,
+      "numVoters": 11472,
+      "numFans": 1204,
+      "coverUrl": "https://cf.geekdo-images.com/hc2NDafu5c24iLJh_IZmyg__square100@2x/img/jLXOMPlpAgibD6JC4RIHDXnJVho=/154x0:1037x883/200x200/filters:strip_icc()/pic4885780.png",
+      "thumbnail": "images/thumbnails/266507.png",
+      "image": "images/full/266507.png",
+      "description": "\"Go forth, be bold, and ACQUIRE!\" in this campaign version of \"Clank!\"",
+      "rawScore": 2.1333333333333337,
+      "recommendedBy": [
+        {
+          "ownedId": "359152",
+          "ownedName": "Marvel: Remix",
+          "userRating": 8,
+          "bggRecRank": 9,
+          "contributionScore": 2.13
+        }
+      ],
+      "matchScore": 2.5,
+      "minPlayers": 2,
+      "maxPlayers": 4,
+      "playingTime": 120
+    },
+    {
+      "objectId": "402207",
+      "name": "YRO",
+      "yearPublished": "2024",
+      "bggRating": 7.33,
+      "bggRank": 2823,
+      "numVoters": 1112,
+      "numFans": 151,
+      "coverUrl": "https://cf.geekdo-images.com/zyWcsLTCgwC_O9kD2qS1YQ__square100@2x/img/_lli097EoK3P1nqHpkd9h60-1Uw=/0x0:2234x2234/200x200/filters:strip_icc()/pic8316143.png",
+      "thumbnail": "images/thumbnails/402207.png",
+      "image": "images/full/402207.png",
+      "description": "Build a party of chibi adventurers in a 3 x 3 grid in this quick combo engine builder",
+      "rawScore": 2.4189726272590546,
+      "recommendedBy": [
+        {
+          "ownedId": "464261",
+          "ownedName": "Next Station: Berlin",
+          "userRating": 8,
+          "bggRecRank": 7,
+          "contributionScore": 2.42
+        }
+      ],
+      "matchScore": 2.5,
+      "minPlayers": 1,
+      "maxPlayers": 5,
+      "playingTime": 30
+    },
+    {
+      "objectId": "352593",
+      "name": "River Wild",
+      "yearPublished": "2023",
+      "bggRating": 6.3,
+      "bggRank": 9020,
+      "numVoters": 381,
+      "numFans": 43,
+      "coverUrl": "https://cf.geekdo-images.com/uwqv_J0D-kvaDG-w28_CoA__square100@2x/img/imumBXc5l2kMCv1KoObeqa5cctc=/0x0:816x816/200x200/filters:strip_icc()/pic7275232.png",
+      "thumbnail": "images/thumbnails/352593.png",
+      "image": "images/full/352593.png",
+      "description": "Build a river, populating the lands in between.",
+      "rawScore": 2.3144922499652787,
+      "recommendedBy": [
+        {
+          "ownedId": "342562",
+          "ownedName": "ROVE: Results-Oriented Versatile Explorer",
+          "userRating": 8,
+          "bggRecRank": 23,
+          "contributionScore": 1.33
+        },
+        {
+          "ownedId": "378117",
+          "ownedName": "The Last Lighthouse",
+          "userRating": 7,
+          "bggRecRank": 25,
+          "contributionScore": 0.98
+        }
+      ],
+      "matchScore": 2.5,
+      "minPlayers": 1,
+      "maxPlayers": 1,
+      "playingTime": 15
+    },
+    {
+      "objectId": "344841",
+      "name": "All Is Bomb",
+      "yearPublished": "2021",
+      "bggRating": 7.53,
+      "bggRank": 9135,
+      "numVoters": 139,
+      "numFans": 47,
+      "coverUrl": "https://cf.geekdo-images.com/R6vwg6VZxQblbJxtxzDFCA__square100@2x/img/0nEFEiUl73Vm6Ny2Hca41DnF-ho=/0x0:768x768/200x200/filters:strip_icc()/pic6340900.jpg",
+      "thumbnail": "images/thumbnails/344841.jpg",
+      "image": "images/full/344841.jpg",
+      "description": "Serve the princess the breakfast she wants before she explodes.",
+      "rawScore": 2.4189726272590546,
+      "recommendedBy": [
+        {
+          "ownedId": "191095",
+          "ownedName": "Scoundrel",
+          "userRating": 8,
+          "bggRecRank": 7,
+          "contributionScore": 2.42
+        }
+      ],
+      "matchScore": 2.5,
+      "minPlayers": 1,
+      "maxPlayers": 2,
+      "playingTime": 15
+    },
+    {
+      "objectId": "330174",
+      "name": "Explorers",
+      "yearPublished": "2021",
+      "bggRating": 7.11,
+      "bggRank": 2190,
+      "numVoters": 1939,
+      "numFans": 134,
+      "coverUrl": "https://cf.geekdo-images.com/t_QgPTCtmsw2xUn4JM6Kxw__square100@2x/img/L8Cn5lmFlkyiflzmTGSdnUWjMo0=/0x0:1338x1338/200x200/filters:strip_icc()/pic5950783.jpg",
+      "thumbnail": "images/thumbnails/330174.jpg",
+      "image": "images/full/330174.jpg",
+      "description": "Create a path across randomly revealed landscape to collect gems & visit temples.",
+      "rawScore": 2.0566423711519985,
+      "recommendedBy": [
+        {
+          "ownedId": "131260",
+          "ownedName": "Qwixx",
+          "userRating": 7,
+          "bggRecRank": 20,
+          "contributionScore": 1.1
+        },
+        {
+          "ownedId": "195314",
+          "ownedName": "Herbaceous",
+          "userRating": 7,
+          "bggRecRank": 26,
+          "contributionScore": 0.96
+        }
+      ],
+      "matchScore": 2.5,
+      "minPlayers": 1,
+      "maxPlayers": 4,
+      "playingTime": 20
+    },
+    {
+      "objectId": "424816",
+      "name": "Jungo",
+      "yearPublished": "2025",
+      "bggRating": 7.07,
+      "bggRank": 2288,
+      "numVoters": 1950,
+      "numFans": 133,
+      "coverUrl": "https://cf.geekdo-images.com/-s3g7tvzTk-aylhc7Uy2pw__square100@2x/img/dvnE27MBZzN5FJyUXEArHJaVzdk=/0x0:1631x1631/200x200/filters:strip_icc()/pic8918687.png",
+      "thumbnail": "images/thumbnails/424816.png",
+      "image": "images/full/424816.png",
+      "description": "Be the first to get rid of your cards by playing combos and enhancing your hand.",
+      "rawScore": 2.0056525723195926,
+      "recommendedBy": [
+        {
+          "ownedId": "445045",
+          "ownedName": "Dice Pool Party",
+          "userRating": 7,
+          "bggRecRank": 22,
+          "contributionScore": 1.04
+        },
+        {
+          "ownedId": "380887",
+          "ownedName": "Deduckto",
+          "userRating": 7,
+          "bggRecRank": 26,
+          "contributionScore": 0.96
+        }
+      ],
+      "matchScore": 2.5,
+      "minPlayers": 2,
+      "maxPlayers": 5,
+      "playingTime": 15
+    },
+    {
+      "objectId": "448432",
+      "name": "Alice, de l'autre côté du miroir",
+      "yearPublished": "2025",
+      "bggRating": 7.33,
+      "bggRank": 9412,
+      "numVoters": 143,
+      "numFans": 19,
+      "coverUrl": "https://cf.geekdo-images.com/hq_kb-3DIMevrwR8K7HeOA__square100@2x/img/6qSo9eG02vy33mM5S8YnhlV34BY=/0x0:848x1117/fit-in/200x200/filters:fill(blur):strip_icc()/pic8953372.jpg",
+      "thumbnail": "images/thumbnails/448432.jpg",
+      "image": "images/full/448432.jpg",
+      "description": "Players trace shapes and flip sheets in a mirrored Alice-inspired maze.",
+      "rawScore": 2.4499999999999997,
+      "recommendedBy": [
+        {
+          "ownedId": "453526",
+          "ownedName": "Got Five!",
+          "userRating": 7,
+          "bggRecRank": 4,
+          "contributionScore": 2.45
+        }
+      ],
+      "matchScore": 2.5,
+      "minPlayers": 2,
+      "maxPlayers": 6,
+      "playingTime": 30
+    },
+    {
+      "objectId": "430533",
+      "name": "Formaggio",
+      "yearPublished": "2025",
+      "bggRating": 8.06,
+      "bggRank": 1491,
+      "numVoters": 1393,
+      "numFans": 292,
+      "coverUrl": "https://cf.geekdo-images.com/mXiTvpepFQ3pxUigznkVSA__square100@2x/img/9qJu4SB8nFvE6qV-kl5awPDhZbg=/200x200/filters:strip_icc()/pic8473381.jpg",
+      "thumbnail": "images/thumbnails/430533.jpg",
+      "image": "images/full/430533.jpg",
+      "description": "Craft artisanal cheeses in 1900s Italy.",
+      "rawScore": 2.191346617949794,
+      "recommendedBy": [
+        {
+          "ownedId": "431998",
+          "ownedName": "Point Galaxy",
+          "userRating": 7,
+          "bggRecRank": 5,
+          "contributionScore": 2.19
+        }
+      ],
+      "matchScore": 2.5,
+      "minPlayers": 1,
+      "maxPlayers": 4,
+      "playingTime": 45
+    },
+    {
+      "objectId": "341164",
+      "name": "Exploding Minions",
+      "yearPublished": "2021",
+      "bggRating": 6.41,
+      "bggRank": 6199,
+      "numVoters": 843,
+      "numFans": 30,
+      "coverUrl": "https://cf.geekdo-images.com/mQnQJ_AcabdhDz7zNHPGWQ__square100@2x/img/fTl27-XrVuIi1bgZLowhsfLsFdk=/0x0:1386x1386/200x200/filters:strip_icc()/pic6702309.png",
+      "thumbnail": "images/thumbnails/341164.png",
+      "image": "images/full/341164.png",
+      "description": "Exploding Minions is a Minions-powered version of Russian Roulette.",
+      "rawScore": 2.6726124191242437,
+      "recommendedBy": [
+        {
+          "ownedId": "411404",
+          "ownedName": "Power Hungry Pets",
+          "userRating": 10,
+          "bggRecRank": 14,
+          "contributionScore": 2.67
+        }
+      ],
+      "matchScore": 2.4,
+      "minPlayers": 2,
+      "maxPlayers": 5,
+      "playingTime": 15
+    },
+    {
+      "objectId": "444547",
+      "name": "Llama Llama",
+      "yearPublished": "2025",
+      "bggRating": 6.64,
+      "bggRank": 9187,
+      "numVoters": 242,
+      "numFans": 18,
+      "coverUrl": "https://cf.geekdo-images.com/gJNLO8_Riqu91i2hmkoySw__square100@2x/img/6Xq9Fx66rCawQk69JN98JouIUMs=/0x238:768x1006/200x200/filters:strip_icc()/pic8861498.jpg",
+      "thumbnail": "images/thumbnails/444547.jpg",
+      "image": "images/full/444547.jpg",
+      "description": "Score hands based on secretly chosen goal cards!",
+      "rawScore": 2.6127890589687244,
+      "recommendedBy": [
+        {
+          "ownedId": "400113",
+          "ownedName": "Panda Panda",
+          "userRating": 8,
+          "bggRecRank": 6,
+          "contributionScore": 2.61
+        }
+      ],
+      "matchScore": 2.4,
+      "minPlayers": 2,
+      "maxPlayers": 4,
+      "playingTime": 15
+    },
+    {
+      "objectId": "420242",
+      "name": "VIVO",
+      "yearPublished": "2024",
+      "bggRating": 7.17,
+      "bggRank": 3908,
+      "numVoters": 731,
+      "numFans": 49,
+      "coverUrl": "https://cf.geekdo-images.com/a4fv53JLtFlpo7XjDsItPQ__square100@2x/img/jKrSXtaY_q6JHLoqKI-Qjn2enEs=/0x0:768x768/200x200/filters:strip_icc()/pic8896480.jpg",
+      "thumbnail": "images/thumbnails/420242.jpg",
+      "image": "images/full/420242.jpg",
+      "description": "A trick-taking game where puppies sing and follow format changes every trick!",
+      "rawScore": 2.4189726272590546,
+      "recommendedBy": [
+        {
+          "ownedId": "400113",
+          "ownedName": "Panda Panda",
+          "userRating": 8,
+          "bggRecRank": 7,
+          "contributionScore": 2.42
+        }
+      ],
+      "matchScore": 2.4,
+      "minPlayers": 3,
+      "maxPlayers": 4,
+      "playingTime": 30
+    },
+    {
+      "objectId": "410624",
+      "name": "Club Fight",
+      "yearPublished": "2023",
+      "bggRating": 7.56,
+      "bggRank": 17306,
+      "numVoters": 39,
+      "numFans": 20,
+      "coverUrl": "https://cf.geekdo-images.com/hcE0DvpYG9lyL8CkyW6UCQ__square100@2x/img/Xf7aZc-Jg_ZK0vMEsNMWkkKQ93o=/199x0:2359x2160/200x200/filters:strip_icc()/pic8032257.jpg",
+      "thumbnail": "images/thumbnails/410624.jpg",
+      "image": "images/full/410624.jpg",
+      "description": "A solitaire game pitting the club suit against the rest of the deck.",
+      "rawScore": 2.2627416997969525,
+      "recommendedBy": [
+        {
+          "ownedId": "191095",
+          "ownedName": "Scoundrel",
+          "userRating": 8,
+          "bggRecRank": 8,
+          "contributionScore": 2.26
+        }
+      ],
+      "matchScore": 2.4,
+      "minPlayers": 1,
+      "maxPlayers": 1,
+      "playingTime": 20
+    },
+    {
+      "objectId": "258444",
+      "name": "Gingerbread House",
+      "yearPublished": "2018",
+      "bggRating": 6.98,
+      "bggRank": 1794,
+      "numVoters": 3092,
+      "numFans": 112,
+      "coverUrl": "https://cf.geekdo-images.com/pRGHRqgkLr6TT6GrXbdoVg__square100@2x/img/8vpKwK8o-_2EafgYnlWvoIdS4Oo=/0x0:1117x1117/200x200/filters:strip_icc()/pic4269457.jpg",
+      "thumbnail": "images/thumbnails/258444.jpg",
+      "image": "images/full/258444.jpg",
+      "description": "Bake tasty treats to tempt fairy-tale characters who keep trying to eat your house!",
+      "rawScore": 2.4499999999999997,
+      "recommendedBy": [
+        {
+          "ownedId": "195314",
+          "ownedName": "Herbaceous",
+          "userRating": 7,
+          "bggRecRank": 4,
+          "contributionScore": 2.45
+        }
+      ],
+      "matchScore": 2.4,
+      "minPlayers": 2,
+      "maxPlayers": 4,
+      "playingTime": 30
+    },
+    {
+      "objectId": "421374",
+      "name": "Landmarks",
+      "yearPublished": "2024",
+      "bggRating": 6.87,
+      "bggRank": 2822,
+      "numVoters": 1733,
+      "numFans": 135,
+      "coverUrl": "https://cf.geekdo-images.com/lWsfPuN_lBnHs6gGgP-qtA__square100@2x/img/ClxfKLiKA3LLqslWZtyaZqYI8uw=/0x0:1890x1890/200x200/filters:strip_icc()/pic8268411.png",
+      "thumbnail": "images/thumbnails/421374.png",
+      "image": "images/full/421374.png",
+      "description": "You have the map but your party is lost! Lead them to treasure with one-word clues.",
+      "rawScore": 2.0219289405161307,
+      "recommendedBy": [
+        {
+          "ownedId": "453526",
+          "ownedName": "Got Five!",
+          "userRating": 7,
+          "bggRecRank": 23,
+          "contributionScore": 1.02
+        },
+        {
+          "ownedId": "445045",
+          "ownedName": "Dice Pool Party",
+          "userRating": 7,
+          "bggRecRank": 24,
+          "contributionScore": 1
+        }
+      ],
+      "matchScore": 2.4,
+      "minPlayers": 2,
+      "maxPlayers": 10,
+      "playingTime": 25
+    },
+    {
+      "objectId": "448756",
+      "name": "Oh My Socks!",
+      "yearPublished": "2025",
+      "bggRating": 6.78,
+      "bggRank": 8150,
+      "numVoters": 277,
+      "numFans": 19,
+      "coverUrl": "https://cf.geekdo-images.com/jS7C0rUNTn86dluKcabLpg__square100@2x/img/a3EoidKtaZRLpydTkbnHzqAuST8=/0x0:900x900/200x200/filters:strip_icc()/pic9338426.jpg",
+      "thumbnail": "images/thumbnails/448756.jpg",
+      "image": "images/full/448756.jpg",
+      "description": "Collect the best pairs of socks.",
+      "rawScore": 2.0302367243334642,
+      "recommendedBy": [
+        {
+          "ownedId": "453526",
+          "ownedName": "Got Five!",
+          "userRating": 7,
+          "bggRecRank": 21,
+          "contributionScore": 1.07
+        },
+        {
+          "ownedId": "445045",
+          "ownedName": "Dice Pool Party",
+          "userRating": 7,
+          "bggRecRank": 26,
+          "contributionScore": 0.96
+        }
+      ],
+      "matchScore": 2.4,
+      "minPlayers": 2,
+      "maxPlayers": 5,
+      "playingTime": 20
+    },
+    {
+      "objectId": "256382",
+      "name": "Disney Villainous: The Worst Takes it All",
+      "yearPublished": "2018",
+      "bggRating": 6.91,
+      "bggRank": 958,
+      "numVoters": 23109,
+      "numFans": 1305,
+      "coverUrl": "https://cf.geekdo-images.com/7Ej5V5Dq92QdvVFvISfl_A__square100@2x/img/FQfJAUqU4qmT1v7L0PYj91u1ELs=/200x200/filters:strip_icc()/pic4216110.jpg",
+      "thumbnail": "images/thumbnails/256382.jpg",
+      "image": "images/full/256382.jpg",
+      "description": "Rule your realm and rewrite your tale to be the best at being the Worst.",
+      "rawScore": 2.4499999999999997,
+      "recommendedBy": [
+        {
+          "ownedId": "260300",
+          "ownedName": "Dungeon Mayhem",
+          "userRating": 7,
+          "bggRecRank": 4,
+          "contributionScore": 2.45
+        }
+      ],
+      "matchScore": 2.4,
+      "minPlayers": 2,
+      "maxPlayers": 6,
+      "playingTime": 120
+    },
+    {
+      "objectId": "426796",
+      "name": "Stamp Swap",
+      "yearPublished": "2024",
+      "bggRating": 7,
+      "bggRank": 3064,
+      "numVoters": 1339,
+      "numFans": 189,
+      "coverUrl": "https://cf.geekdo-images.com/Tf2ryUBtxnnUCGROOy4QHg__square100@2x/img/WlNE8PxoECkgBVdSOS1iaRxQAtY=/200x200/filters:strip_icc()/pic8365415.png",
+      "thumbnail": "images/thumbnails/426796.png",
+      "image": "images/full/426796.png",
+      "description": "Draft, cut, choose, and showcase a growing collection of stamps!",
+      "rawScore": 2.4499999999999997,
+      "recommendedBy": [
+        {
+          "ownedId": "431998",
+          "ownedName": "Point Galaxy",
+          "userRating": 7,
+          "bggRecRank": 4,
+          "contributionScore": 2.45
+        }
+      ],
+      "matchScore": 2.4,
+      "minPlayers": 1,
+      "maxPlayers": 5,
+      "playingTime": 60
+    },
+    {
+      "objectId": "206931",
+      "name": "Encore!",
+      "yearPublished": "2016",
+      "bggRating": 6.93,
+      "bggRank": 1350,
+      "numVoters": 6085,
+      "numFans": 173,
+      "coverUrl": "https://cf.geekdo-images.com/3SDN2RboQKFA8Cwle7XaMA__square100@2x/img/f4VJ_0t4T9jXmxTsuUoWw6Qpofc=/0x0:1302x1302/200x200/filters:strip_icc()/pic4731898.jpg",
+      "thumbnail": "images/thumbnails/206931.jpg",
+      "image": "images/full/206931.jpg",
+      "description": "Roll the dice and cross off rows and columns in this roll-and-write game.",
+      "rawScore": 2.4499999999999997,
+      "recommendedBy": [
+        {
+          "ownedId": "131260",
+          "ownedName": "Qwixx",
+          "userRating": 7,
+          "bggRecRank": 4,
+          "contributionScore": 2.45
+        }
+      ],
+      "matchScore": 2.4,
+      "minPlayers": 1,
+      "maxPlayers": 6,
+      "playingTime": 20
+    },
+    {
+      "objectId": "128621",
+      "name": "Viticulture",
+      "yearPublished": "2013",
+      "bggRating": 7.47,
+      "bggRank": 323,
+      "numVoters": 15682,
+      "numFans": 1044,
+      "coverUrl": "https://cf.geekdo-images.com/WrnWFA1Sysm3-nQyBe1sUA__square100@2x/img/tlSIrhcU_ua4cADhiSkUgvDsBMk=/194x0:1867x1673/200x200/filters:strip_icc()/pic2619743.jpg",
+      "thumbnail": "images/thumbnails/128621.jpg",
+      "image": "images/full/128621.jpg",
+      "description": "Seasons pass as you develop your vineyard, harvest grapes, make wine and fill orders.",
+      "rawScore": 1.8860108793527774,
+      "recommendedBy": [
+        {
+          "ownedId": "34635",
+          "ownedName": "Stone Age",
+          "userRating": 7,
+          "bggRecRank": 27,
+          "contributionScore": 0.94
+        },
+        {
+          "ownedId": "9209",
+          "ownedName": "Ticket to Ride",
+          "userRating": 7,
+          "bggRecRank": 27,
+          "contributionScore": 0.94
+        }
+      ],
+      "matchScore": 2.4,
+      "minPlayers": 2,
+      "maxPlayers": 6,
+      "playingTime": 90
+    },
+    {
+      "objectId": "265524",
+      "name": "Ramen Fury",
+      "yearPublished": "2019",
+      "bggRating": 6.23,
+      "bggRank": 5028,
+      "numVoters": 2044,
+      "numFans": 73,
+      "coverUrl": "https://cf.geekdo-images.com/VcNGkCLqw-_gOpj37JyIdA__square100@2x/img/d1aQyAq-lXDinBxPvjZx4c7crRw=/89x0:443x354/200x200/filters:strip_icc()/pic4417936.jpg",
+      "thumbnail": "images/thumbnails/265524.jpg",
+      "image": "images/full/265524.jpg",
+      "description": "Collect delicious ingredients for your bowls, then eat your creations for points.",
+      "rawScore": 2.8290163190291664,
+      "recommendedBy": [
+        {
+          "ownedId": "216439",
+          "ownedName": "Trash Pandas",
+          "userRating": 7,
+          "bggRecRank": 3,
+          "contributionScore": 2.83
+        }
+      ],
+      "matchScore": 2.4,
+      "minPlayers": 2,
+      "maxPlayers": 5,
+      "playingTime": 30
+    },
+    {
+      "objectId": "406291",
+      "name": "스플렌더: Pokémon (Splendor: Pokémon)",
+      "yearPublished": "2023",
+      "bggRating": 7.91,
+      "bggRank": 1268,
+      "numVoters": 1880,
+      "numFans": 235,
+      "coverUrl": "https://cf.geekdo-images.com/o6HpiLCBBFvc7XvBv7DEig__square100@2x/img/0JGvP9rp8plAQJYYzCEb_YMTkEQ=/0x223:938x1161/200x200/filters:strip_icc()/pic7902371.jpg",
+      "thumbnail": "images/thumbnails/406291.jpg",
+      "image": "images/full/406291.jpg",
+      "description": "Gotta Catch 'Em All!",
+      "rawScore": 2.191346617949794,
+      "recommendedBy": [
+        {
+          "ownedId": "46396",
+          "ownedName": "Ubongo 3D",
+          "userRating": 7,
+          "bggRecRank": 5,
+          "contributionScore": 2.19
+        }
+      ],
+      "matchScore": 2.4,
+      "minPlayers": 2,
+      "maxPlayers": 4,
+      "playingTime": 30
+    },
+    {
+      "objectId": "335764",
+      "name": "Unmatched: Battle of Legends, Volume Two",
+      "yearPublished": "2021",
+      "bggRating": 8.2,
+      "bggRank": 475,
+      "numVoters": 3564,
+      "numFans": 288,
+      "coverUrl": "https://cf.geekdo-images.com/_N9ueJu-Vaq656p7HSI9sw__square100@2x/img/Ayj3sz5CEGnNYt3ve4GZ1D6mMpE=/0x0:1801x1801/200x200/filters:strip_icc()/pic6267930.jpg",
+      "thumbnail": "images/thumbnails/335764.jpg",
+      "image": "images/full/335764.jpg",
+      "description": "More heroes, more sidekicks, more legends, more fights!",
+      "rawScore": 2,
+      "recommendedBy": [
+        {
+          "ownedId": "424784",
+          "ownedName": "Arkham Horror: Lovecraft Letter",
+          "userRating": 10,
+          "bggRecRank": 25,
+          "contributionScore": 2
+        }
+      ],
+      "matchScore": 2.3,
+      "minPlayers": 2,
+      "maxPlayers": 4,
+      "playingTime": 40
+    },
+    {
+      "objectId": "301767",
+      "name": "Mysterium Park",
+      "yearPublished": "2020",
+      "bggRating": 6.99,
+      "bggRank": 1307,
+      "numVoters": 5775,
+      "numFans": 332,
+      "coverUrl": "https://cf.geekdo-images.com/U2CYPYgIEC1cLF45Rh0UGw__square100@2x/img/e_J61WF7G6Y93hI8gS4SVZmY-0k=/0x0:1354x1354/200x200/filters:strip_icc()/pic5581038.jpg",
+      "thumbnail": "images/thumbnails/301767.jpg",
+      "image": "images/full/301767.jpg",
+      "description": "It's cotton candy, circus, dark secrets - a psychic investigation at Mysterium Park!",
+      "rawScore": 2.3570226039551585,
+      "recommendedBy": [
+        {
+          "ownedId": "304285",
+          "ownedName": "Infinity Gauntlet: A Love Letter Game",
+          "userRating": 10,
+          "bggRecRank": 18,
+          "contributionScore": 2.36
+        }
+      ],
+      "matchScore": 2.3,
+      "minPlayers": 2,
+      "maxPlayers": 6,
+      "playingTime": 45
+    },
+    {
+      "objectId": "256804",
+      "name": "Exploding Kittens: Party Pack",
+      "yearPublished": "2017",
+      "bggRating": 7.04,
+      "bggRank": 2177,
+      "numVoters": 2973,
+      "numFans": 191,
+      "coverUrl": "https://cf.geekdo-images.com/TTsbFSWQjf6ALCmct9Q02g__square100@2x/img/oQIR0OiIbOyYdC1Zg8iedNxX3E8=/97x0:927x682/fit-in/200x200/filters:fill(blur):strip_icc()/pic5940391.png",
+      "thumbnail": "images/thumbnails/256804.png",
+      "image": "images/full/256804.png",
+      "description": "Survive by having the others eliminated by drawing Exploding Kitten cards.",
+      "rawScore": 2.3570226039551585,
+      "recommendedBy": [
+        {
+          "ownedId": "411404",
+          "ownedName": "Power Hungry Pets",
+          "userRating": 10,
+          "bggRecRank": 18,
+          "contributionScore": 2.36
+        }
+      ],
+      "matchScore": 2.3,
+      "minPlayers": 2,
+      "maxPlayers": 10,
+      "playingTime": 15
+    },
+    {
+      "objectId": "383109",
+      "name": "Dragonkeepers",
+      "yearPublished": "2023",
+      "bggRating": 7.07,
+      "bggRank": 2210,
+      "numVoters": 2012,
+      "numFans": 144,
+      "coverUrl": "https://cf.geekdo-images.com/FvGvU-Tp3gXDdX-FBkRceA__square100@2x/img/yO_97AYA7xa2PEy3cpHRM_hcoug=/0x0:2252x2252/200x200/filters:strip_icc()/pic7646092.jpg",
+      "thumbnail": "images/thumbnails/383109.jpg",
+      "image": "images/full/383109.jpg",
+      "description": "Herd dragons and cast magic spells to boost their value.",
+      "rawScore": 2.3570226039551585,
+      "recommendedBy": [
+        {
+          "ownedId": "353288",
+          "ownedName": "Trekking Through History",
+          "userRating": 10,
+          "bggRecRank": 18,
+          "contributionScore": 2.36
+        }
+      ],
+      "matchScore": 2.3,
+      "minPlayers": 2,
+      "maxPlayers": 4,
+      "playingTime": 20
+    },
+    {
+      "objectId": "276498",
+      "name": "Paris: La Cité de la Lumière",
+      "yearPublished": "2019",
+      "bggRating": 7.21,
+      "bggRank": 935,
+      "numVoters": 6234,
+      "numFans": 393,
+      "coverUrl": "https://cf.geekdo-images.com/6mIsd0NbfluAAZxwS-3P8Q__square100@2x/img/3Z9kOY3NHt1SRl6Kai7sS78ptuY=/200x200/filters:strip_icc()/pic4664437.jpg",
+      "thumbnail": "images/thumbnails/276498.jpg",
+      "image": "images/full/276498.jpg",
+      "description": "Players compete for their moment in the light by placing oddly shaped building tiles.",
+      "rawScore": 2.2627416997969525,
+      "recommendedBy": [
+        {
+          "ownedId": "309113",
+          "ownedName": "Ticket to Ride: Amsterdam",
+          "userRating": 8,
+          "bggRecRank": 8,
+          "contributionScore": 2.26
+        }
+      ],
+      "matchScore": 2.3,
+      "minPlayers": 2,
+      "maxPlayers": 2,
+      "playingTime": 30
+    },
+    {
+      "objectId": "31627",
+      "name": "Ticket to Ride: Nordic Countries",
+      "yearPublished": "2007",
+      "bggRating": 7.62,
+      "bggRank": 242,
+      "numVoters": 15215,
+      "numFans": 497,
+      "coverUrl": "https://cf.geekdo-images.com/bCdjNIu-O_SzVCfMLZY_KQ__square100@2x/img/zszO0Rfuq627-IE8MovgV1nlgmE=/200x200/filters:strip_icc()/pic7634498.png",
+      "thumbnail": "images/thumbnails/31627.png",
+      "image": "images/full/31627.png",
+      "description": "Build railways to connect destinations across Scandinavia and neighboring countries.",
+      "rawScore": 2.1333333333333337,
+      "recommendedBy": [
+        {
+          "ownedId": "309113",
+          "ownedName": "Ticket to Ride: Amsterdam",
+          "userRating": 8,
+          "bggRecRank": 9,
+          "contributionScore": 2.13
+        }
+      ],
+      "matchScore": 2.3,
+      "minPlayers": 2,
+      "maxPlayers": 3,
+      "playingTime": 60
+    },
+    {
+      "objectId": "317515",
+      "name": "Águeda: City of Umbrellas",
+      "yearPublished": "2024",
+      "bggRating": 6.87,
+      "bggRank": 5570,
+      "numVoters": 525,
+      "numFans": 66,
+      "coverUrl": "https://cf.geekdo-images.com/pZ7NIPZmEDu5_kXoVPJ0qA__square100@2x/img/wa_QN5O6iI1hM32M6C2QIWRU6W4=/0x0:1110x1110/200x200/filters:strip_icc()/pic7116351.png",
+      "thumbnail": "images/thumbnails/317515.png",
+      "image": "images/full/317515.png",
+      "description": "Create beautiful street art with umbrellas in the city of Agueda Portugal.",
+      "rawScore": 2.4189726272590546,
+      "recommendedBy": [
+        {
+          "ownedId": "360503",
+          "ownedName": "Downtown Farmers Market",
+          "userRating": 8,
+          "bggRecRank": 7,
+          "contributionScore": 2.42
+        }
+      ],
+      "matchScore": 2.3,
+      "minPlayers": 1,
+      "maxPlayers": 5,
+      "playingTime": 40
+    },
+    {
+      "objectId": "365104",
+      "name": "Planted: A Game of Nature & Nurture",
+      "yearPublished": "2022",
+      "bggRating": 7.23,
+      "bggRank": 1409,
+      "numVoters": 3360,
+      "numFans": 433,
+      "coverUrl": "https://cf.geekdo-images.com/w05q02PbXAw64GKtd4H4qg__square100@2x/img/zB99YlumcrcbmJwPyuiecUFd3SQ=/200x200/filters:strip_icc()/pic6978684.jpg",
+      "thumbnail": "images/thumbnails/365104.jpg",
+      "image": "images/full/365104.jpg",
+      "description": "Care for your very own collection of houseplants.",
+      "rawScore": 2.2627416997969525,
+      "recommendedBy": [
+        {
+          "ownedId": "360503",
+          "ownedName": "Downtown Farmers Market",
+          "userRating": 8,
+          "bggRecRank": 8,
+          "contributionScore": 2.26
+        }
+      ],
+      "matchScore": 2.3,
+      "minPlayers": 2,
+      "maxPlayers": 5,
+      "playingTime": 30
+    },
+    {
+      "objectId": "149155",
+      "name": "Dead Man's Draw",
+      "yearPublished": "2014",
+      "bggRating": 6.86,
+      "bggRank": 1474,
+      "numVoters": 6351,
+      "numFans": 289,
+      "coverUrl": "https://cf.geekdo-images.com/m6tC_KsilZUQsKFIzDXIpA__square100@2x/img/9rFUclJ0KwTrj71xFLUa4PUArpk=/0x82:434x516/200x200/filters:strip_icc()/pic6489882.jpg",
+      "thumbnail": "images/thumbnails/149155.jpg",
+      "image": "images/full/149155.jpg",
+      "description": "Use various pirate powers to push your luck in this quick card game.",
+      "rawScore": 2.4189726272590546,
+      "recommendedBy": [
+        {
+          "ownedId": "223040",
+          "ownedName": "Fantasy Realms",
+          "userRating": 8,
+          "bggRecRank": 7,
+          "contributionScore": 2.42
+        }
+      ],
+      "matchScore": 2.3,
+      "minPlayers": 2,
+      "maxPlayers": 4,
+      "playingTime": 15
+    },
+    {
+      "objectId": "244608",
+      "name": "Menara",
+      "yearPublished": "2018",
+      "bggRating": 7.41,
+      "bggRank": 870,
+      "numVoters": 4388,
+      "numFans": 201,
+      "coverUrl": "https://cf.geekdo-images.com/qRwLtZZDhIT1wPD8qjCEUA__square100@2x/img/6E0N4LUx-BmRhVUua7BBJOfyyLA=/200x200/filters:strip_icc()/pic3944407.jpg",
+      "thumbnail": "images/thumbnails/244608.jpg",
+      "image": "images/full/244608.jpg",
+      "description": "Explorers use their dexterity and cunning to resurrect the ancient temples of Menara.",
+      "rawScore": 2.2627416997969525,
+      "recommendedBy": [
+        {
+          "ownedId": "223040",
+          "ownedName": "Fantasy Realms",
+          "userRating": 8,
+          "bggRecRank": 8,
+          "contributionScore": 2.26
+        }
+      ],
+      "matchScore": 2.3,
+      "minPlayers": 1,
+      "maxPlayers": 4,
+      "playingTime": 60
+    },
+    {
+      "objectId": "154597",
+      "name": "Hive Pocket",
+      "yearPublished": "2010",
+      "bggRating": 7.69,
+      "bggRank": null,
+      "numVoters": 15286,
+      "numFans": 763,
+      "coverUrl": "https://cf.geekdo-images.com/qxB2LU0536eKeByvNl3vcA__square100@2x/img/HVLVuJrWj4NnIj4lZ9vzga4CY50=/0x0:1025x1025/200x200/filters:strip_icc()/pic8229329.jpg",
+      "thumbnail": "images/thumbnails/154597.jpg",
+      "image": "images/full/154597.jpg",
+      "description": "Hop, fly, crawl and keep the Hive intact to surround the enemy Queen Bee and win!",
+      "rawScore": 2.191346617949794,
+      "recommendedBy": [
+        {
+          "ownedId": "329954",
+          "ownedName": "Carcassonne: 20th Anniversary Edition",
+          "userRating": 7,
+          "bggRecRank": 5,
+          "contributionScore": 2.19
+        }
+      ],
+      "matchScore": 2.3,
+      "minPlayers": 2,
+      "maxPlayers": 2,
+      "playingTime": 20
+    },
+    {
+      "objectId": "36218",
+      "name": "Dominion",
+      "yearPublished": "2008",
+      "bggRating": 7.6,
+      "bggRank": 146,
+      "numVoters": 97077,
+      "numFans": 7734,
+      "coverUrl": "https://cf.geekdo-images.com/j6iQpZ4XkemZP07HNCODBA__square100@2x/img/bdy0EAVNphNdyTwHjVOiddTaUFQ=/200x200/filters:strip_icc()/pic394356.jpg",
+      "thumbnail": "images/thumbnails/36218.jpg",
+      "image": "images/full/36218.jpg",
+      "description": "Acquire the most valuable lands by building your deck with treasure and power cards.",
+      "rawScore": 2.191346617949794,
+      "recommendedBy": [
+        {
+          "ownedId": "143884",
+          "ownedName": "Machi Koro",
+          "userRating": 7,
+          "bggRecRank": 5,
+          "contributionScore": 2.19
+        }
+      ],
+      "matchScore": 2.3,
+      "minPlayers": 2,
+      "maxPlayers": 4,
+      "playingTime": 30
+    },
+    {
+      "objectId": "148949",
+      "name": "Istanbul",
+      "yearPublished": "2014",
+      "bggRating": 7.53,
+      "bggRank": 193,
+      "numVoters": 33884,
+      "numFans": 1456,
+      "coverUrl": "https://cf.geekdo-images.com/PHH9Mreen2sBcxV6ZsE3ew__square100@2x/img/IuRWz9rCla-va_b99_nfDo1EH5w=/0x0:644x644/200x200/filters:strip_icc()/pic1885326.jpg",
+      "thumbnail": "images/thumbnails/148949.jpg",
+      "image": "images/full/148949.jpg",
+      "description": "Send your assistants through the shops of Istanbul as you race to acquire rubies.",
+      "rawScore": 2.191346617949794,
+      "recommendedBy": [
+        {
+          "ownedId": "34635",
+          "ownedName": "Stone Age",
+          "userRating": 7,
+          "bggRecRank": 5,
+          "contributionScore": 2.19
+        }
+      ],
+      "matchScore": 2.3,
+      "minPlayers": 2,
+      "maxPlayers": 5,
+      "playingTime": 60
+    },
+    {
+      "objectId": "325414",
+      "name": "Happy Little Dinosaurs",
+      "yearPublished": "2021",
+      "bggRating": 6.15,
+      "bggRank": 4566,
+      "numVoters": 4494,
+      "numFans": 319,
+      "coverUrl": "https://cf.geekdo-images.com/aajSbzY8vkZG_-aJdKJh_g__square100@2x/img/j1l6XtDfOzP8Lxoe16UV2S3Fwi8=/0x396:714x1110/200x200/filters:strip_icc()/pic8286790.png",
+      "thumbnail": "images/thumbnails/325414.png",
+      "image": "images/full/325414.png",
+      "description": "Work to avoid all of life’s little disasters and laugh as they happen to your friends",
+      "rawScore": 2.5819888974716108,
+      "recommendedBy": [
+        {
+          "ownedId": "411404",
+          "ownedName": "Power Hungry Pets",
+          "userRating": 10,
+          "bggRecRank": 15,
+          "contributionScore": 2.58
+        }
+      ],
+      "matchScore": 2.2,
+      "minPlayers": 2,
+      "maxPlayers": 4,
+      "playingTime": 60
+    },
+    {
+      "objectId": "370193",
+      "name": "Roll to the Top: Journeys",
+      "yearPublished": "2023",
+      "bggRating": 6.42,
+      "bggRank": 5325,
+      "numVoters": 934,
+      "numFans": 38,
+      "coverUrl": "https://cf.geekdo-images.com/aL1k2g0B43YypC7NrS6ftg__square100@2x/img/0EJTC3BXB-RyCyMXrUdXFTija4M=/0x0:2043x2043/200x200/filters:strip_icc()/pic7093414.jpg",
+      "thumbnail": "images/thumbnails/370193.jpg",
+      "image": "images/full/370193.jpg",
+      "description": "Compete to reach the top of landmarks across the globe in this roll and write.",
+      "rawScore": 2.4189726272590546,
+      "recommendedBy": [
+        {
+          "ownedId": "63975",
+          "ownedName": "Mountain Goats",
+          "userRating": 8,
+          "bggRecRank": 7,
+          "contributionScore": 2.42
+        }
+      ],
+      "matchScore": 2.2,
+      "minPlayers": 1,
+      "maxPlayers": 6,
+      "playingTime": 20
+    },
+    {
+      "objectId": "351810",
+      "name": "Viking See-Saw",
+      "yearPublished": "2021",
+      "bggRating": 7.15,
+      "bggRank": 2558,
+      "numVoters": 1477,
+      "numFans": 91,
+      "coverUrl": "https://cf.geekdo-images.com/sZihzTOJUFXSKgDi787gOQ__square100@2x/img/phEYQ5Mxr9Roh8fRk2wjWHW4rJQ=/0x15:375x390/200x200/filters:strip_icc()/pic7757953.jpg",
+      "thumbnail": "images/thumbnails/351810.jpg",
+      "image": "images/full/351810.jpg",
+      "description": "Try not to tip the ship while trying to get the most luggage on!",
+      "rawScore": 2.2627416997969525,
+      "recommendedBy": [
+        {
+          "ownedId": "400113",
+          "ownedName": "Panda Panda",
+          "userRating": 8,
+          "bggRecRank": 8,
+          "contributionScore": 2.26
+        }
+      ],
+      "matchScore": 2.2,
+      "minPlayers": 2,
+      "maxPlayers": 4,
+      "playingTime": 10
+    },
+    {
+      "objectId": "327778",
+      "name": "ito",
+      "yearPublished": "2019",
+      "bggRating": 7.32,
+      "bggRank": 1057,
+      "numVoters": 3974,
+      "numFans": 278,
+      "coverUrl": "https://cf.geekdo-images.com/CaGsrg17dVTXSP_7sjbm9w__square100@2x/img/hUQzZm1pGtmMCc5NSN0DJXwF96g=/0x480:1200x1680/200x200/filters:strip_icc()/pic8381709.png",
+      "thumbnail": "images/thumbnails/327778.png",
+      "image": "images/full/327778.png",
+      "description": "String your thoughts together!",
+      "rawScore": 2.1333333333333337,
+      "recommendedBy": [
+        {
+          "ownedId": "291453",
+          "ownedName": "SCOUT",
+          "userRating": 8,
+          "bggRecRank": 9,
+          "contributionScore": 2.13
+        }
+      ],
+      "matchScore": 2.2,
+      "minPlayers": 2,
+      "maxPlayers": 10,
+      "playingTime": 10
+    },
+    {
+      "objectId": "429293",
+      "name": "The Lord of the Rings: The Fellowship of the Ring – Trick-Taking Game",
+      "yearPublished": "2025",
+      "bggRating": 7.99,
+      "bggRank": 134,
+      "numVoters": 10694,
+      "numFans": 1603,
+      "coverUrl": "https://cf.geekdo-images.com/uC4N_3kQdoHefNPesAHCzQ__square100@2x/img/vU01eNBZfwbL24pkCR7AouNMpTY=/0x1030:934x1964/200x200/filters:strip_icc()/pic8437787.png",
+      "thumbnail": "images/thumbnails/429293.png",
+      "image": "images/full/429293.png",
+      "description": "Travel from the Shire and overcome every obstacle as a team.",
+      "rawScore": 2.023857702507763,
+      "recommendedBy": [
+        {
+          "ownedId": "291453",
+          "ownedName": "SCOUT",
+          "userRating": 8,
+          "bggRecRank": 10,
+          "contributionScore": 2.02
+        }
+      ],
+      "matchScore": 2.2,
+      "minPlayers": 1,
+      "maxPlayers": 4,
+      "playingTime": 20
+    },
+    {
+      "objectId": "419074",
+      "name": "Fairy Ring",
+      "yearPublished": "2024",
+      "bggRating": 7.32,
+      "bggRank": 2698,
+      "numVoters": 1199,
+      "numFans": 121,
+      "coverUrl": "https://cf.geekdo-images.com/qwfP7PsSKG0CuhFrN97j6w__square100@2x/img/LmiDlQWLOXX56KX9GugjWoNQAqA=/200x200/filters:strip_icc()/pic8179818.png",
+      "thumbnail": "images/thumbnails/419074.png",
+      "image": "images/full/419074.png",
+      "description": "Assemble a troop of mushrooms that will attract fairies...and score points for you.",
+      "rawScore": 2.191346617949794,
+      "recommendedBy": [
+        {
+          "ownedId": "445045",
+          "ownedName": "Dice Pool Party",
+          "userRating": 7,
+          "bggRecRank": 5,
+          "contributionScore": 2.19
+        }
+      ],
+      "matchScore": 2.2,
+      "minPlayers": 2,
+      "maxPlayers": 4,
+      "playingTime": 40
+    },
+    {
+      "objectId": "49",
+      "name": "Mamma Mia!",
+      "yearPublished": "1998",
+      "bggRating": 6.49,
+      "bggRank": 2209,
+      "numVoters": 6588,
+      "numFans": 112,
+      "coverUrl": "https://cf.geekdo-images.com/R4sklz_ELBN5nLFTwagvLQ__square100@2x/img/zloNdkc0tF4oVLTHWnoSNeJcsY0=/0x26:487x576/fit-in/200x200/filters:fill(blur):strip_icc()/pic2824027.jpg",
+      "thumbnail": "images/thumbnails/49.jpg",
+      "image": "images/full/49.jpg",
+      "description": "Load the pizza oven with topping after topping. Use your memory to fill the orders.",
+      "rawScore": 2.4499999999999997,
+      "recommendedBy": [
+        {
+          "ownedId": "9674",
+          "ownedName": "Ingenious",
+          "userRating": 7,
+          "bggRecRank": 4,
+          "contributionScore": 2.45
+        }
+      ],
+      "matchScore": 2.2,
+      "minPlayers": 2,
+      "maxPlayers": 5,
+      "playingTime": 30
+    },
+    {
+      "objectId": "262543",
+      "name": "Wavelength",
+      "yearPublished": "2019",
+      "bggRating": 7.19,
+      "bggRank": 536,
+      "numVoters": 18821,
+      "numFans": 830,
+      "coverUrl": "https://cf.geekdo-images.com/z4fbPdmJg_5yphJEvql4ZA__square100@2x/img/ojwhvyvB8dMmyzHgEYj5_TxZQ0w=/200x200/filters:strip_icc()/pic4552862.png",
+      "thumbnail": "images/thumbnails/262543.png",
+      "image": "images/full/262543.png",
+      "description": "Read your teammates’ minds in this pinpoint party game of infinite possibilities.",
+      "rawScore": 2.191346617949794,
+      "recommendedBy": [
+        {
+          "ownedId": "92415",
+          "ownedName": "Skull",
+          "userRating": 7,
+          "bggRecRank": 5,
+          "contributionScore": 2.19
+        }
+      ],
+      "matchScore": 2.2,
+      "minPlayers": 2,
+      "maxPlayers": 12,
+      "playingTime": 45
+    },
+    {
+      "objectId": "342016",
+      "name": "Tetris",
+      "yearPublished": "2021",
+      "bggRating": 6.39,
+      "bggRank": 6446,
+      "numVoters": 741,
+      "numFans": 52,
+      "coverUrl": "https://cf.geekdo-images.com/GOBtiC8kfmwFzecMpqAwFQ__square100@2x/img/Ag7rbVwIfAGkABm-W0i7GwI3xSU=/200x200/filters:strip_icc()/pic7181602.jpg",
+      "thumbnail": "images/thumbnails/342016.jpg",
+      "image": "images/full/342016.jpg",
+      "description": "Head-to-head Tetris puzzle game.",
+      "rawScore": 2.4499999999999997,
+      "recommendedBy": [
+        {
+          "ownedId": "216439",
+          "ownedName": "Trash Pandas",
+          "userRating": 7,
+          "bggRecRank": 4,
+          "contributionScore": 2.45
+        }
+      ],
+      "matchScore": 2.2,
+      "minPlayers": 2,
+      "maxPlayers": 4,
+      "playingTime": 30
+    },
+    {
+      "objectId": "257499",
+      "name": "Arkham Horror (Third Edition)",
+      "yearPublished": "2018",
+      "bggRating": 7.68,
+      "bggRank": 354,
+      "numVoters": 11168,
+      "numFans": 1446,
+      "coverUrl": "https://cf.geekdo-images.com/09KeqyJEtu2qcskbtlOhqw__square100@2x/img/uWVtIV5SuMcG7y-FS0yRLZbfsMk=/200x200/filters:strip_icc()/pic5726297.jpg",
+      "thumbnail": "images/thumbnails/257499.jpg",
+      "image": "images/full/257499.jpg",
+      "description": "Piece the clues together to stop the horrors before your sanity shatters.",
+      "rawScore": 1.9611613513818404,
+      "recommendedBy": [
+        {
+          "ownedId": "424784",
+          "ownedName": "Arkham Horror: Lovecraft Letter",
+          "userRating": 10,
+          "bggRecRank": 26,
+          "contributionScore": 1.96
+        }
+      ],
+      "matchScore": 2.1,
+      "minPlayers": 1,
+      "maxPlayers": 6,
+      "playingTime": 180
+    },
+    {
+      "objectId": "211534",
+      "name": "Bears vs Babies",
+      "yearPublished": "2017",
+      "bggRating": 5.37,
+      "bggRank": 30955,
+      "numVoters": 5482,
+      "numFans": 167,
+      "coverUrl": "https://cf.geekdo-images.com/2BZROogBECvPPF2780wlvg__square100@2x/img/LzAozxUOMpSN46iBiISDw9FOq34=/70x0:695x625/200x200/filters:strip_icc()/pic5521191.jpg",
+      "thumbnail": "images/thumbnails/211534.jpg",
+      "image": "images/full/211534.jpg",
+      "description": "Humorous game of patchwork bears vs. vicious babies.",
+      "rawScore": 2.42535625036333,
+      "recommendedBy": [
+        {
+          "ownedId": "411404",
+          "ownedName": "Power Hungry Pets",
+          "userRating": 10,
+          "bggRecRank": 17,
+          "contributionScore": 2.43
+        }
+      ],
+      "matchScore": 2.1,
+      "minPlayers": 2,
+      "maxPlayers": 5,
+      "playingTime": 20
+    },
+    {
+      "objectId": "359878",
+      "name": "Splito",
+      "yearPublished": "2022",
+      "bggRating": 6.72,
+      "bggRank": 3433,
+      "numVoters": 1488,
+      "numFans": 65,
+      "coverUrl": "https://cf.geekdo-images.com/m3P9jXne14Lsw7LKiczeog__square100@2x/img/bx2ttXzOcFMoGD7V_Bn8jzly_Bs=/0x0:1005x1005/200x200/filters:strip_icc()/pic7293764.png",
+      "thumbnail": "images/thumbnails/359878.png",
+      "image": "images/full/359878.png",
+      "description": "Players cooperate to score points but only the one who scores the most wins the game.",
+      "rawScore": 2.2627416997969525,
+      "recommendedBy": [
+        {
+          "ownedId": "216497",
+          "ownedName": "District Noir",
+          "userRating": 8,
+          "bggRecRank": 8,
+          "contributionScore": 2.26
+        }
+      ],
+      "matchScore": 2.1,
+      "minPlayers": 3,
+      "maxPlayers": 8,
+      "playingTime": 20
+    },
+    {
+      "objectId": "332170",
+      "name": "Donut Shop",
+      "yearPublished": "2024",
+      "bggRating": 7.03,
+      "bggRank": 5945,
+      "numVoters": 405,
+      "numFans": 67,
+      "coverUrl": "https://cf.geekdo-images.com/5fQzHIORtvVrvWLkYnVW2g__square100@2x/img/h4VFdKzBzJEaCASRSWmVt5QYqec=/0x0:1497x1497/200x200/filters:strip_icc()/pic7063518.png",
+      "thumbnail": "images/thumbnails/332170.png",
+      "image": "images/full/332170.png",
+      "description": "Maximize your display case & box up donuts the fastest to take home the most tips!",
+      "rawScore": 2.1333333333333337,
+      "recommendedBy": [
+        {
+          "ownedId": "360503",
+          "ownedName": "Downtown Farmers Market",
+          "userRating": 8,
+          "bggRecRank": 9,
+          "contributionScore": 2.13
+        }
+      ],
+      "matchScore": 2.1,
+      "minPlayers": 2,
+      "maxPlayers": 4,
+      "playingTime": 40
+    },
+    {
+      "objectId": "198740",
+      "name": "Lovecraft Letter",
+      "yearPublished": "2017",
+      "bggRating": 7.22,
+      "bggRank": 946,
+      "numVoters": 5857,
+      "numFans": 276,
+      "coverUrl": "https://cf.geekdo-images.com/iRDSJ4wnIjbcZnYYmxrS7w__square100@2x/img/-7rOY-pyVQ7_yxKwDlki7l0JYgw=/0x376:1933x2309/200x200/filters:strip_icc()/pic3485528.png",
+      "thumbnail": "images/thumbnails/198740.png",
+      "image": "images/full/198740.png",
+      "description": "Confront eldritch lore: win by staying sane or triumph through madness.",
+      "rawScore": 2.1333333333333337,
+      "recommendedBy": [
+        {
+          "ownedId": "223040",
+          "ownedName": "Fantasy Realms",
+          "userRating": 8,
+          "bggRecRank": 9,
+          "contributionScore": 2.13
+        }
+      ],
+      "matchScore": 2.1,
+      "minPlayers": 2,
+      "maxPlayers": 6,
+      "playingTime": 15
+    },
+    {
+      "objectId": "300531",
+      "name": "Paleo",
+      "yearPublished": "2020",
+      "bggRating": 7.65,
+      "bggRank": 235,
+      "numVoters": 16334,
+      "numFans": 1609,
+      "coverUrl": "https://cf.geekdo-images.com/85t1wkwgvh3d2mmjsRcDrw__square100@2x/img/bRa-B8rFSo91_Ub1EQUF2rMF8wA=/200x200/filters:strip_icc()/pic6039256.jpg",
+      "thumbnail": "images/thumbnails/300531.jpg",
+      "image": "images/full/300531.jpg",
+      "description": "Your Stone Age tribe must work together to eat, survive, and develop new tech.",
+      "rawScore": 1.9296726052976876,
+      "recommendedBy": [
+        {
+          "ownedId": "223040",
+          "ownedName": "Fantasy Realms",
+          "userRating": 8,
+          "bggRecRank": 11,
+          "contributionScore": 1.93
+        }
+      ],
+      "matchScore": 2.1,
+      "minPlayers": 2,
+      "maxPlayers": 4,
+      "playingTime": 60
+    },
+    {
+      "objectId": "359970",
+      "name": "Challengers!",
+      "yearPublished": "2022",
+      "bggRating": 7.05,
+      "bggRank": 957,
+      "numVoters": 8472,
+      "numFans": 553,
+      "coverUrl": "https://cf.geekdo-images.com/GtLESZ4ZjqikK12bjBTmig__square100@2x/img/jYB7m30Fn_l2_LaULV_1SZB8t54=/200x200/filters:strip_icc()/pic7040521.jpg",
+      "thumbnail": "images/thumbnails/359970.jpg",
+      "image": "images/full/359970.jpg",
+      "description": "Capture the flag and hold onto it to win the tournament!",
+      "rawScore": 2.1333333333333337,
+      "recommendedBy": [
+        {
+          "ownedId": "353545",
+          "ownedName": "Next Station: London",
+          "userRating": 8,
+          "bggRecRank": 9,
+          "contributionScore": 2.13
+        }
+      ],
+      "matchScore": 2.1,
+      "minPlayers": 1,
+      "maxPlayers": 8,
+      "playingTime": 45
+    },
+    {
+      "objectId": "392842",
+      "name": "Wonder Bowling",
+      "yearPublished": "2023",
+      "bggRating": 6.93,
+      "bggRank": 4938,
+      "numVoters": 600,
+      "numFans": 23,
+      "coverUrl": "https://cf.geekdo-images.com/utzh_1pU_pCqvuLqRawkcw__square100@2x/img/6uGLLv_wZAMQC942RAfPGxCtVPY=/0x15:375x390/200x200/filters:strip_icc()/pic8418672.jpg",
+      "thumbnail": "images/thumbnails/392842.jpg",
+      "image": "images/full/392842.jpg",
+      "description": "Party dexterity bowling game - keep the pins up, dont knock them all down.",
+      "rawScore": 2.1333333333333337,
+      "recommendedBy": [
+        {
+          "ownedId": "400113",
+          "ownedName": "Panda Panda",
+          "userRating": 8,
+          "bggRecRank": 9,
+          "contributionScore": 2.13
+        }
+      ],
+      "matchScore": 2.1,
+      "minPlayers": 2,
+      "maxPlayers": 6,
+      "playingTime": 20
+    },
+    {
+      "objectId": "399826",
+      "name": "Gem Getter Pro",
+      "yearPublished": "2023",
+      "bggRating": 8.09,
+      "bggRank": 8314,
+      "numVoters": 145,
+      "numFans": 50,
+      "coverUrl": "https://cf.geekdo-images.com/1Zb4dbAGZOmEgmVHbfRWXA__square100@2x/img/UjxoNjYWQvbWxU-hrFEZKFn-pdo=/34x0:1262x1228/200x200/filters:strip_icc()/pic7695086.png",
+      "thumbnail": "images/thumbnails/399826.png",
+      "image": "images/full/399826.png",
+      "description": "Rival gem enthusiasts compete to unearth the most valuable collection of gems.",
+      "rawScore": 1.847520861406803,
+      "recommendedBy": [
+        {
+          "ownedId": "191095",
+          "ownedName": "Scoundrel",
+          "userRating": 8,
+          "bggRecRank": 12,
+          "contributionScore": 1.85
+        }
+      ],
+      "matchScore": 2.1,
+      "minPlayers": 1,
+      "maxPlayers": 99,
+      "playingTime": 30
+    },
+    {
+      "objectId": "67888",
+      "name": "Lords of Scotland",
+      "yearPublished": "2010",
+      "bggRating": 6.76,
+      "bggRank": 2796,
+      "numVoters": 2132,
+      "numFans": 83,
+      "coverUrl": "https://cf.geekdo-images.com/afCkJ0fvvhui6A9wlzOnyQ__square100@2x/img/NqTgCjuUzJrbuC6Gpc6ZsxQJVS8=/0x0:1430x1430/200x200/filters:strip_icc()/pic2338327.jpg",
+      "thumbnail": "images/thumbnails/67888.jpg",
+      "image": "images/full/67888.jpg",
+      "description": "Use your clansmen to become the best lord of Scotland and take the throne!",
+      "rawScore": 2.191346617949794,
+      "recommendedBy": [
+        {
+          "ownedId": "112373",
+          "ownedName": "BraveRats",
+          "userRating": 7,
+          "bggRecRank": 5,
+          "contributionScore": 2.19
+        }
+      ],
+      "matchScore": 2.1,
+      "minPlayers": 2,
+      "maxPlayers": 5,
+      "playingTime": 35
+    },
+    {
+      "objectId": "424152",
+      "name": "Orapa Mine",
+      "yearPublished": "2024",
+      "bggRating": 7.48,
+      "bggRank": 1720,
+      "numVoters": 1799,
+      "numFans": 144,
+      "coverUrl": "https://cf.geekdo-images.com/AA9S_-ZXnIFS0ABiFxmZ9w__square100@2x/img/tQvCJ8brWrx1R0qd7N5sxYkSmis=/0x0:985x985/200x200/filters:strip_icc()/pic8307047.jpg",
+      "thumbnail": "images/thumbnails/424152.jpg",
+      "image": "images/full/424152.jpg",
+      "description": "Time to mine! Use deduction to find the mineral locations to win!",
+      "rawScore": 2.000416623272929,
+      "recommendedBy": [
+        {
+          "ownedId": "393325",
+          "ownedName": "Captain Flip",
+          "userRating": 7,
+          "bggRecRank": 6,
+          "contributionScore": 2
+        }
+      ],
+      "matchScore": 2.1,
+      "minPlayers": 2,
+      "maxPlayers": 5,
+      "playingTime": 30
+    },
+    {
+      "objectId": "340041",
+      "name": "Kingdomino Origins",
+      "yearPublished": "2021",
+      "bggRating": 7.45,
+      "bggRank": 1136,
+      "numVoters": 3113,
+      "numFans": 161,
+      "coverUrl": "https://cf.geekdo-images.com/MUM0pZVIb6ImCmuoE7g1tQ__square100@2x/img/KvbFBaDFIBTQNAio4YlWnHoEcOU=/0x0:490x490/200x200/filters:strip_icc()/pic6249158.jpg",
+      "thumbnail": "images/thumbnails/340041.jpg",
+      "image": "images/full/340041.jpg",
+      "description": "Go back in time to the prehistoric era of  Kingdomino!",
+      "rawScore": 2.000416623272929,
+      "recommendedBy": [
+        {
+          "ownedId": "228504",
+          "ownedName": "Cat Lady",
+          "userRating": 7,
+          "bggRecRank": 6,
+          "contributionScore": 2
+        }
+      ],
+      "matchScore": 2.1,
+      "minPlayers": 2,
+      "maxPlayers": 4,
+      "playingTime": 40
+    },
+    {
+      "objectId": "168435",
+      "name": "Between Two Cities",
+      "yearPublished": "2015",
+      "bggRating": 6.97,
+      "bggRank": 913,
+      "numVoters": 11854,
+      "numFans": 518,
+      "coverUrl": "https://cf.geekdo-images.com/7KO73MdSD1yCUvKmb4pOgA__square100@2x/img/hhDPBbg7mSClEoy1uPX5Qz16d4Y=/200x200/filters:strip_icc()/pic6352795.jpg",
+      "thumbnail": "images/thumbnails/168435.jpg",
+      "image": "images/full/168435.jpg",
+      "description": "Build a shared city with each of your neighbours. Can you make both thrive?",
+      "rawScore": 2.191346617949794,
+      "recommendedBy": [
+        {
+          "ownedId": "153318",
+          "ownedName": "Dimension",
+          "userRating": 7,
+          "bggRecRank": 5,
+          "contributionScore": 2.19
+        }
+      ],
+      "matchScore": 2.1,
+      "minPlayers": 1,
+      "maxPlayers": 7,
+      "playingTime": 25
+    },
+    {
+      "objectId": "127784",
+      "name": "Suspend",
+      "yearPublished": "2012",
+      "bggRating": 6.24,
+      "bggRank": 5140,
+      "numVoters": 1629,
+      "numFans": 44,
+      "coverUrl": "https://cf.geekdo-images.com/zuuf2DG9xa0kgcNgsUMXsw__square100@2x/img/MGgFlDfEhFsYnu428JmpxAJaph4=/0x76:254x330/200x200/filters:strip_icc()/pic1405270.jpg",
+      "thumbnail": "images/thumbnails/127784.jpg",
+      "image": "images/full/127784.jpg",
+      "description": "Add metal pieces to an unbalanced structure without knocking anything down.",
+      "rawScore": 2.4499999999999997,
+      "recommendedBy": [
+        {
+          "ownedId": "99219",
+          "ownedName": "Swish",
+          "userRating": 7,
+          "bggRecRank": 4,
+          "contributionScore": 2.45
+        }
+      ],
+      "matchScore": 2.1,
+      "minPlayers": 1,
+      "maxPlayers": 4,
+      "playingTime": 15
+    },
+    {
+      "objectId": "287322",
+      "name": "Mystic Market",
+      "yearPublished": "2019",
+      "bggRating": 7.06,
+      "bggRank": 3117,
+      "numVoters": 1292,
+      "numFans": 89,
+      "coverUrl": "https://cf.geekdo-images.com/3LAcyPrJVWZHvjYzbPfJfA__square100@2x/img/11HBES1j3lRgg8XwSN12-AWoajc=/0x0:345x345/200x200/filters:strip_icc()/pic4992600.jpg",
+      "thumbnail": "images/thumbnails/287322.jpg",
+      "image": "images/full/287322.jpg",
+      "description": "Buy and sell ingredients at the right time to make a profit!",
+      "rawScore": 2.191346617949794,
+      "recommendedBy": [
+        {
+          "ownedId": "216439",
+          "ownedName": "Trash Pandas",
+          "userRating": 7,
+          "bggRecRank": 5,
+          "contributionScore": 2.19
+        }
+      ],
+      "matchScore": 2.1,
+      "minPlayers": 2,
+      "maxPlayers": 4,
+      "playingTime": 45
+    },
+    {
+      "objectId": "321539",
+      "name": "A Game of Cat & Mouth",
+      "yearPublished": "2020",
+      "bggRating": 6.63,
+      "bggRank": 4431,
+      "numVoters": 1120,
+      "numFans": 42,
+      "coverUrl": "https://cf.geekdo-images.com/1_cEnRN2mdmxUdeTjjtiaA__square100@2x/img/CE_wQO6nE2etwxOnZtEhZbzykHo=/200x200/filters:strip_icc()/pic6974496.jpg",
+      "thumbnail": "images/thumbnails/321539.jpg",
+      "image": "images/full/321539.jpg",
+      "description": "Use your magnetic cat's paw to shoot all the balls of one color at the enemy.",
+      "rawScore": 2.182178902359924,
+      "recommendedBy": [
+        {
+          "ownedId": "411404",
+          "ownedName": "Power Hungry Pets",
+          "userRating": 10,
+          "bggRecRank": 21,
+          "contributionScore": 2.18
+        }
+      ],
+      "matchScore": 2,
+      "minPlayers": 2,
+      "maxPlayers": 2,
+      "playingTime": 10
+    },
+    {
+      "objectId": "275215",
+      "name": "Namiji",
+      "yearPublished": "2022",
+      "bggRating": 7.09,
+      "bggRank": 2350,
+      "numVoters": 1792,
+      "numFans": 236,
+      "coverUrl": "https://cf.geekdo-images.com/AW6IWjNVwOOLxVHepkQk1g__square100@2x/img/4NjjXEuEjeLu2_MmZ4IkdyX6puY=/200x200/filters:strip_icc()/pic4629265.jpg",
+      "thumbnail": "images/thumbnails/275215.jpg",
+      "image": "images/full/275215.jpg",
+      "description": "Take to the sea and discover the hidden marvels of the Japanese coast.",
+      "rawScore": 2,
+      "recommendedBy": [
+        {
+          "ownedId": "353288",
+          "ownedName": "Trekking Through History",
+          "userRating": 10,
+          "bggRecRank": 25,
+          "contributionScore": 2
+        }
+      ],
+      "matchScore": 2,
+      "minPlayers": 2,
+      "maxPlayers": 5,
+      "playingTime": 45
+    },
+    {
+      "objectId": "310632",
+      "name": "Dice Miner",
+      "yearPublished": "2021",
+      "bggRating": 7.27,
+      "bggRank": 1359,
+      "numVoters": 3236,
+      "numFans": 272,
+      "coverUrl": "https://cf.geekdo-images.com/K03e7G5PaII4S5ILIWPNfw__square100@2x/img/NKXumBDu7zIjlajod3XR4GioR4I=/0x0:2391x2391/200x200/filters:strip_icc()/pic5440150.jpg",
+      "thumbnail": "images/thumbnails/310632.jpg",
+      "image": "images/full/310632.jpg",
+      "description": "Dwarf heroes take turns drafting custom dice from a unique mountain component.",
+      "rawScore": 1.9611613513818404,
+      "recommendedBy": [
+        {
+          "ownedId": "353288",
+          "ownedName": "Trekking Through History",
+          "userRating": 10,
+          "bggRecRank": 26,
+          "contributionScore": 1.96
+        }
+      ],
+      "matchScore": 2,
+      "minPlayers": 1,
+      "maxPlayers": 4,
+      "playingTime": 30
+    },
+    {
+      "objectId": "223",
+      "name": "Expeditions: Around the World",
+      "yearPublished": "1996",
+      "bggRating": 6.73,
+      "bggRank": 3049,
+      "numVoters": 1913,
+      "numFans": 41,
+      "coverUrl": "https://cf.geekdo-images.com/NLW9mPb9B4Sc9upbOD8lKA__square100@2x/img/W1SUNRdXBA4wbs4I02-AqpaulOI=/200x200/filters:strip_icc()/pic7388989.png",
+      "thumbnail": "images/thumbnails/223.png",
+      "image": "images/full/223.png",
+      "description": "Try to direct three expeditions around the world to the cities you want to visit.",
+      "rawScore": 2.1333333333333337,
+      "recommendedBy": [
+        {
+          "ownedId": "216497",
+          "ownedName": "District Noir",
+          "userRating": 8,
+          "bggRecRank": 9,
+          "contributionScore": 2.13
+        }
+      ],
+      "matchScore": 2,
+      "minPlayers": 2,
+      "maxPlayers": 6,
+      "playingTime": 45
+    },
+    {
+      "objectId": "423648",
+      "name": "Naishi",
+      "yearPublished": "2024",
+      "bggRating": 7.61,
+      "bggRank": 2202,
+      "numVoters": 1299,
+      "numFans": 194,
+      "coverUrl": "https://cf.geekdo-images.com/DRNX24a0h7sG78DF7BOzKg__square100@2x/img/nntqJVtVb_fZbLUU7qpx6XSveqo=/0x533:1191x1724/200x200/filters:strip_icc()/pic8277394.jpg",
+      "thumbnail": "images/thumbnails/423648.jpg",
+      "image": "images/full/423648.jpg",
+      "description": "A two-player hand optimisation and tableau-building game.",
+      "rawScore": 1.847520861406803,
+      "recommendedBy": [
+        {
+          "ownedId": "216497",
+          "ownedName": "District Noir",
+          "userRating": 8,
+          "bggRecRank": 12,
+          "contributionScore": 1.85
+        }
+      ],
+      "matchScore": 2,
+      "minPlayers": 2,
+      "maxPlayers": 2,
+      "playingTime": 20
+    },
+    {
+      "objectId": "307862",
+      "name": "Dollars to Donuts",
+      "yearPublished": "2021",
+      "bggRating": 6.94,
+      "bggRank": 5647,
+      "numVoters": 513,
+      "numFans": 146,
+      "coverUrl": "https://cf.geekdo-images.com/Bvtai-3myw46PSe9dmEvMQ__square100@2x/img/74-i19isPnCBvtwkyLCNmVRavUU=/200x200/filters:strip_icc()/pic5366353.jpg",
+      "thumbnail": "images/thumbnails/307862.jpg",
+      "image": "images/full/307862.jpg",
+      "description": "Place tiles and make two donut halves a whole to serve customers in your shop.",
+      "rawScore": 2.023857702507763,
+      "recommendedBy": [
+        {
+          "ownedId": "360503",
+          "ownedName": "Downtown Farmers Market",
+          "userRating": 8,
+          "bggRecRank": 10,
+          "contributionScore": 2.02
+        }
+      ],
+      "matchScore": 2,
+      "minPlayers": 1,
+      "maxPlayers": 4,
+      "playingTime": 45
+    },
+    {
+      "objectId": "367030",
+      "name": "Quests Over Coffee",
+      "yearPublished": "2022",
+      "bggRating": 6.78,
+      "bggRank": 9794,
+      "numVoters": 223,
+      "numFans": 83,
+      "coverUrl": "https://cf.geekdo-images.com/ZrWucNr_ykcx8sCNZU1xYg__square100@2x/img/XN6mAtZ3uFX54kiwzAc5uqt9gLE=/655x0:1555x900/200x200/filters:strip_icc()/pic6963284.png",
+      "thumbnail": "images/thumbnails/367030.png",
+      "image": "images/full/367030.png",
+      "description": "A few brief adventures, in the time it takes to drink your coffee.",
+      "rawScore": 2.1333333333333337,
+      "recommendedBy": [
+        {
+          "ownedId": "191095",
+          "ownedName": "Scoundrel",
+          "userRating": 8,
+          "bggRecRank": 9,
+          "contributionScore": 2.13
+        }
+      ],
+      "matchScore": 2,
+      "minPlayers": 1,
+      "maxPlayers": 2,
+      "playingTime": 8
+    },
+    {
+      "objectId": "199",
+      "name": "Manhattan",
+      "yearPublished": "1994",
+      "bggRating": 6.73,
+      "bggRank": 1668,
+      "numVoters": 6094,
+      "numFans": 140,
+      "coverUrl": "https://cf.geekdo-images.com/J38tww49pGTsp3bmgEekkA__square100@2x/img/oQk-52gWmS6u8CgJKB7P-YNxgQg=/200x200/filters:strip_icc()/pic3573055.png",
+      "thumbnail": "images/thumbnails/199.png",
+      "image": "images/full/199.png",
+      "description": "Contribute the most stories to the highest skyscrapers to win.",
+      "rawScore": 2.191346617949794,
+      "recommendedBy": [
+        {
+          "ownedId": "9674",
+          "ownedName": "Ingenious",
+          "userRating": 7,
+          "bggRecRank": 5,
+          "contributionScore": 2.19
+        }
+      ],
+      "matchScore": 2,
+      "minPlayers": 2,
+      "maxPlayers": 4,
+      "playingTime": 45
+    },
+    {
+      "objectId": "7",
+      "name": "Cathedral",
+      "yearPublished": "1979",
+      "bggRating": 6.56,
+      "bggRank": 2619,
+      "numVoters": 3841,
+      "numFans": 156,
+      "coverUrl": "https://cf.geekdo-images.com/78Dgd-b_1_xEv4OXVKdaag__square100@2x/img/VpR3oOUkhvxdtj1JEioW3BAcO5w=/200x200/filters:strip_icc()/pic7012177.jpg",
+      "thumbnail": "images/thumbnails/7.jpg",
+      "image": "images/full/7.jpg",
+      "description": "Outwit your opponent and play all your pieces first in this abstract city-builder.",
+      "rawScore": 2.191346617949794,
+      "recommendedBy": [
+        {
+          "ownedId": "99219",
+          "ownedName": "Swish",
+          "userRating": 7,
+          "bggRecRank": 5,
+          "contributionScore": 2.19
+        }
+      ],
+      "matchScore": 2,
+      "minPlayers": 2,
+      "maxPlayers": 2,
+      "playingTime": 20
+    },
+    {
+      "objectId": "328124",
+      "name": "Bot Factory",
+      "yearPublished": "2023",
+      "bggRating": 7.36,
+      "bggRank": 1736,
+      "numVoters": 2081,
+      "numFans": 289,
+      "coverUrl": "https://cf.geekdo-images.com/3AxdPt4zBDXqtrcsZx5Y9A__square100@2x/img/6aYTuYNKl6MLljpxWOgK-d6LU0E=/0x0:3396x3396/200x200/filters:strip_icc()/pic6514058.jpg",
+      "thumbnail": "images/thumbnails/328124.jpg",
+      "image": "images/full/328124.jpg",
+      "description": "In a Kanban way, gather projects and parts to build bots to accomplish contracts. ",
+      "rawScore": 2.000416623272929,
+      "recommendedBy": [
+        {
+          "ownedId": "365258",
+          "ownedName": "World Wonders",
+          "userRating": 7,
+          "bggRecRank": 6,
+          "contributionScore": 2
+        }
+      ],
+      "matchScore": 2,
+      "minPlayers": 1,
+      "maxPlayers": 4,
+      "playingTime": 60
+    },
+    {
+      "objectId": "362976",
+      "name": "Beacon Patrol",
+      "yearPublished": "2023",
+      "bggRating": 7.07,
+      "bggRank": 1867,
+      "numVoters": 2677,
+      "numFans": 311,
+      "coverUrl": "https://cf.geekdo-images.com/9hDNHVLmorkaytg2ztLM6w__square100@2x/img/8R3fuZ4l_nCgTFu-L24E-fm8HFg=/0x0:650x650/200x200/filters:strip_icc()/pic7439416.jpg",
+      "thumbnail": "images/thumbnails/362976.jpg",
+      "image": "images/full/362976.jpg",
+      "description": "Together you build and navigate the coast of the North Sea to secure its waterways.",
+      "rawScore": 1.9091883092036788,
+      "recommendedBy": [
+        {
+          "ownedId": "334590",
+          "ownedName": "For Northwood! A Solo Trick-Taking Game",
+          "userRating": 9,
+          "bggRecRank": 18,
+          "contributionScore": 1.91
+        }
+      ],
+      "matchScore": 1.9,
+      "minPlayers": 1,
+      "maxPlayers": 4,
+      "playingTime": 30
+    },
+    {
+      "objectId": "332885",
+      "name": "Gnome Hollow",
+      "yearPublished": "2024",
+      "bggRating": 6.92,
+      "bggRank": 3063,
+      "numVoters": 1529,
+      "numFans": 240,
+      "coverUrl": "https://cf.geekdo-images.com/kg2cK5kzUlxip4CONMY70Q__square100@2x/img/_5j47wYhjKre8DIylLJZ-79UGFM=/200x200/filters:strip_icc()/pic8035777.jpg",
+      "thumbnail": "images/thumbnails/332885.jpg",
+      "image": "images/full/332885.jpg",
+      "description": "Build mushroom rings, harvest mushrooms, and carry them to market.",
+      "rawScore": 1.9296726052976876,
+      "recommendedBy": [
+        {
+          "ownedId": "401636",
+          "ownedName": "Tacta",
+          "userRating": 8,
+          "bggRecRank": 11,
+          "contributionScore": 1.93
+        }
+      ],
+      "matchScore": 1.9,
+      "minPlayers": 2,
+      "maxPlayers": 4,
+      "playingTime": 60
+    },
+    {
+      "objectId": "275044",
+      "name": "Glow",
+      "yearPublished": "2021",
+      "bggRating": 6.95,
+      "bggRank": 1898,
+      "numVoters": 3344,
+      "numFans": 295,
+      "coverUrl": "https://cf.geekdo-images.com/LF53VHdWBIRFrZRYtvyslg__square100@2x/img/tbyhiob_Li9Za0ZL9V1zJFHKmuI=/200x200/filters:strip_icc()/pic5989627.png",
+      "thumbnail": "images/thumbnails/275044.png",
+      "image": "images/full/275044.png",
+      "description": "Build your company by recruiting new traveling companions and combine their power.",
+      "rawScore": 1.9296726052976876,
+      "recommendedBy": [
+        {
+          "ownedId": "216497",
+          "ownedName": "District Noir",
+          "userRating": 8,
+          "bggRecRank": 11,
+          "contributionScore": 1.93
+        }
+      ],
+      "matchScore": 1.9,
+      "minPlayers": 2,
+      "maxPlayers": 4,
+      "playingTime": 45
+    },
+    {
+      "objectId": "294702",
+      "name": "Tenpenny Parks",
+      "yearPublished": "2022",
+      "bggRating": 7.41,
+      "bggRank": 1861,
+      "numVoters": 1874,
+      "numFans": 253,
+      "coverUrl": "https://cf.geekdo-images.com/-e6f1-cht9Proly7cjsM9g__square100@2x/img/QDsISUhk1-VK8I27zXL103OZlcc=/0x0:2500x2500/200x200/filters:strip_icc()/pic6175532.jpg",
+      "thumbnail": "images/thumbnails/294702.jpg",
+      "image": "images/full/294702.jpg",
+      "description": "Build the best theme park filled with Thrill, Awe, and Joy!",
+      "rawScore": 1.847520861406803,
+      "recommendedBy": [
+        {
+          "ownedId": "360503",
+          "ownedName": "Downtown Farmers Market",
+          "userRating": 8,
+          "bggRecRank": 12,
+          "contributionScore": 1.85
+        }
+      ],
+      "matchScore": 1.9,
+      "minPlayers": 1,
+      "maxPlayers": 4,
+      "playingTime": 75
+    },
+    {
+      "objectId": "300442",
+      "name": "Trekking the World",
+      "yearPublished": "2020",
+      "bggRating": 7.03,
+      "bggRank": 1615,
+      "numVoters": 3613,
+      "numFans": 250,
+      "coverUrl": "https://cf.geekdo-images.com/mt3YkpsVsz0nF2IDbTxBrw__square100@2x/img/99KNcrxcRjR47sCViLkEsxOR51A=/200x200/filters:strip_icc()/pic5206887.jpg",
+      "thumbnail": "images/thumbnails/300442.jpg",
+      "image": "images/full/300442.jpg",
+      "description": "A light strategy game about the pleasures and wonders of world travel.",
+      "rawScore": 1.9296726052976876,
+      "recommendedBy": [
+        {
+          "ownedId": "63975",
+          "ownedName": "Mountain Goats",
+          "userRating": 8,
+          "bggRecRank": 11,
+          "contributionScore": 1.93
+        }
+      ],
+      "matchScore": 1.9,
+      "minPlayers": 2,
+      "maxPlayers": 5,
+      "playingTime": 60
+    },
+    {
+      "objectId": "400265",
+      "name": "Mooncake Master",
+      "yearPublished": "2023",
+      "bggRating": 6.44,
+      "bggRank": 9152,
+      "numVoters": 291,
+      "numFans": 8,
+      "coverUrl": "https://cf.geekdo-images.com/MVD4lsaf_JWE3aHXrO5Pcg__square100@2x/img/2u2czFFP6hM1kVAuNVgkkIDNZyE=/200x200/filters:strip_icc()/pic7723402.png",
+      "thumbnail": "images/thumbnails/400265.png",
+      "image": "images/full/400265.png",
+      "description": "A mooncake-sharing, tile-crafting, interactive strategy board game",
+      "rawScore": 2.1333333333333337,
+      "recommendedBy": [
+        {
+          "ownedId": "464261",
+          "ownedName": "Next Station: Berlin",
+          "userRating": 8,
+          "bggRecRank": 9,
+          "contributionScore": 2.13
+        }
+      ],
+      "matchScore": 1.9,
+      "minPlayers": 1,
+      "maxPlayers": 6,
+      "playingTime": 30
+    },
+    {
+      "objectId": "365698",
+      "name": "Rainforest",
+      "yearPublished": "2022",
+      "bggRating": 6.74,
+      "bggRank": 5470,
+      "numVoters": 638,
+      "numFans": 53,
+      "coverUrl": "https://cf.geekdo-images.com/e-yrbEeNcOYwym3RmMnlcw__square100@2x/img/WxyNWWm_K03fZTw9bGLJw4UXLnI=/200x200/filters:strip_icc()/pic6958874.png",
+      "thumbnail": "images/thumbnails/365698.png",
+      "image": "images/full/365698.png",
+      "description": "Players create a jungle environment and reintroduce iconic species.",
+      "rawScore": 2.023857702507763,
+      "recommendedBy": [
+        {
+          "ownedId": "464261",
+          "ownedName": "Next Station: Berlin",
+          "userRating": 8,
+          "bggRecRank": 10,
+          "contributionScore": 2.02
+        }
+      ],
+      "matchScore": 1.9,
+      "minPlayers": 2,
+      "maxPlayers": 4,
+      "playingTime": 30
+    },
+    {
+      "objectId": "208895",
+      "name": "New York Slice",
+      "yearPublished": "2017",
+      "bggRating": 6.66,
+      "bggRank": 2134,
+      "numVoters": 4172,
+      "numFans": 110,
+      "coverUrl": "https://cf.geekdo-images.com/pqJB3ccbvCW4Fii-uQG1kA__square100@2x/img/k-mJcqVvTg1ygZ9teaA_sHlmudI=/200x200/filters:strip_icc()/pic3211823.jpg",
+      "thumbnail": "images/thumbnails/208895.jpg",
+      "image": "images/full/208895.jpg",
+      "description": "Build your ultimate pizza. Slice it well, or you may end up stuck with anchovies.",
+      "rawScore": 2.000416623272929,
+      "recommendedBy": [
+        {
+          "ownedId": "153318",
+          "ownedName": "Dimension",
+          "userRating": 7,
+          "bggRecRank": 6,
+          "contributionScore": 2
+        }
+      ],
+      "matchScore": 1.9,
+      "minPlayers": 2,
+      "maxPlayers": 6,
+      "playingTime": 30
+    },
+    {
+      "objectId": "62871",
+      "name": "Zombie Dice",
+      "yearPublished": "2010",
+      "bggRating": 6.23,
+      "bggRank": 2779,
+      "numVoters": 19315,
+      "numFans": 803,
+      "coverUrl": "https://cf.geekdo-images.com/iPy584JMAJYrupqRdQp8gA__square100@2x/img/xY6Pm7lqrT5Aht6aC9sR4xKQqzg=/0x371:462x833/200x200/filters:strip_icc()/pic4991962.jpg",
+      "thumbnail": "images/thumbnails/62871.jpg",
+      "image": "images/full/62871.jpg",
+      "description": "Eat as many tasty brains as you dare, without getting shotgunned.",
+      "rawScore": 2.191346617949794,
+      "recommendedBy": [
+        {
+          "ownedId": "260300",
+          "ownedName": "Dungeon Mayhem",
+          "userRating": 7,
+          "bggRecRank": 5,
+          "contributionScore": 2.19
+        }
+      ],
+      "matchScore": 1.9,
+      "minPlayers": 2,
+      "maxPlayers": 99,
+      "playingTime": 20
+    },
+    {
+      "objectId": "332290",
+      "name": "Stardew Valley: The Board Game",
+      "yearPublished": "2021",
+      "bggRating": 7.41,
+      "bggRank": 929,
+      "numVoters": 5237,
+      "numFans": 1081,
+      "coverUrl": "https://cf.geekdo-images.com/X1oNtZV5H5BxtxlsTGIsHA__square100@2x/img/YDroE5ghAwWjLzsNzFrKYBHGkeM=/200x200/filters:strip_icc()/pic6037615.png",
+      "thumbnail": "images/thumbnails/332290.png",
+      "image": "images/full/332290.png",
+      "description": "Build your farm, grow crops, and explore Stardew Valley!",
+      "rawScore": 1.852025917745213,
+      "recommendedBy": [
+        {
+          "ownedId": "260300",
+          "ownedName": "Dungeon Mayhem",
+          "userRating": 7,
+          "bggRecRank": 7,
+          "contributionScore": 1.85
+        }
+      ],
+      "matchScore": 1.9,
+      "minPlayers": 1,
+      "maxPlayers": 4,
+      "playingTime": 150
+    },
+    {
+      "objectId": "269603",
+      "name": "Minecraft: Builders & Biomes",
+      "yearPublished": "2019",
+      "bggRating": 6.87,
+      "bggRank": 1870,
+      "numVoters": 3743,
+      "numFans": 180,
+      "coverUrl": "https://cf.geekdo-images.com/lAvfCCEBDeyoa1CpdgOFCg__square100@2x/img/WASh8LmW633bO76laBWaDGLcwJI=/200x200/filters:strip_icc()/pic4975740.jpg",
+      "thumbnail": "images/thumbnails/269603.jpg",
+      "image": "images/full/269603.jpg",
+      "description": "Collect rare blocks and build spectacular structures, but beware of dangerous mobs!",
+      "rawScore": 2.000416623272929,
+      "recommendedBy": [
+        {
+          "ownedId": "1219",
+          "ownedName": "Labyrinth",
+          "userRating": 7,
+          "bggRecRank": 6,
+          "contributionScore": 2
+        }
+      ],
+      "matchScore": 1.9,
+      "minPlayers": 2,
+      "maxPlayers": 4,
+      "playingTime": 60
+    },
+    {
+      "objectId": "393175",
+      "name": "Nocturne",
+      "yearPublished": "2024",
+      "bggRating": 6.89,
+      "bggRank": 3818,
+      "numVoters": 1034,
+      "numFans": 200,
+      "coverUrl": "https://cf.geekdo-images.com/3zn6XgGERMbCfj5WpbZGlw__square100@2x/img/bYo2cCX56flvAAZz7k2ojBcZY0s=/200x200/filters:strip_icc()/pic8305484.png",
+      "thumbnail": "images/thumbnails/393175.png",
+      "image": "images/full/393175.png",
+      "description": "Fox mystics cast spells to outwit one another and collect magical forest items.",
+      "rawScore": 2.000416623272929,
+      "recommendedBy": [
+        {
+          "ownedId": "431998",
+          "ownedName": "Point Galaxy",
+          "userRating": 7,
+          "bggRecRank": 6,
+          "contributionScore": 2
+        }
+      ],
+      "matchScore": 1.9,
+      "minPlayers": 1,
+      "maxPlayers": 4,
+      "playingTime": 45
+    },
+    {
+      "objectId": "421606",
+      "name": "Knitting Circle",
+      "yearPublished": "2025",
+      "bggRating": 7.32,
+      "bggRank": 3068,
+      "numVoters": 1027,
+      "numFans": 288,
+      "coverUrl": "https://cf.geekdo-images.com/fJglCnZK6DH1w_14FMCWjg__square100@2x/img/K3KG3kLyLC4MoPQIZ9IJPsGlaUk=/200x200/filters:strip_icc()/pic8426961.jpg",
+      "thumbnail": "images/thumbnails/421606.jpg",
+      "image": "images/full/421606.jpg",
+      "description": "Knit garments and collect buttons with your feline friend!",
+      "rawScore": 1.852025917745213,
+      "recommendedBy": [
+        {
+          "ownedId": "431998",
+          "ownedName": "Point Galaxy",
+          "userRating": 7,
+          "bggRecRank": 7,
+          "contributionScore": 1.85
+        }
+      ],
+      "matchScore": 1.9,
+      "minPlayers": 1,
+      "maxPlayers": 4,
+      "playingTime": 45
+    },
+    {
+      "objectId": "156129",
+      "name": "Deception: Murder in Hong Kong",
+      "yearPublished": "2014",
+      "bggRating": 7.42,
+      "bggRank": 291,
+      "numVoters": 25387,
+      "numFans": 1217,
+      "coverUrl": "https://cf.geekdo-images.com/1COY3oeK9aN2_XNimKaNww__square100@2x/img/SCK4YkeazQhC-_B2k7xFCZ0stPw=/200x200/filters:strip_icc()/pic3033330.jpg",
+      "thumbnail": "images/thumbnails/156129.jpg",
+      "image": "images/full/156129.jpg",
+      "description": "Interpret forensic evidence to solve a murder. Beware, the murderer may be among you!",
+      "rawScore": 1.852025917745213,
+      "recommendedBy": [
+        {
+          "ownedId": "92415",
+          "ownedName": "Skull",
+          "userRating": 7,
+          "bggRecRank": 7,
+          "contributionScore": 1.85
+        }
+      ],
+      "matchScore": 1.9,
+      "minPlayers": 4,
+      "maxPlayers": 12,
+      "playingTime": 20
+    },
+    {
+      "objectId": "681",
+      "name": "Quarto",
+      "yearPublished": "1991",
+      "bggRating": 6.9,
+      "bggRank": 1179,
+      "numVoters": 8963,
+      "numFans": 325,
+      "coverUrl": "https://cf.geekdo-images.com/e7eP58UJVDA1wC5pWjCPqg__square100@2x/img/XivOCbp9wd7Sriw89WOK2YsnfZc=/200x200/filters:strip_icc()/pic3488229.jpg",
+      "thumbnail": "images/thumbnails/681.jpg",
+      "image": "images/full/681.jpg",
+      "description": "You choose the piece your opponent plays next. 4-in-a-row of the same attribute wins!",
+      "rawScore": 2.000416623272929,
+      "recommendedBy": [
+        {
+          "ownedId": "99219",
+          "ownedName": "Swish",
+          "userRating": 7,
+          "bggRecRank": 6,
+          "contributionScore": 2
+        }
+      ],
+      "matchScore": 1.9,
+      "minPlayers": 2,
+      "maxPlayers": 2,
+      "playingTime": 20
+    },
+    {
+      "objectId": "172242",
+      "name": "Exploding Kittens: NSFW Edition",
+      "yearPublished": "2015",
+      "bggRating": 6.23,
+      "bggRank": 3470,
+      "numVoters": 11138,
+      "numFans": 343,
+      "coverUrl": "https://cf.geekdo-images.com/_9v_15rJjapltOr0I74uJQ__square100@2x/img/OVFlhErbWpceIhiM8tza52mBUPo=/24x0:486x348/fit-in/200x200/filters:fill(blur):strip_icc()/pic9005066.png",
+      "thumbnail": "images/thumbnails/172242.png",
+      "image": "images/full/172242.png",
+      "description": "Match kittens and avoid explosions. Now with poop jokes!",
+      "rawScore": 2.132007163556104,
+      "recommendedBy": [
+        {
+          "ownedId": "411404",
+          "ownedName": "Power Hungry Pets",
+          "userRating": 10,
+          "bggRecRank": 22,
+          "contributionScore": 2.13
+        }
+      ],
+      "matchScore": 1.8,
+      "minPlayers": 2,
+      "maxPlayers": 5,
+      "playingTime": 20
+    },
+    {
+      "objectId": "40398",
+      "name": "Monopoly Deal Card Game",
+      "yearPublished": "2008",
+      "bggRating": 6.33,
+      "bggRank": 2684,
+      "numVoters": 12991,
+      "numFans": 489,
+      "coverUrl": "https://cf.geekdo-images.com/XACkCb3JL0uvF6xOn0lRSg__square100@2x/img/vANoGNQLb3sBKXWcmnjmtw5g9Uk=/0x234:1104x1338/200x200/filters:strip_icc()/pic4595026.jpg",
+      "thumbnail": "images/thumbnails/40398.jpg",
+      "image": "images/full/40398.jpg",
+      "description": "Can you collect three sets of properties before your fortune runs out?",
+      "rawScore": 2.0851441405707476,
+      "recommendedBy": [
+        {
+          "ownedId": "411404",
+          "ownedName": "Power Hungry Pets",
+          "userRating": 10,
+          "bggRecRank": 23,
+          "contributionScore": 2.09
+        }
+      ],
+      "matchScore": 1.8,
+      "minPlayers": 2,
+      "maxPlayers": 5,
+      "playingTime": 15
+    },
+    {
+      "objectId": "271460",
+      "name": "UNO Flip!",
+      "yearPublished": "2019",
+      "bggRating": 6.27,
+      "bggRank": 4017,
+      "numVoters": 4215,
+      "numFans": 161,
+      "coverUrl": "https://cf.geekdo-images.com/8IO6sl0jN5IylDDRAOK8GQ__square100@2x/img/0vWkDsiy6kaU5qGFJqX4BFenZow=/0x0:566x566/200x200/filters:strip_icc()/pic8214042.jpg",
+      "thumbnail": "images/thumbnails/271460.jpg",
+      "image": "images/full/271460.jpg",
+      "description": "The classic card game flips out!",
+      "rawScore": 2.041241452319315,
+      "recommendedBy": [
+        {
+          "ownedId": "411404",
+          "ownedName": "Power Hungry Pets",
+          "userRating": 10,
+          "bggRecRank": 24,
+          "contributionScore": 2.04
+        }
+      ],
+      "matchScore": 1.8,
+      "minPlayers": 2,
+      "maxPlayers": 10,
+      "playingTime": 30
+    },
+    {
+      "objectId": "408280",
+      "name": "Twinkle Twinkle",
+      "yearPublished": "2025",
+      "bggRating": 7.14,
+      "bggRank": 3419,
+      "numVoters": 979,
+      "numFans": 117,
+      "coverUrl": "https://cf.geekdo-images.com/1XZdv7Fop6Py-jDfulAZXg__square100@2x/img/CzsT8e0XG6XUNoy5GHyzcOJvuIc=/0x0:2043x2043/200x200/filters:strip_icc()/pic8638673.jpg",
+      "thumbnail": "images/thumbnails/408280.jpg",
+      "image": "images/full/408280.jpg",
+      "description": "Draft tiles and connect constellations in the puzzly tile-layer with modular scoring.",
+      "rawScore": 1.7750406279207336,
+      "recommendedBy": [
+        {
+          "ownedId": "401636",
+          "ownedName": "Tacta",
+          "userRating": 8,
+          "bggRecRank": 13,
+          "contributionScore": 1.78
+        }
+      ],
+      "matchScore": 1.8,
+      "minPlayers": 1,
+      "maxPlayers": 4,
+      "playingTime": 30
+    },
+    {
+      "objectId": "317504",
+      "name": "Mandala Stones",
+      "yearPublished": "2021",
+      "bggRating": 6.83,
+      "bggRank": 2515,
+      "numVoters": 2324,
+      "numFans": 106,
+      "coverUrl": "https://cf.geekdo-images.com/ucWyiu4LOqHUmGi6yb5BmQ__square100@2x/img/elx0sXdaIAANZiIPIwzNr01KA8Y=/200x200/filters:strip_icc()/pic5608253.jpg",
+      "thumbnail": "images/thumbnails/317504.jpg",
+      "image": "images/full/317504.jpg",
+      "description": "Use artists to collect colorful stones in towers, then dismantle them for points.",
+      "rawScore": 1.847520861406803,
+      "recommendedBy": [
+        {
+          "ownedId": "309113",
+          "ownedName": "Ticket to Ride: Amsterdam",
+          "userRating": 8,
+          "bggRecRank": 12,
+          "contributionScore": 1.85
+        }
+      ],
+      "matchScore": 1.8,
+      "minPlayers": 2,
+      "maxPlayers": 4,
+      "playingTime": 30
+    },
+    {
+      "objectId": "2394",
+      "name": "Dominoes",
+      "yearPublished": "1500",
+      "bggRating": 5.57,
+      "bggRank": 25257,
+      "numVoters": 8262,
+      "numFans": 190,
+      "coverUrl": "https://cf.geekdo-images.com/7YdY99fgAanc04jyhqQ66w__square100@2x/img/y4LW-_34qg9mhdDcHC06dZohwAM=/200x200/filters:strip_icc()/pic90585.jpg",
+      "thumbnail": "images/thumbnails/2394.jpg",
+      "image": "images/full/2394.jpg",
+      "description": "The timeless family classic of placing matching tiles.",
+      "rawScore": 2.1333333333333337,
+      "recommendedBy": [
+        {
+          "ownedId": "171",
+          "ownedName": "Chess",
+          "userRating": 8,
+          "bggRecRank": 9,
+          "contributionScore": 2.13
+        }
+      ],
+      "matchScore": 1.8,
+      "minPlayers": 2,
+      "maxPlayers": 10,
+      "playingTime": 30
+    },
+    {
+      "objectId": "440509",
+      "name": "Fountains",
+      "yearPublished": "2025",
+      "bggRating": 7.38,
+      "bggRank": 4019,
+      "numVoters": 657,
+      "numFans": 142,
+      "coverUrl": "https://cf.geekdo-images.com/V_K4mmXJEZuwmmeFIn8Pbg__square100@2x/img/BuF796p_7aZyYa15IEEzARByfUg=/200x200/filters:strip_icc()/pic8746818.jpg",
+      "thumbnail": "images/thumbnails/440509.jpg",
+      "image": "images/full/440509.jpg",
+      "description": "Create a fountain filled with fish, coins, and lilypads.",
+      "rawScore": 1.7104719482395165,
+      "recommendedBy": [
+        {
+          "ownedId": "360503",
+          "ownedName": "Downtown Farmers Market",
+          "userRating": 8,
+          "bggRecRank": 14,
+          "contributionScore": 1.71
+        }
+      ],
+      "matchScore": 1.8,
+      "minPlayers": 1,
+      "maxPlayers": 5,
+      "playingTime": 45
+    },
+    {
+      "objectId": "429423",
+      "name": "Postcards",
+      "yearPublished": "2025",
+      "bggRating": 6.78,
+      "bggRank": 6234,
+      "numVoters": 474,
+      "numFans": 84,
+      "coverUrl": "https://cf.geekdo-images.com/edabnZofIqKm5W6lVkRkEQ__square100@2x/img/Bol9kqXKDnJAQLxP9AQ4BG2qNu4=/0x0:1678x1678/200x200/filters:strip_icc()/pic8475829.png",
+      "thumbnail": "images/thumbnails/429423.png",
+      "image": "images/full/429423.png",
+      "description": "Hop on your bicycle and explore the beauty of France - one postcard at a time!",
+      "rawScore": 1.9296726052976876,
+      "recommendedBy": [
+        {
+          "ownedId": "464261",
+          "ownedName": "Next Station: Berlin",
+          "userRating": 8,
+          "bggRecRank": 11,
+          "contributionScore": 1.93
+        }
+      ],
+      "matchScore": 1.8,
+      "minPlayers": 1,
+      "maxPlayers": 4,
+      "playingTime": 45
+    },
+    {
+      "objectId": "361211",
+      "name": "Before the Guests Arrive",
+      "yearPublished": "2022",
+      "bggRating": 6.56,
+      "bggRank": 6848,
+      "numVoters": 491,
+      "numFans": 38,
+      "coverUrl": "https://cf.geekdo-images.com/Lo7WncdF2rOPV2E1fN7roQ__square100@2x/img/rv9FOEdFsS9XGwbMr-iG632UFeg=/0x0:500x500/200x200/filters:strip_icc()/pic6819161.png",
+      "thumbnail": "images/thumbnails/361211.png",
+      "image": "images/full/361211.png",
+      "description": "Tidy up the house better than anyone else in the family.",
+      "rawScore": 2.023857702507763,
+      "recommendedBy": [
+        {
+          "ownedId": "400113",
+          "ownedName": "Panda Panda",
+          "userRating": 8,
+          "bggRecRank": 10,
+          "contributionScore": 2.02
+        }
+      ],
+      "matchScore": 1.8,
+      "minPlayers": 2,
+      "maxPlayers": 4,
+      "playingTime": 15
+    },
+    {
+      "objectId": "369899",
+      "name": "Big Top",
+      "yearPublished": "2023",
+      "bggRating": 6.98,
+      "bggRank": 3866,
+      "numVoters": 875,
+      "numFans": 47,
+      "coverUrl": "https://cf.geekdo-images.com/_Y6g4FXjeolGkh2Uut0qaQ__square100@2x/img/xoizOnLNVv_po_gn8LPjQL0Pxck=/200x200/filters:strip_icc()/pic7133667.jpg",
+      "thumbnail": "images/thumbnails/369899.jpg",
+      "image": "images/full/369899.jpg",
+      "description": "Hire the wildest and most wonderful acts to attract crowds of delighted spectators.",
+      "rawScore": 1.847520861406803,
+      "recommendedBy": [
+        {
+          "ownedId": "400113",
+          "ownedName": "Panda Panda",
+          "userRating": 8,
+          "bggRecRank": 12,
+          "contributionScore": 1.85
+        }
+      ],
+      "matchScore": 1.8,
+      "minPlayers": 3,
+      "maxPlayers": 4,
+      "playingTime": 40
+    },
+    {
+      "objectId": "228570",
+      "name": "Raging Bulls",
+      "yearPublished": "2017",
+      "bggRating": 6.49,
+      "bggRank": 7662,
+      "numVoters": 453,
+      "numFans": 61,
+      "coverUrl": "https://cf.geekdo-images.com/DLzOu1e1wD67n9FOCBaGkg__square100@2x/img/3MNSWepnPxqv_h0xvcoCUwaQ6qA=/103x0:449x346/200x200/filters:strip_icc()/pic3593005.jpg",
+      "thumbnail": "images/thumbnails/228570.jpg",
+      "image": "images/full/228570.jpg",
+      "description": "The bulls are loose! Roll the dice, draw lines, and pen them in!",
+      "rawScore": 2.023857702507763,
+      "recommendedBy": [
+        {
+          "ownedId": "191095",
+          "ownedName": "Scoundrel",
+          "userRating": 8,
+          "bggRecRank": 10,
+          "contributionScore": 2.02
+        }
+      ],
+      "matchScore": 1.8,
+      "minPlayers": 1,
+      "maxPlayers": 1,
+      "playingTime": 30
+    },
+    {
+      "objectId": "25314",
+      "name": "Bowling Solitaire",
+      "yearPublished": "1969",
+      "bggRating": 6.66,
+      "bggRank": 7097,
+      "numVoters": 400,
+      "numFans": 39,
+      "coverUrl": "https://cf.geekdo-images.com/vE0NaNcH0Wj4A-CPL_rLKQ__square100@2x/img/NgNStShV2TDBLDQtlU91_Hc9VZQ=/9x0:506x251/fit-in/200x200/filters:fill(blur):strip_icc()/pic3044070.jpg",
+      "thumbnail": "images/thumbnails/25314.jpg",
+      "image": "images/full/25314.jpg",
+      "description": "A novel solitaire game scored like real bowling.",
+      "rawScore": 1.9296726052976876,
+      "recommendedBy": [
+        {
+          "ownedId": "191095",
+          "ownedName": "Scoundrel",
+          "userRating": 8,
+          "bggRecRank": 11,
+          "contributionScore": 1.93
+        }
+      ],
+      "matchScore": 1.8,
+      "minPlayers": 1,
+      "maxPlayers": 1,
+      "playingTime": 30
+    },
+    {
+      "objectId": "405537",
+      "name": "DroPolter",
+      "yearPublished": "2023",
+      "bggRating": 7.07,
+      "bggRank": 1605,
+      "numVoters": 3233,
+      "numFans": 177,
+      "coverUrl": "https://cf.geekdo-images.com/dK0nQKDFg5VDpKmvkAkIHg__square100@2x/img/eXOt0Lc-savDqmqiCOLyf8vXTBA=/0x543:1440x1983/200x200/filters:strip_icc()/pic8803328.png",
+      "thumbnail": "images/thumbnails/405537.png",
+      "image": "images/full/405537.png",
+      "description": "Drop only the proper items to receive reward bells...that cannot be dropped.",
+      "rawScore": 1.847520861406803,
+      "recommendedBy": [
+        {
+          "ownedId": "291453",
+          "ownedName": "SCOUT",
+          "userRating": 8,
+          "bggRecRank": 12,
+          "contributionScore": 1.85
+        }
+      ],
+      "matchScore": 1.8,
+      "minPlayers": 2,
+      "maxPlayers": 5,
+      "playingTime": 20
+    },
+    {
+      "objectId": "257769",
+      "name": "Walking in Burano",
+      "yearPublished": "2018",
+      "bggRating": 7.07,
+      "bggRank": 1670,
+      "numVoters": 3138,
+      "numFans": 186,
+      "coverUrl": "https://cf.geekdo-images.com/BpG5IM1yz7NgYBnYLoe4mQ__square100@2x/img/lKSVdzc1qlMW4CrScvnl6gzl0G8=/0x0:1499x1499/200x200/filters:strip_icc()/pic4810025.png",
+      "thumbnail": "images/thumbnails/257769.png",
+      "image": "images/full/257769.png",
+      "description": "Balance the wants of locals and tourists alike by creating the best street in Burano.",
+      "rawScore": 1.852025917745213,
+      "recommendedBy": [
+        {
+          "ownedId": "195314",
+          "ownedName": "Herbaceous",
+          "userRating": 7,
+          "bggRecRank": 7,
+          "contributionScore": 1.85
+        }
+      ],
+      "matchScore": 1.8,
+      "minPlayers": 1,
+      "maxPlayers": 4,
+      "playingTime": 40
+    },
+    {
+      "objectId": "150312",
+      "name": "Welcome to the Dungeon",
+      "yearPublished": "2013",
+      "bggRating": 6.52,
+      "bggRank": 1680,
+      "numVoters": 15128,
+      "numFans": 343,
+      "coverUrl": "https://cf.geekdo-images.com/6eQXDEMIWldaut9w7jXihg__square100@2x/img/rS0FiNCflZyoC-GrUVqzNqjwYQ0=/0x0:1181x1181/200x200/filters:strip_icc()/pic6771265.jpg",
+      "thumbnail": "images/thumbnails/150312.jpg",
+      "image": "images/full/150312.jpg",
+      "description": "Push your luck to crawl a dungeon, or stack the deck to ensure an adversary fails.",
+      "rawScore": 2.000416623272929,
+      "recommendedBy": [
+        {
+          "ownedId": "112373",
+          "ownedName": "BraveRats",
+          "userRating": 7,
+          "bggRecRank": 6,
+          "contributionScore": 2
+        }
+      ],
+      "matchScore": 1.8,
+      "minPlayers": 2,
+      "maxPlayers": 4,
+      "playingTime": 30
+    },
+    {
+      "objectId": "241266",
+      "name": "Little Town",
+      "yearPublished": "2017",
+      "bggRating": 7.14,
+      "bggRank": 1194,
+      "numVoters": 4839,
+      "numFans": 260,
+      "coverUrl": "https://cf.geekdo-images.com/PhNY4VQAob6x4GjWHmbTsQ__square100@2x/img/knvYOpjGKl1JlIT3mxNmF5G5JVA=/200x200/filters:strip_icc()/pic4624124.jpg",
+      "thumbnail": "images/thumbnails/241266.jpg",
+      "image": "images/full/241266.jpg",
+      "description": "Manage resources and build the most efficient town.",
+      "rawScore": 1.852025917745213,
+      "recommendedBy": [
+        {
+          "ownedId": "112373",
+          "ownedName": "BraveRats",
+          "userRating": 7,
+          "bggRecRank": 7,
+          "contributionScore": 1.85
+        }
+      ],
+      "matchScore": 1.8,
+      "minPlayers": 2,
+      "maxPlayers": 4,
+      "playingTime": 60
+    },
+    {
+      "objectId": "331265",
+      "name": "Port Royal: Big Box",
+      "yearPublished": "2022",
+      "bggRating": 7.52,
+      "bggRank": null,
+      "numVoters": 4100,
+      "numFans": 304,
+      "coverUrl": "https://cf.geekdo-images.com/T2czH3s3vbNV0pf1bZhhQQ__square100@2x/img/awUg5cs70BTw6UbEnrGRNRW5zE4=/0x253:2237x3099/fit-in/200x200/filters:fill(blur):strip_icc()/pic6265475.jpg",
+      "thumbnail": "images/thumbnails/331265.jpg",
+      "image": "images/full/331265.jpg",
+      "description": "Hire ships and crew, complete missions, and conquer the dreaded Ares pirates.",
+      "rawScore": 1.7324116139070411,
+      "recommendedBy": [
+        {
+          "ownedId": "329954",
+          "ownedName": "Carcassonne: 20th Anniversary Edition",
+          "userRating": 7,
+          "bggRecRank": 8,
+          "contributionScore": 1.73
+        }
+      ],
+      "matchScore": 1.8,
+      "minPlayers": 1,
+      "maxPlayers": 5,
+      "playingTime": 50
+    },
+    {
+      "objectId": "376472",
+      "name": "Noobs in Space",
+      "yearPublished": "2023",
+      "bggRating": 7.09,
+      "bggRank": 3549,
+      "numVoters": 927,
+      "numFans": 43,
+      "coverUrl": "https://cf.geekdo-images.com/1j-412YMFlb0GhAVKDMouw__square100@2x/img/XyvpUzGPLzXVFOjn5b98KDv7n90=/0x156:1440x1596/200x200/filters:strip_icc()/pic7233515.png",
+      "thumbnail": "images/thumbnails/376472.png",
+      "image": "images/full/376472.png",
+      "description": "Using what little information each player has, can you complete missions in space?",
+      "rawScore": 1.852025917745213,
+      "recommendedBy": [
+        {
+          "ownedId": "380887",
+          "ownedName": "Deduckto",
+          "userRating": 7,
+          "bggRecRank": 7,
+          "contributionScore": 1.85
+        }
+      ],
+      "matchScore": 1.8,
+      "minPlayers": 3,
+      "maxPlayers": 5,
+      "playingTime": 15
+    },
+    {
+      "objectId": "171273",
+      "name": "FUSE",
+      "yearPublished": "2015",
+      "bggRating": 6.98,
+      "bggRank": 991,
+      "numVoters": 9295,
+      "numFans": 301,
+      "coverUrl": "https://cf.geekdo-images.com/q6V72bfqeoKi3bfThY3XfQ__square100@2x/img/S11d8x-PRGF5IiTCFsE1sLKMDYY=/0x0:1936x1936/200x200/filters:strip_icc()/pic5172335.jpg",
+      "thumbnail": "images/thumbnails/171273.jpg",
+      "image": "images/full/171273.jpg",
+      "description": "Hurry up! Disarm the bomb by collectively assembling the correct dice combinations.",
+      "rawScore": 1.852025917745213,
+      "recommendedBy": [
+        {
+          "ownedId": "153318",
+          "ownedName": "Dimension",
+          "userRating": 7,
+          "bggRecRank": 7,
+          "contributionScore": 1.85
+        }
+      ],
+      "matchScore": 1.8,
+      "minPlayers": 1,
+      "maxPlayers": 5,
+      "playingTime": 10
+    },
+    {
+      "objectId": "428440",
+      "name": "Shallow Sea",
+      "yearPublished": "2025",
+      "bggRating": 7.9,
+      "bggRank": 1546,
+      "numVoters": 1551,
+      "numFans": 313,
+      "coverUrl": "https://cf.geekdo-images.com/i8ohLkXX_9a7uTWZ7l7Kqw__square100@2x/img/sQtbUCRGTV2yk_ydkEmDKRR_Peo=/200x200/filters:strip_icc()/pic8418427.jpg",
+      "thumbnail": "images/thumbnails/428440.jpg",
+      "image": "images/full/428440.jpg",
+      "description": "A multi-layer puzzle board game featuring marine animals of the Great Barrier Reef",
+      "rawScore": 1.633333333333333,
+      "recommendedBy": [
+        {
+          "ownedId": "431998",
+          "ownedName": "Point Galaxy",
+          "userRating": 7,
+          "bggRecRank": 9,
+          "contributionScore": 1.63
+        }
+      ],
+      "matchScore": 1.8,
+      "minPlayers": 1,
+      "maxPlayers": 4,
+      "playingTime": 45
+    },
+    {
+      "objectId": "226610",
+      "name": "What Do You Meme?",
+      "yearPublished": "2016",
+      "bggRating": 5.05,
+      "bggRank": 31019,
+      "numVoters": 3867,
+      "numFans": 85,
+      "coverUrl": "https://cf.geekdo-images.com/5Pmk8PrpMHPMg0hG8fJz9w__square100@2x/img/KjBOtlORRcE_Ee2KGsoEhW2mVBk=/0x0:310x310/200x200/filters:strip_icc()/pic3749720.png",
+      "thumbnail": "images/thumbnails/226610.png",
+      "image": "images/full/226610.png",
+      "description": "Players pick captions for images in an effort to make the funniest memes.",
+      "rawScore": 2,
+      "recommendedBy": [
+        {
+          "ownedId": "411404",
+          "ownedName": "Power Hungry Pets",
+          "userRating": 10,
+          "bggRecRank": 25,
+          "contributionScore": 2
+        }
+      ],
+      "matchScore": 1.7,
+      "minPlayers": 3,
+      "maxPlayers": 20,
+      "playingTime": 90
+    },
+    {
+      "objectId": "130592",
+      "name": "Clue",
+      "yearPublished": "2012",
+      "bggRating": 5.92,
+      "bggRank": 7136,
+      "numVoters": 3931,
+      "numFans": 135,
+      "coverUrl": "https://cf.geekdo-images.com/5NJKy5K9c0tyCTnTWFekeQ__square100@2x/img/e-rizYrL_gycNRtL8c7Dwx1UmCs=/200x200/filters:strip_icc()/pic3181978.png",
+      "thumbnail": "images/thumbnails/130592.png",
+      "image": "images/full/130592.png",
+      "description": "Catch the culprit of a crime by identifying who did it, with what, and where.",
+      "rawScore": 1.9611613513818404,
+      "recommendedBy": [
+        {
+          "ownedId": "411404",
+          "ownedName": "Power Hungry Pets",
+          "userRating": 10,
+          "bggRecRank": 26,
+          "contributionScore": 1.96
+        }
+      ],
+      "matchScore": 1.7,
+      "minPlayers": 2,
+      "maxPlayers": 6,
+      "playingTime": 40
+    },
+    {
+      "objectId": "302477",
+      "name": "Kittin",
+      "yearPublished": "2020",
+      "bggRating": 6.22,
+      "bggRank": 8049,
+      "numVoters": 631,
+      "numFans": 36,
+      "coverUrl": "https://cf.geekdo-images.com/9zBkfVaeZBR3O1ON50TRUg__square100@2x/img/ypPZ1BxIfap2YBxvKcaeOPd4ZME=/0x0:1010x1010/200x200/filters:strip_icc()/pic5290230.jpg",
+      "thumbnail": "images/thumbnails/302477.jpg",
+      "image": "images/full/302477.jpg",
+      "description": "Stack polyomino-shaped cats as quick as you can!",
+      "rawScore": 1.9245008972987527,
+      "recommendedBy": [
+        {
+          "ownedId": "411404",
+          "ownedName": "Power Hungry Pets",
+          "userRating": 10,
+          "bggRecRank": 27,
+          "contributionScore": 1.92
+        }
+      ],
+      "matchScore": 1.7,
+      "minPlayers": 2,
+      "maxPlayers": 8,
+      "playingTime": 15
+    },
+    {
+      "objectId": "205597",
+      "name": "Jump Drive",
+      "yearPublished": "2017",
+      "bggRating": 7,
+      "bggRank": 1247,
+      "numVoters": 5510,
+      "numFans": 239,
+      "coverUrl": "https://cf.geekdo-images.com/vidEoAQGKIucMiHEwVE-tQ__square100@2x/img/nFsn5Ee07Gf5iZ5w72ooOoGt_dM=/0x0:1630x1630/200x200/filters:strip_icc()/pic3121227.jpg",
+      "thumbnail": "images/thumbnails/205597.jpg",
+      "image": "images/full/205597.jpg",
+      "description": "Race to build the best space empire of alien worlds and new technologies.",
+      "rawScore": 1.7269258024804446,
+      "recommendedBy": [
+        {
+          "ownedId": "334590",
+          "ownedName": "For Northwood! A Solo Trick-Taking Game",
+          "userRating": 9,
+          "bggRecRank": 22,
+          "contributionScore": 1.73
+        }
+      ],
+      "matchScore": 1.7,
+      "minPlayers": 2,
+      "maxPlayers": 4,
+      "playingTime": 30
+    },
+    {
+      "objectId": "431718",
+      "name": "The Isle of Cats Duel",
+      "yearPublished": "2024",
+      "bggRating": 7.51,
+      "bggRank": 4012,
+      "numVoters": 579,
+      "numFans": 68,
+      "coverUrl": "https://cf.geekdo-images.com/D5NehsOqprGSFkIcliIN9A__square100@2x/img/UNTqqR26mGeiB29szhkh_ePlNME=/200x200/filters:strip_icc()/pic8515910.jpg",
+      "thumbnail": "images/thumbnails/431718.jpg",
+      "image": "images/full/431718.jpg",
+      "description": "Rescue as many cats as you can in this head-to-head version of The Isle of Cats.",
+      "rawScore": 1.6524728943818314,
+      "recommendedBy": [
+        {
+          "ownedId": "401636",
+          "ownedName": "Tacta",
+          "userRating": 8,
+          "bggRecRank": 15,
+          "contributionScore": 1.65
+        }
+      ],
+      "matchScore": 1.7,
+      "minPlayers": 2,
+      "maxPlayers": 2,
+      "playingTime": 30
+    },
+    {
+      "objectId": "329670",
+      "name": "Pandemic: Hot Zone – Europe",
+      "yearPublished": "2021",
+      "bggRating": 7.03,
+      "bggRank": 3372,
+      "numVoters": 1122,
+      "numFans": 59,
+      "coverUrl": "https://cf.geekdo-images.com/RvyD6ptF9bCIVsScZaxxLQ__square100@2x/img/RPON1PvgQLMrtGh6lyKleIr3xYA=/0x230:442x672/200x200/filters:strip_icc()/pic5943803.png",
+      "thumbnail": "images/thumbnails/329670.png",
+      "image": "images/full/329670.png",
+      "description": "30 minutes to save Europe from a viral pandemic — it's all in a day's work.",
+      "rawScore": 1.7104719482395165,
+      "recommendedBy": [
+        {
+          "ownedId": "309113",
+          "ownedName": "Ticket to Ride: Amsterdam",
+          "userRating": 8,
+          "bggRecRank": 14,
+          "contributionScore": 1.71
+        }
+      ],
+      "matchScore": 1.7,
+      "minPlayers": 2,
+      "maxPlayers": 4,
+      "playingTime": 30
+    },
+    {
+      "objectId": "287084",
+      "name": "Oriflamme",
+      "yearPublished": "2019",
+      "bggRating": 7.06,
+      "bggRank": 1220,
+      "numVoters": 5308,
+      "numFans": 241,
+      "coverUrl": "https://cf.geekdo-images.com/8MpTeqlzyIupMpSSxP3PAw__square100@2x/img/HXrUF_zYCw7R5sXGqtogCgEvTK8=/0x0:372x372/200x200/filters:strip_icc()/pic4949335.jpg",
+      "thumbnail": "images/thumbnails/287084.jpg",
+      "image": "images/full/287084.jpg",
+      "description": "Decide to act early or late to set traps and attack to become the most influential.",
+      "rawScore": 1.7104719482395165,
+      "recommendedBy": [
+        {
+          "ownedId": "216497",
+          "ownedName": "District Noir",
+          "userRating": 8,
+          "bggRecRank": 14,
+          "contributionScore": 1.71
+        }
+      ],
+      "matchScore": 1.7,
+      "minPlayers": 3,
+      "maxPlayers": 5,
+      "playingTime": 30
+    },
+    {
+      "objectId": "368517",
+      "name": "Dice Manor",
+      "yearPublished": "2023",
+      "bggRating": 6.77,
+      "bggRank": 6300,
+      "numVoters": 459,
+      "numFans": 39,
+      "coverUrl": "https://cf.geekdo-images.com/IxXb5qBw3gxrQd_ORYdnRw__square100@2x/img/STWzGmydIddt-vyAz1oMVLZ1c8s=/200x200/filters:strip_icc()/pic7008625.png",
+      "thumbnail": "images/thumbnails/368517.png",
+      "image": "images/full/368517.png",
+      "description": "Build and market the most magnificent manor!",
+      "rawScore": 1.7750406279207336,
+      "recommendedBy": [
+        {
+          "ownedId": "360503",
+          "ownedName": "Downtown Farmers Market",
+          "userRating": 8,
+          "bggRecRank": 13,
+          "contributionScore": 1.78
+        }
+      ],
+      "matchScore": 1.7,
+      "minPlayers": 2,
+      "maxPlayers": 4,
+      "playingTime": 45
+    },
+    {
+      "objectId": "318243",
+      "name": "Hitster",
+      "yearPublished": "2022",
+      "bggRating": 7.52,
+      "bggRank": 479,
+      "numVoters": 7952,
+      "numFans": 368,
+      "coverUrl": "https://cf.geekdo-images.com/R4aQbIo0KZ6npxfhUc7ZYw__square100@2x/img/s5r63RTreMCHa-exB7QFVdCAlPQ=/0x0:938x938/200x200/filters:strip_icc()/pic6958739.png",
+      "thumbnail": "images/thumbnails/318243.png",
+      "image": "images/full/318243.png",
+      "description": "Listen to music hits and take turns guessing when the songs were released.",
+      "rawScore": 1.6000000000000003,
+      "recommendedBy": [
+        {
+          "ownedId": "223040",
+          "ownedName": "Fantasy Realms",
+          "userRating": 8,
+          "bggRecRank": 16,
+          "contributionScore": 1.6
+        }
+      ],
+      "matchScore": 1.7,
+      "minPlayers": 2,
+      "maxPlayers": 10,
+      "playingTime": 30
+    },
+    {
+      "objectId": "367966",
+      "name": "Endeavor: Deep Sea",
+      "yearPublished": "2024",
+      "bggRating": 8.22,
+      "bggRank": 71,
+      "numVoters": 11059,
+      "numFans": 1849,
+      "coverUrl": "https://cf.geekdo-images.com/wIbevITv9W79ELP8rEZoKA__square100@2x/img/7BDx8KnThYSPoWphy0Mz06zDeyk=/200x200/filters:strip_icc()/pic6996584.jpg",
+      "thumbnail": "images/thumbnails/367966.jpg",
+      "image": "images/full/367966.jpg",
+      "description": "Lead your research institute to explore ocean depths and publish your findings!",
+      "rawScore": 1.5084944665313018,
+      "recommendedBy": [
+        {
+          "ownedId": "223040",
+          "ownedName": "Fantasy Realms",
+          "userRating": 8,
+          "bggRecRank": 18,
+          "contributionScore": 1.51
+        }
+      ],
+      "matchScore": 1.7,
+      "minPlayers": 1,
+      "maxPlayers": 4,
+      "playingTime": 120
+    },
+    {
+      "objectId": "363307",
+      "name": "Evergreen",
+      "yearPublished": "2022",
+      "bggRating": 7.45,
+      "bggRank": 844,
+      "numVoters": 4476,
+      "numFans": 563,
+      "coverUrl": "https://cf.geekdo-images.com/71I0Ku92KgjaW_ZokJidCA__square100@2x/img/EMhQJOVEVH_XDkqenUg-mTb3NqQ=/200x200/filters:strip_icc()/pic6872745.png",
+      "thumbnail": "images/thumbnails/363307.png",
+      "image": "images/full/363307.png",
+      "description": "Make your planet as verdant as possible, especially in valuable biomes.",
+      "rawScore": 1.6000000000000003,
+      "recommendedBy": [
+        {
+          "ownedId": "414317",
+          "ownedName": "Harmonies",
+          "userRating": 8,
+          "bggRecRank": 16,
+          "contributionScore": 1.6
+        }
+      ],
+      "matchScore": 1.7,
+      "minPlayers": 1,
+      "maxPlayers": 4,
+      "playingTime": 45
+    },
+    {
+      "objectId": "379153",
+      "name": "Pacifica",
+      "yearPublished": "2023",
+      "bggRating": 6.55,
+      "bggRank": 8693,
+      "numVoters": 307,
+      "numFans": 19,
+      "coverUrl": "https://cf.geekdo-images.com/V6tKv76zJNMEMIajTNOieA__square100@2x/img/OKwE4Jfb7H3NuuTdbI8RNb-ufRk=/200x200/filters:strip_icc()/pic9134223.jpg",
+      "thumbnail": "images/thumbnails/379153.jpg",
+      "image": "images/full/379153.jpg",
+      "description": "Rebuild the sunken city of Pacifica.",
+      "rawScore": 1.847520861406803,
+      "recommendedBy": [
+        {
+          "ownedId": "464261",
+          "ownedName": "Next Station: Berlin",
+          "userRating": 8,
+          "bggRecRank": 12,
+          "contributionScore": 1.85
+        }
+      ],
+      "matchScore": 1.7,
+      "minPlayers": 2,
+      "maxPlayers": 2,
+      "playingTime": 30
+    },
+    {
+      "objectId": "419130",
+      "name": "Hutan: Life in the Rainforest",
+      "yearPublished": "2025",
+      "bggRating": 7,
+      "bggRank": 3335,
+      "numVoters": 1154,
+      "numFans": 107,
+      "coverUrl": "https://cf.geekdo-images.com/6FW_5-zuDPb1pGuM3fMFTQ__square100@2x/img/1SaF-48NHRDU_P6qalOnOJIgJ2Q=/200x200/filters:strip_icc()/pic8280787.jpg",
+      "thumbnail": "images/thumbnails/419130.jpg",
+      "image": "images/full/419130.jpg",
+      "description": "Watch your rainforest come alive with majestic trees and iconic animals.",
+      "rawScore": 1.7750406279207336,
+      "recommendedBy": [
+        {
+          "ownedId": "403116",
+          "ownedName": "Next Station: Paris",
+          "userRating": 8,
+          "bggRecRank": 13,
+          "contributionScore": 1.78
+        }
+      ],
+      "matchScore": 1.7,
+      "minPlayers": 1,
+      "maxPlayers": 4,
+      "playingTime": 45
+    },
+    {
+      "objectId": "394887",
+      "name": "Surfosaurus MAX",
+      "yearPublished": "2023",
+      "bggRating": 6.91,
+      "bggRank": 3104,
+      "numVoters": 1359,
+      "numFans": 66,
+      "coverUrl": "https://cf.geekdo-images.com/_oIGFfPMAa0gHWNy7kJp7g__square100@2x/img/LWFmICP542rU38bgY9zIo6PNFAE=/0x0:1477x1477/200x200/filters:strip_icc()/pic7618281.jpg",
+      "thumbnail": "images/thumbnails/394887.jpg",
+      "image": "images/full/394887.jpg",
+      "description": "Contribute a card to the one strongest combination to score.",
+      "rawScore": 1.7750406279207336,
+      "recommendedBy": [
+        {
+          "ownedId": "400113",
+          "ownedName": "Panda Panda",
+          "userRating": 8,
+          "bggRecRank": 13,
+          "contributionScore": 1.78
+        }
+      ],
+      "matchScore": 1.7,
+      "minPlayers": 2,
+      "maxPlayers": 6,
+      "playingTime": 20
+    },
+    {
+      "objectId": "386860",
+      "name": "Farm Hand",
+      "yearPublished": "2025",
+      "bggRating": 7.25,
+      "bggRank": 5598,
+      "numVoters": 421,
+      "numFans": 69,
+      "coverUrl": "https://cf.geekdo-images.com/M7qlLvY2z3a2pFjfAK4GAw__square100@2x/img/Rz69HqVqfoSD0edrWLv-Y2gz0sI=/0x0:630x630/200x200/filters:strip_icc()/pic8593669.jpg",
+      "thumbnail": "images/thumbnails/386860.jpg",
+      "image": "images/full/386860.jpg",
+      "description": "Pocket-sized farm animal fun: Predict, Bid, Trick and Win!",
+      "rawScore": 1.6524728943818314,
+      "recommendedBy": [
+        {
+          "ownedId": "400113",
+          "ownedName": "Panda Panda",
+          "userRating": 8,
+          "bggRecRank": 15,
+          "contributionScore": 1.65
+        }
+      ],
+      "matchScore": 1.7,
+      "minPlayers": 1,
+      "maxPlayers": 5,
+      "playingTime": 20
+    },
+    {
+      "objectId": "288454",
+      "name": "Gridcannon",
+      "yearPublished": "2019",
+      "bggRating": 7.01,
+      "bggRank": 19147,
+      "numVoters": 40,
+      "numFans": 11,
+      "coverUrl": "https://cf.geekdo-images.com/053KOW-Aoh_LAdJpO3ir7g__square100@2x/img/laTlq67qaogaJ7JkZIvB6o3FPDU=/200x200/filters:strip_icc()/pic5437273.png",
+      "thumbnail": "images/thumbnails/288454.png",
+      "image": "images/full/288454.png",
+      "description": "Lead the revolution against the royal families of a traditional deck of cards.",
+      "rawScore": 1.7750406279207336,
+      "recommendedBy": [
+        {
+          "ownedId": "191095",
+          "ownedName": "Scoundrel",
+          "userRating": 8,
+          "bggRecRank": 13,
+          "contributionScore": 1.78
+        }
+      ],
+      "matchScore": 1.7,
+      "minPlayers": 1,
+      "maxPlayers": 1,
+      "playingTime": 20
+    },
+    {
+      "objectId": "371687",
+      "name": "A Simple Life",
+      "yearPublished": "2022",
+      "bggRating": 7.33,
+      "bggRank": 9671,
+      "numVoters": 168,
+      "numFans": 88,
+      "coverUrl": "https://cf.geekdo-images.com/IP_7jW3NfT1ZpL6blp8_Fw__square100@2x/img/ndA_6DqWmiRCk744YrYHfVurdc4=/4x0:1232x1228/200x200/filters:strip_icc()/pic7365396.jpg",
+      "thumbnail": "images/thumbnails/371687.jpg",
+      "image": "images/full/371687.jpg",
+      "description": "A 1-sheet roll & write game inspired by pixel art farming games for 1 to 2 players.",
+      "rawScore": 1.6524728943818314,
+      "recommendedBy": [
+        {
+          "ownedId": "191095",
+          "ownedName": "Scoundrel",
+          "userRating": 8,
+          "bggRecRank": 15,
+          "contributionScore": 1.65
+        }
+      ],
+      "matchScore": 1.7,
+      "minPlayers": 1,
+      "maxPlayers": 2,
+      "playingTime": 20
+    },
+    {
+      "objectId": "454103",
+      "name": "Magical Athlete",
+      "yearPublished": "2025",
+      "bggRating": 7.81,
+      "bggRank": 352,
+      "numVoters": 6866,
+      "numFans": 1373,
+      "coverUrl": "https://cf.geekdo-images.com/1uW8t9AkuqOF0xjv_sXKgw__square100@2x/img/SAxYkKlt1zYjQL2W3nNA1rB46XM=/23x0:2357x1498/fit-in/200x200/filters:fill(blur):strip_icc()/pic9106864.png",
+      "thumbnail": "images/thumbnails/454103.png",
+      "image": "images/full/454103.png",
+      "description": "Pit a cast of crazy characters against each other in a madcap race to the finish.",
+      "rawScore": 1.6000000000000003,
+      "recommendedBy": [
+        {
+          "ownedId": "291453",
+          "ownedName": "SCOUT",
+          "userRating": 8,
+          "bggRecRank": 16,
+          "contributionScore": 1.6
+        }
+      ],
+      "matchScore": 1.7,
+      "minPlayers": 2,
+      "maxPlayers": 6,
+      "playingTime": 30
+    },
+    {
+      "objectId": "228855",
+      "name": "Set a Watch",
+      "yearPublished": "2019",
+      "bggRating": 7.24,
+      "bggRank": 1233,
+      "numVoters": 4057,
+      "numFans": 879,
+      "coverUrl": "https://cf.geekdo-images.com/E_-9WT4_6-kABS796Q-piA__square100@2x/img/jXM5lGG-gVz96db4txXl3r4frQM=/143x0:871x576/fit-in/200x200/filters:fill(blur):strip_icc()/pic4162054.png",
+      "thumbnail": "images/thumbnails/228855.png",
+      "image": "images/full/228855.png",
+      "description": "Fight to keep your party alive as darkness brings death and destruction.",
+      "rawScore": 1.7104719482395165,
+      "recommendedBy": [
+        {
+          "ownedId": "306735",
+          "ownedName": "Under Falling Skies",
+          "userRating": 8,
+          "bggRecRank": 14,
+          "contributionScore": 1.71
+        }
+      ],
+      "matchScore": 1.7,
+      "minPlayers": 1,
+      "maxPlayers": 4,
+      "playingTime": 80
+    },
+    {
+      "objectId": "420498",
+      "name": "Unstoppable",
+      "yearPublished": "2025",
+      "bggRating": 8.35,
+      "bggRank": 807,
+      "numVoters": 2088,
+      "numFans": 917,
+      "coverUrl": "https://cf.geekdo-images.com/JlY4u_H5nr8bs05XQWVoGw__square100@2x/img/qc_PsxmLynjZEu6lpfjtfw81Gf4=/0x0:1000x1000/200x200/filters:strip_icc()/pic8185930.png",
+      "thumbnail": "images/thumbnails/420498.png",
+      "image": "images/full/420498.png",
+      "description": "Gather your allies and sharpen your skills, for the darkest days are yet to come.",
+      "rawScore": 1.4310835055998656,
+      "recommendedBy": [
+        {
+          "ownedId": "306735",
+          "ownedName": "Under Falling Skies",
+          "userRating": 8,
+          "bggRecRank": 20,
+          "contributionScore": 1.43
+        }
+      ],
+      "matchScore": 1.7,
+      "minPlayers": 1,
+      "maxPlayers": 2,
+      "playingTime": 90
+    },
+    {
+      "objectId": "351605",
+      "name": "Bohnanza: 25th Anniversary Edition",
+      "yearPublished": "2022",
+      "bggRating": 7.59,
+      "bggRank": null,
+      "numVoters": 1948,
+      "numFans": 89,
+      "coverUrl": "https://cf.geekdo-images.com/TCWH1FOU7PWnv66_gzrR2A__square100@2x/img/Fh1cyT8rUSPooAUFU1kBQeeh6n4=/0x0:784x784/200x200/filters:strip_icc()/pic8621122.jpg",
+      "thumbnail": "images/thumbnails/351605.jpg",
+      "image": "images/full/351605.jpg",
+      "description": "Celebrate a quarter century of planting beans.",
+      "rawScore": 1.633333333333333,
+      "recommendedBy": [
+        {
+          "ownedId": "329954",
+          "ownedName": "Carcassonne: 20th Anniversary Edition",
+          "userRating": 7,
+          "bggRecRank": 9,
+          "contributionScore": 1.63
+        }
+      ],
+      "matchScore": 1.7,
+      "minPlayers": 2,
+      "maxPlayers": 7,
+      "playingTime": 45
     }
   ]
 }
