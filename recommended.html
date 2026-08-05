@@ -102,6 +102,19 @@
                 </div>
 
                 <div class="control-group">
+                    <label for="player-count">Players:</label>
+                    <select id="player-count" onchange="applyFilters()">
+                        <option value="all">All</option>
+                        <option value="1">1 (Solo)</option>
+                        <option value="2">2</option>
+                        <option value="2-only">2 Player Only</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5+</option>
+                    </select>
+                </div>
+
+                <div class="control-group">
                     <label for="rating-filter">Rating:</label>
                     <select id="rating-filter" onchange="applyFilters()">
                         <option value="all">All</option>

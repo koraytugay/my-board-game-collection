@@ -124,10 +124,12 @@ function applyFilters() {
     const searchInput = document.getElementById('search-input');
     const ratingFilter = document.getElementById('rating-filter');
     const sourceGameFilter = document.getElementById('source-game-filter');
+    const playerCountFilter = document.getElementById('player-count');
 
     const searchTerm = searchInput ? searchInput.value.toLowerCase().trim() : '';
     const ratingVal = ratingFilter ? ratingFilter.value : 'all';
     const sourceGameVal = sourceGameFilter ? sourceGameFilter.value : 'all';
+    const playerCountVal = playerCountFilter ? playerCountFilter.value : 'all';
 
     filteredGames = allGames.filter(game => {
         const matchesName = game.name.toLowerCase().includes(searchTerm);
@@ -145,7 +147,19 @@ function applyFilters() {
             matchesSourceGame = Array.isArray(game.recommendedBy) && game.recommendedBy.some(s => String(s.ownedId) === String(sourceGameVal) || s.ownedName === sourceGameVal);
         }
 
-        return matchesSearch && matchesRating && matchesSourceGame;
+        let matchesPlayers = true;
+        if (playerCountVal !== 'all' && game.minPlayers && game.maxPlayers) {
+            if (playerCountVal === '2-only') {
+                matchesPlayers = game.minPlayers === 2 && game.maxPlayers === 2;
+            } else if (playerCountVal === '5') {
+                matchesPlayers = game.maxPlayers >= 5;
+            } else {
+                const count = parseInt(playerCountVal);
+                matchesPlayers = count >= game.minPlayers && count <= game.maxPlayers;
+            }
+        }
+
+        return matchesSearch && matchesRating && matchesSourceGame && matchesPlayers;
     });
 
     renderGames();
