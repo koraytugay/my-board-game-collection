@@ -27,6 +27,7 @@ async function fetchCollection() {
                 greatBoardgames: { available: false, price: null, url: null },
                 meeplemart: { available: false, price: null, url: null },
                 amazonCa: { available: false, price: null, url: null },
+                walmartCa: { available: false, price: null, url: null },
                 woodForSheep: { available: false, price: null, url: null },
                 faceToFaceGames: { available: false, price: null, url: null },
                 bggMarket: { available: false, price: null, url: null }
@@ -71,6 +72,7 @@ function updateStats() {
         game.availability?.greatBoardgames?.available ||
         game.availability?.meeplemart?.available ||
         game.availability?.amazonCa?.available ||
+        game.availability?.walmartCa?.available ||
         game.availability?.woodForSheep?.available ||
         game.availability?.faceToFaceGames?.available ||
         game.availability?.bggMarket?.available
@@ -98,7 +100,7 @@ function sortGames(criteria) {
             case 'year-asc':
                 return parseInt(a.yearPublished) - parseInt(b.yearPublished);
             default:
-                return 0;
+                return a.name.localeCompare(b.name);
         }
     });
 
@@ -106,22 +108,53 @@ function sortGames(criteria) {
 }
 
 function applyFilters() {
-    const inStockOnly = document.getElementById('in-stock-only').checked;
+    const searchInput = document.getElementById('search-input');
+    const ratingFilter = document.getElementById('rating-filter');
+    const playerCountFilter = document.getElementById('player-count');
+    const stockFilter = document.getElementById('stock-filter');
+
+    const searchTerm = searchInput ? searchInput.value.toLowerCase().trim() : '';
+    const ratingVal = ratingFilter ? ratingFilter.value : 'all';
+    const playerCountVal = playerCountFilter ? playerCountFilter.value : 'all';
+    const stockVal = stockFilter ? stockFilter.value : 'all';
 
     filteredGames = allGames.filter(game => {
-        if (inStockOnly) {
-            return game.availability?.boardGameBliss?.available || 
-                   game.availability?.fourZeroOneGames?.available ||
-                   game.availability?.lvlUpGames?.available ||
-                   game.availability?.asDesJeux?.available ||
-                   game.availability?.greatBoardgames?.available ||
-                   game.availability?.meeplemart?.available ||
-                   game.availability?.amazonCa?.available ||
-                   game.availability?.woodForSheep?.available ||
-                   game.availability?.faceToFaceGames?.available ||
-                   game.availability?.bggMarket?.available;
+        const matchesSearch = !searchTerm || game.name.toLowerCase().includes(searchTerm);
+
+        let matchesRating = true;
+        if (ratingVal !== 'all') {
+            const minRating = parseFloat(ratingVal.replace('+', ''));
+            matchesRating = game.rating >= minRating;
         }
-        return true;
+
+        let matchesPlayers = true;
+        if (playerCountVal !== 'all') {
+            if (playerCountVal === '2-only') {
+                matchesPlayers = game.minPlayers === 2 && game.maxPlayers === 2;
+            } else if (playerCountVal === '5') {
+                matchesPlayers = game.maxPlayers >= 5;
+            } else {
+                const count = parseInt(playerCountVal);
+                matchesPlayers = count >= game.minPlayers && count <= game.maxPlayers;
+            }
+        }
+
+        let matchesStock = true;
+        if (stockVal === 'instock') {
+            matchesStock = game.availability?.boardGameBliss?.available || 
+                           game.availability?.fourZeroOneGames?.available ||
+                           game.availability?.lvlUpGames?.available ||
+                           game.availability?.asDesJeux?.available ||
+                           game.availability?.greatBoardgames?.available ||
+                           game.availability?.meeplemart?.available ||
+                           game.availability?.amazonCa?.available ||
+                           game.availability?.walmartCa?.available ||
+                           game.availability?.woodForSheep?.available ||
+                           game.availability?.faceToFaceGames?.available ||
+                           game.availability?.bggMarket?.available;
+        }
+
+        return matchesSearch && matchesRating && matchesPlayers && matchesStock;
     });
 
     renderGames();
@@ -168,6 +201,7 @@ function createGameCard(game) {
                       game.availability?.greatBoardgames?.available ||
                       game.availability?.meeplemart?.available ||
                       game.availability?.amazonCa?.available ||
+                      game.availability?.walmartCa?.available ||
                       game.availability?.woodForSheep?.available ||
                       game.availability?.faceToFaceGames?.available ||
                       game.availability?.bggMarket?.available;
@@ -188,11 +222,12 @@ function createGameCard(game) {
     const gbg = game.availability?.greatBoardgames;
     const meeple = game.availability?.meeplemart;
     const amzn = game.availability?.amazonCa;
+    const wmt = game.availability?.walmartCa;
     const wfs = game.availability?.woodForSheep;
     const f2f = game.availability?.faceToFaceGames;
     const bggmkt = game.availability?.bggMarket;
 
-    if ((bgb && bgb.url) || (fof && fof.url) || (lvl && lvl.url) || (adj && adj.url) || (gbg && gbg.url) || (meeple && meeple.url) || (amzn && amzn.url) || (wfs && wfs.url) || (f2f && f2f.url) || (bggmkt && bggmkt.url)) {
+    if ((bgb && bgb.url) || (fof && fof.url) || (lvl && lvl.url) || (adj && adj.url) || (gbg && gbg.url) || (meeple && meeple.url) || (amzn && amzn.url) || (wmt && wmt.url) || (wfs && wfs.url) || (f2f && f2f.url) || (bggmkt && bggmkt.url)) {
         storeHtml += '<div class="store-availability">';
         
         const renderStoreBtn = (store, name, btnClass) => {
@@ -215,6 +250,7 @@ function createGameCard(game) {
         storeHtml += renderStoreBtn(gbg, '🏰 Great Boardgames', 'store-btn-greatbg');
         storeHtml += renderStoreBtn(meeple, '👾 Meeplemart', 'store-btn-meeplemart');
         storeHtml += renderStoreBtn(amzn, '🛒 Amazon.ca', 'store-btn-amazon');
+        storeHtml += renderStoreBtn(wmt, '🛍️ Walmart.ca', 'store-btn-walmart');
         storeHtml += renderStoreBtn(wfs, '🐑 Wood for Sheep', 'store-btn-wfs');
         storeHtml += renderStoreBtn(f2f, '🤝 Face to Face', 'store-btn-f2f');
         

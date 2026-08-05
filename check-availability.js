@@ -298,6 +298,44 @@ function parseAmazon(html, gameName) {
     return products.find(p => isMatch(gameName, p)) || null;
 }
 
+// Parser for Walmart.ca HTML
+function parseWalmartCa(html, gameName) {
+    if (!html) return null;
+    
+    const match = /<script id="__NEXT_DATA__"[^>]*>([\s\S]*?)<\/script>/.exec(html);
+    if (!match) return null;
+    
+    try {
+        const json = JSON.parse(match[1]);
+        const items = json.props?.pageProps?.initialData?.searchResult?.itemStacks?.[0]?.items || [];
+        const products = [];
+        
+        for (const p of items) {
+            if (!p.name) continue;
+            const title = p.name;
+            const price = p.priceInfo?.linePriceDisplay || p.priceInfo?.linePrice || null;
+            const available = p.availabilityStatusV2?.value === 'IN_STOCK' || p.showAtc === true;
+            const rawUrl = p.canonicalUrl || (p.usItemId ? `/en/ip/${p.usItemId}` : null);
+            const url = rawUrl ? (rawUrl.startsWith('http') ? rawUrl : `https://www.walmart.ca${rawUrl}`) : null;
+            
+            if (url) {
+                products.push({
+                    title,
+                    price,
+                    available,
+                    url,
+                    type: 'Board Games'
+                });
+            }
+        }
+        
+        return products.find(p => isMatch(gameName, p)) || null;
+    } catch (e) {
+        console.error('Error parsing Walmart.ca NEXT_DATA:', e.message);
+        return null;
+    }
+}
+
 function decodeXmlEntities(str) {
     return str
         .replace(/&amp;/g, '&')
@@ -482,6 +520,21 @@ async function checkAvailability() {
                 url: `https://www.amazon.ca/s?k=${encodeURIComponent(query + " board game")}`,
                 parser: (html, gameName) => {
                     const match = parseAmazon(html, gameName);
+                    if (match) {
+                        return {
+                            available: match.available,
+                            price: match.price,
+                            url: match.url
+                        };
+                    }
+                    return null;
+                }
+            },
+            walmartCa: {
+                type: 'html',
+                url: `https://www.walmart.ca/en/search?q=${encodeURIComponent(query)}`,
+                parser: (html, gameName) => {
+                    const match = parseWalmartCa(html, gameName);
                     if (match) {
                         return {
                             available: match.available,
