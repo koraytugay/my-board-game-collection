@@ -27,7 +27,6 @@ async function fetchCollection() {
                 greatBoardgames: { available: false, price: null, url: null },
                 meeplemart: { available: false, price: null, url: null },
                 amazonCa: { available: false, price: null, url: null },
-                walmartCa: { available: false, price: null, url: null },
                 woodForSheep: { available: false, price: null, url: null },
                 faceToFaceGames: { available: false, price: null, url: null },
                 bggMarket: { available: false, price: null, url: null }
@@ -72,7 +71,6 @@ function updateStats() {
         game.availability?.greatBoardgames?.available ||
         game.availability?.meeplemart?.available ||
         game.availability?.amazonCa?.available ||
-        game.availability?.walmartCa?.available ||
         game.availability?.woodForSheep?.available ||
         game.availability?.faceToFaceGames?.available ||
         game.availability?.bggMarket?.available
@@ -96,14 +94,14 @@ function sortGames(criteria) {
             case 'rating-asc':
                 return a.rating - b.rating;
             case 'year-desc':
-                return parseInt(b.yearPublished) - parseInt(a.yearPublished);
+                return parseInt(b.yearPublished) - parseInt(b.yearPublished);
             case 'year-asc':
-                return parseInt(a.yearPublished) - parseInt(b.yearPublished);
+                return parseInt(a.yearPublished) - parseInt(a.yearPublished);
             default:
                 return a.name.localeCompare(b.name);
         }
     });
-
+    
     applyFilters();
 }
 
@@ -148,7 +146,6 @@ function applyFilters() {
                            game.availability?.greatBoardgames?.available ||
                            game.availability?.meeplemart?.available ||
                            game.availability?.amazonCa?.available ||
-                           game.availability?.walmartCa?.available ||
                            game.availability?.woodForSheep?.available ||
                            game.availability?.faceToFaceGames?.available ||
                            game.availability?.bggMarket?.available;
@@ -201,7 +198,6 @@ function createGameCard(game) {
                       game.availability?.greatBoardgames?.available ||
                       game.availability?.meeplemart?.available ||
                       game.availability?.amazonCa?.available ||
-                      game.availability?.walmartCa?.available ||
                       game.availability?.woodForSheep?.available ||
                       game.availability?.faceToFaceGames?.available ||
                       game.availability?.bggMarket?.available;
@@ -222,12 +218,11 @@ function createGameCard(game) {
     const gbg = game.availability?.greatBoardgames;
     const meeple = game.availability?.meeplemart;
     const amzn = game.availability?.amazonCa;
-    const wmt = game.availability?.walmartCa;
     const wfs = game.availability?.woodForSheep;
     const f2f = game.availability?.faceToFaceGames;
     const bggmkt = game.availability?.bggMarket;
 
-    if ((bgb && bgb.url) || (fof && fof.url) || (lvl && lvl.url) || (adj && adj.url) || (gbg && gbg.url) || (meeple && meeple.url) || (amzn && amzn.url) || (wmt && wmt.url) || (wfs && wfs.url) || (f2f && f2f.url) || (bggmkt && bggmkt.url)) {
+    if ((bgb && bgb.url) || (fof && fof.url) || (lvl && lvl.url) || (adj && adj.url) || (gbg && gbg.url) || (meeple && meeple.url) || (amzn && amzn.url) || (wfs && wfs.url) || (f2f && f2f.url) || (bggmkt && bggmkt.url)) {
         storeHtml += '<div class="store-availability">';
         
         const renderStoreBtn = (store, name, btnClass) => {
@@ -250,7 +245,6 @@ function createGameCard(game) {
         storeHtml += renderStoreBtn(gbg, '🏰 Great Boardgames', 'store-btn-greatbg');
         storeHtml += renderStoreBtn(meeple, '👾 Meeplemart', 'store-btn-meeplemart');
         storeHtml += renderStoreBtn(amzn, '🛒 Amazon.ca', 'store-btn-amazon');
-        storeHtml += renderStoreBtn(wmt, '🛍️ Walmart.ca', 'store-btn-walmart');
         storeHtml += renderStoreBtn(wfs, '🐑 Wood for Sheep', 'store-btn-wfs');
         storeHtml += renderStoreBtn(f2f, '🤝 Face to Face', 'store-btn-f2f');
         
