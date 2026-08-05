@@ -4,6 +4,20 @@ const https = require('https');
 const COLLECTION_FILE = 'collection.xml';
 const OUTPUT_FILE = 'availability.json';
 
+const DEFAULT_HEADERS = {
+    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36',
+    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+    'Accept-Language': 'en-US,en;q=0.9',
+    'Sec-Ch-Ua': '"Chromium";v="128", "Not;A=Brand";v="24", "Google Chrome";v="128"',
+    'Sec-Ch-Ua-Mobile': '?0',
+    'Sec-Ch-Ua-Platform': '"macOS"',
+    'Sec-Fetch-Dest': 'document',
+    'Sec-Fetch-Mode': 'navigate',
+    'Sec-Fetch-Site': 'none',
+    'Sec-Fetch-User': '?1',
+    'Upgrade-Insecure-Requests': '1'
+};
+
 // Helper to make HTTPS requests in Node and automatically follow redirects (JSON response)
 function fetchJson(url, redirectCount = 0) {
     if (redirectCount > 5) {
@@ -11,24 +25,26 @@ function fetchJson(url, redirectCount = 0) {
         return Promise.resolve(null);
     }
     return new Promise((resolve, reject) => {
+        const u = new URL(url);
         const options = {
-            headers: {
-                'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
-            },
+            hostname: u.hostname,
+            path: u.pathname + u.search,
+            headers: DEFAULT_HEADERS,
             timeout: 10000 // 10 seconds timeout
         };
         let resolved = false;
 
-        const req = https.get(url, options, (res) => {
-            if (res.statusCode === 302 || res.statusCode === 301) {
-                const redirectUrl = res.headers.location;
-                if (redirectUrl) {
-                    if (!resolved) {
-                        resolved = true;
-                        fetchJson(redirectUrl, redirectCount + 1).then(resolve).catch(reject);
-                    }
-                    return;
+        const req = https.get(options, (res) => {
+            if (res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
+                let redirectUrl = res.headers.location;
+                if (redirectUrl.startsWith('/')) {
+                    redirectUrl = `${u.protocol}//${u.host}${redirectUrl}`;
                 }
+                if (!resolved) {
+                    resolved = true;
+                    fetchJson(redirectUrl, redirectCount + 1).then(resolve).catch(reject);
+                }
+                return;
             }
             if (res.statusCode !== 200) {
                 console.warn(`[WARNING] fetchJson failed for ${url} with status: ${res.statusCode}`);
@@ -80,24 +96,26 @@ function fetchHtml(url, redirectCount = 0) {
         return Promise.resolve(null);
     }
     return new Promise((resolve, reject) => {
+        const u = new URL(url);
         const options = {
-            headers: {
-                'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
-            },
+            hostname: u.hostname,
+            path: u.pathname + u.search,
+            headers: DEFAULT_HEADERS,
             timeout: 10000 // 10 seconds timeout
         };
         let resolved = false;
 
-        const req = https.get(url, options, (res) => {
-            if (res.statusCode === 302 || res.statusCode === 301) {
-                const redirectUrl = res.headers.location;
-                if (redirectUrl) {
-                    if (!resolved) {
-                        resolved = true;
-                        fetchHtml(redirectUrl, redirectCount + 1).then(resolve).catch(reject);
-                    }
-                    return;
+        const req = https.get(options, (res) => {
+            if (res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
+                let redirectUrl = res.headers.location;
+                if (redirectUrl.startsWith('/')) {
+                    redirectUrl = `${u.protocol}//${u.host}${redirectUrl}`;
                 }
+                if (!resolved) {
+                    resolved = true;
+                    fetchHtml(redirectUrl, redirectCount + 1).then(resolve).catch(reject);
+                }
+                return;
             }
             if (res.statusCode !== 200) {
                 console.warn(`[WARNING] fetchHtml failed for ${url} with status: ${res.statusCode}`);
