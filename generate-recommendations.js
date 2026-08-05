@@ -55,6 +55,9 @@ function downloadFile(url, dest) {
         if (!url || url.trim() === '') {
             return resolve(false);
         }
+        if (fs.existsSync(dest)) {
+            return resolve(true);
+        }
         const file = fs.createWriteStream(dest);
         https.get(url, { headers: { 'User-Agent': USER_AGENT } }, (response) => {
             if (response.statusCode !== 200) {
@@ -283,13 +286,34 @@ async function generateRecommendations() {
                 const localThumb = path.join(THUMBNAILS_DIR, `${rec.objectId}${ext}`);
                 const localFull = path.join(FULL_DIR, `${rec.objectId}${ext}`);
 
-                const thumbSuccess = await downloadFile(highResUrl, localThumb);
-                const fullSuccess = await downloadFile(highResUrl, localFull);
+                let thumbExists = fs.existsSync(localThumb);
+                let fullExists = fs.existsSync(localFull);
 
-                if (thumbSuccess || fs.existsSync(localThumb)) {
+                if (!thumbExists && !fullExists) {
+                    const success = await downloadFile(highResUrl, localThumb);
+                    if (success) {
+                        thumbExists = true;
+                        try {
+                            fs.copyFileSync(localThumb, localFull);
+                            fullExists = true;
+                        } catch (_) {}
+                    }
+                } else if (!thumbExists && fullExists) {
+                    try {
+                        fs.copyFileSync(localFull, localThumb);
+                        thumbExists = true;
+                    } catch (_) {}
+                } else if (thumbExists && !fullExists) {
+                    try {
+                        fs.copyFileSync(localThumb, localFull);
+                        fullExists = true;
+                    } catch (_) {}
+                }
+
+                if (thumbExists || fs.existsSync(localThumb)) {
                     rec.thumbnail = `images/thumbnails/${rec.objectId}${ext}`;
                 }
-                if (fullSuccess || fs.existsSync(localFull)) {
+                if (fullExists || fs.existsSync(localFull)) {
                     rec.image = `images/full/${rec.objectId}${ext}`;
                 }
             } catch (e) {

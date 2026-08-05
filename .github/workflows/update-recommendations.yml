@@ -2,15 +2,15 @@ name: Update Game Recommendations
 
 on:
   schedule:
-    # Runs every day at 06:00 UTC
-    - cron: "0 6 * * *"
+    # Runs every day at 12:00 UTC
+    - cron: "0 12 * * *"
   workflow_dispatch:
 
 permissions:
   contents: write
 
 concurrency:
-  group: update-recommendations
+  group: bgg-collection-repo-update
   cancel-in-progress: false
 
 jobs:
@@ -36,7 +36,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git pull --rebase --autostash origin ${{ github.ref_name }} || true
+          git pull --rebase --autostash origin ${{ github.ref_name }}
 
           git add recommendations.json images/
 

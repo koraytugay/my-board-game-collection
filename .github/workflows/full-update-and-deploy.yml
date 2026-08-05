@@ -12,7 +12,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: full-update-pipeline
+  group: bgg-collection-repo-update
   cancel-in-progress: false
 
 jobs:
@@ -112,7 +112,8 @@ jobs:
           fetch_month() {
             local TARGET=$1
             local START="${TARGET}-01"
-            local END="${TARGET}-31"
+            local LAST_DAY=$(date -d "${START} +1 month -1 day" +%d)
+            local END="${TARGET}-${LAST_DAY}"
             fetch_data "https://boardgamegeek.com/xmlapi2/plays?username=${BGG_USER}&mindate=${START}&maxdate=${END}" "plays/${TARGET}.xml" "Plays for $TARGET" || true
           }
 
@@ -138,7 +139,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git pull --rebase --autostash origin ${{ github.ref_name }} || true
+          git pull --rebase --autostash origin ${{ github.ref_name }}
 
           git add collection.xml plays/ availability.json recommendations.json images/
 

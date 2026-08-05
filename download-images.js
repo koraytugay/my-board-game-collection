@@ -23,6 +23,10 @@ function downloadFile(url, dest) {
             resolve(false);
             return;
         }
+        if (fs.existsSync(dest)) {
+            resolve(true);
+            return;
+        }
 
         const file = fs.createWriteStream(dest);
         https.get(url, (response) => {
