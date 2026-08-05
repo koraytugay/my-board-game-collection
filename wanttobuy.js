@@ -111,12 +111,12 @@ function applyFilters() {
     const searchInput = document.getElementById('search-input');
     const ratingFilter = document.getElementById('rating-filter');
     const playerCountFilter = document.getElementById('player-count');
-    const stockFilter = document.getElementById('stock-filter');
+    const inStockCheckbox = document.getElementById('in-stock-only');
 
     const searchTerm = searchInput ? searchInput.value.toLowerCase().trim() : '';
     const ratingVal = ratingFilter ? ratingFilter.value : 'all';
     const playerCountVal = playerCountFilter ? playerCountFilter.value : 'all';
-    const stockVal = stockFilter ? stockFilter.value : 'all';
+    const inStockOnly = inStockCheckbox ? inStockCheckbox.checked : false;
 
     filteredGames = allGames.filter(game => {
         const matchesSearch = !searchTerm || game.name.toLowerCase().includes(searchTerm);
@@ -140,7 +140,7 @@ function applyFilters() {
         }
 
         let matchesStock = true;
-        if (stockVal === 'instock') {
+        if (inStockOnly) {
             matchesStock = game.availability?.boardGameBliss?.available || 
                            game.availability?.fourZeroOneGames?.available ||
                            game.availability?.lvlUpGames?.available ||
