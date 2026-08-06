@@ -676,6 +676,30 @@ async function checkAvailability() {
                     };
                 }
             },
+            boardgamesCa: {
+                type: 'json',
+                url: `https://app.ecwid.com/api/v3/122261030/products?keyword=${encodeURIComponent(query)}&token=public_w37fvtk2kUVuY6X7N2TdhZFLqVLKs68j`,
+                parser: (res, gameName) => {
+                    if (res?.items && Array.isArray(res.items) && res.items.length > 0) {
+                        const products = res.items.map(item => ({
+                            title: item.name,
+                            type: '',
+                            available: item.inStock ?? false,
+                            price: item.defaultDisplayedPriceFormatted || (item.price ? `$${item.price}` : null),
+                            url: item.url || (item.slug ? `https://boardgames.ca/products/${item.slug}` : null)
+                        }));
+                        const matchProduct = products.find(p => isMatch(gameName, p));
+                        if (matchProduct) {
+                            return {
+                                available: matchProduct.available,
+                                price: matchProduct.price,
+                                url: matchProduct.url
+                            };
+                        }
+                    }
+                    return null;
+                }
+            },
             bggMarket: {
                 type: 'json',
                 url: (game) => `https://api.geekdo.com/api/market/products?ajax=1&browsetype=browse&country=CA&marketdomain=boardgame&nosession=1&objectid=${game.objectId}&objecttype=thing&pageid=1&productstate=active&stock=instock`,

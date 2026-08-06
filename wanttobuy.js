@@ -31,6 +31,7 @@ async function fetchCollection() {
                 faceToFaceGames: { available: false, price: null, url: null },
                 obsidianGames: { available: false, price: null, url: null },
                 jjCards: { available: false, price: null, url: null },
+                boardgamesCa: { available: false, price: null, url: null },
                 bggMarket: { available: false, price: null, url: null }
             }
         }));
@@ -77,6 +78,7 @@ function updateStats() {
         game.availability?.faceToFaceGames?.available ||
         game.availability?.obsidianGames?.available ||
         game.availability?.jjCards?.available ||
+        game.availability?.boardgamesCa?.available ||
         game.availability?.bggMarket?.available
     ).length;
 
@@ -154,6 +156,7 @@ function applyFilters() {
                            game.availability?.faceToFaceGames?.available ||
                            game.availability?.obsidianGames?.available ||
                            game.availability?.jjCards?.available ||
+                           game.availability?.boardgamesCa?.available ||
                            game.availability?.bggMarket?.available;
         }
 
@@ -208,6 +211,7 @@ function createGameCard(game) {
                       game.availability?.faceToFaceGames?.available ||
                       game.availability?.obsidianGames?.available ||
                       game.availability?.jjCards?.available ||
+                      game.availability?.boardgamesCa?.available ||
                       game.availability?.bggMarket?.available;
     
     if (isInStock) {
@@ -230,9 +234,10 @@ function createGameCard(game) {
     const f2f = game.availability?.faceToFaceGames;
     const obsidian = game.availability?.obsidianGames;
     const jj = game.availability?.jjCards;
+    const bgca = game.availability?.boardgamesCa;
     const bggmkt = game.availability?.bggMarket;
 
-    if ((bgb && bgb.url) || (fof && fof.url) || (lvl && lvl.url) || (adj && adj.url) || (gbg && gbg.url) || (meeple && meeple.url) || (amzn && amzn.url) || (wfs && wfs.url) || (f2f && f2f.url) || (obsidian && obsidian.url) || (jj && jj.url) || (bggmkt && bggmkt.url)) {
+    if ((bgb && bgb.url) || (fof && fof.url) || (lvl && lvl.url) || (adj && adj.url) || (gbg && gbg.url) || (meeple && meeple.url) || (amzn && amzn.url) || (wfs && wfs.url) || (f2f && f2f.url) || (obsidian && obsidian.url) || (jj && jj.url) || (bgca && bgca.url) || (bggmkt && bggmkt.url)) {
         storeHtml += '<div class="store-availability">';
         
         const renderStoreBtn = (store, name, btnClass) => {
@@ -259,6 +264,7 @@ function createGameCard(game) {
         storeHtml += renderStoreBtn(f2f, '🤝 Face to Face', 'store-btn-f2f');
         storeHtml += renderStoreBtn(obsidian, '🔮 Obsidian Games', 'store-btn-obsidian');
         storeHtml += renderStoreBtn(jj, '🎴 J&J Cards', 'store-btn-jj');
+        storeHtml += renderStoreBtn(bgca, '🎯 Boardgames.ca', 'store-btn-boardgamesca');
         
         if (bggmkt && bggmkt.listings && Array.isArray(bggmkt.listings) && bggmkt.listings.length > 0) {
             bggmkt.listings.forEach(listing => {
