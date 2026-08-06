@@ -38,7 +38,7 @@ jobs:
 
           git pull --rebase --autostash origin ${{ github.ref_name }}
 
-          git add recommendations.json images/
+          git add recommendations.json bgg-recs-cache.json images/
 
           if git diff --quiet --staged; then
             echo "No changes to recommendations to commit."

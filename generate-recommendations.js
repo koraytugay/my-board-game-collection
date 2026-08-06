@@ -4,6 +4,7 @@ const https = require('https');
 
 const COLLECTION_FILE = path.join(__dirname, 'collection.xml');
 const OUTPUT_FILE = path.join(__dirname, 'recommendations.json');
+const CACHE_FILE = path.join(__dirname, 'bgg-recs-cache.json');
 const IMAGES_DIR = path.join(__dirname, 'images');
 const THUMBNAILS_DIR = path.join(IMAGES_DIR, 'thumbnails');
 const FULL_DIR = path.join(IMAGES_DIR, 'full');
@@ -157,24 +158,47 @@ async function generateRecommendations() {
         return;
     }
 
+    let recsCache = {};
+    if (fs.existsSync(CACHE_FILE)) {
+        try {
+            recsCache = JSON.parse(fs.readFileSync(CACHE_FILE, 'utf8'));
+        } catch (_) {
+            recsCache = {};
+        }
+    }
+
     const gamesToAnalyze = ratedOwnedGames.filter(g => g.userRating >= 7.0);
     console.log(`Analyzing recommendations derived from all ${gamesToAnalyze.length} owned games rated >= 7.0...`);
 
     const candidateMap = new Map();
+    const THIRTY_DAYS_MS = 30 * 24 * 60 * 60 * 1000;
 
     for (let i = 0; i < gamesToAnalyze.length; i++) {
         const source = gamesToAnalyze[i];
-        const apiUrl = `https://boardgamegeek.com/api/geekitem/recs?objectid=${source.objectId}&objecttype=boardgame`;
-        
-        console.log(`[${i + 1}/${gamesToAnalyze.length}] Fetching BGG recs for: "${source.name}" (User Score: ${source.userRating})...`);
-        const json = await fetchJson(apiUrl);
-        await sleep(300);
+        const cachedEntry = recsCache[source.objectId];
+        let recs = null;
 
-        if (!json || !Array.isArray(json.recs)) {
-            continue;
+        if (cachedEntry && cachedEntry.fetchedAt && (Date.now() - new Date(cachedEntry.fetchedAt).getTime()) < THIRTY_DAYS_MS && Array.isArray(cachedEntry.recs)) {
+            console.log(`[${i + 1}/${gamesToAnalyze.length}] [CACHE HIT] Using cached BGG recs for: "${source.name}"`);
+            recs = cachedEntry.recs;
+        } else {
+            const apiUrl = `https://boardgamegeek.com/api/geekitem/recs?objectid=${source.objectId}&objecttype=boardgame`;
+            console.log(`[${i + 1}/${gamesToAnalyze.length}] [FETCH] Fetching BGG recs for: "${source.name}" (User Score: ${source.userRating})...`);
+            const json = await fetchJson(apiUrl);
+            await sleep(300);
+
+            if (json && Array.isArray(json.recs)) {
+                recs = json.recs;
+                recsCache[source.objectId] = {
+                    fetchedAt: new Date().toISOString(),
+                    recs: recs
+                };
+            }
         }
 
-        const recs = json.recs;
+        if (!Array.isArray(recs)) {
+            continue;
+        }
         for (let recIdx = 0; recIdx < recs.length; recIdx++) {
             const r = recs[recIdx];
             const item = r.item || {};
@@ -328,6 +352,7 @@ async function generateRecommendations() {
         recommendations: topRecommendations
     };
 
+    fs.writeFileSync(CACHE_FILE, JSON.stringify(recsCache, null, 2), 'utf8');
     fs.writeFileSync(OUTPUT_FILE, JSON.stringify(outputData, null, 2), 'utf8');
     console.log(`Saved top ${topRecommendations.length} high-resolution recommendations to ${OUTPUT_FILE}`);
 }

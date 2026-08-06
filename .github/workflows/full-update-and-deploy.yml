@@ -141,7 +141,7 @@ jobs:
 
           git pull --rebase --autostash origin ${{ github.ref_name }}
 
-          git add collection.xml plays/ availability.json recommendations.json images/
+          git add collection.xml plays/ availability.json recommendations.json bgg-recs-cache.json images/
 
           if git diff --quiet --staged; then
             echo "No data changes to commit."
