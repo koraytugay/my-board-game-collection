@@ -20,7 +20,12 @@ const STORES = [
 ];
 
 function isGameInStockAtStore(game, storeKey) {
-    return !!(game.availability && game.availability[storeKey] && game.availability[storeKey].available);
+    if (!game.availability || !game.availability[storeKey]) return false;
+    const storeData = game.availability[storeKey];
+    if (storeKey === 'bggMarket') {
+        return !!(storeData.available || (storeData.listings && Array.isArray(storeData.listings) && storeData.listings.length > 0));
+    }
+    return !!storeData.available;
 }
 
 function isGameInStockAtAnyStore(game) {
@@ -34,14 +39,21 @@ function populateStoreFilter() {
     const currentValue = storeSelect.value;
     storeSelect.innerHTML = '<option value="all">All Stores</option>';
 
-    const storesWithStock = STORES.filter(store => 
-        allGames.some(game => isGameInStockAtStore(game, store.key))
-    );
+    const storesWithStock = [];
+    STORES.forEach(store => {
+        const inStockCount = allGames.filter(game => isGameInStockAtStore(game, store.key)).length;
+        if (inStockCount > 0) {
+            storesWithStock.push({
+                ...store,
+                count: inStockCount
+            });
+        }
+    });
 
     storesWithStock.forEach(store => {
         const option = document.createElement('option');
         option.value = store.key;
-        option.textContent = store.name;
+        option.textContent = `${store.name} (${store.count})`;
         storeSelect.appendChild(option);
     });
 
