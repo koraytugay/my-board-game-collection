@@ -211,6 +211,45 @@ function cleanName(name) {
     return name.replace(/\([^)]*\)/g, '').replace(/[\u2013\u2014]/g, '-').trim();
 }
 
+let jjCardsSitemapProducts = null;
+
+async function getJJCardsProductUrl(query) {
+    if (!jjCardsSitemapProducts) {
+        try {
+            const xml = await fetchHtml('https://shop.jjcards.com/sitemap.xml');
+            if (xml) {
+                jjCardsSitemapProducts = [];
+                const locRegex = /<loc>(https:\/\/shop\.jjcards\.com\/[^<]+_p_\d+\.html)<\/loc>/gi;
+                let match;
+                const normalizeStr = str => str.toLowerCase().replace(/[^a-z0-9]/g, '');
+                while ((match = locRegex.exec(xml)) !== null) {
+                    const url = match[1];
+                    const slugMatch = url.match(/shop\.jjcards\.com\/([^\/]+)_p_\d+\.html$/);
+                    if (slugMatch) {
+                        const rawSlug = slugMatch[1].replace(/-/g, ' ');
+                        jjCardsSitemapProducts.push({
+                            title: rawSlug,
+                            url,
+                            normSlug: normalizeStr(rawSlug)
+                        });
+                    }
+                }
+            }
+        } catch (e) {
+            console.error('Error fetching J&J Cards sitemap:', e);
+        }
+    }
+    if (!jjCardsSitemapProducts || jjCardsSitemapProducts.length === 0) return null;
+
+    const cleanQ = cleanName(query);
+    const normalizeStr = str => str.toLowerCase().replace(/[^a-z0-9]/g, '');
+    const nQ = normalizeStr(cleanQ);
+
+    const match = jjCardsSitemapProducts.find(p => p.normSlug === nQ) ||
+                  jjCardsSitemapProducts.find(p => isMatch(query, { title: p.title }));
+    return match ? match.url : null;
+}
+
 function isMatch(bggName, shopifyProduct) {
     const shopifyTitle = shopifyProduct.title || '';
     const shopifyType = shopifyProduct.type || '';
@@ -616,6 +655,27 @@ async function checkAvailability() {
                     return null;
                 }
             },
+            jjCards: {
+                type: 'html',
+                url: async (game) => await getJJCardsProductUrl(game.name),
+                parser: (html, gameName, targetUrl) => {
+                    if (!html) return null;
+                    const priceMatch = html.match(/itemprop="price"[^>]*content="([^"]+)"/i) ||
+                                       html.match(/id="price"[^>]*>\s*\$?([0-9\.]+)/i);
+                    let price = priceMatch ? priceMatch[1].trim() : null;
+                    if (price && !price.startsWith('$')) price = `$${price}`;
+
+                    const availMatch = html.match(/id="availability"[^>]*>([^<]+)<\/span>/i);
+                    const availText = availMatch ? availMatch[1].trim() : '';
+                    const available = /in stock/i.test(availText) && !/out of stock/i.test(availText);
+
+                    return {
+                        available,
+                        price,
+                        url: targetUrl
+                    };
+                }
+            },
             bggMarket: {
                 type: 'json',
                 url: (game) => `https://api.geekdo.com/api/market/products?ajax=1&browsetype=browse&country=CA&marketdomain=boardgame&nosession=1&objectid=${game.objectId}&objecttype=thing&pageid=1&productstate=active&stock=instock`,
@@ -687,7 +747,17 @@ async function checkAvailability() {
             } else {
                 const fetchPromise = (async () => {
                     try {
-                        const targetUrl = typeof config.url === 'function' ? config.url(game) : config.url;
+                        const targetUrl = typeof config.url === 'function' ? await config.url(game) : config.url;
+                        if (!targetUrl) {
+                            availability[storeKey] = {
+                                available: false,
+                                price: null,
+                                url: null,
+                                lastChecked: new Date().toISOString(),
+                                lastCheckSuccess: true
+                            };
+                            return;
+                        }
                         const res = config.type === 'json' 
                             ? await fetchJson(targetUrl)
                             : await fetchHtml(targetUrl);
@@ -696,7 +766,7 @@ async function checkAvailability() {
                             throw new Error(`Fetch returned null (timeout/error)`);
                         }
 
-                        const parsed = config.parser(res, game.name);
+                        const parsed = config.parser(res, game.name, targetUrl);
                         if (parsed) {
                             availability[storeKey] = {
                                 available: parsed.available,
