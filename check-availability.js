@@ -111,23 +111,35 @@ function fetchJson(url, redirectCount = 0) {
     });
 }
 
-// Helper to make HTTPS requests in Node and automatically follow redirects (HTML response)
-function fetchHtml(url, redirectCount = 0) {
+// Helper to make HTTPS requests in Node and automatically follow redirects and Akamai challenges (HTML response)
+function fetchHtml(url, redirectCount = 0, cookieHeader = '') {
     if (redirectCount > 5) {
         console.error(`Too many redirects for: ${url}`);
         return Promise.resolve(null);
     }
     return new Promise((resolve, reject) => {
         const u = new URL(url);
+        const reqHeaders = { ...DEFAULT_HEADERS };
+        if (cookieHeader) {
+            reqHeaders['Cookie'] = cookieHeader;
+        }
+
         const options = {
             hostname: u.hostname,
             path: u.pathname + u.search,
-            headers: DEFAULT_HEADERS,
+            headers: reqHeaders,
             timeout: 10000 // 10 seconds timeout
         };
         let resolved = false;
 
         const req = https.get(options, (res) => {
+            const setCookies = res.headers['set-cookie'];
+            let newCookies = cookieHeader;
+            if (setCookies) {
+                const parsedCookies = setCookies.map(c => c.split(';')[0]).join('; ');
+                newCookies = newCookies ? `${newCookies}; ${parsedCookies}` : parsedCookies;
+            }
+
             if (res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
                 let redirectUrl = res.headers.location;
                 if (redirectUrl.startsWith('/')) {
@@ -135,7 +147,7 @@ function fetchHtml(url, redirectCount = 0) {
                 }
                 if (!resolved) {
                     resolved = true;
-                    fetchHtml(redirectUrl, redirectCount + 1).then(resolve).catch(reject);
+                    fetchHtml(redirectUrl, redirectCount + 1, newCookies).then(resolve).catch(reject);
                 }
                 return;
             }
@@ -154,6 +166,16 @@ function fetchHtml(url, redirectCount = 0) {
             stream.on('end', () => {
                 if (!resolved) {
                     resolved = true;
+                    // Check for Akamai bot verification refresh tag
+                    const verifyMatch = /URL=\x27([^\x27]*bm-verify[^\x27]*)\x27/i.exec(data) || /URL="([^"]*bm-verify[^"]*)"/i.exec(data);
+                    if (verifyMatch && redirectCount < 5) {
+                        let verifyPath = verifyMatch[1];
+                        if (verifyPath.startsWith('/')) {
+                            verifyPath = `${u.protocol}//${u.host}${verifyPath}`;
+                        }
+                        fetchHtml(verifyPath, redirectCount + 1, newCookies).then(resolve).catch(reject);
+                        return;
+                    }
                     resolve(data);
                 }
             });
