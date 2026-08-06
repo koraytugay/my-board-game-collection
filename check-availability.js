@@ -598,6 +598,24 @@ async function checkAvailability() {
                     return null;
                 }
             },
+            obsidianGames: {
+                type: 'json',
+                url: `https://obsidiangames.ca/search/suggest.json?q=${encodeURIComponent(query)}&resources[type]=product`,
+                parser: (res, gameName) => {
+                    if (res?.resources?.results?.products) {
+                        const products = res.resources.results.products;
+                        const matchProduct = products.find(p => isMatch(gameName, p));
+                        if (matchProduct) {
+                            return {
+                                available: matchProduct.available ?? false,
+                                price: matchProduct.price || null,
+                                url: `https://obsidiangames.ca${matchProduct.url}`
+                            };
+                        }
+                    }
+                    return null;
+                }
+            },
             bggMarket: {
                 type: 'json',
                 url: (game) => `https://api.geekdo.com/api/market/products?ajax=1&browsetype=browse&country=CA&marketdomain=boardgame&nosession=1&objectid=${game.objectId}&objecttype=thing&pageid=1&productstate=active&stock=instock`,

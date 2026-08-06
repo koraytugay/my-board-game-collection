@@ -29,6 +29,7 @@ async function fetchCollection() {
                 amazonCa: { available: false, price: null, url: null },
                 woodForSheep: { available: false, price: null, url: null },
                 faceToFaceGames: { available: false, price: null, url: null },
+                obsidianGames: { available: false, price: null, url: null },
                 bggMarket: { available: false, price: null, url: null }
             }
         }));
@@ -73,6 +74,7 @@ function updateStats() {
         game.availability?.amazonCa?.available ||
         game.availability?.woodForSheep?.available ||
         game.availability?.faceToFaceGames?.available ||
+        game.availability?.obsidianGames?.available ||
         game.availability?.bggMarket?.available
     ).length;
 
@@ -148,6 +150,7 @@ function applyFilters() {
                            game.availability?.amazonCa?.available ||
                            game.availability?.woodForSheep?.available ||
                            game.availability?.faceToFaceGames?.available ||
+                           game.availability?.obsidianGames?.available ||
                            game.availability?.bggMarket?.available;
         }
 
@@ -200,6 +203,7 @@ function createGameCard(game) {
                       game.availability?.amazonCa?.available ||
                       game.availability?.woodForSheep?.available ||
                       game.availability?.faceToFaceGames?.available ||
+                      game.availability?.obsidianGames?.available ||
                       game.availability?.bggMarket?.available;
     
     if (isInStock) {
@@ -220,9 +224,10 @@ function createGameCard(game) {
     const amzn = game.availability?.amazonCa;
     const wfs = game.availability?.woodForSheep;
     const f2f = game.availability?.faceToFaceGames;
+    const obsidian = game.availability?.obsidianGames;
     const bggmkt = game.availability?.bggMarket;
 
-    if ((bgb && bgb.url) || (fof && fof.url) || (lvl && lvl.url) || (adj && adj.url) || (gbg && gbg.url) || (meeple && meeple.url) || (amzn && amzn.url) || (wfs && wfs.url) || (f2f && f2f.url) || (bggmkt && bggmkt.url)) {
+    if ((bgb && bgb.url) || (fof && fof.url) || (lvl && lvl.url) || (adj && adj.url) || (gbg && gbg.url) || (meeple && meeple.url) || (amzn && amzn.url) || (wfs && wfs.url) || (f2f && f2f.url) || (obsidian && obsidian.url) || (bggmkt && bggmkt.url)) {
         storeHtml += '<div class="store-availability">';
         
         const renderStoreBtn = (store, name, btnClass) => {
@@ -247,6 +252,7 @@ function createGameCard(game) {
         storeHtml += renderStoreBtn(amzn, '🛒 Amazon.ca', 'store-btn-amazon');
         storeHtml += renderStoreBtn(wfs, '🐑 Wood for Sheep', 'store-btn-wfs');
         storeHtml += renderStoreBtn(f2f, '🤝 Face to Face', 'store-btn-f2f');
+        storeHtml += renderStoreBtn(obsidian, '🔮 Obsidian Games', 'store-btn-obsidian');
         
         if (bggmkt && bggmkt.listings && Array.isArray(bggmkt.listings) && bggmkt.listings.length > 0) {
             bggmkt.listings.forEach(listing => {
