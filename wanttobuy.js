@@ -3,6 +3,55 @@ let filteredGames = [];
 let currentSort = 'name';
 let currentViewMode = 'grid';
 
+const STORES = [
+    { key: 'boardGameBliss', name: 'BoardGameBliss' },
+    { key: 'fourZeroOneGames', name: '401 Games' },
+    { key: 'lvlUpGames', name: 'LVLUP Games' },
+    { key: 'asDesJeux', name: 'As des Jeux' },
+    { key: 'greatBoardgames', name: 'Great Boardgames' },
+    { key: 'meeplemart', name: 'Meeplemart' },
+    { key: 'amazonCa', name: 'Amazon.ca' },
+    { key: 'woodForSheep', name: 'Wood for Sheep' },
+    { key: 'faceToFaceGames', name: 'Face to Face' },
+    { key: 'obsidianGames', name: 'Obsidian Games' },
+    { key: 'jjCards', name: 'J&J Cards' },
+    { key: 'boardgamesCa', name: 'Boardgames.ca' },
+    { key: 'bggMarket', name: 'BGG Market' }
+];
+
+function isGameInStockAtStore(game, storeKey) {
+    return !!(game.availability && game.availability[storeKey] && game.availability[storeKey].available);
+}
+
+function isGameInStockAtAnyStore(game) {
+    return STORES.some(store => isGameInStockAtStore(game, store.key));
+}
+
+function populateStoreFilter() {
+    const storeSelect = document.getElementById('store-filter');
+    if (!storeSelect) return;
+
+    const currentValue = storeSelect.value;
+    storeSelect.innerHTML = '<option value="all">All Stores</option>';
+
+    const storesWithStock = STORES.filter(store => 
+        allGames.some(game => isGameInStockAtStore(game, store.key))
+    );
+
+    storesWithStock.forEach(store => {
+        const option = document.createElement('option');
+        option.value = store.key;
+        option.textContent = store.name;
+        storeSelect.appendChild(option);
+    });
+
+    if (storesWithStock.some(s => s.key === currentValue)) {
+        storeSelect.value = currentValue;
+    } else {
+        storeSelect.value = 'all';
+    }
+}
+
 async function fetchCollection() {
     const loadingEl = document.getElementById('loading');
     const errorEl = document.getElementById('error');
@@ -36,6 +85,8 @@ async function fetchCollection() {
             }
         }));
         
+        populateStoreFilter();
+
         filteredGames = [...allGames];
         
         updateStats();
@@ -66,21 +117,7 @@ function updateStats() {
     const soloGames = allGames.filter(game => game.minPlayers <= 1).length;
     
     // Count how many wanted games are in stock at any store
-    const inStockGames = allGames.filter(game => 
-        game.availability?.boardGameBliss?.available || 
-        game.availability?.fourZeroOneGames?.available ||
-        game.availability?.lvlUpGames?.available ||
-        game.availability?.asDesJeux?.available ||
-        game.availability?.greatBoardgames?.available ||
-        game.availability?.meeplemart?.available ||
-        game.availability?.amazonCa?.available ||
-        game.availability?.woodForSheep?.available ||
-        game.availability?.faceToFaceGames?.available ||
-        game.availability?.obsidianGames?.available ||
-        game.availability?.jjCards?.available ||
-        game.availability?.boardgamesCa?.available ||
-        game.availability?.bggMarket?.available
-    ).length;
+    const inStockGames = allGames.filter(game => isGameInStockAtAnyStore(game)).length;
 
     document.getElementById('total-games').textContent = totalGames;
     document.getElementById('avg-rating').textContent = avgRating.toFixed(1);
@@ -116,11 +153,13 @@ function applyFilters() {
     const ratingFilter = document.getElementById('rating-filter');
     const playerCountFilter = document.getElementById('player-count');
     const inStockCheckbox = document.getElementById('in-stock-only');
+    const storeFilter = document.getElementById('store-filter');
 
     const searchTerm = searchInput ? searchInput.value.toLowerCase().trim() : '';
     const ratingVal = ratingFilter ? ratingFilter.value : 'all';
     const playerCountVal = playerCountFilter ? playerCountFilter.value : 'all';
     const inStockOnly = inStockCheckbox ? inStockCheckbox.checked : false;
+    const storeVal = storeFilter ? storeFilter.value : 'all';
 
     filteredGames = allGames.filter(game => {
         const matchesSearch = !searchTerm || game.name.toLowerCase().includes(searchTerm);
@@ -145,22 +184,15 @@ function applyFilters() {
 
         let matchesStock = true;
         if (inStockOnly) {
-            matchesStock = game.availability?.boardGameBliss?.available || 
-                           game.availability?.fourZeroOneGames?.available ||
-                           game.availability?.lvlUpGames?.available ||
-                           game.availability?.asDesJeux?.available ||
-                           game.availability?.greatBoardgames?.available ||
-                           game.availability?.meeplemart?.available ||
-                           game.availability?.amazonCa?.available ||
-                           game.availability?.woodForSheep?.available ||
-                           game.availability?.faceToFaceGames?.available ||
-                           game.availability?.obsidianGames?.available ||
-                           game.availability?.jjCards?.available ||
-                           game.availability?.boardgamesCa?.available ||
-                           game.availability?.bggMarket?.available;
+            matchesStock = isGameInStockAtAnyStore(game);
         }
 
-        return matchesSearch && matchesRating && matchesPlayers && matchesStock;
+        let matchesStore = true;
+        if (storeVal !== 'all') {
+            matchesStore = isGameInStockAtStore(game, storeVal);
+        }
+
+        return matchesSearch && matchesRating && matchesPlayers && matchesStock && matchesStore;
     });
 
     renderGames();
@@ -200,19 +232,7 @@ function createGameCard(game) {
     let badgesHtml = '';
     
     // Check if in stock at any store to add a special badge
-    const isInStock = game.availability?.boardGameBliss?.available || 
-                      game.availability?.fourZeroOneGames?.available ||
-                      game.availability?.lvlUpGames?.available ||
-                      game.availability?.asDesJeux?.available ||
-                      game.availability?.greatBoardgames?.available ||
-                      game.availability?.meeplemart?.available ||
-                      game.availability?.amazonCa?.available ||
-                      game.availability?.woodForSheep?.available ||
-                      game.availability?.faceToFaceGames?.available ||
-                      game.availability?.obsidianGames?.available ||
-                      game.availability?.jjCards?.available ||
-                      game.availability?.boardgamesCa?.available ||
-                      game.availability?.bggMarket?.available;
+    const isInStock = isGameInStockAtAnyStore(game);
     
     if (isInStock) {
         badgesHtml += '<span class="badge badge-favorite">In Stock</span>';
