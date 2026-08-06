@@ -525,6 +525,18 @@
 											</ranks>		</rating>
 			</stats>	<status own="0" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="1" wishlistpriority="5" preordered="0" lastmodified="2026-08-03 21:20:02" />
 	<numplays>0</numplays>							</item>
+<item objecttype="thing" objectid="439209" subtype="boardgame" collid="147299347">
+	<name sortindex="1">Figment</name>
+		<yearpublished>2025</yearpublished>			<image>https://cf.geekdo-images.com/LFIs-oR76N3Dc1FbS6DkDQ__original/img/cr5Q5aVNf0w7RPHaUIJu92uLdSQ=/0x0/filters:format(png)/pic9057134.png</image>
+		<thumbnail>https://cf.geekdo-images.com/LFIs-oR76N3Dc1FbS6DkDQ__small/img/ccFKs90rpzuHgdZFIdo8j2EhfUI=/fit-in/200x150/filters:strip_icc()/pic9057134.png</thumbnail>
+		<stats minplayers="1"																	maxplayers="6"																	minplaytime="30"																	maxplaytime="30"																	playingtime="30"																	numowned="419" >
+				<rating value="N/A">			<usersrated value="187" />			<average value="6.88214" />
+			<bayesaverage value="5.596" />			<stddev value="1.49174" />
+			<median value="0" />			<ranks>
+												<rank type="subtype" id="1" name="boardgame" friendlyname="Board Game Rank" value="9709" bayesaverage="5.596" />
+											</ranks>		</rating>
+			</stats>	<status own="0" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="1" wishlistpriority="5" preordered="0" lastmodified="2026-08-05 22:03:39" />
+	<numplays>0</numplays>							</item>
 <item objecttype="thing" objectid="436126" subtype="boardgame" collid="148120018">
 	<name sortindex="1">Finspan</name>
 		<yearpublished>2025</yearpublished>			<image>https://cf.geekdo-images.com/BBefMnVYBDS3EbJ9fPaC8A__original/img/E2VsUBa6HUU0QKlp4eQOsbP1wUo=/0x0/filters:format(jpeg)/pic8634453.jpg</image>
@@ -3064,18 +3076,6 @@ Sorry if this sounds harsh. You may end up loving it, I just didn&#039;t enjoy i
 											</ranks>		</rating>
 			</stats>	<status own="1" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="0"  preordered="0" lastmodified="2026-03-24 20:51:22" />
 	<numplays>4</numplays>			<comment>Most of the time the story makes zero sense due to card shuffling. Idea is good but in practice you are just reading a bunch of related but inconsistent storyline.</comment>				</item>
-<item objecttype="thing" objectid="439209" subtype="boardgame" collid="147299347">
-	<name sortindex="1">Figment</name>
-		<yearpublished>2025</yearpublished>			<image>https://cf.geekdo-images.com/LFIs-oR76N3Dc1FbS6DkDQ__original/img/cr5Q5aVNf0w7RPHaUIJu92uLdSQ=/0x0/filters:format(png)/pic9057134.png</image>
-		<thumbnail>https://cf.geekdo-images.com/LFIs-oR76N3Dc1FbS6DkDQ__small/img/ccFKs90rpzuHgdZFIdo8j2EhfUI=/fit-in/200x150/filters:strip_icc()/pic9057134.png</thumbnail>
-		<stats minplayers="1"																	maxplayers="6"																	minplaytime="30"																	maxplaytime="30"																	playingtime="30"																	numowned="419" >
-				<rating value="N/A">			<usersrated value="187" />			<average value="6.88214" />
-			<bayesaverage value="5.596" />			<stddev value="1.49174" />
-			<median value="0" />			<ranks>
-												<rank type="subtype" id="1" name="boardgame" friendlyname="Board Game Rank" value="9709" bayesaverage="5.596" />
-											</ranks>		</rating>
-			</stats>	<status own="0" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="1" wishlist="0"  preordered="0" lastmodified="2026-08-05 08:20:40" />
-	<numplays>0</numplays>							</item>
 <item objecttype="thing" objectid="420087" subtype="boardgame" collid="137662429">
 	<name sortindex="1">Flip 7</name>
 		<yearpublished>2024</yearpublished>			<image>https://cf.geekdo-images.com/YrQxEB9Ef0kQorRApzG5vQ__original/img/hK6k-x_GYfooemrkkRuF0bTvKxE=/0x0/filters:format(jpeg)/pic8780246.jpg</image>
@@ -4113,7 +4113,7 @@ Overall, this is my favorite version of Next Station. The extra puzzle element a
 																<rank type="family" id="4666" name="abstracts" friendlyname="Abstract Game Rank" value="55" bayesaverage="6.82095" />
 											</ranks>		</rating>
 			</stats>	<status own="1" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="0"  preordered="0" lastmodified="2026-08-05 21:08:06" />
-	<numplays>0</numplays>							</item>
+	<numplays>1</numplays>							</item>
 <item objecttype="thing" objectid="471437" subtype="boardgame" collid="147266262">
 	<name sortindex="1">Robo Run</name>
 		<yearpublished>2026</yearpublished>			<image>https://cf.geekdo-images.com/cRApwLTkfzmY_dcaf21eyg__original/img/XWpR1YsMvrETowROmCe23qp2S9E=/0x0/filters:format(jpeg)/pic9604849.jpg</image>
