@@ -261,13 +261,13 @@ function isMatch(bggName, shopifyProduct) {
 
     // 1. Check product type: filter out obvious non-game categories
     const lowerType = shopifyType.toLowerCase();
-    const disallowedTypes = ['accessory', 'accessories', 'paint', 'sleeve', 'sleeves', 'insert', 'organizer', 'organiser', 'playmat', 'mat', 'dice', 'token', 'tokens', 'tcg', 'booster', 'singles', 'single', 'acrylic', 'miniature', 'miniatures'];
+    const disallowedTypes = ['accessory', 'accessories', 'paint', 'sleeve', 'sleeves', 'insert', 'organizer', 'organiser', 'playmat', 'mat', 'dice', 'token', 'tokens', 'tcg', 'booster', 'singles', 'single', 'acrylic', 'miniature', 'miniatures', 'puzzle', 'puzzles'];
     if (disallowedTypes.some(type => lowerType.includes(type))) {
         return false;
     }
 
     // 2. Filter out keywords in Shopify title that are NOT in BGG title
-    const disallowedKeywords = ['insert', 'organizer', 'organiser', 'playmat', 'promo', 'paint', 'sleeves', 'token', 'coins', 'upgrade', 'expansion', 'booster', 'tcg', 'sleeved', 'sleeve-pack', 'acrylic-tokens'];
+    const disallowedKeywords = ['insert', 'organizer', 'organiser', 'playmat', 'promo', 'paint', 'sleeves', 'token', 'coins', 'upgrade', 'expansion', 'booster', 'tcg', 'sleeved', 'sleeve-pack', 'acrylic-tokens', 'puzzle', 'puzzles', '1000pc', '1000pcs', '1000-piece', '1000 piece'];
     for (const kw of disallowedKeywords) {
         if (shopifyTitle.toLowerCase().includes(kw) && !cleanBgg.toLowerCase().includes(kw)) {
             return false;
@@ -279,11 +279,12 @@ function isMatch(bggName, shopifyProduct) {
         return true;
     }
 
-    // 4. Word length constraint to prevent generic single-word matching (e.g. "Parade" matching "Parade of Hundred Demons")
+    // 4. Word constraint to prevent generic single-word matching (e.g. "Parade" matching "Parade of Hundred Demons", "Barista" matching "Baristart")
     const wordsBgg = cleanBgg.toLowerCase().split(/\s+/).filter(Boolean);
     const wordsShopify = shopifyTitle.toLowerCase().split(/\s+/).filter(Boolean);
-    if (wordsBgg.length === 1 && wordsShopify.length > 2) {
-        return false;
+    if (wordsBgg.length === 1) {
+        if (wordsShopify.length > 2) return false;
+        return normalize(wordsBgg[0]) === normalize(wordsShopify[0]);
     }
 
     return nBgg === nShopify || nShopify.startsWith(nBgg) || nBgg.startsWith(nShopify);
@@ -694,6 +695,24 @@ async function checkAvailability() {
                                 available: matchProduct.available,
                                 price: matchProduct.price,
                                 url: matchProduct.url
+                            };
+                        }
+                    }
+                    return null;
+                }
+            },
+            screenFreeGames: {
+                type: 'json',
+                url: `https://screenfreegames.com/search/suggest.json?q=${encodeURIComponent(query)}&resources[type]=product`,
+                parser: (res, gameName) => {
+                    if (res?.resources?.results?.products) {
+                        const products = res.resources.results.products;
+                        const matchProduct = products.find(p => isMatch(gameName, p));
+                        if (matchProduct) {
+                            return {
+                                available: matchProduct.available ?? false,
+                                price: matchProduct.price || null,
+                                url: `https://screenfreegames.com${matchProduct.url}`
                             };
                         }
                     }

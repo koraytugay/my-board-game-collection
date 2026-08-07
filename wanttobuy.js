@@ -16,6 +16,7 @@ const STORES = [
     { key: 'obsidianGames', name: 'Obsidian Games' },
     { key: 'jjCards', name: 'J&J Cards' },
     { key: 'boardgamesCa', name: 'Boardgames.ca' },
+    { key: 'screenFreeGames', name: 'Screen Free Games' },
     { key: 'bggMarket', name: 'BGG Market' }
 ];
 
@@ -93,6 +94,7 @@ async function fetchCollection() {
                 obsidianGames: { available: false, price: null, url: null },
                 jjCards: { available: false, price: null, url: null },
                 boardgamesCa: { available: false, price: null, url: null },
+                screenFreeGames: { available: false, price: null, url: null },
                 bggMarket: { available: false, price: null, url: null }
             }
         }));
@@ -267,9 +269,10 @@ function createGameCard(game) {
     const obsidian = game.availability?.obsidianGames;
     const jj = game.availability?.jjCards;
     const bgca = game.availability?.boardgamesCa;
+    const sfg = game.availability?.screenFreeGames;
     const bggmkt = game.availability?.bggMarket;
 
-    if ((bgb && bgb.url) || (fof && fof.url) || (lvl && lvl.url) || (adj && adj.url) || (gbg && gbg.url) || (meeple && meeple.url) || (amzn && amzn.url) || (wfs && wfs.url) || (f2f && f2f.url) || (obsidian && obsidian.url) || (jj && jj.url) || (bgca && bgca.url) || (bggmkt && bggmkt.url)) {
+    if ((bgb && bgb.url) || (fof && fof.url) || (lvl && lvl.url) || (adj && adj.url) || (gbg && gbg.url) || (meeple && meeple.url) || (amzn && amzn.url) || (wfs && wfs.url) || (f2f && f2f.url) || (obsidian && obsidian.url) || (jj && jj.url) || (bgca && bgca.url) || (sfg && sfg.url) || (bggmkt && bggmkt.url)) {
         storeHtml += '<div class="store-availability">';
         
         const renderStoreBtn = (store, name, btnClass) => {
@@ -297,6 +300,7 @@ function createGameCard(game) {
         storeHtml += renderStoreBtn(obsidian, '🔮 Obsidian Games', 'store-btn-obsidian');
         storeHtml += renderStoreBtn(jj, '🎴 J&J Cards', 'store-btn-jj');
         storeHtml += renderStoreBtn(bgca, '🎯 Boardgames.ca', 'store-btn-boardgamesca');
+        storeHtml += renderStoreBtn(sfg, '🧩 Screen Free Games', 'store-btn-sfg');
         
         if (bggmkt && bggmkt.listings && Array.isArray(bggmkt.listings) && bggmkt.listings.length > 0) {
             bggmkt.listings.forEach(listing => {
