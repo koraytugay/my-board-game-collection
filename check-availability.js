@@ -719,54 +719,6 @@ async function checkAvailability() {
                     return null;
                 }
             },
-            nobleKnight: {
-                type: 'json',
-                url: `https://api.search.zoovu.com/search?projectId=43167&site=43167&query=${encodeURIComponent(query)}`,
-                parser: (res, gameName) => {
-                    if (res?.searchResults) {
-                        const productsGroup = res.searchResults.find(g => g.type === 'products');
-                        if (productsGroup?.results && Array.isArray(productsGroup.results) && productsGroup.results.length > 0) {
-                            const products = [];
-                            for (const itemArray of productsGroup.results) {
-                                if (!Array.isArray(itemArray) || itemArray.length === 0) continue;
-                                const item = itemArray[0];
-                                const dataPoints = item.dataPoints || [];
-
-                                const getDp = key => dataPoints.find(dp => dp.key === key || dp.conceptIdName === key);
-                                const availDp = getDp('Available') || getDp('AVAILABLE');
-                                const priceDp = getDp('Price') || getDp('SELLING PRICE');
-                                const typeDp = getDp('Product Types') || getDp('PRODUCT TYPE') || getDp('Category');
-
-                                const available = availDp ? (availDp.value === 'In Stock' || availDp.parsedValue === true) : false;
-                                let price = priceDp ? (priceDp.value || priceDp.parsedValue) : null;
-                                if (price && typeof price === 'number') price = `$${price.toFixed(2)}`;
-                                else if (price && typeof price === 'string' && !price.startsWith('$')) price = `$${price}`;
-
-                                const url = item.link ? (item.link.startsWith('http') ? item.link : `https://www.nobleknight.com${item.link}`) : null;
-                                const productType = typeDp ? String(typeDp.value) : '';
-
-                                products.push({
-                                    title: item.name,
-                                    type: productType,
-                                    available: available,
-                                    price: price,
-                                    url: url
-                                });
-                            }
-
-                            const matchProduct = products.find(p => isMatch(gameName, p));
-                            if (matchProduct) {
-                                return {
-                                    available: matchProduct.available,
-                                    price: matchProduct.price,
-                                    url: matchProduct.url
-                                };
-                            }
-                        }
-                    }
-                    return null;
-                }
-            },
             bggMarket: {
                 type: 'json',
                 url: (game) => `https://api.geekdo.com/api/market/products?ajax=1&browsetype=browse&country=CA&marketdomain=boardgame&nosession=1&objectid=${game.objectId}&objecttype=thing&pageid=1&productstate=active&stock=instock`,
