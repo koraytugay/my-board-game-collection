@@ -31,7 +31,15 @@ async function getCollection(onlyOwned = true) {
         });
         let items = Array.from(itemMap.values());
 
-        if (onlyOwned === 'wanttobuy') {
+        if (onlyOwned === 'wanttoplay') {
+            items = items.filter(item => {
+                const status = item.querySelector('status');
+                const isWantToPlay = status && status.getAttribute('wanttoplay') === '1';
+                const subtype = item.getAttribute('subtype');
+                const isValidType = subtype === 'boardgame' || subtype === 'boardgameexpansion';
+                return isWantToPlay && isValidType;
+            });
+        } else if (onlyOwned === 'wanttobuy') {
             items = items.filter(item => {
                 const status = item.querySelector('status');
                 const isWantToBuy = status && status.getAttribute('wanttobuy') === '1';
@@ -99,6 +107,7 @@ async function getCollection(onlyOwned = true) {
             const status = item.querySelector('status');
             const isForSale = status ? status.getAttribute('fortrade') === '1' : false;
             const isWantToBuy = status ? status.getAttribute('wanttobuy') === '1' : false;
+            const isWantToPlay = status ? status.getAttribute('wanttoplay') === '1' : false;
             const isOwned = status ? status.getAttribute('own') === '1' : false;
 
             return {
@@ -116,6 +125,7 @@ async function getCollection(onlyOwned = true) {
                 comment,
                 isForSale,
                 isWantToBuy,
+                isWantToPlay,
                 isOwned
             };
         });

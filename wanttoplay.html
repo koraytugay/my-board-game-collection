@@ -12,64 +12,13 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Want to Sell - My Board Game Collection</title>
+    <title>Want to Play - My Board Game Collection</title>
     <link rel="stylesheet" href="styles.css">
-    <style>
-        .empty-state {
-            grid-column: 1 / -1;
-            text-align: center;
-            padding: 60px 20px;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-            margin: 20px 0;
-        }
-        body.dark-mode .empty-state {
-            background: #2d2d2d;
-            color: #e0e0e0;
-        }
-        .empty-state-icon {
-            font-size: 3.5em;
-            margin-bottom: 15px;
-        }
-        .empty-state h3 {
-            font-size: 1.4em;
-            margin-bottom: 10px;
-            color: #333;
-        }
-        body.dark-mode .empty-state h3 {
-            color: #fff;
-        }
-        .empty-state p {
-            color: #666;
-            max-width: 500px;
-            margin: 0 auto 20px;
-            line-height: 1.5;
-        }
-        body.dark-mode .empty-state p {
-            color: #aaa;
-        }
-        .bgg-link-btn {
-            display: inline-block;
-            margin-top: 12px;
-            padding: 8px 14px;
-            background: #e65100;
-            color: white;
-            text-decoration: none;
-            border-radius: 6px;
-            font-size: 0.85em;
-            font-weight: bold;
-            transition: background 0.2s ease;
-        }
-        .bgg-link-btn:hover {
-            background: #bf360c;
-        }
-    </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>Want to Sell List</h1>
+            <h1>Want to Play List</h1>
             <p class="username">@koraytugay on BoardGameGeek</p>
             <nav class="page-nav">
                 <a href="index.html" class="nav-link">← Back to Collection</a>
@@ -78,16 +27,17 @@
                 <a href="challenges.html" class="nav-link">Collection Challenges</a>
                 <a href="calendar.html" class="nav-link">Play Calendar</a>
                 <a href="tournament.html" class="nav-link">Game Tournament</a>
-                <a href="wanttobuy.html" class="nav-link">Want to Buy</a>
-                <a href="wanttoplay.html" class="nav-link">Want to Play</a>
                 <a href="recommended.html" class="nav-link">Recommended Games</a>
+                <a href="wanttobuy.html" class="nav-link">Want to Buy</a>
+                <a href="wanttosell.html" class="nav-link">Want to Sell</a>
+                <a href="wanttoplay.html" class="nav-link active">Want to Play</a>
                 <button id="random-game-btn" class="nav-link nav-button">🎲 Random Game</button>
             </nav>
         </header>
 
         <div id="loading" class="loading">
             <div class="spinner"></div>
-            <p>Loading items for sale...</p>
+            <p>Loading Want to Play games...</p>
         </div>
 
         <div id="error" class="error" style="display: none;"></div>
@@ -95,7 +45,7 @@
         <div id="stats" class="stats" style="display: none;">
             <div class="stat-card">
                 <span class="stat-number" id="total-games">0</span>
-                <span class="stat-label">Total Want to Sell</span>
+                <span class="stat-label">Total Want to Play</span>
             </div>
             <div class="stat-card">
                 <span class="stat-number" id="total-plays">0</span>
@@ -162,7 +112,28 @@
                         <option value="2-only">2 Player Only</option>
                         <option value="3">3</option>
                         <option value="4">4</option>
-                        <option value="5+">5+</option>
+                        <option value="5">5+</option>
+                    </select>
+                </div>
+
+                <div class="control-group">
+                    <label for="play-time">Play Time:</label>
+                    <select id="play-time" onchange="applyFilters()">
+                        <option value="all">All</option>
+                        <option value="0-30">Under 30 min</option>
+                        <option value="30-60">30-60 min</option>
+                        <option value="60-120">60-120 min</option>
+                        <option value="120-999">Over 120 min</option>
+                    </select>
+                </div>
+
+                <div class="control-group">
+                    <label for="rating-filter">Rating:</label>
+                    <select id="rating-filter" onchange="applyFilters()">
+                        <option value="all">All</option>
+                        <option value="8+">8.0+</option>
+                        <option value="7+">7.0+</option>
+                        <option value="6+">6.0+</option>
                     </select>
                 </div>
 
@@ -197,7 +168,7 @@
         <div class="modal-overlay" onclick="closeRandomModal()"></div>
         <div class="modal-content">
             <button class="modal-close" onclick="closeRandomModal()">×</button>
-            <h2>🎲 Random Pick from Want to Sell</h2>
+            <h2>🎲 Random Pick from Want to Play</h2>
             <div id="random-game-display" class="random-game-display">
                 <img id="random-game-img" class="random-game-img" src="" alt="">
                 <div class="random-game-info">
@@ -214,6 +185,6 @@
     </div>
 
     <script src="api.js"></script>
-    <script src="wanttosell.js"></script>
+    <script src="wanttoplay.js"></script>
 </body>
 </html>
