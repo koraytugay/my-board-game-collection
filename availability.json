@@ -142,6 +142,13 @@
       "lastChecked": "2026-08-08T13:27:41.922Z",
       "lastCheckSuccess": true
     },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "url": null,
+      "lastChecked": "2026-08-08T19:09:03.041Z",
+      "lastCheckSuccess": true
+    },
     "woodForSheep": {
       "available": false,
       "price": null,
@@ -190,13 +197,6 @@
       "url": null,
       "lastChecked": "2026-08-08T13:27:41.605Z",
       "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "url": null,
-      "lastChecked": "2026-08-08T03:13:35.510Z",
-      "lastCheckSuccess": false
     }
   },
   "36235": {
@@ -395,8 +395,8 @@
       "available": false,
       "price": null,
       "url": null,
-      "lastChecked": "2026-08-08T03:14:42.602Z",
-      "lastCheckSuccess": false
+      "lastChecked": "2026-08-08T19:10:10.239Z",
+      "lastCheckSuccess": true
     }
   },
   "56692": {
@@ -6995,8 +6995,8 @@
       "available": false,
       "price": null,
       "url": null,
-      "lastChecked": "2026-08-08T03:16:37.291Z",
-      "lastCheckSuccess": false
+      "lastChecked": "2026-08-08T19:11:47.220Z",
+      "lastCheckSuccess": true
     }
   },
   "451594": {
@@ -8495,8 +8495,8 @@
       "available": false,
       "price": null,
       "url": null,
-      "lastChecked": "2026-08-08T03:19:01.824Z",
-      "lastCheckSuccess": false
+      "lastChecked": "2026-08-08T19:13:58.089Z",
+      "lastCheckSuccess": true
     }
   },
   "465735": {
