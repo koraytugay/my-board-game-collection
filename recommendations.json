@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-08T03:22:11.257Z",
+  "generatedAt": "2026-08-08T07:07:50.619Z",
   "total": 400,
   "recommendations": [
     {
@@ -8943,6 +8943,40 @@
       "playingTime": 180
     },
     {
+      "objectId": "351476",
+      "name": "My City: Roll & Build",
+      "yearPublished": "2022",
+      "bggRating": 7.03,
+      "bggRank": 1765,
+      "numVoters": 2968,
+      "numFans": 167,
+      "coverUrl": "https://cf.geekdo-images.com/U6Pg643_JE-D1vkxl4GF2Q__square100@2x/img/XGPOQaAHKZe3lQEGGALy5E7Mqnk=/0x0:1440x1440/200x200/filters:strip_icc()/pic7233521.jpg",
+      "thumbnail": "images/thumbnails/351476.jpg",
+      "image": "images/full/351476.jpg",
+      "description": "Roll-and-write adaptation of the award-winning city-building game, My City.",
+      "rawScore": 2.590696055023013,
+      "recommendedBy": [
+        {
+          "ownedId": "353545",
+          "ownedName": "Next Station: London",
+          "userRating": 8,
+          "bggRecRank": 27,
+          "contributionScore": 1.23
+        },
+        {
+          "ownedId": "380165",
+          "ownedName": "Next Station: Tokyo",
+          "userRating": 7,
+          "bggRecRank": 13,
+          "contributionScore": 1.36
+        }
+      ],
+      "matchScore": 3.2,
+      "minPlayers": 1,
+      "maxPlayers": 6,
+      "playingTime": 30
+    },
+    {
       "objectId": "387378",
       "name": "MLEM: Space Agency",
       "yearPublished": "2024",
@@ -14302,33 +14336,6 @@
       "minPlayers": 2,
       "maxPlayers": 4,
       "playingTime": 40
-    },
-    {
-      "objectId": "307862",
-      "name": "Dollars to Donuts",
-      "yearPublished": "2021",
-      "bggRating": 6.94,
-      "bggRank": 5649,
-      "numVoters": 513,
-      "numFans": 146,
-      "coverUrl": "https://cf.geekdo-images.com/Bvtai-3myw46PSe9dmEvMQ__square100@2x/img/74-i19isPnCBvtwkyLCNmVRavUU=/200x200/filters:strip_icc()/pic5366353.jpg",
-      "thumbnail": "images/thumbnails/307862.jpg",
-      "image": "images/full/307862.jpg",
-      "description": "Place tiles and make two donut halves a whole to serve customers in your shop.",
-      "rawScore": 1.5522280002325313,
-      "recommendedBy": [
-        {
-          "ownedId": "360503",
-          "ownedName": "Downtown Farmers Market",
-          "userRating": 8,
-          "bggRecRank": 17,
-          "contributionScore": 1.55
-        }
-      ],
-      "matchScore": 1.5,
-      "minPlayers": 1,
-      "maxPlayers": 4,
-      "playingTime": 45
     }
   ]
 }
