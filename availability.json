@@ -1042,6 +1042,13 @@
       "lastChecked": "2026-08-09T02:34:20.949Z",
       "lastCheckSuccess": true
     },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "url": null,
+      "lastChecked": "2026-08-09T07:10:04.817Z",
+      "lastCheckSuccess": true
+    },
     "woodForSheep": {
       "available": false,
       "price": null,
@@ -1090,13 +1097,6 @@
       "url": null,
       "lastChecked": "2026-08-09T02:34:20.232Z",
       "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "url": null,
-      "lastChecked": "2026-08-08T19:59:54.059Z",
-      "lastCheckSuccess": false
     }
   },
   "216600": {
@@ -8196,6 +8196,106 @@
       "price": null,
       "url": null,
       "lastChecked": "2026-08-08T20:00:22.775Z",
+      "lastCheckSuccess": false
+    }
+  },
+  "460716": {
+    "boardGameBliss": {
+      "available": false,
+      "price": null,
+      "url": null,
+      "lastChecked": "2026-08-09T07:11:04.283Z",
+      "lastCheckSuccess": true
+    },
+    "fourZeroOneGames": {
+      "available": false,
+      "price": null,
+      "url": null,
+      "lastChecked": "2026-08-09T07:11:04.375Z",
+      "lastCheckSuccess": true
+    },
+    "lvlUpGames": {
+      "available": false,
+      "price": null,
+      "url": null,
+      "lastChecked": "2026-08-09T07:11:04.390Z",
+      "lastCheckSuccess": true
+    },
+    "asDesJeux": {
+      "available": false,
+      "price": null,
+      "url": null,
+      "lastChecked": "2026-08-09T07:11:04.403Z",
+      "lastCheckSuccess": true
+    },
+    "greatBoardgames": {
+      "available": false,
+      "price": null,
+      "url": null,
+      "lastChecked": "2026-08-09T07:11:05.009Z",
+      "lastCheckSuccess": true
+    },
+    "meeplemart": {
+      "available": false,
+      "price": null,
+      "url": null,
+      "lastChecked": "2026-08-09T07:11:06.052Z",
+      "lastCheckSuccess": true
+    },
+    "woodForSheep": {
+      "available": false,
+      "price": null,
+      "url": null,
+      "lastChecked": "2026-08-09T07:11:04.506Z",
+      "lastCheckSuccess": true
+    },
+    "faceToFaceGames": {
+      "available": false,
+      "price": null,
+      "url": null,
+      "lastChecked": "2026-08-09T07:11:04.555Z",
+      "lastCheckSuccess": true
+    },
+    "obsidianGames": {
+      "available": false,
+      "price": null,
+      "url": null,
+      "lastChecked": "2026-08-09T07:11:04.619Z",
+      "lastCheckSuccess": true
+    },
+    "jjCards": {
+      "available": false,
+      "price": null,
+      "url": null,
+      "lastChecked": "2026-08-09T07:11:04.857Z",
+      "lastCheckSuccess": true
+    },
+    "boardgamesCa": {
+      "available": false,
+      "price": null,
+      "url": null,
+      "lastChecked": "2026-08-09T07:11:05.723Z",
+      "lastCheckSuccess": true
+    },
+    "screenFreeGames": {
+      "available": false,
+      "price": null,
+      "url": null,
+      "lastChecked": "2026-08-09T07:11:04.616Z",
+      "lastCheckSuccess": true
+    },
+    "bggMarket": {
+      "available": false,
+      "price": null,
+      "url": null,
+      "lastChecked": "2026-08-09T07:11:04.654Z",
+      "lastCheckSuccess": true
+    },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "url": null,
+      "lastChecked": null,
       "lastCheckSuccess": false
     }
   },
