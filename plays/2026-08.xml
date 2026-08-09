@@ -1,8 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?><plays username="koraytugay" userid="4151779" total="26" page="1" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse">
-<play id="117272142" date="2026-08-08" quantity="1" length="30" incomplete="0" nowinstats="0" location="">
+<?xml version="1.0" encoding="utf-8"?><plays username="koraytugay" userid="4151779" total="29" page="1" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse">
+<play id="117279448" date="2026-08-08" quantity="1" length="30" incomplete="0" nowinstats="0" location="">
 			<item name="Ace of Spades" objecttype="thing" objectid="429861">
 				<subtypes>
 										<subtype value="boardgame" />
+									</subtypes>
+			</item>
+								</play>
+	<play id="117272142" date="2026-08-08" quantity="1" length="30" incomplete="0" nowinstats="0" location="">
+			<item name="Ace of Spades" objecttype="thing" objectid="429861">
+				<subtypes>
+										<subtype value="boardgame" />
+									</subtypes>
+			</item>
+								</play>
+	<play id="117284420" date="2026-08-08" quantity="1" length="30" incomplete="0" nowinstats="0" location="">
+			<item name="Cartographers" objecttype="thing" objectid="263918">
+				<subtypes>
+										<subtype value="boardgame" />
+										<subtype value="boardgameintegration" />
+									</subtypes>
+			</item>
+								</play>
+	<play id="117281006" date="2026-08-08" quantity="1" length="15" incomplete="0" nowinstats="0" location="">
+			<item name="Next Station: Berlin" objecttype="thing" objectid="464261">
+				<subtypes>
+										<subtype value="boardgame" />
+										<subtype value="boardgameimplementation" />
 									</subtypes>
 			</item>
 								</play>
