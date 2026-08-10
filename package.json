@@ -1,0 +1,23 @@
+{
+  "name": "my-board-game-collection",
+  "version": "1.0.0",
+  "description": "100% vibe coding",
+  "main": "api.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/koraytugay/my-board-game-collection.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/koraytugay/my-board-game-collection/issues"
+  },
+  "homepage": "https://github.com/koraytugay/my-board-game-collection#readme",
+  "dependencies": {
+    "puppeteer": "^25.5.0"
+  }
+}

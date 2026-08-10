@@ -408,6 +408,72 @@ function parseAmazon(html, gameName) {
     return products.find(p => isMatch(gameName, p)) || null;
 }
 
+let globalBrowser = null;
+
+async function getBrowserInstance() {
+    if (!globalBrowser) {
+        try {
+            const puppeteer = require('puppeteer');
+            globalBrowser = await puppeteer.launch({
+                headless: true,
+                args: [
+                    '--no-sandbox',
+                    '--disable-setuid-sandbox',
+                    '--disable-blink-features=AutomationControlled',
+                    '--user-agent=Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36'
+                ]
+            });
+        } catch (e) {
+            console.error('[ERROR] Could not launch Puppeteer:', e.message);
+            globalBrowser = null;
+        }
+    }
+    return globalBrowser;
+}
+
+async function fetchAmazonWithPuppeteer(gameName) {
+    const searchUrl = `https://www.amazon.ca/s?k=${encodeURIComponent(gameName + " board game")}`;
+    try {
+        const browser = await getBrowserInstance();
+        if (!browser) {
+            return { available: false, price: null, url: searchUrl };
+        }
+
+        const page = await browser.newPage();
+        await page.setViewport({ width: 1280, height: 800 });
+
+        const response = await page.goto(searchUrl, { waitUntil: 'domcontentloaded', timeout: 15000 });
+        if (!response || response.status() !== 200) {
+            await page.close();
+            return { available: false, price: null, url: searchUrl };
+        }
+
+        const html = await page.content();
+        await page.close();
+
+        const match = parseAmazon(html, gameName);
+        if (match) {
+            return {
+                available: match.available,
+                price: match.price,
+                url: match.url
+            };
+        }
+        return {
+            available: false,
+            price: null,
+            url: searchUrl
+        };
+    } catch (err) {
+        console.warn(`[WARNING] Puppeteer Amazon fetch error for "${gameName}": ${err.message}`);
+        return {
+            available: false,
+            price: null,
+            url: searchUrl
+        };
+    }
+}
+
 function decodeXmlEntities(str) {
     return str
         .replace(/&amp;/g, '&')
@@ -588,19 +654,9 @@ async function checkAvailability() {
                 }
             },
             amazonCa: {
-                type: 'html',
-                url: `https://www.amazon.ca/s?k=${encodeURIComponent(query + " board game")}`,
-                parser: (html, gameName) => {
-                    const match = parseAmazon(html, gameName);
-                    if (match) {
-                        return {
-                            available: match.available,
-                            price: match.price,
-                            url: match.url
-                        };
-                    }
-                    return null;
-                }
+                type: 'puppeteer',
+                url: (game) => `https://www.amazon.ca/s?k=${encodeURIComponent(game.name + " board game")}`,
+                parser: null
             },
             woodForSheep: {
                 type: 'json',
@@ -801,6 +857,28 @@ async function checkAvailability() {
                             };
                             return;
                         }
+                        if (config.type === 'puppeteer') {
+                            const pResult = await fetchAmazonWithPuppeteer(game.name);
+                            if (pResult) {
+                                availability[storeKey] = {
+                                    available: pResult.available,
+                                    price: pResult.price,
+                                    url: pResult.url,
+                                    lastChecked: new Date().toISOString(),
+                                    lastCheckSuccess: true
+                                };
+                            } else {
+                                availability[storeKey] = {
+                                    available: false,
+                                    price: null,
+                                    url: targetUrl,
+                                    lastChecked: new Date().toISOString(),
+                                    lastCheckSuccess: true
+                                };
+                            }
+                            return;
+                        }
+
                         const res = config.type === 'json' 
                             ? await fetchJson(targetUrl)
                             : await fetchHtml(targetUrl);
@@ -857,6 +935,12 @@ async function checkAvailability() {
         if (fetchPromises.length > 0) {
             await new Promise(r => setTimeout(r, 3000));
         }
+    }
+
+    if (globalBrowser) {
+        try {
+            await globalBrowser.close();
+        } catch (_) {}
     }
 
     fs.writeFileSync(OUTPUT_FILE, JSON.stringify(availabilityData, null, 2), 'utf8');
