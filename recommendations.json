@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-10T13:00:55.101Z",
+  "generatedAt": "2026-08-10T17:26:21.375Z",
   "total": 400,
   "recommendations": [
     {
@@ -2677,61 +2677,6 @@
       "playingTime": 30
     },
     {
-      "objectId": "231218",
-      "name": "Black Sonata",
-      "yearPublished": "2017",
-      "bggRating": 7.47,
-      "bggRank": 955,
-      "numVoters": 3808,
-      "numFans": 597,
-      "coverUrl": "https://cf.geekdo-images.com/UgE_mVxqPMMNKOvXWqC71g__square100@2x/img/ZsS5brQ_eYTgfageJczNrNVKu6g=/0x336:1321x1657/200x200/filters:strip_icc()/pic3657983.jpg",
-      "thumbnail": "images/thumbnails/231218.jpg",
-      "image": "images/full/231218.jpg",
-      "description": "Search London to deduce the identity of a mysterious Shakespearean lady.",
-      "rawScore": 9.803539447880052,
-      "recommendedBy": [
-        {
-          "ownedId": "334590",
-          "ownedName": "For Northwood! A Solo Trick-Taking Game",
-          "userRating": 10,
-          "bggRecRank": 22,
-          "contributionScore": 2.13
-        },
-        {
-          "ownedId": "376893",
-          "ownedName": "Cyberion",
-          "userRating": 8,
-          "bggRecRank": 8,
-          "contributionScore": 2.26
-        },
-        {
-          "ownedId": "306735",
-          "ownedName": "Under Falling Skies",
-          "userRating": 8,
-          "bggRecRank": 13,
-          "contributionScore": 1.78
-        },
-        {
-          "ownedId": "43570",
-          "ownedName": "Friday",
-          "userRating": 7,
-          "bggRecRank": 6,
-          "contributionScore": 2
-        },
-        {
-          "ownedId": "352697",
-          "ownedName": "Resist!",
-          "userRating": 7,
-          "bggRecRank": 9,
-          "contributionScore": 1.63
-        }
-      ],
-      "matchScore": 20.3,
-      "minPlayers": 1,
-      "maxPlayers": 1,
-      "playingTime": 30
-    },
-    {
       "objectId": "356123",
       "name": "Turing Machine",
       "yearPublished": "2022",
@@ -3731,54 +3676,6 @@
       "matchScore": 11.1,
       "minPlayers": 1,
       "maxPlayers": 6,
-      "playingTime": 60
-    },
-    {
-      "objectId": "284435",
-      "name": "Nova Luna",
-      "yearPublished": "2019",
-      "bggRating": 7.25,
-      "bggRank": 636,
-      "numVoters": 10277,
-      "numFans": 480,
-      "coverUrl": "https://cf.geekdo-images.com/k8OZeKYMN2vVSVCl5FD-UA__square100@2x/img/kMInff2Qj495lHQ9sL7eJaqjCqs=/200x200/filters:strip_icc()/pic5382418.jpg",
-      "thumbnail": "images/thumbnails/284435.jpg",
-      "image": "images/full/284435.jpg",
-      "description": "Draft tiles to complete adjacency combos in this beautiful, abstract tableau builder.",
-      "rawScore": 6.231809857450283,
-      "recommendedBy": [
-        {
-          "ownedId": "353545",
-          "ownedName": "Next Station: London",
-          "userRating": 8,
-          "bggRecRank": 11,
-          "contributionScore": 1.93
-        },
-        {
-          "ownedId": "163412",
-          "ownedName": "Patchwork",
-          "userRating": 8,
-          "bggRecRank": 25,
-          "contributionScore": 1.28
-        },
-        {
-          "ownedId": "263918",
-          "ownedName": "Cartographers",
-          "userRating": 7,
-          "bggRecRank": 6,
-          "contributionScore": 2
-        },
-        {
-          "ownedId": "380165",
-          "ownedName": "Next Station: Tokyo",
-          "userRating": 7,
-          "bggRecRank": 23,
-          "contributionScore": 1.02
-        }
-      ],
-      "matchScore": 11,
-      "minPlayers": 1,
-      "maxPlayers": 4,
       "playingTime": 60
     },
     {
@@ -14469,6 +14366,60 @@
       "minPlayers": 1,
       "maxPlayers": 1,
       "playingTime": 10
+    },
+    {
+      "objectId": "344114",
+      "name": "Bag of Chips",
+      "yearPublished": "2021",
+      "bggRating": 6.4,
+      "bggRank": 3542,
+      "numVoters": 2433,
+      "numFans": 74,
+      "coverUrl": "https://cf.geekdo-images.com/kzc_9tBQELXG8H25TTcCKw__square100@2x/img/x0j3bbfYoAWMJMhex75sDeyaBlU=/0x0:2448x2448/200x200/filters:strip_icc()/pic9328596.png",
+      "thumbnail": "images/thumbnails/344114.png",
+      "image": "images/full/344114.png",
+      "description": "Gamble on which chips are coming out of the bag.",
+      "rawScore": 1.6524728943818314,
+      "recommendedBy": [
+        {
+          "ownedId": "216497",
+          "ownedName": "District Noir",
+          "userRating": 8,
+          "bggRecRank": 15,
+          "contributionScore": 1.65
+        }
+      ],
+      "matchScore": 1.5,
+      "minPlayers": 2,
+      "maxPlayers": 5,
+      "playingTime": 20
+    },
+    {
+      "objectId": "287084",
+      "name": "Oriflamme",
+      "yearPublished": "2019",
+      "bggRating": 7.06,
+      "bggRank": 1219,
+      "numVoters": 5308,
+      "numFans": 241,
+      "coverUrl": "https://cf.geekdo-images.com/8MpTeqlzyIupMpSSxP3PAw__square100@2x/img/HXrUF_zYCw7R5sXGqtogCgEvTK8=/0x0:372x372/200x200/filters:strip_icc()/pic4949335.jpg",
+      "thumbnail": "images/thumbnails/287084.jpg",
+      "image": "images/full/287084.jpg",
+      "description": "Decide to act early or late to set traps and attack to become the most influential.",
+      "rawScore": 1.5522280002325313,
+      "recommendedBy": [
+        {
+          "ownedId": "216497",
+          "ownedName": "District Noir",
+          "userRating": 8,
+          "bggRecRank": 17,
+          "contributionScore": 1.55
+        }
+      ],
+      "matchScore": 1.5,
+      "minPlayers": 3,
+      "maxPlayers": 5,
+      "playingTime": 30
     }
   ]
 }
