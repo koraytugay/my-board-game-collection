@@ -1,6 +1,20 @@
-<?xml version="1.0" encoding="utf-8"?><plays username="koraytugay" userid="4151779" total="31" page="1" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse">
+<?xml version="1.0" encoding="utf-8"?><plays username="koraytugay" userid="4151779" total="33" page="1" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse">
 <play id="117360388" date="2026-08-10" quantity="1" length="30" incomplete="0" nowinstats="0" location="">
 			<item name="Friday" objecttype="thing" objectid="43570">
+				<subtypes>
+										<subtype value="boardgame" />
+									</subtypes>
+			</item>
+								</play>
+	<play id="117377832" date="2026-08-10" quantity="3" length="60" incomplete="0" nowinstats="0" location="">
+			<item name="Mayor of Chicago" objecttype="thing" objectid="413252">
+				<subtypes>
+										<subtype value="boardgame" />
+									</subtypes>
+			</item>
+								</play>
+	<play id="117373834" date="2026-08-10" quantity="1" length="0" incomplete="0" nowinstats="0" location="">
+			<item name="Mayor of Chicago" objecttype="thing" objectid="413252">
 				<subtypes>
 										<subtype value="boardgame" />
 									</subtypes>
