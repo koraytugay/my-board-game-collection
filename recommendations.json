@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-11T12:56:29.640Z",
+  "generatedAt": "2026-08-12T01:54:58.442Z",
   "total": 400,
   "recommendations": [
     {
@@ -348,103 +348,6 @@
       "minPlayers": 2,
       "maxPlayers": 4,
       "playingTime": 45
-    },
-    {
-      "objectId": "366013",
-      "name": "Heat: Pedal to the Metal",
-      "yearPublished": "2022",
-      "bggRating": 7.99,
-      "bggRank": 47,
-      "numVoters": 42365,
-      "numFans": 5361,
-      "coverUrl": "https://cf.geekdo-images.com/-vOrd4bOspibyohYExLqWg__square100@2x/img/LYL8i7kS1_RuTZLvSi8a8hPBh74=/200x200/filters:strip_icc()/pic6940449.png",
-      "thumbnail": "images/thumbnails/366013.png",
-      "image": "images/full/366013.png",
-      "description": "Push your car to the limit in the pursuit of victory, but don’t overheat!",
-      "rawScore": 23.994688638583934,
-      "recommendedBy": [
-        {
-          "ownedId": "304285",
-          "ownedName": "Infinity Gauntlet: A Love Letter Game",
-          "userRating": 10,
-          "bggRecRank": 11,
-          "contributionScore": 3.02
-        },
-        {
-          "ownedId": "277085",
-          "ownedName": "Love Letter",
-          "userRating": 10,
-          "bggRecRank": 25,
-          "contributionScore": 2
-        },
-        {
-          "ownedId": "284083",
-          "ownedName": "The Crew: The Quest for Planet Nine",
-          "userRating": 9,
-          "bggRecRank": 7,
-          "contributionScore": 3.06
-        },
-        {
-          "ownedId": "373106",
-          "ownedName": "Sky Team",
-          "userRating": 8,
-          "bggRecRank": 2,
-          "contributionScore": 4.53
-        },
-        {
-          "ownedId": "353470",
-          "ownedName": "Star Wars: Jabba&#039;s Palace – A Love Letter Game",
-          "userRating": 8,
-          "bggRecRank": 4,
-          "contributionScore": 3.2
-        },
-        {
-          "ownedId": "359152",
-          "ownedName": "Marvel: Remix",
-          "userRating": 8,
-          "bggRecRank": 14,
-          "contributionScore": 1.71
-        },
-        {
-          "ownedId": "367220",
-          "ownedName": "Sea Salt &amp; Paper",
-          "userRating": 8,
-          "bggRecRank": 20,
-          "contributionScore": 1.43
-        },
-        {
-          "ownedId": "230802",
-          "ownedName": "Azul",
-          "userRating": 8,
-          "bggRecRank": 24,
-          "contributionScore": 1.31
-        },
-        {
-          "ownedId": "295947",
-          "ownedName": "Cascadia",
-          "userRating": 8,
-          "bggRecRank": 25,
-          "contributionScore": 1.28
-        },
-        {
-          "ownedId": "291453",
-          "ownedName": "SCOUT",
-          "userRating": 8,
-          "bggRecRank": 26,
-          "contributionScore": 1.26
-        },
-        {
-          "ownedId": "160477",
-          "ownedName": "Onitama",
-          "userRating": 8,
-          "bggRecRank": 28,
-          "contributionScore": 1.21
-        }
-      ],
-      "matchScore": 93.2,
-      "minPlayers": 1,
-      "maxPlayers": 6,
-      "playingTime": 60
     },
     {
       "objectId": "233867",
@@ -2677,61 +2580,6 @@
       "playingTime": 30
     },
     {
-      "objectId": "356123",
-      "name": "Turing Machine",
-      "yearPublished": "2022",
-      "bggRating": 7.6,
-      "bggRank": 326,
-      "numVoters": 10798,
-      "numFans": 1077,
-      "coverUrl": "https://cf.geekdo-images.com/un5yundwtC6q1U9gWTY8Yw__square100@2x/img/Wmz2I1gK9fKvksIJCQSpSAf5-WQ=/200x200/filters:strip_icc()/pic6883492.png",
-      "thumbnail": "images/thumbnails/356123.png",
-      "image": "images/full/356123.png",
-      "description": "Crack codes using a real analog computer.",
-      "rawScore": 9.466044306846243,
-      "recommendedBy": [
-        {
-          "ownedId": "334590",
-          "ownedName": "For Northwood! A Solo Trick-Taking Game",
-          "userRating": 10,
-          "bggRecRank": 17,
-          "contributionScore": 2.43
-        },
-        {
-          "ownedId": "373106",
-          "ownedName": "Sky Team",
-          "userRating": 8,
-          "bggRecRank": 7,
-          "contributionScore": 2.42
-        },
-        {
-          "ownedId": "367220",
-          "ownedName": "Sea Salt &amp; Paper",
-          "userRating": 8,
-          "bggRecRank": 14,
-          "contributionScore": 1.71
-        },
-        {
-          "ownedId": "414317",
-          "ownedName": "Harmonies",
-          "userRating": 8,
-          "bggRecRank": 17,
-          "contributionScore": 1.55
-        },
-        {
-          "ownedId": "263918",
-          "ownedName": "Cartographers",
-          "userRating": 7,
-          "bggRecRank": 13,
-          "contributionScore": 1.36
-        }
-      ],
-      "matchScore": 20,
-      "minPlayers": 1,
-      "maxPlayers": 4,
-      "playingTime": 20
-    },
-    {
       "objectId": "25669",
       "name": "Qwirkle",
       "yearPublished": "2006",
@@ -4889,40 +4737,6 @@
       "playingTime": 60
     },
     {
-      "objectId": "403754",
-      "name": "Middle Ages",
-      "yearPublished": "2024",
-      "bggRating": 7.19,
-      "bggRank": 1394,
-      "numVoters": 3356,
-      "numFans": 383,
-      "coverUrl": "https://cf.geekdo-images.com/WosfgaFD86TMKYssp8XSxA__square100@2x/img/Tht--16FqhFZcA3W7J9RLXViSmE=/0x998:2178x3176/200x200/filters:strip_icc()/pic8140420.png",
-      "thumbnail": "images/thumbnails/403754.png",
-      "image": "images/full/403754.png",
-      "description": "Develop your fiefdom tile by tile to become the wealthiest noble of the kingdom!!",
-      "rawScore": 5.65,
-      "recommendedBy": [
-        {
-          "ownedId": "414317",
-          "ownedName": "Harmonies",
-          "userRating": 8,
-          "bggRecRank": 4,
-          "contributionScore": 3.2
-        },
-        {
-          "ownedId": "393325",
-          "ownedName": "Captain Flip",
-          "userRating": 7,
-          "bggRecRank": 4,
-          "contributionScore": 2.45
-        }
-      ],
-      "matchScore": 7.1,
-      "minPlayers": 2,
-      "maxPlayers": 5,
-      "playingTime": 30
-    },
-    {
       "objectId": "118048",
       "name": "Targi",
       "yearPublished": "2012",
@@ -4996,47 +4810,6 @@
       "minPlayers": 1,
       "maxPlayers": 6,
       "playingTime": 60
-    },
-    {
-      "objectId": "295607",
-      "name": "Canopy",
-      "yearPublished": "2021",
-      "bggRating": 7.23,
-      "bggRank": 1177,
-      "numVoters": 4132,
-      "numFans": 468,
-      "coverUrl": "https://cf.geekdo-images.com/-zWPMAXd1IZllCMAP5IeVA__square100@2x/img/6KsiY0erW-LD_mqrPwFwGGbtI9Y=/0x0:900x900/200x200/filters:strip_icc()/pic5090694.jpg",
-      "thumbnail": "images/thumbnails/295607.jpg",
-      "image": "images/full/295607.jpg",
-      "description": "Grow the most bountiful rainforest in this game of card drafting and set collection.",
-      "rawScore": 4.505555168678178,
-      "recommendedBy": [
-        {
-          "ownedId": "353288",
-          "ownedName": "Trekking Through History",
-          "userRating": 10,
-          "bggRecRank": 23,
-          "contributionScore": 2.09
-        },
-        {
-          "ownedId": "195314",
-          "ownedName": "Herbaceous",
-          "userRating": 7,
-          "bggRecRank": 11,
-          "contributionScore": 1.48
-        },
-        {
-          "ownedId": "368017",
-          "ownedName": "Point City",
-          "userRating": 7,
-          "bggRecRank": 27,
-          "contributionScore": 0.94
-        }
-      ],
-      "matchScore": 6.8,
-      "minPlayers": 1,
-      "maxPlayers": 4,
-      "playingTime": 30
     },
     {
       "objectId": "370591",
@@ -14420,6 +14193,114 @@
       "minPlayers": 3,
       "maxPlayers": 5,
       "playingTime": 30
+    },
+    {
+      "objectId": "275044",
+      "name": "Glow",
+      "yearPublished": "2021",
+      "bggRating": 6.95,
+      "bggRank": 1897,
+      "numVoters": 3345,
+      "numFans": 295,
+      "coverUrl": "https://cf.geekdo-images.com/LF53VHdWBIRFrZRYtvyslg__square100@2x/img/tbyhiob_Li9Za0ZL9V1zJFHKmuI=/200x200/filters:strip_icc()/pic5989627.png",
+      "thumbnail": "images/thumbnails/275044.png",
+      "image": "images/full/275044.png",
+      "description": "Build your company by recruiting new traveling companions and combine their power.",
+      "rawScore": 1.5084944665313018,
+      "recommendedBy": [
+        {
+          "ownedId": "216497",
+          "ownedName": "District Noir",
+          "userRating": 8,
+          "bggRecRank": 18,
+          "contributionScore": 1.51
+        }
+      ],
+      "matchScore": 1.5,
+      "minPlayers": 2,
+      "maxPlayers": 4,
+      "playingTime": 45
+    },
+    {
+      "objectId": "266722",
+      "name": "Rumble Nation",
+      "yearPublished": "2017",
+      "bggRating": 7.44,
+      "bggRank": 1043,
+      "numVoters": 3400,
+      "numFans": 320,
+      "coverUrl": "https://cf.geekdo-images.com/B0V2pKNNy32oC53CC9b0NA__square100@2x/img/WGZfsQL70Lif8hQhZXSla1_lU0g=/0x171:1031x1202/200x200/filters:strip_icc()/pic8828234.jpg",
+      "thumbnail": "images/thumbnails/266722.jpg",
+      "image": "images/full/266722.jpg",
+      "description": "Warlords lead their clans to dominate Japan through the use of dice and domino logic.",
+      "rawScore": 1.4310835055998656,
+      "recommendedBy": [
+        {
+          "ownedId": "216497",
+          "ownedName": "District Noir",
+          "userRating": 8,
+          "bggRecRank": 20,
+          "contributionScore": 1.43
+        }
+      ],
+      "matchScore": 1.5,
+      "minPlayers": 2,
+      "maxPlayers": 4,
+      "playingTime": 40
+    },
+    {
+      "objectId": "307862",
+      "name": "Dollars to Donuts",
+      "yearPublished": "2021",
+      "bggRating": 6.94,
+      "bggRank": 5649,
+      "numVoters": 513,
+      "numFans": 146,
+      "coverUrl": "https://cf.geekdo-images.com/Bvtai-3myw46PSe9dmEvMQ__square100@2x/img/74-i19isPnCBvtwkyLCNmVRavUU=/200x200/filters:strip_icc()/pic5366353.jpg",
+      "thumbnail": "images/thumbnails/307862.jpg",
+      "image": "images/full/307862.jpg",
+      "description": "Place tiles and make two donut halves a whole to serve customers in your shop.",
+      "rawScore": 1.5522280002325313,
+      "recommendedBy": [
+        {
+          "ownedId": "360503",
+          "ownedName": "Downtown Farmers Market",
+          "userRating": 8,
+          "bggRecRank": 17,
+          "contributionScore": 1.55
+        }
+      ],
+      "matchScore": 1.5,
+      "minPlayers": 1,
+      "maxPlayers": 4,
+      "playingTime": 45
+    },
+    {
+      "objectId": "440509",
+      "name": "Fountains",
+      "yearPublished": "2025",
+      "bggRating": 7.38,
+      "bggRank": 4009,
+      "numVoters": 660,
+      "numFans": 141,
+      "coverUrl": "https://cf.geekdo-images.com/V_K4mmXJEZuwmmeFIn8Pbg__square100@2x/img/BuF796p_7aZyYa15IEEzARByfUg=/200x200/filters:strip_icc()/pic8746818.jpg",
+      "thumbnail": "images/thumbnails/440509.jpg",
+      "image": "images/full/440509.jpg",
+      "description": "Create a fountain filled with fish, coins, and lilypads.",
+      "rawScore": 1.4310835055998656,
+      "recommendedBy": [
+        {
+          "ownedId": "360503",
+          "ownedName": "Downtown Farmers Market",
+          "userRating": 8,
+          "bggRecRank": 20,
+          "contributionScore": 1.43
+        }
+      ],
+      "matchScore": 1.5,
+      "minPlayers": 1,
+      "maxPlayers": 5,
+      "playingTime": 45
     }
   ]
 }
