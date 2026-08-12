@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-12T13:01:25.291Z",
+  "generatedAt": "2026-08-12T22:29:01.125Z",
   "total": 400,
   "recommendations": [
     {
@@ -8196,6 +8196,40 @@
       "playingTime": 45
     },
     {
+      "objectId": "404538",
+      "name": "Kinfire Delve: Scorn's Stockade",
+      "yearPublished": "2024",
+      "bggRating": 7.94,
+      "bggRank": 1413,
+      "numVoters": 1662,
+      "numFans": 334,
+      "coverUrl": "https://cf.geekdo-images.com/LxT1pIebjvuYCUfDZjaB1w__square100@2x/img/Gq4JnxLRo3aqxEjpeWZ3NpAnvS0=/0x0:1575x1575/200x200/filters:strip_icc()/pic7830407.png",
+      "thumbnail": "images/thumbnails/404538.png",
+      "image": "images/full/404538.png",
+      "description": "A cooperative, dungeon-diving card game set in the Kinfire Chronicles universe.",
+      "rawScore": 2.538075103755564,
+      "recommendedBy": [
+        {
+          "ownedId": "306735",
+          "ownedName": "Under Falling Skies",
+          "userRating": 8,
+          "bggRecRank": 24,
+          "contributionScore": 1.31
+        },
+        {
+          "ownedId": "376893",
+          "ownedName": "Cyberion",
+          "userRating": 8,
+          "bggRecRank": 27,
+          "contributionScore": 1.23
+        }
+      ],
+      "matchScore": 3.5,
+      "minPlayers": 1,
+      "maxPlayers": 2,
+      "playingTime": 60
+    },
+    {
       "objectId": "317515",
       "name": "Águeda: City of Umbrellas",
       "yearPublished": "2024",
@@ -14273,33 +14307,6 @@
       "matchScore": 1.5,
       "minPlayers": 1,
       "maxPlayers": 4,
-      "playingTime": 45
-    },
-    {
-      "objectId": "440509",
-      "name": "Fountains",
-      "yearPublished": "2025",
-      "bggRating": 7.38,
-      "bggRank": 4009,
-      "numVoters": 660,
-      "numFans": 141,
-      "coverUrl": "https://cf.geekdo-images.com/V_K4mmXJEZuwmmeFIn8Pbg__square100@2x/img/BuF796p_7aZyYa15IEEzARByfUg=/200x200/filters:strip_icc()/pic8746818.jpg",
-      "thumbnail": "images/thumbnails/440509.jpg",
-      "image": "images/full/440509.jpg",
-      "description": "Create a fountain filled with fish, coins, and lilypads.",
-      "rawScore": 1.4310835055998656,
-      "recommendedBy": [
-        {
-          "ownedId": "360503",
-          "ownedName": "Downtown Farmers Market",
-          "userRating": 8,
-          "bggRecRank": 20,
-          "contributionScore": 1.43
-        }
-      ],
-      "matchScore": 1.5,
-      "minPlayers": 1,
-      "maxPlayers": 5,
       "playingTime": 45
     }
   ]
