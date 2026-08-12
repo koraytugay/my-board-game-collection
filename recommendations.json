@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-12T01:54:58.442Z",
+  "generatedAt": "2026-08-12T07:55:07.091Z",
   "total": 400,
   "recommendations": [
     {
@@ -9757,10 +9757,7 @@
           "contributionScore": 0.98
         }
       ],
-      "matchScore": 2.9,
-      "minPlayers": 1,
-      "maxPlayers": 5,
-      "playingTime": 45
+      "matchScore": 2.9
     },
     {
       "objectId": "310632",
@@ -12326,10 +12323,7 @@
           "contributionScore": 2
         }
       ],
-      "matchScore": 2,
-      "minPlayers": 2,
-      "maxPlayers": 4,
-      "playingTime": 60
+      "matchScore": 2
     },
     {
       "objectId": "366161",

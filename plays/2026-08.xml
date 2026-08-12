@@ -1,8 +1,16 @@
-<?xml version="1.0" encoding="utf-8"?><plays username="koraytugay" userid="4151779" total="34" page="1" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse">
+<?xml version="1.0" encoding="utf-8"?><plays username="koraytugay" userid="4151779" total="35" page="1" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse">
 <play id="117411619" date="2026-08-11" quantity="1" length="60" incomplete="0" nowinstats="0" location="">
 			<item name="Ace of Spades" objecttype="thing" objectid="429861">
 				<subtypes>
 										<subtype value="boardgame" />
+									</subtypes>
+			</item>
+								</play>
+	<play id="117415252" date="2026-08-11" quantity="1" length="30" incomplete="0" nowinstats="0" location="">
+			<item name="Next Station: London" objecttype="thing" objectid="353545">
+				<subtypes>
+										<subtype value="boardgame" />
+										<subtype value="boardgameintegration" />
 									</subtypes>
 			</item>
 								</play>
