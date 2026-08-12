@@ -41,15 +41,25 @@ function populateStoreFilter() {
     const currentValue = storeSelect.value;
     storeSelect.innerHTML = '<option value="all">All Stores</option>';
 
+    const storesWithStock = [];
     STORES.forEach(store => {
         const inStockCount = allGames.filter(game => isGameInStockAtStore(game, store.key)).length;
+        if (inStockCount > 0) {
+            storesWithStock.push({
+                ...store,
+                count: inStockCount
+            });
+        }
+    });
+
+    storesWithStock.forEach(store => {
         const option = document.createElement('option');
         option.value = store.key;
-        option.textContent = `${store.name} (${inStockCount})`;
+        option.textContent = `${store.name} (${store.count})`;
         storeSelect.appendChild(option);
     });
 
-    if (STORES.some(s => s.key === currentValue)) {
+    if (storesWithStock.some(s => s.key === currentValue)) {
         storeSelect.value = currentValue;
     } else {
         storeSelect.value = 'all';
