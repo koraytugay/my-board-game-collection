@@ -18,6 +18,7 @@ const STORES = [
     { key: 'boardgamesCa', name: 'Boardgames.ca' },
     { key: 'screenFreeGames', name: 'Screen Free Games' },
     { key: 'allSystemsGo', name: 'All Systems Go' },
+    { key: 'elevatedBoardGames', name: 'Elevated Board Games' },
     { key: 'bggMarket', name: 'BGG Market' }
 ];
 
@@ -97,6 +98,7 @@ async function fetchCollection() {
                 boardgamesCa: { available: false, price: null, url: null },
                 screenFreeGames: { available: false, price: null, url: null },
                 allSystemsGo: { available: false, price: null, url: null },
+                elevatedBoardGames: { available: false, price: null, url: null },
                 bggMarket: { available: false, price: null, url: null }
             }
         }));
@@ -273,9 +275,10 @@ function createGameCard(game) {
     const bgca = game.availability?.boardgamesCa;
     const sfg = game.availability?.screenFreeGames;
     const asg = game.availability?.allSystemsGo;
+    const ebg = game.availability?.elevatedBoardGames;
     const bggmkt = game.availability?.bggMarket;
 
-    if ((bgb && bgb.url) || (fof && fof.url) || (lvl && lvl.url) || (adj && adj.url) || (gbg && gbg.url) || (meeple && meeple.url) || (amzn && amzn.url) || (wfs && wfs.url) || (f2f && f2f.url) || (obsidian && obsidian.url) || (jj && jj.url) || (bgca && bgca.url) || (sfg && sfg.url) || (asg && asg.url) || (bggmkt && bggmkt.url)) {
+    if ((bgb && bgb.url) || (fof && fof.url) || (lvl && lvl.url) || (adj && adj.url) || (gbg && gbg.url) || (meeple && meeple.url) || (amzn && amzn.url) || (wfs && wfs.url) || (f2f && f2f.url) || (obsidian && obsidian.url) || (jj && jj.url) || (bgca && bgca.url) || (sfg && sfg.url) || (asg && asg.url) || (ebg && ebg.url) || (bggmkt && bggmkt.url)) {
         storeHtml += '<div class="store-availability">';
         
         const renderStoreBtn = (store, name, btnClass) => {
@@ -305,6 +308,7 @@ function createGameCard(game) {
         storeHtml += renderStoreBtn(bgca, '🎯 Boardgames.ca', 'store-btn-boardgamesca');
         storeHtml += renderStoreBtn(sfg, '🧩 Screen Free Games', 'store-btn-sfg');
         storeHtml += renderStoreBtn(asg, '🚀 All Systems Go', 'store-btn-asg');
+        storeHtml += renderStoreBtn(ebg, '🏔️ Elevated Board Games', 'store-btn-ebg');
         
         if (bggmkt && bggmkt.listings && Array.isArray(bggmkt.listings) && bggmkt.listings.length > 0) {
             bggmkt.listings.forEach(listing => {
