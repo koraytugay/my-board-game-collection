@@ -893,6 +893,26 @@ async function checkAvailability() {
                 url: async (game) => await getElevatedBoardGamesProductUrl(game.name),
                 parser: (html, gameName, targetUrl) => parseElevatedBoardGames(html, gameName, targetUrl)
             },
+            zatu: {
+                type: 'json',
+                url: `https://zatu.com/search/suggest.json?q=${encodeURIComponent(query)}&resources[type]=product`,
+                parser: (res, gameName) => {
+                    if (res?.resources?.results?.products) {
+                        const products = res.resources.results.products;
+                        const matchProduct = products.find(p => isMatch(gameName, p));
+                        if (matchProduct) {
+                            const rawPrice = matchProduct.price;
+                            const price = rawPrice ? (rawPrice.startsWith('£') ? rawPrice : `£${rawPrice}`) : null;
+                            return {
+                                available: matchProduct.available ?? false,
+                                price: price,
+                                url: `https://zatu.com${matchProduct.url}`
+                            };
+                        }
+                    }
+                    return null;
+                }
+            },
             bggMarket: {
                 type: 'json',
                 url: (game) => `https://api.geekdo.com/api/market/products?ajax=1&browsetype=browse&country=CA&marketdomain=boardgame&nosession=1&objectid=${game.objectId}&objecttype=thing&pageid=1&productstate=active&stock=instock`,
