@@ -53,6 +53,8 @@ function populateStoreFilter() {
         }
     });
 
+    storesWithStock.sort((a, b) => a.name.localeCompare(b.name, undefined, { sensitivity: 'base' }));
+
     storesWithStock.forEach(store => {
         const option = document.createElement('option');
         option.value = store.key;
