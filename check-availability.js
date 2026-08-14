@@ -903,8 +903,11 @@ async function checkAvailability() {
                         if (matchProduct) {
                             const rawPrice = matchProduct.price;
                             const price = rawPrice ? (rawPrice.startsWith('£') ? rawPrice : `£${rawPrice}`) : null;
+                            const tags = Array.isArray(matchProduct.tags) ? matchProduct.tags : [];
+                            const isBackOrPreOrder = tags.some(t => /back-?order|pre-?order/i.test(t));
+                            const isAvailable = (matchProduct.available ?? false) && !isBackOrPreOrder;
                             return {
-                                available: matchProduct.available ?? false,
+                                available: isAvailable,
                                 price: price,
                                 url: `https://zatu.com${matchProduct.url}`
                             };
