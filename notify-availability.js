@@ -22,6 +22,7 @@ const STORE_META = {
     allSystemsGo: { name: 'All Systems Go', icon: '🚀' },
     tabletopCafe: { name: 'Tabletop Cafe', icon: '☕' },
     elevatedBoardGames: { name: 'Elevated Board Games', icon: '🏔️' },
+    buttonShyEtsy: { name: 'Button Shy (Etsy)', icon: '👛' },
     zatu: { name: 'Zatu Games', icon: '🛡️' },
     bggMarket: { name: 'BGG Market', icon: '🏷️' }
 };

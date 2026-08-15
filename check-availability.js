@@ -33,7 +33,7 @@ function getDecompressedStream(res) {
 }
 
 // Helper to make HTTPS requests in Node and automatically follow redirects (JSON response)
-function fetchJson(url, redirectCount = 0) {
+function fetchJson(url, redirectCount = 0, customHeaders = {}) {
     if (redirectCount > 5) {
         console.error(`Too many redirects for: ${url}`);
         return Promise.resolve(null);
@@ -43,7 +43,7 @@ function fetchJson(url, redirectCount = 0) {
         const options = {
             hostname: u.hostname,
             path: u.pathname + u.search,
-            headers: DEFAULT_HEADERS,
+            headers: { ...DEFAULT_HEADERS, ...customHeaders },
             timeout: 10000 // 10 seconds timeout
         };
         let resolved = false;
@@ -56,7 +56,7 @@ function fetchJson(url, redirectCount = 0) {
                 }
                 if (!resolved) {
                     resolved = true;
-                    fetchJson(redirectUrl, redirectCount + 1).then(resolve).catch(reject);
+                    fetchJson(redirectUrl, redirectCount + 1, customHeaders).then(resolve).catch(reject);
                 }
                 return;
             }
@@ -109,6 +109,39 @@ function fetchJson(url, redirectCount = 0) {
             }
         });
     });
+}
+
+let buttonShyShopId = null;
+let buttonShyListingsCache = null;
+
+async function fetchButtonShyEtsyListings(apiKey) {
+    if (buttonShyListingsCache) return buttonShyListingsCache;
+    try {
+        if (!buttonShyShopId) {
+            const shopRes = await fetchJson('https://openapi.etsy.com/v3/application/shops?shop_name=ButtonShyGames', 0, {
+                'x-api-key': apiKey
+            });
+            if (shopRes?.results?.[0]?.shop_id) {
+                buttonShyShopId = shopRes.results[0].shop_id;
+            } else if (shopRes?.shop_id) {
+                buttonShyShopId = shopRes.shop_id;
+            }
+        }
+        
+        const shopId = buttonShyShopId || 'ButtonShyGames';
+        const listingsRes = await fetchJson(`https://openapi.etsy.com/v3/application/shops/${shopId}/listings/active?limit=100`, 0, {
+            'x-api-key': apiKey
+        });
+        
+        buttonShyListingsCache = listingsRes?.results || [];
+        if (buttonShyListingsCache.length > 0) {
+            console.log(`[Button Shy Etsy] Fetched ${buttonShyListingsCache.length} active listings from Etsy API.`);
+        }
+        return buttonShyListingsCache;
+    } catch (err) {
+        console.error(`[Button Shy Etsy] Error fetching shop listings:`, err.message);
+        return [];
+    }
 }
 
 // Helper to make HTTPS requests in Node and automatically follow redirects and Akamai challenges (HTML response)
@@ -995,6 +1028,41 @@ async function checkAvailability() {
                     }
                     return null;
                 }
+            },
+            buttonShyEtsy: {
+                type: 'custom',
+                checker: async (game, existingStoreData) => {
+                    const apiKey = process.env.ETSY_API_KEY;
+                    if (!apiKey) {
+                        return existingStoreData || { available: false, price: null, url: 'https://www.etsy.com/shop/ButtonShyGames' };
+                    }
+                    const listings = await fetchButtonShyEtsyListings(apiKey);
+                    if (!listings || listings.length === 0) {
+                        return { available: false, price: null, url: 'https://www.etsy.com/shop/ButtonShyGames' };
+                    }
+                    
+                    const match = listings.find(l => {
+                        const title = l.title || '';
+                        return isMatch(game.name, { title: title });
+                    });
+                    
+                    if (match && (match.quantity > 0 || match.state === 'active')) {
+                        const priceNum = match.price ? (match.price.amount / (match.price.divisor || 100)).toFixed(2) : null;
+                        const currency = match.price?.currency_code || 'USD';
+                        const priceStr = priceNum ? `$${priceNum} ${currency}` : null;
+                        return {
+                            available: true,
+                            price: priceStr,
+                            url: match.url || `https://www.etsy.com/listing/${match.listing_id}`
+                        };
+                    }
+                    
+                    return {
+                        available: false,
+                        price: null,
+                        url: 'https://www.etsy.com/shop/ButtonShyGames'
+                    };
+                }
             }
         };
 
@@ -1029,6 +1097,29 @@ async function checkAvailability() {
             } else {
                 const fetchPromise = (async () => {
                     try {
+                        if (config.type === 'custom' && typeof config.checker === 'function') {
+                            const customResult = await config.checker(game, existingStoreData);
+                            if (customResult) {
+                                availability[storeKey] = {
+                                    available: customResult.available ?? false,
+                                    price: customResult.price ?? null,
+                                    url: customResult.url ?? null,
+                                    ...(customResult.listings ? { listings: customResult.listings } : {}),
+                                    lastChecked: new Date().toISOString(),
+                                    lastCheckSuccess: true
+                                };
+                            } else {
+                                availability[storeKey] = {
+                                    available: false,
+                                    price: null,
+                                    url: null,
+                                    lastChecked: new Date().toISOString(),
+                                    lastCheckSuccess: true
+                                };
+                            }
+                            return;
+                        }
+
                         const targetUrl = typeof config.url === 'function' ? await config.url(game) : config.url;
                         if (!targetUrl) {
                             availability[storeKey] = {

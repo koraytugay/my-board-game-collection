@@ -20,6 +20,7 @@ const STORES = [
     { key: 'allSystemsGo', name: 'All Systems Go' },
     { key: 'tabletopCafe', name: 'Tabletop Cafe' },
     { key: 'elevatedBoardGames', name: 'Elevated Board Games' },
+    { key: 'buttonShyEtsy', name: 'Button Shy (Etsy)' },
     { key: 'zatu', name: 'Zatu Games' },
     { key: 'bggMarket', name: 'BGG Market' }
 ];
@@ -160,6 +161,7 @@ async function fetchCollection() {
                 allSystemsGo: { available: false, price: null, url: null },
                 tabletopCafe: { available: false, price: null, url: null },
                 elevatedBoardGames: { available: false, price: null, url: null },
+                buttonShyEtsy: { available: false, price: null, url: null },
                 zatu: { available: false, price: null, url: null },
                 bggMarket: { available: false, price: null, url: null }
             }
@@ -348,6 +350,7 @@ function createGameCard(game) {
     const asg = game.availability?.allSystemsGo;
     const ttc = game.availability?.tabletopCafe;
     const ebg = game.availability?.elevatedBoardGames;
+    const bse = game.availability?.buttonShyEtsy;
     const zatu = game.availability?.zatu;
     const activeBggListings = getActiveBggListings(game);
 
@@ -380,6 +383,7 @@ function createGameCard(game) {
     storeButtonsHtml += renderStoreBtn(asg, '🚀 All Systems Go', 'store-btn-asg');
     storeButtonsHtml += renderStoreBtn(ttc, '☕ Tabletop Cafe', 'store-btn-ttc');
     storeButtonsHtml += renderStoreBtn(ebg, '🏔️ Elevated Board Games', 'store-btn-ebg');
+    storeButtonsHtml += renderStoreBtn(bse, '👛 Button Shy (Etsy)', 'store-btn-buttonshy');
     storeButtonsHtml += renderStoreBtn(zatu, '🛡️ Zatu Games', 'store-btn-zatu');
 
     if (activeBggListings.length > 0) {
