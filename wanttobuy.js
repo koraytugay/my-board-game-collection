@@ -330,8 +330,8 @@ function createGameCard(game) {
     if (game.minPlayers <= 1) badgesHtml += '<span class="badge badge-solo">Solo</span>';
     if (game.rating >= 8) badgesHtml += '<span class="badge badge-highly-rated">Highly Rated</span>';
 
-    // Build store availability HTML
-    let storeHtml = '';
+    // Build store availability HTML (only for stores / sellers that are in stock)
+    let storeButtonsHtml = '';
     const bgb = game.availability?.boardGameBliss;
     const fof = game.availability?.fourZeroOneGames;
     const lvl = game.availability?.lvlUpGames;
@@ -351,52 +351,51 @@ function createGameCard(game) {
     const zatu = game.availability?.zatu;
     const activeBggListings = getActiveBggListings(game);
 
-    if ((bgb && bgb.url) || (fof && fof.url) || (lvl && lvl.url) || (adj && adj.url) || (gbg && gbg.url) || (meeple && meeple.url) || (amzn && amzn.url) || (wfs && wfs.url) || (f2f && f2f.url) || (obsidian && obsidian.url) || (jj && jj.url) || (bgca && bgca.url) || (sfg && sfg.url) || (asg && asg.url) || (ttc && ttc.url) || (ebg && ebg.url) || (zatu && zatu.url) || (activeBggListings.length > 0)) {
-        storeHtml += '<div class="store-availability">';
-        
-        const renderStoreBtn = (store, name, btnClass) => {
-            if (!store || !store.url) return '';
-            const statusClass = store.available ? 'store-status-instock' : 'store-status-outofstock';
-            const statusText = store.available ? 'In Stock' : 'Out of Stock';
-            const priceText = store.price ? (String(store.price).match(/^[$C$€£]/) ? store.price : `$${store.price}`) : '';
-            return `
-                <a href="${store.url}" target="_blank" class="store-btn ${btnClass} ${store.available ? '' : 'store-btn-out'}">
-                    <span class="store-name">${name}</span>
-                    <span>${priceText} <span class="store-status ${statusClass}">${statusText}</span></span>
-                </a>
-            `;
-        };
+    const renderStoreBtn = (store, name, btnClass) => {
+        if (!store || !store.url || !store.available) return '';
+        const statusClass = 'store-status-instock';
+        const statusText = 'In Stock';
+        const priceText = store.price ? (String(store.price).match(/^[$C$€£]/) ? store.price : `$${store.price}`) : '';
+        return `
+            <a href="${store.url}" target="_blank" class="store-btn ${btnClass}">
+                <span class="store-name">${name}</span>
+                <span>${priceText} <span class="store-status ${statusClass}">${statusText}</span></span>
+            </a>
+        `;
+    };
 
-        storeHtml += renderStoreBtn(bgb, '🍁 BoardGameBliss', 'store-btn-bgb');
-        storeHtml += renderStoreBtn(fof, '🎲 401 Games', 'store-btn-401');
-        storeHtml += renderStoreBtn(lvl, '⚔️ LVLUP Games', 'store-btn-lvlup');
-        storeHtml += renderStoreBtn(adj, '🃏 As des Jeux', 'store-btn-adj');
-        storeHtml += renderStoreBtn(gbg, '🏰 Great Boardgames', 'store-btn-greatbg');
-        storeHtml += renderStoreBtn(meeple, '👾 Meeplemart', 'store-btn-meeplemart');
-        storeHtml += renderStoreBtn(amzn, '🛒 Amazon.ca', 'store-btn-amazon');
-        storeHtml += renderStoreBtn(wfs, '🐑 Wood for Sheep', 'store-btn-wfs');
-        storeHtml += renderStoreBtn(f2f, '🤝 Face to Face', 'store-btn-f2f');
-        storeHtml += renderStoreBtn(obsidian, '🔮 Obsidian Games', 'store-btn-obsidian');
-        storeHtml += renderStoreBtn(jj, '🎴 J&J Cards', 'store-btn-jj');
-        storeHtml += renderStoreBtn(bgca, '🎯 Boardgames.ca', 'store-btn-boardgamesca');
-        storeHtml += renderStoreBtn(sfg, '🧩 Screen Free Games', 'store-btn-sfg');
-        storeHtml += renderStoreBtn(asg, '🚀 All Systems Go', 'store-btn-asg');
-        storeHtml += renderStoreBtn(ttc, '☕ Tabletop Cafe', 'store-btn-ttc');
-        storeHtml += renderStoreBtn(ebg, '🏔️ Elevated Board Games', 'store-btn-ebg');
-        storeHtml += renderStoreBtn(zatu, '🛡️ Zatu Games', 'store-btn-zatu');
-        
-        if (activeBggListings.length > 0) {
-            activeBggListings.forEach(listing => {
-                const label = listing.seller ? `🏷️ ${listing.seller}` : '🏷️ BGG Market';
-                storeHtml += renderStoreBtn({
-                    available: true,
-                    price: listing.price,
-                    url: listing.url
-                }, label, 'store-btn-bggmkt');
-            });
-        }
-        
-        storeHtml += '</div>';
+    storeButtonsHtml += renderStoreBtn(bgb, '🍁 BoardGameBliss', 'store-btn-bgb');
+    storeButtonsHtml += renderStoreBtn(fof, '🎲 401 Games', 'store-btn-401');
+    storeButtonsHtml += renderStoreBtn(lvl, '⚔️ LVLUP Games', 'store-btn-lvlup');
+    storeButtonsHtml += renderStoreBtn(adj, '🃏 As des Jeux', 'store-btn-adj');
+    storeButtonsHtml += renderStoreBtn(gbg, '🏰 Great Boardgames', 'store-btn-greatbg');
+    storeButtonsHtml += renderStoreBtn(meeple, '👾 Meeplemart', 'store-btn-meeplemart');
+    storeButtonsHtml += renderStoreBtn(amzn, '🛒 Amazon.ca', 'store-btn-amazon');
+    storeButtonsHtml += renderStoreBtn(wfs, '🐑 Wood for Sheep', 'store-btn-wfs');
+    storeButtonsHtml += renderStoreBtn(f2f, '🤝 Face to Face', 'store-btn-f2f');
+    storeButtonsHtml += renderStoreBtn(obsidian, '🔮 Obsidian Games', 'store-btn-obsidian');
+    storeButtonsHtml += renderStoreBtn(jj, '🎴 J&J Cards', 'store-btn-jj');
+    storeButtonsHtml += renderStoreBtn(bgca, '🎯 Boardgames.ca', 'store-btn-boardgamesca');
+    storeButtonsHtml += renderStoreBtn(sfg, '🧩 Screen Free Games', 'store-btn-sfg');
+    storeButtonsHtml += renderStoreBtn(asg, '🚀 All Systems Go', 'store-btn-asg');
+    storeButtonsHtml += renderStoreBtn(ttc, '☕ Tabletop Cafe', 'store-btn-ttc');
+    storeButtonsHtml += renderStoreBtn(ebg, '🏔️ Elevated Board Games', 'store-btn-ebg');
+    storeButtonsHtml += renderStoreBtn(zatu, '🛡️ Zatu Games', 'store-btn-zatu');
+
+    if (activeBggListings.length > 0) {
+        activeBggListings.forEach(listing => {
+            const label = listing.seller ? `🏷️ ${listing.seller}` : '🏷️ BGG Market';
+            storeButtonsHtml += renderStoreBtn({
+                available: true,
+                price: listing.price,
+                url: listing.url
+            }, label, 'store-btn-bggmkt');
+        });
+    }
+
+    let storeHtml = '';
+    if (storeButtonsHtml.trim()) {
+        storeHtml = `<div class="store-availability">${storeButtonsHtml}</div>`;
     }
 
     card.innerHTML = `
