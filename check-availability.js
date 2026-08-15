@@ -888,6 +888,24 @@ async function checkAvailability() {
                     return null;
                 }
             },
+            tabletopCafe: {
+                type: 'json',
+                url: `https://www.tabletopcafe.ca/search/suggest.json?q=${encodeURIComponent(query)}&resources[type]=product`,
+                parser: (res, gameName) => {
+                    if (res?.resources?.results?.products) {
+                        const products = res.resources.results.products;
+                        const matchProduct = products.find(p => isMatch(gameName, p));
+                        if (matchProduct) {
+                            return {
+                                available: matchProduct.available ?? false,
+                                price: matchProduct.price || null,
+                                url: `https://www.tabletopcafe.ca${matchProduct.url}`
+                            };
+                        }
+                    }
+                    return null;
+                }
+            },
             elevatedBoardGames: {
                 type: 'html',
                 url: async (game) => await getElevatedBoardGamesProductUrl(game.name),

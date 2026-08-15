@@ -18,6 +18,7 @@ const STORES = [
     { key: 'boardgamesCa', name: 'Boardgames.ca' },
     { key: 'screenFreeGames', name: 'Screen Free Games' },
     { key: 'allSystemsGo', name: 'All Systems Go' },
+    { key: 'tabletopCafe', name: 'Tabletop Cafe' },
     { key: 'elevatedBoardGames', name: 'Elevated Board Games' },
     { key: 'zatu', name: 'Zatu Games' },
     { key: 'bggMarket', name: 'BGG Market' }
@@ -101,6 +102,7 @@ async function fetchCollection() {
                 boardgamesCa: { available: false, price: null, url: null },
                 screenFreeGames: { available: false, price: null, url: null },
                 allSystemsGo: { available: false, price: null, url: null },
+                tabletopCafe: { available: false, price: null, url: null },
                 elevatedBoardGames: { available: false, price: null, url: null },
                 zatu: { available: false, price: null, url: null },
                 bggMarket: { available: false, price: null, url: null }
@@ -279,11 +281,12 @@ function createGameCard(game) {
     const bgca = game.availability?.boardgamesCa;
     const sfg = game.availability?.screenFreeGames;
     const asg = game.availability?.allSystemsGo;
+    const ttc = game.availability?.tabletopCafe;
     const ebg = game.availability?.elevatedBoardGames;
     const zatu = game.availability?.zatu;
     const bggmkt = game.availability?.bggMarket;
 
-    if ((bgb && bgb.url) || (fof && fof.url) || (lvl && lvl.url) || (adj && adj.url) || (gbg && gbg.url) || (meeple && meeple.url) || (amzn && amzn.url) || (wfs && wfs.url) || (f2f && f2f.url) || (obsidian && obsidian.url) || (jj && jj.url) || (bgca && bgca.url) || (sfg && sfg.url) || (asg && asg.url) || (ebg && ebg.url) || (zatu && zatu.url) || (bggmkt && bggmkt.url)) {
+    if ((bgb && bgb.url) || (fof && fof.url) || (lvl && lvl.url) || (adj && adj.url) || (gbg && gbg.url) || (meeple && meeple.url) || (amzn && amzn.url) || (wfs && wfs.url) || (f2f && f2f.url) || (obsidian && obsidian.url) || (jj && jj.url) || (bgca && bgca.url) || (sfg && sfg.url) || (asg && asg.url) || (ttc && ttc.url) || (ebg && ebg.url) || (zatu && zatu.url) || (bggmkt && bggmkt.url)) {
         storeHtml += '<div class="store-availability">';
         
         const renderStoreBtn = (store, name, btnClass) => {
@@ -313,6 +316,7 @@ function createGameCard(game) {
         storeHtml += renderStoreBtn(bgca, '🎯 Boardgames.ca', 'store-btn-boardgamesca');
         storeHtml += renderStoreBtn(sfg, '🧩 Screen Free Games', 'store-btn-sfg');
         storeHtml += renderStoreBtn(asg, '🚀 All Systems Go', 'store-btn-asg');
+        storeHtml += renderStoreBtn(ttc, '☕ Tabletop Cafe', 'store-btn-ttc');
         storeHtml += renderStoreBtn(ebg, '🏔️ Elevated Board Games', 'store-btn-ebg');
         storeHtml += renderStoreBtn(zatu, '🛡️ Zatu Games', 'store-btn-zatu');
         
