@@ -127,6 +127,9 @@ jobs:
       - name: Download BGG Collection Images
         run: node download-images.js
 
+      - name: Fetch & Cache Game Designers
+        run: node fetch-designers.js
+
       - name: Step 2 - Check Game Availability & Send Notifications
         env:
           ICLOUD_EMAIL: ${{ secrets.ICLOUD_EMAIL }}
@@ -150,7 +153,7 @@ jobs:
 
           git pull --rebase --autostash origin ${{ github.ref_name }}
 
-          git add collection.xml plays/ availability.json recommendations.json bgg-recs-cache.json images/
+          git add collection.xml plays/ availability.json designers.json recommendations.json bgg-recs-cache.json images/
 
           if git diff --quiet --staged; then
             echo "No data changes to commit."

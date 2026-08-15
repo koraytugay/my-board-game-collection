@@ -128,6 +128,43 @@ function populateSellerFilter() {
     }
 }
 
+function populateDesignerFilter() {
+    const designerSelect = document.getElementById('designer-filter');
+    if (!designerSelect) return;
+
+    const currentValue = designerSelect.value;
+    designerSelect.innerHTML = '<option value="all">All Designers</option>';
+
+    const designerCountMap = new Map();
+    allGames.forEach(game => {
+        const designers = game.designers || [];
+        designers.forEach(d => {
+            if (d && d !== '(Uncredited)') {
+                const key = d.toLowerCase();
+                const existing = designerCountMap.get(key) || { designer: d, count: 0 };
+                existing.count++;
+                designerCountMap.set(key, existing);
+            }
+        });
+    });
+
+    const designers = Array.from(designerCountMap.values());
+    designers.sort((a, b) => a.designer.localeCompare(b.designer, undefined, { sensitivity: 'base' }));
+
+    designers.forEach(d => {
+        const option = document.createElement('option');
+        option.value = d.designer;
+        option.textContent = `${d.designer} (${d.count})`;
+        designerSelect.appendChild(option);
+    });
+
+    if (designers.some(d => d.designer.toLowerCase() === currentValue.toLowerCase())) {
+        designerSelect.value = currentValue;
+    } else {
+        designerSelect.value = 'all';
+    }
+}
+
 async function fetchCollection() {
     const loadingEl = document.getElementById('loading');
     const errorEl = document.getElementById('error');
@@ -135,15 +172,17 @@ async function fetchCollection() {
     const controlsEl = document.getElementById('controls');
 
     try {
-        // Fetch BGG collection and availability in parallel
-        const [collection, availabilityRes] = await Promise.all([
+        // Fetch BGG collection, availability, and designers in parallel
+        const [collection, availabilityRes, designersRes] = await Promise.all([
             getCollection('wanttobuy'),
-            fetch('availability.json').then(res => res.ok ? res.json() : {}).catch(() => ({}))
+            fetch('availability.json').then(res => res.ok ? res.json() : {}).catch(() => ({})),
+            fetch('designers.json').then(res => res.ok ? res.json() : {}).catch(() => ({}))
         ]);
         
         allGames = collection.map(game => ({
             ...game,
             lastPlayed: '',
+            designers: designersRes[game.objectId]?.designers || [],
             availability: availabilityRes[game.objectId] || {
                 boardGameBliss: { available: false, price: null, url: null },
                 fourZeroOneGames: { available: false, price: null, url: null },
@@ -169,6 +208,7 @@ async function fetchCollection() {
 
         populateStoreFilter();
         populateSellerFilter();
+        populateDesignerFilter();
 
         filteredGames = [...allGames];
         
@@ -245,6 +285,8 @@ function applyFilters() {
     const inStockOnly = inStockCheckbox ? inStockCheckbox.checked : false;
     const storeVal = storeFilter ? storeFilter.value : 'all';
     const sellerVal = sellerFilter ? sellerFilter.value : 'all';
+    const designerFilter = document.getElementById('designer-filter');
+    const designerVal = designerFilter ? designerFilter.value : 'all';
 
     filteredGames = allGames.filter(game => {
         const matchesSearch = !searchTerm || game.name.toLowerCase().includes(searchTerm);
@@ -283,7 +325,13 @@ function applyFilters() {
             matchesSeller = activeListings.some(l => l.seller && l.seller.toLowerCase() === sellerVal.toLowerCase());
         }
 
-        return matchesSearch && matchesRating && matchesPlayers && matchesStock && matchesStore && matchesSeller;
+        let matchesDesigner = true;
+        if (designerVal !== 'all') {
+            const designers = game.designers || [];
+            matchesDesigner = designers.some(d => d.toLowerCase() === designerVal.toLowerCase());
+        }
+
+        return matchesSearch && matchesRating && matchesPlayers && matchesStock && matchesStore && matchesSeller && matchesDesigner;
     });
 
     renderGames();
@@ -402,14 +450,18 @@ function createGameCard(game) {
         storeHtml = `<div class="store-availability">${storeButtonsHtml}</div>`;
     }
 
+    const designersText = (game.designers && game.designers.length > 0 && game.designers[0] !== '(Uncredited)')
+        ? game.designers.join(', ')
+        : '';
+
     card.innerHTML = `
         <div class="game-badges">
             ${badgesHtml}
         </div>
         <img src="${game.image || game.thumbnail || 'https://via.placeholder.com/300x300?text=No+Image'}" 
-             alt="${game.name}" 
-             class="game-thumbnail"
-             loading="lazy">
+            alt="${game.name}" 
+            class="game-thumbnail"
+            loading="lazy">
         <div class="game-info">
             <div class="game-year">${game.yearPublished !== 'N/A' ? game.yearPublished : ''}</div>
             <div class="game-name">${game.name}</div>
@@ -417,6 +469,7 @@ function createGameCard(game) {
                 <div class="meta-item"><span>👥</span> ${game.minPlayers}-${game.maxPlayers}</div>
                 <div class="meta-item"><span>⏱️</span> ${game.playingTime} min</div>
                 <div class="meta-item"><span>⭐</span> ${game.rating.toFixed(1)}</div>
+                ${designersText ? `<div class="meta-item" title="Designer: ${designersText}"><span>✍️</span> ${designersText}</div>` : ''}
             </div>
             ${storeHtml}
         </div>
