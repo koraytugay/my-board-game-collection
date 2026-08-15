@@ -126,12 +126,18 @@ function computeDiff(prevData, currData, gamesMap) {
 
         // Check overall availability across all stores
         const wasInStockAnywhere = Object.entries(prevStores).some(([key, data]) => {
-            if (key === 'bggMarket') return !!(data?.available || (data?.listings && data.listings.length > 0));
+            if (key === 'bggMarket') {
+                const active = (Array.isArray(data?.listings) ? data.listings : []).filter(l => !l.ignored);
+                return active.length > 0 || (data?.available && !data?.ignored);
+            }
             return !!data?.available;
         });
 
         const isInStockAnywhere = Object.entries(currStores).some(([key, data]) => {
-            if (key === 'bggMarket') return !!(data?.available || (data?.listings && data.listings.length > 0));
+            if (key === 'bggMarket') {
+                const active = (Array.isArray(data?.listings) ? data.listings : []).filter(l => !l.ignored);
+                return active.length > 0 || (data?.available && !data?.ignored);
+            }
             return !!data?.available;
         });
 
@@ -142,13 +148,13 @@ function computeDiff(prevData, currData, gamesMap) {
             const storeName = `${storeMeta.icon} ${storeMeta.name}`;
 
             if (storeKey === 'bggMarket') {
-                // Compare BGG Market listings
-                const prevListings = Array.isArray(prev.listings) ? prev.listings : [];
-                const currListings = Array.isArray(curr.listings) ? curr.listings : [];
+                // Compare BGG Market listings (only active, non-ignored listings)
+                const prevListings = (Array.isArray(prev.listings) ? prev.listings : []).filter(l => !l.ignored);
+                const currListings = (Array.isArray(curr.listings) ? curr.listings : []).filter(l => !l.ignored);
 
                 // Detect new listings in BGG Market
                 for (const currItem of currListings) {
-                    const existsInPrev = prevListings.some(p => p.seller === currItem.seller && p.price === currItem.price);
+                    const existsInPrev = prevListings.some(p => p.seller && p.seller.toLowerCase() === currItem.seller.toLowerCase() && p.price === currItem.price);
                     if (!existsInPrev) {
                         bggMarketNewListings.push({
                             gameId,
@@ -229,7 +235,8 @@ function getOverallInStockSummary(currData, gamesMap) {
         const inStockStores = [];
         for (const [storeKey, storeData] of Object.entries(stores)) {
             if (storeKey === 'bggMarket') {
-                if (storeData?.available || (storeData?.listings && storeData.listings.length > 0)) {
+                const active = (Array.isArray(storeData?.listings) ? storeData.listings : []).filter(l => !l.ignored);
+                if (active.length > 0 || (storeData?.available && !storeData?.ignored)) {
                     inStockStores.push(STORE_META[storeKey]?.name || storeKey);
                 }
             } else if (storeData?.available) {

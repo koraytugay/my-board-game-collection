@@ -24,11 +24,29 @@ const STORES = [
     { key: 'bggMarket', name: 'BGG Market' }
 ];
 
+function getActiveBggListings(game) {
+    const bggmkt = game.availability?.bggMarket;
+    if (!bggmkt) return [];
+    if (Array.isArray(bggmkt.listings) && bggmkt.listings.length > 0) {
+        return bggmkt.listings.filter(l => !l.ignored);
+    }
+    if (bggmkt.available && bggmkt.url && !bggmkt.ignored) {
+        return [{
+            price: bggmkt.price,
+            seller: bggmkt.seller || 'BGG Market',
+            condition: bggmkt.condition || '',
+            url: bggmkt.url,
+            ignored: false
+        }];
+    }
+    return [];
+}
+
 function isGameInStockAtStore(game, storeKey) {
     if (!game.availability || !game.availability[storeKey]) return false;
     const storeData = game.availability[storeKey];
     if (storeKey === 'bggMarket') {
-        return !!(storeData.available || (storeData.listings && Array.isArray(storeData.listings) && storeData.listings.length > 0));
+        return getActiveBggListings(game).length > 0;
     }
     return !!storeData.available;
 }
@@ -71,6 +89,44 @@ function populateStoreFilter() {
     }
 }
 
+function populateSellerFilter() {
+    const sellerSelect = document.getElementById('seller-filter');
+    if (!sellerSelect) return;
+
+    const currentValue = sellerSelect.value;
+    sellerSelect.innerHTML = '<option value="all">All Sellers</option>';
+
+    const sellerCountMap = new Map();
+    allGames.forEach(game => {
+        const listings = getActiveBggListings(game);
+        const seenForThisGame = new Set();
+        listings.forEach(l => {
+            if (l.seller && !seenForThisGame.has(l.seller.toLowerCase())) {
+                seenForThisGame.add(l.seller.toLowerCase());
+                const existing = sellerCountMap.get(l.seller.toLowerCase()) || { seller: l.seller, count: 0 };
+                existing.count++;
+                sellerCountMap.set(l.seller.toLowerCase(), existing);
+            }
+        });
+    });
+
+    const sellers = Array.from(sellerCountMap.values());
+    sellers.sort((a, b) => a.seller.localeCompare(b.seller, undefined, { sensitivity: 'base' }));
+
+    sellers.forEach(s => {
+        const option = document.createElement('option');
+        option.value = s.seller;
+        option.textContent = `${s.seller} (${s.count})`;
+        sellerSelect.appendChild(option);
+    });
+
+    if (sellers.some(s => s.seller.toLowerCase() === currentValue.toLowerCase())) {
+        sellerSelect.value = currentValue;
+    } else {
+        sellerSelect.value = 'all';
+    }
+}
+
 async function fetchCollection() {
     const loadingEl = document.getElementById('loading');
     const errorEl = document.getElementById('error');
@@ -110,6 +166,7 @@ async function fetchCollection() {
         }));
 
         populateStoreFilter();
+        populateSellerFilter();
 
         filteredGames = [...allGames];
         
@@ -178,12 +235,14 @@ function applyFilters() {
     const playerCountFilter = document.getElementById('player-count');
     const inStockCheckbox = document.getElementById('in-stock-only');
     const storeFilter = document.getElementById('store-filter');
+    const sellerFilter = document.getElementById('seller-filter');
 
     const searchTerm = searchInput ? searchInput.value.toLowerCase().trim() : '';
     const ratingVal = ratingFilter ? ratingFilter.value : 'all';
     const playerCountVal = playerCountFilter ? playerCountFilter.value : 'all';
     const inStockOnly = inStockCheckbox ? inStockCheckbox.checked : false;
     const storeVal = storeFilter ? storeFilter.value : 'all';
+    const sellerVal = sellerFilter ? sellerFilter.value : 'all';
 
     filteredGames = allGames.filter(game => {
         const matchesSearch = !searchTerm || game.name.toLowerCase().includes(searchTerm);
@@ -216,7 +275,13 @@ function applyFilters() {
             matchesStore = isGameInStockAtStore(game, storeVal);
         }
 
-        return matchesSearch && matchesRating && matchesPlayers && matchesStock && matchesStore;
+        let matchesSeller = true;
+        if (sellerVal !== 'all') {
+            const activeListings = getActiveBggListings(game);
+            matchesSeller = activeListings.some(l => l.seller && l.seller.toLowerCase() === sellerVal.toLowerCase());
+        }
+
+        return matchesSearch && matchesRating && matchesPlayers && matchesStock && matchesStore && matchesSeller;
     });
 
     renderGames();
@@ -284,9 +349,9 @@ function createGameCard(game) {
     const ttc = game.availability?.tabletopCafe;
     const ebg = game.availability?.elevatedBoardGames;
     const zatu = game.availability?.zatu;
-    const bggmkt = game.availability?.bggMarket;
+    const activeBggListings = getActiveBggListings(game);
 
-    if ((bgb && bgb.url) || (fof && fof.url) || (lvl && lvl.url) || (adj && adj.url) || (gbg && gbg.url) || (meeple && meeple.url) || (amzn && amzn.url) || (wfs && wfs.url) || (f2f && f2f.url) || (obsidian && obsidian.url) || (jj && jj.url) || (bgca && bgca.url) || (sfg && sfg.url) || (asg && asg.url) || (ttc && ttc.url) || (ebg && ebg.url) || (zatu && zatu.url) || (bggmkt && bggmkt.url)) {
+    if ((bgb && bgb.url) || (fof && fof.url) || (lvl && lvl.url) || (adj && adj.url) || (gbg && gbg.url) || (meeple && meeple.url) || (amzn && amzn.url) || (wfs && wfs.url) || (f2f && f2f.url) || (obsidian && obsidian.url) || (jj && jj.url) || (bgca && bgca.url) || (sfg && sfg.url) || (asg && asg.url) || (ttc && ttc.url) || (ebg && ebg.url) || (zatu && zatu.url) || (activeBggListings.length > 0)) {
         storeHtml += '<div class="store-availability">';
         
         const renderStoreBtn = (store, name, btnClass) => {
@@ -320,17 +385,15 @@ function createGameCard(game) {
         storeHtml += renderStoreBtn(ebg, '🏔️ Elevated Board Games', 'store-btn-ebg');
         storeHtml += renderStoreBtn(zatu, '🛡️ Zatu Games', 'store-btn-zatu');
         
-        if (bggmkt && bggmkt.listings && Array.isArray(bggmkt.listings) && bggmkt.listings.length > 0) {
-            bggmkt.listings.forEach(listing => {
-                const label = listing.seller ? `🏷️ BGG (${listing.seller})` : '🏷️ BGG Market (CA)';
+        if (activeBggListings.length > 0) {
+            activeBggListings.forEach(listing => {
+                const label = listing.seller ? `🏷️ ${listing.seller}` : '🏷️ BGG Market';
                 storeHtml += renderStoreBtn({
                     available: true,
                     price: listing.price,
                     url: listing.url
                 }, label, 'store-btn-bggmkt');
             });
-        } else {
-            storeHtml += renderStoreBtn(bggmkt, '🏷️ BGG Market (CA)', 'store-btn-bggmkt');
         }
         
         storeHtml += '</div>';

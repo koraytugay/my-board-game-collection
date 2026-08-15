@@ -937,37 +937,60 @@ async function checkAvailability() {
             bggMarket: {
                 type: 'json',
                 url: (game) => `https://api.geekdo.com/api/market/products?ajax=1&browsetype=browse&country=CA&marketdomain=boardgame&nosession=1&objectid=${game.objectId}&objecttype=thing&pageid=1&productstate=active&stock=instock`,
-                parser: (res, gameName) => {
+                parser: (res, gameName, targetUrl, existingStoreData) => {
                     if (res?.products && Array.isArray(res.products) && res.products.length > 0) {
+                        // Only Canadian sellers
                         const caProducts = res.products.filter(p => p.itemlocation_code === 'CA' || p.itemlocation === 'Canada');
-                        const productsToSearch = caProducts.length > 0 ? caProducts : res.products;
                         
                         // Filter out sellers in skippedSellers list (case-insensitive)
-                        const allowedProducts = productsToSearch.filter(p => {
+                        const allowedProducts = caProducts.filter(p => {
                             const sellerName = p.linkeduser?.username;
-                            if (!sellerName) return true;
+                            if (!sellerName) return false;
                             return !skippedSellers.some(s => s.toLowerCase() === sellerName.toLowerCase());
                         });
 
                         if (allowedProducts.length > 0) {
                             const sorted = [...allowedProducts].sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
+                            const existingListings = Array.isArray(existingStoreData?.listings) ? existingStoreData.listings : [];
+
                             const listings = sorted.map(match => {
                                 const symbol = match.currencysymbol || '$';
+                                const seller = match.linkeduser?.username || 'Unknown';
+
+                                const existing = existingListings.find(l => l.seller && l.seller.toLowerCase() === seller.toLowerCase());
+                                const firstSeen = existing?.firstSeen || new Date().toISOString();
+
+                                const ageDays = (Date.now() - new Date(firstSeen).getTime()) / (1000 * 60 * 60 * 24);
+                                const isIgnored = ageDays >= 7;
+
                                 return {
                                     price: `${symbol}${match.price} ${match.currency}`,
-                                    seller: match.linkeduser?.username || 'Unknown',
+                                    seller: seller,
                                     condition: match.prettycondition || '',
-                                    url: `https://boardgamegeek.com${match.producthref}`
+                                    url: `https://boardgamegeek.com${match.producthref}`,
+                                    firstSeen: firstSeen,
+                                    ignored: isIgnored
                                 };
                             });
 
-                            const primary = listings[0];
-                            return {
-                                available: true,
-                                price: primary.price,
-                                url: primary.url,
-                                listings: listings
-                            };
+                            const activeListings = listings.filter(l => !l.ignored);
+
+                            if (activeListings.length > 0) {
+                                const primary = activeListings[0];
+                                return {
+                                    available: true,
+                                    price: primary.price,
+                                    url: primary.url,
+                                    listings: listings
+                                };
+                            } else {
+                                return {
+                                    available: false,
+                                    price: null,
+                                    url: null,
+                                    listings: listings
+                                };
+                            }
                         }
                     }
                     return null;
@@ -999,6 +1022,7 @@ async function checkAvailability() {
                     available: existingStoreData.available ?? false,
                     price: existingStoreData.price ?? null,
                     url: existingStoreData.url ?? null,
+                    ...(existingStoreData.listings ? { listings: existingStoreData.listings } : {}),
                     lastChecked: existingStoreData.lastChecked,
                     lastCheckSuccess: existingStoreData.lastCheckSuccess ?? true
                 };
@@ -1046,12 +1070,13 @@ async function checkAvailability() {
                             throw new Error(`Fetch returned null (timeout/error)`);
                         }
 
-                        const parsed = config.parser(res, game.name, targetUrl);
+                        const parsed = config.parser(res, game.name, targetUrl, existingStoreData);
                         if (parsed) {
                             availability[storeKey] = {
                                 available: parsed.available,
                                 price: parsed.price,
                                 url: parsed.url,
+                                ...(parsed.listings ? { listings: parsed.listings } : {}),
                                 lastChecked: new Date().toISOString(),
                                 lastCheckSuccess: true
                             };
@@ -1069,6 +1094,7 @@ async function checkAvailability() {
                             available: existingStoreData?.available ?? false,
                             price: existingStoreData?.price ?? null,
                             url: existingStoreData?.url ?? null,
+                            ...(existingStoreData?.listings ? { listings: existingStoreData.listings } : {}),
                             lastChecked: existingStoreData?.lastChecked ?? null,
                             lastCheckSuccess: false
                         };
