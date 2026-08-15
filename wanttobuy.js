@@ -112,7 +112,12 @@ function populateSellerFilter() {
     });
 
     const sellers = Array.from(sellerCountMap.values());
-    sellers.sort((a, b) => a.seller.localeCompare(b.seller, undefined, { sensitivity: 'base' }));
+    sellers.sort((a, b) => {
+        if (b.count !== a.count) {
+            return b.count - a.count;
+        }
+        return a.seller.localeCompare(b.seller, undefined, { sensitivity: 'base' });
+    });
 
     sellers.forEach(s => {
         const option = document.createElement('option');
@@ -149,7 +154,12 @@ function populateDesignerFilter() {
     });
 
     const designers = Array.from(designerCountMap.values());
-    designers.sort((a, b) => a.designer.localeCompare(b.designer, undefined, { sensitivity: 'base' }));
+    designers.sort((a, b) => {
+        if (b.count !== a.count) {
+            return b.count - a.count;
+        }
+        return a.designer.localeCompare(b.designer, undefined, { sensitivity: 'base' });
+    });
 
     designers.forEach(d => {
         const option = document.createElement('option');
