@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/koraytugay/my-board-game-collection#readme",
   "dependencies": {
+    "nodemailer": "^9.0.5",
     "puppeteer": "^25.5.0"
   }
 }

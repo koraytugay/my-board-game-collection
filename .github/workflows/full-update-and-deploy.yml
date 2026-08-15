@@ -127,11 +127,16 @@ jobs:
       - name: Download BGG Collection Images
         run: node download-images.js
 
-      - name: Step 2 - Check Game Availability
+      - name: Step 2 - Check Game Availability & Send Notifications
+        env:
+          ICLOUD_EMAIL: ${{ secrets.ICLOUD_EMAIL }}
+          ICLOUD_APP_PASSWORD: ${{ secrets.ICLOUD_APP_PASSWORD }}
         run: |
           node check-availability.js
           echo "First pass finished. Starting second pass to retry failed/timed-out requests..."
           node check-availability.js
+          echo "Checking for stock diffs and sending notifications if changes found..."
+          node notify-availability.js
 
       - name: Step 3 - Generate Recommendations
         run: node generate-recommendations.js
