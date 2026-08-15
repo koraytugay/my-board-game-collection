@@ -222,7 +222,37 @@ function computeDiff(prevData, currData, gamesMap) {
     };
 }
 
-function buildEmailSubject(diff) {
+function getOverallInStockSummary(currData, gamesMap) {
+    let inStockCount = 0;
+    const inStockGames = [];
+    for (const [gameId, stores] of Object.entries(currData)) {
+        const inStockStores = [];
+        for (const [storeKey, storeData] of Object.entries(stores)) {
+            if (storeKey === 'bggMarket') {
+                if (storeData?.available || (storeData?.listings && storeData.listings.length > 0)) {
+                    inStockStores.push(STORE_META[storeKey]?.name || storeKey);
+                }
+            } else if (storeData?.available) {
+                inStockStores.push(STORE_META[storeKey]?.name || storeKey);
+            }
+        }
+        if (inStockStores.length > 0) {
+            inStockCount++;
+            const gameInfo = gamesMap[gameId] || { name: `Game #${gameId}` };
+            inStockGames.push({
+                name: gameInfo.name,
+                stores: inStockStores
+            });
+        }
+    }
+    return { inStockCount, inStockGames, totalGames: Object.keys(currData).length };
+}
+
+function buildEmailSubject(diff, summary) {
+    if (diff.totalDiffs === 0) {
+        return `🎲 Board Game Stock Check: No changes detected (${summary.inStockCount}/${summary.totalGames} in stock)`;
+    }
+
     const parts = [];
     if (diff.newlyAvailable.length > 0) {
         parts.push(`🟢 ${diff.newlyAvailable.length} in stock`);
@@ -236,13 +266,10 @@ function buildEmailSubject(diff) {
     if (diff.bggMarketNewListings.length > 0) {
         parts.push(`📦 ${diff.bggMarketNewListings.length} BGG listing${diff.bggMarketNewListings.length > 1 ? 's' : ''}`);
     }
-    if (parts.length === 0) {
-        return `🎲 Board Game Stock Update`;
-    }
     return `🎲 Board Game Alert: ${parts.join(', ')}`;
 }
 
-function buildHtmlBody(diff, gamesMap) {
+function buildHtmlBody(diff, gamesMap, summary) {
     let html = `
     <!DOCTYPE html>
     <html>
@@ -281,6 +308,17 @@ function buildHtmlBody(diff, gamesMap) {
             </div>
             <div class="content">
     `;
+
+    // If no diffs
+    if (diff.totalDiffs === 0) {
+        html += `
+            <div class="card" style="border-left: 4px solid #4a5568; background: #f7fafc; padding: 18px;">
+                <h3 style="margin: 0 0 8px 0; color: #2d3748; font-size: 1.05rem;">✅ Stock Check Completed — No Changes</h3>
+                <p style="margin: 0 0 10px 0; color: #4a5568; font-size: 0.95rem;">All <strong>${summary.totalGames} wanted games</strong> were checked across tracked stores. No stock status changes or price updates were detected since the last check.</p>
+                <p style="margin: 0; color: #718096; font-size: 0.9rem;">Currently, <strong>${summary.inStockCount} game${summary.inStockCount === 1 ? '' : 's'}</strong> remain in stock across tracked stores.</p>
+            </div>
+        `;
+    }
 
     // 1. Newly Available
     if (diff.newlyAvailable.length > 0) {
@@ -382,8 +420,15 @@ function buildHtmlBody(diff, gamesMap) {
     return html;
 }
 
-function buildTextBody(diff) {
+function buildTextBody(diff, summary) {
     const lines = [`🎲 Board Game Stock Update (${new Date().toUTCString()})\n`];
+
+    if (diff.totalDiffs === 0) {
+        lines.push('✅ Stock check completed — no changes detected.');
+        lines.push(`All ${summary.totalGames} wanted games were checked across tracked stores.`);
+        lines.push(`Currently, ${summary.inStockCount}/${summary.totalGames} games remain in stock.`);
+        lines.push('');
+    }
 
     if (diff.newlyAvailable.length > 0) {
         lines.push(`🟢 NEWLY IN STOCK (${diff.newlyAvailable.length}):`);
@@ -477,17 +522,13 @@ async function run() {
     console.log(`Comparing previous availability (${prevCount} games) with current availability (${currCount} games)...`);
 
     const diff = computeDiff(prevData, currData, gamesMap);
+    const summary = getOverallInStockSummary(currData, gamesMap);
 
     console.log(`Diff results: ${diff.newlyAvailable.length} newly in stock, ${diff.noLongerAvailable.length} out of stock, ${diff.priceChanges.length} price changes, ${diff.bggMarketNewListings.length} BGG listings.`);
 
-    if (diff.totalDiffs === 0) {
-        console.log('No stock or price changes detected. No email needed.');
-        return;
-    }
-
-    const subject = buildEmailSubject(diff);
-    const htmlBody = buildHtmlBody(diff, gamesMap);
-    const textBody = buildTextBody(diff);
+    const subject = buildEmailSubject(diff, summary);
+    const htmlBody = buildHtmlBody(diff, gamesMap, summary);
+    const textBody = buildTextBody(diff, summary);
 
     console.log(`Subject: ${subject}`);
     await sendNotificationEmail(subject, htmlBody, textBody);
