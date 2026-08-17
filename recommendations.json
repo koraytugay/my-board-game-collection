@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-17T07:14:42.641Z",
+  "generatedAt": "2026-08-17T12:37:19.824Z",
   "total": 400,
   "recommendations": [
     {
@@ -11583,7 +11583,10 @@
           "contributionScore": 0.93
         }
       ],
-      "matchScore": 2.3
+      "matchScore": 2.3,
+      "minPlayers": 2,
+      "maxPlayers": 6,
+      "playingTime": 45
     },
     {
       "objectId": "244608",
