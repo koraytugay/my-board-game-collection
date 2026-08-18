@@ -91,15 +91,41 @@ function processAndRender(plays, currentYear, currentMonth) {
     });
 
     // Render each bucket
-    renderBucket('this-month-list', buckets['this-month']);
-    renderBucket('this-year-list', buckets['this-year']);
-    renderBucket('last-year-list', buckets['last-year']);
+    renderBucket('this-month-list', 'this-month-count', buckets['this-month']);
+    renderBucket('this-year-list', 'this-year-count', buckets['this-year']);
+    renderBucket('last-year-list', 'last-year-count', buckets['last-year']);
 }
 
-function renderBucket(containerId, items) {
+
+
+function formatDate(dateStr) {
+    if (!dateStr) return '';
+    const [year, month, day] = dateStr.split('-');
+    if (!year || !month || !day) return dateStr;
+    const date = new Date(parseInt(year), parseInt(month) - 1, parseInt(day));
+    return new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric', year: 'numeric' }).format(date);
+}
+
+function escapeHtml(str) {
+    if (!str) return '';
+    return str
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+}
+
+function renderBucket(containerId, countId, items) {
     const container = document.getElementById(containerId);
-    // Sort by name for a clean grid
-    items.sort((a, b) => a.name.localeCompare(b.name));
+    const countEl = document.getElementById(countId);
+    
+    if (countEl) {
+        countEl.textContent = `${items.length} ${items.length === 1 ? 'game' : 'games'}`;
+    }
+
+    // Sort from most recently played to least recently played
+    items.sort((a, b) => b.lastDate.localeCompare(a.lastDate) || a.name.localeCompare(b.name));
 
     if (items.length === 0) {
         container.innerHTML = '<p class="empty-state">No plays recorded for this period.</p>';
@@ -109,11 +135,13 @@ function renderBucket(containerId, items) {
     container.innerHTML = items.map(item => {
         const gameData = allGames.find(g => g.objectId === item.id);
         const imageUrl = gameData ? (gameData.image || gameData.thumbnail) : '';
+        const safeName = escapeHtml(item.name);
+        const formattedDate = formatDate(item.lastDate);
         
         return `
-            <div class="history-item" onclick="window.open('https://boardgamegeek.com/boardgame/${item.id}', '_blank')">
-                <img src="${imageUrl || 'https://via.placeholder.com/180x180?text=?'}" alt="${item.name}" class="history-item-img">
-                <span class="game-name-tooltip">${item.name}</span>
+            <div class="history-item" onclick="window.open('https://boardgamegeek.com/boardgame/${item.id}', '_blank')" title="${safeName} (Last played: ${formattedDate})">
+                <img src="${imageUrl || 'https://via.placeholder.com/180x180?text=?'}" alt="${safeName}" class="history-item-img" loading="lazy">
+                ${formattedDate ? `<div class="history-item-date-overlay">${formattedDate}</div>` : ''}
             </div>
         `;
     }).join('');
