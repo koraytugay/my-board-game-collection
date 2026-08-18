@@ -7,6 +7,136 @@ let currentViewMode = 'grid';
 
 let ownedThumbnailMap = new Map();
 
+const STORES = [
+    { key: 'boardGameBliss', name: 'BoardGameBliss' },
+    { key: 'fourZeroOneGames', name: '401 Games' },
+    { key: 'lvlUpGames', name: 'LVLUP Games' },
+    { key: 'asDesJeux', name: 'As des Jeux' },
+    { key: 'greatBoardgames', name: 'Great Boardgames' },
+    { key: 'meeplemart', name: 'Meeplemart' },
+    { key: 'amazonCa', name: 'Amazon.ca' },
+    { key: 'woodForSheep', name: 'Wood for Sheep' },
+    { key: 'faceToFaceGames', name: 'Face to Face' },
+    { key: 'obsidianGames', name: 'Obsidian Games' },
+    { key: 'jjCards', name: 'J&J Cards' },
+    { key: 'boardgamesCa', name: 'Boardgames.ca' },
+    { key: 'screenFreeGames', name: 'Screen Free Games' },
+    { key: 'allSystemsGo', name: 'All Systems Go' },
+    { key: 'tabletopCafe', name: 'Tabletop Cafe' },
+    { key: 'elevatedBoardGames', name: 'Elevated Board Games' },
+    { key: 'buttonShyEtsy', name: 'Button Shy (Etsy)' },
+    { key: 'zatu', name: 'Zatu Games' },
+    { key: 'bggMarket', name: 'BGG Market' }
+];
+
+function getActiveBggListings(game) {
+    const bggmkt = game.availability?.bggMarket;
+    if (!bggmkt) return [];
+    if (Array.isArray(bggmkt.listings) && bggmkt.listings.length > 0) {
+        return bggmkt.listings.filter(l => !l.ignored);
+    }
+    if (bggmkt.available && bggmkt.url && !bggmkt.ignored) {
+        return [{
+            price: bggmkt.price,
+            seller: bggmkt.seller || 'BGG Market',
+            condition: bggmkt.condition || '',
+            url: bggmkt.url,
+            ignored: false
+        }];
+    }
+    return [];
+}
+
+function isGameInStockAtStore(game, storeKey) {
+    if (!game.availability || !game.availability[storeKey]) return false;
+    const storeData = game.availability[storeKey];
+    if (storeKey === 'bggMarket') {
+        return getActiveBggListings(game).length > 0;
+    }
+    return !!storeData.available;
+}
+
+function isGameInStockAtAnyStore(game) {
+    return STORES.some(store => isGameInStockAtStore(game, store.key));
+}
+
+function populateStoreFilter() {
+    const storeSelect = document.getElementById('store-filter');
+    if (!storeSelect) return;
+
+    const currentValue = storeSelect.value;
+    storeSelect.innerHTML = '<option value="all">All Stores</option>';
+
+    const storesWithStock = [];
+    STORES.forEach(store => {
+        const inStockCount = allGames.filter(game => isGameInStockAtStore(game, store.key)).length;
+        if (inStockCount > 0) {
+            storesWithStock.push({
+                ...store,
+                count: inStockCount
+            });
+        }
+    });
+
+    storesWithStock.sort((a, b) => a.name.localeCompare(b.name, undefined, { sensitivity: 'base' }));
+
+    storesWithStock.forEach(store => {
+        const option = document.createElement('option');
+        option.value = store.key;
+        option.textContent = `${store.name} (${store.count})`;
+        storeSelect.appendChild(option);
+    });
+
+    if (storesWithStock.some(s => s.key === currentValue)) {
+        storeSelect.value = currentValue;
+    } else {
+        storeSelect.value = 'all';
+    }
+}
+
+function populateSellerFilter() {
+    const sellerSelect = document.getElementById('seller-filter');
+    if (!sellerSelect) return;
+
+    const currentValue = sellerSelect.value;
+    sellerSelect.innerHTML = '<option value="all">All Sellers</option>';
+
+    const sellerCountMap = new Map();
+    allGames.forEach(game => {
+        const listings = getActiveBggListings(game);
+        const seenForThisGame = new Set();
+        listings.forEach(l => {
+            if (l.seller && !seenForThisGame.has(l.seller.toLowerCase())) {
+                seenForThisGame.add(l.seller.toLowerCase());
+                const existing = sellerCountMap.get(l.seller.toLowerCase()) || { seller: l.seller, count: 0 };
+                existing.count++;
+                sellerCountMap.set(l.seller.toLowerCase(), existing);
+            }
+        });
+    });
+
+    const sellers = Array.from(sellerCountMap.values());
+    sellers.sort((a, b) => {
+        if (b.count !== a.count) {
+            return b.count - a.count;
+        }
+        return a.seller.localeCompare(b.seller, undefined, { sensitivity: 'base' });
+    });
+
+    sellers.forEach(s => {
+        const option = document.createElement('option');
+        option.value = s.seller;
+        option.textContent = `${s.seller} (${s.count})`;
+        sellerSelect.appendChild(option);
+    });
+
+    if (sellers.some(s => s.seller.toLowerCase() === currentValue.toLowerCase())) {
+        sellerSelect.value = currentValue;
+    } else {
+        sellerSelect.value = 'all';
+    }
+}
+
 document.addEventListener('DOMContentLoaded', async () => {
     try {
         if (typeof getCollection === 'function') {
@@ -28,16 +158,24 @@ async function fetchRecommendations() {
     const controlsEl = document.getElementById('controls');
 
     try {
-        const response = await fetch('recommendations.json');
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
+        const [recRes, availabilityRes] = await Promise.all([
+            fetch('recommendations.json').then(r => {
+                if (!r.ok) throw new Error(`HTTP error! status: ${r.status}`);
+                return r.json();
+            }),
+            fetch('availability-recommended.json').then(r => r.ok ? r.json() : {}).catch(() => ({}))
+        ]);
 
-        const data = await response.json();
-        allGames = data.recommendations || [];
+        const rawRecs = recRes.recommendations || [];
+        allGames = rawRecs.map(game => ({
+            ...game,
+            availability: availabilityRes[game.objectId] || {}
+        }));
         filteredGames = [...allGames];
 
         populateSourceGameFilter();
+        populateStoreFilter();
+        populateSellerFilter();
         updateStats();
         sortGames(currentSort);
 
@@ -86,11 +224,15 @@ function updateStats() {
         : 0;
 
     const sourceSet = new Set();
-    allGames.forEach(r => r.recommendedBy.forEach(s => sourceSet.add(s.ownedId)));
+    allGames.forEach(r => (r.recommendedBy || []).forEach(s => sourceSet.add(s.ownedId)));
+
+    const inStockCount = allGames.filter(game => isGameInStockAtAnyStore(game)).length;
 
     document.getElementById('total-recs').textContent = totalRecs;
     document.getElementById('total-sources').textContent = sourceSet.size;
     document.getElementById('avg-bgg-rating').textContent = avgRating.toFixed(1);
+    const inStockEl = document.getElementById('in-stock-games');
+    if (inStockEl) inStockEl.textContent = inStockCount;
 }
 
 function sortGames(criteria) {
@@ -125,11 +267,17 @@ function applyFilters() {
     const ratingFilter = document.getElementById('rating-filter');
     const sourceGameFilter = document.getElementById('source-game-filter');
     const playerCountFilter = document.getElementById('player-count');
+    const inStockCheckbox = document.getElementById('in-stock-only');
+    const storeFilter = document.getElementById('store-filter');
+    const sellerFilter = document.getElementById('seller-filter');
 
     const searchTerm = searchInput ? searchInput.value.toLowerCase().trim() : '';
     const ratingVal = ratingFilter ? ratingFilter.value : 'all';
     const sourceGameVal = sourceGameFilter ? sourceGameFilter.value : 'all';
     const playerCountVal = playerCountFilter ? playerCountFilter.value : 'all';
+    const inStockOnly = inStockCheckbox ? inStockCheckbox.checked : false;
+    const storeVal = storeFilter ? storeFilter.value : 'all';
+    const sellerVal = sellerFilter ? sellerFilter.value : 'all';
 
     filteredGames = allGames.filter(game => {
         const matchesName = game.name.toLowerCase().includes(searchTerm);
@@ -159,7 +307,23 @@ function applyFilters() {
             }
         }
 
-        return matchesSearch && matchesRating && matchesSourceGame && matchesPlayers;
+        let matchesStock = true;
+        if (inStockOnly) {
+            matchesStock = isGameInStockAtAnyStore(game);
+        }
+
+        let matchesStore = true;
+        if (storeVal !== 'all') {
+            matchesStore = isGameInStockAtStore(game, storeVal);
+        }
+
+        let matchesSeller = true;
+        if (sellerVal !== 'all') {
+            const activeListings = getActiveBggListings(game);
+            matchesSeller = activeListings.some(l => l.seller && l.seller.toLowerCase() === sellerVal.toLowerCase());
+        }
+
+        return matchesSearch && matchesRating && matchesSourceGame && matchesPlayers && matchesStock && matchesStore && matchesSeller;
     });
 
     renderGames();
@@ -190,12 +354,19 @@ function renderGames() {
 function createGameCard(game) {
     const card = document.createElement('div');
     card.className = 'game-card';
-    card.onclick = () => window.open(`https://boardgamegeek.com/boardgame/${game.objectId}`, '_blank');
+    card.onclick = (e) => {
+        if (e.target.closest('.store-btn') || e.target.closest('.btn-wont-buy')) return;
+        window.open(`https://boardgamegeek.com/boardgame/${game.objectId}`, '_blank');
+    };
 
     let badgesHtml = '';
     badgesHtml += `<span class="badge badge-favorite">🔥 Match ${game.matchScore}</span>`;
 
-    const sourcesHtml = game.recommendedBy.map(s => {
+    if (isGameInStockAtAnyStore(game)) {
+        badgesHtml += '<span class="badge badge-favorite" style="background: #38a169;">In Stock</span>';
+    }
+
+    const sourcesHtml = (game.recommendedBy || []).map(s => {
         const thumbUrl = ownedThumbnailMap.get(String(s.ownedId)) || `images/thumbnails/${s.ownedId}.jpg`;
         return `
             <div class="source-thumb-chip" title="${escapeHtml(s.ownedName)} (★${s.userRating})">
@@ -212,6 +383,71 @@ function createGameCard(game) {
     const playersText = (game.minPlayers && game.maxPlayers) 
         ? (game.minPlayers === game.maxPlayers ? `${game.minPlayers}` : `${game.minPlayers}-${game.maxPlayers}`)
         : null;
+
+    // Build store availability HTML (for in-stock stores)
+    let storeButtonsHtml = '';
+    const bgb = game.availability?.boardGameBliss;
+    const fof = game.availability?.fourZeroOneGames;
+    const lvl = game.availability?.lvlUpGames;
+    const adj = game.availability?.asDesJeux;
+    const gbg = game.availability?.greatBoardgames;
+    const meeple = game.availability?.meeplemart;
+    const amzn = game.availability?.amazonCa;
+    const wfs = game.availability?.woodForSheep;
+    const f2f = game.availability?.faceToFaceGames;
+    const obsidian = game.availability?.obsidianGames;
+    const jj = game.availability?.jjCards;
+    const bgca = game.availability?.boardgamesCa;
+    const sfg = game.availability?.screenFreeGames;
+    const asg = game.availability?.allSystemsGo;
+    const ttc = game.availability?.tabletopCafe;
+    const ebg = game.availability?.elevatedBoardGames;
+    const bse = game.availability?.buttonShyEtsy;
+    const zatu = game.availability?.zatu;
+    const activeBggListings = getActiveBggListings(game);
+
+    const renderStoreBtn = (store, name, btnClass) => {
+        if (!store || !store.url || !store.available) return '';
+        const statusClass = 'store-status-instock';
+        const statusText = 'In Stock';
+        const priceText = store.price ? (String(store.price).match(/^[$C$€£]/) ? store.price : `$${store.price}`) : '';
+        return `
+            <a href="${store.url}" target="_blank" class="store-btn ${btnClass}">
+                <span class="store-name">${name}</span>
+                <span>${priceText} <span class="store-status ${statusClass}">${statusText}</span></span>
+            </a>
+        `;
+    };
+
+    storeButtonsHtml += renderStoreBtn(bgb, '🍁 BoardGameBliss', 'store-btn-bgb');
+    storeButtonsHtml += renderStoreBtn(fof, '🎲 401 Games', 'store-btn-401');
+    storeButtonsHtml += renderStoreBtn(lvl, '⚔️ LVLUP Games', 'store-btn-lvlup');
+    storeButtonsHtml += renderStoreBtn(adj, '🃏 As des Jeux', 'store-btn-adj');
+    storeButtonsHtml += renderStoreBtn(gbg, '🏰 Great Boardgames', 'store-btn-greatbg');
+    storeButtonsHtml += renderStoreBtn(meeple, '👾 Meeplemart', 'store-btn-meeplemart');
+    storeButtonsHtml += renderStoreBtn(amzn, '🛒 Amazon.ca', 'store-btn-amazon');
+    storeButtonsHtml += renderStoreBtn(wfs, '🐑 Wood for Sheep', 'store-btn-wfs');
+    storeButtonsHtml += renderStoreBtn(f2f, '🤝 Face to Face', 'store-btn-f2f');
+    storeButtonsHtml += renderStoreBtn(obsidian, '🔮 Obsidian Games', 'store-btn-obsidian');
+    storeButtonsHtml += renderStoreBtn(jj, '🎴 J&J Cards', 'store-btn-jj');
+    storeButtonsHtml += renderStoreBtn(bgca, '🎯 Boardgames.ca', 'store-btn-boardgamesca');
+    storeButtonsHtml += renderStoreBtn(sfg, '🧩 Screen Free Games', 'store-btn-sfg');
+    storeButtonsHtml += renderStoreBtn(asg, '🚀 All Systems Go', 'store-btn-asg');
+    storeButtonsHtml += renderStoreBtn(ttc, '☕ Tabletop Cafe', 'store-btn-ttc');
+    storeButtonsHtml += renderStoreBtn(ebg, '🏔️ Elevated Board Games', 'store-btn-ebg');
+    storeButtonsHtml += renderStoreBtn(bse, '👛 Button Shy (Etsy)', 'store-btn-buttonshy');
+    storeButtonsHtml += renderStoreBtn(zatu, '🛡️ Zatu Games', 'store-btn-zatu');
+
+    if (activeBggListings.length > 0) {
+        activeBggListings.forEach(listing => {
+            const label = listing.seller ? `🏷️ ${listing.seller}` : '🏷️ BGG Market';
+            storeButtonsHtml += renderStoreBtn({
+                available: true,
+                price: listing.price,
+                url: listing.url
+            }, label, 'store-btn-bggmkt');
+        });
+    }
 
     card.innerHTML = `
         <div class="game-badges">
@@ -235,6 +471,7 @@ function createGameCard(game) {
                     ${sourcesHtml}
                 </div>
             </div>
+            ${storeButtonsHtml ? `<div class="store-availability">${storeButtonsHtml}</div>` : ''}
             <div class="game-actions" style="margin-top: 15px; padding-top: 12px; border-top: 1px solid #eee;"></div>
         </div>
     `;

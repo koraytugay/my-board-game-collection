@@ -2,8 +2,11 @@ const fs = require('fs');
 const https = require('https');
 const zlib = require('zlib');
 
+const isRecommended = process.argv.includes('--recommended') || process.env.CHECK_TYPE === 'recommended';
 const COLLECTION_FILE = 'collection.xml';
-const OUTPUT_FILE = 'availability.json';
+const RECOMMENDATIONS_FILE = 'recommendations.json';
+const OUTPUT_FILE = isRecommended ? 'availability-recommended.json' : 'availability.json';
+const POLITENESS_DELAY_MS = parseInt(process.env.CHECK_DELAY_MS || '5000', 10);
 
 const DEFAULT_HEADERS = {
     'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36',
@@ -615,19 +618,23 @@ function decodeXmlEntities(str) {
 }
 
 async function checkAvailability() {
-    console.log('Starting board game availability check...');
-    if (!fs.existsSync(COLLECTION_FILE)) {
+    console.log(`Starting ${isRecommended ? 'recommended games' : 'board game'} availability check...`);
+    if (!isRecommended && !fs.existsSync(COLLECTION_FILE)) {
         console.error('collection.xml not found.');
         return;
     }
+    if (isRecommended && !fs.existsSync(RECOMMENDATIONS_FILE)) {
+        console.error('recommendations.json not found.');
+        return;
+    }
 
-    // Load existing availability.json to preserve old data and timestamps
+    // Load existing availability file to preserve old data and timestamps
     let existingData = {};
     if (fs.existsSync(OUTPUT_FILE)) {
         try {
             existingData = JSON.parse(fs.readFileSync(OUTPUT_FILE, 'utf8'));
         } catch (e) {
-            console.error('Error reading existing availability.json:', e);
+            console.error(`Error reading existing ${OUTPUT_FILE}:`, e);
         }
     }
 
@@ -649,29 +656,50 @@ async function checkAvailability() {
     if (!Array.isArray(skippedSellers)) skippedSellers = [];
     console.log(`Loaded ${skippedSellers.length} skipped seller(s).`);
 
-    const content = fs.readFileSync(COLLECTION_FILE, 'utf8');
-    const itemRegex = /<item objecttype="thing" objectid="(\d+)"[^>]*>([\s\S]*?)<\/item>/g;
-    let match;
     const wantedGames = [];
 
-    while ((match = itemRegex.exec(content)) !== null) {
-        const objectId = match[1];
-        const itemContent = match[2];
+    if (isRecommended) {
+        try {
+            const recData = JSON.parse(fs.readFileSync(RECOMMENDATIONS_FILE, 'utf8'));
+            const recList = recData.recommendations || [];
+            const limit = parseInt(process.env.REC_LIMIT || '100', 10);
+            recList.slice(0, limit).forEach(r => {
+                if (r.objectId && r.name) {
+                    wantedGames.push({
+                        objectId: String(r.objectId),
+                        name: r.name.trim()
+                    });
+                }
+            });
+            console.log(`Loaded top ${wantedGames.length} games from ${RECOMMENDATIONS_FILE}.`);
+        } catch (e) {
+            console.error('Error reading recommendations.json:', e);
+            return;
+        }
+    } else {
+        const content = fs.readFileSync(COLLECTION_FILE, 'utf8');
+        const itemRegex = /<item objecttype="thing" objectid="(\d+)"[^>]*>([\s\S]*?)<\/item>/g;
+        let match;
 
-        // Check if wanttobuy is "1"
-        const statusMatch = /<status [^>]*wanttobuy="1"/.exec(itemContent);
-        if (statusMatch) {
-            const nameMatch = /<name[^>]*>([^<]+)<\/name>/.exec(itemContent);
-            if (nameMatch) {
-                wantedGames.push({
-                    objectId,
-                    name: decodeXmlEntities(nameMatch[1].trim())
-                });
+        while ((match = itemRegex.exec(content)) !== null) {
+            const objectId = match[1];
+            const itemContent = match[2];
+
+            // Check if wanttobuy is "1"
+            const statusMatch = /<status [^>]*wanttobuy="1"/.exec(itemContent);
+            if (statusMatch) {
+                const nameMatch = /<name[^>]*>([^<]+)<\/name>/.exec(itemContent);
+                if (nameMatch) {
+                    wantedGames.push({
+                        objectId,
+                        name: decodeXmlEntities(nameMatch[1].trim())
+                    });
+                }
             }
         }
-    }
 
-    console.log(`Found ${wantedGames.length} games in Want to Buy list.`);
+        console.log(`Found ${wantedGames.length} games in Want to Buy list.`);
+    }
     const availabilityData = {};
 
     for (let i = 0; i < wantedGames.length; i++) {
@@ -1209,7 +1237,7 @@ async function checkAvailability() {
         
         // Politeness delay
         if (fetchPromises.length > 0) {
-            await new Promise(r => setTimeout(r, 3000));
+            await new Promise(r => setTimeout(r, POLITENESS_DELAY_MS));
         }
     }
 

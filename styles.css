@@ -901,3 +901,320 @@ body.dark-mode .btn-secondary:hover {
         justify-content: flex-start;
     }
 }
+
+/* ==========================================================================
+   Store Availability Buttons & Badges (Shared across Want to Buy & Recommended)
+   ========================================================================== */
+.store-availability {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border-top: 1px solid #eee;
+    padding-top: 12px;
+}
+body.dark-mode .store-availability {
+    border-top-color: #444;
+}
+.store-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    font-size: 0.8em;
+    font-weight: bold;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+.store-btn-bgb {
+    background: #e1f5fe;
+    color: #0288d1;
+    border: 1px solid #b3e5fc;
+}
+body.dark-mode .store-btn-bgb {
+    background: #0d3c52;
+    color: #81d4fa;
+    border-color: #0288d1;
+}
+.store-btn-bgb:hover {
+    background: #0288d1;
+    color: white;
+}
+.store-btn-401 {
+    background: #ffebee;
+    color: #c62828;
+    border: 1px solid #ffcdd2;
+}
+body.dark-mode .store-btn-401 {
+    background: #4a121a;
+    color: #ef9a9a;
+    border-color: #c62828;
+}
+.store-btn-401:hover {
+    background: #c62828;
+    color: white;
+}
+.store-btn-lvlup {
+    background: #f3e5f5;
+    color: #7b1fa2;
+    border: 1px solid #e1bee7;
+}
+body.dark-mode .store-btn-lvlup {
+    background: #3c124a;
+    color: #ce93d8;
+    border-color: #7b1fa2;
+}
+.store-btn-lvlup:hover {
+    background: #7b1fa2;
+    color: white;
+}
+.store-btn-adj {
+    background: #e0f7fa;
+    color: #006064;
+    border: 1px solid #b2ebf2;
+}
+body.dark-mode .store-btn-adj {
+    background: #0d3a40;
+    color: #80deea;
+    border-color: #006064;
+}
+.store-btn-adj:hover {
+    background: #006064;
+    color: white;
+}
+.store-btn-greatbg {
+    background: #fff8e1;
+    color: #f57f17;
+    border: 1px solid #ffecb3;
+}
+body.dark-mode .store-btn-greatbg {
+    background: #4a3e0b;
+    color: #ffe082;
+    border-color: #f57f17;
+}
+.store-btn-greatbg:hover {
+    background: #f57f17;
+    color: white;
+}
+.store-btn-meeplemart {
+    background: #eceff1;
+    color: #37474f;
+    border: 1px solid #cfd8dc;
+}
+body.dark-mode .store-btn-meeplemart {
+    background: #263238;
+    color: #b0bec5;
+    border-color: #37474f;
+}
+.store-btn-meeplemart:hover {
+    background: #37474f;
+    color: white;
+}
+.store-btn-amazon {
+    background: #FFF8E7;
+    color: #c45500;
+    border: 1px solid #F3A847;
+}
+body.dark-mode .store-btn-amazon {
+    background: #372205;
+    color: #ff9900;
+    border-color: #F3A847;
+}
+.store-btn-amazon:hover {
+    background: #ff9900;
+    color: white;
+}
+.store-btn-wfs {
+    background: #e8f5e9;
+    color: #2e7d32;
+    border: 1px solid #c8e6c9;
+}
+body.dark-mode .store-btn-wfs {
+    background: #1b431e;
+    color: #a5d6a7;
+    border-color: #2e7d32;
+}
+.store-btn-wfs:hover {
+    background: #2e7d32;
+    color: white;
+}
+.store-btn-f2f {
+    background: #fbe9e7;
+    color: #d84315;
+    border: 1px solid #ffccbc;
+}
+body.dark-mode .store-btn-f2f {
+    background: #4e1e12;
+    color: #ffab91;
+    border-color: #d84315;
+}
+.store-btn-f2f:hover {
+    background: #d84315;
+    color: white;
+}
+.store-btn-obsidian {
+    background: #e8eaf6;
+    color: #283593;
+    border: 1px solid #c5cae9;
+}
+body.dark-mode .store-btn-obsidian {
+    background: #1a237e;
+    color: #c5cae9;
+    border-color: #283593;
+}
+.store-btn-obsidian:hover {
+    background: #283593;
+    color: white;
+}
+.store-btn-jj {
+    background: #fce4ec;
+    color: #880e4f;
+    border: 1px solid #f8bbd0;
+}
+body.dark-mode .store-btn-jj {
+    background: #4a0022;
+    color: #f8bbd0;
+    border-color: #880e4f;
+}
+.store-btn-jj:hover {
+    background: #880e4f;
+    color: white;
+}
+.store-btn-boardgamesca {
+    background: #e0f2f1;
+    color: #004d40;
+    border: 1px solid #b2dfdb;
+}
+body.dark-mode .store-btn-boardgamesca {
+    background: #00251a;
+    color: #b2dfdb;
+    border-color: #004d40;
+}
+.store-btn-boardgamesca:hover {
+    background: #004d40;
+    color: white;
+}
+.store-btn-sfg {
+    background: #ede7f6;
+    color: #4a148c;
+    border: 1px solid #d1c4e9;
+}
+body.dark-mode .store-btn-sfg {
+    background: #2a0845;
+    color: #d1c4e9;
+    border-color: #4a148c;
+}
+.store-btn-sfg:hover {
+    background: #4a148c;
+    color: white;
+}
+.store-btn-asg {
+    background: #e0f7fa;
+    color: #006064;
+    border: 1px solid #b2ebf2;
+}
+body.dark-mode .store-btn-asg {
+    background: #00272b;
+    color: #b2ebf2;
+    border-color: #006064;
+}
+.store-btn-asg:hover {
+    background: #006064;
+    color: white;
+}
+.store-btn-ttc {
+    background: #efebe9;
+    color: #4e342e;
+    border: 1px solid #d7ccc8;
+}
+body.dark-mode .store-btn-ttc {
+    background: #3e2723;
+    color: #d7ccc8;
+    border-color: #5d4037;
+}
+.store-btn-ttc:hover {
+    background: #4e342e;
+    color: white;
+}
+.store-btn-ebg {
+    background: #e1f5fe;
+    color: #0277bd;
+    border: 1px solid #b3e5fc;
+}
+body.dark-mode .store-btn-ebg {
+    background: #012b45;
+    color: #81d4fa;
+    border-color: #0277bd;
+}
+.store-btn-ebg:hover {
+    background: #0277bd;
+    color: white;
+}
+.store-btn-buttonshy {
+    background: #e8f5e9;
+    color: #1b5e20;
+    border: 1px solid #a5d6a7;
+}
+body.dark-mode .store-btn-buttonshy {
+    background: #1b3820;
+    color: #a5d6a7;
+    border-color: #2e7d32;
+}
+.store-btn-buttonshy:hover {
+    background: #2e7d32;
+    color: white;
+}
+.store-btn-zatu {
+    background: #fbe9e7;
+    color: #d84315;
+    border: 1px solid #ffccbc;
+}
+body.dark-mode .store-btn-zatu {
+    background: #3e1b15;
+    color: #ffab91;
+    border-color: #d84315;
+}
+.store-btn-zatu:hover {
+    background: #d84315;
+    color: white;
+}
+.store-btn-bggmkt {
+    background: #fff3e0;
+    color: #e65100;
+    border: 1px solid #ffe0b2;
+}
+body.dark-mode .store-btn-bggmkt {
+    background: #4a2700;
+    color: #ffb74d;
+    border-color: #e65100;
+}
+.store-btn-bggmkt:hover {
+    background: #e65100;
+    color: white;
+}
+.store-btn-out {
+    opacity: 0.6;
+}
+.store-btn-out:hover {
+    opacity: 1;
+}
+.store-name {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.store-status {
+    font-size: 0.85em;
+    padding: 2px 6px;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+.store-status-instock {
+    background: #4CAF50;
+    color: white;
+}
+.store-status-outofstock {
+    background: #9e9e9e;
+    color: white;
+}

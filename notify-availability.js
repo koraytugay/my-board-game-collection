@@ -2,7 +2,9 @@ const fs = require('fs');
 const { execSync } = require('child_process');
 const nodemailer = require('nodemailer');
 
-const AVAILABILITY_FILE = 'availability.json';
+const isRecommended = process.argv.includes('--recommended') || process.env.CHECK_TYPE === 'recommended';
+const AVAILABILITY_FILE = isRecommended ? 'availability-recommended.json' : 'availability.json';
+const RECOMMENDATIONS_FILE = 'recommendations.json';
 const COLLECTION_FILE = 'collection.xml';
 
 const STORE_META = {
@@ -42,6 +44,22 @@ function decodeXmlEntities(str) {
 
 function getGameDetailsMap() {
     const map = {};
+    if (isRecommended && fs.existsSync(RECOMMENDATIONS_FILE)) {
+        try {
+            const recContent = JSON.parse(fs.readFileSync(RECOMMENDATIONS_FILE, 'utf8'));
+            (recContent.recommendations || []).forEach(r => {
+                const objectId = String(r.objectId);
+                map[objectId] = {
+                    name: r.name ? r.name.trim() : `Game #${objectId}`,
+                    image: r.image || r.thumbnail || r.coverUrl || '',
+                    thumbnail: r.thumbnail || r.coverUrl || r.image || '',
+                    year: r.yearPublished || ''
+                };
+            });
+        } catch (e) {
+            console.error('Error parsing recommendations.json:', e.message);
+        }
+    }
     if (fs.existsSync(COLLECTION_FILE)) {
         try {
             const content = fs.readFileSync(COLLECTION_FILE, 'utf8');
@@ -54,12 +72,14 @@ function getGameDetailsMap() {
                 const imageMatch = /<image>([^<]+)<\/image>/.exec(itemContent);
                 const thumbMatch = /<thumbnail>([^<]+)<\/thumbnail>/.exec(itemContent);
                 const yearMatch = /<yearpublished>([^<]+)<\/yearpublished>/.exec(itemContent);
-                map[objectId] = {
-                    name: nameMatch ? decodeXmlEntities(nameMatch[1].trim()) : `Game #${objectId}`,
-                    image: imageMatch ? imageMatch[1] : (thumbMatch ? thumbMatch[1] : ''),
-                    thumbnail: thumbMatch ? thumbMatch[1] : (imageMatch ? imageMatch[1] : ''),
-                    year: yearMatch ? yearMatch[1] : ''
-                };
+                if (!map[objectId]) {
+                    map[objectId] = {
+                        name: nameMatch ? decodeXmlEntities(nameMatch[1].trim()) : `Game #${objectId}`,
+                        image: imageMatch ? imageMatch[1] : (thumbMatch ? thumbMatch[1] : ''),
+                        thumbnail: thumbMatch ? thumbMatch[1] : (imageMatch ? imageMatch[1] : ''),
+                        year: yearMatch ? yearMatch[1] : ''
+                    };
+                }
             }
         } catch (e) {
             console.error('Error parsing collection.xml:', e.message);
@@ -71,7 +91,7 @@ function getGameDetailsMap() {
 function getPreviousAvailability() {
     // Try reading previous availability from git HEAD
     try {
-        const stdout = execSync('git show HEAD:availability.json', {
+        const stdout = execSync(`git show HEAD:${AVAILABILITY_FILE}`, {
             encoding: 'utf8',
             stdio: ['pipe', 'pipe', 'ignore'],
             maxBuffer: 10 * 1024 * 1024
@@ -257,8 +277,11 @@ function getOverallInStockSummary(currData, gamesMap) {
 }
 
 function buildEmailSubject(diff, summary) {
+    const defaultPrefix = isRecommended ? '🎲 [Recommended Games Stock Alert]' : '🎲 Board Game Alert';
     if (diff.totalDiffs === 0) {
-        return `🎲 Board Game Stock Check: No changes detected (${summary.inStockCount}/${summary.totalGames} in stock)`;
+        return isRecommended
+            ? `🎲 [Recommended Games Stock Alert] No changes detected (${summary.inStockCount}/${summary.totalGames} in stock)`
+            : `🎲 Board Game Stock Check: No changes detected (${summary.inStockCount}/${summary.totalGames} in stock)`;
     }
 
     const parts = [];
@@ -274,10 +297,16 @@ function buildEmailSubject(diff, summary) {
     if (diff.bggMarketNewListings.length > 0) {
         parts.push(`📦 ${diff.bggMarketNewListings.length} BGG listing${diff.bggMarketNewListings.length > 1 ? 's' : ''}`);
     }
-    return `🎲 Board Game Alert: ${parts.join(', ')}`;
+    return `${defaultPrefix}: ${parts.join(', ')}`;
 }
 
 function buildHtmlBody(diff, gamesMap, summary) {
+    const listTitle = isRecommended ? 'Recommended Games' : 'Want to Buy';
+    const listUrl = isRecommended 
+        ? 'https://koraytugay.github.io/my-board-game-collection/recommended.html' 
+        : 'https://koraytugay.github.io/my-board-game-collection/wanttobuy.html';
+    const headerTitle = isRecommended ? '🎲 Recommended Games Stock Update' : '🎲 Board Game Stock Update';
+
     let html = `
     <!DOCTYPE html>
     <html>
@@ -311,7 +340,7 @@ function buildHtmlBody(diff, gamesMap, summary) {
     <body>
         <div class="container">
             <div class="header">
-                <h1>🎲 Board Game Stock Update</h1>
+                <h1>${headerTitle}</h1>
                 <p>${new Date().toUTCString()}</p>
             </div>
             <div class="content">
@@ -322,7 +351,7 @@ function buildHtmlBody(diff, gamesMap, summary) {
         html += `
             <div class="card" style="border-left: 4px solid #4a5568; background: #f7fafc; padding: 18px;">
                 <h3 style="margin: 0 0 8px 0; color: #2d3748; font-size: 1.05rem;">✅ Stock Check Completed — No Changes</h3>
-                <p style="margin: 0 0 10px 0; color: #4a5568; font-size: 0.95rem;">All <strong>${summary.totalGames} wanted games</strong> were checked across tracked stores. No stock status changes or price updates were detected since the last check.</p>
+                <p style="margin: 0 0 10px 0; color: #4a5568; font-size: 0.95rem;">All <strong>${summary.totalGames} ${isRecommended ? 'recommended' : 'wanted'} games</strong> were checked across tracked stores. No stock status changes or price updates were detected since the last check.</p>
                 <p style="margin: 0; color: #718096; font-size: 0.9rem;">Currently, <strong>${summary.inStockCount} game${summary.inStockCount === 1 ? '' : 's'}</strong> remain in stock across tracked stores.</p>
             </div>
         `;
@@ -418,7 +447,7 @@ function buildHtmlBody(diff, gamesMap, summary) {
             </div>
             <div class="footer">
                 This automated alert was generated by your Board Game Collection tracker.<br>
-                <a href="https://koraytugay.github.io/my-board-game-collection/wanttobuy.html" target="_blank">View your Want to Buy List</a>
+                <a href="${listUrl}" target="_blank">View your ${listTitle} List</a>
             </div>
         </div>
     </body>
@@ -429,11 +458,16 @@ function buildHtmlBody(diff, gamesMap, summary) {
 }
 
 function buildTextBody(diff, summary) {
-    const lines = [`🎲 Board Game Stock Update (${new Date().toUTCString()})\n`];
+    const listTitle = isRecommended ? 'Recommended Games' : 'Want to Buy';
+    const listUrl = isRecommended 
+        ? 'https://koraytugay.github.io/my-board-game-collection/recommended.html' 
+        : 'https://koraytugay.github.io/my-board-game-collection/wanttobuy.html';
+    const title = isRecommended ? '🎲 Recommended Games Stock Update' : '🎲 Board Game Stock Update';
+    const lines = [`${title} (${new Date().toUTCString()})\n`];
 
     if (diff.totalDiffs === 0) {
         lines.push('✅ Stock check completed — no changes detected.');
-        lines.push(`All ${summary.totalGames} wanted games were checked across tracked stores.`);
+        lines.push(`All ${summary.totalGames} ${isRecommended ? 'recommended' : 'wanted'} games were checked across tracked stores.`);
         lines.push(`Currently, ${summary.inStockCount}/${summary.totalGames} games remain in stock.`);
         lines.push('');
     }
@@ -477,7 +511,7 @@ function buildTextBody(diff, summary) {
     }
 
     lines.push('---');
-    lines.push('View your Want to Buy list: https://koraytugay.github.io/my-board-game-collection/wanttobuy.html');
+    lines.push(`View your ${listTitle} list: ${listUrl}`);
     return lines.join('\n');
 }
 
