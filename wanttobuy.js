@@ -25,6 +25,18 @@ const STORES = [
     { key: 'bggMarket', name: 'BGG Market' }
 ];
 
+function formatPrice(price) {
+    if (!price && price !== 0) return '';
+    let str = String(price).trim();
+    if (!str) return '';
+    str = str.replace(/\b(CAD|USD|CDN|EUR|GBP)\b/gi, '').trim();
+    str = str.replace(/^[A-Za-z]+\$/, '$').trim();
+    if (/^[\d,]+(\.\d+)?$/.test(str)) {
+        return `$${str}`;
+    }
+    return str;
+}
+
 function getActiveBggListings(game) {
     const bggmkt = game.availability?.bggMarket;
     if (!bggmkt) return [];
@@ -412,52 +424,55 @@ function createGameCard(game) {
     const zatu = game.availability?.zatu;
     const activeBggListings = getActiveBggListings(game);
 
-    const renderStoreBtn = (store, name, btnClass) => {
+    const renderStoreChip = (store, name, isBggMarket = false) => {
         if (!store || !store.url || !store.available) return '';
-        const statusClass = 'store-status-instock';
-        const statusText = 'In Stock';
-        const priceText = store.price ? (String(store.price).match(/^[$C$€£]/) ? store.price : `$${store.price}`) : '';
+        const priceText = formatPrice(store.price);
+        const chipClass = isBggMarket ? 'store-chip bgg-market' : 'store-chip';
         return `
-            <a href="${store.url}" target="_blank" class="store-btn ${btnClass}">
-                <span class="store-name">${name}</span>
-                <span>${priceText} <span class="store-status ${statusClass}">${statusText}</span></span>
+            <a href="${store.url}" target="_blank" class="${chipClass}" title="View on ${name}">
+                <span class="store-chip-name">${name}</span>
+                ${priceText ? `<span class="store-chip-price">${priceText}</span>` : ''}
             </a>
         `;
     };
 
-    storeButtonsHtml += renderStoreBtn(bgb, '🍁 BoardGameBliss', 'store-btn-bgb');
-    storeButtonsHtml += renderStoreBtn(fof, '🎲 401 Games', 'store-btn-401');
-    storeButtonsHtml += renderStoreBtn(lvl, '⚔️ LVLUP Games', 'store-btn-lvlup');
-    storeButtonsHtml += renderStoreBtn(adj, '🃏 As des Jeux', 'store-btn-adj');
-    storeButtonsHtml += renderStoreBtn(gbg, '🏰 Great Boardgames', 'store-btn-greatbg');
-    storeButtonsHtml += renderStoreBtn(meeple, '👾 Meeplemart', 'store-btn-meeplemart');
-    storeButtonsHtml += renderStoreBtn(amzn, '🛒 Amazon.ca', 'store-btn-amazon');
-    storeButtonsHtml += renderStoreBtn(wfs, '🐑 Wood for Sheep', 'store-btn-wfs');
-    storeButtonsHtml += renderStoreBtn(f2f, '🤝 Face to Face', 'store-btn-f2f');
-    storeButtonsHtml += renderStoreBtn(obsidian, '🔮 Obsidian Games', 'store-btn-obsidian');
-    storeButtonsHtml += renderStoreBtn(jj, '🎴 J&J Cards', 'store-btn-jj');
-    storeButtonsHtml += renderStoreBtn(bgca, '🎯 Boardgames.ca', 'store-btn-boardgamesca');
-    storeButtonsHtml += renderStoreBtn(sfg, '🧩 Screen Free Games', 'store-btn-sfg');
-    storeButtonsHtml += renderStoreBtn(asg, '🚀 All Systems Go', 'store-btn-asg');
-    storeButtonsHtml += renderStoreBtn(ttc, '☕ Tabletop Cafe', 'store-btn-ttc');
-    storeButtonsHtml += renderStoreBtn(ebg, '🏔️ Elevated Board Games', 'store-btn-ebg');
-    storeButtonsHtml += renderStoreBtn(bse, '👛 Button Shy (Etsy)', 'store-btn-buttonshy');
-    storeButtonsHtml += renderStoreBtn(zatu, '🛡️ Zatu Games', 'store-btn-zatu');
+    storeButtonsHtml += renderStoreChip(bgb, '🍁 BoardGameBliss');
+    storeButtonsHtml += renderStoreChip(fof, '🎲 401 Games');
+    storeButtonsHtml += renderStoreChip(lvl, '⚔️ LVLUP');
+    storeButtonsHtml += renderStoreChip(adj, '🃏 As des Jeux');
+    storeButtonsHtml += renderStoreChip(gbg, '🏰 Great BG');
+    storeButtonsHtml += renderStoreChip(meeple, '👾 Meeplemart');
+    storeButtonsHtml += renderStoreChip(amzn, '🛒 Amazon');
+    storeButtonsHtml += renderStoreChip(wfs, '🐑 Wood for Sheep');
+    storeButtonsHtml += renderStoreChip(f2f, '🤝 Face to Face');
+    storeButtonsHtml += renderStoreChip(obsidian, '🔮 Obsidian');
+    storeButtonsHtml += renderStoreChip(jj, '🎴 J&J Cards');
+    storeButtonsHtml += renderStoreChip(bgca, '🎯 Boardgames.ca');
+    storeButtonsHtml += renderStoreChip(sfg, '🧩 Screen Free');
+    storeButtonsHtml += renderStoreChip(asg, '🚀 All Systems Go');
+    storeButtonsHtml += renderStoreChip(ttc, '☕ Tabletop Cafe');
+    storeButtonsHtml += renderStoreChip(ebg, '🏔️ Elevated BG');
+    storeButtonsHtml += renderStoreChip(bse, '👛 Button Shy');
+    storeButtonsHtml += renderStoreChip(zatu, '🛡️ Zatu Games');
 
     if (activeBggListings.length > 0) {
         activeBggListings.forEach(listing => {
             const label = listing.seller ? `🏷️ ${listing.seller}` : '🏷️ BGG Market';
-            storeButtonsHtml += renderStoreBtn({
+            storeButtonsHtml += renderStoreChip({
                 available: true,
                 price: listing.price,
                 url: listing.url
-            }, label, 'store-btn-bggmkt');
+            }, label, true);
         });
     }
 
     let storeHtml = '';
     if (storeButtonsHtml.trim()) {
-        storeHtml = `<div class="store-availability">${storeButtonsHtml}</div>`;
+        storeHtml = `
+            <div class="store-availability">
+                <div class="store-chips">${storeButtonsHtml}</div>
+            </div>
+        `;
     }
 
     const designersText = (game.designers && game.designers.length > 0 && game.designers[0] !== '(Uncredited)')
