@@ -186,8 +186,10 @@ body.dark-mode .nav-link.active {
 .btn-random {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 6px;
-    padding: 6px 12px;
+    height: 32px;
+    padding: 0 12px;
     font-size: 0.84rem;
     font-weight: 600;
     color: #0969da;
@@ -198,6 +200,9 @@ body.dark-mode .nav-link.active {
     transition: all 0.15s ease;
     font-family: inherit;
     white-space: nowrap;
+    box-sizing: border-box;
+    margin: 0;
+    line-height: 1;
 }
 
 .btn-random:hover {
@@ -329,10 +334,10 @@ body.dark-mode .controls {
 }
 
 .control-group {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     gap: 6px;
-    padding: 2px 0;
+    padding: 0;
 }
 
 .controls label {
@@ -341,18 +346,26 @@ body.dark-mode .controls {
     font-size: 0.82rem;
     white-space: nowrap;
     min-width: fit-content;
+    line-height: 1;
+    margin: 0;
 }
 
 .controls select,
 .controls input[type="text"] {
-    padding: 6px 10px;
-    font-size: 0.85rem;
+    height: 32px;
+    padding: 0 10px;
+    font-size: 0.84rem;
     border: 1.5px solid #e2e8f0;
     border-radius: 6px;
     background: white;
     cursor: pointer;
     transition: all 0.2s ease;
     min-width: 140px;
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    margin: 0;
+    line-height: 1;
 }
 
 .controls input[type="text"] {
@@ -374,17 +387,21 @@ body.dark-mode .controls {
 }
 
 .checkbox-label {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     gap: 6px;
     cursor: pointer;
     font-weight: 600;
     color: #555;
-    padding: 4px 8px;
+    padding: 0 8px;
+    height: 32px;
     border-radius: 6px;
     transition: background-color 0.2s ease;
     font-size: 0.82rem;
     user-select: none;
+    box-sizing: border-box;
+    margin: 0;
+    line-height: 1;
 }
 
 .checkbox-label:hover {
@@ -392,10 +409,12 @@ body.dark-mode .controls {
 }
 
 .checkbox-label input[type="checkbox"] {
-    width: 15px;
-    height: 15px;
+    width: 14px;
+    height: 14px;
     cursor: pointer;
     accent-color: #333;
+    margin: 0;
+    vertical-align: middle;
 }
 
 .games-grid {
