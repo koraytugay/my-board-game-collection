@@ -1,0 +1,294 @@
+/* Play Calendar Styling */
+
+.calendar-container {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+    border: 1px solid #edf2f7;
+    margin-bottom: 30px;
+    overflow-x: auto;
+}
+
+body.dark-mode .calendar-container {
+    background: #1e1e1e;
+    border-color: #333;
+}
+
+/* Calendar Header & Month Navigation */
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+body.dark-mode .calendar-header {
+    border-bottom-color: #2d2d2d;
+}
+
+.month-nav-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    height: 32px;
+    padding: 0 14px;
+    font-size: 0.84rem;
+    font-weight: 600;
+    color: #24292f;
+    background: #f6f8fa;
+    border: 1px solid #d0d7de;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    font-family: inherit;
+    white-space: nowrap;
+    user-select: none;
+}
+
+.month-nav-btn:hover {
+    background: #0969da;
+    color: #ffffff;
+    border-color: #0969da;
+}
+
+body.dark-mode .month-nav-btn {
+    background: #1f2937;
+    color: #e0e0e0;
+    border-color: #38444d;
+}
+
+body.dark-mode .month-nav-btn:hover {
+    background: #58a6ff;
+    color: #121212;
+    border-color: #58a6ff;
+}
+
+#current-month-display {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #2d3748;
+    letter-spacing: -0.01em;
+}
+
+body.dark-mode #current-month-display {
+    color: #f0f6fc;
+}
+
+/* Calendar Grid */
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 8px;
+    width: 100%;
+}
+
+.calendar-day-label {
+    text-align: center;
+    font-weight: 700;
+    color: #718096;
+    padding: 8px 4px;
+    text-transform: uppercase;
+    font-size: 0.72rem;
+    letter-spacing: 0.6px;
+}
+
+body.dark-mode .calendar-day-label {
+    color: #8b949e;
+}
+
+/* Calendar Days */
+.calendar-day {
+    min-height: 125px;
+    border: 1px solid #edf2f7;
+    border-radius: 8px;
+    padding: 8px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    background: #fafafa;
+    display: flex;
+    flex-direction: column;
+}
+
+body.dark-mode .calendar-day {
+    border-color: #2d2d2d;
+    background: #181818;
+}
+
+.calendar-day:hover {
+    border-color: #cbd5e0;
+}
+
+body.dark-mode .calendar-day:hover {
+    border-color: #444;
+}
+
+.calendar-day.today {
+    border: 2px solid #0969da;
+    background: #f0f7ff;
+}
+
+body.dark-mode .calendar-day.today {
+    border-color: #58a6ff;
+    background: rgba(88, 166, 255, 0.08);
+}
+
+.calendar-day.today .day-number {
+    color: #0969da;
+    font-weight: 700;
+}
+
+body.dark-mode .calendar-day.today .day-number {
+    color: #58a6ff;
+}
+
+.calendar-day.other-month {
+    opacity: 0.4;
+    background: #f8f9fa;
+}
+
+body.dark-mode .calendar-day.other-month {
+    background: #141414;
+    opacity: 0.35;
+}
+
+.day-number {
+    font-weight: 600;
+    font-size: 0.82rem;
+    color: #718096;
+    margin-bottom: 6px;
+    display: block;
+    line-height: 1;
+}
+
+body.dark-mode .day-number {
+    color: #8b949e;
+}
+
+/* Plays Container inside Day */
+.calendar-plays-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(46px, 1fr));
+    gap: 6px;
+    margin-top: 2px;
+    align-items: start;
+}
+
+.play-thumbnail-entry {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+}
+
+.thumbnail-wrapper {
+    position: relative;
+    width: 48px;
+    height: 48px;
+    border-radius: 6px;
+    overflow: visible;
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.play-thumbnail-entry:hover .thumbnail-wrapper {
+    transform: scale(1.12);
+    z-index: 10;
+}
+
+.thumbnail-wrapper img, 
+.play-placeholder-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+    background: #fff;
+    display: block;
+}
+
+body.dark-mode .thumbnail-wrapper img {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.play-placeholder-img {
+    background: #edf2f7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #a0aec0;
+    font-weight: 700;
+    font-size: 1.1rem;
+    border: 1px dashed #cbd5e0;
+}
+
+body.dark-mode .play-placeholder-img {
+    background: #262626;
+    border-color: #404040;
+    color: #666;
+}
+
+.play-count-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: #0969da;
+    color: white;
+    font-size: 0.68rem;
+    font-weight: 700;
+    padding: 1px 4px;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+    border: 1.5px solid white;
+    z-index: 2;
+    line-height: 1.2;
+}
+
+body.dark-mode .play-count-badge {
+    background: #1f6feb;
+    border-color: #1e1e1e;
+}
+
+/* Tooltip */
+.game-name-tooltip {
+    display: none;
+    position: absolute;
+    bottom: -32px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #1f2328;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 5px;
+    font-size: 0.76rem;
+    font-weight: 500;
+    white-space: nowrap;
+    z-index: 100;
+    pointer-events: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.play-thumbnail-entry:hover .game-name-tooltip {
+    display: block;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .calendar-grid {
+        min-width: 650px;
+    }
+    .calendar-container {
+        overflow-x: auto;
+    }
+    .calendar-day {
+        min-height: 100px;
+    }
+    .thumbnail-wrapper {
+        width: 40px;
+        height: 40px;
+    }
+}
