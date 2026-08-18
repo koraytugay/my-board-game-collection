@@ -44,114 +44,114 @@
 
         <div id="error" class="error" style="display: none;"></div>
 
-        <!-- Unplayed Games Challenge -->
-        <section class="challenge-section">
-            <div class="challenge-header">
-                <h2>🎮 Unplayed Games</h2>
-                <p class="challenge-description">Your shelf of shame</p>
-            </div>
-
-            <div class="challenge-stats">
-                <div class="challenge-stat">
-                    <span class="stat-number" id="unplayed-remaining">0</span>
-                    <span class="stat-label">Unplayed Games</span>
+        <div id="challenges-content" style="display: none;">
+            <!-- Unplayed Games Challenge -->
+            <section class="challenge-section">
+                <div class="challenge-header">
+                    <h2 class="challenge-title">Unplayed Games</h2>
+                    <span id="unplayed-count-badge" class="challenge-count-badge">0 games</span>
                 </div>
-                <div class="challenge-stat">
-                    <span class="stat-number" id="unplayed-percentage">0%</span>
-                    <span class="stat-label">Percentage of Collection</span>
-                </div>
-            </div>
 
-            <div class="progress-bar">
-                <div id="unplayed-progress-bar" class="progress-fill">
-                    <span id="unplayed-progress-text"></span>
-                </div>
-            </div>
-
-            <div id="unplayed-games" class="challenge-games-grid">
-                <!-- Unplayed games will be listed here -->
-            </div>
-        </section>
-
-        <!-- Club Challenges -->
-        <section class="challenge-section">
-            <div class="challenge-header">
-                <h2>📈 Play Depth Challenges</h2>
-                <p class="challenge-description">Building the Nickel and Dime clubs</p>
-            </div>
-
-            <div class="club-challenges-grid">
-                <div class="club-card dime">
-                    <h3>Dime Club (10+ Plays)</h3>
-                    <div class="club-stats">
-                        <span class="club-count" id="dime-count">0</span>
-                        <span class="club-label">Games</span>
+                <div class="challenge-stats-grid">
+                    <div class="challenge-stat-box">
+                        <span class="stat-number" id="unplayed-remaining">0</span>
+                        <span class="stat-label">Unplayed Games</span>
                     </div>
-                    <div class="progress-bar">
-                        <div id="dime-progress-bar" class="progress-fill" style="background: #c0c0c0;">
-                            <span id="dime-progress-text"></span>
+                    <div class="challenge-stat-box">
+                        <span class="stat-number" id="unplayed-percentage">0%</span>
+                        <span class="stat-label">Unplayed Percentage</span>
+                    </div>
+                    <div class="challenge-stat-box">
+                        <span class="stat-number" id="played-count">0</span>
+                        <span class="stat-label">Played Games</span>
+                    </div>
+                </div>
+
+                <div class="progress-bar-container">
+                    <div class="progress-bar-track">
+                        <div id="unplayed-progress-bar" class="progress-fill"></div>
+                    </div>
+                    <span id="unplayed-progress-text" class="progress-label">0% Played</span>
+                </div>
+
+                <div id="unplayed-games" class="unplayed-games-grid">
+                    <!-- Unplayed games will be listed here -->
+                </div>
+            </section>
+
+            <!-- Club Challenges -->
+            <section class="challenge-section">
+                <div class="challenge-header">
+                    <h2 class="challenge-title">Play Depth Challenges</h2>
+                </div>
+
+                <div class="club-challenges-grid">
+                    <div class="club-card">
+                        <div class="club-header">
+                            <span class="club-title">Dime Club</span>
+                            <span class="club-threshold">10+ Plays</span>
+                        </div>
+                        <div class="club-body">
+                            <span class="club-count" id="dime-count">0</span>
+                            <span class="club-label">games achieved</span>
+                        </div>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar-track">
+                                <div id="dime-progress-bar" class="progress-fill"></div>
+                            </div>
+                            <span id="dime-progress-text" class="progress-label">0%</span>
+                        </div>
+                    </div>
+
+                    <div class="club-card">
+                        <div class="club-header">
+                            <span class="club-title">Nickel Club</span>
+                            <span class="club-threshold">5+ Plays</span>
+                        </div>
+                        <div class="club-body">
+                            <span class="club-count" id="nickel-count">0</span>
+                            <span class="club-label">games achieved</span>
+                        </div>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar-track">
+                                <div id="nickel-progress-bar" class="progress-fill"></div>
+                            </div>
+                            <span id="nickel-progress-text" class="progress-label">0%</span>
                         </div>
                     </div>
                 </div>
+            </section>
 
-                <div class="club-card nickel">
-                    <h3>Nickel Club (5+ Plays)</h3>
-                    <div class="club-stats">
-                        <span class="club-count" id="nickel-count">0</span>
-                        <span class="club-label">Games</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div id="nickel-progress-bar" class="progress-fill" style="background: #cd7f32;">
-                            <span id="nickel-progress-text"></span>
-                        </div>
-                    </div>
+            <!-- Personal Bests -->
+            <section class="challenge-section">
+                <div class="challenge-header">
+                    <h2 class="challenge-title">Personal Bests</h2>
                 </div>
-            </div>
-        </section>
 
-        <!-- Personal Bests -->
-        <section class="challenge-section">
-            <div class="challenge-header">
-                <h2>🏆 Personal Bests</h2>
-                <p class="challenge-description">Your collection milestones</p>
-            </div>
-
-            <div class="achievements-grid">
-                <div class="achievement-card">
-                    <div class="achievement-icon">🎲</div>
-                    <div class="achievement-info">
-                        <h3>Most Played</h3>
-                        <p id="most-played-game">-</p>
-                        <span id="most-played-count" class="achievement-value">0 plays</span>
+                <div class="achievements-grid">
+                    <div class="achievement-card">
+                        <span class="achievement-type">Most Played</span>
+                        <h3 id="most-played-game" class="achievement-name">-</h3>
+                        <span id="most-played-count" class="achievement-val">0 plays</span>
+                    </div>
+                    <div class="achievement-card">
+                        <span class="achievement-type">Highest Rated</span>
+                        <h3 id="highest-rated-game" class="achievement-name">-</h3>
+                        <span id="highest-rated-value" class="achievement-val">0.0</span>
+                    </div>
+                    <div class="achievement-card">
+                        <span class="achievement-type">Oldest Game</span>
+                        <h3 id="oldest-game" class="achievement-name">-</h3>
+                        <span id="oldest-year" class="achievement-val">-</span>
+                    </div>
+                    <div class="achievement-card">
+                        <span class="achievement-type">Newest Game</span>
+                        <h3 id="newest-game" class="achievement-name">-</h3>
+                        <span id="newest-year" class="achievement-val">-</span>
                     </div>
                 </div>
-                <div class="achievement-card">
-                    <div class="achievement-icon">⭐</div>
-                    <div class="achievement-info">
-                        <h3>Highest Rated</h3>
-                        <p id="highest-rated-game">-</p>
-                        <span id="highest-rated-value" class="achievement-value">0.00</span>
-                    </div>
-                </div>
-                <div class="achievement-card">
-                    <div class="achievement-icon">📅</div>
-                    <div class="achievement-info">
-                        <h3>Oldest Game</h3>
-                        <p id="oldest-game">-</p>
-                        <span id="oldest-year" class="achievement-value">-</span>
-                    </div>
-                </div>
-                <div class="achievement-card">
-                    <div class="achievement-icon">✨</div>
-                    <div class="achievement-info">
-                        <h3>Newest Game</h3>
-                        <p id="newest-game">-</p>
-                        <span id="newest-year" class="achievement-value">-</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
+            </section>
+        </div>
     </div>
 
     <script src="api.js"></script>

@@ -2,18 +2,30 @@ let allGames = [];
 
 async function fetchChallenges() {
     const loadingEl = document.getElementById('loading');
+    const contentEl = document.getElementById('challenges-content');
     const errorEl = document.getElementById('error');
 
     try {
-        allGames = await getCollection();
+        allGames = await getCollection(true);
         renderChallenges();
         loadingEl.style.display = 'none';
+        contentEl.style.display = 'block';
     } catch (error) {
         console.error('Error fetching challenges:', error);
         loadingEl.style.display = 'none';
         errorEl.style.display = 'block';
         errorEl.textContent = `Failed to load challenges: ${error.message}`;
     }
+}
+
+function escapeHtml(str) {
+    if (!str) return '';
+    return str
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
 }
 
 function renderChallenges() {
@@ -27,28 +39,41 @@ function renderUnplayedChallenge() {
     const totalGames = allGames.length;
     const playedGames = totalGames - unplayedGames.length;
     const percentage = totalGames > 0 ? Math.round((playedGames / totalGames) * 100) : 100;
+    const unplayedPercent = totalGames > 0 ? Math.round((unplayedGames.length / totalGames) * 100) : 0;
+
+    const countBadge = document.getElementById('unplayed-count-badge');
+    if (countBadge) {
+        countBadge.textContent = `${unplayedGames.length} ${unplayedGames.length === 1 ? 'game' : 'games'}`;
+    }
 
     document.getElementById('unplayed-remaining').textContent = unplayedGames.length;
-    document.getElementById('unplayed-percentage').textContent = `${Math.round((unplayedGames.length / totalGames) * 100)}%`;
+    document.getElementById('unplayed-percentage').textContent = `${unplayedPercent}%`;
+    document.getElementById('played-count').textContent = playedGames;
+    
     document.getElementById('unplayed-progress-bar').style.width = `${percentage}%`;
-    document.getElementById('unplayed-progress-text').textContent = `${percentage}% Played`;
+    document.getElementById('unplayed-progress-text').textContent = `${percentage}% Played (${playedGames}/${totalGames})`;
 
     const container = document.getElementById('unplayed-games');
 
     if (unplayedGames.length === 0) {
-        container.innerHTML = '<p class="empty-state">🎉 Congratulations! You\'ve played all your games!</p>';
+        container.innerHTML = '<p class="empty-state">Congratulations! You have played all your owned games.</p>';
         return;
     }
 
-    container.innerHTML = unplayedGames.map(game => `
-        <div class="unplayed-game-card" onclick="window.open('https://boardgamegeek.com/boardgame/${game.objectId}', '_blank')">
-            <img src="${game.thumbnail}" alt="${game.name}">
-            <div class="unplayed-game-info">
-                <h4>${game.name}</h4>
-                <p>${game.yearPublished !== 'N/A' ? game.yearPublished : ''}</p>
+    // Sort unplayed alphabetically
+    unplayedGames.sort((a, b) => a.name.localeCompare(b.name));
+
+    container.innerHTML = unplayedGames.map(game => {
+        const safeName = escapeHtml(game.name);
+        const imageUrl = game.image || game.thumbnail || 'https://via.placeholder.com/150x150?text=?';
+        const year = game.yearPublished !== 'N/A' ? game.yearPublished : '';
+
+        return `
+            <div class="unplayed-game-chip" onclick="window.open('https://boardgamegeek.com/boardgame/${game.objectId}', '_blank')" title="${safeName} ${year ? `(${year})` : ''}">
+                <img src="${imageUrl}" alt="${safeName}" class="unplayed-game-img" loading="lazy">
             </div>
-        </div>
-    `).join('');
+        `;
+    }).join('');
 }
 
 function renderClubChallenges() {
@@ -61,11 +86,11 @@ function renderClubChallenges() {
 
     document.getElementById('dime-count').textContent = dimeGames;
     document.getElementById('dime-progress-bar').style.width = `${dimePercent}%`;
-    document.getElementById('dime-progress-text').textContent = `${dimePercent}%`;
+    document.getElementById('dime-progress-text').textContent = `${dimePercent}% of collection (${dimeGames} / ${totalGames})`;
 
     document.getElementById('nickel-count').textContent = nickelGames;
     document.getElementById('nickel-progress-bar').style.width = `${nickelPercent}%`;
-    document.getElementById('nickel-progress-text').textContent = `${nickelPercent}%`;
+    document.getElementById('nickel-progress-text').textContent = `${nickelPercent}% of collection (${nickelGames} / ${totalGames})`;
 }
 
 function renderPersonalBests() {
@@ -73,17 +98,19 @@ function renderPersonalBests() {
 
     // Most played
     const mostPlayed = [...allGames].sort((a, b) => b.numPlays - a.numPlays)[0];
-    document.getElementById('most-played-game').textContent = mostPlayed.name;
-    document.getElementById('most-played-count').textContent = `${mostPlayed.numPlays} plays`;
+    if (mostPlayed) {
+        document.getElementById('most-played-game').textContent = mostPlayed.name;
+        document.getElementById('most-played-count').textContent = `${mostPlayed.numPlays} plays`;
+    }
 
     // Highest rated (by user)
     const ratedGames = allGames.filter(g => g.myRating > 0);
     const highestRated = ratedGames.length > 0 
-        ? ratedGames.sort((a, b) => b.myRating - a.myRating)[0]
+        ? ratedGames.sort((a, b) => b.myRating - a.myRating || a.name.localeCompare(b.name))[0]
         : {name: 'None rated yet', myRating: 0};
     
     document.getElementById('highest-rated-game').textContent = highestRated.name;
-    document.getElementById('highest-rated-value').textContent = highestRated.myRating > 0 ? highestRated.myRating.toFixed(1) : 'N/A';
+    document.getElementById('highest-rated-value').textContent = highestRated.myRating > 0 ? `${highestRated.myRating.toFixed(1)} ★` : 'N/A';
 
     // Oldest/Newest
     const datedGames = allGames.filter(g => g.yearPublished !== 'N/A' && !isNaN(parseInt(g.yearPublished)));

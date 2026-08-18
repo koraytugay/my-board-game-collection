@@ -1,559 +1,355 @@
-/* Challenge Sections */
+/* Collection Challenges Styling - Clean & Minimalist */
+
 .challenge-section {
     background: white;
     border-radius: 10px;
-    padding: 18px 20px;
-    margin-bottom: 24px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+    padding: 20px 24px;
+    border: 1px solid #edf2f7;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+    margin-bottom: 28px;
 }
 
 body.dark-mode .challenge-section {
-    background: #2a2a2a;
+    background: #1e1e1e;
+    border-color: #333333;
 }
 
 .challenge-header {
-    margin-bottom: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #edf2f7;
 }
 
-.challenge-header h2 {
-    font-size: 1.4rem;
-    color: #333;
+body.dark-mode .challenge-header {
+    border-bottom-color: #2d2d2d;
+}
+
+.challenge-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #2d3748;
+    margin: 0;
+}
+
+body.dark-mode .challenge-title {
+    color: #f0f6fc;
+}
+
+.challenge-count-badge {
+    font-size: 0.76rem;
+    font-weight: 600;
+    color: #24292f;
+    background: #ffffff;
+    border: 1px solid #d0d7de;
+    padding: 3px 8px;
+    border-radius: 6px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+body.dark-mode .challenge-count-badge {
+    background: #242424;
+    color: #e0e0e0;
+    border-color: #3d3d3d;
+    box-shadow: none;
+}
+
+/* Stats Boxes */
+.challenge-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 14px;
+    margin-bottom: 20px;
+}
+
+.challenge-stat-box {
+    background: #f8f9fa;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 16px 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+}
+
+body.dark-mode .challenge-stat-box {
+    background: #252525;
+    border-color: #383838;
+}
+
+.stat-number {
+    font-size: 1.55rem;
+    font-weight: 800;
+    color: #222222;
+    margin-bottom: 4px;
+    line-height: 1.2;
+}
+
+body.dark-mode .stat-number {
+    color: #f0f6fc;
+}
+
+.stat-label {
+    font-size: 0.76rem;
+    font-weight: 600;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+}
+
+body.dark-mode .stat-label {
+    color: #94a3b8;
+}
+
+/* Progress Bar Component */
+.progress-bar-container {
+    margin-bottom: 24px;
+}
+
+.progress-bar-track {
+    width: 100%;
+    height: 14px;
+    background: #e2e8f0;
+    border-radius: 7px;
+    overflow: hidden;
     margin-bottom: 6px;
 }
 
-body.dark-mode .challenge-header h2 {
-    color: #e0e0e0;
-}
-
-.challenge-description {
-    color: #666;
-    font-size: 0.88rem;
-}
-
-body.dark-mode .challenge-description {
-    color: #b0b0b0;
-}
-
-.challenge-stats {
-    display: flex;
-    gap: 12px;
-    margin-bottom: 20px;
-    flex-wrap: wrap;
-}
-
-.challenge-stat {
-    background: #f8f8f8;
-    padding: 12px 18px;
-    border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-width: 110px;
-}
-
-body.dark-mode .challenge-stat {
-    background: #1a1a1a;
-}
-
-.challenge-stat .stat-number {
-    font-size: 1.65rem;
-    font-weight: bold;
-    color: #4CAF50;
-    margin-bottom: 3px;
-    line-height: 1.1;
-}
-
-.challenge-stat .stat-label {
-    color: #666;
-    font-size: 0.78rem;
-    text-align: center;
-}
-
-body.dark-mode .challenge-stat .stat-label {
-    color: #b0b0b0;
-}
-
-/* 10x10 Challenge */
-.challenge-games {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    margin-bottom: 25px;
-    min-height: 100px;
-}
-
-.empty-state {
-    text-align: center;
-    color: #999;
-    font-style: italic;
-    padding: 40px;
-}
-
-.challenge-game-card {
-    display: flex;
-    gap: 20px;
-    background: #f8f8f8;
-    padding: 15px;
-    border-radius: 12px;
-    align-items: center;
-    position: relative;
-    transition: all 0.3s ease;
-}
-
-body.dark-mode .challenge-game-card {
-    background: #1a1a1a;
-}
-
-.challenge-game-card.completed {
-    border: 2px solid #4CAF50;
-    background: #e8f5e9;
-}
-
-body.dark-mode .challenge-game-card.completed {
-    background: #1b3d1f;
-    border-color: #4CAF50;
-}
-
-.challenge-game-img {
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
-    border-radius: 8px;
-    flex-shrink: 0;
-}
-
-.challenge-game-info {
-    flex: 1;
-}
-
-.challenge-game-info h3 {
-    font-size: 1.2em;
-    color: #333;
-    margin-bottom: 10px;
-}
-
-body.dark-mode .challenge-game-info h3 {
-    color: #e0e0e0;
-}
-
-.challenge-progress {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-}
-
-.progress-dots {
-    display: flex;
-    gap: 5px;
-}
-
-.dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: #e0e0e0;
-    transition: all 0.3s ease;
-}
-
-body.dark-mode .dot {
-    background: #444;
-}
-
-.dot.filled {
-    background: #4CAF50;
-}
-
-.progress-text {
-    font-size: 0.9em;
-    color: #666;
-}
-
-body.dark-mode .progress-text {
-    color: #b0b0b0;
-}
-
-.btn-remove {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: #ff4444;
-    color: white;
-    border: none;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 1.2em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.2s ease;
-}
-
-.btn-remove:hover {
-    background: #cc0000;
-}
-
-/* Unplayed Games Challenge */
-.progress-bar {
-    width: 100%;
-    height: 30px;
-    background: #e0e0e0;
-    border-radius: 15px;
-    overflow: hidden;
-    margin-bottom: 25px;
-}
-
-body.dark-mode .progress-bar {
-    background: #444;
+body.dark-mode .progress-bar-track {
+    background: #333333;
 }
 
 .progress-fill {
     height: 100%;
-    background: linear-gradient(90deg, #4CAF50, #45a049);
-    border-radius: 15px;
-    transition: width 0.5s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-weight: bold;
+    background: #4a5568;
+    border-radius: 7px;
+    transition: width 0.4s ease;
 }
 
-.challenge-games-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 15px;
-    margin-bottom: 25px;
+body.dark-mode .progress-fill {
+    background: #718096;
 }
 
-.unplayed-game-card {
-    background: #f8f8f8;
-    border-radius: 12px;
-    overflow: hidden;
-    cursor: pointer;
-    position: relative;
-}
-
-body.dark-mode .unplayed-game-card {
-    background: #1a1a1a;
-}
-
-.unplayed-game-card:hover {
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-}
-
-.unplayed-game-card.completed-game {
-    border: 2px solid #4CAF50;
-}
-
-.completed-badge {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: #4CAF50;
-    color: white;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    font-size: 1.2em;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-}
-
-.unplayed-game-card img {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
-}
-
-.unplayed-game-info {
-    padding: 12px;
-}
-
-.unplayed-game-info h4 {
-    font-size: 0.9em;
-    color: #333;
-    margin-bottom: 5px;
-    line-height: 1.3;
-}
-
-body.dark-mode .unplayed-game-info h4 {
-    color: #e0e0e0;
-}
-
-.unplayed-game-info p {
-    font-size: 0.8em;
-    color: #999;
-}
-
-/* Personal Bests */
-.achievements-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-}
-
-.achievement-card {
-    background: #f8f8f8;
-    border-radius: 12px;
-    padding: 25px;
-    display: flex;
-    gap: 20px;
-    align-items: center;
-    transition: all 0.3s ease;
-}
-
-body.dark-mode .achievement-card {
-    background: #1a1a1a;
-}
-
-.achievement-card:hover {
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-}
-
-.achievement-icon {
-    font-size: 3em;
-}
-
-.achievement-info {
-    flex: 1;
-}
-
-.achievement-info h3 {
-    font-size: 1em;
-    color: #999;
-    margin-bottom: 8px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.achievement-info p {
-    font-size: 1.1em;
-    color: #333;
+.progress-label {
+    font-size: 0.78rem;
     font-weight: 600;
-    margin-bottom: 5px;
-    line-height: 1.3;
+    color: #64748b;
+    display: block;
+    text-align: right;
 }
 
-body.dark-mode .achievement-info p {
-    color: #e0e0e0;
+body.dark-mode .progress-label {
+    color: #94a3b8;
 }
 
-.achievement-value {
-    font-size: 0.9em;
-    color: #4CAF50;
-    font-weight: bold;
+/* Unplayed Games Grid */
+.unplayed-games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(115px, 1fr));
+    gap: 14px;
 }
 
-/* Challenge Actions */
-.challenge-actions {
-    display: flex;
-    gap: 15px;
-    flex-wrap: wrap;
-}
-
-.btn-danger {
-    background: #ff4444;
-    color: white;
-}
-
-.btn-danger:hover {
-    background: #cc0000;
-    box-shadow: 0 4px 12px rgba(255, 68, 68, 0.3);
-}
-
-/* Game Selector Modal */
-.modal-large {
-    max-width: 700px;
-}
-
-.modal-search {
-    width: 100%;
-    padding: 12px 20px;
-    border: 2px solid #e0e0e0;
+.unplayed-game-chip {
+    position: relative;
+    aspect-ratio: 1 / 1;
     border-radius: 8px;
-    font-size: 1em;
-    margin-bottom: 20px;
-}
-
-body.dark-mode .modal-search {
-    background: #1a1a1a;
-    color: #e0e0e0;
-    border-color: #444;
-}
-
-.modal-search:focus {
-    outline: none;
-    border-color: #333;
-}
-
-body.dark-mode .modal-search:focus {
-    border-color: #888;
-}
-
-.game-selector-list {
-    max-height: 400px;
-    overflow-y: auto;
+    overflow: hidden;
+    background: #f6f8fa;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+    cursor: pointer;
+    transition: border-color 0.15s ease;
     display: flex;
     flex-direction: column;
-    gap: 10px;
 }
 
-.game-selector-item {
-    display: flex;
-    gap: 15px;
-    padding: 12px;
-    background: #f8f8f8;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    align-items: center;
+body.dark-mode .unplayed-game-chip {
+    background: #161b22;
+    border-color: rgba(255, 255, 255, 0.1);
 }
 
-body.dark-mode .game-selector-item {
-    background: #1a1a1a;
+.unplayed-game-chip:hover {
+    border-color: #222222;
 }
 
-.game-selector-item:hover {
-    background: #e8e8e8;
+body.dark-mode .unplayed-game-chip:hover {
+    border-color: #e0e0e0;
 }
 
-body.dark-mode .game-selector-item:hover {
-    background: #333;
-}
-
-.game-selector-item img {
-    width: 60px;
-    height: 60px;
+.unplayed-game-img {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    border-radius: 6px;
+    display: block;
 }
 
-.game-selector-info {
-    flex: 1;
-}
-
-.game-selector-info h4 {
-    font-size: 1em;
-    color: #333;
-    margin-bottom: 3px;
-}
-
-body.dark-mode .game-selector-info h4 {
-    color: #e0e0e0;
-}
-
-.game-selector-info p {
-    font-size: 0.85em;
-    color: #999;
-}
-
-/* Club Challenges */
+/* Club Challenges Grid */
 .club-challenges-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
 }
 
 .club-card {
-    background: #f8f8f8;
-    padding: 25px;
-    border-radius: 15px;
+    background: #f8f9fa;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 18px 20px;
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    transition: all 0.3s ease;
 }
 
 body.dark-mode .club-card {
-    background: #1a1a1a;
+    background: #252525;
+    border-color: #383838;
 }
 
-.club-card:hover {
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-}
-
-.club-card h3 {
-    font-size: 1.2em;
-    color: #333;
-    text-align: center;
-}
-
-body.dark-mode .club-card h3 {
-    color: #e0e0e0;
-}
-
-.club-stats {
+.club-header {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
+    margin-bottom: 12px;
+}
+
+.club-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #2d3748;
+}
+
+body.dark-mode .club-title {
+    color: #f0f6fc;
+}
+
+.club-threshold {
+    font-size: 0.76rem;
+    font-weight: 600;
+    color: #64748b;
+    background: #ffffff;
+    border: 1px solid #d0d7de;
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+
+body.dark-mode .club-threshold {
+    background: #1e1e1e;
+    color: #94a3b8;
+    border-color: #444;
+}
+
+.club-body {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin-bottom: 14px;
 }
 
 .club-count {
-    font-size: 3em;
+    font-size: 2rem;
     font-weight: 800;
-    color: #333;
+    color: #222222;
     line-height: 1;
 }
 
 body.dark-mode .club-count {
-    color: #e0e0e0;
+    color: #f0f6fc;
 }
 
 .club-label {
-    font-size: 0.9em;
-    color: #999;
-    font-weight: bold;
-    text-transform: uppercase;
+    font-size: 0.82rem;
+    color: #64748b;
+    font-weight: 600;
 }
 
-/* Mobile Responsive */
-@media (max-width: 768px) {
+body.dark-mode .club-label {
+    color: #94a3b8;
+}
+
+.club-card .progress-bar-container {
+    margin-bottom: 0;
+}
+
+/* Personal Bests (Achievements Grid) */
+.achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 14px;
+}
+
+.achievement-card {
+    background: #f8f9fa;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 16px 18px;
+    display: flex;
+    flex-direction: column;
+}
+
+body.dark-mode .achievement-card {
+    background: #252525;
+    border-color: #383838;
+}
+
+.achievement-type {
+    font-size: 0.74rem;
+    font-weight: 700;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+}
+
+body.dark-mode .achievement-type {
+    color: #94a3b8;
+}
+
+.achievement-name {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #2d3748;
+    margin: 0 0 6px 0;
+    line-height: 1.3;
+    word-break: break-word;
+}
+
+body.dark-mode .achievement-name {
+    color: #f0f6fc;
+}
+
+.achievement-val {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: #222222;
+    margin-top: auto;
+}
+
+body.dark-mode .achievement-val {
+    color: #f0f6fc;
+}
+
+.empty-state {
+    grid-column: 1 / -1;
+    color: #718096;
+    font-size: 0.88rem;
+    padding: 24px 0;
+    text-align: center;
+    margin: 0;
+}
+
+body.dark-mode .empty-state {
+    color: #8b949e;
+}
+
+@media (max-width: 600px) {
     .challenge-section {
-        padding: 20px;
+        padding: 16px;
     }
-
-    .challenge-header h2 {
-        font-size: 1.5em;
-    }
-
-    .challenge-stats {
-        justify-content: center;
-    }
-
-    .challenge-game-card {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .challenge-game-img {
-        width: 100%;
-        max-width: 200px;
-        height: auto;
-    }
-
-    .btn-remove {
-        top: 5px;
-        right: 5px;
-    }
-
-    .challenge-games-grid {
-        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-    }
-
-    .achievements-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .challenge-actions {
-        flex-direction: column;
-    }
-
-    .challenge-actions .btn {
-        width: 100%;
+    .unplayed-games-grid {
+        grid-template-columns: repeat(auto-fill, minmax(95px, 1fr));
+        gap: 10px;
     }
 }
