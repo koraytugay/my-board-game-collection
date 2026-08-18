@@ -605,6 +605,98 @@ async function fetchAmazonWithPuppeteer(gameName) {
     }
 }
 
+function getRecommendedRange() {
+    let start = 0;
+    let end = null;
+    let limit = null;
+
+    if (process.env.REC_START !== undefined) start = parseInt(process.env.REC_START, 10);
+    else if (process.env.REC_OFFSET !== undefined) start = parseInt(process.env.REC_OFFSET, 10);
+
+    if (process.env.REC_END !== undefined) {
+        if (String(process.env.REC_END).toLowerCase() === 'max' || String(process.env.REC_END).toLowerCase() === 'all') {
+            end = Infinity;
+        } else {
+            end = parseInt(process.env.REC_END, 10);
+        }
+    } else if (process.env.REC_LIMIT !== undefined) {
+        limit = parseInt(process.env.REC_LIMIT, 10);
+    }
+
+    const args = process.argv;
+    for (let i = 0; i < args.length; i++) {
+        const arg = args[i];
+        if (arg === '--start' || arg === '--offset') {
+            const val = parseInt(args[i + 1], 10);
+            if (!isNaN(val)) start = val;
+        } else if (arg.startsWith('--start=') || arg.startsWith('--offset=')) {
+            const val = parseInt(arg.split('=')[1], 10);
+            if (!isNaN(val)) start = val;
+        } else if (arg === '--end') {
+            const valStr = args[i + 1];
+            if (valStr && (valStr.toLowerCase() === 'max' || valStr.toLowerCase() === 'all')) {
+                end = Infinity;
+            } else {
+                const val = parseInt(valStr, 10);
+                if (!isNaN(val)) end = val;
+            }
+        } else if (arg.startsWith('--end=')) {
+            const valStr = arg.split('=')[1];
+            if (valStr && (valStr.toLowerCase() === 'max' || valStr.toLowerCase() === 'all')) {
+                end = Infinity;
+            } else {
+                const val = parseInt(valStr, 10);
+                if (!isNaN(val)) end = val;
+            }
+        } else if (arg === '--limit') {
+            const val = parseInt(args[i + 1], 10);
+            if (!isNaN(val)) limit = val;
+        } else if (arg.startsWith('--limit=')) {
+            const val = parseInt(arg.split('=')[1], 10);
+            if (!isNaN(val)) limit = val;
+        } else if (arg === '--range' && args[i + 1]) {
+            const parts = args[i + 1].split(/[-:]/);
+            if (parts.length >= 1 && parts[0] !== '') {
+                const s = parseInt(parts[0], 10);
+                if (!isNaN(s)) start = s;
+            }
+            if (parts.length >= 2) {
+                if (parts[1].toLowerCase() === 'max' || parts[1].toLowerCase() === 'all' || parts[1] === '') {
+                    end = Infinity;
+                } else {
+                    const e = parseInt(parts[1], 10);
+                    if (!isNaN(e)) end = e;
+                }
+            }
+        } else if (arg.startsWith('--range=')) {
+            const parts = arg.split('=')[1].split(/[-:]/);
+            if (parts.length >= 1 && parts[0] !== '') {
+                const s = parseInt(parts[0], 10);
+                if (!isNaN(s)) start = s;
+            }
+            if (parts.length >= 2) {
+                if (parts[1].toLowerCase() === 'max' || parts[1].toLowerCase() === 'all' || parts[1] === '') {
+                    end = Infinity;
+                } else {
+                    const e = parseInt(parts[1], 10);
+                    if (!isNaN(e)) end = e;
+                }
+            }
+        }
+    }
+
+    if (isNaN(start) || start < 0) start = 0;
+    if (end === null) {
+        if (limit !== null && !isNaN(limit)) {
+            end = start + limit;
+        } else {
+            end = start === 0 ? 100 : Infinity;
+        }
+    }
+
+    return { start, end };
+}
+
 function decodeXmlEntities(str) {
     return str
         .replace(/&amp;/g, '&')
@@ -662,8 +754,12 @@ async function checkAvailability() {
         try {
             const recData = JSON.parse(fs.readFileSync(RECOMMENDATIONS_FILE, 'utf8'));
             const recList = recData.recommendations || [];
-            const limit = parseInt(process.env.REC_LIMIT || '100', 10);
-            recList.slice(0, limit).forEach(r => {
+            const range = getRecommendedRange();
+            const sliced = range.end === Infinity 
+                ? recList.slice(range.start) 
+                : recList.slice(range.start, range.end);
+
+            sliced.forEach(r => {
                 if (r.objectId && r.name) {
                     wantedGames.push({
                         objectId: String(r.objectId),
@@ -671,7 +767,8 @@ async function checkAvailability() {
                     });
                 }
             });
-            console.log(`Loaded top ${wantedGames.length} games from ${RECOMMENDATIONS_FILE}.`);
+            const endDisplay = range.end === Infinity ? Math.max(400, recList.length) : range.end;
+            console.log(`Loaded ${wantedGames.length} games (range: ${range.start} - ${endDisplay}, total: ${recList.length}) from ${RECOMMENDATIONS_FILE}.`);
         } catch (e) {
             console.error('Error reading recommendations.json:', e);
             return;
@@ -700,7 +797,7 @@ async function checkAvailability() {
 
         console.log(`Found ${wantedGames.length} games in Want to Buy list.`);
     }
-    const availabilityData = {};
+    const availabilityData = { ...existingData };
 
     for (let i = 0; i < wantedGames.length; i++) {
         const game = wantedGames[i];

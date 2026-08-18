@@ -1,9 +1,9 @@
-name: Check Recommended Game Availability (1 - 100)
+name: Check Recommended Game Availability (301 - 400+)
 
 on:
   schedule:
-    # Runs daily at 2:00 AM Eastern Time (06:00 UTC)
-    - cron: "0 6 * * *"
+    # Runs daily at 5:00 AM Eastern Time (09:00 UTC)
+    - cron: "0 9 * * *"
   workflow_dispatch:
 
 permissions:
@@ -30,17 +30,17 @@ jobs:
       - name: Install Dependencies
         run: npm ci
 
-      - name: Check Recommended Game Availability & Send Notifications (1 - 100)
+      - name: Check Recommended Game Availability & Send Notifications (301 - 400+)
         env:
           ICLOUD_EMAIL: ${{ secrets.ICLOUD_EMAIL }}
           ICLOUD_APP_PASSWORD: ${{ secrets.ICLOUD_APP_PASSWORD }}
           ETSY_API_KEY: ${{ secrets.ETSY_API_KEY }}
         run: |
-          node check-availability.js --recommended --start 0 --end 100
+          node check-availability.js --recommended --start 300 --end max
           echo "First pass finished. Starting second pass to retry failed/timed-out requests..."
-          node check-availability.js --recommended --start 0 --end 100
+          node check-availability.js --recommended --start 300 --end max
           echo "Checking for stock diffs and sending notifications if changes found..."
-          node notify-availability.js --recommended --start 0 --end 100
+          node notify-availability.js --recommended --start 300 --end max
 
       - name: Commit & push if changed
         run: |
@@ -57,6 +57,5 @@ jobs:
             exit 0
           fi
 
-          git commit -m "chore: update recommended game availability 1-100 ($(date -u +%F))"
+          git commit -m "chore: update recommended game availability 301+ ($(date -u +%F))"
           git push
-
