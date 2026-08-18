@@ -24,15 +24,15 @@
 
         <nav class="page-nav">
             <a href="index.html" class="nav-link">Collection</a>
+            <a href="wanttobuy.html" class="nav-link active">Want to Buy</a>
+            <a href="wanttoplay.html" class="nav-link">Want to Play</a>
+            <a href="recommended.html" class="nav-link">Recommended Games</a>
+            <a href="calendar.html" class="nav-link">Play Calendar</a>
             <a href="history.html" class="nav-link">Play History</a>
             <a href="stats.html" class="nav-link">View Statistics</a>
             <a href="challenges.html" class="nav-link">Collection Challenges</a>
-            <a href="calendar.html" class="nav-link">Play Calendar</a>
             <a href="tournament.html" class="nav-link">Game Tournament</a>
-            <a href="recommended.html" class="nav-link">Recommended Games</a>
-            <a href="wanttobuy.html" class="nav-link active">Want to Buy</a>
             <a href="wanttosell.html" class="nav-link">Want to Sell</a>
-            <a href="wanttoplay.html" class="nav-link">Want to Play</a>
         </nav>
 
         <div id="loading" class="loading">
@@ -41,25 +41,6 @@
         </div>
 
         <div id="error" class="error" style="display: none;"></div>
-
-        <div id="stats" class="stats" style="display: none;">
-            <div class="stat-card">
-                <span class="stat-number" id="total-games">0</span>
-                <span class="stat-label">Total Wanted</span>
-            </div>
-            <div class="stat-card">
-                <span class="stat-number" id="avg-rating">0</span>
-                <span class="stat-label">Avg BGG Rating</span>
-            </div>
-            <div class="stat-card">
-                <span class="stat-number" id="solo-games">0</span>
-                <span class="stat-label">Solo Playable</span>
-            </div>
-            <div class="stat-card">
-                <span class="stat-number" id="in-stock-games">0</span>
-                <span class="stat-label">In Stock Now</span>
-            </div>
-        </div>
 
         <div id="controls" class="controls" style="display: none;">
             <div class="controls-row">
@@ -128,6 +109,15 @@
                 </div>
 
                 <div class="control-group">
+                    <label for="designer-filter">Designer:</label>
+                    <select id="designer-filter" onchange="applyFilters()">
+                        <option value="all">All Designers</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="controls-row">
+                <div class="control-group">
                     <label for="store-filter">Store:</label>
                     <select id="store-filter" onchange="applyFilters()">
                         <option value="all">All Stores</option>
@@ -138,13 +128,6 @@
                     <label for="seller-filter">BGG Seller:</label>
                     <select id="seller-filter" onchange="applyFilters()">
                         <option value="all">All Sellers</option>
-                    </select>
-                </div>
-
-                <div class="control-group">
-                    <label for="designer-filter">Designer:</label>
-                    <select id="designer-filter" onchange="applyFilters()">
-                        <option value="all">All Designers</option>
                     </select>
                 </div>
             </div>

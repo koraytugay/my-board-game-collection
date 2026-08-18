@@ -6,7 +6,6 @@ let currentViewMode = 'grid';
 async function fetchCollection() {
     const loadingEl = document.getElementById('loading');
     const errorEl = document.getElementById('error');
-    const statsEl = document.getElementById('stats');
     const controlsEl = document.getElementById('controls');
 
     try {
@@ -21,12 +20,9 @@ async function fetchCollection() {
         }));
         
         filteredGames = [...allGames];
-        
-        updateStats();
         sortGames(currentSort);
         
         loadingEl.style.display = 'none';
-        statsEl.style.display = 'flex';
         controlsEl.style.display = 'block';
         
         loadDarkModePreference();
@@ -37,22 +33,6 @@ async function fetchCollection() {
         errorEl.style.display = 'block';
         errorEl.textContent = `Failed to load Want to Play games: ${error.message}`;
     }
-}
-
-function updateStats() {
-    const totalGames = allGames.length;
-    const totalPlays = allGames.reduce((sum, game) => sum + game.numPlays, 0);
-    const unplayedGames = allGames.filter(game => game.numPlays === 0).length;
-    
-    const ratedGames = allGames.filter(game => game.rating > 0);
-    const avgRating = ratedGames.length > 0 
-        ? ratedGames.reduce((sum, game) => sum + game.rating, 0) / ratedGames.length 
-        : 0;
-
-    document.getElementById('total-games').textContent = totalGames;
-    document.getElementById('total-plays').textContent = totalPlays;
-    document.getElementById('avg-rating').textContent = avgRating.toFixed(1);
-    document.getElementById('unplayed-games').textContent = unplayedGames;
 }
 
 function sortGames(criteria) {
@@ -101,17 +81,11 @@ function applyFilters() {
     const playerCountFilter = document.getElementById('player-count');
     const playTimeFilter = document.getElementById('play-time');
     const ratingFilter = document.getElementById('rating-filter');
-    const unplayedOnlyFilter = document.getElementById('unplayed-only');
-    const soloOnlyFilter = document.getElementById('solo-only');
-    const favoritesOnlyFilter = document.getElementById('favorites-only');
 
     const searchTerm = searchInput ? searchInput.value.toLowerCase().trim() : '';
     const playerCount = playerCountFilter ? playerCountFilter.value : 'all';
     const playTime = playTimeFilter ? playTimeFilter.value : 'all';
     const ratingVal = ratingFilter ? ratingFilter.value : 'all';
-    const unplayedOnly = unplayedOnlyFilter ? unplayedOnlyFilter.checked : false;
-    const soloOnly = soloOnlyFilter ? soloOnlyFilter.checked : false;
-    const favoritesOnly = favoritesOnlyFilter ? favoritesOnlyFilter.checked : false;
 
     filteredGames = allGames.filter(game => {
         const matchesSearch = !searchTerm || game.name.toLowerCase().includes(searchTerm);
@@ -140,11 +114,7 @@ function applyFilters() {
             matchesRating = game.rating >= minRating;
         }
 
-        const matchesUnplayed = !unplayedOnly || game.numPlays === 0;
-        const matchesSolo = !soloOnly || game.minPlayers <= 1;
-        const matchesFavorites = !favoritesOnly || game.myRating >= 9;
-
-        return matchesSearch && matchesPlayers && matchesTime && matchesRating && matchesUnplayed && matchesSolo && matchesFavorites;
+        return matchesSearch && matchesPlayers && matchesTime && matchesRating;
     });
 
     renderGames();

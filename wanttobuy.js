@@ -190,7 +190,6 @@ function populateDesignerFilter() {
 async function fetchCollection() {
     const loadingEl = document.getElementById('loading');
     const errorEl = document.getElementById('error');
-    const statsEl = document.getElementById('stats');
     const controlsEl = document.getElementById('controls');
 
     try {
@@ -233,12 +232,9 @@ async function fetchCollection() {
         populateDesignerFilter();
 
         filteredGames = [...allGames];
-        
-        updateStats();
         sortGames(currentSort);
         
         loadingEl.style.display = 'none';
-        statsEl.style.display = 'flex';
         controlsEl.style.display = 'block';
         
         loadDarkModePreference();
@@ -249,25 +245,6 @@ async function fetchCollection() {
         errorEl.style.display = 'block';
         errorEl.textContent = `Failed to load wanted games: ${error.message}`;
     }
-}
-
-function updateStats() {
-    const totalGames = allGames.length;
-    
-    const ratedGames = allGames.filter(game => game.rating > 0);
-    const avgRating = ratedGames.length > 0 
-        ? ratedGames.reduce((sum, game) => sum + game.rating, 0) / ratedGames.length 
-        : 0;
-        
-    const soloGames = allGames.filter(game => game.minPlayers <= 1).length;
-    
-    // Count how many wanted games are in stock at any store
-    const inStockGames = allGames.filter(game => isGameInStockAtAnyStore(game)).length;
-
-    document.getElementById('total-games').textContent = totalGames;
-    document.getElementById('avg-rating').textContent = avgRating.toFixed(1);
-    document.getElementById('solo-games').textContent = soloGames;
-    document.getElementById('in-stock-games').textContent = inStockGames;
 }
 
 function sortGames(criteria) {

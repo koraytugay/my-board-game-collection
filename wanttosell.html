@@ -75,15 +75,15 @@
 
         <nav class="page-nav">
             <a href="index.html" class="nav-link">Collection</a>
+            <a href="wanttobuy.html" class="nav-link">Want to Buy</a>
+            <a href="wanttoplay.html" class="nav-link">Want to Play</a>
+            <a href="recommended.html" class="nav-link">Recommended Games</a>
+            <a href="calendar.html" class="nav-link">Play Calendar</a>
             <a href="history.html" class="nav-link">Play History</a>
             <a href="stats.html" class="nav-link">View Statistics</a>
             <a href="challenges.html" class="nav-link">Collection Challenges</a>
-            <a href="calendar.html" class="nav-link">Play Calendar</a>
             <a href="tournament.html" class="nav-link">Game Tournament</a>
-            <a href="recommended.html" class="nav-link">Recommended Games</a>
-            <a href="wanttobuy.html" class="nav-link">Want to Buy</a>
             <a href="wanttosell.html" class="nav-link active">Want to Sell</a>
-            <a href="wanttoplay.html" class="nav-link">Want to Play</a>
         </nav>
 
         <div id="loading" class="loading">
@@ -92,25 +92,6 @@
         </div>
 
         <div id="error" class="error" style="display: none;"></div>
-
-        <div id="stats" class="stats" style="display: none;">
-            <div class="stat-card">
-                <span class="stat-number" id="total-games">0</span>
-                <span class="stat-label">Total Want to Sell</span>
-            </div>
-            <div class="stat-card">
-                <span class="stat-number" id="total-plays">0</span>
-                <span class="stat-label">Total Plays</span>
-            </div>
-            <div class="stat-card">
-                <span class="stat-number" id="avg-rating">0</span>
-                <span class="stat-label">Avg Rating</span>
-            </div>
-            <div class="stat-card">
-                <span class="stat-number" id="unplayed-games">0</span>
-                <span class="stat-label">Unplayed</span>
-            </div>
-        </div>
 
         <div id="controls" class="controls" style="display: none;">
             <div class="controls-row">
@@ -165,27 +146,6 @@
                         <option value="4">4</option>
                         <option value="5+">5+</option>
                     </select>
-                </div>
-
-                <div class="control-group">
-                    <label class="checkbox-label">
-                        <input type="checkbox" id="unplayed-only" onchange="applyFilters()">
-                        Unplayed Only
-                    </label>
-                </div>
-
-                <div class="control-group">
-                    <label class="checkbox-label">
-                        <input type="checkbox" id="solo-only" onchange="applyFilters()">
-                        Solo Only
-                    </label>
-                </div>
-
-                <div class="control-group">
-                    <label class="checkbox-label">
-                        <input type="checkbox" id="favorites-only" onchange="applyFilters()">
-                        Favorites Only
-                    </label>
                 </div>
             </div>
         </div>
