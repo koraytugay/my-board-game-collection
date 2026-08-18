@@ -346,7 +346,7 @@ function createGameCard(game) {
     const card = document.createElement('div');
     card.className = 'game-card';
     card.onclick = (e) => {
-        if (e.target.closest('.store-btn') || e.target.closest('.btn-wont-buy')) return;
+        if (e.target.closest('a') || e.target.closest('button') || e.target.closest('.store-chip') || e.target.closest('.btn-wont-buy') || e.target.closest('.source-thumb-chip')) return;
         window.open(`https://boardgamegeek.com/boardgame/${game.objectId}`, '_blank');
     };
 

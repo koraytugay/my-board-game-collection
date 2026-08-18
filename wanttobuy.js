@@ -362,8 +362,8 @@ function createGameCard(game) {
     const card = document.createElement('div');
     card.className = 'game-card';
     card.onclick = (e) => {
-        // Prevent opening BGG page if user is clicking a store link
-        if (e.target.closest('.store-btn')) return;
+        // Prevent opening BGG page if user is clicking a store link, button, or any interactive element
+        if (e.target.closest('a') || e.target.closest('button') || e.target.closest('.store-chip')) return;
         window.open(`https://boardgamegeek.com/boardgame/${game.objectId}`, '_blank');
     };
 
