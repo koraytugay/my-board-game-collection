@@ -6,7 +6,7 @@ async function fetchStats() {
     const contentEl = document.getElementById('stats-content');
 
     try {
-        allGames = await getCollection();
+        allGames = await getCollection(true);
         updateOverviewStats();
         renderMostPlayed();
         renderMilestones();
@@ -24,6 +24,16 @@ async function fetchStats() {
     }
 }
 
+function escapeHtml(str) {
+    if (!str) return '';
+    return str
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+}
+
 function updateOverviewStats() {
     const totalGames = allGames.length;
     const totalPlays = allGames.reduce((sum, game) => sum + game.numPlays, 0);
@@ -38,7 +48,7 @@ function updateOverviewStats() {
         ? myRatedGames.reduce((sum, game) => sum + game.myRating, 0) / myRatedGames.length
         : 0;
 
-    const avgPlayTime = Math.round(allGames.reduce((sum, game) => sum + game.playingTime, 0) / totalGames);
+    const avgPlayTime = totalGames > 0 ? Math.round(allGames.reduce((sum, game) => sum + game.playingTime, 0) / totalGames) : 0;
     const mostPlayed = [...allGames].sort((a, b) => b.numPlays - a.numPlays)[0];
 
     document.getElementById('total-games').textContent = totalGames;
@@ -50,7 +60,7 @@ function updateOverviewStats() {
 }
 
 function renderMostPlayed() {
-    const container = document.getElementById('most-played-list');
+    const container = document.getElementById('most-played-grid');
     const topGames = [...allGames]
         .sort((a, b) => b.numPlays - a.numPlays)
         .slice(0, 10)
@@ -61,20 +71,18 @@ function renderMostPlayed() {
         return;
     }
 
-    container.innerHTML = topGames.map((game, index) => `
-        <div class="most-played-item" onclick="window.open('https://boardgamegeek.com/boardgame/${game.objectId}', '_blank')">
-            <div class="most-played-rank">#${index + 1}</div>
-            <img src="${game.thumbnail}" alt="${game.name}" class="most-played-img">
-            <div class="most-played-info">
-                <h3>${game.name}</h3>
-                <p>${game.yearPublished !== 'N/A' ? `(${game.yearPublished})` : ''}</p>
+    container.innerHTML = topGames.map((game, index) => {
+        const safeName = escapeHtml(game.name);
+        const imageUrl = game.image || game.thumbnail || 'https://via.placeholder.com/150x150?text=?';
+
+        return `
+            <div class="top-played-card" onclick="window.open('https://boardgamegeek.com/boardgame/${game.objectId}', '_blank')" title="${safeName} (${game.numPlays} plays)">
+                <span class="top-rank-badge">#${index + 1}</span>
+                <img src="${imageUrl}" alt="${safeName}" class="top-played-img" loading="lazy">
+                <div class="top-plays-overlay">${game.numPlays} ${game.numPlays === 1 ? 'play' : 'plays'}</div>
             </div>
-            <div class="most-played-plays">
-                <span class="plays-number">${game.numPlays}</span>
-                <span class="plays-label">plays</span>
-            </div>
-        </div>
-    `).join('');
+        `;
+    }).join('');
 }
 
 function renderMilestones() {
@@ -111,11 +119,11 @@ function renderRatingChart() {
             const percentage = maxCount > 0 ? (count / maxCount) * 100 : 0;
             return `
                 <div class="chart-row">
-                    <div class="chart-label">${label}</div>
+                    <div class="chart-label">${label}★</div>
                     <div class="chart-bar-container">
                         <div class="chart-bar" style="width: ${percentage}%"></div>
-                        <span class="chart-count">${count}</span>
                     </div>
+                    <span class="chart-count">${count}</span>
                 </div>
             `;
         }).join('');

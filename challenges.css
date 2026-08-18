@@ -192,7 +192,6 @@ body.dark-mode .progress-text {
 
 .btn-remove:hover {
     background: #cc0000;
-    transform: scale(1.1);
 }
 
 /* Unplayed Games Challenge */
@@ -233,7 +232,6 @@ body.dark-mode .progress-bar {
     border-radius: 12px;
     overflow: hidden;
     cursor: pointer;
-    transition: all 0.3s ease;
     position: relative;
 }
 
@@ -242,7 +240,6 @@ body.dark-mode .unplayed-game-card {
 }
 
 .unplayed-game-card:hover {
-    transform: translateY(-5px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
@@ -315,7 +312,6 @@ body.dark-mode .achievement-card {
 }
 
 .achievement-card:hover {
-    transform: translateY(-3px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
@@ -367,7 +363,6 @@ body.dark-mode .achievement-info p {
 
 .btn-danger:hover {
     background: #cc0000;
-    transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(255, 68, 68, 0.3);
 }
 
@@ -425,7 +420,6 @@ body.dark-mode .game-selector-item {
 
 .game-selector-item:hover {
     background: #e8e8e8;
-    transform: translateX(5px);
 }
 
 body.dark-mode .game-selector-item:hover {
@@ -480,7 +474,6 @@ body.dark-mode .club-card {
 }
 
 .club-card:hover {
-    transform: translateY(-5px);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 

@@ -12,7 +12,7 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Collection Statistics - My Board Game Collection</title>
+    <title>Statistics - My Board Game Collection</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="stats.css">
 </head>
@@ -47,35 +47,31 @@
         <div id="stats-content" style="display: none;">
             <!-- Overview Stats -->
             <section class="stats-section">
-                <h2>Collection Overview</h2>
+                <div class="stats-header">
+                    <h2 class="stats-title">Collection Overview</h2>
+                </div>
                 <div class="stats-cards">
-                    <div class="stat-card-large">
-                        <span class="stat-icon">🎲</span>
+                    <div class="stat-card-box">
                         <span class="stat-number" id="total-games">0</span>
                         <span class="stat-label">Total Games</span>
                     </div>
-                    <div class="stat-card-large">
-                        <span class="stat-icon">🎮</span>
+                    <div class="stat-card-box">
                         <span class="stat-number" id="total-plays">0</span>
                         <span class="stat-label">Total Plays</span>
                     </div>
-                    <div class="stat-card-large">
-                        <span class="stat-icon">⭐</span>
+                    <div class="stat-card-box">
                         <span class="stat-number" id="avg-rating">0</span>
                         <span class="stat-label">Avg BGG Rating</span>
                     </div>
-                    <div class="stat-card-large">
-                        <span class="stat-icon">💚</span>
+                    <div class="stat-card-box">
                         <span class="stat-number" id="avg-my-rating">0</span>
                         <span class="stat-label">Avg My Rating</span>
                     </div>
-                    <div class="stat-card-large">
-                        <span class="stat-icon">⏱️</span>
+                    <div class="stat-card-box">
                         <span class="stat-number" id="avg-playtime">0</span>
                         <span class="stat-label">Avg Play Time (min)</span>
                     </div>
-                    <div class="stat-card-large">
-                        <span class="stat-icon">🏆</span>
+                    <div class="stat-card-box">
                         <span class="stat-number" id="most-played-name">-</span>
                         <span class="stat-label">Most Played Game</span>
                     </div>
@@ -84,65 +80,76 @@
 
             <!-- Top 10 Most Played Games -->
             <section class="stats-section">
-                <h2>Top 10 Most Played Games</h2>
-                <div id="most-played-list" class="most-played-list">
-                    <!-- Will be populated by JavaScript -->
+                <div class="stats-header">
+                    <h2 class="stats-title">Top 10 Most Played Games</h2>
+                </div>
+                <div id="most-played-grid" class="top-played-grid">
+                    <!-- Populated by JavaScript with thumbnail cards -->
                 </div>
             </section>
 
-            <!-- Play Milestones & Charts -->
+            <!-- Play Milestones & Rating Distribution -->
             <div class="stats-grid-two-cols">
                 <section class="stats-section">
-                    <h2>Play Milestones</h2>
-                    <div class="milestone-cards">
-                        <div class="milestone-card h-index">
-                            <span class="milestone-label">H-Index</span>
-                            <span class="milestone-number" id="h-index-val">0</span>
-                            <span class="milestone-sub">Games played X times</span>
+                    <div class="stats-header">
+                        <h2 class="stats-title">Play Milestones</h2>
+                    </div>
+                    <div class="milestones-container">
+                        <div class="milestone-box">
+                            <div class="milestone-main">
+                                <span class="milestone-label">H-Index</span>
+                                <span class="milestone-number" id="h-index-val">0</span>
+                            </div>
+                            <span class="milestone-sub">Games played at least X times</span>
                         </div>
-                        <div class="milestone-card dime">
-                            <span class="milestone-label">Dime Club</span>
-                            <span class="milestone-number" id="dime-club-count">0</span>
-                            <span class="milestone-sub">Games with 10+ plays</span>
+                        <div class="milestone-box">
+                            <div class="milestone-main">
+                                <span class="milestone-label">Dime Club</span>
+                                <span class="milestone-number" id="dime-club-count">0</span>
+                            </div>
+                            <span class="milestone-sub">Games with 10+ recorded plays</span>
                         </div>
-                        <div class="milestone-card nickel">
-                            <span class="milestone-label">Nickel Club</span>
-                            <span class="milestone-number" id="nickel-club-count">0</span>
-                            <span class="milestone-sub">Games with 5+ plays</span>
+                        <div class="milestone-box">
+                            <div class="milestone-main">
+                                <span class="milestone-label">Nickel Club</span>
+                                <span class="milestone-number" id="nickel-club-count">0</span>
+                            </div>
+                            <span class="milestone-sub">Games with 5+ recorded plays</span>
                         </div>
                     </div>
                 </section>
 
                 <section class="stats-section">
-                    <h2>My Rating Distribution</h2>
+                    <div class="stats-header">
+                        <h2 class="stats-title">My Rating Distribution</h2>
+                    </div>
                     <div id="rating-chart" class="css-chart">
                         <!-- Populated by JS -->
                     </div>
                 </section>
             </div>
 
+            <!-- Additional Insights -->
             <section class="stats-section">
-                <h2>Additional Insights</h2>
+                <div class="stats-header">
+                    <h2 class="stats-title">Additional Insights</h2>
+                </div>
                 <div class="insights-grid">
-                    <div class="insight-card">
-                        <h3>Solo Games</h3>
-                        <p class="insight-number" id="solo-games-count">0</p>
-                        <p class="insight-description">Games playable solo</p>
+                    <div class="stat-card-box">
+                        <span class="stat-number" id="solo-games-count">0</span>
+                        <span class="stat-label">Solo Playable</span>
                     </div>
-                    <div class="insight-card">
-                        <h3>Unplayed Games</h3>
-                        <p class="insight-number" id="unplayed-count">0</p>
-                        <p class="insight-description">Games with 0 plays</p>
+                    <div class="stat-card-box">
+                        <span class="stat-number" id="unplayed-count">0</span>
+                        <span class="stat-label">Unplayed Games</span>
                     </div>
-                    <div class="insight-card">
-                        <h3>High Rated</h3>
-                        <p class="insight-number" id="high-rated-count">0</p>
-                        <p class="insight-description">BGG rating 7.5+</p>
+                    <div class="stat-card-box">
+                        <span class="stat-number" id="high-rated-count">0</span>
+                        <span class="stat-label">High Rated (BGG 7.5+)</span>
                     </div>
-                    <div class="insight-card">
-                        <h3>Recent Additions</h3>
-                        <p class="insight-number" id="recent-games-count">0</p>
-                        <p class="insight-description">Published 2020+</p>
+                    <div class="stat-card-box">
+                        <span class="stat-number" id="recent-games-count">0</span>
+                        <span class="stat-label">Published 2020+</span>
                     </div>
                 </div>
             </section>

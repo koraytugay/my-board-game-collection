@@ -97,7 +97,7 @@ body.dark-mode .tier-row:nth-child(even) .tier-content {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
     cursor: pointer;
     flex-shrink: 0;
-    transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+    transition: border-color 0.15s ease;
 }
 
 body.dark-mode .tier-game-card {
@@ -106,15 +106,11 @@ body.dark-mode .tier-game-card {
 }
 
 .tier-game-card:hover {
-    transform: scale(1.18);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.22);
     border-color: #222222;
-    z-index: 10;
 }
 
 body.dark-mode .tier-game-card:hover {
     border-color: #e0e0e0;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
 }
 
 .tier-game-img {

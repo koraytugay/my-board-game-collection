@@ -119,8 +119,9 @@ function renderCalendar() {
                 playEl.className = 'play-thumbnail-entry';
                 
                 let imgHtml = '';
-                if (gameData && gameData.thumbnail) {
-                    imgHtml = `<img src="${gameData.thumbnail}" alt="${entry.name}">`;
+                const imgSrc = gameData ? (gameData.image || gameData.thumbnail) : '';
+                if (imgSrc) {
+                    imgHtml = `<img src="${imgSrc}" alt="${escapeHtml(entry.name)}">`;
                 } else {
                     // Fallback for games not in collection
                     imgHtml = `<div class="play-placeholder-img"><span>?</span></div>`;
@@ -143,6 +144,16 @@ function renderCalendar() {
         gridEl.appendChild(dayEl);
         loopDay.setDate(loopDay.getDate() + 1);
     }
+}
+
+function escapeHtml(str) {
+    if (!str) return '';
+    return str
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
 }
 
 function loadDarkMode() {

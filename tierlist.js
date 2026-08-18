@@ -90,7 +90,7 @@ function renderTierRow(tierKey, games) {
 
     gridEl.innerHTML = games.map(game => {
         const safeName = escapeHtml(game.name);
-        const imageUrl = game.thumbnail || game.image || 'https://via.placeholder.com/150x150?text=?';
+        const imageUrl = game.image || game.thumbnail || 'https://via.placeholder.com/150x150?text=?';
 
         return `
             <div class="tier-game-card" onclick="window.open('https://boardgamegeek.com/boardgame/${game.objectId}', '_blank')" title="${safeName} (My Rating: ${game.myRating})">

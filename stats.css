@@ -1,212 +1,241 @@
+/* Statistics Page Styling - Clean & Minimalist */
+
 .stats-section {
-    margin-bottom: 36px;
+    background: white;
+    border-radius: 10px;
+    padding: 20px 24px;
+    border: 1px solid #edf2f7;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+    margin-bottom: 28px;
 }
 
-.stats-section h2 {
-    font-size: 1.4rem;
-    color: #333;
-    margin-bottom: 16px;
-    padding-bottom: 6px;
-    border-bottom: 2px solid #333;
+body.dark-mode .stats-section {
+    background: #1e1e1e;
+    border-color: #333;
 }
 
+.stats-header {
+    margin-bottom: 18px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #edf2f7;
+}
+
+body.dark-mode .stats-header {
+    border-bottom-color: #2d2d2d;
+}
+
+.stats-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #2d3748;
+    margin: 0;
+}
+
+body.dark-mode .stats-title {
+    color: #f0f6fc;
+}
+
+/* Stat Metric Cards (Overview & Insights) */
 .stats-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-    gap: 16px;
-    margin-bottom: 24px;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 14px;
 }
 
-.stat-card-large {
-    background: white;
-    padding: 18px 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+.insights-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 14px;
+}
+
+.stat-card-box {
+    background: #f8f9fa;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 16px 14px;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
 }
 
-.stat-card-large:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+body.dark-mode .stat-card-box {
+    background: #252525;
+    border-color: #383838;
 }
 
-.stat-icon {
-    font-size: 2rem;
-    margin-bottom: 8px;
-}
-
-.stat-card-large .stat-number {
-    font-size: 1.65rem;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 6px;
+.stat-number {
+    font-size: 1.55rem;
+    font-weight: 800;
+    color: #222222;
+    margin-bottom: 4px;
+    line-height: 1.2;
     word-break: break-word;
     max-width: 100%;
-    line-height: 1.2;
 }
 
-.stat-card-large .stat-label {
-    font-size: 0.8rem;
-    color: #666;
+body.dark-mode .stat-number {
+    color: #f0f6fc;
+}
+
+.stat-label {
+    font-size: 0.76rem;
     font-weight: 600;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
 }
 
-/* Most Played List */
-.most-played-list {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+body.dark-mode .stat-label {
+    color: #94a3b8;
 }
 
-.most-played-item {
-    display: flex;
-    align-items: center;
+/* Top 10 Most Played Thumbnail Grid */
+.top-played-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(115px, 1fr));
     gap: 14px;
-    background: white;
-    padding: 12px 16px;
+}
+
+.top-played-card {
+    position: relative;
+    aspect-ratio: 1 / 1;
     border-radius: 8px;
-    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.06);
+    overflow: hidden;
+    background: #f6f8fa;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
     cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-body.dark-mode .most-played-item {
-    background: #2a2a2a;
-}
-
-.most-played-item:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.most-played-rank {
-    font-size: 1.4rem;
-    font-weight: bold;
-    color: #999;
-    min-width: 40px;
-    text-align: center;
-}
-
-.most-played-img {
-    width: 54px;
-    height: 54px;
-    object-fit: cover;
-    border-radius: 6px;
-    flex-shrink: 0;
-}
-
-.most-played-info {
-    flex: 1;
-}
-
-.most-played-info h3 {
-    font-size: 1rem;
-    color: #333;
-    margin-bottom: 3px;
-}
-
-body.dark-mode .most-played-info h3 {
-    color: #e0e0e0;
-}
-
-.most-played-info p {
-    color: #666;
-    font-size: 0.82rem;
-}
-
-body.dark-mode .most-played-info p {
-    color: #b0b0b0;
-}
-
-.most-played-plays {
+    transition: border-color 0.15s ease;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    min-width: 60px;
 }
 
-.plays-number {
-    font-size: 1.65rem;
-    font-weight: bold;
-    color: #4CAF50;
-    line-height: 1;
+body.dark-mode .top-played-card {
+    background: #161b22;
+    border-color: rgba(255, 255, 255, 0.1);
 }
 
-.plays-label {
-    font-size: 0.75rem;
-    color: #999;
-    margin-top: 3px;
+.top-played-card:hover {
+    border-color: #222222;
 }
 
+body.dark-mode .top-played-card:hover {
+    border-color: #e0e0e0;
+}
+
+.top-played-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.top-rank-badge {
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    background: rgba(0, 0, 0, 0.75);
+    color: #ffffff;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 4px;
+    z-index: 2;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.top-plays-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.82) 0%, rgba(0, 0, 0, 0.45) 75%, transparent 100%);
+    padding: 14px 4px 5px 4px;
+    color: #ffffff;
+    text-align: center;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    pointer-events: none;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.9);
+}
+
+/* Two Columns Grid for Milestones & Charts */
 .stats-grid-two-cols {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 24px;
-    margin-bottom: 36px;
+    margin-bottom: 28px;
 }
 
-.milestone-cards {
+.stats-grid-two-cols .stats-section {
+    margin-bottom: 0;
+}
+
+/* Play Milestones */
+.milestones-container {
     display: flex;
     flex-direction: column;
     gap: 12px;
 }
 
-.milestone-card {
-    background: white;
-    padding: 14px 18px;
+.milestone-box {
+    background: #f8f9fa;
+    border: 1px solid #e2e8f0;
     border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    padding: 14px 16px;
     display: flex;
     flex-direction: column;
+}
+
+body.dark-mode .milestone-box {
+    background: #252525;
+    border-color: #383838;
+}
+
+.milestone-main {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    text-align: center;
-    border-left: 6px solid #eee;
-    transition: transform 0.2s ease;
+    margin-bottom: 4px;
 }
-
-.milestone-card:hover {
-    transform: translateX(6px);
-}
-
-.milestone-card.h-index { border-color: #ffd700; }
-.milestone-card.dime { border-color: #c0c0c0; }
-.milestone-card.nickel { border-color: #cd7f32; }
 
 .milestone-label {
-    font-size: 0.9rem;
-    font-weight: bold;
-    color: #666;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #2d3748;
+}
+
+body.dark-mode .milestone-label {
+    color: #f0f6fc;
 }
 
 .milestone-number {
-    font-size: 1.85rem;
+    font-size: 1.5rem;
     font-weight: 800;
-    color: #333;
-    margin: 3px 0;
+    color: #222222;
+}
+
+body.dark-mode .milestone-number {
+    color: #f0f6fc;
 }
 
 .milestone-sub {
     font-size: 0.78rem;
-    color: #999;
+    color: #64748b;
+}
+
+body.dark-mode .milestone-sub {
+    color: #94a3b8;
 }
 
 /* CSS Chart Styles */
 .css-chart {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    min-height: 220px;
-    justify-content: center;
+    gap: 8px;
 }
 
 .chart-row {
@@ -216,170 +245,79 @@ body.dark-mode .most-played-info p {
 }
 
 .chart-label {
-    width: 50px;
-    font-weight: bold;
-    color: #666;
+    width: 32px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #64748b;
     text-align: right;
-    font-size: 0.8rem;
+    flex-shrink: 0;
+}
+
+body.dark-mode .chart-label {
+    color: #94a3b8;
 }
 
 .chart-bar-container {
     flex: 1;
-    height: 18px;
-    background: #f0f0f0;
-    border-radius: 9px;
-    position: relative;
+    height: 14px;
+    background: #e2e8f0;
+    border-radius: 7px;
     overflow: hidden;
+}
+
+body.dark-mode .chart-bar-container {
+    background: #333333;
 }
 
 .chart-bar {
     height: 100%;
-    background: linear-gradient(90deg, #4CAF50, #8BC34A);
-    border-radius: 9px;
-    transition: width 1s ease-out;
+    background: #4a5568;
+    border-radius: 7px;
+    transition: width 0.4s ease;
+}
+
+body.dark-mode .chart-bar {
+    background: #718096;
 }
 
 .chart-count {
-    position: absolute;
-    right: 8px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 0.75rem;
-    font-weight: bold;
-    color: #333;
+    width: 28px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #2d3748;
+    text-align: left;
+    flex-shrink: 0;
 }
 
-body.dark-mode .milestone-card,
-body.dark-mode .css-chart {
-    background: #2a2a2a;
-}
-
-body.dark-mode .milestone-number,
 body.dark-mode .chart-count {
-    color: #e0e0e0;
+    color: #f0f6fc;
 }
 
-body.dark-mode .chart-bar-container {
-    background: #444;
+.empty-state {
+    grid-column: 1 / -1;
+    color: #718096;
+    font-size: 0.88rem;
+    padding: 24px 0;
+    text-align: center;
+    margin: 0;
 }
 
-@media (max-width: 992px) {
+body.dark-mode .empty-state {
+    color: #8b949e;
+}
+
+@media (max-width: 850px) {
     .stats-grid-two-cols {
         grid-template-columns: 1fr;
     }
 }
 
-.insights-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 25px;
-}
-
-.insight-card {
-    background: white;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.insight-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-}
-
-.insight-card h3 {
-    font-size: 1.2em;
-    color: #333;
-    margin-bottom: 15px;
-}
-
-.insight-number {
-    font-size: 3em;
-    font-weight: bold;
-    color: #4CAF50;
-    display: block;
-    margin-bottom: 10px;
-}
-
-.insight-description {
-    font-size: 0.9em;
-    color: #666;
-}
-
-@media (max-width: 768px) {
-    .stats-section h2 {
-        font-size: 1.5em;
+@media (max-width: 600px) {
+    .stats-section {
+        padding: 16px;
     }
-
-    .stats-cards {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-        gap: 15px;
-    }
-
-    .stat-card-large {
-        padding: 20px;
-    }
-
-    .stat-icon {
-        font-size: 2em;
-    }
-
-    .stat-card-large .stat-number {
-        font-size: 1.8em;
-    }
-
-    .chart-container {
-        padding: 20px;
-    }
-
-    .insights-grid {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-        gap: 15px;
-    }
-
-    .insight-card {
-        padding: 20px;
-    }
-
-    .insight-number {
-        font-size: 2em;
-    }
-
-    .most-played-item {
-        flex-wrap: wrap;
-        gap: 15px;
-    }
-
-    .most-played-rank {
-        min-width: 40px;
-        font-size: 1.5em;
-    }
-
-    .most-played-img {
-        width: 60px;
-        height: 60px;
-    }
-
-    .most-played-plays {
-        width: 100%;
-        flex-direction: row;
-        justify-content: center;
+    .top-played-grid {
+        grid-template-columns: repeat(auto-fill, minmax(95px, 1fr));
         gap: 10px;
-    }
-
-    .plays-number {
-        font-size: 2em;
-    }
-}
-
-@media (max-width: 480px) {
-    .stats-cards {
-        grid-template-columns: 1fr;
-    }
-
-    .insights-grid {
-        grid-template-columns: 1fr;
     }
 }
