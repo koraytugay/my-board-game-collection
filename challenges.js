@@ -69,7 +69,7 @@ function renderUnplayedChallenge() {
         const year = game.yearPublished !== 'N/A' ? game.yearPublished : '';
 
         return `
-            <div class="unplayed-game-chip" onclick="window.open('https://boardgamegeek.com/boardgame/${game.objectId}', '_blank')" title="${safeName} ${year ? `(${year})` : ''}">
+            <div class="unplayed-game-chip" onclick="typeof showGameDetails === 'function' ? showGameDetails('${game.objectId}') : window.open('https://boardgamegeek.com/boardgame/${game.objectId}', '_blank')" title="${safeName} ${year ? `(${year})` : ''}">
                 <img src="${imageUrl}" alt="${safeName}" class="unplayed-game-img" loading="lazy">
             </div>
         `;

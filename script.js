@@ -145,7 +145,13 @@ function renderGames() {
 function createGameCard(game) {
     const card = document.createElement('div');
     card.className = 'game-card';
-    card.onclick = () => window.open(`https://boardgamegeek.com/boardgame/${game.objectId}`, '_blank');
+    card.onclick = () => {
+        if (typeof showGameDetails === 'function') {
+            showGameDetails(game.objectId);
+        } else {
+            window.open(`https://boardgamegeek.com/boardgame/${game.objectId}`, '_blank');
+        }
+    };
 
     let badgesHtml = '';
     if (game.numPlays === 0) badgesHtml += '<span class="badge badge-unplayed">Unplayed</span>';

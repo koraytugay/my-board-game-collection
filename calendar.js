@@ -135,7 +135,13 @@ function renderCalendar() {
                     <span class="game-name-tooltip">${entry.name}</span>
                 `;
                 
-                playEl.onclick = () => window.open(`https://boardgamegeek.com/boardgame/${entry.id}`, '_blank');
+                playEl.onclick = () => {
+                    if (typeof showGameDetails === 'function') {
+                        showGameDetails(entry.id);
+                    } else {
+                        window.open(`https://boardgamegeek.com/boardgame/${entry.id}`, '_blank');
+                    }
+                };
                 playsContainer.appendChild(playEl);
             });
             dayEl.appendChild(playsContainer);

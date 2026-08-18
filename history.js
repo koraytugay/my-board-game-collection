@@ -139,7 +139,7 @@ function renderBucket(containerId, countId, items) {
         const formattedDate = formatDate(item.lastDate);
         
         return `
-            <div class="history-item" onclick="window.open('https://boardgamegeek.com/boardgame/${item.id}', '_blank')" title="${safeName} (Last played: ${formattedDate})">
+            <div class="history-item" onclick="typeof showGameDetails === 'function' ? showGameDetails('${item.id}') : window.open('https://boardgamegeek.com/boardgame/${item.id}', '_blank')" title="${safeName} (Last played: ${formattedDate})">
                 <img src="${imageUrl || 'https://via.placeholder.com/180x180?text=?'}" alt="${safeName}" class="history-item-img" loading="lazy">
                 ${formattedDate ? `<div class="history-item-date-overlay">${formattedDate}</div>` : ''}
             </div>

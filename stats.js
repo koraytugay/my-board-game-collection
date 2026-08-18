@@ -76,7 +76,7 @@ function renderMostPlayed() {
         const imageUrl = game.image || game.thumbnail || 'https://via.placeholder.com/150x150?text=?';
 
         return `
-            <div class="top-played-card" onclick="window.open('https://boardgamegeek.com/boardgame/${game.objectId}', '_blank')" title="${safeName} (${game.numPlays} plays)">
+            <div class="top-played-card" onclick="typeof showGameDetails === 'function' ? showGameDetails('${game.objectId}') : window.open('https://boardgamegeek.com/boardgame/${game.objectId}', '_blank')" title="${safeName} (${game.numPlays} plays)">
                 <span class="top-rank-badge">#${index + 1}</span>
                 <img src="${imageUrl}" alt="${safeName}" class="top-played-img" loading="lazy">
                 <div class="top-plays-overlay">${game.numPlays} ${game.numPlays === 1 ? 'play' : 'plays'}</div>

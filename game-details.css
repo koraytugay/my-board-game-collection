@@ -1,0 +1,350 @@
+/* Game Details Modal Styling - Clean & Minimalist */
+
+.game-modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+    box-sizing: border-box;
+}
+
+.game-modal-backdrop.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.game-modal-container {
+    background: #ffffff;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 640px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.22);
+    border: 1px solid #e2e8f0;
+    position: relative;
+    box-sizing: border-box;
+}
+
+body.dark-mode .game-modal-container {
+    background: #1e1e1e;
+    border-color: #333333;
+    color: #e0e0e0;
+}
+
+.game-modal-close-btn {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    border: 1px solid #e2e8f0;
+    background: #f8f9fa;
+    color: #4a5568;
+    font-size: 1.1rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+body.dark-mode .game-modal-close-btn {
+    background: #2a2a2a;
+    border-color: #404040;
+    color: #a0aec0;
+}
+
+.game-modal-close-btn:hover {
+    border-color: #222222;
+    background: #edf2f7;
+    color: #1a202c;
+}
+
+body.dark-mode .game-modal-close-btn:hover {
+    border-color: #e0e0e0;
+    background: #333333;
+    color: #f7fafc;
+}
+
+/* Modal Content Layout */
+.game-modal-content {
+    padding: 24px;
+}
+
+.game-modal-hero {
+    display: flex;
+    gap: 22px;
+    margin-bottom: 22px;
+    align-items: flex-start;
+}
+
+.game-modal-cover-wrap {
+    width: 210px;
+    height: 210px;
+    flex-shrink: 0;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #f8f9fa;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body.dark-mode .game-modal-cover-wrap {
+    background: #14181f;
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.game-modal-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.game-modal-header-info {
+    flex: 1;
+    min-width: 0;
+    padding-right: 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.game-modal-title {
+    font-size: 1.45rem;
+    font-weight: 800;
+    color: #1a202c;
+    margin: 0 0 6px 0;
+    line-height: 1.25;
+}
+
+body.dark-mode .game-modal-title {
+    color: #f7fafc;
+}
+
+.game-modal-submeta {
+    font-size: 0.88rem;
+    color: #64748b;
+    margin-bottom: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+}
+
+body.dark-mode .game-modal-submeta {
+    color: #94a3b8;
+}
+
+.game-modal-submeta span.bullet {
+    color: #cbd5e0;
+}
+
+body.dark-mode .game-modal-submeta span.bullet {
+    color: #4a5568;
+}
+
+/* Key Stats Grid */
+.game-modal-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.game-modal-stat-card {
+    background: #f8f9fa;
+    border: 1px solid #edf2f7;
+    border-radius: 8px;
+    padding: 12px 14px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+body.dark-mode .game-modal-stat-card {
+    background: #252525;
+    border-color: #333333;
+}
+
+.game-modal-stat-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: #718096;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    margin-bottom: 4px;
+}
+
+body.dark-mode .game-modal-stat-label {
+    color: #a0aec0;
+}
+
+.game-modal-stat-value {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #2d3748;
+    line-height: 1.2;
+}
+
+body.dark-mode .game-modal-stat-value {
+    color: #f7fafc;
+}
+
+/* Modal Sections */
+.game-modal-section {
+    margin-bottom: 18px;
+}
+
+.game-modal-section-title {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: #4a5568;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin: 0 0 10px 0;
+    padding-bottom: 6px;
+    border-bottom: 1px solid #edf2f7;
+}
+
+body.dark-mode .game-modal-section-title {
+    color: #cbd5e0;
+    border-bottom-color: #333333;
+}
+
+/* Stores List */
+.game-modal-stores {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+/* Footer / Actions */
+.game-modal-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid #edf2f7;
+}
+
+body.dark-mode .game-modal-footer {
+    border-top-color: #333333;
+}
+
+.game-modal-bgg-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #222222;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.86rem;
+    font-weight: 700;
+    padding: 9px 18px;
+    border-radius: 6px;
+    transition: background-color 0.15s ease;
+}
+
+body.dark-mode .game-modal-bgg-link {
+    background: #ffffff;
+    color: #1e1e1e;
+}
+
+.game-modal-bgg-link:hover {
+    background: #333333;
+    color: #ffffff;
+}
+
+body.dark-mode .game-modal-bgg-link:hover {
+    background: #e2e8f0;
+    color: #1e1e1e;
+}
+
+.game-modal-secondary-btn {
+    background: #f8f9fa;
+    border: 1px solid #d0d7de;
+    color: #4a5568;
+    font-size: 0.86rem;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+body.dark-mode .game-modal-secondary-btn {
+    background: #252525;
+    border-color: #404040;
+    color: #cbd5e0;
+}
+
+.game-modal-secondary-btn:hover {
+    border-color: #222222;
+    background: #edf2f7;
+    color: #1a202c;
+}
+
+body.dark-mode .game-modal-secondary-btn:hover {
+    border-color: #e0e0e0;
+    background: #333333;
+    color: #ffffff;
+}
+
+@media (max-width: 600px) {
+    .game-modal-content {
+        padding: 18px;
+    }
+    .game-modal-hero {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 14px;
+    }
+    .game-modal-cover-wrap {
+        width: 180px;
+        height: 180px;
+    }
+    .game-modal-header-info {
+        padding-right: 0;
+    }
+    .game-modal-submeta {
+        justify-content: center;
+    }
+    .game-modal-ranks {
+        justify-content: center;
+    }
+    .game-modal-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .game-modal-footer {
+        flex-direction: column-reverse;
+    }
+    .game-modal-bgg-link, .game-modal-secondary-btn {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+        box-sizing: border-box;
+    }
+}

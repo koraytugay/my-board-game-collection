@@ -93,7 +93,7 @@ function renderTierRow(tierKey, games) {
         const imageUrl = game.image || game.thumbnail || 'https://via.placeholder.com/150x150?text=?';
 
         return `
-            <div class="tier-game-card" onclick="window.open('https://boardgamegeek.com/boardgame/${game.objectId}', '_blank')" title="${safeName} (My Rating: ${game.myRating})">
+            <div class="tier-game-card" onclick="typeof showGameDetails === 'function' ? showGameDetails('${game.objectId}') : window.open('https://boardgamegeek.com/boardgame/${game.objectId}', '_blank')" title="${safeName} (My Rating: ${game.myRating})">
                 <img src="${imageUrl}" alt="${safeName}" class="tier-game-img" loading="lazy">
             </div>
         `;
