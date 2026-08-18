@@ -3,6 +3,7 @@ const { execSync } = require('child_process');
 const nodemailer = require('nodemailer');
 
 const isRecommended = process.argv.includes('--recommended') || process.env.CHECK_TYPE === 'recommended';
+const isDailySummary = process.argv.includes('--daily-summary') || process.env.DAILY_SUMMARY === 'true';
 const AVAILABILITY_FILE = isRecommended ? 'availability-recommended.json' : 'availability.json';
 const RECOMMENDATIONS_FILE = 'recommendations.json';
 const COLLECTION_FILE = 'collection.xml';
@@ -28,6 +29,36 @@ const STORE_META = {
     zatu: { name: 'Zatu Games', icon: '🛡️' },
     bggMarket: { name: 'BGG Market', icon: '🏷️' }
 };
+
+function getSinceArg() {
+    for (let i = 0; i < process.argv.length; i++) {
+        if (process.argv[i] === '--since' && process.argv[i + 1]) {
+            return process.argv[i + 1];
+        } else if (process.argv[i].startsWith('--since=')) {
+            return process.argv[i].split('=')[1];
+        }
+    }
+    return process.env.SINCE || '5 hours ago';
+}
+
+function getBaselineCommit(file, since = '5 hours ago') {
+    // 1. Try finding commit before the cutoff
+    try {
+        const cmd = `git log --before="${since}" -n 1 --format="%H" -- "${file}"`;
+        const sha = execSync(cmd, { encoding: 'utf8', stdio: ['pipe', 'pipe', 'ignore'] }).trim();
+        if (sha) return sha;
+    } catch (e) {}
+
+    // 2. If all commits in history are within the cutoff, get the oldest commit of this file
+    try {
+        const cmd = `git log --reverse --format="%H" -- "${file}"`;
+        const stdout = execSync(cmd, { encoding: 'utf8', stdio: ['pipe', 'pipe', 'ignore'] }).trim();
+        const firstSha = stdout.split('\n')[0].trim();
+        if (firstSha) return firstSha;
+    } catch (e) {}
+
+    return 'HEAD';
+}
 
 function getRecommendedRange() {
     let start = 0;
@@ -182,10 +213,10 @@ function getGameDetailsMap() {
     return map;
 }
 
-function getPreviousAvailability() {
-    // Try reading previous availability from git HEAD
+function getPreviousAvailability(baseRef = 'HEAD') {
+    // Try reading previous availability from git ref
     try {
-        const stdout = execSync(`git show HEAD:${AVAILABILITY_FILE}`, {
+        const stdout = execSync(`git show ${baseRef}:${AVAILABILITY_FILE}`, {
             encoding: 'utf8',
             stdio: ['pipe', 'pipe', 'ignore'],
             maxBuffer: 10 * 1024 * 1024
@@ -370,18 +401,28 @@ function getOverallInStockSummary(currData, gamesMap) {
     return { inStockCount, inStockGames, totalGames: Object.keys(currData).length };
 }
 
-function buildEmailSubject(diff, summary, range) {
-    let rangeLabel = '';
-    if (isRecommended && range) {
-        const startNum = range.start + 1;
-        const endNum = range.end === Infinity ? '400+' : range.end;
-        rangeLabel = ` (#${startNum}-${endNum})`;
+function buildEmailSubject(diff, summary, range, isDaily) {
+    let defaultPrefix;
+    if (isDaily) {
+        defaultPrefix = '🎲 [Recommended Games Daily Stock Summary]';
+    } else if (isRecommended) {
+        let rangeLabel = '';
+        if (range && range.hasRangeFlag) {
+            const startNum = range.start + 1;
+            const endNum = range.end === Infinity ? '400+' : range.end;
+            rangeLabel = ` (#${startNum}-${endNum})`;
+        }
+        defaultPrefix = `🎲 [Recommended Games Stock Alert${rangeLabel}]`;
+    } else {
+        defaultPrefix = '🎲 Board Game Alert';
     }
-    const defaultPrefix = isRecommended ? `🎲 [Recommended Games Stock Alert${rangeLabel}]` : '🎲 Board Game Alert';
+
     if (diff.totalDiffs === 0) {
-        return isRecommended
+        return isDaily
             ? `${defaultPrefix} No changes detected (${summary.inStockCount}/${summary.totalGames} in stock)`
-            : `🎲 Board Game Stock Check: No changes detected (${summary.inStockCount}/${summary.totalGames} in stock)`;
+            : isRecommended
+                ? `${defaultPrefix} No changes detected (${summary.inStockCount}/${summary.totalGames} in stock)`
+                : `🎲 Board Game Stock Check: No changes detected (${summary.inStockCount}/${summary.totalGames} in stock)`;
     }
 
     const parts = [];
@@ -400,14 +441,16 @@ function buildEmailSubject(diff, summary, range) {
     return `${defaultPrefix}: ${parts.join(', ')}`;
 }
 
-function buildHtmlBody(diff, gamesMap, summary, range) {
+function buildHtmlBody(diff, gamesMap, summary, range, isDaily) {
     const listTitle = isRecommended ? 'Recommended Games' : 'Want to Buy';
     const listUrl = isRecommended 
         ? 'https://koraytugay.github.io/my-board-game-collection/recommended.html' 
         : 'https://koraytugay.github.io/my-board-game-collection/wanttobuy.html';
-    const headerTitle = isRecommended 
-        ? `🎲 Recommended Games Stock Update${range ? ` (#${range.start + 1} - ${range.end === Infinity ? '400+' : range.end})` : ''}` 
-        : '🎲 Board Game Stock Update';
+    const headerTitle = isDaily
+        ? '🎲 Recommended Games Daily Stock Summary'
+        : isRecommended 
+            ? `🎲 Recommended Games Stock Update${range && range.hasRangeFlag ? ` (#${range.start + 1} - ${range.end === Infinity ? '400+' : range.end})` : ''}` 
+            : '🎲 Board Game Stock Update';
 
     let html = `
     <!DOCTYPE html>
@@ -658,25 +701,32 @@ async function sendNotificationEmail(subject, htmlBody, textBody) {
 async function run() {
     console.log('--- Checking for board game stock diffs ---');
     const range = isRecommended ? getRecommendedRange() : null;
-    if (range) {
+    let baseRef = 'HEAD';
+
+    if (isDailySummary) {
+        const since = getSinceArg();
+        baseRef = getBaselineCommit(AVAILABILITY_FILE, since);
+        console.log(`[Daily Summary] Comparing current recommended games availability against baseline commit ${baseRef} (before ${since})...`);
+    } else if (range && range.hasRangeFlag) {
         const endDisplay = range.end === Infinity ? '400+' : range.end;
         console.log(`Recommended games check batch: #${range.start + 1} to #${endDisplay}`);
     }
+
     const gamesMap = getGameDetailsMap();
-    const prevData = getPreviousAvailability();
+    const prevData = getPreviousAvailability(baseRef);
     const currData = getCurrentAvailability();
 
     const prevCount = Object.keys(prevData).length;
     const currCount = Object.keys(currData).length;
-    console.log(`Comparing previous availability (${prevCount} games) with current availability (${currCount} games)...`);
+    console.log(`Comparing previous availability (${prevCount} games, ref: ${baseRef}) with current availability (${currCount} games)...`);
 
     const diff = computeDiff(prevData, currData, gamesMap);
     const summary = getOverallInStockSummary(currData, gamesMap);
 
     console.log(`Diff results: ${diff.newlyAvailable.length} newly in stock, ${diff.noLongerAvailable.length} out of stock, ${diff.priceChanges.length} price changes, ${diff.bggMarketNewListings.length} BGG listings.`);
 
-    const subject = buildEmailSubject(diff, summary, range);
-    const htmlBody = buildHtmlBody(diff, gamesMap, summary, range);
+    const subject = buildEmailSubject(diff, summary, range, isDailySummary);
+    const htmlBody = buildHtmlBody(diff, gamesMap, summary, range, isDailySummary);
     const textBody = buildTextBody(diff, summary);
 
     console.log(`Subject: ${subject}`);

@@ -30,17 +30,13 @@ jobs:
       - name: Install Dependencies
         run: npm ci
 
-      - name: Check Recommended Game Availability & Send Notifications (301 - 400+)
+      - name: Check Recommended Game Availability (301 - 400+)
         env:
-          ICLOUD_EMAIL: ${{ secrets.ICLOUD_EMAIL }}
-          ICLOUD_APP_PASSWORD: ${{ secrets.ICLOUD_APP_PASSWORD }}
           ETSY_API_KEY: ${{ secrets.ETSY_API_KEY }}
         run: |
           node check-availability.js --recommended --start 300 --end max
           echo "First pass finished. Starting second pass to retry failed/timed-out requests..."
           node check-availability.js --recommended --start 300 --end max
-          echo "Checking for stock diffs and sending notifications if changes found..."
-          node notify-availability.js --recommended --start 300 --end max
 
       - name: Commit & push if changed
         run: |
