@@ -1,0 +1,153 @@
+/* Tier List Styling - Pure Neutral Grays */
+
+.tier-table {
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+    border-radius: 10px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+    overflow: hidden;
+    margin-bottom: 40px;
+}
+
+body.dark-mode .tier-table {
+    background: #1e1e1e;
+    border-color: #333333;
+}
+
+.tier-row {
+    display: flex;
+    min-height: 76px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.tier-row:last-child {
+    border-bottom: none;
+}
+
+body.dark-mode .tier-row {
+    border-bottom-color: #2e2e2e;
+}
+
+/* Tier Badges (Left Column - Pure Neutral) */
+.tier-badge {
+    width: 75px;
+    min-width: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.01em;
+    color: #222222;
+    flex-shrink: 0;
+    user-select: none;
+    border-right: 1px solid #e0e0e0;
+}
+
+/* Alternating Row Neutral Colors (Light Mode) */
+.tier-row:nth-child(odd) .tier-badge,
+.tier-row:nth-child(odd) .tier-content {
+    background: #ffffff;
+}
+
+.tier-row:nth-child(even) .tier-badge,
+.tier-row:nth-child(even) .tier-content {
+    background: #f7f7f7;
+}
+
+/* Alternating Row Neutral Colors (Dark Mode) */
+body.dark-mode .tier-badge {
+    color: #f0f0f0;
+    border-right-color: #333333;
+}
+
+body.dark-mode .tier-row:nth-child(odd) .tier-badge,
+body.dark-mode .tier-row:nth-child(odd) .tier-content {
+    background: #1e1e1e;
+}
+
+body.dark-mode .tier-row:nth-child(even) .tier-badge,
+body.dark-mode .tier-row:nth-child(even) .tier-content {
+    background: #141414;
+}
+
+/* Tier Content Area (Right Column) */
+.tier-content {
+    flex: 1;
+    padding: 8px 12px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: center;
+    gap: 8px;
+    min-height: 76px;
+}
+
+.tier-game-card {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    border-radius: 6px;
+    overflow: hidden;
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+body.dark-mode .tier-game-card {
+    background: #262626;
+    border-color: rgba(255, 255, 255, 0.12);
+}
+
+.tier-game-card:hover {
+    transform: scale(1.18);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.22);
+    border-color: #222222;
+    z-index: 10;
+}
+
+body.dark-mode .tier-game-card:hover {
+    border-color: #e0e0e0;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
+}
+
+.tier-game-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.tier-empty {
+    color: #999999;
+    font-size: 0.82rem;
+    font-style: italic;
+    margin: 0;
+    padding: 4px 0;
+}
+
+body.dark-mode .tier-empty {
+    color: #777777;
+}
+
+@media (max-width: 650px) {
+    .tier-badge {
+        width: 54px;
+        min-width: 54px;
+        font-size: 1.35rem;
+    }
+    .tier-content {
+        padding: 6px 8px;
+        gap: 6px;
+    }
+    .tier-game-card {
+        width: 48px;
+        height: 48px;
+    }
+}

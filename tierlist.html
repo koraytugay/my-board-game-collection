@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5ERQK5EYL8"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-5ERQK5EYL8');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tier List - My Board Game Collection</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="tierlist.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Tier List</h1>
+            <p class="username">@koraytugay on BoardGameGeek</p>
+        </header>
+
+        <nav class="page-nav">
+            <a href="index.html" class="nav-link">Collection</a>
+            <a href="tierlist.html" class="nav-link active">Tier List</a>
+            <a href="wanttobuy.html" class="nav-link">Want to Buy</a>
+            <a href="wanttoplay.html" class="nav-link">Want to Play</a>
+            <a href="recommended.html" class="nav-link">Recommended Games</a>
+            <a href="calendar.html" class="nav-link">Play Calendar</a>
+            <a href="history.html" class="nav-link">Play History</a>
+            <a href="stats.html" class="nav-link">Statistics</a>
+            <a href="challenges.html" class="nav-link">Collection Challenges</a>
+            <a href="tournament.html" class="nav-link">Game Tournament</a>
+            <a href="wanttosell.html" class="nav-link">Want to Sell</a>
+        </nav>
+
+        <div id="loading" class="loading">
+            <div class="spinner"></div>
+            <p>Loading tier list...</p>
+        </div>
+
+        <div id="error" class="error" style="display: none;"></div>
+
+        <div id="tierlist-content" style="display: none;">
+            <div class="tier-table">
+                <!-- S Tier -->
+                <div class="tier-row">
+                    <div class="tier-badge">S</div>
+                    <div class="tier-content" id="tier-s-grid"></div>
+                </div>
+
+                <!-- A Tier -->
+                <div class="tier-row">
+                    <div class="tier-badge">A</div>
+                    <div class="tier-content" id="tier-a-grid"></div>
+                </div>
+
+                <!-- B Tier -->
+                <div class="tier-row">
+                    <div class="tier-badge">B</div>
+                    <div class="tier-content" id="tier-b-grid"></div>
+                </div>
+
+                <!-- C Tier -->
+                <div class="tier-row">
+                    <div class="tier-badge">C</div>
+                    <div class="tier-content" id="tier-c-grid"></div>
+                </div>
+
+                <!-- D Tier -->
+                <div class="tier-row">
+                    <div class="tier-badge">D</div>
+                    <div class="tier-content" id="tier-d-grid"></div>
+                </div>
+
+                <!-- E Tier -->
+                <div class="tier-row">
+                    <div class="tier-badge">E</div>
+                    <div class="tier-content" id="tier-e-grid"></div>
+                </div>
+
+                <!-- F Tier -->
+                <div class="tier-row">
+                    <div class="tier-badge">F</div>
+                    <div class="tier-content" id="tier-f-grid"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="api.js"></script>
+    <script src="tierlist.js"></script>
+</body>
+</html>
