@@ -242,16 +242,24 @@ function getCurrentAvailability() {
 }
 
 function normalizePrice(price) {
-    if (!price) return null;
-    return String(price).replace(/[^0-9.]/g, '').trim();
+    if (!price && price !== 0) return null;
+    const clean = String(price).replace(/[^0-9.]/g, '').trim();
+    return clean || null;
 }
 
 function formatPrice(price) {
-    if (!price) return '';
-    const str = String(price).trim();
-    if (/^[$€£]/.test(str)) return str;
-    return `$${str}`;
+    if (!price && price !== 0) return '';
+    let str = String(price).trim();
+    if (!str) return '';
+    str = str.replace(/\b(CAD|USD|CDN|EUR|GBP)\b/gi, '').trim();
+    str = str.replace(/^[A-Za-z]+\$/, '$').trim();
+    if (/^[\d,]+(\.\d+)?$/.test(str)) {
+        return `$${str}`;
+    }
+    return str;
 }
+
+const MIN_PRICE_CHANGE_THRESHOLD = 5.0;
 
 function computeDiff(prevData, currData, gamesMap) {
     const newlyAvailable = [];
@@ -345,21 +353,25 @@ function computeDiff(prevData, currData, gamesMap) {
                     isNowCompletelyOutOfStock: !isInStockAnywhere
                 });
             }
-            // 3. Price change for an in-stock game
+            // 3. Price change for an in-stock game (only if change is at least MIN_PRICE_CHANGE_THRESHOLD)
             else if (wasAvail && isAvail && prev.price && curr.price) {
-                const normPrev = normalizePrice(prev.price);
-                const normCurr = normalizePrice(curr.price);
-                if (normPrev && normCurr && normPrev !== normCurr) {
-                    priceChanges.push({
-                        gameId,
-                        gameName,
-                        bggUrl,
-                        storeKey,
-                        storeName,
-                        oldPrice: formatPrice(prev.price),
-                        newPrice: formatPrice(curr.price),
-                        url: curr.url || bggUrl
-                    });
+                const normPrev = parseFloat(normalizePrice(prev.price));
+                const normCurr = parseFloat(normalizePrice(curr.price));
+                if (!isNaN(normPrev) && !isNaN(normCurr)) {
+                    const priceDiff = Math.abs(normCurr - normPrev);
+                    if (priceDiff >= MIN_PRICE_CHANGE_THRESHOLD) {
+                        priceChanges.push({
+                            gameId,
+                            gameName,
+                            bggUrl,
+                            storeKey,
+                            storeName,
+                            oldPrice: formatPrice(prev.price),
+                            newPrice: formatPrice(curr.price),
+                            priceDiff: priceDiff.toFixed(2),
+                            url: curr.url || bggUrl
+                        });
+                    }
                 }
             }
         }

@@ -525,49 +525,7 @@ function loadDarkModePreference() {
     }
 }
 
-// Random Game Functionality
-let currentRandomGame = null;
-
-function pickRandomGame() {
-    if (filteredGames.length === 0) return;
-
-    const randomIndex = Math.floor(Math.random() * filteredGames.length);
-    currentRandomGame = filteredGames[randomIndex];
-
-    document.getElementById('random-game-img').src = currentRandomGame.image || currentRandomGame.thumbnail || 'https://via.placeholder.com/300x300?text=No+Image';
-    document.getElementById('random-game-name').textContent = currentRandomGame.name;
-    document.getElementById('random-game-year').textContent = currentRandomGame.yearPublished !== 'N/A' ? `(${currentRandomGame.yearPublished})` : '';
-
-    const metaEl = document.getElementById('random-game-meta');
-    metaEl.innerHTML = `
-        <div class="meta-item"><span>👥</span> ${currentRandomGame.minPlayers}-${currentRandomGame.maxPlayers} players</div>
-        <div class="meta-item"><span>⏱️</span> ${currentRandomGame.playingTime} min</div>
-        <div class="meta-item"><span>⭐</span> ${currentRandomGame.rating.toFixed(2)}</div>
-    `;
-
-    document.getElementById('random-modal').style.display = 'flex';
-}
-
-function closeRandomModal() {
-    document.getElementById('random-modal').style.display = 'none';
-}
-
-function openRandomGameBGG() {
-    if (currentRandomGame) {
-        window.open(`https://boardgamegeek.com/boardgame/${currentRandomGame.objectId}`, '_blank');
-    }
-}
-
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('random-game-btn')?.addEventListener('click', pickRandomGame);
-    
-    // Keyboard shortcut: 'r' for random
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'r' && !e.ctrlKey && !e.metaKey && e.target.tagName !== 'INPUT' && e.target.tagName !== 'SELECT') {
-            pickRandomGame();
-        }
-    });
-    
     fetchCollection();
 });

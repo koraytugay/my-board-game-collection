@@ -96,10 +96,6 @@
                         Dark Mode
                     </label>
                 </div>
-
-                <div class="control-group">
-                    <button id="random-game-btn" class="btn-random">🎲 Random Game</button>
-                </div>
             </div>
 
             <div class="controls-row">
@@ -155,27 +151,6 @@
         </div>
 
         <div id="games-grid" class="games-grid"></div>
-    </div>
-
-    <!-- Random Game Modal -->
-    <div id="random-modal" class="modal" style="display: none;">
-        <div class="modal-overlay" onclick="closeRandomModal()"></div>
-        <div class="modal-content">
-            <button class="modal-close" onclick="closeRandomModal()">×</button>
-            <h2>🎲 Random Pick from Want to Buy</h2>
-            <div id="random-game-display" class="random-game-display">
-                <img id="random-game-img" class="random-game-img" src="" alt="">
-                <div class="random-game-info">
-                    <h3 id="random-game-name" class="random-game-name"></h3>
-                    <p id="random-game-year" class="random-game-year"></p>
-                    <div id="random-game-meta" class="random-game-meta"></div>
-                </div>
-            </div>
-            <div class="modal-actions">
-                <button onclick="pickRandomGame()" class="btn btn-primary">Pick Another</button>
-                <button onclick="openRandomGameBGG()" class="btn btn-secondary">View on BGG</button>
-            </div>
-        </div>
     </div>
 
     <script src="api.js"></script>

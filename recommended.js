@@ -166,7 +166,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 async function fetchRecommendations() {
     const loadingEl = document.getElementById('loading');
     const errorEl = document.getElementById('error');
-    const statsEl = document.getElementById('stats');
     const controlsEl = document.getElementById('controls');
 
     try {
@@ -188,11 +187,9 @@ async function fetchRecommendations() {
         populateSourceGameFilter();
         populateStoreFilter();
         populateSellerFilter();
-        updateStats();
         sortGames(currentSort);
 
         loadingEl.style.display = 'none';
-        statsEl.style.display = 'flex';
         controlsEl.style.display = 'block';
 
         loadDarkModePreference();
@@ -227,24 +224,6 @@ function populateSourceGameFilter() {
         option.textContent = name;
         filterSelect.appendChild(option);
     });
-}
-
-function updateStats() {
-    const totalRecs = allGames.length;
-    const avgRating = totalRecs > 0
-        ? allGames.reduce((sum, game) => sum + game.bggRating, 0) / totalRecs
-        : 0;
-
-    const sourceSet = new Set();
-    allGames.forEach(r => (r.recommendedBy || []).forEach(s => sourceSet.add(s.ownedId)));
-
-    const inStockCount = allGames.filter(game => isGameInStockAtAnyStore(game)).length;
-
-    document.getElementById('total-recs').textContent = totalRecs;
-    document.getElementById('total-sources').textContent = sourceSet.size;
-    document.getElementById('avg-bgg-rating').textContent = avgRating.toFixed(1);
-    const inStockEl = document.getElementById('in-stock-games');
-    if (inStockEl) inStockEl.textContent = inStockCount;
 }
 
 function sortGames(criteria) {
