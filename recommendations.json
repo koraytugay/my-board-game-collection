@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-18T12:38:13.001Z",
+  "generatedAt": "2026-08-19T07:12:32.068Z",
   "total": 400,
   "recommendations": [
     {
@@ -341,89 +341,6 @@
       "minPlayers": 1,
       "maxPlayers": 5,
       "playingTime": 60
-    },
-    {
-      "objectId": "314491",
-      "name": "Meadow",
-      "yearPublished": "2021",
-      "bggRating": 7.7,
-      "bggRank": 219,
-      "numVoters": 14091,
-      "numFans": 1376,
-      "coverUrl": "https://cf.geekdo-images.com/9r3qdPijtgoIN24PxFU2gw__square100@2x/img/3SSpHyZYqgDvewkA2SnJ44W4ghs=/200x200/filters:strip_icc()/pic5894745.jpg",
-      "thumbnail": "images/thumbnails/314491.jpg",
-      "image": "images/full/314491.jpg",
-      "description": "Start your journey into nature and collect cards to become a true nature observer.",
-      "rawScore": 27.791989037804264,
-      "recommendedBy": [
-        {
-          "ownedId": "353288",
-          "ownedName": "Trekking Through History",
-          "userRating": 10,
-          "bggRecRank": 1,
-          "contributionScore": 10
-        },
-        {
-          "ownedId": "295947",
-          "ownedName": "Cascadia",
-          "userRating": 8,
-          "bggRecRank": 12,
-          "contributionScore": 1.85
-        },
-        {
-          "ownedId": "368017",
-          "ownedName": "Point City",
-          "userRating": 7,
-          "bggRecRank": 1,
-          "contributionScore": 4.9
-        },
-        {
-          "ownedId": "365258",
-          "ownedName": "World Wonders",
-          "userRating": 7,
-          "bggRecRank": 2,
-          "contributionScore": 3.46
-        },
-        {
-          "ownedId": "283155",
-          "ownedName": "Calico",
-          "userRating": 7,
-          "bggRecRank": 6,
-          "contributionScore": 2
-        },
-        {
-          "ownedId": "195314",
-          "ownedName": "Herbaceous",
-          "userRating": 7,
-          "bggRecRank": 9,
-          "contributionScore": 1.63
-        },
-        {
-          "ownedId": "228504",
-          "ownedName": "Cat Lady",
-          "userRating": 7,
-          "bggRecRank": 9,
-          "contributionScore": 1.63
-        },
-        {
-          "ownedId": "349463",
-          "ownedName": "Dungeons, Dice &amp; Danger",
-          "userRating": 7,
-          "bggRecRank": 17,
-          "contributionScore": 1.19
-        },
-        {
-          "ownedId": "260180",
-          "ownedName": "Project L",
-          "userRating": 7,
-          "bggRecRank": 19,
-          "contributionScore": 1.12
-        }
-      ],
-      "matchScore": 89.2,
-      "minPlayers": 1,
-      "maxPlayers": 4,
-      "playingTime": 90
     },
     {
       "objectId": "233867",
@@ -2268,68 +2185,6 @@
       "minPlayers": 2,
       "maxPlayers": 4,
       "playingTime": 45
-    },
-    {
-      "objectId": "143405",
-      "name": "Sylvion",
-      "yearPublished": "2015",
-      "bggRating": 7.03,
-      "bggRank": 1659,
-      "numVoters": 3432,
-      "numFans": 263,
-      "coverUrl": "https://cf.geekdo-images.com/LRuwX_qAGXDSWRF2fufzAw__square100@2x/img/fCIWgdvw5C97sxD0gg7Uu_D01AE=/200x200/filters:strip_icc()/pic6863747.jpg",
-      "thumbnail": "images/thumbnails/143405.jpg",
-      "image": "images/full/143405.jpg",
-      "description": "Stave off waves of an ever-hungry fire that wishes to ravage your beautiful forest.",
-      "rawScore": 10.784484090720708,
-      "recommendedBy": [
-        {
-          "ownedId": "334590",
-          "ownedName": "For Northwood! A Solo Trick-Taking Game",
-          "userRating": 10,
-          "bggRecRank": 27,
-          "contributionScore": 1.92
-        },
-        {
-          "ownedId": "376893",
-          "ownedName": "Cyberion",
-          "userRating": 8,
-          "bggRecRank": 14,
-          "contributionScore": 1.71
-        },
-        {
-          "ownedId": "306735",
-          "ownedName": "Under Falling Skies",
-          "userRating": 8,
-          "bggRecRank": 19,
-          "contributionScore": 1.47
-        },
-        {
-          "ownedId": "267127",
-          "ownedName": "Aerion",
-          "userRating": 7,
-          "bggRecRank": 3,
-          "contributionScore": 2.83
-        },
-        {
-          "ownedId": "43570",
-          "ownedName": "Friday",
-          "userRating": 7,
-          "bggRecRank": 7,
-          "contributionScore": 1.85
-        },
-        {
-          "ownedId": "352697",
-          "ownedName": "Resist!",
-          "userRating": 7,
-          "bggRecRank": 24,
-          "contributionScore": 1
-        }
-      ],
-      "matchScore": 23.7,
-      "minPlayers": 1,
-      "maxPlayers": 2,
-      "playingTime": 30
     },
     {
       "objectId": "65244",
@@ -6060,40 +5915,6 @@
       "minPlayers": 1,
       "maxPlayers": 5,
       "playingTime": 180
-    },
-    {
-      "objectId": "377470",
-      "name": "Sail",
-      "yearPublished": "2023",
-      "bggRating": 7.26,
-      "bggRank": 956,
-      "numVoters": 4968,
-      "numFans": 719,
-      "coverUrl": "https://cf.geekdo-images.com/WdYRHQ_ILHTV_ECMGF27Gw__square100@2x/img/oeYlAlXr_PfG-DQkaHjRu8FFiQ4=/200x200/filters:strip_icc()/pic7267575.jpg",
-      "thumbnail": "images/thumbnails/377470.jpg",
-      "image": "images/full/377470.jpg",
-      "description": "Navigate your pirate ship together through tricky waters and avoid the Kraken!",
-      "rawScore": 3.913680067553899,
-      "recommendedBy": [
-        {
-          "ownedId": "334590",
-          "ownedName": "For Northwood! A Solo Trick-Taking Game",
-          "userRating": 10,
-          "bggRecRank": 28,
-          "contributionScore": 1.89
-        },
-        {
-          "ownedId": "367220",
-          "ownedName": "Sea Salt &amp; Paper",
-          "userRating": 8,
-          "bggRecRank": 10,
-          "contributionScore": 2.02
-        }
-      ],
-      "matchScore": 4.9,
-      "minPlayers": 2,
-      "maxPlayers": 2,
-      "playingTime": 20
     },
     {
       "objectId": "252929",
@@ -10709,33 +10530,6 @@
       "playingTime": 120
     },
     {
-      "objectId": "288513",
-      "name": "Tranquility",
-      "yearPublished": "2020",
-      "bggRating": 6.92,
-      "bggRank": 1655,
-      "numVoters": 4207,
-      "numFans": 323,
-      "coverUrl": "https://cf.geekdo-images.com/nQJ9Kr9BP7zdm__rSvrx3w__square100@2x/img/MazVa_VrgvGWaS34PWhHVRYZn9s=/200x200/filters:strip_icc()/pic6152802.png",
-      "thumbnail": "images/thumbnails/288513.png",
-      "image": "images/full/288513.png",
-      "description": "Work together to traverse the seas, complete the grid and reach your island paradise!",
-      "rawScore": 2.3570226039551585,
-      "recommendedBy": [
-        {
-          "ownedId": "334590",
-          "ownedName": "For Northwood! A Solo Trick-Taking Game",
-          "userRating": 10,
-          "bggRecRank": 18,
-          "contributionScore": 2.36
-        }
-      ],
-      "matchScore": 2.3,
-      "minPlayers": 1,
-      "maxPlayers": 5,
-      "playingTime": 20
-    },
-    {
       "objectId": "118",
       "name": "Modern Art",
       "yearPublished": "1992",
@@ -14231,6 +14025,114 @@
       "minPlayers": 2,
       "maxPlayers": 4,
       "playingTime": 90
+    },
+    {
+      "objectId": "164928",
+      "name": "Orléans",
+      "yearPublished": "2014",
+      "bggRating": 8.05,
+      "bggRank": 35,
+      "numVoters": 35927,
+      "numFans": 2372,
+      "coverUrl": "https://cf.geekdo-images.com/nagl1li6kYt9elV9jbfVQw__square100@2x/img/qq0W9Zd1iZ7U-5tg1MIJlNCWPFE=/0x0:1328x1328/200x200/filters:strip_icc()/pic6228507.jpg",
+      "thumbnail": "images/thumbnails/164928.jpg",
+      "image": "images/full/164928.jpg",
+      "description": "Craftsmen, scholars & monks can help you reign supreme—but who will turn up to help?",
+      "rawScore": 1.3590154807518113,
+      "recommendedBy": [
+        {
+          "ownedId": "34635",
+          "ownedName": "Stone Age",
+          "userRating": 7,
+          "bggRecRank": 13,
+          "contributionScore": 1.36
+        }
+      ],
+      "matchScore": 1.5,
+      "minPlayers": 2,
+      "maxPlayers": 5,
+      "playingTime": 90
+    },
+    {
+      "objectId": "188465",
+      "name": "Otrio",
+      "yearPublished": "2015",
+      "bggRating": 6.16,
+      "bggRank": 9493,
+      "numVoters": 615,
+      "numFans": 29,
+      "coverUrl": "https://cf.geekdo-images.com/5Q2aQ149gpK3f7uQLjMC_w__square100@2x/img/bNDbdq_uVP4X6HzGhjmOE0oUGUY=/0x31:454x485/200x200/filters:strip_icc()/pic3770572.png",
+      "thumbnail": "images/thumbnails/188465.png",
+      "image": "images/full/188465.png",
+      "description": "2 1/2 Dimensional Tic Tac Toe for 4 players.",
+      "rawScore": 1.7324116139070411,
+      "recommendedBy": [
+        {
+          "ownedId": "99219",
+          "ownedName": "Swish",
+          "userRating": 7,
+          "bggRecRank": 8,
+          "contributionScore": 1.73
+        }
+      ],
+      "matchScore": 1.5,
+      "minPlayers": 2,
+      "maxPlayers": 4,
+      "playingTime": 30
+    },
+    {
+      "objectId": "7",
+      "name": "Cathedral",
+      "yearPublished": "1979",
+      "bggRating": 6.56,
+      "bggRank": 2619,
+      "numVoters": 3840,
+      "numFans": 156,
+      "coverUrl": "https://cf.geekdo-images.com/78Dgd-b_1_xEv4OXVKdaag__square100@2x/img/VpR3oOUkhvxdtj1JEioW3BAcO5w=/200x200/filters:strip_icc()/pic7012177.jpg",
+      "thumbnail": "images/thumbnails/7.jpg",
+      "image": "images/full/7.jpg",
+      "description": "Outwit your opponent and play all your pieces first in this abstract city-builder.",
+      "rawScore": 1.633333333333333,
+      "recommendedBy": [
+        {
+          "ownedId": "99219",
+          "ownedName": "Swish",
+          "userRating": 7,
+          "bggRecRank": 9,
+          "contributionScore": 1.63
+        }
+      ],
+      "matchScore": 1.5,
+      "minPlayers": 2,
+      "maxPlayers": 2,
+      "playingTime": 20
+    },
+    {
+      "objectId": "16395",
+      "name": "Blokus Duo",
+      "yearPublished": "2005",
+      "bggRating": 6.83,
+      "bggRank": 1487,
+      "numVoters": 6123,
+      "numFans": 108,
+      "coverUrl": "https://cf.geekdo-images.com/pn92DM-FlWMRWusB0eP7vQ__square100@2x/img/ydJDOKtGUgSyVY6h9LlNJ-QiywE=/200x200/filters:strip_icc()/pic1086904.jpg",
+      "thumbnail": "images/thumbnails/16395.jpg",
+      "image": "images/full/16395.jpg",
+      "description": "Play geometric shapes from your hand for points -- but don't get blocked in!",
+      "rawScore": 1.5495160534825057,
+      "recommendedBy": [
+        {
+          "ownedId": "99219",
+          "ownedName": "Swish",
+          "userRating": 7,
+          "bggRecRank": 10,
+          "contributionScore": 1.55
+        }
+      ],
+      "matchScore": 1.5,
+      "minPlayers": 2,
+      "maxPlayers": 2,
+      "playingTime": 20
     }
   ]
 }
