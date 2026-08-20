@@ -40,11 +40,11 @@ function renderTierList() {
 
     ratedGames.forEach(game => {
         const rating = game.myRating;
-        if (rating >= 10) {
+        if (rating >= 9) {
             tiers.s.push(game);
-        } else if (rating >= 9) {
-            tiers.a.push(game);
         } else if (rating >= 8) {
+            tiers.a.push(game);
+        } else if (rating >= 7) {
             tiers.b.push(game);
         } else if (rating >= 6) {
             tiers.c.push(game);
