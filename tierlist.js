@@ -42,7 +42,7 @@ function renderTierList() {
         const rating = game.myRating;
         if (rating >= 10) {
             tiers.s.push(game);
-        } else if (rating >= 9) {
+        } else if (rating >= 8) {
             tiers.a.push(game);
         } else if (rating >= 7) {
             tiers.b.push(game);
