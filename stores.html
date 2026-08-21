@@ -12,64 +12,13 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Want to Sell - My Board Game Collection</title>
+    <title>Store Availability - My Board Game Collection</title>
     <link rel="stylesheet" href="styles.css">
-    <style>
-        .empty-state {
-            grid-column: 1 / -1;
-            text-align: center;
-            padding: 60px 20px;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-            margin: 20px 0;
-        }
-        body.dark-mode .empty-state {
-            background: #2d2d2d;
-            color: #e0e0e0;
-        }
-        .empty-state-icon {
-            font-size: 3.5em;
-            margin-bottom: 15px;
-        }
-        .empty-state h3 {
-            font-size: 1.4em;
-            margin-bottom: 10px;
-            color: #333;
-        }
-        body.dark-mode .empty-state h3 {
-            color: #fff;
-        }
-        .empty-state p {
-            color: #666;
-            max-width: 500px;
-            margin: 0 auto 20px;
-            line-height: 1.5;
-        }
-        body.dark-mode .empty-state p {
-            color: #aaa;
-        }
-        .bgg-link-btn {
-            display: inline-block;
-            margin-top: 12px;
-            padding: 8px 14px;
-            background: #e65100;
-            color: white;
-            text-decoration: none;
-            border-radius: 6px;
-            font-size: 0.85em;
-            font-weight: bold;
-            transition: background 0.2s ease;
-        }
-        .bgg-link-btn:hover {
-            background: #bf360c;
-        }
-    </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>Want to Sell List</h1>
+            <h1>Store Availability</h1>
             <p class="username">@koraytugay on BoardGameGeek</p>
         </header>
 
@@ -79,18 +28,18 @@
             <a href="wanttobuy.html" class="nav-link">Want to Buy</a>
             <a href="wanttoplay.html" class="nav-link">Want to Play</a>
             <a href="recommended.html" class="nav-link">Recommended Games</a>
-            <a href="stores.html" class="nav-link">Stores</a>
+            <a href="stores.html" class="nav-link active">Stores</a>
             <a href="calendar.html" class="nav-link">Play Calendar</a>
             <a href="history.html" class="nav-link">Play History</a>
             <a href="stats.html" class="nav-link">Statistics</a>
             <a href="challenges.html" class="nav-link">Collection Challenges</a>
             <a href="tournament.html" class="nav-link">Game Tournament</a>
-            <a href="wanttosell.html" class="nav-link active">Want to Sell</a>
+            <a href="wanttosell.html" class="nav-link">Want to Sell</a>
         </nav>
 
         <div id="loading" class="loading">
             <div class="spinner"></div>
-            <p>Loading items for sale...</p>
+            <p>Loading available games...</p>
         </div>
 
         <div id="error" class="error" style="display: none;"></div>
@@ -103,12 +52,6 @@
                         <option value="name">Name</option>
                         <option value="rating-desc">Rating (High to Low)</option>
                         <option value="rating-asc">Rating (Low to High)</option>
-                        <option value="myrating-desc">My Rating (High to Low)</option>
-                        <option value="myrating-asc">My Rating (Low to High)</option>
-                        <option value="plays-desc">Plays (Most to Least)</option>
-                        <option value="plays-asc">Plays (Least to Most)</option>
-                        <option value="recently-played">Most Recently Played</option>
-                        <option value="least-recently-played">Least Recently Played</option>
                         <option value="year-desc">Year (Newest First)</option>
                         <option value="year-asc">Year (Oldest First)</option>
                     </select>
@@ -146,7 +89,49 @@
                         <option value="2-only">2 Player Only</option>
                         <option value="3">3</option>
                         <option value="4">4</option>
-                        <option value="5+">5+</option>
+                        <option value="5">5+</option>
+                    </select>
+                </div>
+
+                <div class="control-group">
+                    <label for="rating-filter">Rating:</label>
+                    <select id="rating-filter" onchange="applyFilters()">
+                        <option value="all">All</option>
+                        <option value="8+">8.0+</option>
+                        <option value="7+">7.0+</option>
+                        <option value="6+">6.0+</option>
+                    </select>
+                </div>
+
+                <div class="control-group">
+                    <label for="designer-filter">Designer:</label>
+                    <select id="designer-filter" onchange="applyFilters()">
+                        <option value="all">All Designers</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="controls-row">
+                <div class="control-group">
+                    <label for="store-filter">Store:</label>
+                    <select id="store-filter" onchange="onStoreFilterChange()">
+                        <option value="all">All Stores</option>
+                    </select>
+                </div>
+
+                <div class="control-group">
+                    <label for="seller-filter">BGG Seller:</label>
+                    <select id="seller-filter" onchange="onSellerFilterChange()">
+                        <option value="all">All Sellers</option>
+                    </select>
+                </div>
+
+                <div class="control-group">
+                    <label for="list-filter">List:</label>
+                    <select id="list-filter" onchange="applyFilters()">
+                        <option value="all">All Lists</option>
+                        <option value="wanttobuy">Want to Buy</option>
+                        <option value="recommended">Recommended</option>
                     </select>
                 </div>
             </div>
@@ -156,6 +141,6 @@
     </div>
 
     <script src="api.js"></script>
-    <script src="wanttosell.js"></script>
+    <script src="stores.js"></script>
 </body>
 </html>
