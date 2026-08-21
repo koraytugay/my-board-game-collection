@@ -1,8 +1,16 @@
-<?xml version="1.0" encoding="utf-8"?><plays username="koraytugay" userid="4151779" total="56" page="1" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse">
+<?xml version="1.0" encoding="utf-8"?><plays username="koraytugay" userid="4151779" total="57" page="1" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse">
 <play id="117739782" date="2026-08-20" quantity="1" length="30" incomplete="0" nowinstats="0" location="">
 			<item name="That's Pretty Clever!" objecttype="thing" objectid="244522">
 				<subtypes>
 										<subtype value="boardgame" />
+									</subtypes>
+			</item>
+								</play>
+	<play id="117756968" date="2026-08-20" quantity="1" length="40" incomplete="0" nowinstats="0" location="">
+			<item name="Under Falling Skies" objecttype="thing" objectid="306735">
+				<subtypes>
+										<subtype value="boardgame" />
+										<subtype value="boardgameimplementation" />
 									</subtypes>
 			</item>
 								</play>
