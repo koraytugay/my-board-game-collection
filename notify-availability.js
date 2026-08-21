@@ -261,6 +261,20 @@ function formatPrice(price) {
     return str;
 }
 
+function extractNumericPrice(priceStr) {
+    if (!priceStr) return null;
+    const clean = String(priceStr).replace(/,/g, '');
+    const match = clean.match(/[0-9]+(?:\.[0-9]+)?/);
+    return match ? parseFloat(match[0]) : null;
+}
+
+function isStoreAvailable(storeData) {
+    if (!storeData || !storeData.available) return false;
+    const num = extractNumericPrice(storeData.price);
+    if (num !== null && num <= 5.0) return false;
+    return true;
+}
+
 const MIN_PRICE_CHANGE_THRESHOLD = 5.0;
 
 function computeDiff(prevData, currData, gamesMap) {
@@ -283,18 +297,18 @@ function computeDiff(prevData, currData, gamesMap) {
         // Check overall availability across all stores
         const wasInStockAnywhere = Object.entries(prevStores).some(([key, data]) => {
             if (key === 'bggMarket') {
-                const active = (Array.isArray(data?.listings) ? data.listings : []).filter(l => !l.ignored);
-                return active.length > 0 || (data?.available && !data?.ignored);
+                const active = (Array.isArray(data?.listings) ? data.listings : []).filter(l => !l.ignored && (extractNumericPrice(l.price) === null || extractNumericPrice(l.price) > 5.0));
+                return active.length > 0;
             }
-            return !!data?.available;
+            return isStoreAvailable(data);
         });
 
         const isInStockAnywhere = Object.entries(currStores).some(([key, data]) => {
             if (key === 'bggMarket') {
-                const active = (Array.isArray(data?.listings) ? data.listings : []).filter(l => !l.ignored);
-                return active.length > 0 || (data?.available && !data?.ignored);
+                const active = (Array.isArray(data?.listings) ? data.listings : []).filter(l => !l.ignored && (extractNumericPrice(l.price) === null || extractNumericPrice(l.price) > 5.0));
+                return active.length > 0;
             }
-            return !!data?.available;
+            return isStoreAvailable(data);
         });
 
         for (const storeKey of allStoreKeys) {
@@ -304,9 +318,9 @@ function computeDiff(prevData, currData, gamesMap) {
             const storeName = `${storeMeta.icon} ${storeMeta.name}`;
 
             if (storeKey === 'bggMarket') {
-                // Compare BGG Market listings (only active, non-ignored listings)
-                const prevListings = (Array.isArray(prev.listings) ? prev.listings : []).filter(l => !l.ignored);
-                const currListings = (Array.isArray(curr.listings) ? curr.listings : []).filter(l => !l.ignored);
+                // Compare BGG Market listings (only active, non-ignored listings > $5.0)
+                const prevListings = (Array.isArray(prev.listings) ? prev.listings : []).filter(l => !l.ignored && (extractNumericPrice(l.price) === null || extractNumericPrice(l.price) > 5.0));
+                const currListings = (Array.isArray(curr.listings) ? curr.listings : []).filter(l => !l.ignored && (extractNumericPrice(l.price) === null || extractNumericPrice(l.price) > 5.0));
 
                 // Detect new listings in BGG Market
                 for (const currItem of currListings) {
@@ -326,8 +340,8 @@ function computeDiff(prevData, currData, gamesMap) {
                 continue;
             }
 
-            const wasAvail = !!prev.available;
-            const isAvail = !!curr.available;
+            const wasAvail = isStoreAvailable(prev);
+            const isAvail = isStoreAvailable(curr);
 
             // 1. Newly in stock
             if (!wasAvail && isAvail) {
@@ -395,11 +409,11 @@ function getOverallInStockSummary(currData, gamesMap) {
         const inStockStores = [];
         for (const [storeKey, storeData] of Object.entries(stores)) {
             if (storeKey === 'bggMarket') {
-                const active = (Array.isArray(storeData?.listings) ? storeData.listings : []).filter(l => !l.ignored);
-                if (active.length > 0 || (storeData?.available && !storeData?.ignored)) {
+                const active = (Array.isArray(storeData?.listings) ? storeData.listings : []).filter(l => !l.ignored && (extractNumericPrice(l.price) === null || extractNumericPrice(l.price) > 5.0));
+                if (active.length > 0) {
                     inStockStores.push(STORE_META[storeKey]?.name || storeKey);
                 }
-            } else if (storeData?.available) {
+            } else if (isStoreAvailable(storeData)) {
                 inStockStores.push(STORE_META[storeKey]?.name || storeKey);
             }
         }

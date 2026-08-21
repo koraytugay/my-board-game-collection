@@ -39,13 +39,22 @@ function formatPrice(price) {
     return str;
 }
 
+function extractNumericPrice(priceStr) {
+    if (!priceStr) return null;
+    const clean = String(priceStr).replace(/,/g, '');
+    const match = clean.match(/[0-9]+(?:\.[0-9]+)?/);
+    return match ? parseFloat(match[0]) : null;
+}
+
 function getActiveBggListings(game) {
     const bggmkt = game.availability?.bggMarket;
     if (!bggmkt) return [];
     if (Array.isArray(bggmkt.listings) && bggmkt.listings.length > 0) {
-        return bggmkt.listings.filter(l => !l.ignored);
+        return bggmkt.listings.filter(l => !l.ignored && (extractNumericPrice(l.price) === null || extractNumericPrice(l.price) > 5.0));
     }
     if (bggmkt.available && bggmkt.url && !bggmkt.ignored) {
+        const num = extractNumericPrice(bggmkt.price);
+        if (num !== null && num <= 5.0) return [];
         return [{
             price: bggmkt.price,
             seller: bggmkt.seller || 'BGG Market',
@@ -63,7 +72,10 @@ function isGameInStockAtStore(game, storeKey) {
     if (storeKey === 'bggMarket') {
         return getActiveBggListings(game).length > 0;
     }
-    return !!storeData.available;
+    if (!storeData.available) return false;
+    const num = extractNumericPrice(storeData.price);
+    if (num !== null && num <= 5.0) return false;
+    return true;
 }
 
 function isGameInStockAtAnyStore(game) {

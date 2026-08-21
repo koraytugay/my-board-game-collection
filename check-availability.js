@@ -7,6 +7,19 @@ const COLLECTION_FILE = 'collection.xml';
 const RECOMMENDATIONS_FILE = 'recommendations.json';
 const OUTPUT_FILE = isRecommended ? 'availability-recommended.json' : 'availability.json';
 const POLITENESS_DELAY_MS = parseInt(process.env.CHECK_DELAY_MS || '5000', 10);
+const MIN_PRICE_THRESHOLD = 5.0; // Ignore/treat items priced <= 5 as out of stock / erroneous match
+
+function extractNumericPrice(priceStr) {
+    if (!priceStr) return null;
+    const clean = String(priceStr).replace(/,/g, '');
+    const match = clean.match(/[0-9]+(?:\.[0-9]+)?/);
+    return match ? parseFloat(match[0]) : null;
+}
+
+function isPriceUnderThreshold(priceStr, threshold = MIN_PRICE_THRESHOLD) {
+    const num = extractNumericPrice(priceStr);
+    return num !== null && num <= threshold;
+}
 
 const DEFAULT_HEADERS = {
     'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36',
@@ -1152,11 +1165,13 @@ async function checkAvailability() {
                         // Only Canadian sellers
                         const caProducts = res.products.filter(p => p.itemlocation_code === 'CA' || p.itemlocation === 'Canada');
                         
-                        // Filter out sellers in skippedSellers list (case-insensitive)
+                        // Filter out sellers in skippedSellers list (case-insensitive) and listings <= $5.0
                         const allowedProducts = caProducts.filter(p => {
                             const sellerName = p.linkeduser?.username;
                             if (!sellerName) return false;
-                            return !skippedSellers.some(s => s.toLowerCase() === sellerName.toLowerCase());
+                            if (skippedSellers.some(s => s.toLowerCase() === sellerName.toLowerCase())) return false;
+                            if (isPriceUnderThreshold(p.price)) return false;
+                            return true;
                         });
 
                         if (allowedProducts.length > 0) {
@@ -1171,7 +1186,7 @@ async function checkAvailability() {
                                 const firstSeen = existing?.firstSeen || new Date().toISOString();
 
                                 const ageDays = (Date.now() - new Date(firstSeen).getTime()) / (1000 * 60 * 60 * 24);
-                                const isIgnored = ageDays >= 7;
+                                const isIgnored = ageDays >= 7 || isPriceUnderThreshold(match.price);
 
                                 return {
                                     price: `${symbol}${match.price} ${match.currency}`,
@@ -1263,110 +1278,79 @@ async function checkAvailability() {
 
             if (!shouldFetch) {
                 skippedStores.push(storeKey);
+                let available = existingStoreData.available ?? false;
+                if (available && isPriceUnderThreshold(existingStoreData.price)) {
+                    available = false;
+                }
+                let listings = existingStoreData.listings;
+                if (Array.isArray(listings)) {
+                    listings = listings.map(l => {
+                        if (isPriceUnderThreshold(l.price)) return { ...l, ignored: true };
+                        return l;
+                    });
+                    const activeListings = listings.filter(l => !l.ignored);
+                    if (activeListings.length === 0) available = false;
+                }
                 availability[storeKey] = {
-                    available: existingStoreData.available ?? false,
+                    available,
                     price: existingStoreData.price ?? null,
                     url: existingStoreData.url ?? null,
-                    ...(existingStoreData.listings ? { listings: existingStoreData.listings } : {}),
+                    ...(listings ? { listings } : {}),
                     lastChecked: existingStoreData.lastChecked,
                     lastCheckSuccess: existingStoreData.lastCheckSuccess ?? true
                 };
             } else {
                 const fetchPromise = (async () => {
                     try {
+                        let resultObj = null;
+
                         if (config.type === 'shopify') {
-                            const shopifyResult = await fetchShopifyStore(config.baseUrl, query, game.name, config.currencySymbol || '$');
-                            if (shopifyResult) {
-                                availability[storeKey] = {
-                                    available: shopifyResult.available ?? false,
-                                    price: shopifyResult.price ?? null,
-                                    url: shopifyResult.url ?? null,
-                                    lastChecked: new Date().toISOString(),
-                                    lastCheckSuccess: true
-                                };
+                            resultObj = await fetchShopifyStore(config.baseUrl, query, game.name, config.currencySymbol || '$');
+                        } else if (config.type === 'custom' && typeof config.checker === 'function') {
+                            resultObj = await config.checker(game, existingStoreData);
+                        } else {
+                            const targetUrl = typeof config.url === 'function' ? await config.url(game) : config.url;
+                            if (!targetUrl) {
+                                resultObj = { available: false, price: null, url: null };
+                            } else if (config.type === 'puppeteer') {
+                                const pResult = await fetchAmazonWithPuppeteer(game.name);
+                                resultObj = pResult || { available: false, price: null, url: targetUrl };
                             } else {
-                                availability[storeKey] = {
-                                    available: false,
-                                    price: null,
-                                    url: null,
-                                    lastChecked: new Date().toISOString(),
-                                    lastCheckSuccess: true
-                                };
+                                const res = config.type === 'json' 
+                                    ? await fetchJson(targetUrl)
+                                    : await fetchHtml(targetUrl);
+
+                                if (res === null) {
+                                    throw new Error(`Fetch returned null (timeout/error)`);
+                                }
+                                resultObj = config.parser(res, game.name, targetUrl, existingStoreData);
                             }
-                            return;
                         }
 
-                        if (config.type === 'custom' && typeof config.checker === 'function') {
-                            const customResult = await config.checker(game, existingStoreData);
-                            if (customResult) {
-                                availability[storeKey] = {
-                                    available: customResult.available ?? false,
-                                    price: customResult.price ?? null,
-                                    url: customResult.url ?? null,
-                                    ...(customResult.listings ? { listings: customResult.listings } : {}),
-                                    lastChecked: new Date().toISOString(),
-                                    lastCheckSuccess: true
-                                };
-                            } else {
-                                availability[storeKey] = {
-                                    available: false,
-                                    price: null,
-                                    url: null,
-                                    lastChecked: new Date().toISOString(),
-                                    lastCheckSuccess: true
-                                };
-                            }
-                            return;
-                        }
+                        if (resultObj) {
+                            let available = Boolean(resultObj.available);
+                            let price = resultObj.price ?? null;
+                            let url = resultObj.url ?? null;
+                            let listings = resultObj.listings;
 
-                        const targetUrl = typeof config.url === 'function' ? await config.url(game) : config.url;
-                        if (!targetUrl) {
+                            if (available && isPriceUnderThreshold(price)) {
+                                available = false;
+                            }
+
+                            if (Array.isArray(listings)) {
+                                listings = listings.map(l => {
+                                    if (isPriceUnderThreshold(l.price)) return { ...l, ignored: true };
+                                    return l;
+                                });
+                                const activeListings = listings.filter(l => !l.ignored);
+                                if (activeListings.length === 0) available = false;
+                            }
+
                             availability[storeKey] = {
-                                available: false,
-                                price: null,
-                                url: null,
-                                lastChecked: new Date().toISOString(),
-                                lastCheckSuccess: true
-                            };
-                            return;
-                        }
-                        if (config.type === 'puppeteer') {
-                            const pResult = await fetchAmazonWithPuppeteer(game.name);
-                            if (pResult) {
-                                availability[storeKey] = {
-                                    available: pResult.available,
-                                    price: pResult.price,
-                                    url: pResult.url,
-                                    lastChecked: new Date().toISOString(),
-                                    lastCheckSuccess: true
-                                };
-                            } else {
-                                availability[storeKey] = {
-                                    available: false,
-                                    price: null,
-                                    url: targetUrl,
-                                    lastChecked: new Date().toISOString(),
-                                    lastCheckSuccess: true
-                                };
-                            }
-                            return;
-                        }
-
-                        const res = config.type === 'json' 
-                            ? await fetchJson(targetUrl)
-                            : await fetchHtml(targetUrl);
-
-                        if (res === null) {
-                            throw new Error(`Fetch returned null (timeout/error)`);
-                        }
-
-                        const parsed = config.parser(res, game.name, targetUrl, existingStoreData);
-                        if (parsed) {
-                            availability[storeKey] = {
-                                available: parsed.available,
-                                price: parsed.price,
-                                url: parsed.url,
-                                ...(parsed.listings ? { listings: parsed.listings } : {}),
+                                available,
+                                price,
+                                url,
+                                ...(listings ? { listings } : {}),
                                 lastChecked: new Date().toISOString(),
                                 lastCheckSuccess: true
                             };
@@ -1380,8 +1364,12 @@ async function checkAvailability() {
                             };
                         }
                     } catch (err) {
+                        let available = existingStoreData?.available ?? false;
+                        if (available && isPriceUnderThreshold(existingStoreData?.price)) {
+                            available = false;
+                        }
                         availability[storeKey] = {
-                            available: existingStoreData?.available ?? false,
+                            available,
                             price: existingStoreData?.price ?? null,
                             url: existingStoreData?.url ?? null,
                             ...(existingStoreData?.listings ? { listings: existingStoreData.listings } : {}),
