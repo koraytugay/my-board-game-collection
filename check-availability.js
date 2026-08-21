@@ -418,8 +418,12 @@ function parseElevatedBoardGames(html, gameName, targetUrl) {
     };
 }
 
+const GAME_ALIASES = {
+    'Back to the Future: Back in Time': ['Back to the Future']
+};
+
 function isMatch(bggName, shopifyProduct) {
-    const shopifyTitle = shopifyProduct.title || '';
+    const shopifyTitle = decodeXmlEntities(shopifyProduct.title || '');
     const shopifyType = shopifyProduct.type || '';
     
     const cleanBgg = cleanName(bggName);
@@ -429,13 +433,13 @@ function isMatch(bggName, shopifyProduct) {
 
     // 1. Check product type: filter out obvious non-game categories
     const lowerType = shopifyType.toLowerCase();
-    const disallowedTypes = ['accessory', 'accessories', 'paint', 'sleeve', 'sleeves', 'insert', 'organizer', 'organiser', 'playmat', 'mat', 'dice', 'token', 'tokens', 'tcg', 'booster', 'singles', 'single', 'acrylic', 'miniature', 'miniatures', 'puzzle', 'puzzles'];
+    const disallowedTypes = ['diecast', 'model', 'accessory', 'accessories', 'paint', 'sleeve', 'sleeves', 'insert', 'organizer', 'organiser', 'playmat', 'mat', 'dice', 'token', 'tokens', 'tcg', 'booster', 'singles', 'single', 'acrylic', 'miniature', 'miniatures', 'puzzle', 'puzzles'];
     if (disallowedTypes.some(type => lowerType.includes(type))) {
         return false;
     }
 
     // 2. Filter out keywords in Shopify title that are NOT in BGG title
-    const disallowedKeywords = ['insert', 'organizer', 'organiser', 'playmat', 'promo', 'paint', 'sleeves', 'token', 'coins', 'upgrade', 'expansion', 'booster', 'tcg', 'sleeved', 'sleeve-pack', 'acrylic-tokens', 'puzzle', 'puzzles', '1000pc', '1000pcs', '1000-piece', '1000 piece'];
+    const disallowedKeywords = ['diecast', 'die-cast', '1/32', '1/24', '1/18', 'keyring', 'plush', 'action figure', 'pop! vinyl', 'insert', 'organizer', 'organiser', 'playmat', 'promo', 'paint', 'sleeves', 'token', 'coins', 'upgrade', 'expansion', 'booster', 'tcg', 'sleeved', 'sleeve-pack', 'acrylic-tokens', 'puzzle', 'puzzles', '1000pc', '1000pcs', '1000-piece', '1000 piece'];
     for (const kw of disallowedKeywords) {
         if (shopifyTitle.toLowerCase().includes(kw) && !cleanBgg.toLowerCase().includes(kw)) {
             return false;
@@ -447,7 +451,26 @@ function isMatch(bggName, shopifyProduct) {
         return true;
     }
 
-    // 4. Word constraint to prevent generic single-word matching (e.g. "Parade" matching "Parade of Hundred Demons", "Barista" matching "Baristart")
+    // 4. Check known game aliases
+    const aliases = GAME_ALIASES[bggName] || GAME_ALIASES[cleanBgg] || [];
+    for (const alias of aliases) {
+        if (normalize(alias) === nShopify) {
+            return true;
+        }
+    }
+
+    // 5. If BGG name has a subtitle, ensure shopifyTitle contains key subtitle words
+    if (cleanBgg.includes(':')) {
+        const parts = cleanBgg.split(':');
+        const subtitle = parts[1].trim();
+        const subWords = subtitle.toLowerCase().split(/\s+/).filter(w => w.length > 2);
+        const hasSubtitle = subWords.some(w => shopifyTitle.toLowerCase().includes(w));
+        if (!hasSubtitle) {
+            return false;
+        }
+    }
+
+    // 6. Word constraint to prevent generic single-word matching (e.g. "Parade" matching "Parade of Hundred Demons", "Barista" matching "Baristart")
     const wordsBgg = cleanBgg.toLowerCase().split(/\s+/).filter(Boolean);
     const wordsShopify = shopifyTitle.toLowerCase().split(/\s+/).filter(Boolean);
     if (wordsBgg.length === 1) {
@@ -464,70 +487,49 @@ function isMatch(bggName, shopifyProduct) {
 function findBestShopifyMatch(products, gameName) {
     if (!products || !Array.isArray(products) || products.length === 0) return null;
     const normalize = str => str.toLowerCase().replace(/[^a-z0-9]/g, '');
-    const nBgg = normalize(cleanName(gameName));
+    const cleanBgg = cleanName(gameName);
+    const nBgg = normalize(cleanBgg);
     
     // 1. Exact normalized match first
     const exact = products.find(p => normalize(cleanName(decodeXmlEntities(p.title || ''))) === nBgg);
     if (exact) return exact;
+
+    // 2. Exact alias match
+    const aliases = GAME_ALIASES[gameName] || GAME_ALIASES[cleanBgg] || [];
+    for (const alias of aliases) {
+        const aliasMatch = products.find(p => normalize(cleanName(decodeXmlEntities(p.title || ''))) === normalize(alias));
+        if (aliasMatch) return aliasMatch;
+    }
     
-    // 2. isMatch filter
+    // 3. isMatch filter
     return products.find(p => isMatch(gameName, p)) || null;
 }
 
 async function fetchShopifyStore(baseUrl, query, gameName, currencySymbol = '$') {
-    // 1. Fast path: try suggest.json
-    const suggestUrl = `${baseUrl}/search/suggest.json?q=${encodeURIComponent(query)}&resources[type]=product`;
-    const suggestRes = await fetchJson(suggestUrl);
-    
-    if (suggestRes?.resources?.results?.products?.length > 0) {
-        const match = findBestShopifyMatch(suggestRes.resources.results.products, gameName);
-        if (match) {
-            let price = match.price ? (match.price.startsWith(currencySymbol) ? match.price : `${currencySymbol}${match.price}`) : null;
-            const tags = Array.isArray(match.tags) ? match.tags : [];
-            const isBackOrPreOrder = tags.some(t => /back-?order|pre-?order/i.test(t));
-            const available = (match.available ?? false) && !isBackOrPreOrder;
-            return {
-                available,
-                price,
-                url: `${baseUrl}${match.url}`
-            };
+    const queries = [query];
+    const aliases = GAME_ALIASES[gameName] || GAME_ALIASES[cleanName(gameName)] || [];
+    for (const a of aliases) {
+        if (!queries.includes(a)) queries.push(a);
+    }
+
+    for (const q of queries) {
+        const suggestUrl = `${baseUrl}/search/suggest.json?q=${encodeURIComponent(q)}&resources[type]=product`;
+        const suggestRes = await fetchJson(suggestUrl);
+        
+        if (suggestRes?.resources?.results?.products?.length > 0) {
+            const match = findBestShopifyMatch(suggestRes.resources.results.products, gameName);
+            if (match) {
+                let price = match.price ? (match.price.startsWith(currencySymbol) ? match.price : `${currencySymbol}${match.price}`) : null;
+                const tags = Array.isArray(match.tags) ? match.tags : [];
+                const isBackOrPreOrder = tags.some(t => /back-?order|pre-?order/i.test(t));
+                const available = (match.available ?? false) && !isBackOrPreOrder;
+                return {
+                    available,
+                    price,
+                    url: `${baseUrl}${match.url}`
+                };
+            }
         }
-    }
-
-    // 2. Fallback: Full search HTML (bypasses 10-item limit of suggest.json)
-    const searchUrl = `${baseUrl}/search?q=${encodeURIComponent(query)}&type=product`;
-    const html = await fetchHtml(searchUrl);
-    if (!html) return null;
-
-    let candidateHandles = [];
-    const posMatches = [...html.matchAll(/\/products\/([a-zA-Z0-9_-]+)\?[^"]*_pos=\d+/g)];
-    if (posMatches.length > 0) {
-        candidateHandles = [...new Set(posMatches.map(m => m[1]))];
-    } else {
-        const allMatches = [...html.matchAll(/\/products\/([a-zA-Z0-9_-]+)/g)];
-        candidateHandles = [...new Set(allMatches.map(m => m[1]))].filter(h => !h.includes('gift-card') && h !== 'search');
-    }
-
-    const fetchedProducts = [];
-    for (const handle of candidateHandles.slice(0, 10)) {
-        const prodData = await fetchJson(`${baseUrl}/products/${handle}.js`);
-        if (prodData) {
-            fetchedProducts.push(prodData);
-        }
-    }
-
-    const fallbackMatch = findBestShopifyMatch(fetchedProducts, gameName);
-    if (fallbackMatch) {
-        const rawPrice = (fallbackMatch.price / 100).toFixed(2);
-        let price = `${currencySymbol}${rawPrice}`;
-        const tags = Array.isArray(fallbackMatch.tags) ? fallbackMatch.tags : [];
-        const isBackOrPreOrder = tags.some(t => /back-?order|pre-?order/i.test(t));
-        const available = (fallbackMatch.available ?? false) && !isBackOrPreOrder;
-        return {
-            available,
-            price,
-            url: `${baseUrl}/products/${fallbackMatch.handle}`
-        };
     }
 
     return null;
