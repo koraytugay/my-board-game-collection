@@ -280,6 +280,7 @@ const MIN_PRICE_CHANGE_THRESHOLD = 5.0;
 function computeDiff(prevData, currData, gamesMap) {
     const newlyAvailable = [];
     const noLongerAvailable = [];
+    const majorDeals = [];
     const priceChanges = [];
     const bggMarketNewListings = [];
 
@@ -369,13 +370,26 @@ function computeDiff(prevData, currData, gamesMap) {
                     isNowCompletelyOutOfStock: !isInStockAnywhere
                 });
             }
-            // 3. Price change for an in-stock game (only if change is at least MIN_PRICE_CHANGE_THRESHOLD)
+            // 3. Price change / Major Deal for an in-stock game
             else if (wasAvail && isAvail && prev.price && curr.price) {
                 const normPrev = parseFloat(normalizePrice(prev.price));
                 const normCurr = parseFloat(normalizePrice(curr.price));
                 if (!isNaN(normPrev) && !isNaN(normCurr)) {
-                    const priceDiff = Math.abs(normCurr - normPrev);
-                    if (priceDiff >= MIN_PRICE_CHANGE_THRESHOLD) {
+                    const priceDrop = normPrev - normCurr;
+                    const discountPercent = normPrev > 0 ? Math.round((priceDrop / normPrev) * 100) : 0;
+                    if (discountPercent >= 20) {
+                        majorDeals.push({
+                            gameId,
+                            gameName,
+                            bggUrl,
+                            storeKey,
+                            storeName,
+                            oldPrice: formatPrice(prev.price),
+                            newPrice: formatPrice(curr.price),
+                            discountPercent,
+                            url: curr.url || bggUrl
+                        });
+                    } else if (Math.abs(normCurr - normPrev) >= 1.0) {
                         priceChanges.push({
                             gameId,
                             gameName,
@@ -384,7 +398,7 @@ function computeDiff(prevData, currData, gamesMap) {
                             storeName,
                             oldPrice: formatPrice(prev.price),
                             newPrice: formatPrice(curr.price),
-                            priceDiff: priceDiff.toFixed(2),
+                            priceDiff: Math.abs(normCurr - normPrev).toFixed(2),
                             url: curr.url || bggUrl
                         });
                     }
@@ -396,15 +410,18 @@ function computeDiff(prevData, currData, gamesMap) {
     return {
         newlyAvailable,
         noLongerAvailable,
+        majorDeals,
         priceChanges,
         bggMarketNewListings,
-        totalDiffs: newlyAvailable.length + noLongerAvailable.length + priceChanges.length + bggMarketNewListings.length
+        totalDiffs: newlyAvailable.length + noLongerAvailable.length + majorDeals.length + priceChanges.length + bggMarketNewListings.length
     };
 }
 
 function getOverallInStockSummary(currData, gamesMap) {
     let inStockCount = 0;
     const inStockGames = [];
+    const activeDeals = [];
+
     for (const [gameId, stores] of Object.entries(currData)) {
         const inStockStores = [];
         for (const [storeKey, storeData] of Object.entries(stores)) {
@@ -415,6 +432,18 @@ function getOverallInStockSummary(currData, gamesMap) {
                 }
             } else if (isStoreAvailable(storeData)) {
                 inStockStores.push(STORE_META[storeKey]?.name || storeKey);
+                if (storeData.deal && storeData.deal.discountPercent >= 20) {
+                    const gameInfo = gamesMap[gameId] || { name: `Game #${gameId}` };
+                    activeDeals.push({
+                        gameId,
+                        gameName: gameInfo.name,
+                        storeName: STORE_META[storeKey]?.name || storeKey,
+                        price: formatPrice(storeData.price),
+                        previousPrice: formatPrice(storeData.deal.previousPrice),
+                        discountPercent: storeData.deal.discountPercent,
+                        url: storeData.url || `https://boardgamegeek.com/boardgame/${gameId}`
+                    });
+                }
             }
         }
         if (inStockStores.length > 0) {
@@ -426,7 +455,7 @@ function getOverallInStockSummary(currData, gamesMap) {
             });
         }
     }
-    return { inStockCount, inStockGames, totalGames: Object.keys(currData).length };
+    return { inStockCount, inStockGames, activeDeals, totalGames: Object.keys(currData).length };
 }
 
 function buildEmailSubject(diff, summary, range, isDaily) {
@@ -454,6 +483,9 @@ function buildEmailSubject(diff, summary, range, isDaily) {
     }
 
     const parts = [];
+    if (diff.majorDeals && diff.majorDeals.length > 0) {
+        parts.push(`🔥 ${diff.majorDeals.length} Major Deal${diff.majorDeals.length > 1 ? 's' : ''}`);
+    }
     if (diff.newlyAvailable.length > 0) {
         parts.push(`🟢 ${diff.newlyAvailable.length} in stock`);
     }
@@ -528,6 +560,50 @@ function buildHtmlBody(diff, gamesMap, summary, range, isDaily) {
                 <p style="margin: 0; color: #718096; font-size: 0.9rem;">Currently, <strong>${summary.inStockCount} game${summary.inStockCount === 1 ? '' : 's'}</strong> remain in stock across tracked stores.</p>
             </div>
         `;
+    }
+
+    // 0. Major Deals
+    if (diff.majorDeals && diff.majorDeals.length > 0) {
+        html += `<div class="section-title" style="color: #c53030;">🔥 Major Deals (20%+ OFF) (${diff.majorDeals.length})</div>`;
+        for (const item of diff.majorDeals) {
+            html += `
+                <div class="card" style="border-left: 4px solid #dd6b20; background: #fffaf0;">
+                    <div class="card-header">
+                        <a href="${item.bggUrl}" target="_blank" class="game-title">${item.gameName}</a>
+                        <span style="background: #feebc8; color: #c05621; font-size: 0.75rem; font-weight: bold; padding: 3px 8px; border-radius: 9999px;">🔥 -${item.discountPercent}% OFF</span>
+                    </div>
+                    <div class="meta-line">
+                        <span><strong>Store:</strong> ${item.storeName}</span>
+                        <span><strong>Price:</strong> <span style="text-decoration: line-through; color: #a0aec0;">${item.oldPrice}</span> &rarr; <strong style="color: #c53030;">${item.newPrice}</strong></span>
+                    </div>
+                    <div>
+                        <a href="${item.url}" target="_blank" class="btn" style="background: #dd6b20;">View Deal & Buy &rarr;</a>
+                    </div>
+                </div>
+            `;
+        }
+    }
+
+    // Active Deals in Daily Summary
+    if (isDaily && summary.activeDeals && summary.activeDeals.length > 0) {
+        html += `<div class="section-title" style="color: #c53030;">🔥 Active Recommended Game Deals (20%+ OFF) (${summary.activeDeals.length})</div>`;
+        for (const deal of summary.activeDeals) {
+            html += `
+                <div class="card" style="border-left: 4px solid #dd6b20; background: #fffaf0;">
+                    <div class="card-header">
+                        <a href="https://boardgamegeek.com/boardgame/${deal.gameId}" target="_blank" class="game-title">${deal.gameName}</a>
+                        <span style="background: #feebc8; color: #c05621; font-size: 0.75rem; font-weight: bold; padding: 3px 8px; border-radius: 9999px;">🔥 -${deal.discountPercent}% OFF</span>
+                    </div>
+                    <div class="meta-line">
+                        <span><strong>Store:</strong> ${deal.storeName}</span>
+                        <span><strong>Price:</strong> <span style="text-decoration: line-through; color: #a0aec0;">${deal.previousPrice}</span> &rarr; <strong style="color: #c53030;">${deal.price}</strong></span>
+                    </div>
+                    <div>
+                        <a href="${deal.url}" target="_blank" class="btn" style="background: #dd6b20;">View Deal & Buy &rarr;</a>
+                    </div>
+                </div>
+            `;
+        }
     }
 
     // 1. Newly Available

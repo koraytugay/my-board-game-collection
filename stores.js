@@ -97,6 +97,29 @@ function isGameInStockAtAnyStore(game) {
     return STORES.some(store => isGameInStockAtStore(game, store.key));
 }
 
+function getGameDealInfo(game) {
+    if (!game.availability) return null;
+    let maxDeal = null;
+    for (const [storeKey, storeData] of Object.entries(game.availability)) {
+        if (storeKey === 'bggMarket') continue;
+        if (storeData && isGameInStockAtStore(game, storeKey) && storeData.deal && storeData.deal.discountPercent >= 20) {
+            if (!maxDeal || storeData.deal.discountPercent > maxDeal.discountPercent) {
+                maxDeal = {
+                    storeKey,
+                    discountPercent: storeData.deal.discountPercent,
+                    previousPrice: storeData.deal.previousPrice,
+                    currentPrice: storeData.price
+                };
+            }
+        }
+    }
+    return maxDeal;
+}
+
+function hasGameMajorDeal(game) {
+    return getGameDealInfo(game) !== null;
+}
+
 function isGameSoldBySeller(game, sellerName) {
     if (!sellerName || sellerName === 'all') return true;
     const listings = getActiveBggListings(game);
@@ -426,6 +449,7 @@ function applyFilters() {
     const playerCountFilter = document.getElementById('player-count');
     const ratingFilter = document.getElementById('rating-filter');
     const designerFilter = document.getElementById('designer-filter');
+    const majorDealsCheckbox = document.getElementById('major-deals-only');
 
     const searchTerm = (searchInput?.value || '').toLowerCase();
     const selectedStore = storeFilter ? storeFilter.value : 'all';
@@ -434,6 +458,7 @@ function applyFilters() {
     const playerCount = playerCountFilter ? playerCountFilter.value : 'all';
     const rating = ratingFilter ? ratingFilter.value : 'all';
     const designer = designerFilter ? designerFilter.value : 'all';
+    const majorDealsOnly = majorDealsCheckbox ? majorDealsCheckbox.checked : false;
 
     filteredGames = allGames.filter(game => {
         // Search filter
@@ -444,6 +469,9 @@ function applyFilters() {
         // List source filter
         if (selectedList === 'wanttobuy' && !game.isWantToBuy) return false;
         if (selectedList === 'recommended' && !game.isRecommended) return false;
+
+        // Major deals filter
+        if (majorDealsOnly && !hasGameMajorDeal(game)) return false;
 
         // Store filter
         if (selectedStore !== 'all') {
@@ -512,6 +540,11 @@ function createGameCard(game) {
         badgesHtml += '<span class="badge badge-favorite">Want to Buy</span>';
     }
 
+    const dealInfo = getGameDealInfo(game);
+    if (dealInfo) {
+        badgesHtml += `<span class="badge badge-deal" title="Was ${dealInfo.previousPrice}, now ${dealInfo.currentPrice}">🔥 -${dealInfo.discountPercent}% Deal</span>`;
+    }
+
     if (game.minPlayers <= 1) badgesHtml += '<span class="badge badge-solo">Solo</span>';
     if (game.rating >= 8) badgesHtml += '<span class="badge badge-highly-rated">Highly Rated</span>';
 
@@ -542,11 +575,13 @@ function createGameCard(game) {
     const renderStoreChip = (store, name, isBggMarket = false) => {
         if (!store || !store.url || !store.available) return '';
         const priceText = formatPrice(store.price);
-        const chipClass = isBggMarket ? 'store-chip bgg-market' : 'store-chip';
+        const hasDeal = store.deal && store.deal.discountPercent >= 20;
+        const chipClass = isBggMarket ? 'store-chip bgg-market' : (hasDeal ? 'store-chip has-deal' : 'store-chip');
+        const dealBadge = hasDeal ? `<span class="chip-deal-badge">-${store.deal.discountPercent}%</span>` : '';
         return `
-            <a href="${store.url}" target="_blank" class="${chipClass}" title="View on ${name}">
+            <a href="${store.url}" target="_blank" class="${chipClass}" title="View on ${name}${hasDeal ? ` (Was ${store.deal.previousPrice}, now ${store.price})` : ''}">
                 <span class="store-chip-name">${name}</span>
-                ${priceText ? `<span class="store-chip-price">${priceText}</span>` : ''}
+                ${priceText ? `<span class="store-chip-price">${priceText} ${dealBadge}</span>` : ''}
             </a>
         `;
     };

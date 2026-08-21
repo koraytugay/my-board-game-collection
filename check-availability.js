@@ -21,6 +21,46 @@ function isPriceUnderThreshold(priceStr, threshold = MIN_PRICE_THRESHOLD) {
     return num !== null && num <= threshold;
 }
 
+function computeDealInfo(currentPrice, existingStoreData) {
+    const currNum = extractNumericPrice(currentPrice);
+    if (!currNum) {
+        return { baselinePrice: currentPrice || null, deal: null };
+    }
+
+    const prevPrice = existingStoreData?.price;
+    const baselinePrice = existingStoreData?.baselinePrice || prevPrice || currentPrice;
+    const baselineNum = extractNumericPrice(baselinePrice);
+
+    if (!baselineNum) {
+        return { baselinePrice: currentPrice, deal: null };
+    }
+
+    // Price went up: update regular baseline price
+    if (currNum > baselineNum) {
+        return { baselinePrice: currentPrice, deal: null };
+    }
+
+    // Calculate discount against baseline
+    const discountPercent = Math.round(((baselineNum - currNum) / baselineNum) * 100);
+
+    if (discountPercent >= 20) {
+        return {
+            baselinePrice,
+            deal: {
+                previousPrice: baselinePrice,
+                discountPercent
+            }
+        };
+    }
+
+    // If not >= 20% discount, update baseline if price dropped slightly
+    if (currNum < baselineNum && discountPercent < 20) {
+        return { baselinePrice: currentPrice, deal: null };
+    }
+
+    return { baselinePrice, deal: null };
+}
+
 const DEFAULT_HEADERS = {
     'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36',
     'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
@@ -1291,9 +1331,12 @@ async function checkAvailability() {
                     const activeListings = listings.filter(l => !l.ignored);
                     if (activeListings.length === 0) available = false;
                 }
+                const { baselinePrice, deal } = computeDealInfo(existingStoreData.price, existingStoreData);
                 availability[storeKey] = {
                     available,
                     price: existingStoreData.price ?? null,
+                    baselinePrice: baselinePrice ?? null,
+                    ...(deal ? { deal } : {}),
                     url: existingStoreData.url ?? null,
                     ...(listings ? { listings } : {}),
                     lastChecked: existingStoreData.lastChecked,
@@ -1346,9 +1389,13 @@ async function checkAvailability() {
                                 if (activeListings.length === 0) available = false;
                             }
 
+                            const { baselinePrice, deal } = computeDealInfo(price, existingStoreData);
+
                             availability[storeKey] = {
                                 available,
                                 price,
+                                baselinePrice: baselinePrice ?? null,
+                                ...(deal ? { deal } : {}),
                                 url,
                                 ...(listings ? { listings } : {}),
                                 lastChecked: new Date().toISOString(),
@@ -1358,6 +1405,7 @@ async function checkAvailability() {
                             availability[storeKey] = {
                                 available: false,
                                 price: null,
+                                baselinePrice: existingStoreData?.baselinePrice ?? null,
                                 url: null,
                                 lastChecked: new Date().toISOString(),
                                 lastCheckSuccess: true
@@ -1371,6 +1419,8 @@ async function checkAvailability() {
                         availability[storeKey] = {
                             available,
                             price: existingStoreData?.price ?? null,
+                            baselinePrice: existingStoreData?.baselinePrice ?? null,
+                            ...(existingStoreData?.deal ? { deal: existingStoreData.deal } : {}),
                             url: existingStoreData?.url ?? null,
                             ...(existingStoreData?.listings ? { listings: existingStoreData.listings } : {}),
                             lastChecked: existingStoreData?.lastChecked ?? null,

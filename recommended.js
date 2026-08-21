@@ -86,6 +86,29 @@ function isGameInStockAtAnyStore(game) {
     return STORES.some(store => isGameInStockAtStore(game, store.key));
 }
 
+function getGameDealInfo(game) {
+    if (!game.availability) return null;
+    let maxDeal = null;
+    for (const [storeKey, storeData] of Object.entries(game.availability)) {
+        if (storeKey === 'bggMarket') continue;
+        if (storeData && isGameInStockAtStore(game, storeKey) && storeData.deal && storeData.deal.discountPercent >= 20) {
+            if (!maxDeal || storeData.deal.discountPercent > maxDeal.discountPercent) {
+                maxDeal = {
+                    storeKey,
+                    discountPercent: storeData.deal.discountPercent,
+                    previousPrice: storeData.deal.previousPrice,
+                    currentPrice: storeData.price
+                };
+            }
+        }
+    }
+    return maxDeal;
+}
+
+function hasGameMajorDeal(game) {
+    return getGameDealInfo(game) !== null;
+}
+
 function populateStoreFilter() {
     const storeSelect = document.getElementById('store-filter');
     if (!storeSelect) return;
@@ -273,6 +296,7 @@ function applyFilters() {
     const sourceGameFilter = document.getElementById('source-game-filter');
     const playerCountFilter = document.getElementById('player-count');
     const inStockCheckbox = document.getElementById('in-stock-only');
+    const majorDealsCheckbox = document.getElementById('major-deals-only');
     const storeFilter = document.getElementById('store-filter');
     const sellerFilter = document.getElementById('seller-filter');
 
@@ -281,6 +305,7 @@ function applyFilters() {
     const sourceGameVal = sourceGameFilter ? sourceGameFilter.value : 'all';
     const playerCountVal = playerCountFilter ? playerCountFilter.value : 'all';
     const inStockOnly = inStockCheckbox ? inStockCheckbox.checked : false;
+    const majorDealsOnly = majorDealsCheckbox ? majorDealsCheckbox.checked : false;
     const storeVal = storeFilter ? storeFilter.value : 'all';
     const sellerVal = sellerFilter ? sellerFilter.value : 'all';
 
@@ -317,6 +342,11 @@ function applyFilters() {
             matchesStock = isGameInStockAtAnyStore(game);
         }
 
+        let matchesDeal = true;
+        if (majorDealsOnly) {
+            matchesDeal = hasGameMajorDeal(game);
+        }
+
         let matchesStore = true;
         if (storeVal !== 'all') {
             matchesStore = isGameInStockAtStore(game, storeVal);
@@ -328,7 +358,7 @@ function applyFilters() {
             matchesSeller = activeListings.some(l => l.seller && l.seller.toLowerCase() === sellerVal.toLowerCase());
         }
 
-        return matchesSearch && matchesRating && matchesSourceGame && matchesPlayers && matchesStock && matchesStore && matchesSeller;
+        return matchesSearch && matchesRating && matchesSourceGame && matchesPlayers && matchesStock && matchesDeal && matchesStore && matchesSeller;
     });
 
     renderGames();
@@ -369,6 +399,11 @@ function createGameCard(game) {
 
     if (isGameInStockAtAnyStore(game)) {
         badgesHtml += '<span class="badge badge-favorite" style="background: #38a169;">In Stock</span>';
+    }
+
+    const dealInfo = getGameDealInfo(game);
+    if (dealInfo) {
+        badgesHtml += `<span class="badge badge-deal" title="Was ${dealInfo.previousPrice}, now ${dealInfo.currentPrice}">🔥 -${dealInfo.discountPercent}% Deal</span>`;
     }
 
     const sourcesHtml = (game.recommendedBy || []).map(s => {
@@ -416,11 +451,13 @@ function createGameCard(game) {
     const renderStoreChip = (store, name, isBggMarket = false) => {
         if (!store || !store.url || !store.available) return '';
         const priceText = formatPrice(store.price);
-        const chipClass = isBggMarket ? 'store-chip bgg-market' : 'store-chip';
+        const hasDeal = store.deal && store.deal.discountPercent >= 20;
+        const chipClass = isBggMarket ? 'store-chip bgg-market' : (hasDeal ? 'store-chip has-deal' : 'store-chip');
+        const dealBadge = hasDeal ? `<span class="chip-deal-badge">-${store.deal.discountPercent}%</span>` : '';
         return `
-            <a href="${store.url}" target="_blank" class="${chipClass}" title="View on ${name}">
+            <a href="${store.url}" target="_blank" class="${chipClass}" title="View on ${name}${hasDeal ? ` (Was ${store.deal.previousPrice}, now ${store.price})` : ''}">
                 <span class="store-chip-name">${name}</span>
-                ${priceText ? `<span class="store-chip-price">${priceText}</span>` : ''}
+                ${priceText ? `<span class="store-chip-price">${priceText} ${dealBadge}</span>` : ''}
             </a>
         `;
     };
