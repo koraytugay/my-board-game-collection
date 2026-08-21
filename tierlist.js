@@ -44,9 +44,9 @@ function renderTierList() {
             tiers.s.push(game);
         } else if (rating >= 9) {
             tiers.a.push(game);
-        } else if (rating >= 7) {
+        } else if (rating >= 8) {
             tiers.b.push(game);
-        } else if (rating >= 6) {
+        } else if (rating >= 7) {
             tiers.c.push(game);
         } else if (rating >= 5) {
             tiers.d.push(game);
