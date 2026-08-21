@@ -15,6 +15,8 @@ const STORE_META = {
     asDesJeux: { name: 'As des Jeux', icon: '🃏' },
     greatBoardgames: { name: 'Great Boardgames', icon: '🏰' },
     meeplemart: { name: 'Meeplemart', icon: '👾' },
+    kbHobbies: { name: 'KB Hobbies', icon: '🧸' },
+    miniatureMarket: { name: 'Miniature Market', icon: '♟️' },
     amazonCa: { name: 'Amazon.ca', icon: '🛒' },
     woodForSheep: { name: 'Wood for Sheep', icon: '🐑' },
     faceToFaceGames: { name: 'Face to Face', icon: '🤝' },

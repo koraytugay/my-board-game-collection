@@ -338,6 +338,46 @@ async function getElevatedBoardGamesProductUrl(query) {
     return match ? match.url : null;
 }
 
+let kbHobbiesSitemapProducts = null;
+
+async function getKbHobbiesProduct(query) {
+    if (!kbHobbiesSitemapProducts) {
+        try {
+            const xml = await fetchHtml('https://www.kbhobbies.com/sitemap.xml');
+            if (xml) {
+                kbHobbiesSitemapProducts = [];
+                const locRegex = /<loc>(https:\/\/www\.kbhobbies\.com\/product\/([^\/]+)\/([^<]+))<\/loc>/gi;
+                let match;
+                const normalizeStr = str => str.toLowerCase().replace(/[^a-z0-9]/g, '');
+                while ((match = locRegex.exec(xml)) !== null) {
+                    const url = match[1];
+                    const slug = match[2];
+                    const productId = match[3];
+                    const rawTitle = slug.replace(/-/g, ' ');
+                    kbHobbiesSitemapProducts.push({
+                        title: rawTitle,
+                        slug,
+                        productId,
+                        url,
+                        normTitle: normalizeStr(rawTitle)
+                    });
+                }
+            }
+        } catch (e) {
+            console.error('Error fetching KB Hobbies sitemap:', e);
+        }
+    }
+    if (!kbHobbiesSitemapProducts || kbHobbiesSitemapProducts.length === 0) return null;
+
+    const cleanQ = cleanName(query);
+    const normalizeStr = str => str.toLowerCase().replace(/[^a-z0-9]/g, '');
+    const nQ = normalizeStr(cleanQ);
+
+    const match = kbHobbiesSitemapProducts.find(p => p.normTitle === nQ) ||
+                  kbHobbiesSitemapProducts.find(p => isMatch(query, { title: p.title }));
+    return match || null;
+}
+
 function parseElevatedBoardGames(html, gameName, targetUrl) {
     if (!html) return null;
 
@@ -436,10 +476,11 @@ function parseGreatBoardgames(html, gameName) {
         if (!linkMatch) continue;
         
         const url = linkMatch[1];
-        const title = linkMatch[2].trim();
+        const title = decodeXmlEntities(linkMatch[2].trim());
         
         const priceMatch = /<span class="">\s*\$([0-9.]+)\s*<\/span>/i.exec(cardHtml);
-        const price = priceMatch ? priceMatch[1].trim() : null;
+        let price = priceMatch ? priceMatch[1].trim() : null;
+        if (price && !price.startsWith('$')) price = `$${price}`;
         
         const available = cardHtml.includes('class="btn btn-outline-dark btn-product-left addToCart"') || cardHtml.includes('addToCart');
         
@@ -452,6 +493,55 @@ function parseGreatBoardgames(html, gameName) {
         });
     }
     
+    return products.find(p => isMatch(gameName, p)) || null;
+}
+
+// Parser for Miniature Market HTML
+function parseMiniatureMarket(html, gameName) {
+    if (!html) return null;
+    const boxes = html.split(/class="[^"]*card product-box box-[^"]*"/);
+    const products = [];
+    
+    for (let i = 1; i < boxes.length; i++) {
+        const boxHtml = boxes[i];
+        
+        const linkMatch = /<a\s+[^>]*href="([^"]+)"[^>]*class="product-name[^"]*"[^>]*title="([^"]+)"/i.exec(boxHtml)
+                       || /<a\s+[^>]*class="product-name[^"]*"[^>]*title="([^"]+)"[^>]*href="([^"]+)"/i.exec(boxHtml)
+                       || /class="product-name[^"]*"[^>]*>\s*([^<]+)\s*<\/a>/i.exec(boxHtml);
+        if (!linkMatch) continue;
+        
+        let url = '';
+        let title = '';
+        if (linkMatch[1].startsWith('http')) {
+            url = linkMatch[1];
+            title = linkMatch[2] || linkMatch[1];
+        } else if (linkMatch[2] && linkMatch[2].startsWith('http')) {
+            url = linkMatch[2];
+            title = linkMatch[1];
+        } else {
+            const hrefMatch = /href="([^"]+)"/i.exec(linkMatch[0]);
+            url = hrefMatch ? hrefMatch[1] : '';
+            title = linkMatch[1];
+        }
+        title = decodeXmlEntities(title.trim());
+        
+        const priceMatch = /class="product-price"[^>]*>\s*\$([0-9.]+)\s*<\/span>/i.exec(boxHtml)
+                        || /<span class="product-price"[^>]*>\s*\$([0-9.]+)/i.exec(boxHtml)
+                        || /\$([0-9\.]+)/i.exec(boxHtml);
+        const price = priceMatch ? `$${priceMatch[1].trim()}` : null;
+        
+        const hasAddToCart = /btn-buy/i.test(boxHtml) || /action="\/checkout\/line-item\/add"/i.test(boxHtml);
+        const isOutOfStock = /out of stock/i.test(boxHtml) || /stock-notification/i.test(boxHtml);
+        const available = hasAddToCart && !isOutOfStock;
+        
+        products.push({
+            title,
+            url,
+            price,
+            available,
+            type: 'Board Games'
+        });
+    }
     return products.find(p => isMatch(gameName, p)) || null;
 }
 
@@ -896,6 +986,44 @@ async function checkAvailability() {
                 url: `https://www.meeplemart.com/store/Search.aspx?SearchTerms=${encodeURIComponent(query)}`,
                 parser: (html, gameName) => {
                     const match = parseMeeplemart(html, gameName);
+                    if (match) {
+                        return {
+                            available: match.available,
+                            price: match.price,
+                            url: match.url
+                        };
+                    }
+                    return null;
+                }
+            },
+            kbHobbies: {
+                type: 'custom',
+                checker: async (game) => {
+                    const prod = await getKbHobbiesProduct(game.name);
+                    if (!prod) {
+                        return { available: false, price: null, url: null };
+                    }
+                    const skusRes = await fetchJson(`https://cdn5.editmysite.com/app/store/api/v28/editor/users/151297753/sites/680972496472648272/products/${prod.productId}/skus`);
+                    if (skusRes === null) {
+                        throw new Error(`Failed to fetch KB Hobbies SKU for ${prod.productId}`);
+                    }
+                    const sku = skusRes?.data?.[0];
+                    const inventory = typeof sku?.inventory === 'number' ? sku.inventory : 0;
+                    const available = inventory > 0;
+                    let price = sku?.price?.current_formatted || (sku?.price?.current ? `$${sku.price.current}` : null);
+                    if (price && !price.startsWith('$')) price = `$${price}`;
+                    return {
+                        available,
+                        price,
+                        url: prod.url
+                    };
+                }
+            },
+            miniatureMarket: {
+                type: 'html',
+                url: `https://www.miniaturemarket.com/search?search=${encodeURIComponent(query)}`,
+                parser: (html, gameName) => {
+                    const match = parseMiniatureMarket(html, gameName);
                     if (match) {
                         return {
                             available: match.available,

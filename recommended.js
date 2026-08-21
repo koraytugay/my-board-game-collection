@@ -14,6 +14,8 @@ const STORES = [
     { key: 'asDesJeux', name: 'As des Jeux' },
     { key: 'greatBoardgames', name: 'Great Boardgames' },
     { key: 'meeplemart', name: 'Meeplemart' },
+    { key: 'kbHobbies', name: 'KB Hobbies' },
+    { key: 'miniatureMarket', name: 'Miniature Market' },
     { key: 'amazonCa', name: 'Amazon.ca' },
     { key: 'woodForSheep', name: 'Wood for Sheep' },
     { key: 'faceToFaceGames', name: 'Face to Face' },
@@ -383,6 +385,8 @@ function createGameCard(game) {
     const adj = game.availability?.asDesJeux;
     const gbg = game.availability?.greatBoardgames;
     const meeple = game.availability?.meeplemart;
+    const kbh = game.availability?.kbHobbies;
+    const mm = game.availability?.miniatureMarket;
     const amzn = game.availability?.amazonCa;
     const wfs = game.availability?.woodForSheep;
     const f2f = game.availability?.faceToFaceGames;
@@ -415,6 +419,8 @@ function createGameCard(game) {
     storeButtonsHtml += renderStoreChip(adj, '🃏 As des Jeux');
     storeButtonsHtml += renderStoreChip(gbg, '🏰 Great BG');
     storeButtonsHtml += renderStoreChip(meeple, '👾 Meeplemart');
+    storeButtonsHtml += renderStoreChip(kbh, '🧸 KB Hobbies');
+    storeButtonsHtml += renderStoreChip(mm, '♟️ Miniature Market');
     storeButtonsHtml += renderStoreChip(amzn, '🛒 Amazon');
     storeButtonsHtml += renderStoreChip(wfs, '🐑 Wood for Sheep');
     storeButtonsHtml += renderStoreChip(f2f, '🤝 Face to Face');

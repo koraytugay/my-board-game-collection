@@ -201,6 +201,8 @@ async function showGameDetails(objectId) {
             asDesJeux: 'As des Jeux',
             greatBoardgames: 'Great Boardgames',
             meeplemart: 'Meeplemart',
+            kbHobbies: 'KB Hobbies',
+            miniatureMarket: 'Miniature Market',
             amazonCa: 'Amazon',
             woodForSheep: 'Wood for Sheep',
             faceToFaceGames: 'Face to Face',
