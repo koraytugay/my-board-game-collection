@@ -520,9 +520,7 @@ async function fetchShopifyStore(baseUrl, query, gameName, currencySymbol = '$')
             const match = findBestShopifyMatch(suggestRes.resources.results.products, gameName);
             if (match) {
                 let price = match.price ? (match.price.startsWith(currencySymbol) ? match.price : `${currencySymbol}${match.price}`) : null;
-                const tags = Array.isArray(match.tags) ? match.tags : [];
-                const isBackOrPreOrder = tags.some(t => /back-?order|pre-?order/i.test(t));
-                const available = (match.available ?? false) && !isBackOrPreOrder;
+                const available = match.available ?? false;
                 return {
                     available,
                     price,
