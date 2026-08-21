@@ -5,10 +5,6 @@ on:
     # Runs daily at 6:00 AM and 1:00 PM Toronto Time (10:00 & 17:00 UTC)
     - cron: "0 10,17 * * *"
   workflow_dispatch:
-  workflow_run:
-    workflows: ["Update BGG collection"]
-    types:
-      - completed
 
 permissions:
   contents: write
@@ -20,7 +16,6 @@ concurrency:
 jobs:
   check-availability:
     runs-on: ubuntu-latest
-    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
