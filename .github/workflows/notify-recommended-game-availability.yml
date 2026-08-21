@@ -1,9 +1,10 @@
 name: Notify Recommended Game Availability (Daily Summary)
 
 on:
-  schedule:
-    # Runs daily at 6:00 AM Eastern Time (10:00 UTC)
-    - cron: "0 10 * * *"
+  workflow_run:
+    workflows: ["Check Recommended Game Availability (301 - 400+)"]
+    types:
+      - completed
   workflow_dispatch:
 
 permissions:
@@ -16,6 +17,7 @@ concurrency:
 jobs:
   notify-recommended-summary:
     runs-on: ubuntu-latest
+    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4

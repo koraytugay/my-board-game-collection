@@ -27,102 +27,20 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Fetch BGG Data
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Fetch BGG Collection & Plays
         env:
           BGG_USER: koraytugay
           BGG_PASSWORD: ${{ secrets.BGG_PASSWORD }}
-        run: |
-          set -euo pipefail
-          
-          COOKIE_HEADER="Cookie: bggusername=${BGG_USER}; bggpassword=${BGG_PASSWORD}"
-          USER_AGENT="GitHubAction (curl)"
-          mkdir -p plays
-
-          fetch_data() {
-            local URL=$1
-            local TARGET=$2
-            local NAME=$3
-            local TMP_FILE="tmp_fetch.xml"
-            echo "Starting fetch for $NAME..."
-            
-            for i in {1..15}; do
-              status=$(curl -sS -o "$TMP_FILE" -w "%{http_code}" \
-                "$URL" \
-                -H 'accept: application/xml' \
-                -H "user-agent: $USER_AGENT" \
-                -H "$COOKIE_HEADER")
-              
-              if [ "$status" = "200" ]; then
-                if grep -qE "(<items|<plays)" "$TMP_FILE"; then
-                  mv "$TMP_FILE" "$TARGET"
-                  echo "SUCCESS: $NAME fetched correctly."
-                  return 0
-                fi
-              elif [ "$status" = "202" ]; then
-                echo "BGG is preparing $NAME (202). Sleeping 20s..."
-              fi
-              sleep 20
-            done
-            rm -f "$TMP_FILE"
-            return 1
-          }
-
-          # 1. Fetch Collection (Fetch base games, expansions, trade items, and wishlist items)
-          fetch_data "https://boardgamegeek.com/xmlapi2/collection?username=${BGG_USER}&stats=1&subtype=boardgame" "collection_bg.xml" "Base Games" || true
-          fetch_data "https://boardgamegeek.com/xmlapi2/collection?username=${BGG_USER}&stats=1&subtype=boardgameexpansion" "collection_exp.xml" "Expansions" || true
-          fetch_data "https://boardgamegeek.com/xmlapi2/collection?username=${BGG_USER}&stats=1&trade=1" "collection_trade.xml" "For Trade Items" || true
-          fetch_data "https://boardgamegeek.com/xmlapi2/collection?username=${BGG_USER}&stats=1&wishlist=1" "collection_wish.xml" "Wishlist Items" || true
-
-          node -e '
-          const fs = require("fs");
-          const itemMap = new Map();
-
-          const filesToProcess = ["collection_wish.xml", "collection_trade.xml", "collection_exp.xml", "collection_bg.xml"];
-          for (const file of filesToProcess) {
-              if (fs.existsSync(file)) {
-                  const content = fs.readFileSync(file, "utf8");
-                  const matches = content.match(/<item\b[\s\S]*?<\/item>/g) || [];
-                  for (const item of matches) {
-                      const idMatch = item.match(/objectid="(\d+)"/);
-                      if (idMatch) {
-                          const id = idMatch[1];
-                          if (!itemMap.has(id) || item.includes("fortrade=\"1\"")) {
-                              itemMap.set(id, item);
-                          }
-                      }
-                  }
-                  fs.unlinkSync(file);
-              }
-          }
-
-          if (itemMap.size > 0) {
-              const items = Array.from(itemMap.values());
-              const xml = `<?xml version="1.0" encoding="utf-8"?><items totalitems="${items.length}">${items.join("\n")}</items>`;
-              fs.writeFileSync("collection.xml", xml, "utf8");
-              console.log(`Successfully merged ${items.length} unique items into collection.xml`);
-          }
-          '
-
-          # 2. Monthly Logic
-          CURRENT_MONTH=$(date +%Y-%m)
-          # Safer PREV_MONTH calculation to avoid "March 30 -> Feb 30" bugs
-          PREV_MONTH=$(date -d "$(date +%Y-%m-01) -1 month" +%Y-%m)
-
-          fetch_month() {
-            local TARGET=$1
-            local START="${TARGET}-01"
-            local LAST_DAY=$(date -d "${START} +1 month -1 day" +%d)
-            local END="${TARGET}-${LAST_DAY}"
-            fetch_data "https://boardgamegeek.com/xmlapi2/plays?username=${BGG_USER}&mindate=${START}&maxdate=${END}" "plays/${TARGET}.xml" "Plays for $TARGET" || true
-          }
-
-          # Always update the last two months to catch any late play reporting
-          fetch_month "$PREV_MONTH"
-          sleep 5
-          fetch_month "$CURRENT_MONTH"
+        run: node fetch-bgg.js
 
       - name: Download New Images
         run: node download-images.js
+
+      - name: Fetch & Cache Game Designers
+        run: node fetch-designers.js
 
       - name: Commit & push if changed
         run: |
@@ -132,12 +50,12 @@ jobs:
 
           git pull --rebase --autostash origin ${{ github.ref_name }}
 
-          git add collection.xml plays/ images/
+          git add collection.xml plays/ images/ designers.json
 
           if git diff --quiet --staged; then
             echo "No changes to commit."
             exit 0
           fi
 
-          git commit -m "chore: update collection and monthly play archives ($(date -u +%F))"
+          git commit -m "chore: update collection, plays & designers ($(date -u +%F))"
           git push
