@@ -1,12 +1,5 @@
 {
-  "372": {
-    "diceHollow": {
-      "available": false,
-      "price": "$18.00",
-      "url": "https://www.dicehollow.com/products/schotten-totten?_pos=1&_psq=Schotten+Totten&_psid=ec4f927fb&_ss=e",
-      "lastChecked": "2026-08-22T17:27:20.357Z"
-    }
-  },
+  "372": {},
   "1197": {
     "boardGameBliss": {
       "available": false,
@@ -179,26 +172,14 @@
     "diceHollow": {
       "available": false,
       "price": null,
+      "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-08-22T17:27:02.643Z"
+      "lastChecked": "2026-08-22T17:47:13.031Z",
+      "lastCheckSuccess": true
     }
   },
-  "1198": {
-    "diceHollow": {
-      "available": false,
-      "price": null,
-      "url": null,
-      "lastChecked": "2026-08-22T17:27:20.713Z"
-    }
-  },
-  "1406": {
-    "diceHollow": {
-      "available": false,
-      "price": "$12.00",
-      "url": "https://www.dicehollow.com/products/monopoly-dea?_pos=4&_psq=Monopoly&_psid=781145133&_ss=e",
-      "lastChecked": "2026-08-22T17:27:14.192Z"
-    }
-  },
+  "1198": {},
+  "1406": {},
   "2256": {
     "boardGameBliss": {
       "available": false,
@@ -367,16 +348,17 @@
       "url": "https://www.etsy.com/shop/ButtonShyGames",
       "lastChecked": "2026-08-22T17:13:57.066Z",
       "lastCheckSuccess": true
-    }
-  },
-  "5782": {
+    },
     "diceHollow": {
       "available": false,
-      "price": "$17.00",
-      "url": "https://www.dicehollow.com/products/coloretto?_pos=1&_psq=Coloretto&_psid=cbc6bf54d&_ss=e",
-      "lastChecked": "2026-08-22T17:27:03.798Z"
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-08-22T17:47:22.699Z",
+      "lastCheckSuccess": true
     }
   },
+  "5782": {},
   "6830": {
     "boardGameBliss": {
       "available": false,
@@ -545,16 +527,17 @@
       "url": "https://www.etsy.com/shop/ButtonShyGames",
       "lastChecked": "2026-08-22T17:18:41.200Z",
       "lastCheckSuccess": true
-    }
-  },
-  "9209": {
+    },
     "diceHollow": {
-      "available": true,
-      "price": "$75.00",
-      "url": "https://www.dicehollow.com/products/ticket-to-ride-1?_pos=1&_psq=Ticket+to+Ride&_psid=ed0b9ce20&_ss=e",
-      "lastChecked": "2026-08-22T17:27:22.211Z"
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-08-22T17:47:34.887Z",
+      "lastCheckSuccess": true
     }
   },
+  "9209": {},
   "35472": {
     "boardGameBliss": {
       "available": false,
@@ -722,6 +705,14 @@
       "baselinePrice": null,
       "url": "https://www.etsy.com/shop/ButtonShyGames",
       "lastChecked": "2026-08-22T17:18:15.309Z",
+      "lastCheckSuccess": true
+    },
+    "diceHollow": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-08-22T17:47:33.647Z",
       "lastCheckSuccess": true
     }
   },
@@ -897,8 +888,10 @@
     "diceHollow": {
       "available": false,
       "price": null,
+      "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-08-22T17:27:06.385Z"
+      "lastChecked": "2026-08-22T17:47:16.916Z",
+      "lastCheckSuccess": true
     }
   },
   "39683": {
@@ -1089,14 +1082,7 @@
       "baselinePrice": null
     }
   },
-  "46396": {
-    "diceHollow": {
-      "available": false,
-      "price": null,
-      "url": null,
-      "lastChecked": "2026-08-22T17:27:23.223Z"
-    }
-  },
+  "46396": {},
   "56692": {
     "boardGameBliss": {
       "available": false,
@@ -1269,42 +1255,16 @@
     "diceHollow": {
       "available": false,
       "price": null,
+      "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-08-22T17:27:17.081Z"
+      "lastChecked": "2026-08-22T17:47:27.618Z",
+      "lastCheckSuccess": true
     }
   },
-  "112373": {
-    "diceHollow": {
-      "available": false,
-      "price": null,
-      "url": null,
-      "lastChecked": "2026-08-22T17:27:02.917Z"
-    }
-  },
-  "120580": {
-    "diceHollow": {
-      "available": false,
-      "price": null,
-      "url": null,
-      "lastChecked": "2026-08-22T17:27:02.317Z"
-    }
-  },
-  "131260": {
-    "diceHollow": {
-      "available": false,
-      "price": "$21.00",
-      "url": "https://www.dicehollow.com/products/qwixx?_pos=1&_psq=Qwixx&_psid=c34d51fe7&_ss=e",
-      "lastChecked": "2026-08-22T17:27:18.968Z"
-    }
-  },
-  "133473": {
-    "diceHollow": {
-      "available": true,
-      "price": "$14.25",
-      "url": "https://www.dicehollow.com/products/sushi-go-tuck-box?_pos=1&_psq=Sushi+Go%21&_psid=f036babaa&_ss=e",
-      "lastChecked": "2026-08-22T17:27:21.987Z"
-    }
-  },
+  "112373": {},
+  "120580": {},
+  "131260": {},
+  "133473": {},
   "148729": {
     "boardGameBliss": {
       "available": false,
@@ -1477,18 +1437,13 @@
     "diceHollow": {
       "available": false,
       "price": null,
+      "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-08-22T17:27:12.322Z"
+      "lastChecked": "2026-08-22T17:47:22.939Z",
+      "lastCheckSuccess": true
     }
   },
-  "153318": {
-    "diceHollow": {
-      "available": false,
-      "price": null,
-      "url": null,
-      "lastChecked": "2026-08-22T17:27:05.638Z"
-    }
-  },
+  "153318": {},
   "156336": {
     "boardGameBliss": {
       "available": false,
@@ -1656,6 +1611,14 @@
       "baselinePrice": null,
       "url": "https://www.etsy.com/shop/ButtonShyGames",
       "lastChecked": "2026-08-22T17:15:20.929Z",
+      "lastCheckSuccess": true
+    },
+    "diceHollow": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-08-22T17:47:26.162Z",
       "lastCheckSuccess": true
     }
   },
@@ -1827,24 +1790,18 @@
       "url": "https://www.etsy.com/shop/ButtonShyGames",
       "lastChecked": "2026-08-22T17:12:00.730Z",
       "lastCheckSuccess": true
-    }
-  },
-  "160477": {
+    },
     "diceHollow": {
       "available": false,
-      "price": "$45.00",
-      "url": "https://www.dicehollow.com/products/onitama?_pos=1&_psq=Onitama&_psid=3660a6397&_ss=e",
-      "lastChecked": "2026-08-22T17:27:16.108Z"
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-08-22T17:47:17.458Z",
+      "lastCheckSuccess": true
     }
   },
-  "163412": {
-    "diceHollow": {
-      "available": true,
-      "price": "$37.00",
-      "url": "https://www.dicehollow.com/products/patchwork-express?_pos=1&_psq=Patchwork&_psid=ed121476d&_ss=e",
-      "lastChecked": "2026-08-22T17:27:17.312Z"
-    }
-  },
+  "160477": {},
+  "163412": {},
   "164354": {
     "boardGameBliss": {
       "available": false,
@@ -2012,6 +1969,14 @@
       "baselinePrice": null,
       "url": "https://www.etsy.com/shop/ButtonShyGames",
       "lastChecked": "2026-08-22T17:13:31.548Z",
+      "lastCheckSuccess": true
+    },
+    "diceHollow": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-08-22T17:47:21.532Z",
       "lastCheckSuccess": true
     }
   },
@@ -2193,6 +2158,14 @@
       "url": "https://www.etsy.com/shop/ButtonShyGames",
       "lastChecked": "2026-08-22T17:09:21.643Z",
       "lastCheckSuccess": true
+    },
+    "diceHollow": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-08-22T17:47:10.778Z",
+      "lastCheckSuccess": true
     }
   },
   "196526": {
@@ -2373,6 +2346,14 @@
       "url": "https://www.etsy.com/shop/ButtonShyGames",
       "lastChecked": "2026-08-22T17:10:35.175Z",
       "lastCheckSuccess": true
+    },
+    "diceHollow": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-08-22T17:47:13.833Z",
+      "lastCheckSuccess": true
     }
   },
   "204175": {
@@ -2547,34 +2528,15 @@
     "diceHollow": {
       "available": false,
       "price": null,
+      "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-08-22T17:27:02.068Z"
+      "lastChecked": "2026-08-22T17:47:12.479Z",
+      "lastCheckSuccess": true
     }
   },
-  "204583": {
-    "diceHollow": {
-      "available": false,
-      "price": "$33.00",
-      "url": "https://www.dicehollow.com/products/kingdomino?_pos=1&_psq=Kingdomino&_psid=cabe6afc1&_ss=e",
-      "lastChecked": "2026-08-22T17:27:10.668Z"
-    }
-  },
-  "216439": {
-    "diceHollow": {
-      "available": false,
-      "price": null,
-      "url": null,
-      "lastChecked": "2026-08-22T17:27:22.715Z"
-    }
-  },
-  "216497": {
-    "diceHollow": {
-      "available": false,
-      "price": null,
-      "url": null,
-      "lastChecked": "2026-08-22T17:27:05.911Z"
-    }
-  },
+  "204583": {},
+  "216439": {},
+  "216497": {},
   "216600": {
     "boardGameBliss": {
       "available": false,
@@ -2747,8 +2709,10 @@
     "diceHollow": {
       "available": false,
       "price": null,
+      "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-08-22T17:27:08.039Z"
+      "lastChecked": "2026-08-22T17:47:18.674Z",
+      "lastCheckSuccess": true
     }
   },
   "217449": {
@@ -2923,26 +2887,14 @@
     "diceHollow": {
       "available": false,
       "price": null,
+      "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-08-22T17:27:14.477Z"
+      "lastChecked": "2026-08-22T17:47:25.119Z",
+      "lastCheckSuccess": true
     }
   },
-  "227758": {
-    "diceHollow": {
-      "available": false,
-      "price": null,
-      "url": null,
-      "lastChecked": "2026-08-22T17:27:10.964Z"
-    }
-  },
-  "230802": {
-    "diceHollow": {
-      "available": true,
-      "price": "$59.00",
-      "url": "https://www.dicehollow.com/products/azul?_pos=1&_psq=Azul&_psid=574c34a71&_ss=e",
-      "lastChecked": "2026-08-22T17:27:01.015Z"
-    }
-  },
+  "227758": {},
+  "230802": {},
   "231218": {
     "boardGameBliss": {
       "available": false,
@@ -3137,6 +3089,14 @@
       "url": "https://www.etsy.com/shop/ButtonShyGames",
       "lastChecked": "2026-08-22T17:10:08.391Z",
       "lastCheckSuccess": true
+    },
+    "diceHollow": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-08-22T17:47:12.751Z",
+      "lastCheckSuccess": true
     }
   },
   "234621": {
@@ -3307,16 +3267,17 @@
       "url": "https://www.etsy.com/shop/ButtonShyGames",
       "lastChecked": "2026-08-22T17:18:21.790Z",
       "lastCheckSuccess": true
-    }
-  },
-  "244918": {
+    },
     "diceHollow": {
       "available": false,
-      "price": "$18.00",
-      "url": "https://www.dicehollow.com/products/exit-the-game-the-mysterious-museum?_pos=1&_psq=EXIT%3A+The+Game+%E2%80%93+The+Mysterious+Museum&_psid=9639a7ba5&_ss=e",
-      "lastChecked": "2026-08-22T17:27:07.511Z"
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-08-22T17:47:33.901Z",
+      "lastCheckSuccess": true
     }
   },
+  "244918": {},
   "244995": {
     "boardGameBliss": {
       "available": false,
@@ -3495,24 +3456,18 @@
       "url": null,
       "lastChecked": null,
       "lastCheckSuccess": false
-    }
-  },
-  "251412": {
+    },
     "diceHollow": {
       "available": false,
       "price": null,
+      "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-08-22T17:27:15.819Z"
+      "lastChecked": "2026-08-22T17:47:20.402Z",
+      "lastCheckSuccess": true
     }
   },
-  "251658": {
-    "diceHollow": {
-      "available": false,
-      "price": null,
-      "url": null,
-      "lastChecked": "2026-08-22T17:27:21.747Z"
-    }
-  },
+  "251412": {},
+  "251658": {},
   "257582": {
     "boardGameBliss": {
       "available": true,
@@ -3685,8 +3640,10 @@
     "diceHollow": {
       "available": false,
       "price": null,
+      "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-08-22T17:27:17.534Z"
+      "lastChecked": "2026-08-22T17:47:28.204Z",
+      "lastCheckSuccess": true
     }
   },
   "262498": {
@@ -3859,22 +3816,8 @@
       "baselinePrice": null
     }
   },
-  "263918": {
-    "diceHollow": {
-      "available": false,
-      "price": null,
-      "url": null,
-      "lastChecked": "2026-08-22T17:27:03.484Z"
-    }
-  },
-  "266083": {
-    "diceHollow": {
-      "available": false,
-      "price": null,
-      "url": null,
-      "lastChecked": "2026-08-22T17:27:11.232Z"
-    }
-  },
+  "263918": {},
+  "266083": {},
   "267979": {
     "boardGameBliss": {
       "available": false,
@@ -4047,18 +3990,13 @@
     "diceHollow": {
       "available": false,
       "price": null,
+      "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-08-22T17:27:22.446Z"
+      "lastChecked": "2026-08-22T17:47:33.397Z",
+      "lastCheckSuccess": true
     }
   },
-  "268620": {
-    "diceHollow": {
-      "available": false,
-      "price": null,
-      "url": null,
-      "lastChecked": "2026-08-22T17:27:20.984Z"
-    }
-  },
+  "268620": {},
   "269210": {
     "boardGameBliss": {
       "available": true,
@@ -4385,26 +4323,14 @@
     "diceHollow": {
       "available": false,
       "price": null,
+      "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-08-22T17:27:13.110Z"
+      "lastChecked": "2026-08-22T17:47:23.723Z",
+      "lastCheckSuccess": true
     }
   },
-  "277085": {
-    "diceHollow": {
-      "available": false,
-      "price": null,
-      "url": null,
-      "lastChecked": "2026-08-22T17:27:12.030Z"
-    }
-  },
-  "283155": {
-    "diceHollow": {
-      "available": false,
-      "price": "$54.00",
-      "url": "https://www.dicehollow.com/products/calico?_pos=1&_psq=Calico&_psid=f0ec1848c&_ss=e",
-      "lastChecked": "2026-08-22T17:27:03.201Z"
-    }
-  },
+  "277085": {},
+  "283155": {},
   "291962": {
     "boardGameBliss": {
       "available": false,
@@ -4595,8 +4521,10 @@
     "diceHollow": {
       "available": false,
       "price": null,
+      "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-08-22T17:27:16.846Z"
+      "lastChecked": "2026-08-22T17:47:27.254Z",
+      "lastCheckSuccess": true
     }
   },
   "295577": {
@@ -4767,16 +4695,17 @@
       "url": "https://www.etsy.com/shop/ButtonShyGames",
       "lastChecked": "2026-08-22T17:11:53.698Z",
       "lastCheckSuccess": true
-    }
-  },
-  "299571": {
+    },
     "diceHollow": {
       "available": false,
       "price": null,
+      "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-08-22T17:27:01.780Z"
+      "lastChecked": "2026-08-22T17:47:17.207Z",
+      "lastCheckSuccess": true
     }
   },
+  "299571": {},
   "299702": {
     "boardGameBliss": {
       "available": false,
@@ -4944,6 +4873,14 @@
       "baselinePrice": null,
       "url": "https://www.etsy.com/shop/ButtonShyGames",
       "lastChecked": "2026-08-22T17:13:50.710Z",
+      "lastCheckSuccess": true
+    },
+    "diceHollow": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-08-22T17:47:22.411Z",
       "lastCheckSuccess": true
     }
   },
@@ -5125,16 +5062,17 @@
       "url": "https://www.etsy.com/shop/ButtonShyGames",
       "lastChecked": "2026-08-22T17:09:34.391Z",
       "lastCheckSuccess": true
-    }
-  },
-  "304285": {
+    },
     "diceHollow": {
       "available": false,
       "price": null,
+      "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-08-22T17:27:09.986Z"
+      "lastChecked": "2026-08-22T17:47:11.411Z",
+      "lastCheckSuccess": true
     }
   },
+  "304285": {},
   "305752": {
     "boardGameBliss": {
       "available": false,
@@ -5477,8 +5415,10 @@
     "diceHollow": {
       "available": false,
       "price": null,
+      "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-08-22T17:27:01.529Z"
+      "lastChecked": "2026-08-22T17:47:11.951Z",
+      "lastCheckSuccess": true
     }
   },
   "307002": {
@@ -5649,24 +5589,18 @@
       "url": "https://www.etsy.com/shop/ButtonShyGames",
       "lastChecked": "2026-08-22T17:16:43.988Z",
       "lastCheckSuccess": true
-    }
-  },
-  "309110": {
+    },
     "diceHollow": {
       "available": false,
       "price": null,
+      "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-08-22T17:27:08.810Z"
+      "lastChecked": "2026-08-22T17:47:29.811Z",
+      "lastCheckSuccess": true
     }
   },
-  "309629": {
-    "diceHollow": {
-      "available": false,
-      "price": null,
-      "url": null,
-      "lastChecked": "2026-08-22T17:27:06.617Z"
-    }
-  },
+  "309110": {},
+  "309629": {},
   "311715": {
     "boardGameBliss": {
       "available": false,
@@ -5839,8 +5773,10 @@
     "diceHollow": {
       "available": false,
       "price": null,
+      "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-08-22T17:27:13.903Z"
+      "lastChecked": "2026-08-22T17:47:24.566Z",
+      "lastCheckSuccess": true
     }
   },
   "316546": {
@@ -5997,14 +5933,7 @@
       "baselinePrice": null
     }
   },
-  "318556": {
-    "diceHollow": {
-      "available": false,
-      "price": null,
-      "url": null,
-      "lastChecked": "2026-08-22T17:27:22.937Z"
-    }
-  },
+  "318556": {},
   "319035": {
     "boardGameBliss": {
       "available": false,
@@ -6172,6 +6101,14 @@
       "baselinePrice": null,
       "url": "https://www.etsy.com/shop/ButtonShyGames",
       "lastChecked": "2026-08-22T17:09:01.694Z",
+      "lastCheckSuccess": true
+    },
+    "diceHollow": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-08-22T17:47:09.836Z",
       "lastCheckSuccess": true
     }
   },
@@ -6342,6 +6279,14 @@
       "baselinePrice": null,
       "url": "https://www.etsy.com/shop/ButtonShyGames",
       "lastChecked": "2026-08-22T17:12:58.619Z",
+      "lastCheckSuccess": true
+    },
+    "diceHollow": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-08-22T17:47:20.123Z",
       "lastCheckSuccess": true
     }
   },
@@ -6527,8 +6472,10 @@
     "diceHollow": {
       "available": false,
       "price": null,
+      "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-08-22T17:26:59.867Z"
+      "lastChecked": "2026-08-22T17:47:10.145Z",
+      "lastCheckSuccess": true
     }
   },
   "337833": {
@@ -6703,18 +6650,13 @@
     "diceHollow": {
       "available": false,
       "price": null,
+      "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-08-22T17:27:01.283Z"
+      "lastChecked": "2026-08-22T17:47:11.695Z",
+      "lastCheckSuccess": true
     }
   },
-  "342562": {
-    "diceHollow": {
-      "available": false,
-      "price": null,
-      "url": null,
-      "lastChecked": "2026-08-22T17:27:20.077Z"
-    }
-  },
+  "342562": {},
   "343745": {
     "boardGameBliss": {
       "available": false,
@@ -6883,16 +6825,17 @@
       "url": "https://www.etsy.com/shop/ButtonShyGames",
       "lastChecked": "2026-08-22T17:10:55.971Z",
       "lastCheckSuccess": true
-    }
-  },
-  "349463": {
+    },
     "diceHollow": {
       "available": false,
       "price": null,
+      "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-08-22T17:27:06.889Z"
+      "lastChecked": "2026-08-22T17:47:14.653Z",
+      "lastCheckSuccess": true
     }
   },
+  "349463": {},
   "351810": {
     "boardGameBliss": {
       "available": false,
@@ -7235,8 +7178,10 @@
     "diceHollow": {
       "available": false,
       "price": null,
+      "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-08-22T17:27:08.552Z"
+      "lastChecked": "2026-08-22T17:47:19.271Z",
+      "lastCheckSuccess": true
     }
   },
   "352596": {
@@ -7409,14 +7354,7 @@
       "baselinePrice": null
     }
   },
-  "352697": {
-    "diceHollow": {
-      "available": false,
-      "price": null,
-      "url": null,
-      "lastChecked": "2026-08-22T17:27:19.462Z"
-    }
-  },
+  "352697": {},
   "354342": {
     "boardGameBliss": {
       "available": false,
@@ -7589,8 +7527,10 @@
     "diceHollow": {
       "available": false,
       "price": null,
+      "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-08-22T17:27:12.576Z"
+      "lastChecked": "2026-08-22T17:47:23.202Z",
+      "lastCheckSuccess": true
     }
   },
   "354934": {
@@ -7771,6 +7711,14 @@
       "url": "https://www.etsy.com/shop/ButtonShyGames",
       "lastChecked": "2026-08-22T17:13:44.158Z",
       "lastCheckSuccess": true
+    },
+    "diceHollow": {
+      "available": true,
+      "price": "$74.00",
+      "baselinePrice": "$74.00",
+      "url": "https://www.dicehollow.com/products/legacy-of-yu?_pos=1&_psq=Legacy+of+Yu&_psid=2ba1a599f&_ss=e",
+      "lastChecked": "2026-08-22T17:47:22.125Z",
+      "lastCheckSuccess": true
     }
   },
   "356554": {
@@ -7941,24 +7889,18 @@
       "url": "https://www.etsy.com/shop/ButtonShyGames",
       "lastChecked": "2026-08-22T17:12:33.199Z",
       "lastCheckSuccess": true
-    }
-  },
-  "358081": {
+    },
     "diceHollow": {
       "available": false,
       "price": null,
+      "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-08-22T17:27:11.757Z"
+      "lastChecked": "2026-08-22T17:47:18.983Z",
+      "lastCheckSuccess": true
     }
   },
-  "359152": {
-    "diceHollow": {
-      "available": false,
-      "price": null,
-      "url": null,
-      "lastChecked": "2026-08-22T17:27:12.841Z"
-    }
-  },
+  "358081": {},
+  "359152": {},
   "361598": {
     "boardGameBliss": {
       "available": false,
@@ -8467,16 +8409,17 @@
       "url": "https://www.etsy.com/shop/ButtonShyGames",
       "lastChecked": "2026-08-22T17:13:11.899Z",
       "lastCheckSuccess": true
-    }
-  },
-  "365258": {
+    },
     "diceHollow": {
       "available": false,
       "price": null,
+      "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-08-22T17:27:23.754Z"
+      "lastChecked": "2026-08-22T17:47:20.692Z",
+      "lastCheckSuccess": true
     }
   },
+  "365258": {},
   "366162": {
     "boardGameBliss": {
       "available": true,
@@ -8798,6 +8741,14 @@
       "baselinePrice": null,
       "url": "https://www.etsy.com/shop/ButtonShyGames",
       "lastChecked": "2026-08-22T17:09:15.184Z",
+      "lastCheckSuccess": true
+    },
+    "diceHollow": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-08-22T17:47:10.422Z",
       "lastCheckSuccess": true
     }
   },
@@ -9141,14 +9092,7 @@
       "baselinePrice": null
     }
   },
-  "368017": {
-    "diceHollow": {
-      "available": false,
-      "price": "$31.00",
-      "url": "https://www.dicehollow.com/products/point-city?_pos=1&_psq=Point+City&_psid=7f3693cb9&_ss=e",
-      "lastChecked": "2026-08-22T17:27:18.270Z"
-    }
-  },
+  "368017": {},
   "368846": {
     "boardGameBliss": {
       "available": false,
@@ -9316,6 +9260,14 @@
       "baselinePrice": null,
       "url": "https://www.etsy.com/shop/ButtonShyGames",
       "lastChecked": "2026-08-22T17:11:02.246Z",
+      "lastCheckSuccess": true
+    },
+    "diceHollow": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-08-22T17:47:14.986Z",
       "lastCheckSuccess": true
     }
   },
@@ -9497,6 +9449,14 @@
       "url": "https://www.etsy.com/shop/ButtonShyGames",
       "lastChecked": "2026-08-22T17:17:42.843Z",
       "lastCheckSuccess": true
+    },
+    "diceHollow": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-08-22T17:47:32.273Z",
+      "lastCheckSuccess": true
     }
   },
   "374541": {
@@ -9671,8 +9631,10 @@
     "diceHollow": {
       "available": false,
       "price": null,
+      "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-08-22T17:27:14.830Z"
+      "lastChecked": "2026-08-22T17:47:25.376Z",
+      "lastCheckSuccess": true
     }
   },
   "374909": {
@@ -9847,34 +9809,15 @@
     "diceHollow": {
       "available": false,
       "price": null,
+      "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-08-22T17:27:05.405Z"
+      "lastChecked": "2026-08-22T17:47:15.838Z",
+      "lastCheckSuccess": true
     }
   },
-  "376893": {
-    "diceHollow": {
-      "available": false,
-      "price": null,
-      "url": null,
-      "lastChecked": "2026-08-22T17:27:04.251Z"
-    }
-  },
-  "378117": {
-    "diceHollow": {
-      "available": false,
-      "price": null,
-      "url": null,
-      "lastChecked": "2026-08-22T17:27:11.494Z"
-    }
-  },
-  "380887": {
-    "diceHollow": {
-      "available": false,
-      "price": null,
-      "url": null,
-      "lastChecked": "2026-08-22T17:27:04.509Z"
-    }
-  },
+  "376893": {},
+  "378117": {},
+  "380887": {},
   "383499": {
     "boardGameBliss": {
       "available": false,
@@ -10042,6 +9985,14 @@
       "baselinePrice": null,
       "url": "https://www.etsy.com/shop/ButtonShyGames",
       "lastChecked": "2026-08-22T17:18:28.022Z",
+      "lastCheckSuccess": true
+    },
+    "diceHollow": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-08-22T17:47:34.330Z",
       "lastCheckSuccess": true
     }
   },
@@ -10387,8 +10338,10 @@
     "diceHollow": {
       "available": false,
       "price": null,
+      "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-08-22T17:27:21.282Z"
+      "lastChecked": "2026-08-22T17:47:31.965Z",
+      "lastCheckSuccess": true
     }
   },
   "389593": {
@@ -10563,26 +10516,14 @@
     "diceHollow": {
       "available": false,
       "price": null,
+      "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-08-22T17:27:04.033Z"
+      "lastChecked": "2026-08-22T17:47:14.404Z",
+      "lastCheckSuccess": true
     }
   },
-  "394889": {
-    "diceHollow": {
-      "available": false,
-      "price": null,
-      "url": null,
-      "lastChecked": "2026-08-22T17:27:21.516Z"
-    }
-  },
-  "396727": {
-    "diceHollow": {
-      "available": false,
-      "price": null,
-      "url": null,
-      "lastChecked": "2026-08-22T17:27:08.320Z"
-    }
-  },
+  "394889": {},
+  "396727": {},
   "398996": {
     "boardGameBliss": {
       "available": false,
@@ -10751,32 +10692,19 @@
       "url": "https://www.etsy.com/shop/ButtonShyGames",
       "lastChecked": "2026-08-22T17:15:40.019Z",
       "lastCheckSuccess": true
-    }
-  },
-  "399826": {
+    },
     "diceHollow": {
       "available": false,
       "price": null,
+      "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-08-22T17:27:09.093Z"
+      "lastChecked": "2026-08-22T17:47:26.947Z",
+      "lastCheckSuccess": true
     }
   },
-  "400113": {
-    "diceHollow": {
-      "available": false,
-      "price": null,
-      "url": null,
-      "lastChecked": "2026-08-22T17:27:16.618Z"
-    }
-  },
-  "400756": {
-    "diceHollow": {
-      "available": false,
-      "price": null,
-      "url": null,
-      "lastChecked": "2026-08-22T17:27:23.480Z"
-    }
-  },
+  "399826": {},
+  "400113": {},
+  "400756": {},
   "402337": {
     "boardGameBliss": {
       "available": false,
@@ -10944,6 +10872,14 @@
       "baselinePrice": null,
       "url": "https://www.etsy.com/shop/ButtonShyGames",
       "lastChecked": "2026-08-22T17:12:13.331Z",
+      "lastCheckSuccess": true
+    },
+    "diceHollow": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-08-22T17:47:18.150Z",
       "lastCheckSuccess": true
     }
   },
@@ -11114,6 +11050,14 @@
       "baselinePrice": null,
       "url": "https://www.etsy.com/shop/ButtonShyGames",
       "lastChecked": "2026-08-22T17:13:37.856Z",
+      "lastCheckSuccess": true
+    },
+    "diceHollow": {
+      "available": false,
+      "price": "$42.00",
+      "baselinePrice": null,
+      "url": "https://www.dicehollow.com/products/lairs?_pos=8&_psq=Lairs&_psid=8cb6f8770&_ss=e",
+      "lastChecked": "2026-08-22T17:47:21.852Z",
       "lastCheckSuccess": true
     }
   },
@@ -11287,14 +11231,7 @@
       "baselinePrice": null
     }
   },
-  "412576": {
-    "diceHollow": {
-      "available": false,
-      "price": null,
-      "url": null,
-      "lastChecked": "2026-08-22T17:27:00.171Z"
-    }
-  },
+  "412576": {},
   "412963": {
     "boardGameBliss": {
       "available": false,
@@ -11467,26 +11404,14 @@
     "diceHollow": {
       "available": false,
       "price": null,
+      "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-08-22T17:27:19.190Z"
+      "lastChecked": "2026-08-22T17:47:30.070Z",
+      "lastCheckSuccess": true
     }
   },
-  "414317": {
-    "diceHollow": {
-      "available": false,
-      "price": null,
-      "url": null,
-      "lastChecked": "2026-08-22T17:27:09.594Z"
-    }
-  },
-  "414864": {
-    "diceHollow": {
-      "available": false,
-      "price": null,
-      "url": null,
-      "lastChecked": "2026-08-22T17:27:17.774Z"
-    }
-  },
+  "414317": {},
+  "414864": {},
   "418542": {
     "boardGameBliss": {
       "available": false,
@@ -11659,26 +11584,14 @@
     "diceHollow": {
       "available": false,
       "price": null,
+      "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-08-22T17:27:19.771Z"
+      "lastChecked": "2026-08-22T17:47:30.606Z",
+      "lastCheckSuccess": true
     }
   },
-  "422484": {
-    "diceHollow": {
-      "available": false,
-      "price": "$30.00",
-      "url": "https://www.dicehollow.com/products/king-of-tokyo-duel?_pos=1&_psq=King+of+Tokyo%3A+Duel&_psid=da886bb30&_ss=e",
-      "lastChecked": "2026-08-22T17:27:10.314Z"
-    }
-  },
-  "423517": {
-    "diceHollow": {
-      "available": false,
-      "price": null,
-      "url": null,
-      "lastChecked": "2026-08-22T17:26:59.586Z"
-    }
-  },
+  "422484": {},
+  "423517": {},
   "424152": {
     "boardGameBliss": {
       "available": false,
@@ -11847,16 +11760,17 @@
       "url": "https://www.etsy.com/shop/ButtonShyGames",
       "lastChecked": "2026-08-22T17:15:27.253Z",
       "lastCheckSuccess": true
-    }
-  },
-  "424784": {
+    },
     "diceHollow": {
       "available": false,
       "price": null,
+      "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-08-22T17:27:00.711Z"
+      "lastChecked": "2026-08-22T17:47:26.416Z",
+      "lastCheckSuccess": true
     }
   },
+  "424784": {},
   "427509": {
     "boardGameBliss": {
       "available": false,
@@ -12024,6 +11938,14 @@
       "baselinePrice": null,
       "url": "https://www.etsy.com/shop/ButtonShyGames",
       "lastChecked": "2026-08-22T17:12:45.859Z",
+      "lastCheckSuccess": true
+    },
+    "diceHollow": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-08-22T17:47:19.561Z",
       "lastCheckSuccess": true
     }
   },
@@ -12194,6 +12116,14 @@
       "baselinePrice": null,
       "url": "https://www.etsy.com/shop/ButtonShyGames",
       "lastChecked": "2026-08-22T17:14:16.162Z",
+      "lastCheckSuccess": true
+    },
+    "diceHollow": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-08-22T17:47:23.470Z",
       "lastCheckSuccess": true
     }
   },
@@ -12369,8 +12299,10 @@
     "diceHollow": {
       "available": false,
       "price": null,
+      "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-08-22T17:27:13.623Z"
+      "lastChecked": "2026-08-22T17:47:24.247Z",
+      "lastCheckSuccess": true
     }
   },
   "434862": {
@@ -12545,8 +12477,10 @@
     "diceHollow": {
       "available": false,
       "price": null,
+      "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-08-22T17:27:07.177Z"
+      "lastChecked": "2026-08-22T17:47:17.746Z",
+      "lastCheckSuccess": true
     }
   },
   "435346": {
@@ -12887,6 +12821,14 @@
       "url": "https://www.etsy.com/shop/ButtonShyGames",
       "lastChecked": "2026-08-22T17:15:59.503Z",
       "lastCheckSuccess": true
+    },
+    "diceHollow": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-08-22T17:47:27.911Z",
+      "lastCheckSuccess": true
     }
   },
   "438975": {
@@ -13057,6 +12999,14 @@
       "url": "https://www.etsy.com/shop/ButtonShyGames",
       "lastChecked": "2026-08-22T17:17:09.412Z",
       "lastCheckSuccess": true
+    },
+    "diceHollow": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-08-22T17:47:30.875Z",
+      "lastCheckSuccess": true
     }
   },
   "439367": {
@@ -13226,6 +13176,14 @@
       "baselinePrice": null,
       "url": "https://www.etsy.com/shop/ButtonShyGames",
       "lastChecked": "2026-08-22T17:16:24.998Z",
+      "lastCheckSuccess": true
+    },
+    "diceHollow": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-08-22T17:47:29.061Z",
       "lastCheckSuccess": true
     }
   },
@@ -13401,8 +13359,10 @@
     "diceHollow": {
       "available": false,
       "price": null,
+      "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-08-22T17:27:15.182Z"
+      "lastChecked": "2026-08-22T17:47:25.637Z",
+      "lastCheckSuccess": true
     }
   },
   "444226": {
@@ -13573,16 +13533,17 @@
       "url": "https://www.etsy.com/shop/ButtonShyGames",
       "lastChecked": "2026-08-22T17:11:15.228Z",
       "lastCheckSuccess": true
-    }
-  },
-  "445045": {
+    },
     "diceHollow": {
       "available": false,
       "price": null,
+      "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-08-22T17:27:05.151Z"
+      "lastChecked": "2026-08-22T17:47:15.587Z",
+      "lastCheckSuccess": true
     }
   },
+  "445045": {},
   "446234": {
     "boardGameBliss": {
       "available": false,
@@ -13750,6 +13711,14 @@
       "baselinePrice": null,
       "url": "https://www.etsy.com/shop/ButtonShyGames",
       "lastChecked": "2026-08-22T17:13:25.148Z",
+      "lastCheckSuccess": true
+    },
+    "diceHollow": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-08-22T17:47:21.283Z",
       "lastCheckSuccess": true
     }
   },
@@ -13920,6 +13889,14 @@
       "baselinePrice": null,
       "url": "https://www.etsy.com/shop/ButtonShyGames",
       "lastChecked": "2026-08-22T17:17:22.268Z",
+      "lastCheckSuccess": true
+    },
+    "diceHollow": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-08-22T17:47:31.405Z",
       "lastCheckSuccess": true
     }
   },
@@ -14095,8 +14072,10 @@
     "diceHollow": {
       "available": false,
       "price": null,
+      "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-08-22T17:27:16.390Z"
+      "lastChecked": "2026-08-22T17:47:26.680Z",
+      "lastCheckSuccess": true
     }
   },
   "448756": {
@@ -14271,8 +14250,10 @@
     "diceHollow": {
       "available": false,
       "price": null,
+      "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-08-22T17:27:15.423Z"
+      "lastChecked": "2026-08-22T17:47:25.904Z",
+      "lastCheckSuccess": true
     }
   },
   "450539": {
@@ -14443,6 +14424,14 @@
       "url": "https://www.etsy.com/shop/ButtonShyGames",
       "lastChecked": "2026-08-22T17:12:52.330Z",
       "lastCheckSuccess": true
+    },
+    "diceHollow": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-08-22T17:47:19.863Z",
+      "lastCheckSuccess": true
     }
   },
   "451594": {
@@ -14612,6 +14601,14 @@
       "baselinePrice": null,
       "url": "https://www.etsy.com/shop/ButtonShyGames",
       "lastChecked": "2026-08-22T17:10:28.292Z",
+      "lastCheckSuccess": true
+    },
+    "diceHollow": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-08-22T17:47:13.576Z",
       "lastCheckSuccess": true
     }
   },
@@ -14953,6 +14950,14 @@
       "url": "https://www.etsy.com/shop/ButtonShyGames",
       "lastChecked": "2026-08-22T17:17:49.486Z",
       "lastCheckSuccess": true
+    },
+    "diceHollow": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-08-22T17:47:32.552Z",
+      "lastCheckSuccess": true
     }
   },
   "453446": {
@@ -15123,16 +15128,17 @@
       "url": "https://www.etsy.com/shop/ButtonShyGames",
       "lastChecked": "2026-08-22T17:17:28.659Z",
       "lastCheckSuccess": true
-    }
-  },
-  "453526": {
+    },
     "diceHollow": {
       "available": false,
       "price": null,
+      "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-08-22T17:27:09.351Z"
+      "lastChecked": "2026-08-22T17:47:31.686Z",
+      "lastCheckSuccess": true
     }
   },
+  "453526": {},
   "453620": {
     "boardGameBliss": {
       "available": false,
@@ -15305,8 +15311,10 @@
     "diceHollow": {
       "available": false,
       "price": null,
+      "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-08-22T17:27:18.032Z"
+      "lastChecked": "2026-08-22T17:47:28.798Z",
+      "lastCheckSuccess": true
     }
   },
   "453913": {
@@ -15476,6 +15484,14 @@
       "baselinePrice": null,
       "url": "https://www.etsy.com/shop/ButtonShyGames",
       "lastChecked": "2026-08-22T17:17:15.660Z",
+      "lastCheckSuccess": true
+    },
+    "diceHollow": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-08-22T17:47:31.139Z",
       "lastCheckSuccess": true
     }
   },
@@ -15651,8 +15667,10 @@
     "diceHollow": {
       "available": false,
       "price": null,
+      "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-08-22T17:27:18.502Z"
+      "lastChecked": "2026-08-22T17:47:29.321Z",
+      "lastCheckSuccess": true
     }
   },
   "456862": {
@@ -15827,8 +15845,10 @@
     "diceHollow": {
       "available": false,
       "price": null,
+      "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-08-22T17:27:06.128Z"
+      "lastChecked": "2026-08-22T17:47:16.649Z",
+      "lastCheckSuccess": true
     }
   },
   "457575": {
@@ -16001,14 +16021,7 @@
       "baselinePrice": null
     }
   },
-  "457611": {
-    "diceHollow": {
-      "available": false,
-      "price": null,
-      "url": null,
-      "lastChecked": "2026-08-22T17:27:00.434Z"
-    }
-  },
+  "457611": {},
   "457836": {
     "boardGameBliss": {
       "available": false,
@@ -16176,6 +16189,14 @@
       "baselinePrice": null,
       "url": "https://www.etsy.com/shop/ButtonShyGames",
       "lastChecked": "2026-08-22T17:09:54.296Z",
+      "lastCheckSuccess": true
+    },
+    "diceHollow": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-08-22T17:47:12.201Z",
       "lastCheckSuccess": true
     }
   },
@@ -16346,6 +16367,14 @@
       "baselinePrice": null,
       "url": "https://www.etsy.com/shop/ButtonShyGames",
       "lastChecked": "2026-08-22T17:18:34.872Z",
+      "lastCheckSuccess": true
+    },
+    "diceHollow": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-08-22T17:47:34.571Z",
       "lastCheckSuccess": true
     }
   },
@@ -16521,8 +16550,10 @@
     "diceHollow": {
       "available": false,
       "price": null,
+      "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-08-22T17:27:07.755Z"
+      "lastChecked": "2026-08-22T17:47:18.422Z",
+      "lastCheckSuccess": true
     }
   },
   "459450": {
@@ -16692,6 +16723,14 @@
       "baselinePrice": null,
       "url": "https://www.etsy.com/shop/ButtonShyGames",
       "lastChecked": "2026-08-22T17:10:43.084Z",
+      "lastCheckSuccess": true
+    },
+    "diceHollow": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-08-22T17:47:14.114Z",
       "lastCheckSuccess": true
     }
   },
@@ -16863,6 +16902,14 @@
       "url": "https://www.etsy.com/shop/ButtonShyGames",
       "lastChecked": "2026-08-22T17:10:22.079Z",
       "lastCheckSuccess": true
+    },
+    "diceHollow": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-08-22T17:47:13.289Z",
+      "lastCheckSuccess": true
     }
   },
   "462945": {
@@ -17032,6 +17079,14 @@
       "baselinePrice": null,
       "url": "https://www.etsy.com/shop/ButtonShyGames",
       "lastChecked": "2026-08-22T17:11:28.031Z",
+      "lastCheckSuccess": true
+    },
+    "diceHollow": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-08-22T17:47:16.104Z",
       "lastCheckSuccess": true
     }
   },
@@ -17207,8 +17262,10 @@
     "diceHollow": {
       "available": false,
       "price": null,
+      "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-08-22T17:27:04.844Z"
+      "lastChecked": "2026-08-22T17:47:15.301Z",
+      "lastCheckSuccess": true
     }
   },
   "463437": {
@@ -17379,6 +17436,14 @@
       "url": "https://www.etsy.com/shop/ButtonShyGames",
       "lastChecked": "2026-08-22T17:18:02.425Z",
       "lastCheckSuccess": true
+    },
+    "diceHollow": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-08-22T17:47:33.118Z",
+      "lastCheckSuccess": true
     }
   },
   "465735": {
@@ -17548,6 +17613,14 @@
       "baselinePrice": null,
       "url": "https://www.etsy.com/shop/ButtonShyGames",
       "lastChecked": "2026-08-22T17:13:18.633Z",
+      "lastCheckSuccess": true
+    },
+    "diceHollow": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-08-22T17:47:20.975Z",
       "lastCheckSuccess": true
     }
   },
@@ -17723,8 +17796,10 @@
     "diceHollow": {
       "available": false,
       "price": null,
+      "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-08-22T17:27:13.344Z"
+      "lastChecked": "2026-08-22T17:47:23.992Z",
+      "lastCheckSuccess": true
     }
   },
   "468000": {
@@ -18065,6 +18140,14 @@
       "url": null,
       "lastChecked": null,
       "lastCheckSuccess": false
+    },
+    "diceHollow": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-08-22T17:47:11.077Z",
+      "lastCheckSuccess": true
     }
   },
   "469542": {
@@ -18234,6 +18317,14 @@
       "baselinePrice": null,
       "url": "https://www.etsy.com/shop/ButtonShyGames",
       "lastChecked": "2026-08-22T17:16:12.174Z",
+      "lastCheckSuccess": true
+    },
+    "diceHollow": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-08-22T17:47:28.513Z",
       "lastCheckSuccess": true
     }
   },
@@ -18409,8 +18500,10 @@
     "diceHollow": {
       "available": false,
       "price": null,
+      "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-08-22T17:27:18.746Z"
+      "lastChecked": "2026-08-22T17:47:29.559Z",
+      "lastCheckSuccess": true
     }
   },
   "470544": {
@@ -18580,6 +18673,14 @@
       "baselinePrice": null,
       "url": "https://www.etsy.com/shop/ButtonShyGames",
       "lastChecked": "2026-08-22T17:17:55.972Z",
+      "lastCheckSuccess": true
+    },
+    "diceHollow": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-08-22T17:47:32.849Z",
       "lastCheckSuccess": true
     }
   },
@@ -18751,6 +18852,14 @@
       "url": "https://www.etsy.com/shop/ButtonShyGames",
       "lastChecked": "2026-08-22T17:16:56.629Z",
       "lastCheckSuccess": true
+    },
+    "diceHollow": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-08-22T17:47:30.331Z",
+      "lastCheckSuccess": true
     }
   },
   "474250": {
@@ -18921,6 +19030,14 @@
       "url": "https://www.etsy.com/shop/ButtonShyGames",
       "lastChecked": "2026-08-22T17:14:48.028Z",
       "lastCheckSuccess": true
+    },
+    "diceHollow": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-08-22T17:47:24.842Z",
+      "lastCheckSuccess": true
     }
   },
   "475160": {
@@ -19090,6 +19207,14 @@
       "baselinePrice": null,
       "url": "https://www.etsy.com/shop/ButtonShyGames",
       "lastChecked": "2026-08-22T17:11:34.451Z",
+      "lastCheckSuccess": true
+    },
+    "diceHollow": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-08-22T17:47:16.368Z",
       "lastCheckSuccess": true
     }
   }
