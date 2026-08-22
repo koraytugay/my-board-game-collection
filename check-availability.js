@@ -1207,6 +1207,11 @@ async function checkAvailability() {
                 url: async (game) => await getElevatedBoardGamesProductUrl(game.name),
                 parser: (html, gameName, targetUrl) => parseElevatedBoardGames(html, gameName, targetUrl)
             },
+            diceHollow: {
+                type: 'shopify',
+                baseUrl: 'https://www.dicehollow.com',
+                currencySymbol: '$'
+            },
             zatu: {
                 type: 'shopify',
                 baseUrl: 'https://zatu.com',

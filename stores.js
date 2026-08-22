@@ -26,6 +26,7 @@ const STORES = [
     { key: 'allSystemsGo', name: 'All Systems Go' },
     { key: 'tabletopCafe', name: 'Tabletop Cafe' },
     { key: 'elevatedBoardGames', name: 'Elevated Board Games' },
+    { key: 'diceHollow', name: 'Dice Hollow' },
     { key: 'buttonShyEtsy', name: 'Button Shy (Etsy)' },
     { key: 'zatu', name: 'Zatu Games' },
     { key: 'bggMarket', name: 'BGG Market' }
@@ -570,6 +571,7 @@ function createGameCard(game) {
     const asg = game.availability?.allSystemsGo;
     const ttc = game.availability?.tabletopCafe;
     const ebg = game.availability?.elevatedBoardGames;
+    const dh = game.availability?.diceHollow;
     const bse = game.availability?.buttonShyEtsy;
     const zatu = game.availability?.zatu;
     const activeBggListings = getActiveBggListings(game);
@@ -606,6 +608,7 @@ function createGameCard(game) {
     storeButtonsHtml += renderStoreChip(asg, '🚀 All Systems Go');
     storeButtonsHtml += renderStoreChip(ttc, '☕ Tabletop Cafe');
     storeButtonsHtml += renderStoreChip(ebg, '🏔️ Elevated BG');
+    storeButtonsHtml += renderStoreChip(dh, '🎲 Dice Hollow');
     storeButtonsHtml += renderStoreChip(bse, '👛 Button Shy');
     storeButtonsHtml += renderStoreChip(zatu, '🛡️ Zatu Games');
 

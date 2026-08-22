@@ -213,6 +213,7 @@ async function showGameDetails(objectId) {
             allSystemsGo: 'All Systems Go',
             tabletopCafe: 'Tabletop Cafe',
             elevatedBoardGames: 'Elevated BG',
+            diceHollow: 'Dice Hollow',
             buttonShyEtsy: 'Button Shy',
             zatu: 'Zatu Games'
         };
