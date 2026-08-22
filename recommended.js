@@ -186,6 +186,48 @@ function populateSellerFilter() {
     }
 }
 
+function populateDesignerFilter() {
+    const designerSelect = document.getElementById('designer-filter');
+    if (!designerSelect) return;
+
+    const currentValue = designerSelect.value;
+    designerSelect.innerHTML = '<option value="all">All Designers</option>';
+
+    const designerCountMap = new Map();
+    allGames.forEach(game => {
+        const designers = game.designers || [];
+        designers.forEach(d => {
+            if (d && d !== '(Uncredited)') {
+                const key = d.toLowerCase();
+                const existing = designerCountMap.get(key) || { designer: d, count: 0 };
+                existing.count++;
+                designerCountMap.set(key, existing);
+            }
+        });
+    });
+
+    const designers = Array.from(designerCountMap.values());
+    designers.sort((a, b) => {
+        if (b.count !== a.count) {
+            return b.count - a.count;
+        }
+        return a.designer.localeCompare(b.designer, undefined, { sensitivity: 'base' });
+    });
+
+    designers.forEach(d => {
+        const option = document.createElement('option');
+        option.value = d.designer;
+        option.textContent = `${d.designer} (${d.count})`;
+        designerSelect.appendChild(option);
+    });
+
+    if (designers.some(d => d.designer.toLowerCase() === currentValue.toLowerCase())) {
+        designerSelect.value = currentValue;
+    } else {
+        designerSelect.value = 'all';
+    }
+}
+
 document.addEventListener('DOMContentLoaded', async () => {
     try {
         if (typeof getCollection === 'function') {
@@ -206,17 +248,19 @@ async function fetchRecommendations() {
     const controlsEl = document.getElementById('controls');
 
     try {
-        const [recRes, availabilityRes] = await Promise.all([
+        const [recRes, availabilityRes, designersRes] = await Promise.all([
             fetch('recommendations.json').then(r => {
                 if (!r.ok) throw new Error(`HTTP error! status: ${r.status}`);
                 return r.json();
             }),
-            fetch('availability-recommended.json').then(r => r.ok ? r.json() : {}).catch(() => ({}))
+            fetch('availability-recommended.json').then(r => r.ok ? r.json() : {}).catch(() => ({})),
+            fetch('designers.json').then(r => r.ok ? r.json() : {}).catch(() => ({}))
         ]);
 
         const rawRecs = recRes.recommendations || [];
         allGames = rawRecs.map(game => ({
             ...game,
+            designers: designersRes[game.objectId]?.designers || [],
             availability: availabilityRes[game.objectId] || {}
         }));
         filteredGames = [...allGames];
@@ -224,6 +268,7 @@ async function fetchRecommendations() {
         populateSourceGameFilter();
         populateStoreFilter();
         populateSellerFilter();
+        populateDesignerFilter();
         sortGames(currentSort);
 
         loadingEl.style.display = 'none';
@@ -299,6 +344,7 @@ function applyFilters() {
     const majorDealsCheckbox = document.getElementById('major-deals-only');
     const storeFilter = document.getElementById('store-filter');
     const sellerFilter = document.getElementById('seller-filter');
+    const designerFilter = document.getElementById('designer-filter');
 
     const searchTerm = searchInput ? searchInput.value.toLowerCase().trim() : '';
     const ratingVal = ratingFilter ? ratingFilter.value : 'all';
@@ -308,6 +354,7 @@ function applyFilters() {
     const majorDealsOnly = majorDealsCheckbox ? majorDealsCheckbox.checked : false;
     const storeVal = storeFilter ? storeFilter.value : 'all';
     const sellerVal = sellerFilter ? sellerFilter.value : 'all';
+    const designerVal = designerFilter ? designerFilter.value : 'all';
 
     filteredGames = allGames.filter(game => {
         const matchesName = game.name.toLowerCase().includes(searchTerm);
@@ -360,7 +407,13 @@ function applyFilters() {
             matchesSeller = activeListings.some(l => l.seller && l.seller.toLowerCase() === sellerVal.toLowerCase());
         }
 
-        return matchesSearch && matchesRating && matchesSourceGame && matchesPlayers && matchesStock && matchesDeal && matchesStore && matchesSeller;
+        let matchesDesigner = true;
+        if (designerVal !== 'all') {
+            const designers = game.designers || [];
+            matchesDesigner = designers.some(d => d.toLowerCase() === designerVal.toLowerCase());
+        }
+
+        return matchesSearch && matchesRating && matchesSourceGame && matchesPlayers && matchesStock && matchesDeal && matchesStore && matchesSeller && matchesDesigner;
     });
 
     renderGames();

@@ -80,14 +80,12 @@ async function fetchDesigners() {
     }
 
     const allGames = getGamesFromCollection();
-    // Prioritize wanted games first, then all collection games
-    const wantedGames = allGames.filter(g => g.isWanted);
-    const missingGames = wantedGames.filter(g => !designersCache[g.objectId] || !Array.isArray(designersCache[g.objectId].designers));
+    const missingGames = allGames.filter(g => !designersCache[g.objectId] || !Array.isArray(designersCache[g.objectId].designers));
 
-    console.log(`Total wanted games: ${wantedGames.length}. Missing from designers cache: ${missingGames.length}.`);
+    console.log(`Total collection games: ${allGames.length}. Missing from designers cache: ${missingGames.length}.`);
 
     if (missingGames.length === 0) {
-        console.log('All wanted games already cached in designers.json! Zero requests needed.');
+        console.log('All games already cached in designers.json! Zero requests needed.');
         return;
     }
 

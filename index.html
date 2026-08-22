@@ -123,6 +123,13 @@
                 </div>
 
                 <div class="control-group">
+                    <label for="designer-filter">Designer:</label>
+                    <select id="designer-filter" onchange="applyFilters()">
+                        <option value="all">All Designers</option>
+                    </select>
+                </div>
+
+                <div class="control-group">
                     <label class="checkbox-label">
                         <input type="checkbox" id="unplayed-only" onchange="applyFilters()">
                         Unplayed Only

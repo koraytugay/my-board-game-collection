@@ -9,16 +9,19 @@ async function fetchCollection() {
     const controlsEl = document.getElementById('controls');
 
     try {
-        const [collection, lastPlayDates] = await Promise.all([
+        const [collection, lastPlayDates, designersRes] = await Promise.all([
             getCollection('wanttoplay'),
-            getLastPlayDates()
+            getLastPlayDates(),
+            fetch('designers.json').then(res => res.ok ? res.json() : {}).catch(() => ({}))
         ]);
         
         allGames = collection.map(game => ({
             ...game,
-            lastPlayed: lastPlayDates[game.objectId] || ''
+            lastPlayed: lastPlayDates[game.objectId] || '',
+            designers: designersRes[game.objectId]?.designers || []
         }));
         
+        populateDesignerFilter();
         filteredGames = [...allGames];
         sortGames(currentSort);
         
@@ -32,6 +35,48 @@ async function fetchCollection() {
         loadingEl.style.display = 'none';
         errorEl.style.display = 'block';
         errorEl.textContent = `Failed to load Want to Play games: ${error.message}`;
+    }
+}
+
+function populateDesignerFilter() {
+    const designerSelect = document.getElementById('designer-filter');
+    if (!designerSelect) return;
+
+    const currentValue = designerSelect.value;
+    designerSelect.innerHTML = '<option value="all">All Designers</option>';
+
+    const designerCountMap = new Map();
+    allGames.forEach(game => {
+        const designers = game.designers || [];
+        designers.forEach(d => {
+            if (d && d !== '(Uncredited)') {
+                const key = d.toLowerCase();
+                const existing = designerCountMap.get(key) || { designer: d, count: 0 };
+                existing.count++;
+                designerCountMap.set(key, existing);
+            }
+        });
+    });
+
+    const designers = Array.from(designerCountMap.values());
+    designers.sort((a, b) => {
+        if (b.count !== a.count) {
+            return b.count - a.count;
+        }
+        return a.designer.localeCompare(b.designer, undefined, { sensitivity: 'base' });
+    });
+
+    designers.forEach(d => {
+        const option = document.createElement('option');
+        option.value = d.designer;
+        option.textContent = `${d.designer} (${d.count})`;
+        designerSelect.appendChild(option);
+    });
+
+    if (designers.some(d => d.designer.toLowerCase() === currentValue.toLowerCase())) {
+        designerSelect.value = currentValue;
+    } else {
+        designerSelect.value = 'all';
     }
 }
 
@@ -81,11 +126,13 @@ function applyFilters() {
     const playerCountFilter = document.getElementById('player-count');
     const playTimeFilter = document.getElementById('play-time');
     const ratingFilter = document.getElementById('rating-filter');
+    const designerFilter = document.getElementById('designer-filter');
 
     const searchTerm = searchInput ? searchInput.value.toLowerCase().trim() : '';
     const playerCount = playerCountFilter ? playerCountFilter.value : 'all';
     const playTime = playTimeFilter ? playTimeFilter.value : 'all';
     const ratingVal = ratingFilter ? ratingFilter.value : 'all';
+    const designerVal = designerFilter ? designerFilter.value : 'all';
 
     filteredGames = allGames.filter(game => {
         const matchesSearch = !searchTerm || game.name.toLowerCase().includes(searchTerm);
@@ -116,7 +163,13 @@ function applyFilters() {
             matchesRating = game.rating >= minRating;
         }
 
-        return matchesSearch && matchesPlayers && matchesTime && matchesRating;
+        let matchesDesigner = true;
+        if (designerVal !== 'all') {
+            const designers = game.designers || [];
+            matchesDesigner = designers.some(d => d.toLowerCase() === designerVal.toLowerCase());
+        }
+
+        return matchesSearch && matchesPlayers && matchesTime && matchesRating && matchesDesigner;
     });
 
     renderGames();
