@@ -493,6 +493,13 @@ body.dark-mode .game-card {
     box-shadow: 0 2px 4px rgba(221, 107, 32, 0.3);
 }
 
+.badge-live {
+    background: linear-gradient(135deg, #6b46c1, #3182ce);
+    color: white;
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(49, 130, 206, 0.3);
+}
+
 .game-thumbnail {
     width: 100%;
     height: 220px;
@@ -1203,4 +1210,139 @@ body.dark-mode .store-chip.has-deal:hover {
 body.dark-mode .store-chip.has-deal .store-chip-price {
     background: rgba(237, 137, 54, 0.25);
     color: #fc8181;
+}
+
+/* Quick BGG Live Checker */
+.quick-checker-box {
+    background: #f8fafc;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin-bottom: 16px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.quick-checker-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.quick-checker-input-row {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.quick-checker-input {
+    flex: 1;
+    min-width: 220px;
+    padding: 8px 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.quick-checker-input:focus {
+    border-color: #3182ce;
+    box-shadow: 0 0 0 2px rgba(49, 130, 206, 0.2);
+}
+
+.quick-checker-btn {
+    padding: 8px 16px;
+    background: #3182ce;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.quick-checker-btn:hover {
+    background: #2b6cb0;
+}
+
+.quick-checker-btn:disabled {
+    background: #a0aec0;
+    cursor: not-allowed;
+}
+
+.quick-checker-clear {
+    padding: 8px 14px;
+    background: #e2e8f0;
+    color: #475569;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.quick-checker-clear:hover {
+    background: #cbd5e1;
+    color: #1e293b;
+}
+
+.quick-checker-status {
+    margin-top: 8px;
+    font-size: 0.85rem;
+    color: #64748b;
+    line-height: 1.4;
+}
+
+.quick-checker-status.error {
+    color: #e53e3e;
+    font-weight: 600;
+}
+
+.quick-checker-status.success {
+    color: #2b6cb0;
+    font-weight: 600;
+}
+
+body.dark-mode .quick-checker-box {
+    background: #1e293b;
+    border-color: #334155;
+}
+
+body.dark-mode .quick-checker-title {
+    color: #f1f5f9;
+}
+
+body.dark-mode .quick-checker-input {
+    background: #0f172a;
+    border-color: #334155;
+    color: #f1f5f9;
+}
+
+body.dark-mode .quick-checker-input:focus {
+    border-color: #60a5fa;
+    box-shadow: 0 0 0 2px rgba(96, 165, 250, 0.25);
+}
+
+body.dark-mode .quick-checker-clear {
+    background: #334155;
+    color: #cbd5e1;
+}
+
+body.dark-mode .quick-checker-clear:hover {
+    background: #475569;
+    color: #f1f5f9;
+}
+
+body.dark-mode .quick-checker-status {
+    color: #94a3b8;
 }
