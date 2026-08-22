@@ -3,6 +3,7 @@ const https = require('https');
 const path = require('path');
 
 const COLLECTION_FILE = path.join(__dirname, 'collection.xml');
+const RECOMMENDATIONS_FILE = path.join(__dirname, 'recommendations.json');
 const DESIGNERS_FILE = path.join(__dirname, 'designers.json');
 
 const DEFAULT_HEADERS = {
@@ -47,25 +48,45 @@ function fetchJson(url) {
     });
 }
 
-function getGamesFromCollection() {
-    if (!fs.existsSync(COLLECTION_FILE)) return [];
-    const xml = fs.readFileSync(COLLECTION_FILE, 'utf8');
-    const items = xml.match(/<item\b[\s\S]*?<\/item>/g) || [];
-    const games = [];
+function getAllTargetGames() {
+    const gameMap = new Map();
 
-    for (const item of items) {
-        const idMatch = item.match(/objectid="(\d+)"/);
-        const nameMatch = item.match(/<name[^>]*>([^<]+)<\/name>/);
-        const isWanted = item.includes('wanttobuy="1"');
-        if (idMatch) {
-            games.push({
-                objectId: idMatch[1],
-                name: nameMatch ? nameMatch[1] : `Game #${idMatch[1]}`,
-                isWanted
-            });
+    // 1. Games from collection.xml
+    if (fs.existsSync(COLLECTION_FILE)) {
+        const xml = fs.readFileSync(COLLECTION_FILE, 'utf8');
+        const items = xml.match(/<item\b[\s\S]*?<\/item>/g) || [];
+
+        for (const item of items) {
+            const idMatch = item.match(/objectid="(\d+)"/);
+            const nameMatch = item.match(/<name[^>]*>([^<]+)<\/name>/);
+            if (idMatch) {
+                gameMap.set(idMatch[1], {
+                    objectId: idMatch[1],
+                    name: nameMatch ? nameMatch[1] : `Game #${idMatch[1]}`
+                });
+            }
         }
     }
-    return games;
+
+    // 2. Games from recommendations.json
+    if (fs.existsSync(RECOMMENDATIONS_FILE)) {
+        try {
+            const recData = JSON.parse(fs.readFileSync(RECOMMENDATIONS_FILE, 'utf8'));
+            const recList = recData.recommendations || [];
+            for (const r of recList) {
+                if (r.objectId && !gameMap.has(String(r.objectId))) {
+                    gameMap.set(String(r.objectId), {
+                        objectId: String(r.objectId),
+                        name: r.name || `Game #${r.objectId}`
+                    });
+                }
+            }
+        } catch (e) {
+            console.warn('Could not read recommendations.json:', e.message);
+        }
+    }
+
+    return Array.from(gameMap.values());
 }
 
 async function fetchDesigners() {
@@ -79,10 +100,10 @@ async function fetchDesigners() {
         }
     }
 
-    const allGames = getGamesFromCollection();
+    const allGames = getAllTargetGames();
     const missingGames = allGames.filter(g => !designersCache[g.objectId] || !Array.isArray(designersCache[g.objectId].designers));
 
-    console.log(`Total collection games: ${allGames.length}. Missing from designers cache: ${missingGames.length}.`);
+    console.log(`Total target games (collection + recommendations): ${allGames.length}. Missing from designers cache: ${missingGames.length}.`);
 
     if (missingGames.length === 0) {
         console.log('All games already cached in designers.json! Zero requests needed.');
