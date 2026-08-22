@@ -485,7 +485,9 @@ function applyFilters() {
 
         // Player count filter
         if (playerCount !== 'all') {
-            if (playerCount === '2-only') {
+            if (playerCount === '1-only') {
+                if (game.minPlayers !== 1 || game.maxPlayers !== 1) return false;
+            } else if (playerCount === '2-only') {
                 if (game.minPlayers !== 2 || game.maxPlayers !== 2) return false;
             } else if (playerCount === '5') {
                 if (game.maxPlayers < 5) return false;

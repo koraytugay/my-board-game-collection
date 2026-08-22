@@ -89,7 +89,9 @@ function applyFilters() {
         
         let matchesPlayers = true;
         if (playerCount !== 'all') {
-            if (playerCount === '2-only') {
+            if (playerCount === '1-only') {
+                matchesPlayers = game.minPlayers === 1 && game.maxPlayers === 1;
+            } else if (playerCount === '2-only') {
                 matchesPlayers = game.minPlayers === 2 && game.maxPlayers === 2;
             } else if (playerCount === '5') {
                 matchesPlayers = game.maxPlayers >= 5;
