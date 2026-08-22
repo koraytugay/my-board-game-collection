@@ -45,18 +45,6 @@
         <div id="error" class="error" style="display: none;"></div>
 
         <div id="controls" class="controls" style="display: none;">
-            <div class="quick-checker-box">
-                <div class="quick-checker-title">
-                    <span>⚡ Live Store Stock Checker (BGG ID)</span>
-                </div>
-                <div class="quick-checker-input-row">
-                    <input type="text" id="quick-bgg-id" class="quick-checker-input" placeholder="Enter BGG Game ID (e.g. 244521 or BGG URL)..." onkeydown="if(event.key==='Enter') checkLiveGameStock()">
-                    <button id="quick-check-btn" class="quick-checker-btn" onclick="checkLiveGameStock()">🔍 Check Live Stores</button>
-                    <button id="quick-clear-btn" class="quick-checker-clear" onclick="clearLiveCheckedGame()" style="display: none;">✕ Clear Live Result</button>
-                </div>
-                <div id="quick-check-status" class="quick-checker-status" style="display: none;"></div>
-            </div>
-
             <div class="controls-row">
                 <div class="control-group">
                     <label for="sort-select">Sort by:</label>
