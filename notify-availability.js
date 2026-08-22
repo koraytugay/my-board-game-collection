@@ -370,8 +370,8 @@ function computeDiff(prevData, currData, gamesMap) {
                     isNowCompletelyOutOfStock: !isInStockAnywhere
                 });
             }
-            // 3. Price change / Major Deal for an in-stock game
-            else if (wasAvail && isAvail && prev.price && curr.price) {
+            // 3. Price change / Major Deal for an in-stock game (only if URL is identical to avoid comparing different editions)
+            else if (wasAvail && isAvail && prev.price && curr.price && (!prev.url || !curr.url || prev.url === curr.url)) {
                 const normPrev = parseFloat(normalizePrice(prev.price));
                 const normCurr = parseFloat(normalizePrice(curr.price));
                 if (!isNaN(normPrev) && !isNaN(normCurr)) {

@@ -2,8 +2,8 @@ name: Check Recommended Game Availability (101 - 200)
 
 on:
   schedule:
-    # Runs daily at 3:00 AM Eastern Time (07:00 UTC)
-    - cron: "0 7 * * *"
+    # Runs daily at 2:00 AM Eastern Time (06:00 UTC)
+    - cron: "0 6 * * *"
   workflow_dispatch:
 
 permissions:

@@ -1,10 +1,9 @@
 name: Notify Recommended Game Availability (Daily Summary)
 
 on:
-  workflow_run:
-    workflows: ["Check Recommended Game Availability (301 - 400+)"]
-    types:
-      - completed
+  schedule:
+    # Runs daily at 5:00 AM Eastern Time (09:00 UTC), 1 hour after Shard 4 (4:00 AM)
+    - cron: "0 9 * * *"
   workflow_dispatch:
 
 permissions:
@@ -17,7 +16,6 @@ concurrency:
 jobs:
   notify-recommended-summary:
     runs-on: ubuntu-latest
-    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4

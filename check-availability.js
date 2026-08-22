@@ -21,15 +21,30 @@ function isPriceUnderThreshold(priceStr, threshold = MIN_PRICE_THRESHOLD) {
     return num !== null && num <= threshold;
 }
 
-function computeDealInfo(currentPrice, existingStoreData) {
+function computeDealInfo(currentPrice, currentUrl, isAvailable, existingStoreData) {
+    if (!isAvailable) {
+        return {
+            baselinePrice: existingStoreData?.baselinePrice || currentPrice || null,
+            deal: null
+        };
+    }
+
     const currNum = extractNumericPrice(currentPrice);
     if (!currNum) {
         return { baselinePrice: currentPrice || null, deal: null };
     }
 
     const prevPrice = existingStoreData?.price;
-    const baselinePrice = existingStoreData?.baselinePrice || prevPrice || currentPrice;
-    const baselineNum = extractNumericPrice(baselinePrice);
+    const prevUrl = existingStoreData?.url;
+
+    // If product URL changed, this is a different matched product (e.g. expansion / big box / different edition)
+    // Reset baseline to the new product
+    if (prevUrl && currentUrl && prevUrl !== currentUrl) {
+        return { baselinePrice: currentPrice, deal: null };
+    }
+
+    let baselinePrice = existingStoreData?.baselinePrice || prevPrice || currentPrice;
+    let baselineNum = extractNumericPrice(baselinePrice);
 
     if (!baselineNum) {
         return { baselinePrice: currentPrice, deal: null };
@@ -53,7 +68,7 @@ function computeDealInfo(currentPrice, existingStoreData) {
         };
     }
 
-    // If not >= 20% discount, update baseline if price dropped slightly
+    // If price dropped slightly (< 20%), update baseline
     if (currNum < baselineNum && discountPercent < 20) {
         return { baselinePrice: currentPrice, deal: null };
     }
@@ -1331,7 +1346,7 @@ async function checkAvailability() {
                     const activeListings = listings.filter(l => !l.ignored);
                     if (activeListings.length === 0) available = false;
                 }
-                const { baselinePrice, deal } = computeDealInfo(existingStoreData.price, existingStoreData);
+                const { baselinePrice, deal } = computeDealInfo(existingStoreData.price, existingStoreData.url, available, existingStoreData);
                 availability[storeKey] = {
                     available,
                     price: existingStoreData.price ?? null,
@@ -1389,7 +1404,7 @@ async function checkAvailability() {
                                 if (activeListings.length === 0) available = false;
                             }
 
-                            const { baselinePrice, deal } = computeDealInfo(price, existingStoreData);
+                            const { baselinePrice, deal } = computeDealInfo(price, url, available, existingStoreData);
 
                             availability[storeKey] = {
                                 available,
