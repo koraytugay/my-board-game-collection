@@ -119,9 +119,9 @@ function renderCalendar() {
                 playEl.className = 'play-thumbnail-entry';
                 
                 let imgHtml = '';
-                const imgSrc = gameData ? (gameData.image || gameData.thumbnail) : '';
+                const imgSrc = gameData ? (gameData.thumbnail || gameData.image) : '';
                 if (imgSrc) {
-                    imgHtml = `<img src="${imgSrc}" alt="${escapeHtml(entry.name)}">`;
+                    imgHtml = `<img src="${imgSrc}" alt="${escapeHtml(entry.name)}" loading="lazy">`;
                 } else {
                     // Fallback for games not in collection
                     imgHtml = `<div class="play-placeholder-img"><span>?</span></div>`;
