@@ -580,25 +580,34 @@ async function fetchShopifyStore(baseUrl, query, gameName, currencySymbol = '$')
         if (!queries.includes(a)) queries.push(a);
     }
 
+    let hadSuccessfulResponse = false;
+
     for (const q of queries) {
         const suggestUrl = `${baseUrl}/search/suggest.json?q=${encodeURIComponent(q)}&resources[type]=product`;
         const suggestRes = await fetchJson(suggestUrl);
         
-        if (suggestRes?.resources?.results?.products?.length > 0) {
-            const match = findBestShopifyMatch(suggestRes.resources.results.products, gameName);
-            if (match) {
-                let price = match.price ? (match.price.startsWith(currencySymbol) ? match.price : `${currencySymbol}${match.price}`) : null;
-                const available = match.available ?? false;
-                return {
-                    available,
-                    price,
-                    url: `${baseUrl}${match.url}`
-                };
+        if (suggestRes !== null) {
+            hadSuccessfulResponse = true;
+            if (suggestRes?.resources?.results?.products?.length > 0) {
+                const match = findBestShopifyMatch(suggestRes.resources.results.products, gameName);
+                if (match) {
+                    let price = match.price ? (match.price.startsWith(currencySymbol) ? match.price : `${currencySymbol}${match.price}`) : null;
+                    const available = match.available ?? false;
+                    return {
+                        available,
+                        price,
+                        url: `${baseUrl}${match.url}`
+                    };
+                }
             }
         }
     }
 
-    return null;
+    if (!hadSuccessfulResponse) {
+        throw new Error(`Shopify fetch failed or timed out for ${baseUrl}`);
+    }
+
+    return { available: false, price: null, url: null };
 }
 
 

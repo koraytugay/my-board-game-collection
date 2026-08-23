@@ -50,7 +50,7 @@ jobs:
 
           git pull --rebase --autostash origin ${{ github.ref_name }}
 
-          git add availability.json
+          git add availability.json last-notified-availability.json
 
           if git diff --quiet --staged; then
             echo "No changes to commit."

@@ -5,6 +5,7 @@ const nodemailer = require('nodemailer');
 const isRecommended = process.argv.includes('--recommended') || process.env.CHECK_TYPE === 'recommended';
 const isDailySummary = process.argv.includes('--daily-summary') || process.env.DAILY_SUMMARY === 'true';
 const AVAILABILITY_FILE = isRecommended ? 'availability-recommended.json' : 'availability.json';
+const NOTIFIED_SNAPSHOT_FILE = isRecommended ? 'last-notified-availability-recommended.json' : 'last-notified-availability.json';
 const RECOMMENDATIONS_FILE = 'recommendations.json';
 const COLLECTION_FILE = 'collection.xml';
 
@@ -32,36 +33,6 @@ const STORE_META = {
     zatu: { name: 'Zatu Games', icon: '🛡️' },
     bggMarket: { name: 'BGG Market', icon: '🏷️' }
 };
-
-function getSinceArg() {
-    for (let i = 0; i < process.argv.length; i++) {
-        if (process.argv[i] === '--since' && process.argv[i + 1]) {
-            return process.argv[i + 1];
-        } else if (process.argv[i].startsWith('--since=')) {
-            return process.argv[i].split('=')[1];
-        }
-    }
-    return process.env.SINCE || '5 hours ago';
-}
-
-function getBaselineCommit(file, since = '5 hours ago') {
-    // 1. Try finding commit before the cutoff
-    try {
-        const cmd = `git log --before="${since}" -n 1 --format="%H" -- "${file}"`;
-        const sha = execSync(cmd, { encoding: 'utf8', stdio: ['pipe', 'pipe', 'ignore'] }).trim();
-        if (sha) return sha;
-    } catch (e) {}
-
-    // 2. If all commits in history are within the cutoff, get the oldest commit of this file
-    try {
-        const cmd = `git log --reverse --format="%H" -- "${file}"`;
-        const stdout = execSync(cmd, { encoding: 'utf8', stdio: ['pipe', 'pipe', 'ignore'] }).trim();
-        const firstSha = stdout.split('\n')[0].trim();
-        if (firstSha) return firstSha;
-    } catch (e) {}
-
-    return 'HEAD';
-}
 
 function getRecommendedRange() {
     let start = 0;
@@ -216,10 +187,21 @@ function getGameDetailsMap() {
     return map;
 }
 
-function getPreviousAvailability(baseRef = 'HEAD') {
-    // Try reading previous availability from git ref
+function getPreviousAvailability() {
+    if (fs.existsSync(NOTIFIED_SNAPSHOT_FILE)) {
+        try {
+            const content = fs.readFileSync(NOTIFIED_SNAPSHOT_FILE, 'utf8');
+            if (content && content.trim()) {
+                return JSON.parse(content);
+            }
+        } catch (e) {
+            console.error(`[WARN] Could not parse ${NOTIFIED_SNAPSHOT_FILE}:`, e.message);
+        }
+    }
+
+    // Fallback if snapshot file does not exist yet
     try {
-        const stdout = execSync(`git show ${baseRef}:${AVAILABILITY_FILE}`, {
+        const stdout = execSync(`git show HEAD:${AVAILABILITY_FILE}`, {
             encoding: 'utf8',
             stdio: ['pipe', 'pipe', 'ignore'],
             maxBuffer: 10 * 1024 * 1024
@@ -227,10 +209,18 @@ function getPreviousAvailability(baseRef = 'HEAD') {
         if (stdout && stdout.trim()) {
             return JSON.parse(stdout);
         }
+    } catch (e) {}
+
+    return getCurrentAvailability();
+}
+
+function saveNotifiedSnapshot(data) {
+    try {
+        fs.writeFileSync(NOTIFIED_SNAPSHOT_FILE, JSON.stringify(data, null, 2), 'utf8');
+        console.log(`[INFO] Saved notification snapshot to ${NOTIFIED_SNAPSHOT_FILE}`);
     } catch (e) {
-        // Not in git or first commit, fallback to empty object
+        console.error(`[ERROR] Failed to save snapshot ${NOTIFIED_SNAPSHOT_FILE}:`, e.message);
     }
-    return {};
 }
 
 function getCurrentAvailability() {
@@ -806,24 +796,21 @@ async function sendNotificationEmail(subject, htmlBody, textBody) {
 async function run() {
     console.log('--- Checking for board game stock diffs ---');
     const range = isRecommended ? getRecommendedRange() : null;
-    let baseRef = 'HEAD';
 
     if (isDailySummary) {
-        const since = getSinceArg();
-        baseRef = getBaselineCommit(AVAILABILITY_FILE, since);
-        console.log(`[Daily Summary] Comparing current recommended games availability against baseline commit ${baseRef} (before ${since})...`);
+        console.log(`[Daily Summary] Comparing current recommended games availability against snapshot (${NOTIFIED_SNAPSHOT_FILE})...`);
     } else if (range && range.hasRangeFlag) {
         const endDisplay = range.end === Infinity ? '400+' : range.end;
         console.log(`Recommended games check batch: #${range.start + 1} to #${endDisplay}`);
     }
 
     const gamesMap = getGameDetailsMap();
-    const prevData = getPreviousAvailability(baseRef);
+    const prevData = getPreviousAvailability();
     const currData = getCurrentAvailability();
 
     const prevCount = Object.keys(prevData).length;
     const currCount = Object.keys(currData).length;
-    console.log(`Comparing previous availability (${prevCount} games, ref: ${baseRef}) with current availability (${currCount} games)...`);
+    console.log(`Comparing previous availability (${prevCount} games from ${NOTIFIED_SNAPSHOT_FILE}) with current availability (${currCount} games)...`);
 
     const diff = computeDiff(prevData, currData, gamesMap);
     const summary = getOverallInStockSummary(currData, gamesMap);
@@ -836,6 +823,9 @@ async function run() {
 
     console.log(`Subject: ${subject}`);
     await sendNotificationEmail(subject, htmlBody, textBody);
+
+    // Save snapshot of what was notified
+    saveNotifiedSnapshot(currData);
 }
 
 run().catch(err => {

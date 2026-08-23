@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 concurrency:
   group: bgg-collection-repo-update
@@ -35,4 +35,22 @@ jobs:
           ICLOUD_EMAIL: ${{ secrets.ICLOUD_EMAIL }}
           ICLOUD_APP_PASSWORD: ${{ secrets.ICLOUD_APP_PASSWORD }}
         run: |
-          node notify-availability.js --recommended --daily-summary --since "5 hours ago"
+          node notify-availability.js --recommended --daily-summary
+
+      - name: Commit & push notified snapshot
+        run: |
+          set -euo pipefail
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git pull --rebase --autostash origin ${{ github.ref_name }}
+
+          git add last-notified-availability-recommended.json
+
+          if git diff --quiet --staged; then
+            echo "No changes to snapshot."
+            exit 0
+          fi
+
+          git commit -m "chore: update notified snapshot for recommended games ($(date -u +%F))"
+          git push
