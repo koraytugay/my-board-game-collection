@@ -2,8 +2,8 @@ name: Update BGG collection
 
 on:
   schedule:
-    # Runs every day at 18:00 UTC
-    - cron: "0 18 * * *"
+    # Runs daily at midnight (12:00 AM), 12:00 PM, and 6:00 PM Toronto Time (04:00, 16:00, 22:00 UTC)
+    - cron: "0 4,16,22 * * *"
   workflow_dispatch:
 
 permissions:
