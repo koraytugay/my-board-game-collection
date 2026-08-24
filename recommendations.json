@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-23T12:36:47.165Z",
+  "generatedAt": "2026-08-24T12:44:39.528Z",
   "total": 400,
   "recommendations": [
     {
@@ -4655,40 +4655,6 @@
       "playingTime": 15
     },
     {
-      "objectId": "429293",
-      "name": "The Lord of the Rings: The Fellowship of the Ring – Trick-Taking Game",
-      "yearPublished": "2025",
-      "bggRating": 7.98,
-      "bggRank": 134,
-      "numVoters": 10714,
-      "numFans": 1605,
-      "coverUrl": "https://cf.geekdo-images.com/uC4N_3kQdoHefNPesAHCzQ__square100@2x/img/vU01eNBZfwbL24pkCR7AouNMpTY=/0x1030:934x1964/200x200/filters:strip_icc()/pic8437787.png",
-      "thumbnail": "images/thumbnails/429293.png",
-      "image": "images/full/429293.png",
-      "description": "Travel from the Shire and overcome every obstacle as a team.",
-      "rawScore": 3.2441153589171545,
-      "recommendedBy": [
-        {
-          "ownedId": "291453",
-          "ownedName": "SCOUT",
-          "userRating": 8,
-          "bggRecRank": 12,
-          "contributionScore": 1.85
-        },
-        {
-          "ownedId": "353470",
-          "ownedName": "Star Wars: Jabba&#039;s Palace – A Love Letter Game",
-          "userRating": 8,
-          "bggRecRank": 21,
-          "contributionScore": 1.4
-        }
-      ],
-      "matchScore": 4.5,
-      "minPlayers": 1,
-      "maxPlayers": 4,
-      "playingTime": 20
-    },
-    {
       "objectId": "208895",
       "name": "New York Slice",
       "yearPublished": "2017",
@@ -4768,40 +4734,6 @@
       "minPlayers": 2,
       "maxPlayers": 6,
       "playingTime": 45
-    },
-    {
-      "objectId": "281474",
-      "name": "Lands of Galzyr",
-      "yearPublished": "2022",
-      "bggRating": 7.92,
-      "bggRank": 1049,
-      "numVoters": 2314,
-      "numFans": 979,
-      "coverUrl": "https://cf.geekdo-images.com/vLUJt2QS-PPMG_Mx00m9zw__square100@2x/img/04eFAzhhuRiNVoiNLFN6-D1jM_E=/200x200/filters:strip_icc()/pic7225132.jpg",
-      "thumbnail": "images/thumbnails/281474.jpg",
-      "image": "images/full/281474.jpg",
-      "description": "Explore, take on challenging quests, and become a prestigious adventurer.",
-      "rawScore": 3.1431479645370257,
-      "recommendedBy": [
-        {
-          "ownedId": "306735",
-          "ownedName": "Under Falling Skies",
-          "userRating": 10,
-          "bggRecRank": 21,
-          "contributionScore": 2.18
-        },
-        {
-          "ownedId": "352697",
-          "ownedName": "Resist!",
-          "userRating": 7,
-          "bggRecRank": 26,
-          "contributionScore": 0.96
-        }
-      ],
-      "matchScore": 4.3,
-      "minPlayers": 1,
-      "maxPlayers": 4,
-      "playingTime": 150
     },
     {
       "objectId": "266830",
@@ -13237,6 +13169,60 @@
       "minPlayers": 2,
       "maxPlayers": 6,
       "playingTime": 30
+    },
+    {
+      "objectId": "447002",
+      "name": "Sanibel",
+      "yearPublished": "2026",
+      "bggRating": 7.17,
+      "bggRank": 5095,
+      "numVoters": 492,
+      "numFans": 180,
+      "coverUrl": "https://cf.geekdo-images.com/Q75vVTPPTugVK7JH4XX0BA__square100@2x/img/o68XhN9hACZwEXLbpP37GTQiewI=/200x200/filters:strip_icc()/pic8897139.jpg",
+      "thumbnail": "images/thumbnails/447002.jpg",
+      "image": "images/full/447002.jpg",
+      "description": "Collect seashells that come and go with the tide on the beaches of Sanibel.",
+      "rawScore": 1.255143264884378,
+      "recommendedBy": [
+        {
+          "ownedId": "360503",
+          "ownedName": "Downtown Farmers Market",
+          "userRating": 8,
+          "bggRecRank": 26,
+          "contributionScore": 1.26
+        }
+      ],
+      "matchScore": 1.2,
+      "minPlayers": 2,
+      "maxPlayers": 4,
+      "playingTime": 45
+    },
+    {
+      "objectId": "339484",
+      "name": "Savannah Park",
+      "yearPublished": "2021",
+      "bggRating": 7.02,
+      "bggRank": 2087,
+      "numVoters": 2299,
+      "numFans": 89,
+      "coverUrl": "https://cf.geekdo-images.com/D7UzjghUmmKWXiiGt3rUcA__square100@2x/img/WnsiQW9RuejuTJ7V_uY8oz2kj2E=/200x200/filters:strip_icc()/pic6202222.jpg",
+      "thumbnail": "images/thumbnails/339484.jpg",
+      "image": "images/full/339484.jpg",
+      "description": "Help animals form big herds by cleverly relocating them within your wildlife park.",
+      "rawScore": 1.2094863136295273,
+      "recommendedBy": [
+        {
+          "ownedId": "349463",
+          "ownedName": "Dungeons, Dice &amp; Danger",
+          "userRating": 8,
+          "bggRecRank": 28,
+          "contributionScore": 1.21
+        }
+      ],
+      "matchScore": 1.2,
+      "minPlayers": 1,
+      "maxPlayers": 4,
+      "playingTime": 40
     }
   ]
 }
