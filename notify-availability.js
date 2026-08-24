@@ -31,6 +31,7 @@ const STORE_META = {
     diceHollow: { name: 'Dice Hollow', icon: '🎲' },
     buttonShyEtsy: { name: 'Button Shy (Etsy)', icon: '👛' },
     zatu: { name: 'Zatu Games', icon: '🛡️' },
+    philibert: { name: 'Philibert', icon: '🇫🇷' },
     bggMarket: { name: 'BGG Market', icon: '🏷️' }
 };
 

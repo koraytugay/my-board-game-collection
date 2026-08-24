@@ -29,6 +29,7 @@ const STORES = [
     { key: 'diceHollow', name: 'Dice Hollow' },
     { key: 'buttonShyEtsy', name: 'Button Shy (Etsy)' },
     { key: 'zatu', name: 'Zatu Games' },
+    { key: 'philibert', name: 'Philibert' },
     { key: 'bggMarket', name: 'BGG Market' }
 ];
 
@@ -503,6 +504,7 @@ function createGameCard(game) {
     const dh = game.availability?.diceHollow;
     const bse = game.availability?.buttonShyEtsy;
     const zatu = game.availability?.zatu;
+    const philibert = game.availability?.philibert;
     const activeBggListings = getActiveBggListings(game);
 
     const renderStoreChip = (store, name, isBggMarket = false) => {
@@ -540,6 +542,7 @@ function createGameCard(game) {
     storeButtonsHtml += renderStoreChip(dh, '🎲 Dice Hollow');
     storeButtonsHtml += renderStoreChip(bse, '👛 Button Shy');
     storeButtonsHtml += renderStoreChip(zatu, '🛡️ Zatu Games');
+    storeButtonsHtml += renderStoreChip(philibert, '🇫🇷 Philibert');
 
     if (activeBggListings.length > 0) {
         activeBggListings.forEach(listing => {

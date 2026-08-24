@@ -493,6 +493,16 @@ body.dark-mode .game-card {
     box-shadow: 0 2px 4px rgba(221, 107, 32, 0.3);
 }
 
+.badge-want-trade {
+    background: #7c3aed;
+    color: white;
+}
+
+.badge-want-buy {
+    background: #0284c7;
+    color: white;
+}
+
 .game-thumbnail {
     width: 100%;
     height: 220px;

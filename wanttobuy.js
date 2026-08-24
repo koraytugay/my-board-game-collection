@@ -25,6 +25,7 @@ const STORES = [
     { key: 'diceHollow', name: 'Dice Hollow' },
     { key: 'buttonShyEtsy', name: 'Button Shy (Etsy)' },
     { key: 'zatu', name: 'Zatu Games' },
+    { key: 'philibert', name: 'Philibert' },
     { key: 'bggMarket', name: 'BGG Market' }
 ];
 
@@ -225,6 +226,28 @@ function populateDesignerFilter() {
     }
 }
 
+function populateListTypeFilter() {
+    const listTypeSelect = document.getElementById('list-type-filter');
+    if (!listTypeSelect) return;
+
+    const currentVal = listTypeSelect.value;
+    const wtbCount = allGames.filter(g => g.isWantToBuy).length;
+    const tradeCount = allGames.filter(g => g.isWantInTrade).length;
+    const allCount = allGames.length;
+
+    listTypeSelect.innerHTML = `
+        <option value="all">All (${allCount})</option>
+        <option value="wanttobuy">Want to Buy (${wtbCount})</option>
+        <option value="wantintrade">Want in Trade (${tradeCount})</option>
+    `;
+
+    if (['all', 'wanttobuy', 'wantintrade'].includes(currentVal)) {
+        listTypeSelect.value = currentVal;
+    } else {
+        listTypeSelect.value = 'all';
+    }
+}
+
 async function fetchCollection() {
     const loadingEl = document.getElementById('loading');
     const errorEl = document.getElementById('error');
@@ -264,10 +287,12 @@ async function fetchCollection() {
                 diceHollow: { available: false, price: null, url: null },
                 buttonShyEtsy: { available: false, price: null, url: null },
                 zatu: { available: false, price: null, url: null },
+                philibert: { available: false, price: null, url: null },
                 bggMarket: { available: false, price: null, url: null }
             }
         }));
 
+        populateListTypeFilter();
         populateStoreFilter();
         populateSellerFilter();
         populateDesignerFilter();
@@ -312,6 +337,7 @@ function sortGames(criteria) {
 }
 
 function applyFilters() {
+    const listTypeFilter = document.getElementById('list-type-filter');
     const searchInput = document.getElementById('search-input');
     const ratingFilter = document.getElementById('rating-filter');
     const playerCountFilter = document.getElementById('player-count');
@@ -320,6 +346,7 @@ function applyFilters() {
     const storeFilter = document.getElementById('store-filter');
     const sellerFilter = document.getElementById('seller-filter');
 
+    const listTypeVal = listTypeFilter ? listTypeFilter.value : 'all';
     const searchTerm = searchInput ? searchInput.value.toLowerCase().trim() : '';
     const ratingVal = ratingFilter ? ratingFilter.value : 'all';
     const playerCountVal = playerCountFilter ? playerCountFilter.value : 'all';
@@ -331,6 +358,13 @@ function applyFilters() {
     const designerVal = designerFilter ? designerFilter.value : 'all';
 
     filteredGames = allGames.filter(game => {
+        let matchesListType = true;
+        if (listTypeVal === 'wanttobuy') {
+            matchesListType = game.isWantToBuy;
+        } else if (listTypeVal === 'wantintrade') {
+            matchesListType = game.isWantInTrade;
+        }
+
         const matchesSearch = !searchTerm || game.name.toLowerCase().includes(searchTerm);
 
         let matchesRating = true;
@@ -380,7 +414,7 @@ function applyFilters() {
             matchesDesigner = designers.some(d => d.toLowerCase() === designerVal.toLowerCase());
         }
 
-        return matchesSearch && matchesRating && matchesPlayers && matchesStock && matchesDeal && matchesStore && matchesSeller && matchesDesigner;
+        return matchesListType && matchesSearch && matchesRating && matchesPlayers && matchesStock && matchesDeal && matchesStore && matchesSeller && matchesDesigner;
     });
 
     renderGames();
@@ -430,6 +464,12 @@ function createGameCard(game) {
     if (dealInfo) {
         badgesHtml += `<span class="badge badge-deal" title="Was ${dealInfo.previousPrice}, now ${dealInfo.currentPrice}">🔥 -${dealInfo.discountPercent}% Deal</span>`;
     }
+
+    if (game.isWantInTrade && !game.isWantToBuy) {
+        badgesHtml += '<span class="badge badge-want-trade">Want in Trade</span>';
+    } else if (game.isWantInTrade && game.isWantToBuy) {
+        badgesHtml += '<span class="badge badge-want-trade">Want in Trade</span>';
+    }
     
     if (game.minPlayers <= 1) badgesHtml += '<span class="badge badge-solo">Solo</span>';
     if (game.rating >= 8) badgesHtml += '<span class="badge badge-highly-rated">Highly Rated</span>';
@@ -457,6 +497,7 @@ function createGameCard(game) {
     const dh = game.availability?.diceHollow;
     const bse = game.availability?.buttonShyEtsy;
     const zatu = game.availability?.zatu;
+    const philibert = game.availability?.philibert;
     const activeBggListings = getActiveBggListings(game);
 
     const renderStoreChip = (store, name, isBggMarket = false) => {
@@ -494,6 +535,7 @@ function createGameCard(game) {
     storeButtonsHtml += renderStoreChip(dh, '🎲 Dice Hollow');
     storeButtonsHtml += renderStoreChip(bse, '👛 Button Shy');
     storeButtonsHtml += renderStoreChip(zatu, '🛡️ Zatu Games');
+    storeButtonsHtml += renderStoreChip(philibert, '🇫🇷 Philibert');
 
     if (activeBggListings.length > 0) {
         activeBggListings.forEach(listing => {

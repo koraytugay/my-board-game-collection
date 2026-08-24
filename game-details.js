@@ -215,7 +215,8 @@ async function showGameDetails(objectId) {
             elevatedBoardGames: 'Elevated BG',
             diceHollow: 'Dice Hollow',
             buttonShyEtsy: 'Button Shy',
-            zatu: 'Zatu Games'
+            zatu: 'Zatu Games',
+            philibert: 'Philibert'
         };
 
         Object.keys(storeNames).forEach(key => {

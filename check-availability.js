@@ -778,6 +778,48 @@ function parseAmazon(html, gameName) {
     return products.find(p => isMatch(gameName, p)) || null;
 }
 
+// Parser for PhilibertNet HTML
+function parsePhilibert(html, gameName) {
+    if (!html) return null;
+    const cards = html.split(/<div[^>]*class="[^"]*product-card\b[^"]*"[^>]*>/i).slice(1);
+    const products = [];
+
+    for (const card of cards) {
+        const titleMatch = card.match(/<a[^>]*class="[^"]*product-card__title[^"]*"[^>]*href="([^"]+)"[^>]*>([^<]+)<\/a>/i);
+        if (!titleMatch) continue;
+        const relativeUrl = titleMatch[1].trim();
+        const rawTitle = decodeXmlEntities(titleMatch[2].trim());
+        const url = relativeUrl.startsWith('http') ? relativeUrl : `https://www.philibertnet.com${relativeUrl}`;
+
+        const priceMatch = card.match(/class="product-card__price[^"]*"[^>]*>([^<]+)<\/p>/i);
+        let price = null;
+        if (priceMatch) {
+            const rawPrice = priceMatch[1].trim();
+            const num = rawPrice.replace(/[^0-9,.]/g, '').replace(',', '.');
+            if (num) {
+                price = `€${num}`;
+            }
+        }
+
+        const hasAddToCart = /data-action="add"|href="#addToCart"|Add to cart/i.test(card);
+        const isPreorder = /pre-order|preorder|précommande/i.test(card);
+        const isAlert = /alert|notify|alerte/i.test(card);
+        const isOutOfStock = /out of stock|rupture|victime de son succ/i.test(card) || (!hasAddToCart && isAlert);
+
+        const available = hasAddToCart && !isOutOfStock && !isPreorder;
+
+        products.push({
+            title: rawTitle,
+            price,
+            available,
+            url,
+            type: 'Board Games'
+        });
+    }
+
+    return products.find(p => isMatch(gameName, p)) || null;
+}
+
 let globalBrowser = null;
 
 async function getBrowserInstance() {
@@ -1021,20 +1063,28 @@ async function checkAvailability() {
             const objectId = match[1];
             const itemContent = match[2];
 
-            // Check if wanttobuy is "1"
-            const statusMatch = /<status [^>]*wanttobuy="1"/.exec(itemContent);
+            const statusMatch = /<status\s+([^>]+)\/>/.exec(itemContent);
             if (statusMatch) {
-                const nameMatch = /<name[^>]*>([^<]+)<\/name>/.exec(itemContent);
-                if (nameMatch) {
-                    wantedGames.push({
-                        objectId,
-                        name: decodeXmlEntities(nameMatch[1].trim())
-                    });
+                const statusStr = statusMatch[1];
+                const isWantToBuy = /wanttobuy="1"/.test(statusStr);
+                const isWantInTrade = /want="1"/.test(statusStr);
+                if (isWantToBuy || isWantInTrade) {
+                    const nameMatch = /<name[^>]*>([^<]+)<\/name>/.exec(itemContent);
+                    if (nameMatch) {
+                        wantedGames.push({
+                            objectId,
+                            name: decodeXmlEntities(nameMatch[1].trim()),
+                            isWantToBuy,
+                            isWantInTrade
+                        });
+                    }
                 }
             }
         }
 
-        console.log(`Found ${wantedGames.length} games in Want to Buy list.`);
+        const wtbCount = wantedGames.filter(g => g.isWantToBuy).length;
+        const tradeOnlyCount = wantedGames.filter(g => g.isWantInTrade && !g.isWantToBuy).length;
+        console.log(`Found ${wantedGames.length} games in Wanted list (${wtbCount} Want to Buy, ${tradeOnlyCount} Want in Trade only).`);
     }
     const availabilityData = { ...existingData };
 
@@ -1226,6 +1276,21 @@ async function checkAvailability() {
                 baseUrl: 'https://zatu.com',
                 currencySymbol: '£'
             },
+            philibert: {
+                type: 'html',
+                url: `https://www.philibertnet.com/en/search?search_query=${encodeURIComponent(query)}&submit_search=`,
+                parser: (html, gameName) => {
+                    const match = parsePhilibert(html, gameName);
+                    if (match) {
+                        return {
+                            available: match.available,
+                            price: match.price,
+                            url: match.url
+                        };
+                    }
+                    return null;
+                }
+            },
             bggMarket: {
                 type: 'json',
                 url: (game) => `https://api.geekdo.com/api/market/products?ajax=1&browsetype=browse&country=CA&marketdomain=boardgame&nosession=1&objectid=${game.objectId}&objecttype=thing&pageid=1&productstate=active&stock=instock`,
@@ -1333,6 +1398,11 @@ async function checkAvailability() {
         const skippedStores = [];
 
         for (const storeKey of storeKeys) {
+            // For games that are "Want in Trade" only (not "Want to Buy"), check stock ONLY in bggMarket
+            if (game.isWantInTrade && !game.isWantToBuy && storeKey !== 'bggMarket') {
+                continue;
+            }
+
             const config = storeConfigs[storeKey];
             const existingStoreData = existingData[game.objectId]?.[storeKey];
 
@@ -1461,7 +1531,9 @@ async function checkAvailability() {
             }
         }
 
-        if (skippedStores.length > 0) {
+        if (game.isWantInTrade && !game.isWantToBuy) {
+            console.log(`[${i+1}/${wantedGames.length}] "${game.name}" (Want in Trade only): Checking BGG Market only...`);
+        } else if (skippedStores.length > 0) {
             console.log(`[${i+1}/${wantedGames.length}] "${game.name}": skipped ${skippedStores.length} stores checked within 6 hours. Checking remaining ${fetchPromises.length} stores...`);
         } else {
             console.log(`[${i+1}/${wantedGames.length}] "${game.name}": Checking all ${storeKeys.length} stores...`);

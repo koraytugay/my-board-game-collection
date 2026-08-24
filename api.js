@@ -39,13 +39,17 @@ async function getCollection(onlyOwned = true) {
                 const isValidType = subtype === 'boardgame' || subtype === 'boardgameexpansion';
                 return isWantToPlay && isValidType;
             });
-        } else if (onlyOwned === 'wanttobuy') {
+        } else if (onlyOwned === 'wanttobuy' || onlyOwned === 'want' || onlyOwned === 'wantintrade') {
             items = items.filter(item => {
                 const status = item.querySelector('status');
                 const isWantToBuy = status && status.getAttribute('wanttobuy') === '1';
+                const isWantInTrade = status && status.getAttribute('want') === '1';
                 const subtype = item.getAttribute('subtype');
                 const isValidType = subtype === 'boardgame' || subtype === 'boardgameexpansion';
-                return isWantToBuy && isValidType;
+                if (onlyOwned === 'want' || onlyOwned === 'wantintrade') {
+                    return isWantInTrade && isValidType;
+                }
+                return (isWantToBuy || isWantInTrade) && isValidType;
             });
         } else if (onlyOwned === 'wanttosell' || onlyOwned === 'forsale' || onlyOwned === 'fortrade') {
             items = items.filter(item => {
@@ -107,6 +111,7 @@ async function getCollection(onlyOwned = true) {
             const status = item.querySelector('status');
             const isForSale = status ? status.getAttribute('fortrade') === '1' : false;
             const isWantToBuy = status ? status.getAttribute('wanttobuy') === '1' : false;
+            const isWantInTrade = status ? status.getAttribute('want') === '1' : false;
             const isWantToPlay = status ? status.getAttribute('wanttoplay') === '1' : false;
             const isOwned = status ? status.getAttribute('own') === '1' : false;
 
@@ -125,6 +130,7 @@ async function getCollection(onlyOwned = true) {
                 comment,
                 isForSale,
                 isWantToBuy,
+                isWantInTrade,
                 isWantToPlay,
                 isOwned
             };

@@ -20,7 +20,7 @@ function fetchXmlWithRetry(url, name, maxRetries = 15, delayMs = 20000) {
             'User-Agent': USER_AGENT
         };
 
-        if (BGG_USER) {
+        if (BGG_USER && BGG_PASSWORD) {
             headers['Cookie'] = `bggusername=${BGG_USER}; bggpassword=${BGG_PASSWORD}`;
         }
 
@@ -94,6 +94,7 @@ async function run() {
     // 1. Fetch Collection Endpoints
     const collectionEndpoints = [
         { name: 'Wishlist Items', url: `https://boardgamegeek.com/xmlapi2/collection?username=${encodeURIComponent(BGG_USER)}&stats=1&wishlist=1` },
+        { name: 'Want in Trade Items', url: `https://boardgamegeek.com/xmlapi2/collection?username=${encodeURIComponent(BGG_USER)}&stats=1&want=1` },
         { name: 'For Trade Items', url: `https://boardgamegeek.com/xmlapi2/collection?username=${encodeURIComponent(BGG_USER)}&stats=1&trade=1` },
         { name: 'Expansions', url: `https://boardgamegeek.com/xmlapi2/collection?username=${encodeURIComponent(BGG_USER)}&stats=1&subtype=boardgameexpansion` },
         { name: 'Base Games', url: `https://boardgamegeek.com/xmlapi2/collection?username=${encodeURIComponent(BGG_USER)}&stats=1&subtype=boardgame` }
