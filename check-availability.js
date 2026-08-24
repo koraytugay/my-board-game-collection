@@ -9,6 +9,19 @@ const OUTPUT_FILE = isRecommended ? 'availability-recommended.json' : 'availabil
 const POLITENESS_DELAY_MS = parseInt(process.env.CHECK_DELAY_MS || '5000', 10);
 const MIN_PRICE_THRESHOLD = 5.0; // Ignore/treat items priced <= 5 as out of stock / erroneous match
 
+function decodeXmlEntities(str) {
+    if (!str) return '';
+    return str
+        .replace(/&amp;/g, '&')
+        .replace(/&lt;/g, '<')
+        .replace(/&gt;/g, '>')
+        .replace(/&quot;/g, '"')
+        .replace(/&#039;/g, "'")
+        .replace(/&apos;/g, "'")
+        .replace(/&#x27;/g, "'")
+        .replace(/&#(\d+);/g, (match, dec) => String.fromCharCode(dec));
+}
+
 function extractNumericPrice(priceStr) {
     if (!priceStr) return null;
     const clean = String(priceStr).replace(/,/g, '');
@@ -778,46 +791,70 @@ function parseAmazon(html, gameName) {
     return products.find(p => isMatch(gameName, p)) || null;
 }
 
-// Parser for PhilibertNet HTML
-function parsePhilibert(html, gameName) {
-    if (!html) return null;
-    const cards = html.split(/<div[^>]*class="[^"]*product-card\b[^"]*"[^>]*>/i).slice(1);
-    const products = [];
+// Stock checker for Philibert using search + stock AJAX API
+async function checkPhilibertStock(gameName) {
+    try {
+        const query = cleanName(gameName);
+        const searchUrl = `https://www.philibertnet.com/en/search?search_query=${encodeURIComponent(query)}&submit_search=`;
+        const html = await fetchHtml(searchUrl);
+        if (!html) return { available: false, price: null, url: null };
 
-    for (const card of cards) {
-        const titleMatch = card.match(/<a[^>]*class="[^"]*product-card__title[^"]*"[^>]*href="([^"]+)"[^>]*>([^<]+)<\/a>/i);
-        if (!titleMatch) continue;
-        const relativeUrl = titleMatch[1].trim();
-        const rawTitle = decodeXmlEntities(titleMatch[2].trim());
-        const url = relativeUrl.startsWith('http') ? relativeUrl : `https://www.philibertnet.com${relativeUrl}`;
+        const cards = html.split(/<div[^>]*class="[^"]*product-card\b[^"]*"[^>]*>/i).slice(1);
+        const products = [];
 
-        const priceMatch = card.match(/class="product-card__price[^"]*"[^>]*>([^<]+)<\/p>/i);
-        let price = null;
-        if (priceMatch) {
-            const rawPrice = priceMatch[1].trim();
-            const num = rawPrice.replace(/[^0-9,.]/g, '').replace(',', '.');
-            if (num) {
-                price = `€${num}`;
+        for (const card of cards) {
+            const titleMatch = card.match(/<a[^>]*class="[^"]*product-card__title[^"]*"[^>]*href="([^"]+)"[^>]*>([^<]+)<\/a>/i);
+            if (!titleMatch) continue;
+            const relativeUrl = titleMatch[1].trim();
+            const rawTitle = decodeXmlEntities(titleMatch[2].trim());
+            const url = relativeUrl.startsWith('http') ? relativeUrl : `https://www.philibertnet.com${relativeUrl}`;
+
+            const priceMatch = card.match(/class="product-card__price[^"]*"[^>]*>([^<]+)<\/p>/i);
+            let price = null;
+            if (priceMatch) {
+                const rawPrice = priceMatch[1].trim();
+                const num = rawPrice.replace(/[^0-9,.]/g, '').replace(',', '.');
+                if (num) {
+                    price = `€${num}`;
+                }
             }
+
+            const pidMatch = card.match(/data-pid="(\d+)"/i);
+            const pid = pidMatch ? pidMatch[1] : null;
+
+            products.push({
+                title: rawTitle,
+                price,
+                url,
+                pid,
+                type: 'Board Games'
+            });
         }
 
-        const hasAddToCart = /data-action="add"|href="#addToCart"|Add to cart/i.test(card);
-        const isPreorder = /pre-order|preorder|précommande/i.test(card);
-        const isAlert = /alert|notify|alerte/i.test(card);
-        const isOutOfStock = /out of stock|rupture|victime de son succ/i.test(card) || (!hasAddToCart && isAlert);
+        const match = products.find(p => isMatch(gameName, p));
+        if (!match) {
+            return { available: false, price: null, url: null };
+        }
 
-        const available = hasAddToCart && !isOutOfStock && !isPreorder;
+        let inStock = false;
+        if (match.pid) {
+            try {
+                const stockUrl = `https://www.philibertnet.com/en/ajax/stock/${match.pid}`;
+                const stockData = await fetchJson(stockUrl);
+                if (stockData?.stocks && typeof stockData.stocks[match.pid] === 'boolean') {
+                    inStock = stockData.stocks[match.pid];
+                }
+            } catch (_) {}
+        }
 
-        products.push({
-            title: rawTitle,
-            price,
-            available,
-            url,
-            type: 'Board Games'
-        });
+        return {
+            available: inStock,
+            price: match.price,
+            url: match.url
+        };
+    } catch (err) {
+        return { available: false, price: null, url: null };
     }
-
-    return products.find(p => isMatch(gameName, p)) || null;
 }
 
 let globalBrowser = null;
@@ -976,18 +1013,6 @@ function getRecommendedRange() {
     }
 
     return { start, end };
-}
-
-function decodeXmlEntities(str) {
-    return str
-        .replace(/&amp;/g, '&')
-        .replace(/&lt;/g, '<')
-        .replace(/&gt;/g, '>')
-        .replace(/&quot;/g, '"')
-        .replace(/&#039;/g, "'")
-        .replace(/&apos;/g, "'")
-        .replace(/&#x27;/g, "'")
-        .replace(/&#(\d+);/g, (match, dec) => String.fromCharCode(dec));
 }
 
 async function checkAvailability() {
@@ -1277,18 +1302,9 @@ async function checkAvailability() {
                 currencySymbol: '£'
             },
             philibert: {
-                type: 'html',
-                url: `https://www.philibertnet.com/en/search?search_query=${encodeURIComponent(query)}&submit_search=`,
-                parser: (html, gameName) => {
-                    const match = parsePhilibert(html, gameName);
-                    if (match) {
-                        return {
-                            available: match.available,
-                            price: match.price,
-                            url: match.url
-                        };
-                    }
-                    return null;
+                type: 'custom',
+                checker: async (game, existingStoreData) => {
+                    return await checkPhilibertStock(game.name);
                 }
             },
             bggMarket: {
