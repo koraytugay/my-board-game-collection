@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><items totalitems="455"><item objecttype="thing" objectid="423517" subtype="boardgame" collid="148161790">
+<?xml version="1.0" encoding="utf-8"?><items totalitems="457"><item objecttype="thing" objectid="423517" subtype="boardgame" collid="148161790">
 	<name sortindex="1">3 Chapters</name>
 		<yearpublished>2024</yearpublished>			<image>https://cf.geekdo-images.com/es3F2drfUOIVnqsTds3BDQ__original/img/aagzL4ORPemw2xi3FL4575gKYhA=/0x0/filters:format(png)/pic8940639.png</image>
 		<thumbnail>https://cf.geekdo-images.com/es3F2drfUOIVnqsTds3BDQ__small/img/bCpN5Ool_-QFKQbPlAfmIfFUdRI=/fit-in/200x150/filters:strip_icc()/pic8940639.png</thumbnail>
@@ -1350,6 +1350,19 @@
 											</ranks>		</rating>
 			</stats>	<status own="0" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="1" wishlistpriority="5" preordered="0" lastmodified="2026-08-04 22:30:38" />
 	<numplays>0</numplays>							</item>
+<item objecttype="thing" objectid="281474" subtype="boardgame" collid="148836721">
+	<name sortindex="1">Lands of Galzyr</name>
+		<yearpublished>2022</yearpublished>			<image>https://cf.geekdo-images.com/vLUJt2QS-PPMG_Mx00m9zw__original/img/X-LHRvpRacrI-5_u7JAeyTi61qk=/0x0/filters:format(jpeg)/pic7225132.jpg</image>
+		<thumbnail>https://cf.geekdo-images.com/vLUJt2QS-PPMG_Mx00m9zw__small/img/HSzwFfLBBUlvP5LxEToeHgOvv24=/fit-in/200x150/filters:strip_icc()/pic7225132.jpg</thumbnail>
+		<stats minplayers="1"																	maxplayers="4"																	minplaytime="60"																	maxplaytime="150"																	playingtime="150"																	numowned="5181" >
+				<rating value="N/A">			<usersrated value="2331" />			<average value="7.9113" />
+			<bayesaverage value="6.63279" />			<stddev value="1.48704" />
+			<median value="0" />			<ranks>
+												<rank type="subtype" id="1" name="boardgame" friendlyname="Board Game Rank" value="1049" bayesaverage="6.63279" />
+																<rank type="family" id="5496" name="thematic" friendlyname="Thematic Rank" value="173" bayesaverage="6.99092" />
+											</ranks>		</rating>
+			</stats>	<status own="0" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="1" wishlistpriority="5" preordered="0" lastmodified="2026-08-23 21:30:33" />
+	<numplays>0</numplays>							</item>
 <item objecttype="thing" objectid="117959" subtype="boardgame" collid="148176429">
 	<name sortindex="1">Las Vegas</name>
 		<yearpublished>2012</yearpublished>			<image>https://cf.geekdo-images.com/aQJ0HRKx2mobP0g3FCeR_Q__original/img/0lvxwLBBElto13XPMisB0ZCTSkA=/0x0/filters:format(jpeg)/pic1261796.jpg</image>
@@ -1428,6 +1441,19 @@
 																<rank type="family" id="5497" name="strategygames" friendlyname="Strategy Game Rank" value="19" bayesaverage="8.01757" />
 											</ranks>		</rating>
 			</stats>	<status own="0" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="1" wishlistpriority="5" preordered="0" lastmodified="2026-08-03 15:25:19" />
+	<numplays>0</numplays>							</item>
+<item objecttype="thing" objectid="429293" subtype="boardgame" collid="148836707">
+	<name sortindex="5">The Lord of the Rings: The Fellowship of the Ring – Trick-Taking Game</name>
+		<yearpublished>2025</yearpublished>			<image>https://cf.geekdo-images.com/uC4N_3kQdoHefNPesAHCzQ__original/img/ohKFXmrxtaOPqJyiIMaABIy-WjU=/0x0/filters:format(png)/pic8437787.png</image>
+		<thumbnail>https://cf.geekdo-images.com/uC4N_3kQdoHefNPesAHCzQ__small/img/hLjGKsIwJP43656LEnehjFVRzDE=/fit-in/200x150/filters:strip_icc()/pic8437787.png</thumbnail>
+		<stats minplayers="1"																	maxplayers="4"																	minplaytime="20"																	maxplaytime="20"																	playingtime="20"																	numowned="28277" >
+				<rating value="N/A">			<usersrated value="11014" />			<average value="7.98464" />
+			<bayesaverage value="7.50915" />			<stddev value="1.15192" />
+			<median value="0" />			<ranks>
+												<rank type="subtype" id="1" name="boardgame" friendlyname="Board Game Rank" value="131" bayesaverage="7.50915" />
+																<rank type="family" id="5499" name="familygames" friendlyname="Family Game Rank" value="16" bayesaverage="7.61609" />
+											</ranks>		</rating>
+			</stats>	<status own="0" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="1" wishlistpriority="5" preordered="0" lastmodified="2026-08-23 21:30:09" />
 	<numplays>0</numplays>							</item>
 <item objecttype="thing" objectid="198740" subtype="boardgame" collid="148176149">
 	<name sortindex="1">Lovecraft Letter</name>
@@ -3896,7 +3922,7 @@ Sorry if this sounds harsh. You may end up loving it, I just didn&#039;t enjoy i
 																<rank type="family" id="5499" name="familygames" friendlyname="Family Game Rank" value="531" bayesaverage="6.4566" />
 											</ranks>		</rating>
 			</stats>	<status own="1" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="0"  preordered="0" lastmodified="2026-08-21 12:39:38" />
-	<numplays>34</numplays>							</item>
+	<numplays>35</numplays>							</item>
 <item objecttype="thing" objectid="158882" subtype="boardgame" collid="145946463">
 	<name sortindex="1">Elevenses for One</name>
 		<yearpublished>2014</yearpublished>			<image>https://cf.geekdo-images.com/AFCqz3ogWtjUhXwRT-UQHQ__original/img/3DLj84_GbsInzRXYx45w3AR2VR0=/0x0/filters:format(jpeg)/pic2030762.jpg</image>
