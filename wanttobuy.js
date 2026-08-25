@@ -348,7 +348,6 @@ function sortGames(criteria) {
 }
 
 function applyFilters() {
-    const listTypeFilter = document.getElementById('list-type-filter');
     const searchInput = document.getElementById('search-input');
     const ratingFilter = document.getElementById('rating-filter');
     const playerCountFilter = document.getElementById('player-count');
@@ -357,7 +356,6 @@ function applyFilters() {
     const storeFilter = document.getElementById('store-filter');
     const sellerFilter = document.getElementById('seller-filter');
 
-    const listTypeVal = listTypeFilter ? listTypeFilter.value : 'all';
     const searchTerm = searchInput ? searchInput.value.toLowerCase().trim() : '';
     const ratingVal = ratingFilter ? ratingFilter.value : 'all';
     const playerCountVal = playerCountFilter ? playerCountFilter.value : 'all';
@@ -369,13 +367,6 @@ function applyFilters() {
     const designerVal = designerFilter ? designerFilter.value : 'all';
 
     filteredGames = allGames.filter(game => {
-        let matchesListType = true;
-        if (listTypeVal === 'wanttobuy') {
-            matchesListType = game.isWantToBuy;
-        } else if (listTypeVal === 'wantintrade') {
-            matchesListType = game.isWantInTrade;
-        }
-
         const matchesSearch = !searchTerm || game.name.toLowerCase().includes(searchTerm);
 
         let matchesRating = true;
@@ -425,7 +416,7 @@ function applyFilters() {
             matchesDesigner = designers.some(d => d.toLowerCase() === designerVal.toLowerCase());
         }
 
-        return matchesListType && matchesSearch && matchesRating && matchesPlayers && matchesStock && matchesDeal && matchesStore && matchesSeller && matchesDesigner;
+        return matchesSearch && matchesRating && matchesPlayers && matchesStock && matchesDeal && matchesStore && matchesSeller && matchesDesigner;
     });
 
     renderGames();

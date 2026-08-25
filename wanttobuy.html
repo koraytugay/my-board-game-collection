@@ -27,12 +27,13 @@
                 <a href="index.html" class="nav-link">Collection</a>
                 <a href="tierlist.html" class="nav-link">Tier List</a>
                 <a href="wanttobuy.html" class="nav-link active">Want to Buy</a>
+                <a href="wantintrade.html" class="nav-link">Want in Trade</a>
                 <a href="thinkingabout.html" class="nav-link">Thinking About</a>
                 <a href="wanttoplay.html" class="nav-link">Want to Play</a>
                 <a href="recommended.html" class="nav-link">Recommended Games</a>
-                <a href="stores.html" class="nav-link">Stores</a>
             </div>
             <div class="nav-row">
+                <a href="stores.html" class="nav-link">Stores</a>
                 <a href="calendar.html" class="nav-link">Play Calendar</a>
                 <a href="history.html" class="nav-link">Play History</a>
                 <a href="stats.html" class="nav-link">Statistics</a>
@@ -51,15 +52,6 @@
 
         <div id="controls" class="controls" style="display: none;">
             <div class="controls-row">
-                <div class="control-group">
-                    <label for="list-type-filter">Type:</label>
-                    <select id="list-type-filter" onchange="applyFilters()">
-                        <option value="all">All (Buy &amp; Trade)</option>
-                        <option value="wanttobuy">Want to Buy Only</option>
-                        <option value="wantintrade">Want in Trade Only</option>
-                    </select>
-                </div>
-
                 <div class="control-group">
                     <label for="sort-select">Sort by:</label>
                     <select id="sort-select" onchange="sortGames(this.value)">

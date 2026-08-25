@@ -39,17 +39,21 @@ async function getCollection(onlyOwned = true) {
                 const isValidType = subtype === 'boardgame' || subtype === 'boardgameexpansion';
                 return isWantToPlay && isValidType;
             });
-        } else if (onlyOwned === 'wanttobuy' || onlyOwned === 'want' || onlyOwned === 'wantintrade') {
+        } else if (onlyOwned === 'wanttobuy') {
             items = items.filter(item => {
                 const status = item.querySelector('status');
                 const isWantToBuy = status && status.getAttribute('wanttobuy') === '1';
+                const subtype = item.getAttribute('subtype');
+                const isValidType = subtype === 'boardgame' || subtype === 'boardgameexpansion';
+                return isWantToBuy && isValidType;
+            });
+        } else if (onlyOwned === 'wantintrade' || onlyOwned === 'want') {
+            items = items.filter(item => {
+                const status = item.querySelector('status');
                 const isWantInTrade = status && status.getAttribute('want') === '1';
                 const subtype = item.getAttribute('subtype');
                 const isValidType = subtype === 'boardgame' || subtype === 'boardgameexpansion';
-                if (onlyOwned === 'want' || onlyOwned === 'wantintrade') {
-                    return isWantInTrade && isValidType;
-                }
-                return (isWantToBuy || isWantInTrade) && isValidType;
+                return isWantInTrade && isValidType;
             });
         } else if (onlyOwned === 'thinkingabout' || onlyOwned === 'thinkingaboutit' || onlyOwned === 'wishlist') {
             items = items.filter(item => {
