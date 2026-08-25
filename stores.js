@@ -139,6 +139,12 @@ function isGameSoldBySeller(game, sellerName) {
     return listings.some(l => (l.seller || '').toLowerCase() === sellerName.toLowerCase());
 }
 
+function getActivePool() {
+    const includeRecCheckbox = document.getElementById('include-recommended');
+    const includeRec = includeRecCheckbox ? includeRecCheckbox.checked : false;
+    return includeRec ? allGames : allGames.filter(g => g.isWantToBuy);
+}
+
 function populateStoreFilter() {
     const storeSelect = document.getElementById('store-filter');
     if (!storeSelect) return;
@@ -146,9 +152,10 @@ function populateStoreFilter() {
     const currentValue = storeSelect.value;
     storeSelect.innerHTML = '<option value="all">All Stores</option>';
 
+    const pool = getActivePool();
     const storesWithStock = [];
     STORES.filter(s => s.key !== 'bggMarket').forEach(store => {
-        const inStockCount = allGames.filter(game => isGameInStockAtStore(game, store.key)).length;
+        const inStockCount = pool.filter(game => isGameInStockAtStore(game, store.key)).length;
         if (inStockCount > 0) {
             storesWithStock.push({
                 ...store,
@@ -180,8 +187,9 @@ function populateSellerFilter() {
     const currentValue = sellerSelect.value;
     sellerSelect.innerHTML = '<option value="all">All Sellers</option>';
 
+    const pool = getActivePool();
     const sellerCountMap = new Map();
-    allGames.forEach(game => {
+    pool.forEach(game => {
         const listings = getActiveBggListings(game);
         const seenForThisGame = new Set();
         listings.forEach(l => {
@@ -223,8 +231,9 @@ function populateDesignerFilter() {
     const currentValue = designerSelect.value;
     designerSelect.innerHTML = '<option value="all">All Designers</option>';
 
+    const pool = getActivePool();
     const designerCountMap = new Map();
-    allGames.forEach(game => {
+    pool.forEach(game => {
         const designers = game.designers || [];
         designers.forEach(d => {
             if (d && d !== '(Uncredited)') {
@@ -273,6 +282,13 @@ function onSellerFilterChange() {
     if (sellerSelect && sellerSelect.value !== 'all' && storeSelect) {
         storeSelect.value = 'all';
     }
+    applyFilters();
+}
+
+function onIncludeRecommendedChange() {
+    populateStoreFilter();
+    populateSellerFilter();
+    populateDesignerFilter();
     applyFilters();
 }
 
@@ -458,7 +474,7 @@ function applyFilters() {
     const searchInput = document.getElementById('search-input');
     const storeFilter = document.getElementById('store-filter');
     const sellerFilter = document.getElementById('seller-filter');
-    const listFilter = document.getElementById('list-filter');
+    const includeRecommendedCheckbox = document.getElementById('include-recommended');
     const playerCountFilter = document.getElementById('player-count');
     const ratingFilter = document.getElementById('rating-filter');
     const designerFilter = document.getElementById('designer-filter');
@@ -467,12 +483,16 @@ function applyFilters() {
     const searchTerm = (searchInput?.value || '').toLowerCase();
     const selectedStore = storeFilter ? storeFilter.value : 'all';
     const selectedSeller = sellerFilter ? sellerFilter.value : 'all';
+    const includeRecommended = includeRecommendedCheckbox ? includeRecommendedCheckbox.checked : false;
     const playerCount = playerCountFilter ? playerCountFilter.value : 'all';
     const rating = ratingFilter ? ratingFilter.value : 'all';
     const designer = designerFilter ? designerFilter.value : 'all';
     const majorDealsOnly = majorDealsCheckbox ? majorDealsCheckbox.checked : false;
 
     filteredGames = allGames.filter(game => {
+        // Exclude Recommended Games unless checkbox is checked
+        if (!includeRecommended && !game.isWantToBuy) return false;
+
         // Search filter
         if (searchTerm && !game.name.toLowerCase().includes(searchTerm)) {
             return false;
