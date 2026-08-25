@@ -491,28 +491,6 @@ function createGameCard(game) {
 
     // Build store availability HTML (for in-stock stores)
     let storeButtonsHtml = '';
-    const bgb = game.availability?.boardGameBliss;
-    const fof = game.availability?.fourZeroOneGames;
-    const lvl = game.availability?.lvlUpGames;
-    const adj = game.availability?.asDesJeux;
-    const gbg = game.availability?.greatBoardgames;
-    const meeple = game.availability?.meeplemart;
-    const kbh = game.availability?.kbHobbies;
-    const mm = game.availability?.miniatureMarket;
-    const amzn = game.availability?.amazonCa;
-    const wfs = game.availability?.woodForSheep;
-    const f2f = game.availability?.faceToFaceGames;
-    const obsidian = game.availability?.obsidianGames;
-    const jj = game.availability?.jjCards;
-    const bgca = game.availability?.boardgamesCa;
-    const sfg = game.availability?.screenFreeGames;
-    const asg = game.availability?.allSystemsGo;
-    const ttc = game.availability?.tabletopCafe;
-    const ebg = game.availability?.elevatedBoardGames;
-    const dh = game.availability?.diceHollow;
-    const bse = game.availability?.buttonShyEtsy;
-    const zatu = game.availability?.zatu;
-    const philibert = game.availability?.philibert;
     const activeBggListings = getActiveBggListings(game);
 
     const renderStoreChip = (store, name, storeKey = null, isBggMarket = false) => {
@@ -530,24 +508,10 @@ function createGameCard(game) {
         `;
     };
 
-    storeButtonsHtml += renderStoreChip(bgb, '🇨🇦 BoardGameBliss', 'boardGameBliss');
-    storeButtonsHtml += renderStoreChip(fof, '🇨🇦 401 Games', 'fourZeroOneGames');
-    storeButtonsHtml += renderStoreChip(lvl, '🇨🇦 LVLUP', 'lvlUpGames');
-    storeButtonsHtml += renderStoreChip(adj, '🇨🇦 As des Jeux', 'asDesJeux');
-    storeButtonsHtml += renderStoreChip(gbg, '🇨🇦 Great BG', 'greatBoardgames');
-    storeButtonsHtml += renderStoreChip(meeple, '🇨🇦 Meeplemart', 'meeplemart');
-    storeButtonsHtml += renderStoreChip(kbh, '🇨🇦 KB Hobbies', 'kbHobbies');
-    storeButtonsHtml += renderStoreChip(amzn, '🇨🇦 Amazon.ca', 'amazonCa');
-    storeButtonsHtml += renderStoreChip(wfs, '🇨🇦 Wood for Sheep', 'woodForSheep');
-    storeButtonsHtml += renderStoreChip(f2f, '🇨🇦 Face to Face', 'faceToFaceGames');
-    storeButtonsHtml += renderStoreChip(obsidian, '🇨🇦 Obsidian', 'obsidianGames');
-    storeButtonsHtml += renderStoreChip(jj, '🇨🇦 J&J Cards', 'jjCards');
-    storeButtonsHtml += renderStoreChip(bgca, '🇨🇦 Boardgames.ca', 'boardgamesCa');
-    storeButtonsHtml += renderStoreChip(sfg, '🇨🇦 Screen Free', 'screenFreeGames');
-    storeButtonsHtml += renderStoreChip(asg, '🇨🇦 All Systems Go', 'allSystemsGo');
-    storeButtonsHtml += renderStoreChip(ttc, '🇨🇦 Tabletop Cafe', 'tabletopCafe');
-    storeButtonsHtml += renderStoreChip(ebg, '🇨🇦 Elevated BG', 'elevatedBoardGames');
-    storeButtonsHtml += renderStoreChip(dh, '🇨🇦 Dice Hollow', 'diceHollow');
+    STORES.filter(s => s.key !== 'bggMarket').forEach(storeDef => {
+        const storeData = game.availability?.[storeDef.key];
+        storeButtonsHtml += renderStoreChip(storeData, storeDef.name, storeDef.key);
+    });
 
     if (activeBggListings.length > 0) {
         activeBggListings.forEach(listing => {
