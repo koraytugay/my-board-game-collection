@@ -29,6 +29,7 @@ const CANADIAN_STORE_KEYS = new Set([
     'tabletopCafe',
     'elevatedBoardGames',
     'diceHollow',
+    'laPioche',
     'bggMarket'
 ]);
 
@@ -880,6 +881,181 @@ async function checkPhilibertStock(gameName) {
     }
 }
 
+function fetchJsonPost(url, postData, customHeaders = {}) {
+    return new Promise((resolve) => {
+        const u = new URL(url);
+        const options = {
+            hostname: u.hostname,
+            path: u.pathname + u.search,
+            method: 'POST',
+            headers: {
+                ...DEFAULT_HEADERS,
+                'Content-Type': 'application/json',
+                'Content-Length': Buffer.byteLength(postData),
+                ...customHeaders
+            },
+            timeout: 10000
+        };
+        const req = https.request(options, (res) => {
+            if (res.statusCode !== 200) return resolve(null);
+            let data = '';
+            const stream = getDecompressedStream(res);
+            stream.on('data', chunk => { data += chunk; });
+            stream.on('end', () => {
+                try { resolve(JSON.parse(data)); } catch (_) { resolve(null); }
+            });
+            stream.on('error', () => resolve(null));
+        });
+        req.on('timeout', () => { req.destroy(); resolve(null); });
+        req.on('error', () => resolve(null));
+        req.write(postData);
+        req.end();
+    });
+}
+
+function isMatchCrowdfinder(bggName, product) {
+    const title = decodeXmlEntities(product.name || '');
+    const cleanBgg = cleanName(bggName);
+    const normalize = str => str.toLowerCase().replace(/[^a-z0-9]/g, '');
+    const nBgg = normalize(cleanBgg);
+    const nTitle = normalize(title);
+
+    const disallowedKeywords = ['promo', 'expansion', 'extension', 'insert', 'organizer', 'playmat', 'sleeves', 'upgrade', 'mug', 'kids', 'mini-expansion', 'mat', 'tokens', 'coins'];
+    for (const kw of disallowedKeywords) {
+        if (title.toLowerCase().includes(kw) && !cleanBgg.toLowerCase().includes(kw)) {
+            return false;
+        }
+    }
+
+    if (nBgg === nTitle) return true;
+
+    const wordsBgg = cleanBgg.toLowerCase().split(/\s+/).filter(Boolean);
+    const wordsTitle = title.toLowerCase().split(/\s+/).filter(Boolean);
+
+    if (wordsBgg.length === 1 && wordsTitle.length > 1) {
+        return normalize(wordsBgg[0]) === normalize(wordsTitle[0]);
+    }
+
+    const allWordsPresent = wordsBgg.every(wb => wordsTitle.some(wt => wt === wb || normalize(wt) === normalize(wb)));
+    if (!allWordsPresent) return false;
+
+    return true;
+}
+
+async function checkCrowdfinderStock(gameName) {
+    try {
+        const q = cleanName(gameName);
+        const postData = JSON.stringify({ search: q });
+        const res = await fetchJsonPost('https://www.crowdfinder.be/api/crowdfinder/product', postData);
+        const products = res?.data || [];
+        if (!products.length) return { available: false, price: null, url: null };
+        const match = products.find(p => isMatchCrowdfinder(gameName, p));
+        if (match) {
+            const priceNum = match.reduced_price || match.price;
+            if (isPriceUnderThreshold(priceNum)) return { available: false, price: null, url: null };
+            const slug = (match.name || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+            return {
+                available: (match.stock > 0),
+                price: priceNum ? `€${Number(priceNum).toFixed(2)}` : null,
+                url: `https://www.crowdfinder.be/product/${match.id}-${slug}`
+            };
+        }
+        return { available: false, price: null, url: null };
+    } catch (_) {
+        return { available: false, price: null, url: null };
+    }
+}
+
+async function checkSpelspulStock(gameName) {
+    try {
+        const q = cleanName(gameName);
+        const searchUrl = `https://www.spelspul.nl/nl/zoeken?controller=search&s=${encodeURIComponent(q)}`;
+        const html = await fetchHtml(searchUrl);
+        if (!html) return { available: false, price: null, url: null };
+
+        const jsonLdMatches = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/gi)];
+        let items = [];
+        for (const m of jsonLdMatches) {
+            try {
+                const parsed = JSON.parse(m[1]);
+                if (parsed.itemListElement) {
+                    items = parsed.itemListElement;
+                    break;
+                }
+            } catch (_) {}
+        }
+        if (!items.length) return { available: false, price: null, url: null };
+
+        const match = items.find(it => isMatch(gameName, { title: it.name, type: '' }));
+        if (!match?.url) return { available: false, price: null, url: null };
+
+        const prodHtml = await fetchHtml(match.url);
+        if (!prodHtml) return { available: false, price: null, url: match.url };
+
+        const priceMatch = prodHtml.match(/itemprop="price"[^>]*content="([^"]+)"/i) || prodHtml.match(/content="([0-9]+\.[0-9]{2})"/);
+        const rawPrice = priceMatch ? priceMatch[1] : null;
+        if (isPriceUnderThreshold(rawPrice)) return { available: false, price: null, url: null };
+        const price = rawPrice ? `€${rawPrice}` : null;
+        const inStock = prodHtml.includes('InStock') || (!prodHtml.includes('niet op voorraad') && !prodHtml.includes('Niet op voorraad'));
+
+        return {
+            available: inStock,
+            price,
+            url: match.url
+        };
+    } catch (_) {
+        return { available: false, price: null, url: null };
+    }
+}
+
+async function checkChaosCardsStock(gameName) {
+    try {
+        const browser = await getBrowserInstance();
+        if (!browser) return { available: false, price: null, url: null };
+        const page = await browser.newPage();
+        await page.setUserAgent('Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36');
+        const query = cleanName(gameName);
+        const searchUrl = `https://www.chaoscards.co.uk/`;
+        await page.goto(searchUrl, { waitUntil: 'domcontentloaded', timeout: 15000 });
+        await page.type('#header_search_search_for', query);
+        await page.keyboard.press('Enter');
+        await new Promise(r => setTimeout(r, 3000));
+
+        const match = await page.evaluate((targetName) => {
+            const clean = (s) => (s || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+            const targetClean = clean(targetName);
+            const items = [];
+            document.querySelectorAll('a[href*="-p"], a[href*="/products/"], a[href*="/shop/board-games/"]').forEach(a => {
+                const title = a.innerText.trim();
+                if (title && clean(title).includes(targetClean)) {
+                    const parent = a.closest('.product, .item, li, div') || a;
+                    const priceMatch = parent.innerText.match(/£\s*([0-9]+(?:\.[0-9]{2})?)/);
+                    const isOos = parent.innerText.toLowerCase().includes('out of stock');
+                    items.push({
+                        title,
+                        price: priceMatch ? `£${priceMatch[1]}` : null,
+                        available: !isOos,
+                        url: a.href
+                    });
+                }
+            });
+            return items[0] || null;
+        }, gameName);
+
+        await page.close();
+        if (match && !isPriceUnderThreshold(match.price)) {
+            return {
+                available: match.available,
+                price: match.price,
+                url: match.url
+            };
+        }
+        return { available: false, price: null, url: null };
+    } catch (_) {
+        return { available: false, price: null, url: null };
+    }
+}
+
 let globalBrowser = null;
 
 async function getBrowserInstance() {
@@ -1346,6 +1522,29 @@ async function checkAvailability() {
                 type: 'shopify',
                 baseUrl: 'https://www.dicehollow.com',
                 currencySymbol: '$'
+            },
+            laPioche: {
+                type: 'shopify',
+                baseUrl: 'https://boutiquelapioche.com',
+                currencySymbol: '$'
+            },
+            crowdfinder: {
+                type: 'custom',
+                checker: async (game, existingStoreData) => {
+                    return await checkCrowdfinderStock(game.name);
+                }
+            },
+            spelspul: {
+                type: 'custom',
+                checker: async (game, existingStoreData) => {
+                    return await checkSpelspulStock(game.name);
+                }
+            },
+            chaosCards: {
+                type: 'custom',
+                checker: async (game, existingStoreData) => {
+                    return await checkChaosCardsStock(game.name);
+                }
             },
             zatu: {
                 type: 'shopify',

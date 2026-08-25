@@ -26,6 +26,7 @@ const STORES = [
     { key: 'tabletopCafe', name: '🇨🇦 Tabletop Cafe' },
     { key: 'elevatedBoardGames', name: '🇨🇦 Elevated Board Games' },
     { key: 'diceHollow', name: '🇨🇦 Dice Hollow' },
+    { key: 'laPioche', name: '🇨🇦 La Pioche' },
     { key: 'bggMarket', name: 'BGG Market' }
 ];
 

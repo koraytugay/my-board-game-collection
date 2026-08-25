@@ -27,9 +27,13 @@ const STORES = [
     { key: 'tabletopCafe', name: '🇨🇦 Tabletop Cafe' },
     { key: 'elevatedBoardGames', name: '🇨🇦 Elevated Board Games' },
     { key: 'diceHollow', name: '🇨🇦 Dice Hollow' },
+    { key: 'laPioche', name: '🇨🇦 La Pioche' },
     { key: 'buttonShyEtsy', name: '🇺🇸 Button Shy' },
     { key: 'zatu', name: '🇬🇧 Zatu Games' },
+    { key: 'chaosCards', name: '🇬🇧 Chaos Cards' },
     { key: 'philibert', name: '🇫🇷 Philibert' },
+    { key: 'crowdfinder', name: '🇧🇪 Crowdfinder' },
+    { key: 'spelspul', name: '🇳🇱 Spelspul' },
     { key: 'bggMarket', name: 'BGG Market' }
 ];
 
@@ -55,8 +59,10 @@ function formatPrice(price, storeKey = null) {
     if (isNaN(num)) return str;
 
     let cadPrice;
-    if (str.includes('€') || /\bEUR\b/i.test(str) || storeKey === 'philibert') {
+    if (str.includes('€') || /\bEUR\b/i.test(str) || storeKey === 'philibert' || storeKey === 'crowdfinder' || storeKey === 'spelspul') {
         cadPrice = num * 1.65;
+    } else if (str.includes('£') || /\bGBP\b/i.test(str) || storeKey === 'zatu' || storeKey === 'chaosCards') {
+        cadPrice = num * 1.90;
     } else if (/\bUSD\b/i.test(str) || /\$US\b/i.test(str) || /US\$/i.test(str) || storeKey === 'miniatureMarket' || storeKey === 'buttonShyEtsy') {
         cadPrice = num * 1.40;
     } else {

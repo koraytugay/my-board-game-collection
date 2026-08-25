@@ -214,9 +214,13 @@ async function showGameDetails(objectId) {
             tabletopCafe: '🇨🇦 Tabletop Cafe',
             elevatedBoardGames: '🇨🇦 Elevated BG',
             diceHollow: '🇨🇦 Dice Hollow',
+            laPioche: '🇨🇦 La Pioche',
             buttonShyEtsy: '🇺🇸 Button Shy',
             zatu: '🇬🇧 Zatu Games',
-            philibert: '🇫🇷 Philibert'
+            chaosCards: '🇬🇧 Chaos Cards',
+            philibert: '🇫🇷 Philibert',
+            crowdfinder: '🇧🇪 Crowdfinder',
+            spelspul: '🇳🇱 Spelspul'
         };
 
         function formatGdPrice(price, storeKey = null) {
@@ -231,8 +235,10 @@ async function showGameDetails(objectId) {
             if (isNaN(num)) return str;
 
             let cadPrice;
-            if (str.includes('€') || /\bEUR\b/i.test(str) || storeKey === 'philibert') {
+            if (str.includes('€') || /\bEUR\b/i.test(str) || storeKey === 'philibert' || storeKey === 'crowdfinder' || storeKey === 'spelspul') {
                 cadPrice = num * 1.65;
+            } else if (str.includes('£') || /\bGBP\b/i.test(str) || storeKey === 'zatu' || storeKey === 'chaosCards') {
+                cadPrice = num * 1.90;
             } else if (/\bUSD\b/i.test(str) || /\$US\b/i.test(str) || /US\$/i.test(str) || storeKey === 'miniatureMarket' || storeKey === 'buttonShyEtsy') {
                 cadPrice = num * 1.40;
             } else {

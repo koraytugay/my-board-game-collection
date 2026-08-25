@@ -4,28 +4,32 @@ let currentSort = 'name';
 let currentViewMode = 'grid';
 
 const STORES = [
-    { key: 'boardGameBliss', name: 'BoardGameBliss' },
-    { key: 'fourZeroOneGames', name: '401 Games' },
-    { key: 'lvlUpGames', name: 'LVLUP Games' },
-    { key: 'asDesJeux', name: 'As des Jeux' },
-    { key: 'greatBoardgames', name: 'Great Boardgames' },
-    { key: 'meeplemart', name: 'Meeplemart' },
-    { key: 'kbHobbies', name: 'KB Hobbies' },
-    { key: 'miniatureMarket', name: 'Miniature Market' },
-    { key: 'amazonCa', name: 'Amazon.ca' },
-    { key: 'woodForSheep', name: 'Wood for Sheep' },
-    { key: 'faceToFaceGames', name: 'Face to Face' },
-    { key: 'obsidianGames', name: 'Obsidian Games' },
-    { key: 'jjCards', name: 'J&J Cards' },
-    { key: 'boardgamesCa', name: 'Boardgames.ca' },
-    { key: 'screenFreeGames', name: 'Screen Free Games' },
-    { key: 'allSystemsGo', name: 'All Systems Go' },
-    { key: 'tabletopCafe', name: 'Tabletop Cafe' },
-    { key: 'elevatedBoardGames', name: 'Elevated Board Games' },
-    { key: 'diceHollow', name: 'Dice Hollow' },
-    { key: 'buttonShyEtsy', name: 'Button Shy (Etsy)' },
-    { key: 'zatu', name: 'Zatu Games' },
-    { key: 'philibert', name: 'Philibert' },
+    { key: 'boardGameBliss', name: '🇨🇦 BoardGameBliss' },
+    { key: 'fourZeroOneGames', name: '🇨🇦 401 Games' },
+    { key: 'lvlUpGames', name: '🇨🇦 LVLUP Games' },
+    { key: 'asDesJeux', name: '🇨🇦 As des Jeux' },
+    { key: 'greatBoardgames', name: '🇨🇦 Great Boardgames' },
+    { key: 'meeplemart', name: '🇨🇦 Meeplemart' },
+    { key: 'kbHobbies', name: '🇨🇦 KB Hobbies' },
+    { key: 'miniatureMarket', name: '🇺🇸 Miniature Market' },
+    { key: 'amazonCa', name: '🇨🇦 Amazon.ca' },
+    { key: 'woodForSheep', name: '🇨🇦 Wood for Sheep' },
+    { key: 'faceToFaceGames', name: '🇨🇦 Face to Face' },
+    { key: 'obsidianGames', name: '🇨🇦 Obsidian Games' },
+    { key: 'jjCards', name: '🇨🇦 J&J Cards' },
+    { key: 'boardgamesCa', name: '🇨🇦 Boardgames.ca' },
+    { key: 'screenFreeGames', name: '🇨🇦 Screen Free Games' },
+    { key: 'allSystemsGo', name: '🇨🇦 All Systems Go' },
+    { key: 'tabletopCafe', name: '🇨🇦 Tabletop Cafe' },
+    { key: 'elevatedBoardGames', name: '🇨🇦 Elevated Board Games' },
+    { key: 'diceHollow', name: '🇨🇦 Dice Hollow' },
+    { key: 'laPioche', name: '🇨🇦 La Pioche' },
+    { key: 'buttonShyEtsy', name: '🇺🇸 Button Shy' },
+    { key: 'zatu', name: '🇬🇧 Zatu Games' },
+    { key: 'chaosCards', name: '🇬🇧 Chaos Cards' },
+    { key: 'philibert', name: '🇫🇷 Philibert' },
+    { key: 'crowdfinder', name: '🇧🇪 Crowdfinder' },
+    { key: 'spelspul', name: '🇳🇱 Spelspul' },
     { key: 'bggMarket', name: 'BGG Market' }
 ];
 
@@ -41,8 +45,10 @@ function formatPrice(price, storeKey = null) {
     if (isNaN(num)) return str;
 
     let cadPrice;
-    if (str.includes('€') || /\bEUR\b/i.test(str) || storeKey === 'philibert') {
+    if (str.includes('€') || /\bEUR\b/i.test(str) || storeKey === 'philibert' || storeKey === 'crowdfinder' || storeKey === 'spelspul') {
         cadPrice = num * 1.65;
+    } else if (str.includes('£') || /\bGBP\b/i.test(str) || storeKey === 'zatu' || storeKey === 'chaosCards') {
+        cadPrice = num * 1.90;
     } else if (/\bUSD\b/i.test(str) || /\$US\b/i.test(str) || /US\$/i.test(str) || storeKey === 'miniatureMarket' || storeKey === 'buttonShyEtsy') {
         cadPrice = num * 1.40;
     } else {
