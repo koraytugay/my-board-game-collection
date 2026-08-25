@@ -33,16 +33,29 @@ const STORES = [
     { key: 'bggMarket', name: 'BGG Market' }
 ];
 
-function formatPrice(price) {
+function formatPrice(price, storeKey = null) {
     if (!price && price !== 0) return '';
-    let str = String(price).trim();
+    const str = String(price).trim();
     if (!str) return '';
-    str = str.replace(/\b(CAD|USD|CDN|EUR|GBP)\b/gi, '').trim();
-    str = str.replace(/^[A-Za-z]+\$/, '$').trim();
-    if (/^[\d,]+(\.\d+)?$/.test(str)) {
-        return `$${str}`;
+
+    const clean = str.replace(/,/g, '');
+    const match = clean.match(/[0-9]+(?:\.[0-9]+)?/);
+    if (!match) return str;
+    const num = parseFloat(match[0]);
+    if (isNaN(num)) return str;
+
+    let cadPrice;
+    if (str.includes('€') || /\bEUR\b/i.test(str) || storeKey === 'philibert') {
+        cadPrice = num * 1.65;
+    } else if (str.includes('£') || /\bGBP\b/i.test(str) || storeKey === 'zatu') {
+        cadPrice = num * 1.90;
+    } else if (/\bUSD\b/i.test(str) || /\$US\b/i.test(str) || /US\$/i.test(str) || storeKey === 'miniatureMarket' || storeKey === 'buttonShyEtsy') {
+        cadPrice = num * 1.40;
+    } else {
+        cadPrice = num * 1.15;
     }
-    return str;
+
+    return `$${cadPrice.toFixed(2)}`;
 }
 
 function extractNumericPrice(priceStr) {
@@ -507,42 +520,43 @@ function createGameCard(game) {
     const philibert = game.availability?.philibert;
     const activeBggListings = getActiveBggListings(game);
 
-    const renderStoreChip = (store, name, isBggMarket = false) => {
+    const renderStoreChip = (store, name, storeKey = null, isBggMarket = false) => {
         if (!store || !store.url || !store.available) return '';
-        const priceText = formatPrice(store.price);
+        const priceText = formatPrice(store.price, storeKey);
         const hasDeal = store.deal && store.deal.discountPercent >= 20;
+        const prevPriceText = hasDeal ? formatPrice(store.deal.previousPrice, storeKey) : '';
         const chipClass = isBggMarket ? 'store-chip bgg-market' : (hasDeal ? 'store-chip has-deal' : 'store-chip');
         const dealBadge = hasDeal ? `<span class="chip-deal-badge">-${store.deal.discountPercent}%</span>` : '';
         return `
-            <a href="${store.url}" target="_blank" class="${chipClass}" title="View on ${name}${hasDeal ? ` (Was ${store.deal.previousPrice}, now ${store.price})` : ''}">
+            <a href="${store.url}" target="_blank" class="${chipClass}" title="View on ${name}${hasDeal ? ` (Was ${prevPriceText}, now ${priceText})` : ''}">
                 <span class="store-chip-name">${name}</span>
                 ${priceText ? `<span class="store-chip-price">${priceText} ${dealBadge}</span>` : ''}
             </a>
         `;
     };
 
-    storeButtonsHtml += renderStoreChip(bgb, '🍁 BoardGameBliss');
-    storeButtonsHtml += renderStoreChip(fof, '🎲 401 Games');
-    storeButtonsHtml += renderStoreChip(lvl, '⚔️ LVLUP');
-    storeButtonsHtml += renderStoreChip(adj, '🃏 As des Jeux');
-    storeButtonsHtml += renderStoreChip(gbg, '🏰 Great BG');
-    storeButtonsHtml += renderStoreChip(meeple, '👾 Meeplemart');
-    storeButtonsHtml += renderStoreChip(kbh, '🧸 KB Hobbies');
-    storeButtonsHtml += renderStoreChip(mm, '♟️ Miniature Market');
-    storeButtonsHtml += renderStoreChip(amzn, '🛒 Amazon');
-    storeButtonsHtml += renderStoreChip(wfs, '🐑 Wood for Sheep');
-    storeButtonsHtml += renderStoreChip(f2f, '🤝 Face to Face');
-    storeButtonsHtml += renderStoreChip(obsidian, '🔮 Obsidian');
-    storeButtonsHtml += renderStoreChip(jj, '🎴 J&J Cards');
-    storeButtonsHtml += renderStoreChip(bgca, '🎯 Boardgames.ca');
-    storeButtonsHtml += renderStoreChip(sfg, '🧩 Screen Free');
-    storeButtonsHtml += renderStoreChip(asg, '🚀 All Systems Go');
-    storeButtonsHtml += renderStoreChip(ttc, '☕ Tabletop Cafe');
-    storeButtonsHtml += renderStoreChip(ebg, '🏔️ Elevated BG');
-    storeButtonsHtml += renderStoreChip(dh, '🎲 Dice Hollow');
-    storeButtonsHtml += renderStoreChip(bse, '👛 Button Shy');
-    storeButtonsHtml += renderStoreChip(zatu, '🛡️ Zatu Games');
-    storeButtonsHtml += renderStoreChip(philibert, '🇫🇷 Philibert');
+    storeButtonsHtml += renderStoreChip(bgb, '🍁 BoardGameBliss', 'boardGameBliss');
+    storeButtonsHtml += renderStoreChip(fof, '🎲 401 Games', 'fourZeroOneGames');
+    storeButtonsHtml += renderStoreChip(lvl, '⚔️ LVLUP', 'lvlUpGames');
+    storeButtonsHtml += renderStoreChip(adj, '🃏 As des Jeux', 'asDesJeux');
+    storeButtonsHtml += renderStoreChip(gbg, '🏰 Great BG', 'greatBoardgames');
+    storeButtonsHtml += renderStoreChip(meeple, '👾 Meeplemart', 'meeplemart');
+    storeButtonsHtml += renderStoreChip(kbh, '🧸 KB Hobbies', 'kbHobbies');
+    storeButtonsHtml += renderStoreChip(mm, '♟️ Miniature Market', 'miniatureMarket');
+    storeButtonsHtml += renderStoreChip(amzn, '🛒 Amazon', 'amazonCa');
+    storeButtonsHtml += renderStoreChip(wfs, '🐑 Wood for Sheep', 'woodForSheep');
+    storeButtonsHtml += renderStoreChip(f2f, '🤝 Face to Face', 'faceToFaceGames');
+    storeButtonsHtml += renderStoreChip(obsidian, '🔮 Obsidian', 'obsidianGames');
+    storeButtonsHtml += renderStoreChip(jj, '🎴 J&J Cards', 'jjCards');
+    storeButtonsHtml += renderStoreChip(bgca, '🎯 Boardgames.ca', 'boardgamesCa');
+    storeButtonsHtml += renderStoreChip(sfg, '🧩 Screen Free', 'screenFreeGames');
+    storeButtonsHtml += renderStoreChip(asg, '🚀 All Systems Go', 'allSystemsGo');
+    storeButtonsHtml += renderStoreChip(ttc, '☕ Tabletop Cafe', 'tabletopCafe');
+    storeButtonsHtml += renderStoreChip(ebg, '🏔️ Elevated BG', 'elevatedBoardGames');
+    storeButtonsHtml += renderStoreChip(dh, '🎲 Dice Hollow', 'diceHollow');
+    storeButtonsHtml += renderStoreChip(bse, '👛 Button Shy', 'buttonShyEtsy');
+    storeButtonsHtml += renderStoreChip(zatu, '🛡️ Zatu Games', 'zatu');
+    storeButtonsHtml += renderStoreChip(philibert, '🇫🇷 Philibert', 'philibert');
 
     if (activeBggListings.length > 0) {
         activeBggListings.forEach(listing => {
@@ -551,7 +565,7 @@ function createGameCard(game) {
                 available: true,
                 price: listing.price,
                 url: listing.url
-            }, label, true);
+            }, label, 'bggMarket', true);
         });
     }
 

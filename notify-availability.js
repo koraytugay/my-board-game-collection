@@ -241,16 +241,29 @@ function normalizePrice(price) {
     return clean || null;
 }
 
-function formatPrice(price) {
+function formatPrice(price, storeKey = null) {
     if (!price && price !== 0) return '';
-    let str = String(price).trim();
+    const str = String(price).trim();
     if (!str) return '';
-    str = str.replace(/\b(CAD|USD|CDN|EUR|GBP)\b/gi, '').trim();
-    str = str.replace(/^[A-Za-z]+\$/, '$').trim();
-    if (/^[\d,]+(\.\d+)?$/.test(str)) {
-        return `$${str}`;
+
+    const clean = str.replace(/,/g, '');
+    const match = clean.match(/[0-9]+(?:\.[0-9]+)?/);
+    if (!match) return str;
+    const num = parseFloat(match[0]);
+    if (isNaN(num)) return str;
+
+    let cadPrice;
+    if (str.includes('€') || /\bEUR\b/i.test(str) || storeKey === 'philibert') {
+        cadPrice = num * 1.65;
+    } else if (str.includes('£') || /\bGBP\b/i.test(str) || storeKey === 'zatu') {
+        cadPrice = num * 1.90;
+    } else if (/\bUSD\b/i.test(str) || /\$US\b/i.test(str) || /US\$/i.test(str) || storeKey === 'miniatureMarket' || storeKey === 'buttonShyEtsy') {
+        cadPrice = num * 1.40;
+    } else {
+        cadPrice = num * 1.15;
     }
-    return str;
+
+    return `$${cadPrice.toFixed(2)}`;
 }
 
 function extractNumericPrice(priceStr) {
@@ -324,7 +337,7 @@ function computeDiff(prevData, currData, gamesMap) {
                             gameName,
                             bggUrl,
                             seller: currItem.seller || 'Unknown',
-                            price: currItem.price,
+                            price: formatPrice(currItem.price, 'bggMarket'),
                             condition: currItem.condition || '',
                             url: currItem.url || bggUrl
                         });
@@ -344,7 +357,7 @@ function computeDiff(prevData, currData, gamesMap) {
                     bggUrl,
                     storeKey,
                     storeName,
-                    price: formatPrice(curr.price),
+                    price: formatPrice(curr.price, storeKey),
                     url: curr.url || bggUrl,
                     wasInStockAnywhere
                 });
@@ -357,7 +370,7 @@ function computeDiff(prevData, currData, gamesMap) {
                     bggUrl,
                     storeKey,
                     storeName,
-                    wasPrice: formatPrice(prev.price),
+                    wasPrice: formatPrice(prev.price, storeKey),
                     url: prev.url || curr.url || bggUrl,
                     isNowCompletelyOutOfStock: !isInStockAnywhere
                 });
@@ -376,8 +389,8 @@ function computeDiff(prevData, currData, gamesMap) {
                             bggUrl,
                             storeKey,
                             storeName,
-                            oldPrice: formatPrice(prev.price),
-                            newPrice: formatPrice(curr.price),
+                            oldPrice: formatPrice(prev.price, storeKey),
+                            newPrice: formatPrice(curr.price, storeKey),
                             discountPercent,
                             url: curr.url || bggUrl
                         });
@@ -388,8 +401,8 @@ function computeDiff(prevData, currData, gamesMap) {
                             bggUrl,
                             storeKey,
                             storeName,
-                            oldPrice: formatPrice(prev.price),
-                            newPrice: formatPrice(curr.price),
+                            oldPrice: formatPrice(prev.price, storeKey),
+                            newPrice: formatPrice(curr.price, storeKey),
                             priceDiff: Math.abs(normCurr - normPrev).toFixed(2),
                             url: curr.url || bggUrl
                         });
@@ -430,8 +443,8 @@ function getOverallInStockSummary(currData, gamesMap) {
                         gameId,
                         gameName: gameInfo.name,
                         storeName: STORE_META[storeKey]?.name || storeKey,
-                        price: formatPrice(storeData.price),
-                        previousPrice: formatPrice(storeData.deal.previousPrice),
+                        price: formatPrice(storeData.price, storeKey),
+                        previousPrice: formatPrice(storeData.deal.previousPrice, storeKey),
                         discountPercent: storeData.deal.discountPercent,
                         url: storeData.url || `https://boardgamegeek.com/boardgame/${gameId}`
                     });
