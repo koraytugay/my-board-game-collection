@@ -1364,8 +1364,7 @@ async function checkAvailability() {
                                 const existing = existingListings.find(l => l.seller && l.seller.toLowerCase() === seller.toLowerCase());
                                 const firstSeen = existing?.firstSeen || new Date().toISOString();
 
-                                const ageDays = (Date.now() - new Date(firstSeen).getTime()) / (1000 * 60 * 60 * 24);
-                                const isIgnored = ageDays >= 7 || isPriceUnderThreshold(match.price);
+                                const isIgnored = isPriceUnderThreshold(match.price);
 
                                 return {
                                     price: `${symbol}${match.price} ${match.currency}`,
