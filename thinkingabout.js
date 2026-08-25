@@ -361,27 +361,27 @@ function createGameCard(game) {
         `;
     };
 
-    storeButtonsHtml += renderStoreChip(bgb, '🍁 BoardGameBliss', 'boardGameBliss');
-    storeButtonsHtml += renderStoreChip(fof, '🎲 401 Games', 'fourZeroOneGames');
-    storeButtonsHtml += renderStoreChip(lvl, '⚔️ LVLUP', 'lvlUpGames');
-    storeButtonsHtml += renderStoreChip(adj, '🃏 As des Jeux', 'asDesJeux');
-    storeButtonsHtml += renderStoreChip(gbg, '🏰 Great BG', 'greatBoardgames');
-    storeButtonsHtml += renderStoreChip(meeple, '👾 Meeplemart', 'meeplemart');
-    storeButtonsHtml += renderStoreChip(kbh, '🧸 KB Hobbies', 'kbHobbies');
-    storeButtonsHtml += renderStoreChip(mm, '♟️ Miniature Market', 'miniatureMarket');
-    storeButtonsHtml += renderStoreChip(amzn, '🛒 Amazon', 'amazonCa');
-    storeButtonsHtml += renderStoreChip(wfs, '🐑 Wood for Sheep', 'woodForSheep');
-    storeButtonsHtml += renderStoreChip(f2f, '🤝 Face to Face', 'faceToFaceGames');
-    storeButtonsHtml += renderStoreChip(obsidian, '🔮 Obsidian', 'obsidianGames');
-    storeButtonsHtml += renderStoreChip(jj, '🎴 J&J Cards', 'jjCards');
-    storeButtonsHtml += renderStoreChip(bgca, '🎯 Boardgames.ca', 'boardgamesCa');
-    storeButtonsHtml += renderStoreChip(sfg, '🧩 Screen Free', 'screenFreeGames');
-    storeButtonsHtml += renderStoreChip(asg, '🚀 All Systems Go', 'allSystemsGo');
-    storeButtonsHtml += renderStoreChip(ttc, '☕ Tabletop Cafe', 'tabletopCafe');
-    storeButtonsHtml += renderStoreChip(ebg, '🏔️ Elevated BG', 'elevatedBoardGames');
-    storeButtonsHtml += renderStoreChip(dh, '🎲 Dice Hollow', 'diceHollow');
-    storeButtonsHtml += renderStoreChip(bse, '👛 Button Shy', 'buttonShyEtsy');
-    storeButtonsHtml += renderStoreChip(zatu, '🛡️ Zatu Games', 'zatu');
+    storeButtonsHtml += renderStoreChip(bgb, '🇨🇦 BoardGameBliss', 'boardGameBliss');
+    storeButtonsHtml += renderStoreChip(fof, '🇨🇦 401 Games', 'fourZeroOneGames');
+    storeButtonsHtml += renderStoreChip(lvl, '🇨🇦 LVLUP', 'lvlUpGames');
+    storeButtonsHtml += renderStoreChip(adj, '🇨🇦 As des Jeux', 'asDesJeux');
+    storeButtonsHtml += renderStoreChip(gbg, '🇨🇦 Great BG', 'greatBoardgames');
+    storeButtonsHtml += renderStoreChip(meeple, '🇨🇦 Meeplemart', 'meeplemart');
+    storeButtonsHtml += renderStoreChip(kbh, '🇨🇦 KB Hobbies', 'kbHobbies');
+    storeButtonsHtml += renderStoreChip(mm, '🇺🇸 Miniature Market', 'miniatureMarket');
+    storeButtonsHtml += renderStoreChip(amzn, '🇨🇦 Amazon.ca', 'amazonCa');
+    storeButtonsHtml += renderStoreChip(wfs, '🇨🇦 Wood for Sheep', 'woodForSheep');
+    storeButtonsHtml += renderStoreChip(f2f, '🇨🇦 Face to Face', 'faceToFaceGames');
+    storeButtonsHtml += renderStoreChip(obsidian, '🇨🇦 Obsidian', 'obsidianGames');
+    storeButtonsHtml += renderStoreChip(jj, '🇨🇦 J&J Cards', 'jjCards');
+    storeButtonsHtml += renderStoreChip(bgca, '🇨🇦 Boardgames.ca', 'boardgamesCa');
+    storeButtonsHtml += renderStoreChip(sfg, '🇨🇦 Screen Free', 'screenFreeGames');
+    storeButtonsHtml += renderStoreChip(asg, '🇨🇦 All Systems Go', 'allSystemsGo');
+    storeButtonsHtml += renderStoreChip(ttc, '🇨🇦 Tabletop Cafe', 'tabletopCafe');
+    storeButtonsHtml += renderStoreChip(ebg, '🇨🇦 Elevated BG', 'elevatedBoardGames');
+    storeButtonsHtml += renderStoreChip(dh, '🇨🇦 Dice Hollow', 'diceHollow');
+    storeButtonsHtml += renderStoreChip(bse, '🇺🇸 Button Shy', 'buttonShyEtsy');
+    storeButtonsHtml += renderStoreChip(zatu, '🇬🇧 Zatu Games', 'zatu');
     storeButtonsHtml += renderStoreChip(philibert, '🇫🇷 Philibert', 'philibert');
 
     if (activeBggListings.length > 0) {
