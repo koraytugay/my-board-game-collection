@@ -106,14 +106,23 @@
                 </div>
 
                 <div class="control-group">
-                    <label for="rating-filter">BGG Rating:</label>
+                    <label for="play-time">Play Time:</label>
+                    <select id="play-time" onchange="applyFilters()">
+                        <option value="all">All</option>
+                        <option value="0-30">Under 30 min</option>
+                        <option value="30-60">30-60 min</option>
+                        <option value="60-120">60-120 min</option>
+                        <option value="120-999">Over 120 min</option>
+                    </select>
+                </div>
+
+                <div class="control-group">
+                    <label for="rating-filter">Rating:</label>
                     <select id="rating-filter" onchange="applyFilters()">
-                        <option value="all">All Ratings</option>
-                        <option value="8">8.0+</option>
-                        <option value="7.5">7.5+</option>
-                        <option value="7">7.0+</option>
-                        <option value="6.5">6.5+</option>
-                        <option value="6">6.0+</option>
+                        <option value="all">All</option>
+                        <option value="8+">8.0+</option>
+                        <option value="7+">7.0+</option>
+                        <option value="6+">6.0+</option>
                     </select>
                 </div>
 
@@ -124,17 +133,9 @@
                     </select>
                 </div>
             </div>
-
-            <div class="results-count">
-                Showing <span id="displayed-count">0</span> of <span id="total-count">0</span> games
-            </div>
         </div>
 
-        <main id="games-grid" class="games-grid"></main>
-
-        <footer>
-            <p>Data from BoardGameGeek | Built with Vanilla JS</p>
-        </footer>
+        <div id="games-grid" class="games-grid"></div>
     </div>
 
     <!-- Game Details Modal container -->
