@@ -628,7 +628,16 @@ async function fetchShopifyStore(baseUrl, query, gameName, currencySymbol = '$')
             if (suggestRes?.resources?.results?.products?.length > 0) {
                 const match = findBestShopifyMatch(suggestRes.resources.results.products, gameName);
                 if (match) {
-                    let price = match.price ? (match.price.startsWith(currencySymbol) ? match.price : `${currencySymbol}${match.price}`) : null;
+                    let priceVal = match.price;
+                    if (baseUrl.includes('zatu.com') && match.handle) {
+                        try {
+                            const prodData = await fetchJson(`${baseUrl}/products/${match.handle}.json`);
+                            if (prodData?.product?.variants?.[0]?.price) {
+                                priceVal = prodData.product.variants[0].price;
+                            }
+                        } catch (_) {}
+                    }
+                    let price = priceVal ? (String(priceVal).startsWith(currencySymbol) ? String(priceVal) : `${currencySymbol}${priceVal}`) : null;
                     const available = match.available ?? false;
                     return {
                         available,
