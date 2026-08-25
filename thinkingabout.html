@@ -45,7 +45,7 @@
 
         <div id="loading" class="loading">
             <div class="spinner"></div>
-            <p>Loading Thinking About games...</p>
+            <p>Loading Thinking About games and store availability...</p>
         </div>
 
         <div id="error" class="error" style="display: none;"></div>
@@ -60,10 +60,6 @@
                         <option value="rating-asc">Rating (Low to High)</option>
                         <option value="myrating-desc">My Rating (High to Low)</option>
                         <option value="myrating-asc">My Rating (Low to High)</option>
-                        <option value="plays-desc">Plays (Most to Least)</option>
-                        <option value="plays-asc">Plays (Least to Most)</option>
-                        <option value="recently-played">Most Recently Played</option>
-                        <option value="least-recently-played">Least Recently Played</option>
                         <option value="year-desc">Year (Newest First)</option>
                         <option value="year-asc">Year (Oldest First)</option>
                     </select>
@@ -76,6 +72,20 @@
                         <option value="compact">Compact</option>
                         <option value="list">List</option>
                     </select>
+                </div>
+
+                <div class="control-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="in-stock-only" onchange="applyFilters()">
+                        In Stock Only
+                    </label>
+                </div>
+
+                <div class="control-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="major-deals-only" onchange="applyFilters()">
+                        Deals
+                    </label>
                 </div>
 
                 <div class="control-group">

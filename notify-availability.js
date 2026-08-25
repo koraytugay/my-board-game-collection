@@ -3,9 +3,10 @@ const { execSync } = require('child_process');
 const nodemailer = require('nodemailer');
 
 const isRecommended = process.argv.includes('--recommended') || process.env.CHECK_TYPE === 'recommended';
+const isThinkingAbout = process.argv.includes('--thinking-about') || process.argv.includes('--thinkingabout') || process.env.CHECK_TYPE === 'thinkingabout';
 const isDailySummary = process.argv.includes('--daily-summary') || process.env.DAILY_SUMMARY === 'true';
-const AVAILABILITY_FILE = isRecommended ? 'availability-recommended.json' : 'availability.json';
-const NOTIFIED_SNAPSHOT_FILE = isRecommended ? 'last-notified-availability-recommended.json' : 'last-notified-availability.json';
+const AVAILABILITY_FILE = isRecommended ? 'availability-recommended.json' : (isThinkingAbout ? 'availability-thinkingabout.json' : 'availability.json');
+const NOTIFIED_SNAPSHOT_FILE = isRecommended ? 'last-notified-availability-recommended.json' : (isThinkingAbout ? 'last-notified-availability-thinkingabout.json' : 'last-notified-availability.json');
 const RECOMMENDATIONS_FILE = 'recommendations.json';
 const COLLECTION_FILE = 'collection.xml';
 
@@ -462,27 +463,22 @@ function getOverallInStockSummary(currData, gamesMap) {
 }
 
 function buildEmailSubject(diff, summary, range, isDaily) {
-    let defaultPrefix;
-    if (isDaily) {
-        defaultPrefix = '🎲 [Recommended Games Daily Stock Summary]';
-    } else if (isRecommended) {
-        let rangeLabel = '';
-        if (range && range.hasRangeFlag) {
-            const startNum = range.start + 1;
-            const endNum = range.end === Infinity ? '400+' : range.end;
-            rangeLabel = ` (#${startNum}-${endNum})`;
-        }
-        defaultPrefix = `🎲 [Recommended Games Stock Alert${rangeLabel}]`;
-    } else {
-        defaultPrefix = '🎲 Board Game Alert';
-    }
+    const defaultPrefix = isDaily 
+        ? '🎲 Daily Summary' 
+        : isRecommended 
+            ? `🎲 Rec Stock${range && range.hasRangeFlag ? ` (#${range.start + 1}-${range.end === Infinity ? '400+' : range.end})` : ''}` 
+            : isThinkingAbout
+                ? '🎲 Thinking About Stock'
+                : '🎲 Stock Update';
 
     if (diff.totalDiffs === 0) {
         return isDaily
             ? `${defaultPrefix} No changes detected (${summary.inStockCount}/${summary.totalGames} in stock)`
             : isRecommended
                 ? `${defaultPrefix} No changes detected (${summary.inStockCount}/${summary.totalGames} in stock)`
-                : `🎲 Board Game Stock Check: No changes detected (${summary.inStockCount}/${summary.totalGames} in stock)`;
+                : isThinkingAbout
+                    ? `🎲 Thinking About Stock Check: No changes detected (${summary.inStockCount}/${summary.totalGames} in stock)`
+                    : `🎲 Board Game Stock Check: No changes detected (${summary.inStockCount}/${summary.totalGames} in stock)`;
     }
 
     const parts = [];
@@ -505,15 +501,19 @@ function buildEmailSubject(diff, summary, range, isDaily) {
 }
 
 function buildHtmlBody(diff, gamesMap, summary, range, isDaily) {
-    const listTitle = isRecommended ? 'Recommended Games' : 'Want to Buy';
+    const listTitle = isRecommended ? 'Recommended Games' : (isThinkingAbout ? 'Thinking About' : 'Want to Buy');
     const listUrl = isRecommended 
         ? 'https://koraytugay.github.io/my-board-game-collection/recommended.html' 
-        : 'https://koraytugay.github.io/my-board-game-collection/wanttobuy.html';
+        : (isThinkingAbout 
+            ? 'https://koraytugay.github.io/my-board-game-collection/thinkingabout.html' 
+            : 'https://koraytugay.github.io/my-board-game-collection/wanttobuy.html');
     const headerTitle = isDaily
         ? '🎲 Recommended Games Daily Stock Summary'
         : isRecommended 
             ? `🎲 Recommended Games Stock Update${range && range.hasRangeFlag ? ` (#${range.start + 1} - ${range.end === Infinity ? '400+' : range.end})` : ''}` 
-            : '🎲 Board Game Stock Update';
+            : (isThinkingAbout 
+                ? '🎲 Thinking About Games Stock Update' 
+                : '🎲 Board Game Stock Update');
 
     let html = `
     <!DOCTYPE html>

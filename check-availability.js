@@ -3,9 +3,10 @@ const https = require('https');
 const zlib = require('zlib');
 
 const isRecommended = process.argv.includes('--recommended') || process.env.CHECK_TYPE === 'recommended';
+const isThinkingAbout = process.argv.includes('--thinking-about') || process.argv.includes('--thinkingabout') || process.env.CHECK_TYPE === 'thinkingabout';
 const COLLECTION_FILE = 'collection.xml';
 const RECOMMENDATIONS_FILE = 'recommendations.json';
-const OUTPUT_FILE = isRecommended ? 'availability-recommended.json' : 'availability.json';
+const OUTPUT_FILE = isRecommended ? 'availability-recommended.json' : (isThinkingAbout ? 'availability-thinkingabout.json' : 'availability.json');
 const POLITENESS_DELAY_MS = parseInt(process.env.CHECK_DELAY_MS || '5000', 10);
 const MIN_PRICE_THRESHOLD = 5.0; // Ignore/treat items priced <= 5 as out of stock / erroneous match
 
@@ -1016,7 +1017,7 @@ function getRecommendedRange() {
 }
 
 async function checkAvailability() {
-    console.log(`Starting ${isRecommended ? 'recommended games' : 'board game'} availability check...`);
+    console.log(`Starting ${isRecommended ? 'recommended games' : (isThinkingAbout ? 'thinking about games' : 'board game')} availability check...`);
     if (!isRecommended && !fs.existsSync(COLLECTION_FILE)) {
         console.error('collection.xml not found.');
         return;
@@ -1079,6 +1080,34 @@ async function checkAvailability() {
             console.error('Error reading recommendations.json:', e);
             return;
         }
+    } else if (isThinkingAbout) {
+        const content = fs.readFileSync(COLLECTION_FILE, 'utf8');
+        const itemRegex = /<item objecttype="thing" objectid="(\d+)"[^>]*>([\s\S]*?)<\/item>/g;
+        let match;
+
+        while ((match = itemRegex.exec(content)) !== null) {
+            const objectId = match[1];
+            const itemContent = match[2];
+
+            const statusMatch = /<status\s+([^>]+)\/>/.exec(itemContent);
+            if (statusMatch) {
+                const statusStr = statusMatch[1];
+                const isWishlist = /wishlist="1"/.test(statusStr);
+                const isThinking = isWishlist && (/wishlistpriority="4"/.test(statusStr) || !/wishlistpriority=/.test(statusStr));
+                if (isThinking) {
+                    const nameMatch = /<name[^>]*>([^<]+)<\/name>/.exec(itemContent);
+                    if (nameMatch) {
+                        wantedGames.push({
+                            objectId,
+                            name: decodeXmlEntities(nameMatch[1].trim()),
+                            isWantToBuy: true,
+                            isWantInTrade: false
+                        });
+                    }
+                }
+            }
+        }
+        console.log(`Found ${wantedGames.length} games in Thinking About list.`);
     } else {
         const content = fs.readFileSync(COLLECTION_FILE, 'utf8');
         const itemRegex = /<item objecttype="thing" objectid="(\d+)"[^>]*>([\s\S]*?)<\/item>/g;
