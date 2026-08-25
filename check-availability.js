@@ -170,6 +170,8 @@ function fetchJson(url, redirectCount = 0, customHeaders = {}) {
             }
             if (res.statusCode !== 200) {
                 console.warn(`[WARNING] fetchJson failed for ${url} with status: ${res.statusCode}`);
+                res.resume();
+                req.destroy();
                 if (!resolved) {
                     resolved = true;
                     resolve(null);
@@ -294,6 +296,8 @@ function fetchHtml(url, redirectCount = 0, cookieHeader = '') {
             }
             if (res.statusCode !== 200) {
                 console.warn(`[WARNING] fetchHtml failed for ${url} with status: ${res.statusCode}`);
+                res.resume();
+                req.destroy();
                 if (!resolved) {
                     resolved = true;
                     resolve(null);
@@ -1841,13 +1845,18 @@ async function checkAvailability() {
     if (globalBrowser) {
         try {
             await globalBrowser.close();
+            if (typeof globalBrowser.process === 'function' && globalBrowser.process()) {
+                globalBrowser.process().kill('SIGKILL');
+            }
         } catch (_) {}
     }
 
     fs.writeFileSync(OUTPUT_FILE, JSON.stringify(availabilityData, null, 2), 'utf8');
     console.log(`Availability check finished. Saved results to ${OUTPUT_FILE}`);
+    process.exit(0);
 }
 
 checkAvailability().catch(err => {
     console.error('Fatal error during availability check:', err);
+    process.exit(1);
 });
