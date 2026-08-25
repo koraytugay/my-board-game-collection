@@ -144,6 +144,22 @@
                     </select>
                 </div>
             </div>
+
+            <div class="controls-row">
+                <div class="control-group">
+                    <label for="store-filter">Store:</label>
+                    <select id="store-filter" onchange="applyFilters()">
+                        <option value="all">All Stores</option>
+                    </select>
+                </div>
+
+                <div class="control-group">
+                    <label for="seller-filter">BGG Seller:</label>
+                    <select id="seller-filter" onchange="applyFilters()">
+                        <option value="all">All Sellers</option>
+                    </select>
+                </div>
+            </div>
         </div>
 
         <div id="games-grid" class="games-grid"></div>

@@ -4,28 +4,28 @@ let currentSort = 'name';
 let currentViewMode = 'grid';
 
 const STORES = [
-    { key: 'boardGameBliss', name: 'BoardGameBliss' },
-    { key: 'fourZeroOneGames', name: '401 Games' },
-    { key: 'lvlUpGames', name: 'LVLUP Games' },
-    { key: 'asDesJeux', name: 'As des Jeux' },
-    { key: 'greatBoardgames', name: 'Great Boardgames' },
-    { key: 'meeplemart', name: 'Meeplemart' },
-    { key: 'kbHobbies', name: 'KB Hobbies' },
-    { key: 'miniatureMarket', name: 'Miniature Market' },
-    { key: 'amazonCa', name: 'Amazon.ca' },
-    { key: 'woodForSheep', name: 'Wood for Sheep' },
-    { key: 'faceToFaceGames', name: 'Face to Face' },
-    { key: 'obsidianGames', name: 'Obsidian Games' },
-    { key: 'jjCards', name: 'J&J Cards' },
-    { key: 'boardgamesCa', name: 'Boardgames.ca' },
-    { key: 'screenFreeGames', name: 'Screen Free Games' },
-    { key: 'allSystemsGo', name: 'All Systems Go' },
-    { key: 'tabletopCafe', name: 'Tabletop Cafe' },
-    { key: 'elevatedBoardGames', name: 'Elevated Board Games' },
-    { key: 'diceHollow', name: 'Dice Hollow' },
-    { key: 'buttonShyEtsy', name: 'Button Shy (Etsy)' },
-    { key: 'zatu', name: 'Zatu Games' },
-    { key: 'philibert', name: 'Philibert' },
+    { key: 'boardGameBliss', name: '🇨🇦 BoardGameBliss' },
+    { key: 'fourZeroOneGames', name: '🇨🇦 401 Games' },
+    { key: 'lvlUpGames', name: '🇨🇦 LVLUP Games' },
+    { key: 'asDesJeux', name: '🇨🇦 As des Jeux' },
+    { key: 'greatBoardgames', name: '🇨🇦 Great Boardgames' },
+    { key: 'meeplemart', name: '🇨🇦 Meeplemart' },
+    { key: 'kbHobbies', name: '🇨🇦 KB Hobbies' },
+    { key: 'miniatureMarket', name: '🇺🇸 Miniature Market' },
+    { key: 'amazonCa', name: '🇨🇦 Amazon.ca' },
+    { key: 'woodForSheep', name: '🇨🇦 Wood for Sheep' },
+    { key: 'faceToFaceGames', name: '🇨🇦 Face to Face' },
+    { key: 'obsidianGames', name: '🇨🇦 Obsidian Games' },
+    { key: 'jjCards', name: '🇨🇦 J&J Cards' },
+    { key: 'boardgamesCa', name: '🇨🇦 Boardgames.ca' },
+    { key: 'screenFreeGames', name: '🇨🇦 Screen Free Games' },
+    { key: 'allSystemsGo', name: '🇨🇦 All Systems Go' },
+    { key: 'tabletopCafe', name: '🇨🇦 Tabletop Cafe' },
+    { key: 'elevatedBoardGames', name: '🇨🇦 Elevated Board Games' },
+    { key: 'diceHollow', name: '🇨🇦 Dice Hollow' },
+    { key: 'buttonShyEtsy', name: '🇺🇸 Button Shy' },
+    { key: 'zatu', name: '🇬🇧 Zatu Games' },
+    { key: 'philibert', name: '🇫🇷 Philibert' },
     { key: 'bggMarket', name: 'BGG Market' }
 ];
 
@@ -79,16 +79,20 @@ function getActiveBggListings(game) {
     return [];
 }
 
-function isGameInStockAtAnyStore(game) {
-    if (!game.availability) return false;
-    for (const store of STORES) {
-        if (store.key === 'bggMarket') {
-            if (getActiveBggListings(game).length > 0) return true;
-        } else if (game.availability[store.key]?.available) {
-            return true;
-        }
+function isGameInStockAtStore(game, storeKey) {
+    if (!game.availability || !game.availability[storeKey]) return false;
+    const storeData = game.availability[storeKey];
+    if (storeKey === 'bggMarket') {
+        return getActiveBggListings(game).length > 0;
     }
-    return false;
+    if (!storeData.available) return false;
+    const num = extractNumericPrice(storeData.price);
+    if (num !== null && num <= 5.0) return false;
+    return true;
+}
+
+function isGameInStockAtAnyStore(game) {
+    return STORES.some(store => isGameInStockAtStore(game, store.key));
 }
 
 function hasGameMajorDeal(game) {
@@ -101,6 +105,78 @@ function hasGameMajorDeal(game) {
         }
     }
     return false;
+}
+
+function populateStoreFilter() {
+    const storeSelect = document.getElementById('store-filter');
+    if (!storeSelect) return;
+
+    const currentValue = storeSelect.value;
+    storeSelect.innerHTML = '<option value="all">All Stores</option>';
+
+    const storesWithStock = [];
+    STORES.forEach(store => {
+        const inStockCount = allGames.filter(game => isGameInStockAtStore(game, store.key)).length;
+        if (inStockCount > 0) {
+            storesWithStock.push({
+                ...store,
+                count: inStockCount
+            });
+        }
+    });
+
+    storesWithStock.sort((a, b) => a.name.localeCompare(b.name, undefined, { sensitivity: 'base' }));
+
+    storesWithStock.forEach(store => {
+        const option = document.createElement('option');
+        option.value = store.key;
+        option.textContent = `${store.name} (${store.count})`;
+        storeSelect.appendChild(option);
+    });
+
+    if (storesWithStock.some(s => s.key === currentValue)) {
+        storeSelect.value = currentValue;
+    } else {
+        storeSelect.value = 'all';
+    }
+}
+
+function populateSellerFilter() {
+    const sellerSelect = document.getElementById('seller-filter');
+    if (!sellerSelect) return;
+
+    const currentValue = sellerSelect.value;
+    sellerSelect.innerHTML = '<option value="all">All Sellers</option>';
+
+    const sellerCountMap = new Map();
+    allGames.forEach(game => {
+        const listings = getActiveBggListings(game);
+        const seenForThisGame = new Set();
+        listings.forEach(l => {
+            if (l.seller && !seenForThisGame.has(l.seller.toLowerCase())) {
+                seenForThisGame.add(l.seller.toLowerCase());
+                const existing = sellerCountMap.get(l.seller.toLowerCase()) || { seller: l.seller, count: 0 };
+                existing.count++;
+                sellerCountMap.set(l.seller.toLowerCase(), existing);
+            }
+        });
+    });
+
+    const sellers = Array.from(sellerCountMap.values());
+    sellers.sort((a, b) => a.seller.localeCompare(b.seller, undefined, { sensitivity: 'base' }));
+
+    sellers.forEach(s => {
+        const option = document.createElement('option');
+        option.value = s.seller;
+        option.textContent = `${s.seller} (${s.count})`;
+        sellerSelect.appendChild(option);
+    });
+
+    if (sellers.some(s => s.seller.toLowerCase() === currentValue.toLowerCase())) {
+        sellerSelect.value = currentValue;
+    } else {
+        sellerSelect.value = 'all';
+    }
 }
 
 async function fetchCollection() {
@@ -125,6 +201,8 @@ async function fetchCollection() {
         }));
         
         populateDesignerFilter();
+        populateStoreFilter();
+        populateSellerFilter();
         filteredGames = [...allGames];
         sortGames(currentSort);
         
@@ -218,6 +296,8 @@ function applyFilters() {
     const inStockCheckbox = document.getElementById('in-stock-only');
     const majorDealsCheckbox = document.getElementById('major-deals-only');
     const designerFilter = document.getElementById('designer-filter');
+    const storeFilter = document.getElementById('store-filter');
+    const sellerFilter = document.getElementById('seller-filter');
 
     const searchTerm = searchInput ? searchInput.value.toLowerCase().trim() : '';
     const ratingVal = ratingFilter ? ratingFilter.value : 'all';
@@ -226,6 +306,8 @@ function applyFilters() {
     const inStockOnly = inStockCheckbox ? inStockCheckbox.checked : false;
     const majorDealsOnly = majorDealsCheckbox ? majorDealsCheckbox.checked : false;
     const designerVal = designerFilter ? designerFilter.value : 'all';
+    const storeVal = storeFilter ? storeFilter.value : 'all';
+    const sellerVal = sellerFilter ? sellerFilter.value : 'all';
 
     filteredGames = allGames.filter(game => {
         const matchesSearch = !searchTerm || game.name.toLowerCase().includes(searchTerm);
@@ -272,7 +354,18 @@ function applyFilters() {
             matchesDesigner = designers.some(d => d.toLowerCase() === designerVal.toLowerCase());
         }
 
-        return matchesSearch && matchesRating && matchesPlayers && matchesTime && matchesStock && matchesDeal && matchesDesigner;
+        let matchesStore = true;
+        if (storeVal !== 'all') {
+            matchesStore = isGameInStockAtStore(game, storeVal);
+        }
+
+        let matchesSeller = true;
+        if (sellerVal !== 'all') {
+            const activeListings = getActiveBggListings(game);
+            matchesSeller = activeListings.some(l => l.seller && l.seller.toLowerCase() === sellerVal.toLowerCase());
+        }
+
+        return matchesSearch && matchesRating && matchesPlayers && matchesTime && matchesStock && matchesDeal && matchesDesigner && matchesStore && matchesSeller;
     });
 
     renderGames();
