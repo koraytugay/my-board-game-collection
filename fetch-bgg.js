@@ -94,6 +94,7 @@ async function run() {
     // 1. Fetch Collection Endpoints
     const collectionEndpoints = [
         { name: 'Wishlist Items', url: `https://boardgamegeek.com/xmlapi2/collection?username=${encodeURIComponent(BGG_USER)}&stats=1&wishlist=1` },
+        { name: 'Thinking About It Items', url: `https://boardgamegeek.com/xmlapi2/collection?username=${encodeURIComponent(BGG_USER)}&stats=1&wishlist=1&wishlistpriority=4` },
         { name: 'Want in Trade Items', url: `https://boardgamegeek.com/xmlapi2/collection?username=${encodeURIComponent(BGG_USER)}&stats=1&want=1` },
         { name: 'For Trade Items', url: `https://boardgamegeek.com/xmlapi2/collection?username=${encodeURIComponent(BGG_USER)}&stats=1&trade=1` },
         { name: 'Expansions', url: `https://boardgamegeek.com/xmlapi2/collection?username=${encodeURIComponent(BGG_USER)}&stats=1&subtype=boardgameexpansion` },
@@ -110,7 +111,7 @@ async function run() {
                 const idMatch = item.match(/objectid="(\d+)"/);
                 if (idMatch) {
                     const id = idMatch[1];
-                    if (!itemMap.has(id) || item.includes('fortrade="1"')) {
+                    if (!itemMap.has(id) || item.includes('fortrade="1"') || item.includes('wishlist="1"')) {
                         itemMap.set(id, item);
                     }
                 }

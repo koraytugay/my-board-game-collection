@@ -51,6 +51,16 @@ async function getCollection(onlyOwned = true) {
                 }
                 return (isWantToBuy || isWantInTrade) && isValidType;
             });
+        } else if (onlyOwned === 'thinkingabout' || onlyOwned === 'thinkingaboutit' || onlyOwned === 'wishlist') {
+            items = items.filter(item => {
+                const status = item.querySelector('status');
+                const isWishlist = status && status.getAttribute('wishlist') === '1';
+                const priority = status ? status.getAttribute('wishlistpriority') : null;
+                const isThinking = isWishlist && (priority === '4' || !priority || onlyOwned === 'wishlist');
+                const subtype = item.getAttribute('subtype');
+                const isValidType = subtype === 'boardgame' || subtype === 'boardgameexpansion';
+                return isThinking && isValidType;
+            });
         } else if (onlyOwned === 'wanttosell' || onlyOwned === 'forsale' || onlyOwned === 'fortrade') {
             items = items.filter(item => {
                 const status = item.querySelector('status');
@@ -81,10 +91,6 @@ async function getCollection(onlyOwned = true) {
             const comment = item.querySelector('comment')?.textContent || '';
 
             // Resolve local images
-            // Since we don't know the extension (jpg vs png), we check common ones or assume jpg
-            // In a real environment, we'd check if the file exists on the server, but here
-            // we'll assume the downloader did its job. We'll use .jpg as default but BGG uses many.
-            // A better way is to check the extension from the original URL.
             const getLocalPath = (url, type) => {
                 if (!url) return '';
                 try {
@@ -114,6 +120,10 @@ async function getCollection(onlyOwned = true) {
             const isWantInTrade = status ? status.getAttribute('want') === '1' : false;
             const isWantToPlay = status ? status.getAttribute('wanttoplay') === '1' : false;
             const isOwned = status ? status.getAttribute('own') === '1' : false;
+            const isWishlist = status ? status.getAttribute('wishlist') === '1' : false;
+            const wishlistPriority = status ? parseInt(status.getAttribute('wishlistpriority'), 10) || null : null;
+            const isThinkingAboutIt = isWishlist && (wishlistPriority === 4 || wishlistPriority === null);
+            const wishlistComment = status ? (status.getAttribute('wishlistcomment') || '') : '';
 
             return {
                 name,
@@ -132,7 +142,11 @@ async function getCollection(onlyOwned = true) {
                 isWantToBuy,
                 isWantInTrade,
                 isWantToPlay,
-                isOwned
+                isOwned,
+                isWishlist,
+                wishlistPriority,
+                isThinkingAboutIt,
+                wishlistComment
             };
         });
     } catch (error) {

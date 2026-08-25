@@ -47,12 +47,10 @@ function formatPrice(price, storeKey = null) {
     let cadPrice;
     if (str.includes('€') || /\bEUR\b/i.test(str) || storeKey === 'philibert') {
         cadPrice = num * 1.65;
-    } else if (str.includes('£') || /\bGBP\b/i.test(str) || storeKey === 'zatu') {
-        cadPrice = num * 1.90;
     } else if (/\bUSD\b/i.test(str) || /\$US\b/i.test(str) || /US\$/i.test(str) || storeKey === 'miniatureMarket' || storeKey === 'buttonShyEtsy') {
         cadPrice = num * 1.40;
     } else {
-        cadPrice = num * 1.15;
+        cadPrice = num;
     }
 
     return `$${cadPrice.toFixed(2)}`;

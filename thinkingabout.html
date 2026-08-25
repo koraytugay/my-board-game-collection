@@ -12,13 +12,13 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Want to Buy - My Board Game Collection</title>
+    <title>Thinking About - My Board Game Collection</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>Want to Buy List</h1>
+            <h1>Thinking About List</h1>
             <p class="username">@koraytugay on BoardGameGeek</p>
         </header>
 
@@ -26,8 +26,8 @@
             <div class="nav-row">
                 <a href="index.html" class="nav-link">Collection</a>
                 <a href="tierlist.html" class="nav-link">Tier List</a>
-                <a href="wanttobuy.html" class="nav-link active">Want to Buy</a>
-                <a href="thinkingabout.html" class="nav-link">Thinking About</a>
+                <a href="wanttobuy.html" class="nav-link">Want to Buy</a>
+                <a href="thinkingabout.html" class="nav-link active">Thinking About</a>
                 <a href="wanttoplay.html" class="nav-link">Want to Play</a>
                 <a href="recommended.html" class="nav-link">Recommended Games</a>
                 <a href="stores.html" class="nav-link">Stores</a>
@@ -44,7 +44,7 @@
 
         <div id="loading" class="loading">
             <div class="spinner"></div>
-            <p>Loading wanted games...</p>
+            <p>Loading Thinking About games...</p>
         </div>
 
         <div id="error" class="error" style="display: none;"></div>
@@ -52,20 +52,17 @@
         <div id="controls" class="controls" style="display: none;">
             <div class="controls-row">
                 <div class="control-group">
-                    <label for="list-type-filter">Type:</label>
-                    <select id="list-type-filter" onchange="applyFilters()">
-                        <option value="all">All (Buy &amp; Trade)</option>
-                        <option value="wanttobuy">Want to Buy Only</option>
-                        <option value="wantintrade">Want in Trade Only</option>
-                    </select>
-                </div>
-
-                <div class="control-group">
                     <label for="sort-select">Sort by:</label>
                     <select id="sort-select" onchange="sortGames(this.value)">
                         <option value="name">Name</option>
                         <option value="rating-desc">Rating (High to Low)</option>
                         <option value="rating-asc">Rating (Low to High)</option>
+                        <option value="myrating-desc">My Rating (High to Low)</option>
+                        <option value="myrating-asc">My Rating (Low to High)</option>
+                        <option value="plays-desc">Plays (Most to Least)</option>
+                        <option value="plays-asc">Plays (Least to Most)</option>
+                        <option value="recently-played">Most Recently Played</option>
+                        <option value="least-recently-played">Least Recently Played</option>
                         <option value="year-desc">Year (Newest First)</option>
                         <option value="year-asc">Year (Oldest First)</option>
                     </select>
@@ -78,20 +75,6 @@
                         <option value="compact">Compact</option>
                         <option value="list">List</option>
                     </select>
-                </div>
-
-                <div class="control-group">
-                    <label class="checkbox-label">
-                        <input type="checkbox" id="in-stock-only" onchange="applyFilters()">
-                        In Stock Only
-                    </label>
-                </div>
-
-                <div class="control-group">
-                    <label class="checkbox-label">
-                        <input type="checkbox" id="major-deals-only" onchange="applyFilters()">
-                        Deals
-                    </label>
                 </div>
 
                 <div class="control-group">
@@ -123,12 +106,14 @@
                 </div>
 
                 <div class="control-group">
-                    <label for="rating-filter">Rating:</label>
+                    <label for="rating-filter">BGG Rating:</label>
                     <select id="rating-filter" onchange="applyFilters()">
-                        <option value="all">All</option>
-                        <option value="8+">8.0+</option>
-                        <option value="7+">7.0+</option>
-                        <option value="6+">6.0+</option>
+                        <option value="all">All Ratings</option>
+                        <option value="8">8.0+</option>
+                        <option value="7.5">7.5+</option>
+                        <option value="7">7.0+</option>
+                        <option value="6.5">6.5+</option>
+                        <option value="6">6.0+</option>
                     </select>
                 </div>
 
@@ -140,27 +125,29 @@
                 </div>
             </div>
 
-            <div class="controls-row">
-                <div class="control-group">
-                    <label for="store-filter">Store:</label>
-                    <select id="store-filter" onchange="applyFilters()">
-                        <option value="all">All Stores</option>
-                    </select>
-                </div>
-
-                <div class="control-group">
-                    <label for="seller-filter">BGG Seller:</label>
-                    <select id="seller-filter" onchange="applyFilters()">
-                        <option value="all">All Sellers</option>
-                    </select>
-                </div>
+            <div class="results-count">
+                Showing <span id="displayed-count">0</span> of <span id="total-count">0</span> games
             </div>
         </div>
 
-        <div id="games-grid" class="games-grid"></div>
+        <main id="games-grid" class="games-grid"></main>
+
+        <footer>
+            <p>Data from BoardGameGeek | Built with Vanilla JS</p>
+        </footer>
+    </div>
+
+    <!-- Game Details Modal container -->
+    <div id="game-modal" class="game-modal" style="display: none;">
+        <div class="game-modal-overlay" onclick="closeGameModal()"></div>
+        <div class="game-modal-content">
+            <button class="game-modal-close" onclick="closeGameModal()">&times;</button>
+            <div id="game-modal-body"></div>
+        </div>
     </div>
 
     <script src="api.js"></script>
-    <script src="wanttobuy.js"></script>
+    <script src="game-details.js"></script>
+    <script src="thinkingabout.js"></script>
 </body>
 </html>
