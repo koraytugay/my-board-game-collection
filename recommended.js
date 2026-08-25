@@ -8,28 +8,24 @@ let currentViewMode = 'grid';
 let ownedThumbnailMap = new Map();
 
 const STORES = [
-    { key: 'boardGameBliss', name: 'BoardGameBliss' },
-    { key: 'fourZeroOneGames', name: '401 Games' },
-    { key: 'lvlUpGames', name: 'LVLUP Games' },
-    { key: 'asDesJeux', name: 'As des Jeux' },
-    { key: 'greatBoardgames', name: 'Great Boardgames' },
-    { key: 'meeplemart', name: 'Meeplemart' },
-    { key: 'kbHobbies', name: 'KB Hobbies' },
-    { key: 'miniatureMarket', name: 'Miniature Market' },
-    { key: 'amazonCa', name: 'Amazon.ca' },
-    { key: 'woodForSheep', name: 'Wood for Sheep' },
-    { key: 'faceToFaceGames', name: 'Face to Face' },
-    { key: 'obsidianGames', name: 'Obsidian Games' },
-    { key: 'jjCards', name: 'J&J Cards' },
-    { key: 'boardgamesCa', name: 'Boardgames.ca' },
-    { key: 'screenFreeGames', name: 'Screen Free Games' },
-    { key: 'allSystemsGo', name: 'All Systems Go' },
-    { key: 'tabletopCafe', name: 'Tabletop Cafe' },
-    { key: 'elevatedBoardGames', name: 'Elevated Board Games' },
-    { key: 'diceHollow', name: 'Dice Hollow' },
-    { key: 'buttonShyEtsy', name: 'Button Shy (Etsy)' },
-    { key: 'zatu', name: 'Zatu Games' },
-    { key: 'philibert', name: 'Philibert' },
+    { key: 'boardGameBliss', name: '🇨🇦 BoardGameBliss' },
+    { key: 'fourZeroOneGames', name: '🇨🇦 401 Games' },
+    { key: 'lvlUpGames', name: '🇨🇦 LVLUP Games' },
+    { key: 'asDesJeux', name: '🇨🇦 As des Jeux' },
+    { key: 'greatBoardgames', name: '🇨🇦 Great Boardgames' },
+    { key: 'meeplemart', name: '🇨🇦 Meeplemart' },
+    { key: 'kbHobbies', name: '🇨🇦 KB Hobbies' },
+    { key: 'amazonCa', name: '🇨🇦 Amazon.ca' },
+    { key: 'woodForSheep', name: '🇨🇦 Wood for Sheep' },
+    { key: 'faceToFaceGames', name: '🇨🇦 Face to Face' },
+    { key: 'obsidianGames', name: '🇨🇦 Obsidian Games' },
+    { key: 'jjCards', name: '🇨🇦 J&J Cards' },
+    { key: 'boardgamesCa', name: '🇨🇦 Boardgames.ca' },
+    { key: 'screenFreeGames', name: '🇨🇦 Screen Free Games' },
+    { key: 'allSystemsGo', name: '🇨🇦 All Systems Go' },
+    { key: 'tabletopCafe', name: '🇨🇦 Tabletop Cafe' },
+    { key: 'elevatedBoardGames', name: '🇨🇦 Elevated Board Games' },
+    { key: 'diceHollow', name: '🇨🇦 Dice Hollow' },
     { key: 'bggMarket', name: 'BGG Market' }
 ];
 
@@ -540,7 +536,6 @@ function createGameCard(game) {
     storeButtonsHtml += renderStoreChip(gbg, '🇨🇦 Great BG', 'greatBoardgames');
     storeButtonsHtml += renderStoreChip(meeple, '🇨🇦 Meeplemart', 'meeplemart');
     storeButtonsHtml += renderStoreChip(kbh, '🇨🇦 KB Hobbies', 'kbHobbies');
-    storeButtonsHtml += renderStoreChip(mm, '🇺🇸 Miniature Market', 'miniatureMarket');
     storeButtonsHtml += renderStoreChip(amzn, '🇨🇦 Amazon.ca', 'amazonCa');
     storeButtonsHtml += renderStoreChip(wfs, '🇨🇦 Wood for Sheep', 'woodForSheep');
     storeButtonsHtml += renderStoreChip(f2f, '🇨🇦 Face to Face', 'faceToFaceGames');
@@ -552,9 +547,6 @@ function createGameCard(game) {
     storeButtonsHtml += renderStoreChip(ttc, '🇨🇦 Tabletop Cafe', 'tabletopCafe');
     storeButtonsHtml += renderStoreChip(ebg, '🇨🇦 Elevated BG', 'elevatedBoardGames');
     storeButtonsHtml += renderStoreChip(dh, '🇨🇦 Dice Hollow', 'diceHollow');
-    storeButtonsHtml += renderStoreChip(bse, '🇺🇸 Button Shy', 'buttonShyEtsy');
-    storeButtonsHtml += renderStoreChip(zatu, '🇬🇧 Zatu Games', 'zatu');
-    storeButtonsHtml += renderStoreChip(philibert, '🇫🇷 Philibert', 'philibert');
 
     if (activeBggListings.length > 0) {
         activeBggListings.forEach(listing => {

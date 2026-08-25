@@ -294,7 +294,7 @@ function createGameCard(game) {
     const activeBggListings = getActiveBggListings(game);
     const isInStock = activeBggListings.length > 0;
 
-    let badgesHtml = '<span class="badge badge-want-trade">Want in Trade</span>';
+    let badgesHtml = '';
     if (isInStock) {
         badgesHtml += '<span class="badge badge-favorite">In Stock</span>';
     }

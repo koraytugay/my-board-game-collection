@@ -10,6 +10,28 @@ const OUTPUT_FILE = isRecommended ? 'availability-recommended.json' : (isThinkin
 const POLITENESS_DELAY_MS = parseInt(process.env.CHECK_DELAY_MS || '5000', 10);
 const MIN_PRICE_THRESHOLD = 5.0; // Ignore/treat items priced <= 5 as out of stock / erroneous match
 
+const CANADIAN_STORE_KEYS = new Set([
+    'boardGameBliss',
+    'fourZeroOneGames',
+    'lvlUpGames',
+    'asDesJeux',
+    'greatBoardgames',
+    'meeplemart',
+    'kbHobbies',
+    'amazonCa',
+    'woodForSheep',
+    'faceToFaceGames',
+    'obsidianGames',
+    'jjCards',
+    'boardgamesCa',
+    'screenFreeGames',
+    'allSystemsGo',
+    'tabletopCafe',
+    'elevatedBoardGames',
+    'diceHollow',
+    'bggMarket'
+]);
+
 function decodeXmlEntities(str) {
     if (!str) return '';
     return str
@@ -1442,6 +1464,11 @@ async function checkAvailability() {
         const skippedStores = [];
 
         for (const storeKey of storeKeys) {
+            // For Recommended Games, check ONLY Canadian stores
+            if (isRecommended && !CANADIAN_STORE_KEYS.has(storeKey)) {
+                continue;
+            }
+
             // For games that are "Want in Trade" only (not "Want to Buy"), check stock ONLY in bggMarket
             if (game.isWantInTrade && !game.isWantToBuy && storeKey !== 'bggMarket') {
                 continue;

@@ -203,7 +203,6 @@ function createGameCard(game) {
     card.onclick = () => window.open(`https://boardgamegeek.com/boardgame/${game.objectId}`, '_blank');
 
     let badgesHtml = '';
-    if (game.numPlays === 0) badgesHtml += '<span class="badge badge-unplayed">Unplayed</span>';
     if (game.minPlayers <= 1) badgesHtml += '<span class="badge badge-solo">Solo</span>';
     if (game.rating >= 8) badgesHtml += '<span class="badge badge-highly-rated">Highly Rated</span>';
     if (game.myRating >= 9) badgesHtml += '<span class="badge badge-favorite">Favorite</span>';

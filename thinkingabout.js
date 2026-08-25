@@ -314,7 +314,7 @@ function createGameCard(game) {
     const inStock = isGameInStockAtAnyStore(game);
     const hasDeal = hasGameMajorDeal(game);
 
-    let badgesHtml = '<span class="badge badge-favorite">Thinking About It</span>';
+    let badgesHtml = '';
     if (inStock) badgesHtml += '<span class="badge badge-instock" style="background:#c6f6d5; color:#22543d;">In Stock</span>';
     if (hasDeal) badgesHtml += '<span class="badge badge-deal" style="background:#feebc8; color:#7b341e;">🔥 Deal</span>';
     if (game.minPlayers <= 1) badgesHtml += '<span class="badge badge-solo">Solo</span>';
