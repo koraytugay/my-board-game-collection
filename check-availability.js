@@ -1024,10 +1024,18 @@ async function checkChaosCardsStock(gameName) {
         const match = await page.evaluate((targetName) => {
             const clean = (s) => (s || '').toLowerCase().replace(/[^a-z0-9]/g, '');
             const targetClean = clean(targetName);
+            const disallowedKeywords = ['led', 'leds', 'paint', 'sleeves', 'brush', 'dice', 'mat', 'tokens', 'coins', 'booster', 'binder', 'deck box', 'album', 'case', 'marker', 'bits'];
             const items = [];
             document.querySelectorAll('a[href*="-p"], a[href*="/products/"], a[href*="/shop/board-games/"]').forEach(a => {
                 const title = a.innerText.trim();
-                if (title && clean(title).includes(targetClean)) {
+                const lowerTitle = title.toLowerCase();
+                if (disallowedKeywords.some(kw => lowerTitle.includes(kw) && !targetName.toLowerCase().includes(kw))) {
+                    return;
+                }
+                const nTitle = clean(title);
+                const isExact = nTitle === targetClean;
+                const isWordMatch = targetClean.length > 5 && nTitle.includes(targetClean);
+                if (isExact || isWordMatch) {
                     const parent = a.closest('.product, .item, li, div') || a;
                     const priceMatch = parent.innerText.match(/£\s*([0-9]+(?:\.[0-9]{2})?)/);
                     const isOos = parent.innerText.toLowerCase().includes('out of stock');
