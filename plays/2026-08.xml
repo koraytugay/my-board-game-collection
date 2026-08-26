@@ -468,6 +468,7 @@
 			<item name="Magic Maze Tower" objecttype="thing" objectid="396749">
 				<subtypes>
 										<subtype value="boardgame" />
+										<subtype value="boardgamecompilation" />
 										<subtype value="boardgameimplementation" />
 									</subtypes>
 			</item>
