@@ -34,6 +34,7 @@ jobs:
         env:
           ICLOUD_EMAIL: ${{ secrets.ICLOUD_EMAIL }}
           ICLOUD_APP_PASSWORD: ${{ secrets.ICLOUD_APP_PASSWORD }}
+          NOTIFICATION_EMAIL: ${{ secrets.NOTIFICATION_EMAIL }}
           ETSY_API_KEY: ${{ secrets.ETSY_API_KEY }}
         run: |
           node check-availability.js --thinking-about
@@ -59,3 +60,13 @@ jobs:
 
           git commit -m "chore: update thinking about game availability ($(date -u +%F))"
           git push
+
+      - name: Send Run Notification on Failure
+        if: failure()
+        env:
+          ICLOUD_EMAIL: ${{ secrets.ICLOUD_EMAIL }}
+          ICLOUD_APP_PASSWORD: ${{ secrets.ICLOUD_APP_PASSWORD }}
+          NOTIFICATION_EMAIL: ${{ secrets.NOTIFICATION_EMAIL }}
+          JOB_STATUS: ${{ job.status }}
+        run: node notify-run-status.js
+

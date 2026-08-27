@@ -34,6 +34,7 @@ jobs:
         env:
           ICLOUD_EMAIL: ${{ secrets.ICLOUD_EMAIL }}
           ICLOUD_APP_PASSWORD: ${{ secrets.ICLOUD_APP_PASSWORD }}
+          NOTIFICATION_EMAIL: ${{ secrets.NOTIFICATION_EMAIL }}
         run: |
           node notify-availability.js --recommended --daily-summary
 
@@ -54,3 +55,13 @@ jobs:
 
           git commit -m "chore: update notified snapshot for recommended games ($(date -u +%F))"
           git push
+
+      - name: Send Run Notification on Failure
+        if: failure()
+        env:
+          ICLOUD_EMAIL: ${{ secrets.ICLOUD_EMAIL }}
+          ICLOUD_APP_PASSWORD: ${{ secrets.ICLOUD_APP_PASSWORD }}
+          NOTIFICATION_EMAIL: ${{ secrets.NOTIFICATION_EMAIL }}
+          JOB_STATUS: ${{ job.status }}
+        run: node notify-run-status.js
+
