@@ -2,8 +2,8 @@ name: Update Game Recommendations
 
 on:
   schedule:
-    # Runs every day at 12:00 UTC
-    - cron: "0 12 * * *"
+    # Runs every day at 12:20 UTC
+    - cron: "20 12 * * *"
   workflow_dispatch:
 
 permissions:

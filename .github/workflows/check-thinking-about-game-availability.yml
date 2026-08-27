@@ -2,8 +2,8 @@ name: Check Thinking About Game Availability
 
 on:
   schedule:
-    # Runs daily at 11:00 PM Toronto Time (03:00 UTC)
-    - cron: "0 3 * * *"
+    # Runs daily at 11:20 PM Toronto Time (03:20 UTC)
+    - cron: "20 3 * * *"
   workflow_dispatch:
 
 permissions:

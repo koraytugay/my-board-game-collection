@@ -2,8 +2,8 @@ name: Check Game Availability
 
 on:
   schedule:
-    # Runs daily at 6:00 AM and 1:00 PM Toronto Time (10:00 & 17:00 UTC)
-    - cron: "0 10,17 * * *"
+    # Runs daily at 6:20 AM and 1:20 PM Toronto Time (10:20 & 17:20 UTC)
+    - cron: "20 10,17 * * *"
   workflow_dispatch:
 
 permissions:
