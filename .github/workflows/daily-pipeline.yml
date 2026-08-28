@@ -1,0 +1,228 @@
+name: Daily Board Game Pipeline
+
+on:
+  schedule:
+    # Runs daily at 12:20 AM Toronto Time (04:20 UTC)
+    - cron: "20 4 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-board-game-pipeline
+  cancel-in-progress: false
+
+jobs:
+  pipeline:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      # ----------------------------------------------------
+      # Stage 1: Update BGG Collection, Plays & Designers
+      # ----------------------------------------------------
+      - name: 1. Update BGG Collection, Plays & Designers
+        env:
+          BGG_USER: koraytugay
+          BGG_PASSWORD: ${{ secrets.BGG_PASSWORD }}
+        run: |
+          echo "Fetching BGG Collection and Plays..."
+          node fetch-bgg.js
+          echo "Downloading new game images..."
+          node download-images.js
+          echo "Fetching game designer metadata..."
+          node fetch-designers.js
+
+      - name: Commit & Push BGG Updates
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase --autostash origin ${{ github.ref_name }}
+          git add collection.xml plays/ images/ designers.json
+          if ! git diff --quiet --staged; then
+            git commit -m "chore: update collection, plays & designers ($(date -u +%F))"
+            git push
+          else
+            echo "No BGG collection changes to commit."
+          fi
+
+      - name: Notify BGG Sync Success
+        if: success()
+        env:
+          ICLOUD_EMAIL: ${{ secrets.ICLOUD_EMAIL }}
+          ICLOUD_APP_PASSWORD: ${{ secrets.ICLOUD_APP_PASSWORD }}
+          NOTIFICATION_EMAIL: ${{ secrets.NOTIFICATION_EMAIL }}
+        run: node notify-run-status.js --workflow="1. BGG Collection & Plays" --status="success" --message="Successfully synced collection, logged plays, images, and designers from BoardGameGeek."
+
+      # ----------------------------------------------------
+      # Stage 2: Generate Fresh Game Recommendations
+      # ----------------------------------------------------
+      - name: 2. Generate Game Recommendations
+        run: |
+          echo "Calculating recommendations based on latest collection & plays..."
+          node generate-recommendations.js
+
+      - name: Commit & Push Recommendations
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase --autostash origin ${{ github.ref_name }}
+          git add recommendations.json bgg-recs-cache.json images/
+          if ! git diff --quiet --staged; then
+            git commit -m "chore: update game recommendations ($(date -u +%F))"
+            git push
+          else
+            echo "No recommendations changes to commit."
+          fi
+
+      - name: Notify Recommendations Success
+        if: success()
+        env:
+          ICLOUD_EMAIL: ${{ secrets.ICLOUD_EMAIL }}
+          ICLOUD_APP_PASSWORD: ${{ secrets.ICLOUD_APP_PASSWORD }}
+          NOTIFICATION_EMAIL: ${{ secrets.NOTIFICATION_EMAIL }}
+        run: node notify-run-status.js --workflow="2. Game Recommendations" --status="success" --message="Successfully re-calculated recommendations based on latest plays and ratings."
+
+      # ----------------------------------------------------
+      # Stage 3: Check Want to Buy Store Availability
+      # ----------------------------------------------------
+      - name: 3. Check Want to Buy Availability & Send Stock Alerts
+        env:
+          ICLOUD_EMAIL: ${{ secrets.ICLOUD_EMAIL }}
+          ICLOUD_APP_PASSWORD: ${{ secrets.ICLOUD_APP_PASSWORD }}
+          NOTIFICATION_EMAIL: ${{ secrets.NOTIFICATION_EMAIL }}
+          ETSY_API_KEY: ${{ secrets.ETSY_API_KEY }}
+        run: |
+          echo "Checking store availability for Want to Buy games..."
+          node check-availability.js
+          echo "Starting second pass retry for any failed/timed-out requests..."
+          node check-availability.js
+          echo "Sending stock alert notifications if changes found..."
+          node notify-availability.js
+
+      - name: Commit & Push Want to Buy Availability
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase --autostash origin ${{ github.ref_name }}
+          git add availability.json last-notified-availability.json
+          if ! git diff --quiet --staged; then
+            git commit -m "chore: update wanted game availability ($(date -u +%F))"
+            git push
+          else
+            echo "No wanted game availability changes to commit."
+          fi
+
+      - name: Notify Want to Buy Check Success
+        if: success()
+        env:
+          ICLOUD_EMAIL: ${{ secrets.ICLOUD_EMAIL }}
+          ICLOUD_APP_PASSWORD: ${{ secrets.ICLOUD_APP_PASSWORD }}
+          NOTIFICATION_EMAIL: ${{ secrets.NOTIFICATION_EMAIL }}
+        run: node notify-run-status.js --workflow="3. Want to Buy Availability" --status="success" --message="Completed stock and price checks for Want to Buy games."
+
+      # ----------------------------------------------------
+      # Stage 4: Check Thinking About Store Availability
+      # ----------------------------------------------------
+      - name: 4. Check Thinking About Availability & Send Stock Alerts
+        env:
+          ICLOUD_EMAIL: ${{ secrets.ICLOUD_EMAIL }}
+          ICLOUD_APP_PASSWORD: ${{ secrets.ICLOUD_APP_PASSWORD }}
+          NOTIFICATION_EMAIL: ${{ secrets.NOTIFICATION_EMAIL }}
+          ETSY_API_KEY: ${{ secrets.ETSY_API_KEY }}
+        run: |
+          echo "Checking store availability for Thinking About games..."
+          node check-availability.js --thinking-about
+          echo "Starting second pass retry for any failed/timed-out requests..."
+          node check-availability.js --thinking-about
+          echo "Sending stock alert notifications if changes found..."
+          node notify-availability.js --thinking-about
+
+      - name: Commit & Push Thinking About Availability
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase --autostash origin ${{ github.ref_name }}
+          git add availability-thinkingabout.json last-notified-availability-thinkingabout.json
+          if ! git diff --quiet --staged; then
+            git commit -m "chore: update thinking about availability ($(date -u +%F))"
+            git push
+          else
+            echo "No thinking about availability changes to commit."
+          fi
+
+      - name: Notify Thinking About Check Success
+        if: success()
+        env:
+          ICLOUD_EMAIL: ${{ secrets.ICLOUD_EMAIL }}
+          ICLOUD_APP_PASSWORD: ${{ secrets.ICLOUD_APP_PASSWORD }}
+          NOTIFICATION_EMAIL: ${{ secrets.NOTIFICATION_EMAIL }}
+        run: node notify-run-status.js --workflow="4. Thinking About Availability" --status="success" --message="Completed stock and price checks for Thinking About games."
+
+      # ----------------------------------------------------
+      # Stage 5: Check All Recommended Games Availability & Send Daily Summary
+      # ----------------------------------------------------
+      - name: 5. Check Recommended Games Availability & Send Daily Summary
+        env:
+          ICLOUD_EMAIL: ${{ secrets.ICLOUD_EMAIL }}
+          ICLOUD_APP_PASSWORD: ${{ secrets.ICLOUD_APP_PASSWORD }}
+          NOTIFICATION_EMAIL: ${{ secrets.NOTIFICATION_EMAIL }}
+          ETSY_API_KEY: ${{ secrets.ETSY_API_KEY }}
+        run: |
+          echo "Checking store availability across all recommended games..."
+          node check-availability.js --recommended --start=0 --end=all
+          echo "Starting second pass retry for any failed/timed-out requests..."
+          node check-availability.js --recommended --start=0 --end=all
+          echo "Sending daily recommended games stock summary email..."
+          node notify-availability.js --recommended --daily-summary
+
+      - name: Commit & Push Recommended Games Availability & Snapshot
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase --autostash origin ${{ github.ref_name }}
+          git add availability-recommended.json last-notified-availability-recommended.json
+          if ! git diff --quiet --staged; then
+            git commit -m "chore: update recommended game availability ($(date -u +%F))"
+            git push
+          else
+            echo "No recommended game availability changes to commit."
+          fi
+
+      - name: Notify Recommended Games Check Success
+        if: success()
+        env:
+          ICLOUD_EMAIL: ${{ secrets.ICLOUD_EMAIL }}
+          ICLOUD_APP_PASSWORD: ${{ secrets.ICLOUD_APP_PASSWORD }}
+          NOTIFICATION_EMAIL: ${{ secrets.NOTIFICATION_EMAIL }}
+        run: node notify-run-status.js --workflow="5. Recommended Games Availability" --status="success" --message="Completed full availability check and sent daily recommendation summary email."
+
+      # ----------------------------------------------------
+      # Pipeline Failure Notification
+      # ----------------------------------------------------
+      - name: Send Failure Notification
+        if: failure()
+        env:
+          ICLOUD_EMAIL: ${{ secrets.ICLOUD_EMAIL }}
+          ICLOUD_APP_PASSWORD: ${{ secrets.ICLOUD_APP_PASSWORD }}
+          NOTIFICATION_EMAIL: ${{ secrets.NOTIFICATION_EMAIL }}
+          JOB_STATUS: ${{ job.status }}
+        run: node notify-run-status.js --workflow="Daily Board Game Pipeline" --status="failure" --message="Pipeline encountered an error during execution. Please check the run logs."
