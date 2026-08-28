@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-28T12:38:03.910Z",
+  "generatedAt": "2026-08-28T20:01:13.450Z",
   "total": 400,
   "recommendations": [
     {
@@ -337,7 +337,10 @@
           "contributionScore": 0.93
         }
       ],
-      "matchScore": 66
+      "matchScore": 66,
+      "minPlayers": 3,
+      "maxPlayers": 8,
+      "playingTime": 40
     },
     {
       "objectId": "287954",
@@ -2247,54 +2250,6 @@
       "playingTime": 20
     },
     {
-      "objectId": "258779",
-      "name": "Planet Unknown",
-      "yearPublished": "2022",
-      "bggRating": 7.76,
-      "bggRank": 167,
-      "numVoters": 14570,
-      "numFans": 1388,
-      "coverUrl": "https://cf.geekdo-images.com/3HkjDovk8Yr2wMumcSUGog__square100@2x/img/Us0poh6EHdREyCok1DMSHPItZhA=/200x200/filters:strip_icc()/pic4843622.jpg",
-      "thumbnail": "images/thumbnails/258779.jpg",
-      "image": "images/full/258779.jpg",
-      "description": "Develop and colonize your planet with oddly shaped tiles served on a rotating tray.",
-      "rawScore": 5.689650666723588,
-      "recommendedBy": [
-        {
-          "ownedId": "295947",
-          "ownedName": "Cascadia",
-          "userRating": 8,
-          "bggRecRank": 10,
-          "contributionScore": 2.02
-        },
-        {
-          "ownedId": "373106",
-          "ownedName": "Sky Team",
-          "userRating": 8,
-          "bggRecRank": 23,
-          "contributionScore": 1.33
-        },
-        {
-          "ownedId": "365258",
-          "ownedName": "World Wonders",
-          "userRating": 7,
-          "bggRecRank": 14,
-          "contributionScore": 1.31
-        },
-        {
-          "ownedId": "263918",
-          "ownedName": "Cartographers",
-          "userRating": 7,
-          "bggRecRank": 23,
-          "contributionScore": 1.02
-        }
-      ],
-      "matchScore": 10.7,
-      "minPlayers": 1,
-      "maxPlayers": 6,
-      "playingTime": 80
-    },
-    {
       "objectId": "198773",
       "name": "Codenames: Pictures",
       "yearPublished": "2016",
@@ -2449,47 +2404,6 @@
       "matchScore": 9.9,
       "minPlayers": 1,
       "maxPlayers": 5,
-      "playingTime": 75
-    },
-    {
-      "objectId": "342070",
-      "name": "Thunder Road: Vendetta",
-      "yearPublished": "2023",
-      "bggRating": 7.89,
-      "bggRank": 223,
-      "numVoters": 8492,
-      "numFans": 1181,
-      "coverUrl": "https://cf.geekdo-images.com/l0bFsrGy_cfKRK6YW_dG-g__square100@2x/img/dAwn_Q-Urjp-0ZtJCtLgCv6pYQI=/150x0:1309x1159/200x200/filters:strip_icc()/pic8586892.png",
-      "thumbnail": "images/thumbnails/342070.png",
-      "image": "images/full/342070.png",
-      "description": "Crews race and shoot to win the race... or be the last car standing.",
-      "rawScore": 5.87864195605507,
-      "recommendedBy": [
-        {
-          "ownedId": "304285",
-          "ownedName": "Infinity Gauntlet: A Love Letter Game",
-          "userRating": 10,
-          "bggRecRank": 23,
-          "contributionScore": 2.09
-        },
-        {
-          "ownedId": "359152",
-          "ownedName": "Marvel: Remix",
-          "userRating": 9,
-          "bggRecRank": 28,
-          "contributionScore": 1.53
-        },
-        {
-          "ownedId": "353470",
-          "ownedName": "Star Wars: Jabba&#039;s Palace – A Love Letter Game",
-          "userRating": 8,
-          "bggRecRank": 8,
-          "contributionScore": 2.26
-        }
-      ],
-      "matchScore": 9.7,
-      "minPlayers": 2,
-      "maxPlayers": 4,
       "playingTime": 75
     },
     {
@@ -13108,6 +13022,60 @@
       "minPlayers": 2,
       "maxPlayers": 4,
       "playingTime": 25
+    },
+    {
+      "objectId": "377716",
+      "name": "Couture",
+      "yearPublished": "2023",
+      "bggRating": 6.79,
+      "bggRank": 4075,
+      "numVoters": 965,
+      "numFans": 62,
+      "coverUrl": "https://cf.geekdo-images.com/WqOnkBmZQPrP_ad6Q38q1A__square100@2x/img/Y7N89qUKqTAMqcylfTLVCwI3LPY=/200x200/filters:strip_icc()/pic7266992.png",
+      "thumbnail": "images/thumbnails/377716.png",
+      "image": "images/full/377716.png",
+      "description": "Hit the fashion runways of NYC, Paris & Tokyo in a game of simultaneous auctions!",
+      "rawScore": 1.2800000000000002,
+      "recommendedBy": [
+        {
+          "ownedId": "400113",
+          "ownedName": "Panda Panda",
+          "userRating": 8,
+          "bggRecRank": 25,
+          "contributionScore": 1.28
+        }
+      ],
+      "matchScore": 1.2,
+      "minPlayers": 3,
+      "maxPlayers": 6,
+      "playingTime": 20
+    },
+    {
+      "objectId": "281619",
+      "name": "Ghosts of Christmas",
+      "yearPublished": "2019",
+      "bggRating": 7.07,
+      "bggRank": 2586,
+      "numVoters": 1543,
+      "numFans": 107,
+      "coverUrl": "https://cf.geekdo-images.com/qDnW3_EgahWDQP28JKnmFg__square100@2x/img/rhvKr83GFlxLZJUGG7zM-wZL_zc=/200x200/filters:strip_icc()/pic6060136.jpg",
+      "thumbnail": "images/thumbnails/281619.jpg",
+      "image": "images/full/281619.jpg",
+      "description": "Play in the past, present and future all at once in this tricky card game!",
+      "rawScore": 1.255143264884378,
+      "recommendedBy": [
+        {
+          "ownedId": "400113",
+          "ownedName": "Panda Panda",
+          "userRating": 8,
+          "bggRecRank": 26,
+          "contributionScore": 1.26
+        }
+      ],
+      "matchScore": 1.2,
+      "minPlayers": 3,
+      "maxPlayers": 4,
+      "playingTime": 40
     }
   ]
 }
