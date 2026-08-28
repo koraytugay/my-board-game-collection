@@ -5,7 +5,6 @@ let filteredGames = [];
 let currentSort = 'name';
 let currentViewMode = 'grid';
 let skippedSellers = new Set();
-let ownedThumbnailMap = new Map();
 
 const STORES = [
     { key: 'boardGameBliss', name: '🇨🇦 BoardGameBliss' },
@@ -229,9 +228,8 @@ function populateDesignerFilter() {
     const currentValue = designerSelect.value;
     designerSelect.innerHTML = '<option value="all">All Designers</option>';
 
-    const pool = getActivePool();
     const designerCountMap = new Map();
-    pool.forEach(game => {
+    allGames.forEach(game => {
         const designers = game.designers || [];
         designers.forEach(d => {
             if (d && d !== '(Uncredited)') {
