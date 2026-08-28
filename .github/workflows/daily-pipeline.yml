@@ -2,8 +2,8 @@ name: Daily Board Game Pipeline
 
 on:
   schedule:
-    # Runs daily at 12:20 AM Toronto Time (04:20 UTC)
-    - cron: "20 4 * * *"
+    # Runs at 6:00 AM, 10:00 AM, 2:00 PM, 6:00 PM, 9:00 PM Toronto Time (EDT: 10:00, 14:00, 18:00, 22:00, 01:00 UTC)
+    - cron: "0 1,10,14,18,22 * * *"
   workflow_dispatch:
 
 permissions:

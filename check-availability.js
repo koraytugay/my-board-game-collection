@@ -1769,8 +1769,20 @@ async function checkAvailability() {
             const config = storeConfigs[storeKey];
             const existingStoreData = existingData[game.objectId]?.[storeKey];
 
+            // Determine if previous check found the game in stock
+            let wasAvailable = Boolean(existingStoreData?.available);
+            if (wasAvailable && isPriceUnderThreshold(existingStoreData?.price)) {
+                wasAvailable = false;
+            }
+            if (wasAvailable && Array.isArray(existingStoreData?.listings)) {
+                const activeListings = existingStoreData.listings.filter(l => !l.ignored && !isPriceUnderThreshold(l.price));
+                if (activeListings.length === 0) wasAvailable = false;
+            }
+
+            // Only skip fetching if the game was ALREADY IN STOCK and checked within the last 6 hours.
+            // Out-of-stock store/game tuples are ALWAYS checked on every run.
             let shouldFetch = true;
-            if (existingStoreData && existingStoreData.lastChecked && existingStoreData.lastCheckSuccess !== false) {
+            if (wasAvailable && existingStoreData.lastChecked && existingStoreData.lastCheckSuccess !== false) {
                 const lastCheckedTime = new Date(existingStoreData.lastChecked).getTime();
                 const sixHoursAgo = Date.now() - (6 * 60 * 60 * 1000);
                 if (lastCheckedTime > sixHoursAgo) {
@@ -1901,7 +1913,7 @@ async function checkAvailability() {
         if (game.isWantInTrade && !game.isWantToBuy) {
             console.log(`[${i+1}/${wantedGames.length}] "${game.name}" (Want in Trade only): Checking BGG Market only...`);
         } else if (skippedStores.length > 0) {
-            console.log(`[${i+1}/${wantedGames.length}] "${game.name}": skipped ${skippedStores.length} stores checked within 6 hours. Checking remaining ${fetchPromises.length} stores...`);
+            console.log(`[${i+1}/${wantedGames.length}] "${game.name}": skipped ${skippedStores.length} in-stock stores checked within 6 hours. Checking remaining ${fetchPromises.length} stores...`);
         } else {
             console.log(`[${i+1}/${wantedGames.length}] "${game.name}": Checking all ${storeKeys.length} stores...`);
         }
