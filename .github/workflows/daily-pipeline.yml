@@ -110,6 +110,8 @@ jobs:
         run: |
           echo "Checking store availability for Want to Buy games..."
           node check-availability.js
+          echo "Pausing 15s before second pass retry..."
+          sleep 15
           echo "Starting second pass retry for any failed/timed-out requests..."
           node check-availability.js
           echo "Sending stock alert notifications if changes found..."
@@ -147,8 +149,12 @@ jobs:
           NOTIFICATION_EMAIL: ${{ secrets.NOTIFICATION_EMAIL }}
           ETSY_API_KEY: ${{ secrets.ETSY_API_KEY }}
         run: |
+          echo "Pausing 30s before Thinking About checks to maintain healthy rate limits..."
+          sleep 30
           echo "Checking store availability for Thinking About games..."
           node check-availability.js --thinking-about
+          echo "Pausing 15s before second pass retry..."
+          sleep 15
           echo "Starting second pass retry for any failed/timed-out requests..."
           node check-availability.js --thinking-about
           echo "Sending stock alert notifications if changes found..."
@@ -175,45 +181,6 @@ jobs:
           ICLOUD_APP_PASSWORD: ${{ secrets.ICLOUD_APP_PASSWORD }}
           NOTIFICATION_EMAIL: ${{ secrets.NOTIFICATION_EMAIL }}
         run: node notify-run-status.js --workflow="4. Thinking About Availability" --status="success" --message="Completed stock and price checks for Thinking About games."
-
-      # ----------------------------------------------------
-      # Stage 5: Check All Recommended Games Availability & Send Daily Summary
-      # ----------------------------------------------------
-      - name: 5. Check Recommended Games Availability & Send Daily Summary
-        env:
-          ICLOUD_EMAIL: ${{ secrets.ICLOUD_EMAIL }}
-          ICLOUD_APP_PASSWORD: ${{ secrets.ICLOUD_APP_PASSWORD }}
-          NOTIFICATION_EMAIL: ${{ secrets.NOTIFICATION_EMAIL }}
-          ETSY_API_KEY: ${{ secrets.ETSY_API_KEY }}
-        run: |
-          echo "Checking store availability across all recommended games..."
-          node check-availability.js --recommended --start=0 --end=all
-          echo "Starting second pass retry for any failed/timed-out requests..."
-          node check-availability.js --recommended --start=0 --end=all
-          echo "Sending daily recommended games stock summary email..."
-          node notify-availability.js --recommended --daily-summary
-
-      - name: Commit & Push Recommended Games Availability & Snapshot
-        run: |
-          set -euo pipefail
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git pull --rebase --autostash origin ${{ github.ref_name }}
-          git add availability-recommended.json last-notified-availability-recommended.json
-          if ! git diff --quiet --staged; then
-            git commit -m "chore: update recommended game availability ($(date -u +%F))"
-            git push
-          else
-            echo "No recommended game availability changes to commit."
-          fi
-
-      - name: Notify Recommended Games Check Success
-        if: success()
-        env:
-          ICLOUD_EMAIL: ${{ secrets.ICLOUD_EMAIL }}
-          ICLOUD_APP_PASSWORD: ${{ secrets.ICLOUD_APP_PASSWORD }}
-          NOTIFICATION_EMAIL: ${{ secrets.NOTIFICATION_EMAIL }}
-        run: node notify-run-status.js --workflow="5. Recommended Games Availability" --status="success" --message="Completed full availability check and sent daily recommendation summary email."
 
       # ----------------------------------------------------
       # Pipeline Failure Notification

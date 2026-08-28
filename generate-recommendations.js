@@ -91,7 +91,7 @@ function normalizeTitle(title) {
 }
 
 /**
- * Extract owned games, rated games, and excluded games (owned, want to play, want to buy, wishlist priority 5 "Don't Buy", or prevowned)
+ * Extract owned games, rated games, and excluded games (owned, want to play, want to buy, want in trade, wishlist, wishlist priority 5 "Don't Buy", preordered, or prevowned)
  */
 function getCollectionData() {
     if (!fs.existsSync(COLLECTION_FILE)) {
@@ -115,22 +115,34 @@ function getCollectionData() {
         const isOwned = /<status\b[^>]*own="1"/.test(itemBody);
         const isWantToPlay = /<status\b[^>]*wanttoplay="1"/.test(itemBody);
         const isWantToBuy = /<status\b[^>]*wanttobuy="1"/.test(itemBody);
+        const isWantInTrade = /<status\b[^>]*want="1"/.test(itemBody);
         const isWishlist = /<status\b[^>]*wishlist="1"/.test(itemBody);
         const isWishlist5 = /<status\b[^>]*wishlistpriority="5"/.test(itemBody);
         const isPrevOwned = /<status\b[^>]*prevowned="1"/.test(itemBody);
+        const isPreordered = /<status\b[^>]*preordered="1"/.test(itemBody);
 
-        if (idMatch && (isOwned || isWantToPlay || isWantToBuy || isWishlist || isWishlist5 || isPrevOwned)) {
+        const isExcluded = isOwned || isWantToPlay || isWantToBuy || isWantInTrade || isWishlist || isWishlist5 || isPrevOwned || isPreordered;
+
+        if (idMatch && isExcluded) {
             const objectId = idMatch[1];
             const subtype = subtypeMatch ? subtypeMatch[1] : 'boardgame';
             excludedIds.add(objectId);
 
             const nameMatch = /<name\b[^>]*>([^<]+)<\/name>/.exec(itemBody);
             if (nameMatch && nameMatch[1]) {
-                const normName = normalizeTitle(nameMatch[1]);
+                const rawName = nameMatch[1];
+                const normName = normalizeTitle(rawName);
                 if (normName) excludedNames.add(normName);
 
+                // Also exclude base title if title has a colon / subtitle
+                if (rawName.includes(':')) {
+                    const basePart = rawName.split(':')[0].trim();
+                    const normBase = normalizeTitle(basePart);
+                    if (normBase) excludedNames.add(normBase);
+                }
+
                 if (isOwned && subtype === 'boardgame') {
-                    const name = nameMatch[1].trim();
+                    const name = rawName.trim();
                     const ratingMatch = /<rating\b[^>]*value="([^"]+)"/.exec(itemBody);
                     let userRating = 0.0;
                     if (ratingMatch && ratingMatch[1] && ratingMatch[1] !== 'N/A') {
@@ -152,7 +164,7 @@ function getCollectionData() {
 async function generateRecommendations() {
     console.log('--- Generating Game Recommendations ---');
     const { excludedIds, excludedNames, ratedOwnedGames } = getCollectionData();
-    console.log(`Found ${excludedIds.size} excluded IDs/titles (owned, wanttoplay, wanttobuy, wishlist priority 5, or prevowned). ${ratedOwnedGames.length} owned board games rated >= 5.0.`);
+    console.log(`Found ${excludedIds.size} excluded IDs/titles (owned, want in trade, wanttoplay, wanttobuy, wishlist, preordered, or prevowned). ${ratedOwnedGames.length} owned board games rated >= 5.0.`);
 
     if (ratedOwnedGames.length === 0) {
         fs.writeFileSync(OUTPUT_FILE, JSON.stringify({ generatedAt: new Date().toISOString(), total: 0, recommendations: [] }, null, 2));

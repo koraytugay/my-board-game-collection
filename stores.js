@@ -145,12 +145,6 @@ function isGameSoldBySeller(game, sellerName) {
     return listings.some(l => (l.seller || '').toLowerCase() === sellerName.toLowerCase());
 }
 
-function getActivePool() {
-    const includeRecCheckbox = document.getElementById('include-recommended');
-    const includeRec = includeRecCheckbox ? includeRecCheckbox.checked : false;
-    return includeRec ? allGames : allGames.filter(g => g.isWantToBuy);
-}
-
 function populateStoreFilter() {
     const storeSelect = document.getElementById('store-filter');
     if (!storeSelect) return;
@@ -158,10 +152,9 @@ function populateStoreFilter() {
     const currentValue = storeSelect.value;
     storeSelect.innerHTML = '<option value="all">All Stores</option>';
 
-    const pool = getActivePool();
     const storesWithStock = [];
     STORES.filter(s => s.key !== 'bggMarket').forEach(store => {
-        const inStockCount = pool.filter(game => isGameInStockAtStore(game, store.key)).length;
+        const inStockCount = allGames.filter(game => isGameInStockAtStore(game, store.key)).length;
         if (inStockCount > 0) {
             storesWithStock.push({
                 ...store,
@@ -193,9 +186,8 @@ function populateSellerFilter() {
     const currentValue = sellerSelect.value;
     sellerSelect.innerHTML = '<option value="all">All Sellers</option>';
 
-    const pool = getActivePool();
     const sellerCountMap = new Map();
-    pool.forEach(game => {
+    allGames.forEach(game => {
         const listings = getActiveBggListings(game);
         const seenForThisGame = new Set();
         listings.forEach(l => {
@@ -291,13 +283,6 @@ function onSellerFilterChange() {
     applyFilters();
 }
 
-function onIncludeRecommendedChange() {
-    populateStoreFilter();
-    populateSellerFilter();
-    populateDesignerFilter();
-    applyFilters();
-}
-
 async function fetchAllStoreGames() {
     const loadingEl = document.getElementById('loading');
     const errorEl = document.getElementById('error');
@@ -306,35 +291,23 @@ async function fetchAllStoreGames() {
     try {
         const [
             wtbCollection,
-            recData,
             wtbAvail,
-            recAvail,
             designersRes,
-            skippedSellersData,
-            fullCollection
+            skippedSellersData
         ] = await Promise.all([
             getCollection('wanttobuy').catch(err => { console.warn('WTB collection load error:', err); return []; }),
-            fetch('recommendations.json').then(res => res.ok ? res.json() : { recommendations: [] }).catch(() => ({ recommendations: [] })),
             fetch('availability.json').then(res => res.ok ? res.json() : {}).catch(() => ({})),
-            fetch('availability-recommended.json').then(res => res.ok ? res.json() : {}).catch(() => ({})),
             fetch('designers.json').then(res => res.ok ? res.json() : {}).catch(() => ({})),
-            fetch('skipped-sellers.json').then(res => res.ok ? res.json() : []).catch(() => []),
-            getCollection(false).catch(() => [])
+            fetch('skipped-sellers.json').then(res => res.ok ? res.json() : []).catch(() => [])
         ]);
 
         if (Array.isArray(skippedSellersData)) {
             skippedSellersData.forEach(s => skippedSellers.add(String(s).toLowerCase()));
         }
 
-        if (Array.isArray(fullCollection)) {
-            fullCollection.forEach(item => {
-                ownedThumbnailMap.set(String(item.objectId), item.thumbnail || item.image);
-            });
-        }
-
         const gameMap = new Map();
 
-        // 1. Want to Buy Games
+        // Want to Buy Games
         wtbCollection.forEach(game => {
             const id = String(game.objectId);
             const designers = designersRes[id]?.designers || [];
@@ -354,68 +327,8 @@ async function fetchAllStoreGames() {
                 comment: game.comment || '',
                 designers: designers,
                 isWantToBuy: true,
-                isRecommended: false,
-                matchScore: 0,
-                recommendedBy: [],
                 availability: JSON.parse(JSON.stringify(avail))
             });
-        });
-
-        // 2. Recommended Games
-        (recData.recommendations || []).forEach(rec => {
-            const id = String(rec.objectId);
-            const designers = designersRes[id]?.designers || [];
-            const avail = recAvail[id] || {};
-
-            if (gameMap.has(id)) {
-                const existing = gameMap.get(id);
-                existing.isRecommended = true;
-                existing.matchScore = rec.matchScore || existing.matchScore;
-                existing.recommendedBy = rec.recommendedBy || existing.recommendedBy;
-                if (!existing.designers || existing.designers.length === 0) existing.designers = designers;
-
-                // Merge store availability
-                for (const [storeKey, storeData] of Object.entries(avail)) {
-                    if (storeKey === 'bggMarket') {
-                        const existingBgg = existing.availability.bggMarket || { available: false, listings: [] };
-                        const existingListings = existingBgg.listings || [];
-                        const newListings = storeData.listings || (storeData.available ? [storeData] : []);
-                        const seenUrls = new Set(existingListings.map(l => l.url));
-                        newListings.forEach(l => {
-                            if (l.url && !seenUrls.has(l.url)) {
-                                existingListings.push(l);
-                                seenUrls.add(l.url);
-                            }
-                        });
-                        existing.availability.bggMarket = {
-                            available: existingListings.length > 0,
-                            listings: existingListings
-                        };
-                    } else if (storeData.available) {
-                        existing.availability[storeKey] = storeData;
-                    }
-                }
-            } else {
-                gameMap.set(id, {
-                    objectId: id,
-                    name: rec.name || 'Unknown Game',
-                    yearPublished: rec.yearPublished || 'N/A',
-                    thumbnail: rec.thumbnail || rec.coverUrl || '',
-                    image: rec.image || rec.thumbnail || rec.coverUrl || '',
-                    minPlayers: rec.minPlayers || 0,
-                    maxPlayers: rec.maxPlayers || 0,
-                    playingTime: rec.playingTime || 0,
-                    rating: rec.bggRating || 0,
-                    myRating: 0,
-                    comment: '',
-                    designers: designers,
-                    isWantToBuy: false,
-                    isRecommended: true,
-                    matchScore: rec.matchScore || 0,
-                    recommendedBy: rec.recommendedBy || [],
-                    availability: JSON.parse(JSON.stringify(avail))
-                });
-            }
         });
 
         // Keep all games that have in-stock availability at at least one store/seller
@@ -480,7 +393,6 @@ function applyFilters() {
     const searchInput = document.getElementById('search-input');
     const storeFilter = document.getElementById('store-filter');
     const sellerFilter = document.getElementById('seller-filter');
-    const includeRecommendedCheckbox = document.getElementById('include-recommended');
     const playerCountFilter = document.getElementById('player-count');
     const ratingFilter = document.getElementById('rating-filter');
     const designerFilter = document.getElementById('designer-filter');
@@ -489,16 +401,12 @@ function applyFilters() {
     const searchTerm = (searchInput?.value || '').toLowerCase();
     const selectedStore = storeFilter ? storeFilter.value : 'all';
     const selectedSeller = sellerFilter ? sellerFilter.value : 'all';
-    const includeRecommended = includeRecommendedCheckbox ? includeRecommendedCheckbox.checked : false;
     const playerCount = playerCountFilter ? playerCountFilter.value : 'all';
     const rating = ratingFilter ? ratingFilter.value : 'all';
     const designer = designerFilter ? designerFilter.value : 'all';
     const majorDealsOnly = majorDealsCheckbox ? majorDealsCheckbox.checked : false;
 
     filteredGames = allGames.filter(game => {
-        // Exclude Recommended Games unless checkbox is checked
-        if (!includeRecommended && !game.isWantToBuy) return false;
-
         // Search filter
         if (searchTerm && !game.name.toLowerCase().includes(searchTerm)) {
             return false;
@@ -567,14 +475,11 @@ function createGameCard(game) {
     const card = document.createElement('div');
     card.className = 'game-card';
     card.onclick = (e) => {
-        if (e.target.closest('a') || e.target.closest('button') || e.target.closest('.store-chip') || e.target.closest('.source-thumb-chip')) return;
+        if (e.target.closest('a') || e.target.closest('button') || e.target.closest('.store-chip')) return;
         window.open(`https://boardgamegeek.com/boardgame/${game.objectId}`, '_blank');
     };
 
-    let badgesHtml = '';
-    if (game.isWantToBuy) {
-        badgesHtml += '<span class="badge badge-favorite">Want to Buy</span>';
-    }
+    let badgesHtml = '<span class="badge badge-favorite">Want to Buy</span>';
     const dealInfo = getGameDealInfo(game);
     if (dealInfo) {
         const prevPriceFormatted = formatPrice(dealInfo.previousPrice, dealInfo.storeKey);
@@ -633,27 +538,6 @@ function createGameCard(game) {
         ? game.designers.join(', ')
         : '';
 
-    // "Based on" games (if recommended)
-    let sourcesHtml = '';
-    if (game.isRecommended && Array.isArray(game.recommendedBy) && game.recommendedBy.length > 0) {
-        const chipsHtml = game.recommendedBy.slice(0, 10).map(s => {
-            const thumb = ownedThumbnailMap.get(String(s.ownedId)) || 'https://via.placeholder.com/38x38?text=BG';
-            return `
-                <div class="source-thumb-chip" title="${escapeHtml(s.ownedName)} (Rated ${s.userRating}★)" onclick="event.stopPropagation(); window.open('https://boardgamegeek.com/boardgame/${s.ownedId}', '_blank');">
-                    <img src="${thumb}" alt="${escapeHtml(s.ownedName)}" class="source-thumb-img" loading="lazy">
-                    <span class="source-thumb-rating">★${s.userRating}</span>
-                </div>
-            `;
-        }).join('');
-
-        sourcesHtml = `
-            <div class="source-games-section">
-                <div class="source-games-title">Based on games you love:</div>
-                <div class="source-games-list">${chipsHtml}</div>
-            </div>
-        `;
-    }
-
     card.innerHTML = `
         <div class="game-badges">
             ${badgesHtml}
@@ -671,7 +555,6 @@ function createGameCard(game) {
                 <div class="meta-item"><span>⭐</span> ${game.rating.toFixed(1)}</div>
                 ${designersText ? `<div class="meta-item" title="Designer: ${escapeHtml(designersText)}"><span>✍️</span> ${escapeHtml(designersText)}</div>` : ''}
             </div>
-            ${sourcesHtml}
             ${storeHtml}
         </div>
     `;

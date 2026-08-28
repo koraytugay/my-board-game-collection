@@ -140,19 +140,45 @@ function getDecompressedStream(res) {
     return res;
 }
 
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+let shopifyGlobalCooldownUntil = 0;
+
+async function waitForShopifyCooldown() {
+    const now = Date.now();
+    if (shopifyGlobalCooldownUntil > now) {
+        const waitMs = shopifyGlobalCooldownUntil - now;
+        console.log(`[Shopify Cooldown] Pausing ${(waitMs / 1000).toFixed(1)}s to respect rate limits...`);
+        await sleep(waitMs);
+    }
+}
+
 // Helper to make HTTPS requests in Node and automatically follow redirects (JSON response)
-function fetchJson(url, redirectCount = 0, customHeaders = {}) {
+function fetchJson(url, redirectCount = 0, customHeaders = {}, retryCount = 0) {
     if (redirectCount > 5) {
         console.error(`Too many redirects for: ${url}`);
         return Promise.resolve(null);
     }
-    return new Promise((resolve, reject) => {
+    return new Promise(async (resolve, reject) => {
         const u = new URL(url);
+        const isShopify = url.includes('/search/suggest.json');
+        if (isShopify) {
+            await waitForShopifyCooldown();
+        }
+
         const options = {
             hostname: u.hostname,
             path: u.pathname + u.search,
-            headers: { ...DEFAULT_HEADERS, ...customHeaders },
-            timeout: 10000 // 10 seconds timeout
+            headers: {
+                ...DEFAULT_HEADERS,
+                'Accept': 'application/json, text/plain, */*',
+                'Sec-Fetch-Dest': 'empty',
+                'Sec-Fetch-Mode': 'cors',
+                ...customHeaders
+            },
+            timeout: 12000 // 12 seconds timeout
         };
         let resolved = false;
 
@@ -164,10 +190,34 @@ function fetchJson(url, redirectCount = 0, customHeaders = {}) {
                 }
                 if (!resolved) {
                     resolved = true;
-                    fetchJson(redirectUrl, redirectCount + 1, customHeaders).then(resolve).catch(reject);
+                    fetchJson(redirectUrl, redirectCount + 1, customHeaders, retryCount).then(resolve).catch(reject);
                 }
                 return;
             }
+
+            if (res.statusCode === 429 && retryCount < 3) {
+                res.resume();
+                req.destroy();
+                let waitSec = 20 * Math.pow(2, retryCount);
+                if (res.headers['retry-after']) {
+                    const parsed = parseInt(res.headers['retry-after'], 10);
+                    if (!isNaN(parsed) && parsed > 0) {
+                        waitSec = Math.min(120, parsed);
+                    }
+                }
+                if (isShopify) {
+                    shopifyGlobalCooldownUntil = Date.now() + (waitSec * 1000);
+                }
+                console.warn(`[429 RATE LIMIT] Rate limited on ${u.hostname}. Backing off for ${waitSec}s (retry ${retryCount + 1}/3)...`);
+                if (!resolved) {
+                    resolved = true;
+                    sleep(waitSec * 1000).then(() => {
+                        return fetchJson(url, redirectCount, customHeaders, retryCount + 1);
+                    }).then(resolve).catch(reject);
+                }
+                return;
+            }
+
             if (res.statusCode !== 200) {
                 console.warn(`[WARNING] fetchJson failed for ${url} with status: ${res.statusCode}`);
                 res.resume();
@@ -204,7 +254,7 @@ function fetchJson(url, redirectCount = 0, customHeaders = {}) {
 
         req.on('timeout', () => {
             req.destroy();
-            console.error(`[ERROR] Timeout (10s) fetching JSON from: ${url}`);
+            console.error(`[ERROR] Timeout (12s) fetching JSON from: ${url}`);
             if (!resolved) {
                 resolved = true;
                 resolve(null);
@@ -255,7 +305,7 @@ async function fetchButtonShyEtsyListings(apiKey) {
 }
 
 // Helper to make HTTPS requests in Node and automatically follow redirects and Akamai challenges (HTML response)
-function fetchHtml(url, redirectCount = 0, cookieHeader = '') {
+function fetchHtml(url, redirectCount = 0, cookieHeader = '', retryCount = 0) {
     if (redirectCount > 5) {
         console.error(`Too many redirects for: ${url}`);
         return Promise.resolve(null);
@@ -271,7 +321,7 @@ function fetchHtml(url, redirectCount = 0, cookieHeader = '') {
             hostname: u.hostname,
             path: u.pathname + u.search,
             headers: reqHeaders,
-            timeout: 10000 // 10 seconds timeout
+            timeout: 12000 // 12 seconds timeout
         };
         let resolved = false;
 
@@ -290,10 +340,31 @@ function fetchHtml(url, redirectCount = 0, cookieHeader = '') {
                 }
                 if (!resolved) {
                     resolved = true;
-                    fetchHtml(redirectUrl, redirectCount + 1, newCookies).then(resolve).catch(reject);
+                    fetchHtml(redirectUrl, redirectCount + 1, newCookies, retryCount).then(resolve).catch(reject);
                 }
                 return;
             }
+
+            if (res.statusCode === 429 && retryCount < 3) {
+                res.resume();
+                req.destroy();
+                let waitSec = 20 * Math.pow(2, retryCount);
+                if (res.headers['retry-after']) {
+                    const parsed = parseInt(res.headers['retry-after'], 10);
+                    if (!isNaN(parsed) && parsed > 0) {
+                        waitSec = Math.min(120, parsed);
+                    }
+                }
+                console.warn(`[429 RATE LIMIT] Rate limited on ${u.hostname}. Backing off for ${waitSec}s (retry ${retryCount + 1}/3)...`);
+                if (!resolved) {
+                    resolved = true;
+                    sleep(waitSec * 1000).then(() => {
+                        return fetchHtml(url, redirectCount, newCookies, retryCount + 1);
+                    }).then(resolve).catch(reject);
+                }
+                return;
+            }
+
             if (res.statusCode !== 200) {
                 console.warn(`[WARNING] fetchHtml failed for ${url} with status: ${res.statusCode}`);
                 res.resume();
@@ -1682,6 +1753,7 @@ async function checkAvailability() {
         const fetchPromises = [];
         const storeKeys = Object.keys(storeConfigs);
         const skippedStores = [];
+        let shopifyStoreIndex = 0;
 
         for (const storeKey of storeKeys) {
             // For Recommended Games, check ONLY Canadian stores
@@ -1733,7 +1805,11 @@ async function checkAvailability() {
                     lastCheckSuccess: existingStoreData.lastCheckSuccess ?? true
                 };
             } else {
+                const staggerDelay = config.type === 'shopify' ? (shopifyStoreIndex++ * 150) : 0;
                 const fetchPromise = (async () => {
+                    if (staggerDelay > 0) {
+                        await sleep(staggerDelay);
+                    }
                     try {
                         let resultObj = null;
 
@@ -1836,6 +1912,13 @@ async function checkAvailability() {
 
         availabilityData[game.objectId] = availability;
         
+        // Incremental save every 5 games
+        if ((i + 1) % 5 === 0 || i === wantedGames.length - 1) {
+            try {
+                fs.writeFileSync(OUTPUT_FILE, JSON.stringify(availabilityData, null, 2), 'utf8');
+            } catch (_) {}
+        }
+
         // Politeness delay
         if (fetchPromises.length > 0) {
             await new Promise(r => setTimeout(r, POLITENESS_DELAY_MS));
