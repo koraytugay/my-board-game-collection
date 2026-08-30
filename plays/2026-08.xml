@@ -1,6 +1,21 @@
-<?xml version="1.0" encoding="utf-8"?><plays username="koraytugay" userid="4151779" total="70" page="1" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse">
+<?xml version="1.0" encoding="utf-8"?><plays username="koraytugay" userid="4151779" total="73" page="1" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse">
 <play id="118086962" date="2026-08-29" quantity="1" length="15" incomplete="0" nowinstats="0" location="">
 			<item name="A Carnivore Did It!" objecttype="thing" objectid="451594">
+				<subtypes>
+										<subtype value="boardgame" />
+									</subtypes>
+			</item>
+								</play>
+	<play id="118119231" date="2026-08-29" quantity="1" length="40" incomplete="0" nowinstats="0" location="">
+			<item name="For Northwood! A Solo Trick-Taking Game" objecttype="thing" objectid="334590">
+				<subtypes>
+										<subtype value="boardgame" />
+										<subtype value="boardgameimplementation" />
+									</subtypes>
+			</item>
+								</play>
+	<play id="118116745" date="2026-08-29" quantity="2" length="20" incomplete="0" nowinstats="0" location="">
+			<item name="For Sale" objecttype="thing" objectid="172">
 				<subtypes>
 										<subtype value="boardgame" />
 									</subtypes>
@@ -11,6 +26,13 @@
 				<subtypes>
 										<subtype value="boardgame" />
 										<subtype value="boardgameimplementation" />
+									</subtypes>
+			</item>
+								</play>
+	<play id="118116752" date="2026-08-29" quantity="1" length="5" incomplete="0" nowinstats="0" location="">
+			<item name="Wizards Cup" objecttype="thing" objectid="400756">
+				<subtypes>
+										<subtype value="boardgame" />
 									</subtypes>
 			</item>
 								</play>
