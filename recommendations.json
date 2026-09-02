@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-01T14:53:59.726Z",
+  "generatedAt": "2026-09-02T00:15:12.050Z",
   "total": 400,
   "recommendations": [
     {
@@ -431,89 +431,6 @@
       "minPlayers": 2,
       "maxPlayers": 4,
       "playingTime": 45
-    },
-    {
-      "objectId": "178900",
-      "name": "Codenames",
-      "yearPublished": "2015",
-      "bggRating": 7.52,
-      "bggRank": 162,
-      "numVoters": 104997,
-      "numFans": 3610,
-      "coverUrl": "https://cf.geekdo-images.com/nC6ifPCDnAItwoKSKXVrnw__square100@2x/img/8Vag5Z-2a2H6AgvhGhT_2dyVB00=/0x0:1906x1906/200x200/filters:strip_icc()/pic8907965.jpg",
-      "thumbnail": "images/thumbnails/178900.jpg",
-      "image": "images/full/178900.jpg",
-      "description": "Give your team clever one-word clues to help them spot their agents in the field.",
-      "rawScore": 19.541514757983872,
-      "recommendedBy": [
-        {
-          "ownedId": "277085",
-          "ownedName": "Love Letter",
-          "userRating": 10,
-          "bggRecRank": 6,
-          "contributionScore": 4.08
-        },
-        {
-          "ownedId": "51",
-          "ownedName": "Ricochet Robots",
-          "userRating": 10,
-          "bggRecRank": 24,
-          "contributionScore": 2.04
-        },
-        {
-          "ownedId": "284083",
-          "ownedName": "The Crew: The Quest for Planet Nine",
-          "userRating": 9,
-          "bggRecRank": 5,
-          "contributionScore": 3.62
-        },
-        {
-          "ownedId": "1198",
-          "ownedName": "SET",
-          "userRating": 8,
-          "bggRecRank": 9,
-          "contributionScore": 2.13
-        },
-        {
-          "ownedId": "133473",
-          "ownedName": "Sushi Go!",
-          "userRating": 8,
-          "bggRecRank": 22,
-          "contributionScore": 1.36
-        },
-        {
-          "ownedId": "353470",
-          "ownedName": "Star Wars: Jabba&#039;s Palace – A Love Letter Game",
-          "userRating": 8,
-          "bggRecRank": 28,
-          "contributionScore": 1.21
-        },
-        {
-          "ownedId": "92415",
-          "ownedName": "Skull",
-          "userRating": 7,
-          "bggRecRank": 5,
-          "contributionScore": 2.19
-        },
-        {
-          "ownedId": "143884",
-          "ownedName": "Machi Koro",
-          "userRating": 7,
-          "bggRecRank": 7,
-          "contributionScore": 1.85
-        },
-        {
-          "ownedId": "9209",
-          "ownedName": "Ticket to Ride",
-          "userRating": 7,
-          "bggRecRank": 22,
-          "contributionScore": 1.04
-        }
-      ],
-      "matchScore": 61.2,
-      "minPlayers": 2,
-      "maxPlayers": 8,
-      "playingTime": 15
     },
     {
       "objectId": "254640",
@@ -13152,6 +13069,33 @@
       "matchScore": 1.3,
       "minPlayers": 2,
       "maxPlayers": 8,
+      "playingTime": 45
+    },
+    {
+      "objectId": "396542",
+      "name": "The Same Game",
+      "yearPublished": "2023",
+      "bggRating": 7.12,
+      "bggRank": 3613,
+      "numVoters": 879,
+      "numFans": 47,
+      "coverUrl": "https://cf.geekdo-images.com/R7GZPK79bMdsCZFamu7Z7A__square100@2x/img/jKMs8Tlfuay_DycNxxTeXQf_UZE=/200x200/filters:strip_icc()/pic7653476.jpg",
+      "thumbnail": "images/thumbnails/396542.jpg",
+      "image": "images/full/396542.jpg",
+      "description": "Discuss how completely different objects might share something in common.",
+      "rawScore": 1.2651745597610893,
+      "recommendedBy": [
+        {
+          "ownedId": "445045",
+          "ownedName": "Dice Pool Party",
+          "userRating": 7,
+          "bggRecRank": 15,
+          "contributionScore": 1.27
+        }
+      ],
+      "matchScore": 1.3,
+      "minPlayers": 3,
+      "maxPlayers": 6,
       "playingTime": 45
     }
   ]
