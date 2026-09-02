@@ -54,13 +54,15 @@ async function fetchAllPlaysForGame(gameId) {
         const now = new Date();
         const currentYear = now.getFullYear();
         const currentMonth = now.getMonth();
-        const startYear = 2024;
+        // Play archives in plays/ start from September 2025 (2025-09.xml)
+        const earliestYear = 2025;
+        const earliestMonth = 8; // 0-indexed September
         const fetchPromises = [];
 
-        const totalMonths = (currentYear - startYear) * 12 + currentMonth + 1;
+        const totalMonths = (currentYear - earliestYear) * 12 + (currentMonth - earliestMonth) + 1;
         for (let i = 0; i < totalMonths; i++) {
             const d = new Date(currentYear, currentMonth - i, 1);
-            if (d.getFullYear() < startYear) break;
+            if (d.getFullYear() < earliestYear || (d.getFullYear() === earliestYear && d.getMonth() < earliestMonth)) break;
             fetchPromises.push(getPlaysForMonth(d.getFullYear(), d.getMonth()));
         }
 
@@ -136,7 +138,7 @@ function gdFormatDate(dateStr) {
 
 async function showGameDetails(objectId) {
     const backdrop = ensureModalContainer();
-    const bodyEl = document.getElementById('game-modal-body');
+    const bodyEl = backdrop.querySelector('.game-modal-content') || document.getElementById('game-modal-body');
     
     // Show modal in loading state
     bodyEl.innerHTML = '<p style="text-align: center; color: #718096; padding: 40px 0;">Loading game details...</p>';
@@ -145,19 +147,25 @@ async function showGameDetails(objectId) {
 
     await ensureDataLoaded();
 
-    const game = gdCachedCollection.find(g => String(g.objectId) === String(objectId)) || {
-        objectId: objectId,
-        name: 'Game Details',
-        yearPublished: '',
-        image: '',
-        thumbnail: '',
-        minPlayers: 0,
-        maxPlayers: 0,
-        playingTime: 0,
-        numPlays: 0,
-        rating: 0,
-        myRating: 0
-    };
+    let game = gdCachedCollection.find(g => String(g.objectId) === String(objectId));
+    if (!game && typeof allGames !== 'undefined' && Array.isArray(allGames)) {
+        game = allGames.find(g => String(g.objectId) === String(objectId));
+    }
+    if (!game) {
+        game = {
+            objectId: objectId,
+            name: 'Game Details',
+            yearPublished: '',
+            image: '',
+            thumbnail: '',
+            minPlayers: 0,
+            maxPlayers: 0,
+            playingTime: 0,
+            numPlays: 0,
+            rating: 0,
+            myRating: 0
+        };
+    }
 
     // Get Designers
     let designersList = [];
@@ -165,15 +173,17 @@ async function showGameDetails(objectId) {
         designersList = gdCachedDesigners[objectId].designers;
     }
 
-    // Get Plays & Last Played date
-    const plays = await fetchAllPlaysForGame(objectId);
-    plays.sort((a, b) => b.date.localeCompare(a.date));
-
+    // Get Plays & Last Played date (skip fetch if the game has 0 plays)
     let lastPlayedText = 'Never played';
-    if (plays.length > 0) {
-        lastPlayedText = gdFormatDate(plays[0].date);
-    } else if (game.numPlays > 0) {
-        lastPlayedText = `${game.numPlays} ${game.numPlays === 1 ? 'play' : 'plays'}`;
+    if (game.numPlays > 0) {
+        const plays = await fetchAllPlaysForGame(objectId);
+        plays.sort((a, b) => b.date.localeCompare(a.date));
+
+        if (plays.length > 0) {
+            lastPlayedText = gdFormatDate(plays[0].date);
+        } else {
+            lastPlayedText = `${game.numPlays} ${game.numPlays === 1 ? 'play' : 'plays'}`;
+        }
     }
 
     const safeName = gdEscapeHtml(game.name);
@@ -260,6 +270,25 @@ async function showGameDetails(objectId) {
                 `;
             }
         });
+
+        if (avail.bggMarket) {
+            const mkt = avail.bggMarket;
+            const listings = Array.isArray(mkt.listings) && mkt.listings.length > 0
+                ? mkt.listings
+                : (mkt.available && mkt.url ? [mkt] : []);
+            listings.forEach(l => {
+                if (l && !l.ignored && l.url) {
+                    const priceFormatted = formatGdPrice(l.price, 'bggMarket');
+                    const sellerLabel = l.seller ? `🏷️ BGG Market (${l.seller})` : '🏷️ BGG Market';
+                    storeChipsHtml += `
+                        <a href="${l.url}" target="_blank" class="store-chip bgg-market" title="View BGG Market listing">
+                            <span class="store-chip-name">${gdEscapeHtml(sellerLabel)}</span>
+                            ${priceFormatted ? `<span class="store-chip-price">${priceFormatted}</span>` : ''}
+                        </a>
+                    `;
+                }
+            });
+        }
     }
 
     // Build streamlined modal body with large cover art
