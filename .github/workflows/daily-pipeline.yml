@@ -2,10 +2,11 @@ name: Daily Board Game Pipeline
 
 on:
   schedule:
-    # 6:15 AM and 6:15 PM Toronto Time (EDT: UTC-4)
+    # 3:15 AM, 12:15 PM, and 7:15 PM (19:15) Toronto Time (EDT: UTC-4)
     # Using minute 15 to avoid top-of-the-hour GitHub Actions scheduler congestion and dropped runs
-    - cron: "15 10 * * *"   # 6:15 AM Toronto (10:15 UTC)
-    - cron: "15 22 * * *"   # 6:15 PM Toronto (22:15 UTC)
+    - cron: "15 7 * * *"    # 3:15 AM Toronto (07:15 UTC)
+    - cron: "15 16 * * *"   # 12:15 PM Toronto (16:15 UTC)
+    - cron: "15 23 * * *"   # 7:15 PM / 19:15 Toronto (23:15 UTC)
   workflow_dispatch:
 
 permissions:
