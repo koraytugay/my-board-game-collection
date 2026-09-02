@@ -1,10 +1,32 @@
-// stores.js - Store & Seller Availability for Want to Buy & Recommended Games
+// stores.js - Store & Seller Availability for Want to Buy & Want in Trade Games
 
 let allGames = [];
 let filteredGames = [];
 let currentSort = 'name';
 let currentViewMode = 'grid';
 let skippedSellers = new Set();
+
+function populateListTypeFilter() {
+    const listSelect = document.getElementById('list-filter');
+    if (!listSelect) return;
+
+    const currentVal = listSelect.value;
+    const wtbCount = allGames.filter(g => g.isWantToBuy).length;
+    const tradeCount = allGames.filter(g => g.isWantInTrade).length;
+    const allCount = allGames.length;
+
+    listSelect.innerHTML = `
+        <option value="all">All (${allCount})</option>
+        <option value="wanttobuy">Want to Buy (${wtbCount})</option>
+        <option value="wantintrade">Want in Trade (${tradeCount})</option>
+    `;
+
+    if (['all', 'wanttobuy', 'wantintrade'].includes(currentVal)) {
+        listSelect.value = currentVal;
+    } else {
+        listSelect.value = 'all';
+    }
+}
 
 const STORES = [
     { key: 'boardGameBliss', name: '🇨🇦 BoardGameBliss' },
@@ -288,12 +310,12 @@ async function fetchAllStoreGames() {
 
     try {
         const [
-            wtbCollection,
-            wtbAvail,
+            allCollection,
+            storeAvail,
             designersRes,
             skippedSellersData
         ] = await Promise.all([
-            getCollection('wanttobuy').catch(err => { console.warn('WTB collection load error:', err); return []; }),
+            getCollection(false).catch(err => { console.warn('Collection load error:', err); return []; }),
             fetch('availability.json').then(res => res.ok ? res.json() : {}).catch(() => ({})),
             fetch('designers.json').then(res => res.ok ? res.json() : {}).catch(() => ({})),
             fetch('skipped-sellers.json').then(res => res.ok ? res.json() : []).catch(() => [])
@@ -305,11 +327,13 @@ async function fetchAllStoreGames() {
 
         const gameMap = new Map();
 
-        // Want to Buy Games
-        wtbCollection.forEach(game => {
+        // Include both Want to Buy and Want in Trade games
+        const targetCollection = allCollection.filter(game => game.isWantToBuy || game.isWantInTrade);
+
+        targetCollection.forEach(game => {
             const id = String(game.objectId);
             const designers = designersRes[id]?.designers || [];
-            const avail = wtbAvail[id] || {};
+            const avail = storeAvail[id] || {};
 
             gameMap.set(id, {
                 objectId: id,
@@ -324,7 +348,8 @@ async function fetchAllStoreGames() {
                 myRating: game.myRating || 0,
                 comment: game.comment || '',
                 designers: designers,
-                isWantToBuy: true,
+                isWantToBuy: !!game.isWantToBuy,
+                isWantInTrade: !!game.isWantInTrade,
                 availability: JSON.parse(JSON.stringify(avail))
             });
         });
@@ -332,14 +357,20 @@ async function fetchAllStoreGames() {
         // Keep all games that have in-stock availability at at least one store/seller
         allGames = Array.from(gameMap.values()).filter(game => isGameInStockAtAnyStore(game));
 
+        populateListTypeFilter();
         populateStoreFilter();
         populateSellerFilter();
         populateDesignerFilter();
 
-        // Check if store or seller is in URL query
+        // Check if list, store or seller is in URL query
         const urlParams = new URLSearchParams(window.location.search);
+        const listParam = urlParams.get('list');
         const storeParam = urlParams.get('store');
         const sellerParam = urlParams.get('seller');
+        if (listParam) {
+            const listSelect = document.getElementById('list-filter');
+            if (listSelect) listSelect.value = listParam;
+        }
         if (storeParam) {
             const storeSelect = document.getElementById('store-filter');
             if (storeSelect) storeSelect.value = storeParam;
@@ -389,6 +420,7 @@ function sortGames(criteria) {
 
 function applyFilters() {
     const searchInput = document.getElementById('search-input');
+    const listFilter = document.getElementById('list-filter');
     const storeFilter = document.getElementById('store-filter');
     const sellerFilter = document.getElementById('seller-filter');
     const playerCountFilter = document.getElementById('player-count');
@@ -397,6 +429,7 @@ function applyFilters() {
     const majorDealsCheckbox = document.getElementById('major-deals-only');
 
     const searchTerm = (searchInput?.value || '').toLowerCase();
+    const selectedList = listFilter ? listFilter.value : 'all';
     const selectedStore = storeFilter ? storeFilter.value : 'all';
     const selectedSeller = sellerFilter ? sellerFilter.value : 'all';
     const playerCount = playerCountFilter ? playerCountFilter.value : 'all';
@@ -409,6 +442,10 @@ function applyFilters() {
         if (searchTerm && !game.name.toLowerCase().includes(searchTerm)) {
             return false;
         }
+
+        // List filter
+        if (selectedList === 'wanttobuy' && !game.isWantToBuy) return false;
+        if (selectedList === 'wantintrade' && !game.isWantInTrade) return false;
 
         // Major deals filter
         if (majorDealsOnly && !hasGameMajorDeal(game)) return false;
@@ -477,7 +514,15 @@ function createGameCard(game) {
         window.open(`https://boardgamegeek.com/boardgame/${game.objectId}`, '_blank');
     };
 
-    let badgesHtml = '<span class="badge badge-favorite">Want to Buy</span>';
+    let badgesHtml = '';
+    if (game.isWantToBuy && game.isWantInTrade) {
+        badgesHtml += '<span class="badge badge-favorite">Want to Buy</span> <span class="badge badge-favorite">Want in Trade</span>';
+    } else if (game.isWantInTrade) {
+        badgesHtml += '<span class="badge badge-favorite">Want in Trade</span>';
+    } else {
+        badgesHtml += '<span class="badge badge-favorite">Want to Buy</span>';
+    }
+
     const dealInfo = getGameDealInfo(game);
     if (dealInfo) {
         const prevPriceFormatted = formatPrice(dealInfo.previousPrice, dealInfo.storeKey);

@@ -127,6 +127,15 @@
 
             <div class="controls-row">
                 <div class="control-group">
+                    <label for="list-filter">List:</label>
+                    <select id="list-filter" onchange="applyFilters()">
+                        <option value="all">All (Buy &amp; Trade)</option>
+                        <option value="wanttobuy">Want to Buy</option>
+                        <option value="wantintrade">Want in Trade</option>
+                    </select>
+                </div>
+
+                <div class="control-group">
                     <label for="store-filter">Store:</label>
                     <select id="store-filter" onchange="onStoreFilterChange()">
                         <option value="all">All Stores</option>
