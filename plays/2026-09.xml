@@ -1,6 +1,20 @@
-<?xml version="1.0" encoding="utf-8"?><plays username="koraytugay" userid="4151779" total="3" page="1" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse">
+<?xml version="1.0" encoding="utf-8"?><plays username="koraytugay" userid="4151779" total="5" page="1" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse">
 <play id="118264849" date="2026-09-02" quantity="1" length="20" incomplete="0" nowinstats="0" location="">
 			<item name="A Carnivore Did It!" objecttype="thing" objectid="451594">
+				<subtypes>
+										<subtype value="boardgame" />
+									</subtypes>
+			</item>
+								</play>
+	<play id="118274303" date="2026-09-02" quantity="1" length="20" incomplete="0" nowinstats="0" location="">
+			<item name="Dimension" objecttype="thing" objectid="153318">
+				<subtypes>
+										<subtype value="boardgame" />
+									</subtypes>
+			</item>
+								</play>
+	<play id="118274364" date="2026-09-02" quantity="1" length="45" incomplete="0" nowinstats="0" location="">
+			<item name="Machi Koro" objecttype="thing" objectid="143884">
 				<subtypes>
 										<subtype value="boardgame" />
 									</subtypes>
