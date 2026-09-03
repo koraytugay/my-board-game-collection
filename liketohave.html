@@ -1,25 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5ERQK5EYL8"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-5ERQK5EYL8');
-    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Want to Buy - My Board Game Collection</title>
+    <title>Like to Have - My Board Game Collection</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="game-details.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎲</text></svg>">
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>Want to Buy List</h1>
-            <p class="username">@koraytugay on BoardGameGeek</p>
+            <h1>Like to Have List</h1>
+            <p class="subtitle">Games that I would like to have, with live store availability</p>
         </header>
 
         <nav class="page-nav">
@@ -33,10 +26,10 @@
                 <a href="tournament.html" class="nav-link">Game Tournament</a>
             </div>
             <div class="nav-row">
-                <a href="wanttobuy.html" class="nav-link active">Want to Buy</a>
+                <a href="wanttobuy.html" class="nav-link">Want to Buy</a>
                 <a href="wanttoplay.html" class="nav-link">Want to Play</a>
                 <a href="wantintrade.html" class="nav-link">Want in Trade</a>
-                <a href="liketohave.html" class="nav-link">Like to Have</a>
+                <a href="liketohave.html" class="nav-link active">Like to Have</a>
                 <a href="thinkingabout.html" class="nav-link">Thinking About</a>
                 <a href="recommended.html" class="nav-link">Recommended Games</a>
                 <a href="stores.html" class="nav-link">Stores</a>
@@ -46,7 +39,7 @@
 
         <div id="loading" class="loading">
             <div class="spinner"></div>
-            <p>Loading wanted games...</p>
+            <p>Loading Like to Have games and store availability...</p>
         </div>
 
         <div id="error" class="error" style="display: none;"></div>
@@ -59,6 +52,8 @@
                         <option value="name">Name</option>
                         <option value="rating-desc">Rating (High to Low)</option>
                         <option value="rating-asc">Rating (Low to High)</option>
+                        <option value="myrating-desc">My Rating (High to Low)</option>
+                        <option value="myrating-asc">My Rating (Low to High)</option>
                         <option value="year-desc">Year (Newest First)</option>
                         <option value="year-asc">Year (Oldest First)</option>
                     </select>
@@ -116,6 +111,17 @@
                 </div>
 
                 <div class="control-group">
+                    <label for="play-time">Play Time:</label>
+                    <select id="play-time" onchange="applyFilters()">
+                        <option value="all">All</option>
+                        <option value="0-30">Under 30 min</option>
+                        <option value="30-60">30-60 min</option>
+                        <option value="60-120">60-120 min</option>
+                        <option value="120-999">Over 120 min</option>
+                    </select>
+                </div>
+
+                <div class="control-group">
                     <label for="rating-filter">Rating:</label>
                     <select id="rating-filter" onchange="applyFilters()">
                         <option value="all">All</option>
@@ -154,6 +160,7 @@
     </div>
 
     <script src="api.js"></script>
-    <script src="wanttobuy.js"></script>
+    <script src="game-details.js"></script>
+    <script src="liketohave.js"></script>
 </body>
 </html>

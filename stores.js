@@ -13,15 +13,17 @@ function populateListTypeFilter() {
     const currentVal = listSelect.value;
     const wtbCount = allGames.filter(g => g.isWantToBuy).length;
     const tradeCount = allGames.filter(g => g.isWantInTrade).length;
+    const likeCount = allGames.filter(g => g.isLikeToHave).length;
     const allCount = allGames.length;
 
     listSelect.innerHTML = `
         <option value="all">All (${allCount})</option>
         <option value="wanttobuy">Want to Buy (${wtbCount})</option>
         <option value="wantintrade">Want in Trade (${tradeCount})</option>
+        <option value="liketohave">Like to Have (${likeCount})</option>
     `;
 
-    if (['all', 'wanttobuy', 'wantintrade'].includes(currentVal)) {
+    if (['all', 'wanttobuy', 'wantintrade', 'liketohave'].includes(currentVal)) {
         listSelect.value = currentVal;
     } else {
         listSelect.value = 'all';
@@ -50,6 +52,7 @@ const STORES = [
     { key: 'diceHollow', name: '🇨🇦 Dice Hollow' },
     { key: 'laPioche', name: '🇨🇦 La Pioche' },
     { key: 'alwaysGames', name: '🇨🇦 Always Games' },
+    { key: 'pokeJeux', name: '🇨🇦 Poké Jeux' },
     { key: 'buttonShyEtsy', name: '🇺🇸 Button Shy' },
     { key: 'zatu', name: '🇬🇧 Zatu Games' },
     { key: 'chaosCards', name: '🇬🇧 Chaos Cards' },
@@ -313,11 +316,13 @@ async function fetchAllStoreGames() {
         const [
             allCollection,
             storeAvail,
+            likeToHaveAvail,
             designersRes,
             skippedSellersData
         ] = await Promise.all([
             getCollection(false).catch(err => { console.warn('Collection load error:', err); return []; }),
             fetch('availability.json').then(res => res.ok ? res.json() : {}).catch(() => ({})),
+            fetch('availability-liketohave.json').then(res => res.ok ? res.json() : {}).catch(() => ({})),
             fetch('designers.json').then(res => res.ok ? res.json() : {}).catch(() => ({})),
             fetch('skipped-sellers.json').then(res => res.ok ? res.json() : []).catch(() => [])
         ]);
@@ -328,13 +333,13 @@ async function fetchAllStoreGames() {
 
         const gameMap = new Map();
 
-        // Include both Want to Buy and Want in Trade games
-        const targetCollection = allCollection.filter(game => game.isWantToBuy || game.isWantInTrade);
+        // Include Want to Buy, Want in Trade, and Like to Have games
+        const targetCollection = allCollection.filter(game => game.isWantToBuy || game.isWantInTrade || game.isLikeToHave);
 
         targetCollection.forEach(game => {
             const id = String(game.objectId);
             const designers = designersRes[id]?.designers || [];
-            const avail = storeAvail[id] || {};
+            const avail = likeToHaveAvail[id] || storeAvail[id] || {};
 
             gameMap.set(id, {
                 objectId: id,
@@ -351,6 +356,7 @@ async function fetchAllStoreGames() {
                 designers: designers,
                 isWantToBuy: !!game.isWantToBuy,
                 isWantInTrade: !!game.isWantInTrade,
+                isLikeToHave: !!game.isLikeToHave,
                 availability: JSON.parse(JSON.stringify(avail))
             });
         });
@@ -447,6 +453,7 @@ function applyFilters() {
         // List filter
         if (selectedList === 'wanttobuy' && !game.isWantToBuy) return false;
         if (selectedList === 'wantintrade' && !game.isWantInTrade) return false;
+        if (selectedList === 'liketohave' && !game.isLikeToHave) return false;
 
         // Major deals filter
         if (majorDealsOnly && !hasGameMajorDeal(game)) return false;
@@ -516,13 +523,10 @@ function createGameCard(game) {
     };
 
     let badgesHtml = '';
-    if (game.isWantToBuy && game.isWantInTrade) {
-        badgesHtml += '<span class="badge badge-favorite">Want to Buy</span> <span class="badge badge-favorite">Want in Trade</span>';
-    } else if (game.isWantInTrade) {
-        badgesHtml += '<span class="badge badge-favorite">Want in Trade</span>';
-    } else {
-        badgesHtml += '<span class="badge badge-favorite">Want to Buy</span>';
-    }
+    if (game.isWantToBuy) badgesHtml += '<span class="badge badge-favorite">Want to Buy</span> ';
+    if (game.isWantInTrade) badgesHtml += '<span class="badge badge-favorite">Want in Trade</span> ';
+    if (game.isLikeToHave) badgesHtml += '<span class="badge badge-favorite">Like to Have</span> ';
+    badgesHtml = badgesHtml.trim();
 
     const dealInfo = getGameDealInfo(game);
     if (dealInfo) {

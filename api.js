@@ -55,12 +55,22 @@ async function getCollection(onlyOwned = true) {
                 const isValidType = subtype === 'boardgame' || subtype === 'boardgameexpansion';
                 return isWantInTrade && isValidType;
             });
+        } else if (onlyOwned === 'liketohave') {
+            items = items.filter(item => {
+                const status = item.querySelector('status');
+                const isWishlist = status && status.getAttribute('wishlist') === '1';
+                const priority = status ? status.getAttribute('wishlistpriority') : null;
+                const isLikeToHave = isWishlist && priority === '3';
+                const subtype = item.getAttribute('subtype');
+                const isValidType = subtype === 'boardgame' || subtype === 'boardgameexpansion';
+                return isLikeToHave && isValidType;
+            });
         } else if (onlyOwned === 'thinkingabout' || onlyOwned === 'thinkingaboutit' || onlyOwned === 'wishlist') {
             items = items.filter(item => {
                 const status = item.querySelector('status');
                 const isWishlist = status && status.getAttribute('wishlist') === '1';
                 const priority = status ? status.getAttribute('wishlistpriority') : null;
-                const isThinking = isWishlist && (priority === '4' || !priority || onlyOwned === 'wishlist');
+                const isThinking = isWishlist && (priority === '4' || (!priority && onlyOwned === 'wishlist'));
                 const subtype = item.getAttribute('subtype');
                 const isValidType = subtype === 'boardgame' || subtype === 'boardgameexpansion';
                 return isThinking && isValidType;
@@ -126,6 +136,7 @@ async function getCollection(onlyOwned = true) {
             const isOwned = status ? status.getAttribute('own') === '1' : false;
             const isWishlist = status ? status.getAttribute('wishlist') === '1' : false;
             const wishlistPriority = status ? parseInt(status.getAttribute('wishlistpriority'), 10) || null : null;
+            const isLikeToHave = isWishlist && wishlistPriority === 3;
             const isThinkingAboutIt = isWishlist && (wishlistPriority === 4 || wishlistPriority === null);
             const wishlistComment = status ? (status.getAttribute('wishlistcomment') || '') : '';
 
@@ -149,6 +160,7 @@ async function getCollection(onlyOwned = true) {
                 isOwned,
                 isWishlist,
                 wishlistPriority,
+                isLikeToHave,
                 isThinkingAboutIt,
                 wishlistComment
             };

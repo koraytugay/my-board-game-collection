@@ -3,10 +3,10 @@ const { execSync } = require('child_process');
 const nodemailer = require('nodemailer');
 
 const isRecommended = process.argv.includes('--recommended') || process.env.CHECK_TYPE === 'recommended';
-const isThinkingAbout = process.argv.includes('--thinking-about') || process.argv.includes('--thinkingabout') || process.env.CHECK_TYPE === 'thinkingabout';
+const isLikeToHave = process.argv.includes('--like-to-have') || process.argv.includes('--liketohave') || process.env.CHECK_TYPE === 'liketohave';
 const isDailySummary = process.argv.includes('--daily-summary') || process.env.DAILY_SUMMARY === 'true';
-const AVAILABILITY_FILE = isRecommended ? 'availability-recommended.json' : (isThinkingAbout ? 'availability-thinkingabout.json' : 'availability.json');
-const NOTIFIED_SNAPSHOT_FILE = isRecommended ? 'last-notified-availability-recommended.json' : (isThinkingAbout ? 'last-notified-availability-thinkingabout.json' : 'last-notified-availability.json');
+const AVAILABILITY_FILE = isRecommended ? 'availability-recommended.json' : (isLikeToHave ? 'availability-liketohave.json' : 'availability.json');
+const NOTIFIED_SNAPSHOT_FILE = isRecommended ? 'last-notified-availability-recommended.json' : (isLikeToHave ? 'last-notified-availability-liketohave.json' : 'last-notified-availability.json');
 const RECOMMENDATIONS_FILE = 'recommendations.json';
 const COLLECTION_FILE = 'collection.xml';
 
@@ -32,6 +32,7 @@ const STORE_META = {
     diceHollow: { name: 'Dice Hollow', icon: '🇨🇦' },
     laPioche: { name: 'La Pioche', icon: '🇨🇦' },
     alwaysGames: { name: 'Always Games', icon: '🇨🇦' },
+    pokeJeux: { name: 'Poké Jeux', icon: '🇨🇦' },
     buttonShyEtsy: { name: 'Button Shy', icon: '🇺🇸' },
     zatu: { name: 'Zatu Games', icon: '🇬🇧' },
     chaosCards: { name: 'Chaos Cards', icon: '🇬🇧' },
@@ -474,8 +475,8 @@ function buildEmailSubject(diff, summary, range, isDaily) {
         ? '🎲 Daily Summary' 
         : isRecommended 
             ? `🎲 Rec Stock${range && range.hasRangeFlag ? ` (#${range.start + 1}-${range.end === Infinity ? '400+' : range.end})` : ''}` 
-            : isThinkingAbout
-                ? '🎲 Thinking About Stock'
+            : isLikeToHave
+                ? '🎲 Like to Have Stock'
                 : '🎲 Stock Update';
 
     if (diff.totalDiffs === 0) {
@@ -483,8 +484,8 @@ function buildEmailSubject(diff, summary, range, isDaily) {
             ? `${defaultPrefix} No changes detected (${summary.inStockCount}/${summary.totalGames} in stock)`
             : isRecommended
                 ? `${defaultPrefix} No changes detected (${summary.inStockCount}/${summary.totalGames} in stock)`
-                : isThinkingAbout
-                    ? `🎲 Thinking About Stock Check: No changes detected (${summary.inStockCount}/${summary.totalGames} in stock)`
+                : isLikeToHave
+                    ? `🎲 Like to Have Stock Check: No changes detected (${summary.inStockCount}/${summary.totalGames} in stock)`
                     : `🎲 Board Game Stock Check: No changes detected (${summary.inStockCount}/${summary.totalGames} in stock)`;
     }
 
@@ -508,18 +509,18 @@ function buildEmailSubject(diff, summary, range, isDaily) {
 }
 
 function buildHtmlBody(diff, gamesMap, summary, range, isDaily) {
-    const listTitle = isRecommended ? 'Recommended Games' : (isThinkingAbout ? 'Thinking About' : 'Want to Buy');
+    const listTitle = isRecommended ? 'Recommended Games' : (isLikeToHave ? 'Like to Have' : 'Want to Buy');
     const listUrl = isRecommended 
         ? 'https://koraytugay.github.io/my-board-game-collection/recommended.html' 
-        : (isThinkingAbout 
-            ? 'https://koraytugay.github.io/my-board-game-collection/thinkingabout.html' 
+        : (isLikeToHave 
+            ? 'https://koraytugay.github.io/my-board-game-collection/liketohave.html' 
             : 'https://koraytugay.github.io/my-board-game-collection/wanttobuy.html');
     const headerTitle = isDaily
         ? '🎲 Recommended Games Daily Stock Summary'
         : isRecommended 
             ? `🎲 Recommended Games Stock Update${range && range.hasRangeFlag ? ` (#${range.start + 1} - ${range.end === Infinity ? '400+' : range.end})` : ''}` 
-            : (isThinkingAbout 
-                ? '🎲 Thinking About Games Stock Update' 
+            : (isLikeToHave 
+                ? '🎲 Like to Have Games Stock Update' 
                 : '🎲 Board Game Stock Update');
 
     let html = `

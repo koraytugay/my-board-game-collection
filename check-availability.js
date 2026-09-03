@@ -3,10 +3,10 @@ const https = require('https');
 const zlib = require('zlib');
 
 const isRecommended = process.argv.includes('--recommended') || process.env.CHECK_TYPE === 'recommended';
-const isThinkingAbout = process.argv.includes('--thinking-about') || process.argv.includes('--thinkingabout') || process.env.CHECK_TYPE === 'thinkingabout';
+const isLikeToHave = process.argv.includes('--like-to-have') || process.argv.includes('--liketohave') || process.env.CHECK_TYPE === 'liketohave';
 const COLLECTION_FILE = 'collection.xml';
 const RECOMMENDATIONS_FILE = 'recommendations.json';
-const OUTPUT_FILE = isRecommended ? 'availability-recommended.json' : (isThinkingAbout ? 'availability-thinkingabout.json' : 'availability.json');
+const OUTPUT_FILE = isRecommended ? 'availability-recommended.json' : (isLikeToHave ? 'availability-liketohave.json' : 'availability.json');
 const POLITENESS_DELAY_MS = parseInt(process.env.CHECK_DELAY_MS || '5000', 10);
 const MIN_PRICE_THRESHOLD = 5.0; // Ignore/treat items priced <= 5 as out of stock / erroneous match
 
@@ -31,6 +31,7 @@ const CANADIAN_STORE_KEYS = new Set([
     'diceHollow',
     'laPioche',
     'alwaysGames',
+    'pokeJeux',
     'bggMarket'
 ]);
 
@@ -620,7 +621,7 @@ function isMatch(bggName, shopifyProduct) {
     }
 
     // 2. Filter out keywords in Shopify title that are NOT in BGG title
-    const disallowedKeywords = ['diecast', 'die-cast', '1/32', '1/24', '1/18', 'keyring', 'plush', 'action figure', 'pop! vinyl', 'insert', 'organizer', 'organiser', 'playmat', 'promo', 'paint', 'sleeves', 'token', 'coins', 'upgrade', 'expansion', 'booster', 'tcg', 'sleeved', 'sleeve-pack', 'acrylic-tokens', 'puzzle', 'puzzles', '1000pc', '1000pcs', '1000-piece', '1000 piece'];
+    const disallowedKeywords = ['diecast', 'die-cast', '1/32', '1/24', '1/18', 'keyring', 'plush', 'action figure', 'pop! vinyl', 'insert', 'organizer', 'organiser', 'playmat', 'promo', 'paint', 'sleeves', 'token', 'coins', 'upgrade', 'expansion', 'booster', 'tcg', 'sleeved', 'sleeve-pack', 'acrylic-tokens', 'puzzle', 'puzzles', '1000pc', '1000pcs', '1000-piece', '1000 piece', 'dry erase', 'dry-erase'];
     for (const kw of disallowedKeywords) {
         if (shopifyTitle.toLowerCase().includes(kw) && !cleanBgg.toLowerCase().includes(kw)) {
             return false;
@@ -1308,7 +1309,7 @@ function getRecommendedRange() {
 }
 
 async function checkAvailability() {
-    console.log(`Starting ${isRecommended ? 'recommended games' : (isThinkingAbout ? 'thinking about games' : 'board game')} availability check...`);
+    console.log(`Starting ${isRecommended ? 'recommended games' : (isLikeToHave ? 'like to have games' : 'board game')} availability check...`);
     if (!isRecommended && !fs.existsSync(COLLECTION_FILE)) {
         console.error('collection.xml not found.');
         return;
@@ -1371,7 +1372,7 @@ async function checkAvailability() {
             console.error('Error reading recommendations.json:', e);
             return;
         }
-    } else if (isThinkingAbout) {
+    } else if (isLikeToHave) {
         const content = fs.readFileSync(COLLECTION_FILE, 'utf8');
         const itemRegex = /<item objecttype="thing" objectid="(\d+)"[^>]*>([\s\S]*?)<\/item>/g;
         let match;
@@ -1384,21 +1385,22 @@ async function checkAvailability() {
             if (statusMatch) {
                 const statusStr = statusMatch[1];
                 const isWishlist = /wishlist="1"/.test(statusStr);
-                const isThinking = isWishlist && (/wishlistpriority="4"/.test(statusStr) || !/wishlistpriority=/.test(statusStr));
-                if (isThinking) {
+                const isLike = isWishlist && /wishlistpriority="3"/.test(statusStr);
+                if (isLike) {
                     const nameMatch = /<name[^>]*>([^<]+)<\/name>/.exec(itemContent);
                     if (nameMatch) {
                         wantedGames.push({
                             objectId,
                             name: decodeXmlEntities(nameMatch[1].trim()),
                             isWantToBuy: true,
-                            isWantInTrade: false
+                            isWantInTrade: false,
+                            isLikeToHave: true
                         });
                     }
                 }
             }
         }
-        console.log(`Found ${wantedGames.length} games in Thinking About list.`);
+        console.log(`Found ${wantedGames.length} games in Like to Have list.`);
     } else {
         const content = fs.readFileSync(COLLECTION_FILE, 'utf8');
         const itemRegex = /<item objecttype="thing" objectid="(\d+)"[^>]*>([\s\S]*?)<\/item>/g;
@@ -1624,6 +1626,11 @@ async function checkAvailability() {
             alwaysGames: {
                 type: 'shopify',
                 baseUrl: 'https://alwaysgames.ca',
+                currencySymbol: '$'
+            },
+            pokeJeux: {
+                type: 'shopify',
+                baseUrl: 'https://www.pokejeux.ca',
                 currencySymbol: '$'
             },
             crowdfinder: {

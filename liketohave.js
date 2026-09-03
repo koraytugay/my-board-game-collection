@@ -103,27 +103,16 @@ function isGameInStockAtAnyStore(game) {
     return STORES.some(store => isGameInStockAtStore(game, store.key));
 }
 
-function getGameDealInfo(game) {
-    if (!game.availability) return null;
-    let maxDeal = null;
-    for (const [storeKey, storeData] of Object.entries(game.availability)) {
-        if (storeKey === 'bggMarket') continue;
-        if (storeData && isGameInStockAtStore(game, storeKey) && storeData.deal && storeData.deal.discountPercent >= 20) {
-            if (!maxDeal || storeData.deal.discountPercent > maxDeal.discountPercent) {
-                maxDeal = {
-                    storeKey,
-                    discountPercent: storeData.deal.discountPercent,
-                    previousPrice: storeData.deal.previousPrice,
-                    currentPrice: storeData.price
-                };
-            }
+function hasGameMajorDeal(game) {
+    if (!game.availability) return false;
+    for (const store of STORES) {
+        if (store.key === 'bggMarket') continue;
+        const sData = game.availability[store.key];
+        if (sData?.available && sData?.deal && sData.deal.discountPercent >= 20) {
+            return true;
         }
     }
-    return maxDeal;
-}
-
-function hasGameMajorDeal(game) {
-    return getGameDealInfo(game) !== null;
+    return false;
 }
 
 function populateStoreFilter() {
@@ -182,12 +171,7 @@ function populateSellerFilter() {
     });
 
     const sellers = Array.from(sellerCountMap.values());
-    sellers.sort((a, b) => {
-        if (b.count !== a.count) {
-            return b.count - a.count;
-        }
-        return a.seller.localeCompare(b.seller, undefined, { sensitivity: 'base' });
-    });
+    sellers.sort((a, b) => a.seller.localeCompare(b.seller, undefined, { sensitivity: 'base' }));
 
     sellers.forEach(s => {
         const option = document.createElement('option');
@@ -200,6 +184,46 @@ function populateSellerFilter() {
         sellerSelect.value = currentValue;
     } else {
         sellerSelect.value = 'all';
+    }
+}
+
+async function fetchCollection() {
+    const loadingEl = document.getElementById('loading');
+    const errorEl = document.getElementById('error');
+    const controlsEl = document.getElementById('controls');
+
+    try {
+        const [collection, availabilityLiketohaveRes, availabilityGeneralRes, designersRes] = await Promise.all([
+            getCollection('liketohave'),
+            fetch('availability-liketohave.json').then(res => res.ok ? res.json() : {}).catch(() => ({})),
+            fetch('availability.json').then(res => res.ok ? res.json() : {}).catch(() => ({})),
+            fetch('designers.json').then(res => res.ok ? res.json() : {}).catch(() => ({}))
+        ]);
+        
+        const availabilityMap = { ...availabilityGeneralRes, ...availabilityLiketohaveRes };
+
+        allGames = collection.map(game => ({
+            ...game,
+            availability: availabilityMap[game.objectId] || null,
+            designers: designersRes[game.objectId]?.designers || []
+        }));
+        
+        populateDesignerFilter();
+        populateStoreFilter();
+        populateSellerFilter();
+        filteredGames = [...allGames];
+        sortGames(currentSort);
+        
+        loadingEl.style.display = 'none';
+        controlsEl.style.display = 'block';
+        
+        loadDarkModePreference();
+
+    } catch (error) {
+        console.error('Error fetching Like to Have collection:', error);
+        loadingEl.style.display = 'none';
+        errorEl.style.display = 'block';
+        errorEl.textContent = `Failed to load Like to Have games: ${error.message}`;
     }
 }
 
@@ -245,96 +269,6 @@ function populateDesignerFilter() {
     }
 }
 
-function populateListTypeFilter() {
-    const listTypeSelect = document.getElementById('list-type-filter');
-    if (!listTypeSelect) return;
-
-    const currentVal = listTypeSelect.value;
-    const wtbCount = allGames.filter(g => g.isWantToBuy).length;
-    const tradeCount = allGames.filter(g => g.isWantInTrade).length;
-    const allCount = allGames.length;
-
-    listTypeSelect.innerHTML = `
-        <option value="all">All (${allCount})</option>
-        <option value="wanttobuy">Want to Buy (${wtbCount})</option>
-        <option value="wantintrade">Want in Trade (${tradeCount})</option>
-    `;
-
-    if (['all', 'wanttobuy', 'wantintrade'].includes(currentVal)) {
-        listTypeSelect.value = currentVal;
-    } else {
-        listTypeSelect.value = 'all';
-    }
-}
-
-async function fetchCollection() {
-    const loadingEl = document.getElementById('loading');
-    const errorEl = document.getElementById('error');
-    const controlsEl = document.getElementById('controls');
-
-    try {
-        // Fetch BGG collection, availability, and designers in parallel
-        const [collection, availabilityRes, designersRes] = await Promise.all([
-            getCollection('wanttobuy'),
-            fetch('availability.json').then(res => res.ok ? res.json() : {}).catch(() => ({})),
-            fetch('designers.json').then(res => res.ok ? res.json() : {}).catch(() => ({}))
-        ]);
-        
-        allGames = collection.map(game => ({
-            ...game,
-            lastPlayed: '',
-            designers: designersRes[game.objectId]?.designers || [],
-            availability: availabilityRes[game.objectId] || {
-                boardGameBliss: { available: false, price: null, url: null },
-                fourZeroOneGames: { available: false, price: null, url: null },
-                lvlUpGames: { available: false, price: null, url: null },
-                asDesJeux: { available: false, price: null, url: null },
-                greatBoardgames: { available: false, price: null, url: null },
-                meeplemart: { available: false, price: null, url: null },
-                kbHobbies: { available: false, price: null, url: null },
-                miniatureMarket: { available: false, price: null, url: null },
-                amazonCa: { available: false, price: null, url: null },
-                woodForSheep: { available: false, price: null, url: null },
-                faceToFaceGames: { available: false, price: null, url: null },
-                obsidianGames: { available: false, price: null, url: null },
-                jjCards: { available: false, price: null, url: null },
-                boardgamesCa: { available: false, price: null, url: null },
-                screenFreeGames: { available: false, price: null, url: null },
-                allSystemsGo: { available: false, price: null, url: null },
-                tabletopCafe: { available: false, price: null, url: null },
-                elevatedBoardGames: { available: false, price: null, url: null },
-                diceHollow: { available: false, price: null, url: null },
-                laPioche: { available: false, price: null, url: null },
-                alwaysGames: { available: false, price: null, url: null },
-                pokeJeux: { available: false, price: null, url: null },
-                buttonShyEtsy: { available: false, price: null, url: null },
-                zatu: { available: false, price: null, url: null },
-                philibert: { available: false, price: null, url: null },
-                bggMarket: { available: false, price: null, url: null }
-            }
-        }));
-
-        populateListTypeFilter();
-        populateStoreFilter();
-        populateSellerFilter();
-        populateDesignerFilter();
-
-        filteredGames = [...allGames];
-        sortGames(currentSort);
-        
-        loadingEl.style.display = 'none';
-        controlsEl.style.display = 'block';
-        
-        loadDarkModePreference();
-
-    } catch (error) {
-        console.error('Error fetching collection:', error);
-        loadingEl.style.display = 'none';
-        errorEl.style.display = 'block';
-        errorEl.textContent = `Failed to load wanted games: ${error.message}`;
-    }
-}
-
 function sortGames(criteria) {
     currentSort = criteria;
     
@@ -346,15 +280,19 @@ function sortGames(criteria) {
                 return b.rating - a.rating;
             case 'rating-asc':
                 return a.rating - b.rating;
+            case 'myrating-desc':
+                return b.myRating - a.myRating;
+            case 'myrating-asc':
+                return a.myRating - b.myRating;
             case 'year-desc':
-                return parseInt(b.yearPublished) - parseInt(b.yearPublished);
+                return (parseInt(b.yearPublished) || 0) - (parseInt(a.yearPublished) || 0);
             case 'year-asc':
-                return parseInt(a.yearPublished) - parseInt(a.yearPublished);
+                return (parseInt(a.yearPublished) || 0) - (parseInt(b.yearPublished) || 0);
             default:
-                return a.name.localeCompare(b.name);
+                return 0;
         }
     });
-    
+
     applyFilters();
 }
 
@@ -362,20 +300,22 @@ function applyFilters() {
     const searchInput = document.getElementById('search-input');
     const ratingFilter = document.getElementById('rating-filter');
     const playerCountFilter = document.getElementById('player-count');
+    const playTimeFilter = document.getElementById('play-time');
     const inStockCheckbox = document.getElementById('in-stock-only');
     const majorDealsCheckbox = document.getElementById('major-deals-only');
+    const designerFilter = document.getElementById('designer-filter');
     const storeFilter = document.getElementById('store-filter');
     const sellerFilter = document.getElementById('seller-filter');
 
     const searchTerm = searchInput ? searchInput.value.toLowerCase().trim() : '';
     const ratingVal = ratingFilter ? ratingFilter.value : 'all';
     const playerCountVal = playerCountFilter ? playerCountFilter.value : 'all';
+    const playTime = playTimeFilter ? playTimeFilter.value : 'all';
     const inStockOnly = inStockCheckbox ? inStockCheckbox.checked : false;
     const majorDealsOnly = majorDealsCheckbox ? majorDealsCheckbox.checked : false;
+    const designerVal = designerFilter ? designerFilter.value : 'all';
     const storeVal = storeFilter ? storeFilter.value : 'all';
     const sellerVal = sellerFilter ? sellerFilter.value : 'all';
-    const designerFilter = document.getElementById('designer-filter');
-    const designerVal = designerFilter ? designerFilter.value : 'all';
 
     filteredGames = allGames.filter(game => {
         const matchesSearch = !searchTerm || game.name.toLowerCase().includes(searchTerm);
@@ -400,6 +340,12 @@ function applyFilters() {
             }
         }
 
+        let matchesTime = true;
+        if (playTime !== 'all') {
+            const [min, max] = playTime.split('-').map(Number);
+            matchesTime = game.playingTime >= min && game.playingTime <= max;
+        }
+
         let matchesStock = true;
         if (inStockOnly) {
             matchesStock = isGameInStockAtAnyStore(game);
@@ -408,6 +354,12 @@ function applyFilters() {
         let matchesDeal = true;
         if (majorDealsOnly) {
             matchesDeal = hasGameMajorDeal(game);
+        }
+
+        let matchesDesigner = true;
+        if (designerVal !== 'all') {
+            const designers = game.designers || [];
+            matchesDesigner = designers.some(d => d.toLowerCase() === designerVal.toLowerCase());
         }
 
         let matchesStore = true;
@@ -421,13 +373,7 @@ function applyFilters() {
             matchesSeller = activeListings.some(l => l.seller && l.seller.toLowerCase() === sellerVal.toLowerCase());
         }
 
-        let matchesDesigner = true;
-        if (designerVal !== 'all') {
-            const designers = game.designers || [];
-            matchesDesigner = designers.some(d => d.toLowerCase() === designerVal.toLowerCase());
-        }
-
-        return matchesSearch && matchesRating && matchesPlayers && matchesStock && matchesDeal && matchesStore && matchesSeller && matchesDesigner;
+        return matchesSearch && matchesRating && matchesPlayers && matchesTime && matchesStock && matchesDeal && matchesDesigner && matchesStore && matchesSeller;
     });
 
     renderGames();
@@ -458,50 +404,36 @@ function renderGames() {
 function createGameCard(game) {
     const card = document.createElement('div');
     card.className = 'game-card';
-    card.onclick = (e) => {
-        // Prevent opening BGG page if user is clicking a store link, button, or any interactive element
-        if (e.target.closest('a') || e.target.closest('button') || e.target.closest('.store-chip')) return;
-        window.open(`https://boardgamegeek.com/boardgame/${game.objectId}`, '_blank');
+    card.onclick = () => {
+        if (typeof showGameDetails === 'function') {
+            showGameDetails(game.objectId);
+        } else {
+            window.open(`https://boardgamegeek.com/boardgame/${game.objectId}`, '_blank');
+        }
     };
 
+    const inStock = isGameInStockAtAnyStore(game);
+    const hasDeal = hasGameMajorDeal(game);
+
     let badgesHtml = '';
-    
-    // Check if in stock at any store to add a special badge
-    const isInStock = isGameInStockAtAnyStore(game);
-    
-    if (isInStock) {
-        badgesHtml += '<span class="badge badge-favorite">In Stock</span>';
-    }
-
-    const dealInfo = getGameDealInfo(game);
-    if (dealInfo) {
-        const prevPriceFormatted = formatPrice(dealInfo.previousPrice, dealInfo.storeKey);
-        const currPriceFormatted = formatPrice(dealInfo.currentPrice, dealInfo.storeKey);
-        badgesHtml += `<span class="badge badge-deal" title="Was ${prevPriceFormatted}, now ${currPriceFormatted}">🔥 -${dealInfo.discountPercent}% Deal</span>`;
-    }
-
-    if (game.isWantInTrade && !game.isWantToBuy) {
-        badgesHtml += '<span class="badge badge-want-trade">Want in Trade</span>';
-    } else if (game.isWantInTrade && game.isWantToBuy) {
-        badgesHtml += '<span class="badge badge-want-trade">Want in Trade</span>';
-    }
-    
+    if (inStock) badgesHtml += '<span class="badge badge-instock" style="background:#c6f6d5; color:#22543d;">In Stock</span>';
+    if (hasDeal) badgesHtml += '<span class="badge badge-deal" style="background:#feebc8; color:#7b341e;">🔥 Deal</span>';
     if (game.minPlayers <= 1) badgesHtml += '<span class="badge badge-solo">Solo</span>';
     if (game.rating >= 8) badgesHtml += '<span class="badge badge-highly-rated">Highly Rated</span>';
 
-    // Build store availability HTML (only for stores / sellers that are in stock)
+    // Build store availability HTML
     let storeButtonsHtml = '';
     const activeBggListings = getActiveBggListings(game);
 
     const renderStoreChip = (store, name, storeKey = null, isBggMarket = false) => {
         if (!store || !store.url || !store.available) return '';
         const priceText = formatPrice(store.price, storeKey);
-        const hasDeal = store.deal && store.deal.discountPercent >= 20;
-        const prevPriceText = hasDeal ? formatPrice(store.deal.previousPrice, storeKey) : '';
-        const chipClass = isBggMarket ? 'store-chip bgg-market' : (hasDeal ? 'store-chip has-deal' : 'store-chip');
-        const dealBadge = hasDeal ? `<span class="chip-deal-badge">-${store.deal.discountPercent}%</span>` : '';
+        const deal = store.deal && store.deal.discountPercent >= 20;
+        const prevPriceText = deal ? formatPrice(store.deal.previousPrice, storeKey) : '';
+        const chipClass = isBggMarket ? 'store-chip bgg-market' : (deal ? 'store-chip has-deal' : 'store-chip');
+        const dealBadge = deal ? `<span class="chip-deal-badge">-${store.deal.discountPercent}%</span>` : '';
         return `
-            <a href="${store.url}" target="_blank" class="${chipClass}" title="View on ${name}${hasDeal ? ` (Was ${prevPriceText}, now ${priceText})` : ''}">
+            <a href="${store.url}" target="_blank" class="${chipClass}" title="View on ${name}${deal ? ` (Was ${prevPriceText}, now ${priceText})` : ''}" onclick="event.stopPropagation()">
                 <span class="store-chip-name">${name}</span>
                 ${priceText ? `<span class="store-chip-price">${priceText} ${dealBadge}</span>` : ''}
             </a>
@@ -533,18 +465,14 @@ function createGameCard(game) {
         `;
     }
 
-    const designersText = (game.designers && game.designers.length > 0 && game.designers[0] !== '(Uncredited)')
-        ? game.designers.join(', ')
-        : '';
-
     card.innerHTML = `
         <div class="game-badges">
             ${badgesHtml}
         </div>
         <img src="${game.image || game.thumbnail || 'https://via.placeholder.com/300x300?text=No+Image'}" 
-            alt="${game.name}" 
-            class="game-thumbnail"
-            loading="lazy">
+             alt="${game.name}" 
+             class="game-thumbnail"
+             loading="lazy">
         <div class="game-info">
             <div class="game-year">${game.yearPublished !== 'N/A' ? game.yearPublished : ''}</div>
             <div class="game-name">${game.name}</div>
@@ -552,7 +480,7 @@ function createGameCard(game) {
                 <div class="meta-item"><span>👥</span> ${game.minPlayers}-${game.maxPlayers}</div>
                 <div class="meta-item"><span>⏱️</span> ${game.playingTime} min</div>
                 <div class="meta-item"><span>⭐</span> ${game.rating.toFixed(1)}</div>
-                ${designersText ? `<div class="meta-item" title="Designer: ${designersText}"><span>✍️</span> ${designersText}</div>` : ''}
+                ${game.myRating > 0 ? `<div class="meta-item"><span>💚</span> ${game.myRating.toFixed(1)}</div>` : ''}
             </div>
             ${storeHtml}
         </div>

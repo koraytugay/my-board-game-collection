@@ -37,6 +37,7 @@
                 <a href="wanttobuy.html" class="nav-link">Want to Buy</a>
                 <a href="wanttoplay.html" class="nav-link">Want to Play</a>
                 <a href="wantintrade.html" class="nav-link">Want in Trade</a>
+                <a href="liketohave.html" class="nav-link">Like to Have</a>
                 <a href="thinkingabout.html" class="nav-link active">Thinking About</a>
                 <a href="recommended.html" class="nav-link">Recommended Games</a>
                 <a href="stores.html" class="nav-link">Stores</a>
@@ -46,7 +47,7 @@
 
         <div id="loading" class="loading">
             <div class="spinner"></div>
-            <p>Loading Thinking About games and store availability...</p>
+            <p>Loading Thinking About games...</p>
         </div>
 
         <div id="error" class="error" style="display: none;"></div>
@@ -73,20 +74,6 @@
                         <option value="compact">Compact</option>
                         <option value="list">List</option>
                     </select>
-                </div>
-
-                <div class="control-group">
-                    <label class="checkbox-label">
-                        <input type="checkbox" id="in-stock-only" onchange="applyFilters()">
-                        In Stock Only
-                    </label>
-                </div>
-
-                <div class="control-group">
-                    <label class="checkbox-label">
-                        <input type="checkbox" id="major-deals-only" onchange="applyFilters()">
-                        Deals
-                    </label>
                 </div>
 
                 <div class="control-group">
@@ -142,22 +129,6 @@
                     <label for="designer-filter">Designer:</label>
                     <select id="designer-filter" onchange="applyFilters()">
                         <option value="all">All Designers</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="controls-row">
-                <div class="control-group">
-                    <label for="store-filter">Store:</label>
-                    <select id="store-filter" onchange="applyFilters()">
-                        <option value="all">All Stores</option>
-                    </select>
-                </div>
-
-                <div class="control-group">
-                    <label for="seller-filter">BGG Seller:</label>
-                    <select id="seller-filter" onchange="applyFilters()">
-                        <option value="all">All Sellers</option>
                     </select>
                 </div>
             </div>
