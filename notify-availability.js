@@ -33,6 +33,8 @@ const STORE_META = {
     laPioche: { name: 'La Pioche', icon: '🇨🇦' },
     alwaysGames: { name: 'Always Games', icon: '🇨🇦' },
     pokeJeux: { name: 'Poké Jeux', icon: '🇨🇦' },
+    legendsWarehouse: { name: 'Legends Warehouse', icon: '🇨🇦' },
+    boardGameBandit: { name: 'Board Game Bandit', icon: '🇨🇦' },
     buttonShyEtsy: { name: 'Button Shy', icon: '🇺🇸' },
     zatu: { name: 'Zatu Games', icon: '🇬🇧' },
     chaosCards: { name: 'Chaos Cards', icon: '🇬🇧' },

@@ -26,6 +26,8 @@ const STORES = [
     { key: 'laPioche', name: '🇨🇦 La Pioche' },
     { key: 'alwaysGames', name: '🇨🇦 Always Games' },
     { key: 'pokeJeux', name: '🇨🇦 Poké Jeux' },
+    { key: 'legendsWarehouse', name: '🇨🇦 Legends Warehouse' },
+    { key: 'boardGameBandit', name: '🇨🇦 Board Game Bandit' },
     { key: 'buttonShyEtsy', name: '🇺🇸 Button Shy' },
     { key: 'zatu', name: '🇬🇧 Zatu Games' },
     { key: 'chaosCards', name: '🇬🇧 Chaos Cards' },

@@ -246,6 +246,8 @@ async function showGameDetails(objectId) {
             laPioche: '🇨🇦 La Pioche',
             alwaysGames: '🇨🇦 Always Games',
             pokeJeux: '🇨🇦 Poké Jeux',
+            legendsWarehouse: '🇨🇦 Legends Warehouse',
+            boardGameBandit: '🇨🇦 Board Game Bandit',
             buttonShyEtsy: '🇺🇸 Button Shy',
             zatu: '🇬🇧 Zatu Games',
             chaosCards: '🇬🇧 Chaos Cards',

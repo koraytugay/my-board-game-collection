@@ -32,6 +32,8 @@ const CANADIAN_STORE_KEYS = new Set([
     'laPioche',
     'alwaysGames',
     'pokeJeux',
+    'legendsWarehouse',
+    'boardGameBandit',
     'bggMarket'
 ]);
 
@@ -1631,6 +1633,16 @@ async function checkAvailability() {
             pokeJeux: {
                 type: 'shopify',
                 baseUrl: 'https://www.pokejeux.ca',
+                currencySymbol: '$'
+            },
+            legendsWarehouse: {
+                type: 'shopify',
+                baseUrl: 'https://legendswarehouse.ca',
+                currencySymbol: '$'
+            },
+            boardGameBandit: {
+                type: 'shopify',
+                baseUrl: 'https://boardgamebandit.ca',
                 currencySymbol: '$'
             },
             crowdfinder: {
