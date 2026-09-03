@@ -1779,6 +1779,14 @@
       "lastChecked": "2026-09-03T19:41:29.239Z",
       "lastCheckSuccess": true
     },
+    "boardgamesCa": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-03T22:30:31.778Z",
+      "lastCheckSuccess": true
+    },
     "screenFreeGames": {
       "available": false,
       "price": null,
@@ -1924,14 +1932,6 @@
       "url": "https://www.etsy.com/shop/ButtonShyGames",
       "lastChecked": "2026-09-03T19:41:28.594Z",
       "lastCheckSuccess": true
-    },
-    "boardgamesCa": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": null,
-      "lastCheckSuccess": false
     }
   },
   "251412": {},
