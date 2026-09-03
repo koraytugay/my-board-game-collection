@@ -1,4 +1,5 @@
 const fs = require('fs');
+const path = require('path');
 const https = require('https');
 const zlib = require('zlib');
 
@@ -9,6 +10,132 @@ const RECOMMENDATIONS_FILE = 'recommendations.json';
 const OUTPUT_FILE = isRecommended ? 'availability-recommended.json' : (isLikeToHave ? 'availability-liketohave.json' : 'availability.json');
 const POLITENESS_DELAY_MS = parseInt(process.env.CHECK_DELAY_MS || '5000', 10);
 const MIN_PRICE_THRESHOLD = 5.0; // Ignore/treat items priced <= 5 as out of stock / erroneous match
+
+// --- RUN LOGGING & MONITORING SETUP ---
+const RUNLOGS_DIR = path.join(__dirname, 'runlogs');
+if (!fs.existsSync(RUNLOGS_DIR)) {
+    fs.mkdirSync(RUNLOGS_DIR, { recursive: true });
+}
+
+function getFormattedTimestamp() {
+    const d = new Date();
+    const pad = (n) => String(n).padStart(2, '0');
+    return `${d.getUTCFullYear()}-${pad(d.getUTCMonth() + 1)}-${pad(d.getUTCDate())}_${pad(d.getUTCHours())}-${pad(d.getUTCMinutes())}-${pad(d.getUTCSeconds())}Z`;
+}
+
+const runType = isRecommended ? 'recommended' : (isLikeToHave ? 'liketohave' : 'wanttobuy');
+const logFileName = `${getFormattedTimestamp()}_${runType}.log`;
+const logFilePath = path.join(RUNLOGS_DIR, logFileName);
+const logStream = fs.createWriteStream(logFilePath, { flags: 'a' });
+
+// Automatically prune logs older than 14 days to keep repo size healthy
+function pruneOldLogs(maxDays = 14) {
+    try {
+        const cutoff = Date.now() - (maxDays * 24 * 60 * 60 * 1000);
+        const files = fs.readdirSync(RUNLOGS_DIR);
+        for (const file of files) {
+            if (file.endsWith('.log')) {
+                const p = path.join(RUNLOGS_DIR, file);
+                const stat = fs.statSync(p);
+                if (stat.mtimeMs < cutoff) {
+                    fs.unlinkSync(p);
+                }
+            }
+        }
+    } catch (_) {}
+}
+pruneOldLogs(14);
+
+// Tee console output to log file with timestamps
+const origLog = console.log;
+const origWarn = console.warn;
+const origError = console.error;
+
+function formatLogEntry(level, args) {
+    const iso = new Date().toISOString();
+    const text = args.map(a => {
+        if (typeof a === 'object' && a !== null) {
+            try { return JSON.stringify(a); } catch (_) { return String(a); }
+        }
+        return String(a);
+    }).join(' ');
+    return `[${iso}] [${level}] ${text}\n`;
+}
+
+console.log = (...args) => {
+    origLog(...args);
+    logStream.write(formatLogEntry('INFO', args));
+};
+console.warn = (...args) => {
+    origWarn(...args);
+    logStream.write(formatLogEntry('WARN', args));
+};
+console.error = (...args) => {
+    origError(...args);
+    logStream.write(formatLogEntry('ERROR', args));
+};
+
+const runStats = {
+    startTime: Date.now(),
+    storesChecked: 0,
+    storesSkipped: 0,
+    total429s: 0,
+    rateLimitsByHost: {},
+    failuresByStore: {},
+
+    record429(hostname, waitSec, headers) {
+        this.total429s++;
+        if (!this.rateLimitsByHost[hostname]) {
+            this.rateLimitsByHost[hostname] = {
+                count: 0,
+                totalWaitSec: 0,
+                lastHeaders: null
+            };
+        }
+        this.rateLimitsByHost[hostname].count++;
+        this.rateLimitsByHost[hostname].totalWaitSec += waitSec;
+        this.rateLimitsByHost[hostname].lastHeaders = headers;
+    },
+
+    recordFailure(storeKey, errorMsg) {
+        if (!this.failuresByStore[storeKey]) {
+            this.failuresByStore[storeKey] = { count: 0, lastError: errorMsg };
+        }
+        this.failuresByStore[storeKey].count++;
+        this.failuresByStore[storeKey].lastError = errorMsg;
+    },
+
+    printSummary(gameCount) {
+        const elapsedSec = Math.round((Date.now() - this.startTime) / 1000);
+        const mins = Math.floor(elapsedSec / 60);
+        const secs = elapsedSec % 60;
+        console.log('\n' + '='.repeat(60));
+        console.log(`RUN SUMMARY: ${runType.toUpperCase()}`);
+        console.log('-'.repeat(60));
+        console.log(`Log File:              runlogs/${logFileName}`);
+        console.log(`Timestamp (UTC):       ${new Date().toISOString()}`);
+        console.log(`Duration:              ${mins}m ${secs}s`);
+        console.log(`Games Evaluated:       ${gameCount}`);
+        console.log(`Store Checks Made:     ${this.storesChecked}`);
+        console.log(`Store Checks Skipped:  ${this.storesSkipped} (6-hour cache)`);
+        console.log(`Total 429 Events:      ${this.total429s}`);
+
+        if (Object.keys(this.rateLimitsByHost).length > 0) {
+            console.log('\n429 Rate Limits by Host:');
+            for (const [host, data] of Object.entries(this.rateLimitsByHost)) {
+                console.log(`  - ${host}: ${data.count} hits (total backoff: ${data.totalWaitSec}s, last headers: ${JSON.stringify(data.lastHeaders)})`);
+            }
+        }
+
+        if (Object.keys(this.failuresByStore).length > 0) {
+            console.log('\nStore Fetch Failures:');
+            for (const [store, data] of Object.entries(this.failuresByStore)) {
+                console.log(`  - ${store}: ${data.count} failures (last error: ${data.lastError})`);
+            }
+        }
+        console.log('='.repeat(60) + '\n');
+    }
+};
 
 const CANADIAN_STORE_KEYS = new Set([
     'boardGameBliss',
@@ -212,7 +339,13 @@ function fetchJson(url, redirectCount = 0, customHeaders = {}, retryCount = 0) {
                 if (isShopify) {
                     shopifyGlobalCooldownUntil = Date.now() + (waitSec * 1000);
                 }
-                console.warn(`[429 RATE LIMIT] Rate limited on ${u.hostname}. Backing off for ${waitSec}s (retry ${retryCount + 1}/3)...`);
+                const retryAfter = res.headers['retry-after'] || null;
+                const cfRay = res.headers['cf-ray'] || null;
+                const reqId = res.headers['x-request-id'] || null;
+                const server = res.headers['server'] || null;
+                const shopApiLimit = res.headers['x-shopify-shop-api-call-limit'] || null;
+                runStats.record429(u.hostname, waitSec, { retryAfter, cfRay, reqId, server, shopApiLimit });
+                console.warn(`[429 RATE LIMIT] Rate limited on ${u.hostname} (retry ${retryCount + 1}/3). Backing off for ${waitSec}s... [server=${server || 'unknown'}, retry-after=${retryAfter || 'none'}, cf-ray=${cfRay || 'none'}]`);
                 if (!resolved) {
                     resolved = true;
                     sleep(waitSec * 1000).then(() => {
@@ -297,6 +430,9 @@ async function fetchButtonShyEtsyListings(apiKey) {
             'x-api-key': apiKey
         });
         
+        if (!listingsRes) {
+            throw new Error(`[Button Shy Etsy] Failed to fetch active listings from Etsy API.`);
+        }
         buttonShyListingsCache = listingsRes?.results || [];
         if (buttonShyListingsCache.length > 0) {
             console.log(`[Button Shy Etsy] Fetched ${buttonShyListingsCache.length} active listings from Etsy API.`);
@@ -304,7 +440,7 @@ async function fetchButtonShyEtsyListings(apiKey) {
         return buttonShyListingsCache;
     } catch (err) {
         console.error(`[Button Shy Etsy] Error fetching shop listings:`, err.message);
-        return [];
+        throw err;
     }
 }
 
@@ -359,7 +495,12 @@ function fetchHtml(url, redirectCount = 0, cookieHeader = '', retryCount = 0) {
                         waitSec = Math.min(120, parsed);
                     }
                 }
-                console.warn(`[429 RATE LIMIT] Rate limited on ${u.hostname}. Backing off for ${waitSec}s (retry ${retryCount + 1}/3)...`);
+                const retryAfter = res.headers['retry-after'] || null;
+                const cfRay = res.headers['cf-ray'] || null;
+                const reqId = res.headers['x-request-id'] || null;
+                const server = res.headers['server'] || null;
+                runStats.record429(u.hostname, waitSec, { retryAfter, cfRay, reqId, server });
+                console.warn(`[429 RATE LIMIT] Rate limited on ${u.hostname} (retry ${retryCount + 1}/3). Backing off for ${waitSec}s... [server=${server || 'unknown'}, retry-after=${retryAfter || 'none'}, cf-ray=${cfRay || 'none'}]`);
                 if (!resolved) {
                     resolved = true;
                     sleep(waitSec * 1000).then(() => {
@@ -607,11 +748,12 @@ const GAME_ALIASES = {
 };
 
 function isMatch(bggName, shopifyProduct) {
+    if (!bggName || !shopifyProduct) return false;
     const shopifyTitle = decodeXmlEntities(shopifyProduct.title || '');
     const shopifyType = shopifyProduct.type || '';
     
-    const cleanBgg = cleanName(bggName);
-    const normalize = str => str.toLowerCase().replace(/[^a-z0-9]/g, '');
+    const cleanBgg = cleanName(bggName) || '';
+    const normalize = str => (str || '').toLowerCase().replace(/[^a-z0-9]/g, '');
     const nBgg = normalize(cleanBgg);
     const nShopify = normalize(shopifyTitle);
 
@@ -698,7 +840,11 @@ async function fetchShopifyStore(baseUrl, query, gameName, currencySymbol = '$')
 
     let hadSuccessfulResponse = false;
 
-    for (const q of queries) {
+    for (let qi = 0; qi < queries.length; qi++) {
+        if (qi > 0) {
+            await sleep(350);
+        }
+        const q = queries[qi];
         const suggestUrl = `${baseUrl}/search/suggest.json?q=${encodeURIComponent(q)}&resources[type]=product`;
         const suggestRes = await fetchJson(suggestUrl);
         
@@ -909,7 +1055,7 @@ async function checkPhilibertStock(gameName) {
         const query = cleanName(gameName);
         const searchUrl = `https://www.philibertnet.com/en/search?search_query=${encodeURIComponent(query)}&submit_search=`;
         const html = await fetchHtml(searchUrl);
-        if (!html) return { available: false, price: null, url: null };
+        if (!html) throw new Error(`Failed to fetch Philibert HTML for ${gameName}`);
 
         const cards = html.split(/<div[^>]*class="[^"]*product-card\b[^"]*"[^>]*>/i).slice(1);
         const products = [];
@@ -965,7 +1111,7 @@ async function checkPhilibertStock(gameName) {
             url: match.url
         };
     } catch (err) {
-        return { available: false, price: null, url: null };
+        throw err;
     }
 }
 
@@ -1035,6 +1181,9 @@ async function checkCrowdfinderStock(gameName) {
         const q = cleanName(gameName);
         const postData = JSON.stringify({ search: q });
         const res = await fetchJsonPost('https://www.crowdfinder.be/api/crowdfinder/product', postData);
+        if (res === null) {
+            throw new Error(`Failed to fetch Crowdfinder API for ${gameName}`);
+        }
         const products = res?.data || [];
         if (!products.length) return { available: false, price: null, url: null };
         const match = products.find(p => isMatchCrowdfinder(gameName, p));
@@ -1049,8 +1198,8 @@ async function checkCrowdfinderStock(gameName) {
             };
         }
         return { available: false, price: null, url: null };
-    } catch (_) {
-        return { available: false, price: null, url: null };
+    } catch (err) {
+        throw err;
     }
 }
 
@@ -1059,7 +1208,7 @@ async function checkSpelspulStock(gameName) {
         const q = cleanName(gameName);
         const searchUrl = `https://www.spelspul.nl/nl/zoeken?controller=search&s=${encodeURIComponent(q)}`;
         const html = await fetchHtml(searchUrl);
-        if (!html) return { available: false, price: null, url: null };
+        if (!html) throw new Error(`Failed to fetch Spelspul search HTML for ${gameName}`);
 
         const jsonLdMatches = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/gi)];
         let items = [];
@@ -1078,7 +1227,7 @@ async function checkSpelspulStock(gameName) {
         if (!match?.url) return { available: false, price: null, url: null };
 
         const prodHtml = await fetchHtml(match.url);
-        if (!prodHtml) return { available: false, price: null, url: match.url };
+        if (!prodHtml) throw new Error(`Failed to fetch Spelspul product HTML for ${match.url}`);
 
         const priceMatch = prodHtml.match(/itemprop="price"[^>]*content="([^"]+)"/i) || prodHtml.match(/content="([0-9]+\.[0-9]{2})"/);
         const rawPrice = priceMatch ? priceMatch[1] : null;
@@ -1091,20 +1240,23 @@ async function checkSpelspulStock(gameName) {
             price,
             url: match.url
         };
-    } catch (_) {
-        return { available: false, price: null, url: null };
+    } catch (err) {
+        throw err;
     }
 }
 
 async function checkChaosCardsStock(gameName) {
+    const browser = await getBrowserInstance();
+    if (!browser) throw new Error(`Puppeteer browser not available for Chaos Cards`);
+    const page = await browser.newPage();
     try {
-        const browser = await getBrowserInstance();
-        if (!browser) return { available: false, price: null, url: null };
-        const page = await browser.newPage();
         await page.setUserAgent('Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36');
         const query = cleanName(gameName);
         const searchUrl = `https://www.chaoscards.co.uk/`;
-        await page.goto(searchUrl, { waitUntil: 'domcontentloaded', timeout: 15000 });
+        const response = await page.goto(searchUrl, { waitUntil: 'domcontentloaded', timeout: 15000 });
+        if (!response || response.status() !== 200) {
+            throw new Error(`Chaos Cards search page returned status ${response ? response.status() : 'null'}`);
+        }
         await page.type('#header_search_search_for', query);
         await page.keyboard.press('Enter');
         await new Promise(r => setTimeout(r, 3000));
@@ -1138,7 +1290,6 @@ async function checkChaosCardsStock(gameName) {
             return items[0] || null;
         }, gameName);
 
-        await page.close();
         if (match && !isPriceUnderThreshold(match.price)) {
             return {
                 available: match.available,
@@ -1147,8 +1298,8 @@ async function checkChaosCardsStock(gameName) {
             };
         }
         return { available: false, price: null, url: null };
-    } catch (_) {
-        return { available: false, price: null, url: null };
+    } finally {
+        await page.close().catch(() => {});
     }
 }
 
@@ -1177,24 +1328,21 @@ async function getBrowserInstance() {
 
 async function fetchAmazonWithPuppeteer(gameName) {
     const searchUrl = `https://www.amazon.ca/s?k=${encodeURIComponent(gameName + " board game")}`;
-    try {
-        const browser = await getBrowserInstance();
-        if (!browser) {
-            return { available: false, price: null, url: searchUrl };
-        }
+    const browser = await getBrowserInstance();
+    if (!browser) {
+        throw new Error(`Puppeteer browser not available for Amazon`);
+    }
 
-        const page = await browser.newPage();
+    const page = await browser.newPage();
+    try {
         await page.setViewport({ width: 1280, height: 800 });
 
         const response = await page.goto(searchUrl, { waitUntil: 'domcontentloaded', timeout: 15000 });
         if (!response || response.status() !== 200) {
-            await page.close();
-            return { available: false, price: null, url: searchUrl };
+            throw new Error(`Amazon puppeteer returned status ${response ? response.status() : 'null'}`);
         }
 
         const html = await page.content();
-        await page.close();
-
         const match = parseAmazon(html, gameName);
         if (match) {
             return {
@@ -1208,13 +1356,8 @@ async function fetchAmazonWithPuppeteer(gameName) {
             price: null,
             url: searchUrl
         };
-    } catch (err) {
-        console.warn(`[WARNING] Puppeteer Amazon fetch error for "${gameName}": ${err.message}`);
-        return {
-            available: false,
-            price: null,
-            url: searchUrl
-        };
+    } finally {
+        await page.close().catch(() => {});
     }
 }
 
@@ -1794,20 +1937,9 @@ async function checkAvailability() {
             const config = storeConfigs[storeKey];
             const existingStoreData = existingData[game.objectId]?.[storeKey];
 
-            // Determine if previous check found the game in stock
-            let wasAvailable = Boolean(existingStoreData?.available);
-            if (wasAvailable && isPriceUnderThreshold(existingStoreData?.price)) {
-                wasAvailable = false;
-            }
-            if (wasAvailable && Array.isArray(existingStoreData?.listings)) {
-                const activeListings = existingStoreData.listings.filter(l => !l.ignored && !isPriceUnderThreshold(l.price));
-                if (activeListings.length === 0) wasAvailable = false;
-            }
-
-            // Only skip fetching if the game was ALREADY IN STOCK and checked within the last 6 hours.
-            // Out-of-stock store/game tuples are ALWAYS checked on every run.
+            // Skip fetching if checked within the last 6 hours (regardless of whether in-stock or out-of-stock).
             let shouldFetch = true;
-            if (wasAvailable && existingStoreData.lastChecked && existingStoreData.lastCheckSuccess !== false) {
+            if (existingStoreData && existingStoreData.lastChecked && existingStoreData.lastCheckSuccess !== false) {
                 const lastCheckedTime = new Date(existingStoreData.lastChecked).getTime();
                 const sixHoursAgo = Date.now() - (6 * 60 * 60 * 1000);
                 if (lastCheckedTime > sixHoursAgo) {
@@ -1816,6 +1948,7 @@ async function checkAvailability() {
             }
 
             if (!shouldFetch) {
+                runStats.storesSkipped++;
                 skippedStores.push(storeKey);
                 let available = existingStoreData.available ?? false;
                 if (available && isPriceUnderThreshold(existingStoreData.price)) {
@@ -1842,6 +1975,7 @@ async function checkAvailability() {
                     lastCheckSuccess: existingStoreData.lastCheckSuccess ?? true
                 };
             } else {
+                runStats.storesChecked++;
                 const staggerDelay = config.type === 'shopify' ? (shopifyStoreIndex++ * 150) : 0;
                 const fetchPromise = (async () => {
                     if (staggerDelay > 0) {
@@ -1915,6 +2049,7 @@ async function checkAvailability() {
                             };
                         }
                     } catch (err) {
+                        runStats.recordFailure(storeKey, err.message);
                         let available = existingStoreData?.available ?? false;
                         if (available && isPriceUnderThreshold(existingStoreData?.price)) {
                             available = false;
@@ -1938,7 +2073,7 @@ async function checkAvailability() {
         if (game.isWantInTrade && !game.isWantToBuy) {
             console.log(`[${i+1}/${wantedGames.length}] "${game.name}" (Want in Trade only): Checking BGG Market only...`);
         } else if (skippedStores.length > 0) {
-            console.log(`[${i+1}/${wantedGames.length}] "${game.name}": skipped ${skippedStores.length} in-stock stores checked within 6 hours. Checking remaining ${fetchPromises.length} stores...`);
+            console.log(`[${i+1}/${wantedGames.length}] "${game.name}": skipped ${skippedStores.length} stores checked within 6 hours. Checking remaining ${fetchPromises.length} stores...`);
         } else {
             console.log(`[${i+1}/${wantedGames.length}] "${game.name}": Checking all ${storeKeys.length} stores...`);
         }
@@ -1973,10 +2108,20 @@ async function checkAvailability() {
 
     fs.writeFileSync(OUTPUT_FILE, JSON.stringify(availabilityData, null, 2), 'utf8');
     console.log(`Availability check finished. Saved results to ${OUTPUT_FILE}`);
-    process.exit(0);
+    runStats.printSummary(wantedGames.length);
+    logStream.end(() => {
+        process.exit(0);
+    });
 }
 
 checkAvailability().catch(err => {
     console.error('Fatal error during availability check:', err);
-    process.exit(1);
+    try {
+        runStats.printSummary(0);
+        logStream.end(() => {
+            process.exit(1);
+        });
+    } catch (_) {
+        process.exit(1);
+    }
 });

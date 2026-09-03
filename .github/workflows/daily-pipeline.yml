@@ -128,9 +128,9 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git pull --rebase --autostash origin ${{ github.ref_name }}
-          git add availability.json last-notified-availability.json
+          git add availability.json last-notified-availability.json runlogs/
           if ! git diff --quiet --staged; then
-            git commit -m "chore: update wanted game availability ($(date -u +%F))"
+            git commit -m "chore: update wanted game availability & run logs ($(date -u +%F))"
             git push
           else
             echo "No wanted game availability changes to commit."
@@ -171,9 +171,9 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git pull --rebase --autostash origin ${{ github.ref_name }}
-          git add availability-liketohave.json last-notified-availability-liketohave.json
+          git add availability-liketohave.json last-notified-availability-liketohave.json runlogs/
           if ! git diff --quiet --staged; then
-            git commit -m "chore: update like to have availability ($(date -u +%F))"
+            git commit -m "chore: update like to have availability & run logs ($(date -u +%F))"
             git push
           else
             echo "No like to have availability changes to commit."
@@ -188,7 +188,7 @@ jobs:
         run: node notify-run-status.js --workflow="4. Like to Have Availability" --status="success" --message="Completed stock and price checks for Like to Have games."
 
       # ----------------------------------------------------
-      # Pipeline Failure Notification
+      # Pipeline Failure Notification & Log Preservation
       # ----------------------------------------------------
       - name: Send Failure Notification
         if: failure()
@@ -198,3 +198,16 @@ jobs:
           NOTIFICATION_EMAIL: ${{ secrets.NOTIFICATION_EMAIL }}
           JOB_STATUS: ${{ job.status }}
         run: node notify-run-status.js --workflow="Daily Board Game Pipeline" --status="failure" --message="Pipeline encountered an error during execution. Please check the run logs."
+
+      - name: Commit & Push Run Logs on Failure
+        if: failure()
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase --autostash origin ${{ github.ref_name }} || true
+          git add runlogs/
+          if ! git diff --quiet --staged; then
+            git commit -m "chore: save pipeline run logs on failure [skip ci]" || true
+            git push || true
+          fi

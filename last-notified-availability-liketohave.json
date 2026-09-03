@@ -1,85 +1,5 @@
 {
   "216600": {
-    "fourZeroOneGames": {
-      "available": true,
-      "price": "$44.95",
-      "baselinePrice": "$44.95",
-      "url": "https://store.401games.ca/products/fantastic-factories?_pos=1&_psq=Fantastic+Factories&_psid=61697e555&_ss=e",
-      "lastChecked": "2026-09-03T17:51:40.346Z",
-      "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": true,
-      "price": "69.72",
-      "baselinePrice": "69.72",
-      "url": "https://www.amazon.ca/dp/B07YXB9CY5",
-      "lastChecked": "2026-09-03T17:51:41.432Z",
-      "lastCheckSuccess": true
-    },
-    "screenFreeGames": {
-      "available": true,
-      "price": "$37.94",
-      "baselinePrice": "$37.94",
-      "url": "https://screenfreegames.com/products/fantastic-factories-pre-order?_pos=1&_psq=Fantastic+Factories&_psid=5c692fc3d&_ss=e",
-      "lastChecked": "2026-09-03T17:51:40.679Z",
-      "lastCheckSuccess": true
-    },
-    "crowdfinder": {
-      "available": true,
-      "price": "€12.00",
-      "baselinePrice": "€12.00",
-      "url": "https://www.crowdfinder.be/product/3419-fantastic-factories-subterfuge",
-      "lastChecked": "2026-09-03T17:51:40.588Z",
-      "lastCheckSuccess": true
-    },
-    "philibert": {
-      "available": true,
-      "price": "€43.99",
-      "baselinePrice": "€43.99",
-      "url": "https://www.philibertnet.com/en/friendly-skeleton/181286-fantastic-factories-0613310202493.html",
-      "lastChecked": "2026-09-03T17:51:40.611Z",
-      "lastCheckSuccess": true
-    },
-    "bggMarket": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-09-03T19:45:14.592Z",
-      "lastCheckSuccess": true
-    },
-    "elevatedBoardGames": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-09-03T19:45:14.631Z",
-      "lastCheckSuccess": true
-    },
-    "kbHobbies": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-09-03T19:45:14.766Z",
-      "lastCheckSuccess": true
-    },
-    "buttonShyEtsy": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": "https://www.etsy.com/shop/ButtonShyGames",
-      "lastChecked": "2026-09-03T19:45:14.770Z",
-      "lastCheckSuccess": true
-    },
-    "greatBoardgames": {
-      "available": false,
-      "price": "$36.95",
-      "baselinePrice": "$36.95",
-      "url": "https://www.greatboardgames.ca/games/fantastic-factories",
-      "lastChecked": "2026-09-03T19:45:14.935Z",
-      "lastCheckSuccess": true
-    },
     "boardGameBliss": {
       "available": false,
       "price": "$33.58",
@@ -88,20 +8,12 @@
       "lastChecked": "2026-09-03T19:45:14.951Z",
       "lastCheckSuccess": true
     },
-    "jjCards": {
-      "available": false,
-      "price": "$39.99",
-      "baselinePrice": "$39.99",
-      "url": "https://shop.jjcards.com/Fantastic-Factories_p_21704.html",
-      "lastChecked": "2026-09-03T19:45:14.982Z",
-      "lastCheckSuccess": true
-    },
-    "asDesJeux": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-09-03T19:45:15.044Z",
+    "fourZeroOneGames": {
+      "available": true,
+      "price": "$44.95",
+      "baselinePrice": "$44.95",
+      "url": "https://store.401games.ca/products/fantastic-factories?_pos=1&_psq=Fantastic+Factories&_psid=61697e555&_ss=e",
+      "lastChecked": "2026-09-03T17:51:40.346Z",
       "lastCheckSuccess": true
     },
     "lvlUpGames": {
@@ -112,12 +24,52 @@
       "lastChecked": "2026-09-03T19:45:15.109Z",
       "lastCheckSuccess": true
     },
+    "asDesJeux": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-03T19:45:15.044Z",
+      "lastCheckSuccess": true
+    },
+    "greatBoardgames": {
+      "available": false,
+      "price": "$36.95",
+      "baselinePrice": "$36.95",
+      "url": "https://www.greatboardgames.ca/games/fantastic-factories",
+      "lastChecked": "2026-09-03T19:45:14.935Z",
+      "lastCheckSuccess": true
+    },
     "meeplemart": {
       "available": false,
       "price": null,
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-09-03T19:45:15.124Z",
+      "lastCheckSuccess": true
+    },
+    "kbHobbies": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-03T19:45:14.766Z",
+      "lastCheckSuccess": true
+    },
+    "miniatureMarket": {
+      "available": false,
+      "price": "$40.00",
+      "baselinePrice": "$40.00",
+      "url": "https://www.miniaturemarket.com/dwgmtf0100.html",
+      "lastChecked": "2026-09-03T19:45:15.906Z",
+      "lastCheckSuccess": true
+    },
+    "amazonCa": {
+      "available": true,
+      "price": "69.72",
+      "baselinePrice": "69.72",
+      "url": "https://www.amazon.ca/dp/B07YXB9CY5",
+      "lastChecked": "2026-09-03T17:51:41.432Z",
       "lastCheckSuccess": true
     },
     "woodForSheep": {
@@ -144,12 +96,12 @@
       "lastChecked": "2026-09-03T19:45:15.344Z",
       "lastCheckSuccess": true
     },
-    "spelspul": {
+    "jjCards": {
       "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-09-03T19:45:15.523Z",
+      "price": "$39.99",
+      "baselinePrice": "$39.99",
+      "url": "https://shop.jjcards.com/Fantastic-Factories_p_21704.html",
+      "lastChecked": "2026-09-03T19:45:14.982Z",
       "lastCheckSuccess": true
     },
     "boardgamesCa": {
@@ -158,6 +110,14 @@
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-09-03T19:45:15.559Z",
+      "lastCheckSuccess": true
+    },
+    "screenFreeGames": {
+      "available": true,
+      "price": "$37.94",
+      "baselinePrice": "$37.94",
+      "url": "https://screenfreegames.com/products/fantastic-factories-pre-order?_pos=1&_psq=Fantastic+Factories&_psid=5c692fc3d&_ss=e",
+      "lastChecked": "2026-09-03T17:51:40.679Z",
       "lastCheckSuccess": true
     },
     "allSystemsGo": {
@@ -176,20 +136,20 @@
       "lastChecked": "2026-09-03T19:45:15.654Z",
       "lastCheckSuccess": true
     },
+    "elevatedBoardGames": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-03T19:45:14.631Z",
+      "lastCheckSuccess": true
+    },
     "diceHollow": {
       "available": false,
       "price": null,
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-09-03T19:45:15.797Z",
-      "lastCheckSuccess": true
-    },
-    "miniatureMarket": {
-      "available": false,
-      "price": "$40.00",
-      "baselinePrice": "$40.00",
-      "url": "https://www.miniaturemarket.com/dwgmtf0100.html",
-      "lastChecked": "2026-09-03T19:45:15.906Z",
       "lastCheckSuccess": true
     },
     "laPioche": {
@@ -216,12 +176,36 @@
       "lastChecked": "2026-09-03T19:45:16.369Z",
       "lastCheckSuccess": true
     },
-    "zatu": {
+    "legendsWarehouse": {
+      "available": true,
+      "price": "$24.75",
+      "baselinePrice": "$24.75",
+      "url": "https://legendswarehouse.ca/products/fantastic-factories-manufactions-new-release?_pos=1&_psq=Fantastic+Factories&_psid=cc24f5656&_ss=e",
+      "lastChecked": "2026-09-03T21:01:53.962Z",
+      "lastCheckSuccess": true
+    },
+    "boardGameBandit": {
+      "available": false,
+      "price": "$14.80",
+      "baselinePrice": "$14.80",
+      "url": "https://boardgamebandit.ca/products/fantastic-factories-board-game-canada?_pos=1&_psq=Fantastic+Factories&_psid=4ed64db74&_ss=e",
+      "lastChecked": "2026-09-03T21:01:54.239Z",
+      "lastCheckSuccess": true
+    },
+    "crowdfinder": {
+      "available": true,
+      "price": "€12.00",
+      "baselinePrice": "€12.00",
+      "url": "https://www.crowdfinder.be/product/3419-fantastic-factories-subterfuge",
+      "lastChecked": "2026-09-03T17:51:40.588Z",
+      "lastCheckSuccess": true
+    },
+    "spelspul": {
       "available": false,
       "price": null,
       "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-09-03T19:45:16.668Z",
+      "lastChecked": "2026-09-03T19:45:15.523Z",
       "lastCheckSuccess": true
     },
     "chaosCards": {
@@ -231,47 +215,21 @@
       "url": null,
       "lastChecked": "2026-09-03T19:45:20.519Z",
       "lastCheckSuccess": true
-    }
-  },
-  "319035": {
-    "crowdfinder": {
+    },
+    "zatu": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-03T19:45:16.668Z",
+      "lastCheckSuccess": true
+    },
+    "philibert": {
       "available": true,
-      "price": "€22.00",
-      "baselinePrice": "€22.00",
-      "url": "https://www.crowdfinder.be/product/3420-fantastic-factories-manufactions",
-      "lastChecked": "2026-09-03T17:51:50.343Z",
-      "lastCheckSuccess": true
-    },
-    "kbHobbies": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-09-03T19:45:25.656Z",
-      "lastCheckSuccess": true
-    },
-    "jjCards": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-09-03T19:45:25.656Z",
-      "lastCheckSuccess": true
-    },
-    "elevatedBoardGames": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-09-03T19:45:25.656Z",
-      "lastCheckSuccess": true
-    },
-    "buttonShyEtsy": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": "https://www.etsy.com/shop/ButtonShyGames",
-      "lastChecked": "2026-09-03T19:45:25.656Z",
+      "price": "€43.99",
+      "baselinePrice": "€43.99",
+      "url": "https://www.philibertnet.com/en/friendly-skeleton/181286-fantastic-factories-0613310202493.html",
+      "lastChecked": "2026-09-03T17:51:40.611Z",
       "lastCheckSuccess": true
     },
     "bggMarket": {
@@ -279,17 +237,19 @@
       "price": null,
       "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-09-03T19:45:25.740Z",
+      "lastChecked": "2026-09-03T19:45:14.592Z",
       "lastCheckSuccess": true
     },
-    "greatBoardgames": {
+    "buttonShyEtsy": {
       "available": false,
-      "price": "$23.95",
-      "baselinePrice": "$23.95",
-      "url": "https://www.greatboardgames.ca/games/fantastic-factories-1",
-      "lastChecked": "2026-09-03T19:45:26.051Z",
+      "price": null,
+      "baselinePrice": null,
+      "url": "https://www.etsy.com/shop/ButtonShyGames",
+      "lastChecked": "2026-09-03T19:45:14.770Z",
       "lastCheckSuccess": true
-    },
+    }
+  },
+  "319035": {
     "boardGameBliss": {
       "available": false,
       "price": "$18.64",
@@ -314,20 +274,20 @@
       "lastChecked": "2026-09-03T19:45:26.095Z",
       "lastCheckSuccess": true
     },
-    "philibert": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-09-03T19:45:26.164Z",
-      "lastCheckSuccess": true
-    },
     "asDesJeux": {
       "available": false,
       "price": null,
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-09-03T19:45:26.326Z",
+      "lastCheckSuccess": true
+    },
+    "greatBoardgames": {
+      "available": false,
+      "price": "$23.95",
+      "baselinePrice": "$23.95",
+      "url": "https://www.greatboardgames.ca/games/fantastic-factories-1",
+      "lastChecked": "2026-09-03T19:45:26.051Z",
       "lastCheckSuccess": true
     },
     "meeplemart": {
@@ -338,68 +298,12 @@
       "lastChecked": "2026-09-03T19:45:26.358Z",
       "lastCheckSuccess": true
     },
-    "woodForSheep": {
+    "kbHobbies": {
       "available": false,
       "price": null,
       "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-09-03T19:45:26.501Z",
-      "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": "https://www.amazon.ca/s?k=Fantastic%20Factories%3A%20Manufactions%20board%20game",
-      "lastChecked": "2026-09-03T19:45:26.624Z",
-      "lastCheckSuccess": true
-    },
-    "boardgamesCa": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-09-03T19:45:26.644Z",
-      "lastCheckSuccess": true
-    },
-    "faceToFaceGames": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-09-03T19:45:26.763Z",
-      "lastCheckSuccess": true
-    },
-    "spelspul": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-09-03T19:45:26.765Z",
-      "lastCheckSuccess": true
-    },
-    "obsidianGames": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-09-03T19:45:26.799Z",
-      "lastCheckSuccess": true
-    },
-    "screenFreeGames": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-09-03T19:45:27.150Z",
-      "lastCheckSuccess": true
-    },
-    "tabletopCafe": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-09-03T19:45:27.237Z",
+      "lastChecked": "2026-09-03T19:45:25.656Z",
       "lastCheckSuccess": true
     },
     "miniatureMarket": {
@@ -410,12 +314,84 @@
       "lastChecked": "2026-09-03T19:45:27.285Z",
       "lastCheckSuccess": true
     },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": "https://www.amazon.ca/s?k=Fantastic%20Factories%3A%20Manufactions%20board%20game",
+      "lastChecked": "2026-09-03T19:45:26.624Z",
+      "lastCheckSuccess": true
+    },
+    "woodForSheep": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-03T19:45:26.501Z",
+      "lastCheckSuccess": true
+    },
+    "faceToFaceGames": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-03T19:45:26.763Z",
+      "lastCheckSuccess": true
+    },
+    "obsidianGames": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-03T19:45:26.799Z",
+      "lastCheckSuccess": true
+    },
+    "jjCards": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-03T19:45:25.656Z",
+      "lastCheckSuccess": true
+    },
+    "boardgamesCa": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-03T19:45:26.644Z",
+      "lastCheckSuccess": true
+    },
+    "screenFreeGames": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-03T19:45:27.150Z",
+      "lastCheckSuccess": true
+    },
     "allSystemsGo": {
       "available": false,
       "price": null,
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-09-03T19:45:27.340Z",
+      "lastCheckSuccess": true
+    },
+    "tabletopCafe": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-03T19:45:27.237Z",
+      "lastCheckSuccess": true
+    },
+    "elevatedBoardGames": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-03T19:45:25.656Z",
       "lastCheckSuccess": true
     },
     "diceHollow": {
@@ -450,12 +426,36 @@
       "lastChecked": "2026-09-03T19:45:27.935Z",
       "lastCheckSuccess": true
     },
-    "zatu": {
+    "legendsWarehouse": {
+      "available": true,
+      "price": "$24.75",
+      "baselinePrice": "$24.75",
+      "url": "https://legendswarehouse.ca/products/fantastic-factories-manufactions-new-release?_pos=1&_psq=Fantastic+Factories%3A+Manufactions&_psid=42e6d1098&_ss=e",
+      "lastChecked": "2026-09-03T21:01:59.541Z",
+      "lastCheckSuccess": true
+    },
+    "boardGameBandit": {
+      "available": false,
+      "price": "$9.56",
+      "baselinePrice": "$9.56",
+      "url": "https://boardgamebandit.ca/products/fantastic-factories-manufactions-expansion?_pos=1&_psq=Fantastic+Factories%3A+Manufactions&_psid=777644463&_ss=e",
+      "lastChecked": "2026-09-03T21:01:59.755Z",
+      "lastCheckSuccess": true
+    },
+    "crowdfinder": {
+      "available": true,
+      "price": "€22.00",
+      "baselinePrice": "€22.00",
+      "url": "https://www.crowdfinder.be/product/3420-fantastic-factories-manufactions",
+      "lastChecked": "2026-09-03T17:51:50.343Z",
+      "lastCheckSuccess": true
+    },
+    "spelspul": {
       "available": false,
       "price": null,
       "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-09-03T19:45:28.107Z",
+      "lastChecked": "2026-09-03T19:45:26.765Z",
       "lastCheckSuccess": true
     },
     "chaosCards": {
@@ -465,9 +465,49 @@
       "url": null,
       "lastChecked": "2026-09-03T19:45:30.331Z",
       "lastCheckSuccess": true
+    },
+    "zatu": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-03T19:45:28.107Z",
+      "lastCheckSuccess": true
+    },
+    "philibert": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-03T19:45:26.164Z",
+      "lastCheckSuccess": true
+    },
+    "bggMarket": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-03T19:45:25.740Z",
+      "lastCheckSuccess": true
+    },
+    "buttonShyEtsy": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": "https://www.etsy.com/shop/ButtonShyGames",
+      "lastChecked": "2026-09-03T19:45:25.656Z",
+      "lastCheckSuccess": true
     }
   },
   "320242": {
+    "boardGameBliss": {
+      "available": false,
+      "price": "$11.17",
+      "baselinePrice": "$11.18",
+      "url": "https://www.boardgamebliss.com/products/fantastic-factories-subterfuge?_pos=1&_psq=Fantastic+Factories%3A+Subterfuge&_psid=fa2fa6978&_ss=e",
+      "lastChecked": "2026-09-03T19:45:35.997Z",
+      "lastCheckSuccess": true
+    },
     "fourZeroOneGames": {
       "available": true,
       "price": "$14.95",
@@ -476,70 +516,12 @@
       "lastChecked": "2026-09-03T17:51:59.351Z",
       "lastCheckSuccess": true
     },
-    "crowdfinder": {
-      "available": true,
-      "price": "€12.00",
-      "baselinePrice": "€12.00",
-      "url": "https://www.crowdfinder.be/product/3419-fantastic-factories-subterfuge",
-      "lastChecked": "2026-09-03T17:51:59.609Z",
-      "lastCheckSuccess": true
-    },
-    "bggMarket": {
-      "available": true,
-      "price": "$10.00 USD",
-      "baselinePrice": "$10.00 USD",
-      "url": "https://boardgamegeek.com/market/product/3692643",
-      "listings": [
-        {
-          "price": "$10.00 USD",
-          "seller": "macfuddy",
-          "condition": "New",
-          "url": "https://boardgamegeek.com/market/product/3692643",
-          "firstSeen": "2026-09-03T17:51:59.101Z",
-          "ignored": false
-        }
-      ],
-      "lastChecked": "2026-09-03T17:51:59.101Z",
-      "lastCheckSuccess": true
-    },
-    "kbHobbies": {
+    "lvlUpGames": {
       "available": false,
       "price": null,
       "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-09-03T19:45:35.459Z",
-      "lastCheckSuccess": true
-    },
-    "jjCards": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-09-03T19:45:35.459Z",
-      "lastCheckSuccess": true
-    },
-    "elevatedBoardGames": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-09-03T19:45:35.459Z",
-      "lastCheckSuccess": true
-    },
-    "buttonShyEtsy": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": "https://www.etsy.com/shop/ButtonShyGames",
-      "lastChecked": "2026-09-03T19:45:35.459Z",
-      "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": "https://www.amazon.ca/s?k=Fantastic%20Factories%3A%20Subterfuge%20board%20game",
-      "lastChecked": "2026-09-03T19:45:35.605Z",
+      "lastChecked": "2026-09-03T19:45:35.938Z",
       "lastCheckSuccess": true
     },
     "asDesJeux": {
@@ -558,44 +540,20 @@
       "lastChecked": "2026-09-03T19:45:35.911Z",
       "lastCheckSuccess": true
     },
-    "lvlUpGames": {
+    "meeplemart": {
       "available": false,
       "price": null,
       "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-09-03T19:45:35.938Z",
+      "lastChecked": "2026-09-03T19:45:36.403Z",
       "lastCheckSuccess": true
     },
-    "boardGameBliss": {
-      "available": false,
-      "price": "$11.17",
-      "baselinePrice": "$11.18",
-      "url": "https://www.boardgamebliss.com/products/fantastic-factories-subterfuge?_pos=1&_psq=Fantastic+Factories%3A+Subterfuge&_psid=fa2fa6978&_ss=e",
-      "lastChecked": "2026-09-03T19:45:35.997Z",
-      "lastCheckSuccess": true
-    },
-    "philibert": {
+    "kbHobbies": {
       "available": false,
       "price": null,
       "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-09-03T19:45:36.026Z",
-      "lastCheckSuccess": true
-    },
-    "woodForSheep": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-09-03T19:45:36.163Z",
-      "lastCheckSuccess": true
-    },
-    "boardgamesCa": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-09-03T19:45:36.339Z",
+      "lastChecked": "2026-09-03T19:45:35.459Z",
       "lastCheckSuccess": true
     },
     "miniatureMarket": {
@@ -606,12 +564,20 @@
       "lastChecked": "2026-09-03T19:45:36.343Z",
       "lastCheckSuccess": true
     },
-    "meeplemart": {
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": "https://www.amazon.ca/s?k=Fantastic%20Factories%3A%20Subterfuge%20board%20game",
+      "lastChecked": "2026-09-03T19:45:35.605Z",
+      "lastCheckSuccess": true
+    },
+    "woodForSheep": {
       "available": false,
       "price": null,
       "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-09-03T19:45:36.403Z",
+      "lastChecked": "2026-09-03T19:45:36.163Z",
       "lastCheckSuccess": true
     },
     "faceToFaceGames": {
@@ -630,12 +596,28 @@
       "lastChecked": "2026-09-03T19:45:36.568Z",
       "lastCheckSuccess": true
     },
-    "spelspul": {
+    "jjCards": {
       "available": false,
       "price": null,
       "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-09-03T19:45:36.579Z",
+      "lastChecked": "2026-09-03T19:45:35.459Z",
+      "lastCheckSuccess": true
+    },
+    "boardgamesCa": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-03T19:45:36.339Z",
+      "lastCheckSuccess": true
+    },
+    "screenFreeGames": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-03T19:45:36.955Z",
       "lastCheckSuccess": true
     },
     "allSystemsGo": {
@@ -654,12 +636,12 @@
       "lastChecked": "2026-09-03T19:45:36.897Z",
       "lastCheckSuccess": true
     },
-    "screenFreeGames": {
+    "elevatedBoardGames": {
       "available": false,
       "price": null,
       "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-09-03T19:45:36.955Z",
+      "lastChecked": "2026-09-03T19:45:35.459Z",
       "lastCheckSuccess": true
     },
     "diceHollow": {
@@ -694,12 +676,36 @@
       "lastChecked": "2026-09-03T19:45:37.635Z",
       "lastCheckSuccess": true
     },
-    "zatu": {
+    "legendsWarehouse": {
       "available": false,
       "price": null,
       "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-09-03T19:45:37.755Z",
+      "lastChecked": "2026-09-03T21:02:05.314Z",
+      "lastCheckSuccess": true
+    },
+    "boardGameBandit": {
+      "available": false,
+      "price": "$7.56",
+      "baselinePrice": "$7.56",
+      "url": "https://boardgamebandit.ca/products/fantastic-factories-subterfuge-expansion?_pos=1&_psq=Fantastic+Factories%3A+Subterfuge&_psid=8c2da46bd&_ss=e",
+      "lastChecked": "2026-09-03T21:02:05.449Z",
+      "lastCheckSuccess": true
+    },
+    "crowdfinder": {
+      "available": true,
+      "price": "€12.00",
+      "baselinePrice": "€12.00",
+      "url": "https://www.crowdfinder.be/product/3419-fantastic-factories-subterfuge",
+      "lastChecked": "2026-09-03T17:51:59.609Z",
+      "lastCheckSuccess": true
+    },
+    "spelspul": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-03T19:45:36.579Z",
       "lastCheckSuccess": true
     },
     "chaosCards": {
@@ -709,39 +715,39 @@
       "url": null,
       "lastChecked": "2026-09-03T19:45:39.793Z",
       "lastCheckSuccess": true
-    }
-  },
-  "345888": {
-    "boardgamesCa": {
+    },
+    "zatu": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-03T19:45:37.755Z",
+      "lastCheckSuccess": true
+    },
+    "philibert": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-03T19:45:36.026Z",
+      "lastCheckSuccess": true
+    },
+    "bggMarket": {
       "available": true,
-      "price": "$32.95",
-      "baselinePrice": "$32.95",
-      "url": "https://boardgames.ca/products/siege-of-valeria",
-      "lastChecked": "2026-09-03T18:02:55.034Z",
-      "lastCheckSuccess": true
-    },
-    "kbHobbies": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-09-03T19:46:32.460Z",
-      "lastCheckSuccess": true
-    },
-    "jjCards": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-09-03T19:46:32.460Z",
-      "lastCheckSuccess": true
-    },
-    "elevatedBoardGames": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-09-03T19:46:32.460Z",
+      "price": "$10.00 USD",
+      "baselinePrice": "$10.00 USD",
+      "url": "https://boardgamegeek.com/market/product/3692643",
+      "listings": [
+        {
+          "price": "$10.00 USD",
+          "seller": "macfuddy",
+          "condition": "New",
+          "url": "https://boardgamegeek.com/market/product/3692643",
+          "firstSeen": "2026-09-03T17:51:59.101Z",
+          "ignored": false
+        }
+      ],
+      "lastChecked": "2026-09-03T17:51:59.101Z",
       "lastCheckSuccess": true
     },
     "buttonShyEtsy": {
@@ -749,15 +755,17 @@
       "price": null,
       "baselinePrice": null,
       "url": "https://www.etsy.com/shop/ButtonShyGames",
-      "lastChecked": "2026-09-03T19:46:32.461Z",
+      "lastChecked": "2026-09-03T19:45:35.459Z",
       "lastCheckSuccess": true
-    },
-    "bggMarket": {
+    }
+  },
+  "345888": {
+    "boardGameBliss": {
       "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-09-03T19:46:32.540Z",
+      "price": "$23.12",
+      "baselinePrice": "$23.15",
+      "url": "https://www.boardgamebliss.com/products/siege-of-valeria?_pos=1&_psq=Siege+of+Valeria&_psid=50b5ed1e9&_ss=e",
+      "lastChecked": "2026-09-03T19:46:32.846Z",
       "lastCheckSuccess": true
     },
     "fourZeroOneGames": {
@@ -768,44 +776,12 @@
       "lastChecked": "2026-09-03T19:46:32.772Z",
       "lastCheckSuccess": true
     },
-    "philibert": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-09-03T19:46:32.817Z",
-      "lastCheckSuccess": true
-    },
-    "boardGameBliss": {
-      "available": false,
-      "price": "$23.12",
-      "baselinePrice": "$23.15",
-      "url": "https://www.boardgamebliss.com/products/siege-of-valeria?_pos=1&_psq=Siege+of+Valeria&_psid=50b5ed1e9&_ss=e",
-      "lastChecked": "2026-09-03T19:46:32.846Z",
-      "lastCheckSuccess": true
-    },
-    "crowdfinder": {
-      "available": false,
-      "price": "€17.50",
-      "baselinePrice": "€17.50",
-      "url": "https://www.crowdfinder.be/product/5727-siege-of-valeria-campaign",
-      "lastChecked": "2026-09-03T19:46:32.871Z",
-      "lastCheckSuccess": true
-    },
     "lvlUpGames": {
       "available": false,
       "price": null,
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-09-03T19:46:32.885Z",
-      "lastCheckSuccess": true
-    },
-    "greatBoardgames": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-09-03T19:46:32.986Z",
       "lastCheckSuccess": true
     },
     "asDesJeux": {
@@ -816,6 +792,14 @@
       "lastChecked": "2026-09-03T19:46:33.042Z",
       "lastCheckSuccess": true
     },
+    "greatBoardgames": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-03T19:46:32.986Z",
+      "lastCheckSuccess": true
+    },
     "meeplemart": {
       "available": false,
       "price": null,
@@ -824,12 +808,12 @@
       "lastChecked": "2026-09-03T19:46:33.243Z",
       "lastCheckSuccess": true
     },
-    "woodForSheep": {
+    "kbHobbies": {
       "available": false,
       "price": null,
       "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-09-03T19:46:33.287Z",
+      "lastChecked": "2026-09-03T19:46:32.460Z",
       "lastCheckSuccess": true
     },
     "miniatureMarket": {
@@ -840,22 +824,6 @@
       "lastChecked": "2026-09-03T19:46:33.358Z",
       "lastCheckSuccess": true
     },
-    "faceToFaceGames": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-09-03T19:46:33.479Z",
-      "lastCheckSuccess": true
-    },
-    "spelspul": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-09-03T19:46:33.493Z",
-      "lastCheckSuccess": true
-    },
     "amazonCa": {
       "available": false,
       "price": null,
@@ -864,12 +832,44 @@
       "lastChecked": "2026-09-03T19:46:33.502Z",
       "lastCheckSuccess": true
     },
+    "woodForSheep": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-03T19:46:33.287Z",
+      "lastCheckSuccess": true
+    },
+    "faceToFaceGames": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-03T19:46:33.479Z",
+      "lastCheckSuccess": true
+    },
     "obsidianGames": {
       "available": false,
       "price": null,
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-09-03T19:46:33.574Z",
+      "lastCheckSuccess": true
+    },
+    "jjCards": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-03T19:46:32.460Z",
+      "lastCheckSuccess": true
+    },
+    "boardgamesCa": {
+      "available": true,
+      "price": "$32.95",
+      "baselinePrice": "$32.95",
+      "url": "https://boardgames.ca/products/siege-of-valeria",
+      "lastChecked": "2026-09-03T18:02:55.034Z",
       "lastCheckSuccess": true
     },
     "screenFreeGames": {
@@ -894,6 +894,14 @@
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-09-03T19:46:34.120Z",
+      "lastCheckSuccess": true
+    },
+    "elevatedBoardGames": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-03T19:46:32.460Z",
       "lastCheckSuccess": true
     },
     "diceHollow": {
@@ -928,12 +936,36 @@
       "lastChecked": "2026-09-03T19:46:34.764Z",
       "lastCheckSuccess": true
     },
-    "zatu": {
+    "legendsWarehouse": {
       "available": false,
       "price": null,
       "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-09-03T19:46:34.924Z",
+      "lastChecked": "2026-09-03T21:02:39.273Z",
+      "lastCheckSuccess": true
+    },
+    "boardGameBandit": {
+      "available": false,
+      "price": "$12.76",
+      "baselinePrice": "$12.76",
+      "url": "https://boardgamebandit.ca/products/siege-of-valeria-solo-board-game?_pos=1&_psq=Siege+of+Valeria&_psid=33e94ffde&_ss=e",
+      "lastChecked": "2026-09-03T21:02:39.445Z",
+      "lastCheckSuccess": true
+    },
+    "crowdfinder": {
+      "available": false,
+      "price": "€17.50",
+      "baselinePrice": "€17.50",
+      "url": "https://www.crowdfinder.be/product/5727-siege-of-valeria-campaign",
+      "lastChecked": "2026-09-03T19:46:32.871Z",
+      "lastCheckSuccess": true
+    },
+    "spelspul": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-03T19:46:33.493Z",
       "lastCheckSuccess": true
     },
     "chaosCards": {
@@ -943,63 +975,21 @@
       "url": null,
       "lastChecked": "2026-09-03T19:46:36.367Z",
       "lastCheckSuccess": true
-    }
-  },
-  "364641": {
-    "fourZeroOneGames": {
-      "available": true,
-      "price": "$27.95",
-      "baselinePrice": "$27.95",
-      "url": "https://store.401games.ca/products/joan-of-arc-orleans-draw-write?_pos=1&_psq=Joan+of+Arc%3A+Orl%C3%A9ans+Draw+%26+Write&_psid=499ce4158&_ss=e",
-      "lastChecked": "2026-09-03T18:03:47.018Z",
-      "lastCheckSuccess": true
     },
-    "greatBoardgames": {
-      "available": true,
-      "price": "$12.71",
-      "baselinePrice": "$12.71",
-      "url": "https://www.greatboardgames.ca/games/joan-of-arc-orléans-draw-write",
-      "lastChecked": "2026-09-03T17:54:47.055Z",
-      "lastCheckSuccess": true
-    },
-    "crowdfinder": {
-      "available": true,
-      "price": "€19.00",
-      "baselinePrice": "€19.00",
-      "url": "https://www.crowdfinder.be/product/4285-joan-of-arc-orl-ans-draw-write",
-      "lastChecked": "2026-09-03T17:54:47.016Z",
-      "lastCheckSuccess": true
-    },
-    "kbHobbies": {
+    "zatu": {
       "available": false,
       "price": null,
       "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-09-03T19:45:44.936Z",
+      "lastChecked": "2026-09-03T19:46:34.924Z",
       "lastCheckSuccess": true
     },
-    "jjCards": {
+    "philibert": {
       "available": false,
       "price": null,
       "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-09-03T19:45:44.936Z",
-      "lastCheckSuccess": true
-    },
-    "elevatedBoardGames": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-09-03T19:45:44.936Z",
-      "lastCheckSuccess": true
-    },
-    "buttonShyEtsy": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": "https://www.etsy.com/shop/ButtonShyGames",
-      "lastChecked": "2026-09-03T19:45:44.936Z",
+      "lastChecked": "2026-09-03T19:46:32.817Z",
       "lastCheckSuccess": true
     },
     "bggMarket": {
@@ -1007,7 +997,33 @@
       "price": null,
       "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-09-03T19:45:45.082Z",
+      "lastChecked": "2026-09-03T19:46:32.540Z",
+      "lastCheckSuccess": true
+    },
+    "buttonShyEtsy": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": "https://www.etsy.com/shop/ButtonShyGames",
+      "lastChecked": "2026-09-03T19:46:32.461Z",
+      "lastCheckSuccess": true
+    }
+  },
+  "364641": {
+    "boardGameBliss": {
+      "available": false,
+      "price": "$29.84",
+      "baselinePrice": "$29.88",
+      "url": "https://www.boardgamebliss.com/products/joan-of-arc-orleans-draw-write?_pos=1&_psq=Joan+of+Arc%3A+Orl%C3%A9ans+Draw+%26+Write&_psid=65e6116a5&_ss=e",
+      "lastChecked": "2026-09-03T19:45:45.743Z",
+      "lastCheckSuccess": true
+    },
+    "fourZeroOneGames": {
+      "available": true,
+      "price": "$27.95",
+      "baselinePrice": "$27.95",
+      "url": "https://store.401games.ca/products/joan-of-arc-orleans-draw-write?_pos=1&_psq=Joan+of+Arc%3A+Orl%C3%A9ans+Draw+%26+Write&_psid=499ce4158&_ss=e",
+      "lastChecked": "2026-09-03T18:03:47.018Z",
       "lastCheckSuccess": true
     },
     "lvlUpGames": {
@@ -1018,12 +1034,52 @@
       "lastChecked": "2026-09-03T19:45:45.377Z",
       "lastCheckSuccess": true
     },
-    "philibert": {
+    "asDesJeux": {
       "available": false,
       "price": null,
       "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-09-03T19:45:45.482Z",
+      "lastChecked": "2026-09-03T19:45:45.925Z",
+      "lastCheckSuccess": true
+    },
+    "greatBoardgames": {
+      "available": true,
+      "price": "$12.71",
+      "baselinePrice": "$12.71",
+      "url": "https://www.greatboardgames.ca/games/joan-of-arc-orléans-draw-write",
+      "lastChecked": "2026-09-03T17:54:47.055Z",
+      "lastCheckSuccess": true
+    },
+    "meeplemart": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-03T19:45:46.568Z",
+      "lastCheckSuccess": true
+    },
+    "kbHobbies": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-03T19:45:44.936Z",
+      "lastCheckSuccess": true
+    },
+    "miniatureMarket": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-03T19:45:45.913Z",
+      "lastCheckSuccess": true
+    },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": "https://www.amazon.ca/s?k=Joan%20of%20Arc%3A%20Orl%C3%A9ans%20Draw%20%26%20Write%20board%20game",
+      "lastChecked": "2026-09-03T19:45:45.953Z",
       "lastCheckSuccess": true
     },
     "woodForSheep": {
@@ -1032,14 +1088,6 @@
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-09-03T19:45:45.663Z",
-      "lastCheckSuccess": true
-    },
-    "boardGameBliss": {
-      "available": false,
-      "price": "$29.84",
-      "baselinePrice": "$29.88",
-      "url": "https://www.boardgamebliss.com/products/joan-of-arc-orleans-draw-write?_pos=1&_psq=Joan+of+Arc%3A+Orl%C3%A9ans+Draw+%26+Write&_psid=65e6116a5&_ss=e",
-      "lastChecked": "2026-09-03T19:45:45.743Z",
       "lastCheckSuccess": true
     },
     "faceToFaceGames": {
@@ -1058,44 +1106,12 @@
       "lastChecked": "2026-09-03T19:45:45.878Z",
       "lastCheckSuccess": true
     },
-    "miniatureMarket": {
+    "jjCards": {
       "available": false,
       "price": null,
       "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-09-03T19:45:45.913Z",
-      "lastCheckSuccess": true
-    },
-    "asDesJeux": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-09-03T19:45:45.925Z",
-      "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": "https://www.amazon.ca/s?k=Joan%20of%20Arc%3A%20Orl%C3%A9ans%20Draw%20%26%20Write%20board%20game",
-      "lastChecked": "2026-09-03T19:45:45.953Z",
-      "lastCheckSuccess": true
-    },
-    "spelspul": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-09-03T19:45:46.125Z",
-      "lastCheckSuccess": true
-    },
-    "screenFreeGames": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-09-03T19:45:46.238Z",
+      "lastChecked": "2026-09-03T19:45:44.936Z",
       "lastCheckSuccess": true
     },
     "boardgamesCa": {
@@ -1104,6 +1120,14 @@
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-09-03T19:45:46.257Z",
+      "lastCheckSuccess": true
+    },
+    "screenFreeGames": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-03T19:45:46.238Z",
       "lastCheckSuccess": true
     },
     "allSystemsGo": {
@@ -1122,20 +1146,12 @@
       "lastChecked": "2026-09-03T19:45:46.503Z",
       "lastCheckSuccess": true
     },
-    "meeplemart": {
+    "elevatedBoardGames": {
       "available": false,
       "price": null,
       "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-09-03T19:45:46.568Z",
-      "lastCheckSuccess": true
-    },
-    "laPioche": {
-      "available": false,
-      "price": "$32.99",
-      "baselinePrice": "$32.99",
-      "url": "https://boutiquelapioche.com/products/joan-of-arc-orleans-roll-write-anglais?_pos=1&_psq=Joan+of+Arc%3A+Orl%C3%A9ans+Draw+%26+Write&_psid=4f8ee1d8f&_ss=e",
-      "lastChecked": "2026-09-03T19:45:46.754Z",
+      "lastChecked": "2026-09-03T19:45:44.936Z",
       "lastCheckSuccess": true
     },
     "diceHollow": {
@@ -1146,20 +1162,20 @@
       "lastChecked": "2026-09-03T19:45:46.877Z",
       "lastCheckSuccess": true
     },
+    "laPioche": {
+      "available": false,
+      "price": "$32.99",
+      "baselinePrice": "$32.99",
+      "url": "https://boutiquelapioche.com/products/joan-of-arc-orleans-roll-write-anglais?_pos=1&_psq=Joan+of+Arc%3A+Orl%C3%A9ans+Draw+%26+Write&_psid=4f8ee1d8f&_ss=e",
+      "lastChecked": "2026-09-03T19:45:46.754Z",
+      "lastCheckSuccess": true
+    },
     "alwaysGames": {
       "available": false,
       "price": null,
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-09-03T19:45:46.954Z",
-      "lastCheckSuccess": true
-    },
-    "zatu": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-09-03T19:45:47.188Z",
       "lastCheckSuccess": true
     },
     "pokeJeux": {
@@ -1170,12 +1186,76 @@
       "lastChecked": "2026-09-03T19:45:47.627Z",
       "lastCheckSuccess": true
     },
+    "legendsWarehouse": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-03T21:02:10.723Z",
+      "lastCheckSuccess": true
+    },
+    "boardGameBandit": {
+      "available": false,
+      "price": "$13.16",
+      "baselinePrice": "$13.16",
+      "url": "https://boardgamebandit.ca/products/joan-of-arc-orleans-draw-and-write-game?_pos=1&_psq=Joan+of+Arc%3A+Orl%C3%A9ans+Draw+%26+Write&_psid=28cfa3fd4&_ss=e",
+      "lastChecked": "2026-09-03T21:02:11.742Z",
+      "lastCheckSuccess": true
+    },
+    "crowdfinder": {
+      "available": true,
+      "price": "€19.00",
+      "baselinePrice": "€19.00",
+      "url": "https://www.crowdfinder.be/product/4285-joan-of-arc-orl-ans-draw-write",
+      "lastChecked": "2026-09-03T17:54:47.016Z",
+      "lastCheckSuccess": true
+    },
+    "spelspul": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-03T19:45:46.125Z",
+      "lastCheckSuccess": true
+    },
     "chaosCards": {
       "available": false,
       "price": null,
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-09-03T19:45:49.544Z",
+      "lastCheckSuccess": true
+    },
+    "zatu": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-03T19:45:47.188Z",
+      "lastCheckSuccess": true
+    },
+    "philibert": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-03T19:45:45.482Z",
+      "lastCheckSuccess": true
+    },
+    "bggMarket": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-03T19:45:45.082Z",
+      "lastCheckSuccess": true
+    },
+    "buttonShyEtsy": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": "https://www.etsy.com/shop/ButtonShyGames",
+      "lastChecked": "2026-09-03T19:45:44.936Z",
       "lastCheckSuccess": true
     }
   },
@@ -1414,60 +1494,12 @@
     }
   },
   "424152": {
-    "zatu": {
-      "available": true,
-      "price": "£16.29",
-      "baselinePrice": "£16.29",
-      "url": "https://zatu.com/products/orapa-mine?_pos=1&_psq=Orapa+Mine&_psid=7ff8f32d9&_ss=e",
-      "lastChecked": "2026-09-03T18:02:01.857Z",
-      "lastCheckSuccess": true
-    },
-    "philibert": {
-      "available": true,
-      "price": "€22.90",
-      "baselinePrice": "€22.90",
-      "url": "https://www.philibertnet.com/en/miraludo/171341-orapa-mine-3770027812227.html",
-      "lastChecked": "2026-09-03T18:01:22.303Z",
-      "lastCheckSuccess": true
-    },
-    "kbHobbies": {
+    "boardGameBliss": {
       "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-09-03T19:45:54.663Z",
-      "lastCheckSuccess": true
-    },
-    "jjCards": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-09-03T19:45:54.663Z",
-      "lastCheckSuccess": true
-    },
-    "elevatedBoardGames": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-09-03T19:45:54.663Z",
-      "lastCheckSuccess": true
-    },
-    "buttonShyEtsy": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": "https://www.etsy.com/shop/ButtonShyGames",
-      "lastChecked": "2026-09-03T19:45:54.663Z",
-      "lastCheckSuccess": true
-    },
-    "bggMarket": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-09-03T19:45:54.756Z",
+      "price": "$27.60",
+      "baselinePrice": "$27.64",
+      "url": "https://www.boardgamebliss.com/products/orapa-mine?_pos=1&_psq=Orapa+Mine&_psid=ee29fafdb&_ss=e",
+      "lastChecked": "2026-09-03T19:45:55.134Z",
       "lastCheckSuccess": true
     },
     "fourZeroOneGames": {
@@ -1478,36 +1510,12 @@
       "lastChecked": "2026-09-03T19:45:55.000Z",
       "lastCheckSuccess": true
     },
-    "boardGameBliss": {
-      "available": false,
-      "price": "$27.60",
-      "baselinePrice": "$27.64",
-      "url": "https://www.boardgamebliss.com/products/orapa-mine?_pos=1&_psq=Orapa+Mine&_psid=ee29fafdb&_ss=e",
-      "lastChecked": "2026-09-03T19:45:55.134Z",
-      "lastCheckSuccess": true
-    },
     "lvlUpGames": {
       "available": false,
       "price": null,
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-09-03T19:45:55.165Z",
-      "lastCheckSuccess": true
-    },
-    "greatBoardgames": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-09-03T19:45:55.202Z",
-      "lastCheckSuccess": true
-    },
-    "crowdfinder": {
-      "available": false,
-      "price": "€16.00",
-      "baselinePrice": "€16.00",
-      "url": "https://www.crowdfinder.be/product/8258-orapa-mine",
-      "lastChecked": "2026-09-03T19:45:55.318Z",
       "lastCheckSuccess": true
     },
     "asDesJeux": {
@@ -1518,12 +1526,44 @@
       "lastChecked": "2026-09-03T19:45:55.336Z",
       "lastCheckSuccess": true
     },
+    "greatBoardgames": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-03T19:45:55.202Z",
+      "lastCheckSuccess": true
+    },
     "meeplemart": {
       "available": false,
       "price": null,
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-09-03T19:45:55.339Z",
+      "lastCheckSuccess": true
+    },
+    "kbHobbies": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-03T19:45:54.663Z",
+      "lastCheckSuccess": true
+    },
+    "miniatureMarket": {
+      "available": false,
+      "price": "$18.99",
+      "baselinePrice": "$18.99",
+      "url": "https://www.miniaturemarket.com/orapa-mine-plyorm.html",
+      "lastChecked": "2026-09-03T19:45:55.760Z",
+      "lastCheckSuccess": true
+    },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": "https://www.amazon.ca/s?k=Orapa%20Mine%20board%20game",
+      "lastChecked": "2026-09-03T19:45:55.723Z",
       "lastCheckSuccess": true
     },
     "woodForSheep": {
@@ -1542,14 +1582,6 @@
       "lastChecked": "2026-09-03T19:45:55.688Z",
       "lastCheckSuccess": true
     },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": "https://www.amazon.ca/s?k=Orapa%20Mine%20board%20game",
-      "lastChecked": "2026-09-03T19:45:55.723Z",
-      "lastCheckSuccess": true
-    },
     "obsidianGames": {
       "available": false,
       "price": null,
@@ -1558,12 +1590,12 @@
       "lastChecked": "2026-09-03T19:45:55.725Z",
       "lastCheckSuccess": true
     },
-    "miniatureMarket": {
+    "jjCards": {
       "available": false,
-      "price": "$18.99",
-      "baselinePrice": "$18.99",
-      "url": "https://www.miniaturemarket.com/orapa-mine-plyorm.html",
-      "lastChecked": "2026-09-03T19:45:55.760Z",
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-03T19:45:54.663Z",
       "lastCheckSuccess": true
     },
     "boardgamesCa": {
@@ -1574,14 +1606,6 @@
       "lastChecked": "2026-09-03T19:45:55.865Z",
       "lastCheckSuccess": true
     },
-    "allSystemsGo": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-09-03T19:45:56.086Z",
-      "lastCheckSuccess": true
-    },
     "screenFreeGames": {
       "available": false,
       "price": null,
@@ -1590,12 +1614,28 @@
       "lastChecked": "2026-09-03T19:45:56.112Z",
       "lastCheckSuccess": true
     },
+    "allSystemsGo": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-03T19:45:56.086Z",
+      "lastCheckSuccess": true
+    },
     "tabletopCafe": {
       "available": false,
       "price": null,
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-09-03T19:45:56.269Z",
+      "lastCheckSuccess": true
+    },
+    "elevatedBoardGames": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-03T19:45:54.663Z",
       "lastCheckSuccess": true
     },
     "diceHollow": {
@@ -1630,6 +1670,30 @@
       "lastChecked": "2026-09-03T19:45:56.956Z",
       "lastCheckSuccess": true
     },
+    "legendsWarehouse": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-03T21:02:16.984Z",
+      "lastCheckSuccess": true
+    },
+    "boardGameBandit": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-03T21:02:17.265Z",
+      "lastCheckSuccess": true
+    },
+    "crowdfinder": {
+      "available": false,
+      "price": "€16.00",
+      "baselinePrice": "€16.00",
+      "url": "https://www.crowdfinder.be/product/8258-orapa-mine",
+      "lastChecked": "2026-09-03T19:45:55.318Z",
+      "lastCheckSuccess": true
+    },
     "spelspul": {
       "available": false,
       "price": null,
@@ -1645,47 +1709,21 @@
       "url": null,
       "lastChecked": "2026-09-03T19:45:59.310Z",
       "lastCheckSuccess": true
-    }
-  },
-  "448740": {
+    },
+    "zatu": {
+      "available": true,
+      "price": "£16.29",
+      "baselinePrice": "£16.29",
+      "url": "https://zatu.com/products/orapa-mine?_pos=1&_psq=Orapa+Mine&_psid=7ff8f32d9&_ss=e",
+      "lastChecked": "2026-09-03T18:02:01.857Z",
+      "lastCheckSuccess": true
+    },
     "philibert": {
       "available": true,
-      "price": "€29.95",
-      "baselinePrice": "€29.95",
-      "url": "https://www.philibertnet.com/en/playte/162088-orapa-space-8809493623398.html",
-      "lastChecked": "2026-09-03T18:02:27.424Z",
-      "lastCheckSuccess": true
-    },
-    "kbHobbies": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-09-03T19:46:04.425Z",
-      "lastCheckSuccess": true
-    },
-    "jjCards": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-09-03T19:46:04.425Z",
-      "lastCheckSuccess": true
-    },
-    "elevatedBoardGames": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-09-03T19:46:04.425Z",
-      "lastCheckSuccess": true
-    },
-    "buttonShyEtsy": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": "https://www.etsy.com/shop/ButtonShyGames",
-      "lastChecked": "2026-09-03T19:46:04.425Z",
+      "price": "€22.90",
+      "baselinePrice": "€22.90",
+      "url": "https://www.philibertnet.com/en/miraludo/171341-orapa-mine-3770027812227.html",
+      "lastChecked": "2026-09-03T18:01:22.303Z",
       "lastCheckSuccess": true
     },
     "bggMarket": {
@@ -1693,7 +1731,25 @@
       "price": null,
       "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-09-03T19:46:04.572Z",
+      "lastChecked": "2026-09-03T19:45:54.756Z",
+      "lastCheckSuccess": true
+    },
+    "buttonShyEtsy": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": "https://www.etsy.com/shop/ButtonShyGames",
+      "lastChecked": "2026-09-03T19:45:54.663Z",
+      "lastCheckSuccess": true
+    }
+  },
+  "448740": {
+    "boardGameBliss": {
+      "available": false,
+      "price": "$30.59",
+      "baselinePrice": "$30.63",
+      "url": "https://www.boardgamebliss.com/products/orapa-space?_pos=1&_psq=Orapa+Space&_psid=a021d8555&_ss=e",
+      "lastChecked": "2026-09-03T19:46:04.940Z",
       "lastCheckSuccess": true
     },
     "fourZeroOneGames": {
@@ -1704,36 +1760,12 @@
       "lastChecked": "2026-09-03T19:46:04.827Z",
       "lastCheckSuccess": true
     },
-    "crowdfinder": {
-      "available": false,
-      "price": "€21.00",
-      "baselinePrice": "€21.00",
-      "url": "https://www.crowdfinder.be/product/8259-orapa-space",
-      "lastChecked": "2026-09-03T19:46:04.909Z",
-      "lastCheckSuccess": true
-    },
-    "greatBoardgames": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-09-03T19:46:04.913Z",
-      "lastCheckSuccess": true
-    },
     "lvlUpGames": {
       "available": false,
       "price": null,
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-09-03T19:46:04.937Z",
-      "lastCheckSuccess": true
-    },
-    "boardGameBliss": {
-      "available": false,
-      "price": "$30.59",
-      "baselinePrice": "$30.63",
-      "url": "https://www.boardgamebliss.com/products/orapa-space?_pos=1&_psq=Orapa+Space&_psid=a021d8555&_ss=e",
-      "lastChecked": "2026-09-03T19:46:04.940Z",
       "lastCheckSuccess": true
     },
     "asDesJeux": {
@@ -1744,12 +1776,12 @@
       "lastChecked": "2026-09-03T19:46:05.013Z",
       "lastCheckSuccess": true
     },
-    "woodForSheep": {
+    "greatBoardgames": {
       "available": false,
       "price": null,
       "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-09-03T19:46:05.169Z",
+      "lastChecked": "2026-09-03T19:46:04.913Z",
       "lastCheckSuccess": true
     },
     "meeplemart": {
@@ -1760,12 +1792,12 @@
       "lastChecked": "2026-09-03T19:46:05.210Z",
       "lastCheckSuccess": true
     },
-    "amazonCa": {
+    "kbHobbies": {
       "available": false,
       "price": null,
       "baselinePrice": null,
-      "url": "https://www.amazon.ca/s?k=Orapa%20Space%20board%20game",
-      "lastChecked": "2026-09-03T19:46:05.251Z",
+      "url": null,
+      "lastChecked": "2026-09-03T19:46:04.425Z",
       "lastCheckSuccess": true
     },
     "miniatureMarket": {
@@ -1776,20 +1808,20 @@
       "lastChecked": "2026-09-03T19:46:05.333Z",
       "lastCheckSuccess": true
     },
-    "obsidianGames": {
+    "amazonCa": {
       "available": false,
       "price": null,
       "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-09-03T19:46:05.480Z",
+      "url": "https://www.amazon.ca/s?k=Orapa%20Space%20board%20game",
+      "lastChecked": "2026-09-03T19:46:05.251Z",
       "lastCheckSuccess": true
     },
-    "boardgamesCa": {
+    "woodForSheep": {
       "available": false,
       "price": null,
       "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-09-03T19:46:05.485Z",
+      "lastChecked": "2026-09-03T19:46:05.169Z",
       "lastCheckSuccess": true
     },
     "faceToFaceGames": {
@@ -1800,12 +1832,28 @@
       "lastChecked": "2026-09-03T19:46:05.611Z",
       "lastCheckSuccess": true
     },
-    "allSystemsGo": {
+    "obsidianGames": {
       "available": false,
       "price": null,
       "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-09-03T19:46:05.907Z",
+      "lastChecked": "2026-09-03T19:46:05.480Z",
+      "lastCheckSuccess": true
+    },
+    "jjCards": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-03T19:46:04.425Z",
+      "lastCheckSuccess": true
+    },
+    "boardgamesCa": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-03T19:46:05.485Z",
       "lastCheckSuccess": true
     },
     "screenFreeGames": {
@@ -1816,12 +1864,28 @@
       "lastChecked": "2026-09-03T19:46:05.928Z",
       "lastCheckSuccess": true
     },
+    "allSystemsGo": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-03T19:46:05.907Z",
+      "lastCheckSuccess": true
+    },
     "tabletopCafe": {
       "available": false,
       "price": null,
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-09-03T19:46:06.026Z",
+      "lastCheckSuccess": true
+    },
+    "elevatedBoardGames": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-03T19:46:04.425Z",
       "lastCheckSuccess": true
     },
     "diceHollow": {
@@ -1856,12 +1920,28 @@
       "lastChecked": "2026-09-03T19:46:06.651Z",
       "lastCheckSuccess": true
     },
-    "zatu": {
+    "legendsWarehouse": {
       "available": false,
       "price": null,
       "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-09-03T19:46:06.865Z",
+      "lastChecked": "2026-09-03T21:02:22.508Z",
+      "lastCheckSuccess": true
+    },
+    "boardGameBandit": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-03T21:02:23.040Z",
+      "lastCheckSuccess": true
+    },
+    "crowdfinder": {
+      "available": false,
+      "price": "€21.00",
+      "baselinePrice": "€21.00",
+      "url": "https://www.crowdfinder.be/product/8259-orapa-space",
+      "lastChecked": "2026-09-03T19:46:04.909Z",
       "lastCheckSuccess": true
     },
     "spelspul": {
@@ -1879,47 +1959,21 @@
       "url": null,
       "lastChecked": "2026-09-03T19:46:08.717Z",
       "lastCheckSuccess": true
-    }
-  },
-  "453913": {
+    },
     "zatu": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-03T19:46:06.865Z",
+      "lastCheckSuccess": true
+    },
+    "philibert": {
       "available": true,
-      "price": "£19.75",
-      "baselinePrice": "£19.75",
-      "url": "https://zatu.com/products/the-secrets-of-warden-keene?_pos=1&_psq=The+Secrets+of+Warden+Keene&_psid=357b1c005&_ss=e",
-      "lastChecked": "2026-09-03T18:02:47.864Z",
-      "lastCheckSuccess": true
-    },
-    "kbHobbies": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-09-03T19:46:23.193Z",
-      "lastCheckSuccess": true
-    },
-    "jjCards": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-09-03T19:46:23.193Z",
-      "lastCheckSuccess": true
-    },
-    "elevatedBoardGames": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-09-03T19:46:23.193Z",
-      "lastCheckSuccess": true
-    },
-    "buttonShyEtsy": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": "https://www.etsy.com/shop/ButtonShyGames",
-      "lastChecked": "2026-09-03T19:46:23.193Z",
+      "price": "€29.95",
+      "baselinePrice": "€29.95",
+      "url": "https://www.philibertnet.com/en/playte/162088-orapa-space-8809493623398.html",
+      "lastChecked": "2026-09-03T18:02:27.424Z",
       "lastCheckSuccess": true
     },
     "bggMarket": {
@@ -1927,7 +1981,25 @@
       "price": null,
       "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-09-03T19:46:23.330Z",
+      "lastChecked": "2026-09-03T19:46:04.572Z",
+      "lastCheckSuccess": true
+    },
+    "buttonShyEtsy": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": "https://www.etsy.com/shop/ButtonShyGames",
+      "lastChecked": "2026-09-03T19:46:04.425Z",
+      "lastCheckSuccess": true
+    }
+  },
+  "453913": {
+    "boardGameBliss": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-03T19:46:23.594Z",
       "lastCheckSuccess": true
     },
     "fourZeroOneGames": {
@@ -1938,44 +2010,12 @@
       "lastChecked": "2026-09-03T19:46:23.555Z",
       "lastCheckSuccess": true
     },
-    "crowdfinder": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-09-03T19:46:23.589Z",
-      "lastCheckSuccess": true
-    },
-    "boardGameBliss": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-09-03T19:46:23.594Z",
-      "lastCheckSuccess": true
-    },
-    "philibert": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-09-03T19:46:23.621Z",
-      "lastCheckSuccess": true
-    },
     "lvlUpGames": {
       "available": false,
       "price": null,
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-09-03T19:46:23.676Z",
-      "lastCheckSuccess": true
-    },
-    "greatBoardgames": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-09-03T19:46:23.721Z",
       "lastCheckSuccess": true
     },
     "asDesJeux": {
@@ -1986,20 +2026,28 @@
       "lastChecked": "2026-09-03T19:46:23.773Z",
       "lastCheckSuccess": true
     },
-    "woodForSheep": {
+    "greatBoardgames": {
       "available": false,
       "price": null,
       "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-09-03T19:46:23.937Z",
+      "lastChecked": "2026-09-03T19:46:23.721Z",
       "lastCheckSuccess": true
     },
-    "amazonCa": {
+    "meeplemart": {
       "available": false,
       "price": null,
       "baselinePrice": null,
-      "url": "https://www.amazon.ca/s?k=The%20Secrets%20of%20Warden%20Keene%20board%20game",
-      "lastChecked": "2026-09-03T19:46:24.019Z",
+      "url": null,
+      "lastChecked": "2026-09-03T19:46:24.182Z",
+      "lastCheckSuccess": true
+    },
+    "kbHobbies": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-03T19:46:23.193Z",
       "lastCheckSuccess": true
     },
     "miniatureMarket": {
@@ -2010,12 +2058,20 @@
       "lastChecked": "2026-09-03T19:46:24.076Z",
       "lastCheckSuccess": true
     },
-    "meeplemart": {
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": "https://www.amazon.ca/s?k=The%20Secrets%20of%20Warden%20Keene%20board%20game",
+      "lastChecked": "2026-09-03T19:46:24.019Z",
+      "lastCheckSuccess": true
+    },
+    "woodForSheep": {
       "available": false,
       "price": null,
       "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-09-03T19:46:24.182Z",
+      "lastChecked": "2026-09-03T19:46:23.937Z",
       "lastCheckSuccess": true
     },
     "faceToFaceGames": {
@@ -2034,20 +2090,20 @@
       "lastChecked": "2026-09-03T19:46:24.297Z",
       "lastCheckSuccess": true
     },
+    "jjCards": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-03T19:46:23.193Z",
+      "lastCheckSuccess": true
+    },
     "boardgamesCa": {
       "available": false,
       "price": null,
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-09-03T19:46:24.434Z",
-      "lastCheckSuccess": true
-    },
-    "spelspul": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-09-03T19:46:24.490Z",
       "lastCheckSuccess": true
     },
     "screenFreeGames": {
@@ -2072,6 +2128,14 @@
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-09-03T19:46:24.844Z",
+      "lastCheckSuccess": true
+    },
+    "elevatedBoardGames": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-03T19:46:23.193Z",
       "lastCheckSuccess": true
     },
     "diceHollow": {
@@ -2106,6 +2170,38 @@
       "lastChecked": "2026-09-03T19:46:25.468Z",
       "lastCheckSuccess": true
     },
+    "legendsWarehouse": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-03T21:02:33.906Z",
+      "lastCheckSuccess": true
+    },
+    "boardGameBandit": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-03T21:02:33.999Z",
+      "lastCheckSuccess": true
+    },
+    "crowdfinder": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-03T19:46:23.589Z",
+      "lastCheckSuccess": true
+    },
+    "spelspul": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-03T19:46:24.490Z",
+      "lastCheckSuccess": true
+    },
     "chaosCards": {
       "available": false,
       "price": null,
@@ -2113,55 +2209,21 @@
       "url": null,
       "lastChecked": "2026-09-03T19:46:27.303Z",
       "lastCheckSuccess": true
-    }
-  },
-  "454119": {
-    "crowdfinder": {
+    },
+    "zatu": {
       "available": true,
-      "price": "€35.00",
-      "baselinePrice": "€35.00",
-      "url": "https://www.crowdfinder.be/product/8657-queen-of-spies-gf",
-      "lastChecked": "2026-09-03T18:02:36.416Z",
+      "price": "£19.75",
+      "baselinePrice": "£19.75",
+      "url": "https://zatu.com/products/the-secrets-of-warden-keene?_pos=1&_psq=The+Secrets+of+Warden+Keene&_psid=357b1c005&_ss=e",
+      "lastChecked": "2026-09-03T18:02:47.864Z",
       "lastCheckSuccess": true
     },
     "philibert": {
-      "available": true,
-      "price": "€35.95",
-      "baselinePrice": "€35.95",
-      "url": "https://www.philibertnet.com/en/salt-pepper-games/180494-queen-of-spies-8495390976776.html",
-      "lastChecked": "2026-09-03T18:02:36.275Z",
-      "lastCheckSuccess": true
-    },
-    "kbHobbies": {
       "available": false,
       "price": null,
       "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-09-03T19:46:13.847Z",
-      "lastCheckSuccess": true
-    },
-    "jjCards": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-09-03T19:46:13.847Z",
-      "lastCheckSuccess": true
-    },
-    "elevatedBoardGames": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-09-03T19:46:13.847Z",
-      "lastCheckSuccess": true
-    },
-    "buttonShyEtsy": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": "https://www.etsy.com/shop/ButtonShyGames",
-      "lastChecked": "2026-09-03T19:46:13.847Z",
+      "lastChecked": "2026-09-03T19:46:23.621Z",
       "lastCheckSuccess": true
     },
     "bggMarket": {
@@ -2169,17 +2231,19 @@
       "price": null,
       "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-09-03T19:46:13.928Z",
+      "lastChecked": "2026-09-03T19:46:23.330Z",
       "lastCheckSuccess": true
     },
-    "fourZeroOneGames": {
+    "buttonShyEtsy": {
       "available": false,
       "price": null,
       "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-09-03T19:46:14.174Z",
+      "url": "https://www.etsy.com/shop/ButtonShyGames",
+      "lastChecked": "2026-09-03T19:46:23.193Z",
       "lastCheckSuccess": true
-    },
+    }
+  },
+  "454119": {
     "boardGameBliss": {
       "available": false,
       "price": null,
@@ -2188,12 +2252,12 @@
       "lastChecked": "2026-09-03T19:46:14.233Z",
       "lastCheckSuccess": true
     },
-    "greatBoardgames": {
+    "fourZeroOneGames": {
       "available": false,
       "price": null,
       "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-09-03T19:46:14.356Z",
+      "lastChecked": "2026-09-03T19:46:14.174Z",
       "lastCheckSuccess": true
     },
     "lvlUpGames": {
@@ -2212,6 +2276,14 @@
       "lastChecked": "2026-09-03T19:46:14.432Z",
       "lastCheckSuccess": true
     },
+    "greatBoardgames": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-03T19:46:14.356Z",
+      "lastCheckSuccess": true
+    },
     "meeplemart": {
       "available": false,
       "price": null,
@@ -2220,20 +2292,12 @@
       "lastChecked": "2026-09-03T19:46:14.479Z",
       "lastCheckSuccess": true
     },
-    "woodForSheep": {
+    "kbHobbies": {
       "available": false,
       "price": null,
       "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-09-03T19:46:14.603Z",
-      "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": "https://www.amazon.ca/s?k=Queen%20of%20Spies%20board%20game",
-      "lastChecked": "2026-09-03T19:46:14.665Z",
+      "lastChecked": "2026-09-03T19:46:13.847Z",
       "lastCheckSuccess": true
     },
     "miniatureMarket": {
@@ -2244,6 +2308,22 @@
       "lastChecked": "2026-09-03T19:46:14.845Z",
       "lastCheckSuccess": true
     },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": "https://www.amazon.ca/s?k=Queen%20of%20Spies%20board%20game",
+      "lastChecked": "2026-09-03T19:46:14.665Z",
+      "lastCheckSuccess": true
+    },
+    "woodForSheep": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-03T19:46:14.603Z",
+      "lastCheckSuccess": true
+    },
     "faceToFaceGames": {
       "available": false,
       "price": null,
@@ -2252,20 +2332,20 @@
       "lastChecked": "2026-09-03T19:46:14.875Z",
       "lastCheckSuccess": true
     },
-    "spelspul": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-09-03T19:46:15.024Z",
-      "lastCheckSuccess": true
-    },
     "obsidianGames": {
       "available": false,
       "price": null,
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-09-03T19:46:15.056Z",
+      "lastCheckSuccess": true
+    },
+    "jjCards": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-03T19:46:13.847Z",
       "lastCheckSuccess": true
     },
     "boardgamesCa": {
@@ -2300,6 +2380,14 @@
       "lastChecked": "2026-09-03T19:46:15.478Z",
       "lastCheckSuccess": true
     },
+    "elevatedBoardGames": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-03T19:46:13.847Z",
+      "lastCheckSuccess": true
+    },
     "diceHollow": {
       "available": false,
       "price": null,
@@ -2332,12 +2420,36 @@
       "lastChecked": "2026-09-03T19:46:16.142Z",
       "lastCheckSuccess": true
     },
-    "zatu": {
+    "legendsWarehouse": {
       "available": false,
       "price": null,
       "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-09-03T19:46:16.280Z",
+      "lastChecked": "2026-09-03T21:02:28.355Z",
+      "lastCheckSuccess": true
+    },
+    "boardGameBandit": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-03T21:02:28.563Z",
+      "lastCheckSuccess": true
+    },
+    "crowdfinder": {
+      "available": true,
+      "price": "€35.00",
+      "baselinePrice": "€35.00",
+      "url": "https://www.crowdfinder.be/product/8657-queen-of-spies-gf",
+      "lastChecked": "2026-09-03T18:02:36.416Z",
+      "lastCheckSuccess": true
+    },
+    "spelspul": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-03T19:46:15.024Z",
       "lastCheckSuccess": true
     },
     "chaosCards": {
@@ -2346,6 +2458,38 @@
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-09-03T19:46:18.052Z",
+      "lastCheckSuccess": true
+    },
+    "zatu": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-03T19:46:16.280Z",
+      "lastCheckSuccess": true
+    },
+    "philibert": {
+      "available": true,
+      "price": "€35.95",
+      "baselinePrice": "€35.95",
+      "url": "https://www.philibertnet.com/en/salt-pepper-games/180494-queen-of-spies-8495390976776.html",
+      "lastChecked": "2026-09-03T18:02:36.275Z",
+      "lastCheckSuccess": true
+    },
+    "bggMarket": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-03T19:46:13.928Z",
+      "lastCheckSuccess": true
+    },
+    "buttonShyEtsy": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": "https://www.etsy.com/shop/ButtonShyGames",
+      "lastChecked": "2026-09-03T19:46:13.847Z",
       "lastCheckSuccess": true
     }
   }
