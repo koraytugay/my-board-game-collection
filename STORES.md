@@ -1,0 +1,161 @@
+# Board Game Stores
+
+## Active Stores in Pipeline
+
+Canada:
+- BoardGameBliss: https://www.boardgamebliss.com (Shopify)
+- 401 Games: https://store.401games.ca (Shopify)
+- LVLUP Games: https://www.lvlupgames.ca (Shopify)
+- As des Jeux: https://www.asdesjeux.com (Shopify)
+- Great Boardgames: https://www.greatboardgames.ca (HTML)
+- Meeplemart: https://meeplemart.com (HTML)
+- KB Hobbies: https://kbhobbies.com (Shopify)
+- Amazon.ca: https://www.amazon.ca (Custom)
+- Wood for Sheep: https://www.woodforsheep.ca (Shopify)
+- Face to Face Games: https://facetofacegames.com (Shopify)
+- Obsidian Games: https://obsidiangames.ca (Shopify)
+- J&J Cards: https://jjcards.com (Shopify)
+- Boardgames.ca: https://boardgames.ca (Shopify)
+- Screen Free Games: https://screenfreegames.com (Shopify)
+- All Systems Go: https://allsystemsgo.games (Shopify)
+- Tabletop Cafe: https://www.tabletopcafe.ca (Shopify)
+- Elevated Board Games: https://elevatedboardgames.com (Shopify)
+- Dice Hollow: https://www.dicehollow.com (Shopify)
+- La Pioche: https://boutiquelapioche.com (Shopify)
+- Always Games: https://alwaysgames.ca (Shopify)
+- Poké Jeux: https://www.pokejeux.ca (Shopify)
+- Legends Warehouse: https://legendswarehouse.ca (Shopify)
+- Board Game Bandit: https://boardgamebandit.ca (Shopify)
+
+United States:
+- Miniature Market: https://www.miniaturemarket.com (Custom)
+- Button Shy (Etsy): https://www.etsy.com/shop/ButtonShyGames (Etsy API)
+
+United Kingdom & Europe:
+- Zatu Games: https://www.zatugames.co.uk (HTML)
+- Chaos Cards: https://www.chaoscards.co.uk (HTML)
+- Philibert: https://www.philibertnet.com (Custom)
+- Crowdfinder: https://www.crowdfinder.be (Custom)
+- Spelspul: https://www.spelspul.nl (Custom)
+
+Marketplace:
+- BGG Market: https://boardgamegeek.com/market (BGG Geekdo API)
+
+
+## Candidate Stores (To Add / Remove Later)
+
+All candidate stores below have been verified to ship to Canada.
+
+1. Hobbiesville
+URL: https://hobbiesville.com
+Location: Ottawa & Toronto, Ontario
+Platform: Shopify (/search/suggest.json)
+Currency: CAD ($)
+Shipping: $9.99 flat-rate Canada-wide, free shipping over $175
+Notes: Huge Canadian hobby store, deep inventory for board games and expansions.
+
+2. The Game Steward
+URL: https://thegamesteward.com
+Location: Virginia, USA
+Platform: Shopify (/search/suggest.json)
+Currency: USD ($)
+Shipping: Tracked international shipping to Canada
+Notes: Crowdfunding specialist. Focuses almost exclusively on Kickstarter, Gamefound, and deluxe editions unobtainable in retail.
+
+3. Meeples Corner
+URL: https://meeplescorner.co.uk
+Location: United Kingdom
+Platform: Shopify (/search/suggest.json)
+Currency: GBP (£) / CAD display
+Shipping: Tracked Royal Mail / Courier to Canada
+Notes: European import specialist. Carries hard-to-find German and indie European games. Non-UK orders automatically have 20% UK VAT deducted at checkout.
+
+4. Cardhaus Games
+URL: https://www.cardhaus.com
+Location: Indiana, USA
+Platform: BigCommerce (embeds clean structured product JSON in HTML)
+Currency: USD ($) / CAD conversion
+Shipping: Dedicated FedEx Ground (Canada) and USPS
+Notes: Major US discount retailer alongside Miniature Market. High stock levels and reliable Canadian shipping options.
+
+5. Gamers Guild AZ
+URL: https://gamersguildaz.com
+Location: Arizona, USA
+Platform: Shopify (/search/suggest.json)
+Currency: USD ($)
+Shipping: DDP (Delivered Duty Paid) shipping to Canada
+Notes: Popular US community favorite. Duties and taxes are calculated and collected upfront at checkout so there are no surprise fees at the door. Supports order holds.
+
+6. Game Knight Games
+URL: https://gameknight.ca
+Location: Winnipeg, Manitoba
+Platform: Shopify (/search/suggest.json)
+Currency: CAD ($)
+Shipping: Canada-wide shipping
+Notes: Manitoba's premier hobby store; strong inventory of Euro and solo games.
+
+7. Black Knight Games
+URL: https://blackknightgames.ca
+Location: Hamilton, Ontario
+Platform: Shopify (/search/suggest.json)
+Currency: CAD ($)
+Shipping: Canada-wide shipping
+Notes: Established Ontario FLGS (est. 2007) with active online catalog and broad expansion stock.
+
+8. Strategies Games & Hobbies
+URL: https://strategiesgames.ca
+Location: Vancouver, British Columbia
+Platform: Shopify (/search/suggest.json)
+Currency: CAD ($)
+Shipping: Canada-wide shipping
+Notes: Canada's oldest hobby shop (est. 1974). Great West Coast inventory for classic, indie, and niche games.
+
+9. Dragons Den Games
+URL: https://dragonsdengames.com
+Location: Saskatoon, Saskatchewan
+Platform: Shopify (/search/suggest.json)
+Currency: CAD ($)
+Shipping: Canada-wide shipping
+Notes: Saskatchewan's largest hobby store. Great alternative source when Ontario/Quebec stock runs dry.
+
+10. Rain City Games
+URL: https://raincity.games
+Location: Vancouver, British Columbia
+Platform: Shopify (/search/suggest.json)
+Currency: CAD ($)
+Shipping: Canada-wide shipping
+Notes: Vancouver indie specialist with strong curated selection of modern tabletop and solo games.
+
+11. Ludifolie
+URL: https://www.ludifolie.com
+Location: France
+Platform: PrestaShop (/recherche?controller=search&s=...)
+Currency: EUR (€)
+Shipping: International postal shipping to Canada
+Notes: French discount retailer, often significantly undercutting Philibert on European editions.
+
+
+## How to Add or Remove Stores in Codebase
+
+To add a new store:
+1. check-availability.js:
+   - Add store key to CANADIAN_STORE_KEYS (if Canadian store).
+   - Add store config to storeConfigs (type: 'shopify', baseUrl, currencySymbol: '$', or custom checker).
+2. notify-availability.js:
+   - Add to STORE_META with display name and flag emoji icon.
+3. stores.js:
+   - Add to STORES array ({ key: '...', name: '🇨🇦 ...' }).
+   - If foreign currency, add conversion in formatPrice().
+4. wanttobuy.js:
+   - Add to STORES array.
+   - Add fallback entry { available: false, price: null, url: null } in fetchCollection().
+   - If foreign currency, add conversion in formatPrice().
+5. liketohave.js:
+   - Add to STORES array.
+   - If foreign currency, add conversion in formatPrice().
+6. game-details.js:
+   - Add to storeNames mapping.
+   - If foreign currency, add conversion in formatGdPrice().
+
+To remove a store:
+- Reverse the edits in the 6 files listed above.
