@@ -482,18 +482,6 @@
 											</ranks>		</rating>
 			</stats>	<status own="0" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="1" wishlistpriority="5" preordered="0" lastmodified="2026-08-20 20:12:02" />
 	<numplays>0</numplays>							</item>
-<item objecttype="thing" objectid="465849" subtype="boardgame" collid="149129293">
-	<name sortindex="1">Codenames: Critical Role Adventures</name>
-		<yearpublished>2026</yearpublished>			<image>https://cf.geekdo-images.com/TZBC8xrO8CoL1wZLrvnusA__original/img/8g2ELkF3vbE5PnE5lbiqpHJpsp0=/0x0/filters:format(jpeg)/pic9658208.jpg</image>
-		<thumbnail>https://cf.geekdo-images.com/TZBC8xrO8CoL1wZLrvnusA__small/img/3CMqEdgJJpc5prg8eGM_w2Ovios=/fit-in/200x150/filters:strip_icc()/pic9658208.jpg</thumbnail>
-		<stats minplayers="2"																	maxplayers="4"																	minplaytime="25"																	maxplaytime="25"																	playingtime="25"																	numowned="297" >
-				<rating value="N/A">			<usersrated value="88" />			<average value="8.50909" />
-			<bayesaverage value="5.59403" />			<stddev value="1.27044" />
-			<median value="0" />			<ranks>
-												<rank type="subtype" id="1" name="boardgame" friendlyname="Board Game Rank" value="9868" bayesaverage="5.59403" />
-											</ranks>		</rating>
-			</stats>	<status own="0" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="1" wishlistpriority="4" preordered="0" lastmodified="2026-09-01 15:40:52" />
-	<numplays>0</numplays>							</item>
 <item objecttype="thing" objectid="402024" subtype="boardgame" collid="148110914">
 	<name sortindex="1">Conservas</name>
 		<yearpublished>2024</yearpublished>			<image>https://cf.geekdo-images.com/ShmrX5D3QG7RqG60HoNLIA__original/img/YyReaGm9eE1CClEF5BFXBvyIxl0=/0x0/filters:format(png)/pic7884933.png</image>
@@ -872,6 +860,18 @@
 											</ranks>		</rating>
 			</stats>	<status own="0" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="1" wishlistpriority="5" preordered="0" lastmodified="2026-08-03 21:20:02" />
 	<numplays>0</numplays>							</item>
+<item objecttype="thing" objectid="466203" subtype="boardgame" collid="149182161">
+	<name sortindex="1">Fano</name>
+		<yearpublished>2026</yearpublished>			<image>https://cf.geekdo-images.com/gZyEONW_nwmKXC5Hph5obg__original/img/P10zuRP04UPSNIjgk88lzM4P3GU=/0x0/filters:format(png)/pic9462327.png</image>
+		<thumbnail>https://cf.geekdo-images.com/gZyEONW_nwmKXC5Hph5obg__small/img/Ff3jvAz5KXgIFKRCOrmJ3ktGDdU=/fit-in/200x150/filters:strip_icc()/pic9462327.png</thumbnail>
+		<stats minplayers="2"																	maxplayers="4"																	minplaytime="20"																	maxplaytime="40"																	playingtime="40"																	numowned="7" >
+				<rating value="N/A">			<usersrated value="1" />			<average value="7" />
+			<bayesaverage value="0" />			<stddev value="0" />
+			<median value="0" />			<ranks>
+												<rank type="subtype" id="1" name="boardgame" friendlyname="Board Game Rank" value="Not Ranked" bayesaverage="Not Ranked" />
+											</ranks>		</rating>
+			</stats>	<status own="0" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="1" wishlistpriority="4" preordered="0" lastmodified="2026-09-03 08:53:14" />
+	<numplays>0</numplays>							</item>
 <item objecttype="thing" objectid="216600" subtype="boardgame" collid="147658040">
 	<name sortindex="1">Fantastic Factories</name>
 		<yearpublished>2019</yearpublished>			<image>https://cf.geekdo-images.com/AzNYQ2o-SXBAHFpPPtRBIw__original/img/QSapQT41vJZkBMzXx5ZkTbuTVf8=/0x0/filters:format(png)/pic4095959.png</image>
@@ -884,7 +884,7 @@
 																<rank type="family" id="5497" name="strategygames" friendlyname="Strategy Game Rank" value="376" bayesaverage="7.02332" />
 								<rank type="family" id="5499" name="familygames" friendlyname="Family Game Rank" value="122" bayesaverage="7.04294" />
 											</ranks>		</rating>
-			</stats>	<status own="0" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="1" wishlistpriority="4" preordered="0" lastmodified="2026-08-24 20:15:21" />
+			</stats>	<status own="0" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="1" wishlistpriority="3" preordered="0" lastmodified="2026-09-03 09:59:19" />
 	<numplays>0</numplays>							</item>
 <item objecttype="thing" objectid="319035" subtype="boardgame" collid="147658049">
 	<name sortindex="1">Fantastic Factories: Manufactions</name>
@@ -896,7 +896,7 @@
 			<median value="0" />			<ranks>
 												<rank type="subtype" id="1" name="boardgame" friendlyname="Board Game Rank" value="Not Ranked" bayesaverage="6.17553" />
 											</ranks>		</rating>
-			</stats>	<status own="0" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="1" wishlistpriority="4" preordered="0" lastmodified="2026-08-24 20:15:32" />
+			</stats>	<status own="0" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="1" wishlistpriority="3" preordered="0" lastmodified="2026-09-03 09:59:29" />
 	<numplays>0</numplays>							</item>
 <item objecttype="thing" objectid="320242" subtype="boardgame" collid="147658053">
 	<name sortindex="1">Fantastic Factories: Subterfuge</name>
@@ -908,7 +908,7 @@
 			<median value="0" />			<ranks>
 												<rank type="subtype" id="1" name="boardgame" friendlyname="Board Game Rank" value="Not Ranked" bayesaverage="5.77664" />
 											</ranks>		</rating>
-			</stats>	<status own="0" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="1" wishlistpriority="4" preordered="0" lastmodified="2026-08-24 20:15:39" />
+			</stats>	<status own="0" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="1" wishlistpriority="3" preordered="0" lastmodified="2026-09-03 09:59:51" />
 	<numplays>0</numplays>							</item>
 <item objecttype="thing" objectid="386860" subtype="boardgame" collid="145967625">
 	<name sortindex="1">Farm Hand</name>
@@ -1445,7 +1445,7 @@
 												<rank type="subtype" id="1" name="boardgame" friendlyname="Board Game Rank" value="2243" bayesaverage="6.2015" />
 																<rank type="family" id="5499" name="familygames" friendlyname="Family Game Rank" value="637" bayesaverage="6.36214" />
 											</ranks>		</rating>
-			</stats>	<status own="0" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="1" wishlistpriority="4" preordered="0" lastmodified="2026-08-24 19:51:18" />
+			</stats>	<status own="0" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="1" wishlistpriority="3" preordered="0" lastmodified="2026-09-03 09:59:59" />
 	<numplays>0</numplays>							</item>
 <item objecttype="thing" objectid="193042" subtype="boardgame" collid="148176214">
 	<name sortindex="1">Junk Art</name>
@@ -1497,7 +1497,7 @@
 			<median value="0" />			<ranks>
 												<rank type="subtype" id="1" name="boardgame" friendlyname="Board Game Rank" value="Not Ranked" bayesaverage="Not Ranked" />
 											</ranks>		</rating>
-			</stats>	<status own="0" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="1" wishlistpriority="4" preordered="0" lastmodified="2026-08-24 19:51:09" />
+			</stats>	<status own="0" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="1" wishlistpriority="4" preordered="0" lastmodified="2026-09-03 10:00:15" />
 	<numplays>0</numplays>							</item>
 <item objecttype="thing" objectid="340041" subtype="boardgame" collid="148176157">
 	<name sortindex="1">Kingdomino Origins</name>
@@ -2075,7 +2075,7 @@
 																<rank type="family" id="4666" name="abstracts" friendlyname="Abstract Game Rank" value="34" bayesaverage="6.98926" />
 								<rank type="family" id="5499" name="familygames" friendlyname="Family Game Rank" value="419" bayesaverage="6.56614" />
 											</ranks>		</rating>
-			</stats>	<status own="0" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="1" wishlistpriority="4" preordered="0" lastmodified="2026-08-24 20:16:13" />
+			</stats>	<status own="0" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="1" wishlistpriority="3" preordered="0" lastmodified="2026-09-03 10:00:28" />
 	<numplays>0</numplays>							</item>
 <item objecttype="thing" objectid="448740" subtype="boardgame" collid="148678137">
 	<name sortindex="1">Orapa Space</name>
@@ -2087,7 +2087,7 @@
 			<median value="0" />			<ranks>
 												<rank type="subtype" id="1" name="boardgame" friendlyname="Board Game Rank" value="3720" bayesaverage="5.92298" />
 											</ranks>		</rating>
-			</stats>	<status own="0" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="1" wishlistpriority="4" preordered="0" lastmodified="2026-08-24 20:16:17" />
+			</stats>	<status own="0" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="1" wishlistpriority="3" preordered="0" lastmodified="2026-09-03 10:00:36" />
 	<numplays>0</numplays>							</item>
 <item objecttype="thing" objectid="266524" subtype="boardgame" collid="148676738">
 	<name sortindex="1">Parks</name>
@@ -2101,19 +2101,6 @@
 																<rank type="family" id="5499" name="familygames" friendlyname="Family Game Rank" value="26" bayesaverage="7.41817" />
 											</ranks>		</rating>
 			</stats>	<status own="0" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="1" wishlistpriority="5" preordered="0" lastmodified="2026-08-19 11:47:30" />
-	<numplays>0</numplays>							</item>
-<item objecttype="thing" objectid="257582" subtype="boardgame" collid="147903719">
-	<name sortindex="1">Periodic: A Game of The Elements</name>
-		<yearpublished>2019</yearpublished>			<image>https://cf.geekdo-images.com/Uz8cUUr0yP4E6OI1PCUswg__original/img/K6T3HDr71Kj-uTiOUJEYzpeXJAg=/0x0/filters:format(jpeg)/pic4673672.jpg</image>
-		<thumbnail>https://cf.geekdo-images.com/Uz8cUUr0yP4E6OI1PCUswg__small/img/2znQFGIMrUYW1SVIhSEh5Ko0qd8=/fit-in/200x150/filters:strip_icc()/pic4673672.jpg</thumbnail>
-		<stats minplayers="2"																	maxplayers="5"																	minplaytime="40"																	maxplaytime="40"																	playingtime="40"																	numowned="2961" >
-				<rating value="N/A">			<usersrated value="903" />			<average value="6.70385" />
-			<bayesaverage value="5.81546" />			<stddev value="1.34648" />
-			<median value="0" />			<ranks>
-												<rank type="subtype" id="1" name="boardgame" friendlyname="Board Game Rank" value="4682" bayesaverage="5.81546" />
-																<rank type="family" id="5499" name="familygames" friendlyname="Family Game Rank" value="1455" bayesaverage="5.90787" />
-											</ranks>		</rating>
-			</stats>	<status own="0" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="1" wishlistpriority="4" preordered="0" lastmodified="2026-08-24 19:52:45" />
 	<numplays>0</numplays>							</item>
 <item objecttype="thing" objectid="45" subtype="boardgame" collid="148676799">
 	<name sortindex="1">Perudo</name>
@@ -2269,7 +2256,7 @@
 			<median value="0" />			<ranks>
 												<rank type="subtype" id="1" name="boardgame" friendlyname="Board Game Rank" value="15001" bayesaverage="5.53935" />
 											</ranks>		</rating>
-			</stats>	<status own="0" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="1" wishlistpriority="4" preordered="0" lastmodified="2026-08-24 20:16:28" />
+			</stats>	<status own="0" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="1" wishlistpriority="3" preordered="0" lastmodified="2026-09-03 10:01:07" />
 	<numplays>0</numplays>							</item>
 <item objecttype="thing" objectid="232043" subtype="boardgame" collid="148176413">
 	<name sortindex="1">Queendomino</name>
@@ -2490,7 +2477,7 @@
 			<median value="0" />			<ranks>
 												<rank type="subtype" id="1" name="boardgame" friendlyname="Board Game Rank" value="8737" bayesaverage="5.61637" />
 											</ranks>		</rating>
-			</stats>	<status own="0" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="1" wishlistpriority="4" preordered="0" lastmodified="2026-08-24 19:53:28" />
+			</stats>	<status own="0" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="1" wishlistpriority="3" preordered="0" lastmodified="2026-09-03 10:01:29" />
 	<numplays>0</numplays>							</item>
 <item objecttype="thing" objectid="2375" subtype="boardgame" collid="148752435">
 	<name sortindex="1">Sequence</name>
@@ -2541,7 +2528,7 @@
 			<median value="0" />			<ranks>
 												<rank type="subtype" id="1" name="boardgame" friendlyname="Board Game Rank" value="4235" bayesaverage="5.86059" />
 											</ranks>		</rating>
-			</stats>	<status own="0" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="1" wishlistpriority="4" preordered="0" lastmodified="2026-09-02 08:39:16" />
+			</stats>	<status own="0" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="1" wishlistpriority="3" preordered="0" lastmodified="2026-09-03 10:01:19" />
 	<numplays>0</numplays>							</item>
 <item objecttype="thing" objectid="270673" subtype="boardgame" collid="148109506">
 	<name sortindex="1">Silver &amp; Gold</name>
@@ -4782,6 +4769,18 @@ I like the idea behind the game, building a forest ecosystem sounds great, and t
 On top of that, cards that let you draw with effects like &quot;whenever you play a tree card&quot; feel unbalanced. If someone gets those early, they gain a huge advantage since they no longer need to spend turns drawing.
 
 Overall: a mediocre experience for me. Nice theme and artwork, but too long, too repetitive, and lacking real tension in the choices.</comment>				</item>
+<item objecttype="thing" objectid="476117" subtype="boardgame" collid="149182989">
+	<name sortindex="1">Forgotten Paths</name>
+		<yearpublished>2026</yearpublished>			<image>https://cf.geekdo-images.com/VAcKm8s6rS3WSpkxo74MrQ__original/img/Snhw7WDppIu22fmnnwtKPP_AFcI=/0x0/filters:format(jpeg)/pic9726783.jpg</image>
+		<thumbnail>https://cf.geekdo-images.com/VAcKm8s6rS3WSpkxo74MrQ__small/img/Yk3-K8fG7ALswGmhgJzKILCdOcc=/fit-in/200x150/filters:strip_icc()/pic9726783.jpg</thumbnail>
+		<stats minplayers="1"																	maxplayers="1"																	minplaytime="45"																	maxplaytime="60"																	playingtime="60"																	numowned="6" >
+				<rating value="N/A">			<usersrated value="7" />			<average value="8.98571" />
+			<bayesaverage value="0" />			<stddev value="0.941774" />
+			<median value="0" />			<ranks>
+												<rank type="subtype" id="1" name="boardgame" friendlyname="Board Game Rank" value="Not Ranked" bayesaverage="Not Ranked" />
+											</ranks>		</rating>
+			</stats>	<status own="0" prevowned="0" fortrade="0" want="0" wanttoplay="1" wanttobuy="0" wishlist="0"  preordered="0" lastmodified="2026-09-03 09:27:59" />
+	<numplays>0</numplays>							</item>
 <item objecttype="thing" objectid="43570" subtype="boardgame" collid="148344527">
 	<name sortindex="1">Friday</name>
 		<yearpublished>2011</yearpublished>			<image>https://cf.geekdo-images.com/7bBUuYUIyKIBDh_UnNa_Fw__original/img/_tiZYJMEc26kgt7uNF6IM8A-8As=/0x0/filters:format(jpeg)/pic1513328.jpg</image>
