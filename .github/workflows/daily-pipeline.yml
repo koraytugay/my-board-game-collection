@@ -48,6 +48,8 @@ jobs:
           node download-images.js
           echo "Fetching game designer metadata..."
           node fetch-designers.js
+          echo "Fetching Best At player count metadata..."
+          node fetch-best-at.js
 
       - name: Commit & Push BGG Updates
         run: |
@@ -55,9 +57,9 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git pull --rebase --autostash origin ${{ github.ref_name }}
-          git add collection.xml plays/ images/ designers.json
+          git add collection.xml plays/ images/ designers.json best-at.json
           if ! git diff --quiet --staged; then
-            git commit -m "chore: update collection, plays & designers ($(date -u +%F))"
+            git commit -m "chore: update collection, plays, designers & best-at ($(date -u +%F))"
             git push
           else
             echo "No BGG collection changes to commit."

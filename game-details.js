@@ -7,6 +7,7 @@ let gdCachedCollection = null;
 let gdCachedDesigners = null;
 let gdCachedPlays = null;
 let gdCachedAvailability = null;
+let gdCachedBestAt = null;
 
 async function ensureDataLoaded() {
     const promises = [];
@@ -38,6 +39,16 @@ async function ensureDataLoaded() {
                 gdCachedAvailability = data;
             }).catch(() => {
                 gdCachedAvailability = {};
+            })
+        );
+    }
+
+    if (!gdCachedBestAt) {
+        promises.push(
+            fetch('best-at.json').then(r => r.ok ? r.json() : {}).then(data => {
+                gdCachedBestAt = data;
+            }).catch(() => {
+                gdCachedBestAt = {};
             })
         );
     }
@@ -197,6 +208,14 @@ async function showGameDetails(objectId) {
             : `${game.minPlayers} - ${game.maxPlayers} Players`;
     }
 
+    // Best At player count
+    let bestAtList = [];
+    if (gdCachedBestAt && gdCachedBestAt[objectId] && Array.isArray(gdCachedBestAt[objectId].bestAt)) {
+        bestAtList = gdCachedBestAt[objectId].bestAt;
+    } else if (Array.isArray(game.bestAt)) {
+        bestAtList = game.bestAt;
+    }
+
     // Designers text
     const designersText = designersList.length > 0 ? designersList.join(', ') : '';
 
@@ -318,7 +337,7 @@ async function showGameDetails(objectId) {
             </div>
             <div class="game-modal-stat-card">
                 <span class="game-modal-stat-label">Players</span>
-                <span class="game-modal-stat-value">${playersText}</span>
+                <span class="game-modal-stat-value">${playersText}${bestAtList.length > 0 ? `<span style="display:block; font-size: 0.76rem; font-weight: 500; color: #718096; margin-top: 3px;">Best: ${gdEscapeHtml(bestAtList.join(', '))}</span>` : ''}</span>
             </div>
             <div class="game-modal-stat-card">
                 <span class="game-modal-stat-label">Play Time</span>

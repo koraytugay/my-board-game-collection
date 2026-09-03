@@ -9,16 +9,18 @@ async function fetchCollection() {
     const controlsEl = document.getElementById('controls');
 
     try {
-        const [collection, lastPlayDates, designersRes] = await Promise.all([
+        const [collection, lastPlayDates, designersRes, bestAtRes] = await Promise.all([
             getCollection(),
             getLastPlayDates(),
-            fetch('designers.json').then(res => res.ok ? res.json() : {}).catch(() => ({}))
+            fetch('designers.json').then(res => res.ok ? res.json() : {}).catch(() => ({})),
+            fetch('best-at.json').then(res => res.ok ? res.json() : {}).catch(() => ({}))
         ]);
         
         allGames = collection.map(game => ({
             ...game,
             lastPlayed: lastPlayDates[game.objectId] || '',
-            designers: designersRes[game.objectId]?.designers || []
+            designers: designersRes[game.objectId]?.designers || [],
+            bestAt: bestAtRes[game.objectId]?.bestAt || []
         }));
         
         populateDesignerFilter();
@@ -125,6 +127,8 @@ function sortGames(criteria) {
 function applyFilters() {
     const searchTerm = document.getElementById('search-input').value.toLowerCase();
     const playerCount = document.getElementById('player-count').value;
+    const bestAtFilter = document.getElementById('best-at-filter');
+    const bestAtVal = bestAtFilter ? bestAtFilter.value : 'all';
     const playTime = document.getElementById('play-time').value;
     const ratingFilter = document.getElementById('rating-filter').value;
     const designerFilter = document.getElementById('designer-filter');
@@ -148,6 +152,12 @@ function applyFilters() {
             }
         }
 
+        let matchesBestAt = true;
+        if (bestAtVal !== 'all') {
+            const bestAtList = game.bestAt || [];
+            matchesBestAt = bestAtList.includes(bestAtVal);
+        }
+
         let matchesTime = true;
         if (playTime !== 'all') {
             const [min, max] = playTime.split('-').map(Number);
@@ -168,7 +178,7 @@ function applyFilters() {
 
         const matchesUnplayed = !unplayedOnly || game.numPlays === 0;
 
-        return matchesSearch && matchesPlayers && matchesTime && matchesRating && matchesDesigner && matchesUnplayed;
+        return matchesSearch && matchesPlayers && matchesBestAt && matchesTime && matchesRating && matchesDesigner && matchesUnplayed;
     });
 
     renderGames();
@@ -232,9 +242,10 @@ function createGameCard(game) {
                 ${game.myRating > 0 ? `<div class="meta-item"><span>💚</span> ${game.myRating.toFixed(1)}</div>` : ''}
                 <div class="meta-item"><span>🎲</span> ${game.numPlays} plays</div>
                 ${game.lastPlayed ? `<div class="meta-item"><span>📅</span> ${game.lastPlayed}</div>` : ''}
-                </div>
-                </div>
-                `;
+                ${game.bestAt && game.bestAt.length > 0 ? `<div class="meta-item meta-best-at" title="Community best: ${game.bestAt.join(', ')}"><span>✨</span> Best: ${game.bestAt.join(', ')}</div>` : ''}
+            </div>
+        </div>
+    `;
     return card;
 }
 
