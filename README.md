@@ -48,8 +48,6 @@ This registry catalogs board game stores researched for potential integration in
 
 | Store | Location | Website | Platform / Scrapability | Shipping & Currency | Notes & Specialty |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Legends Warehouse** | 🇨🇦 Vaughan, ON | [legendswarehouse.ca](https://legendswarehouse.ca) | **Shopify** (`/search/suggest.json`) | Canada-wide shipping (CAD $) | **Active in pipeline.** Great everyday discounts; excellent expansion availability. |
-| **Board Game Bandit** | 🇨🇦 Mississauga, ON | [boardgamebandit.ca](https://boardgamebandit.ca) | **Shopify** (`/search/suggest.json`) | $9.99 flat-rate; free over $150 (CAD $) | **Active in pipeline.** Major Canadian tabletop specialist, frequent sales, customer holds. |
 | **Hobbiesville** | 🇨🇦 Ottawa & Toronto, ON | [hobbiesville.com](https://hobbiesville.com) | **Shopify** (`/search/suggest.json`) | $9.99 flat-rate; free over $175 (CAD $) | Fast-growing Canadian retailer with deep inventory across board games and TCGs. |
 | **The Game Steward** | 🇺🇸 Virginia, USA | [thegamesteward.com](https://thegamesteward.com) | **Shopify** (`/search/suggest.json`) | Tracked international to Canada (USD $) | **Crowdfunding specialist:** Focuses on Kickstarter, Gamefound, and deluxe editions unobtainable in standard retail. |
 | **Meeples Corner** | 🇬🇧 United Kingdom | [meeplescorner.co.uk](https://meeplescorner.co.uk) | **Shopify** (`/search/suggest.json`) | Tracked Royal Mail / Courier; **20% UK VAT deducted** (GBP £ / CAD) | **European import gem:** Specializes in German and indie European titles. Automatically removes 20% UK VAT for Canadian buyers. |
