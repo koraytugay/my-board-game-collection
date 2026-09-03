@@ -225,6 +225,7 @@ async function showGameDetails(objectId) {
             elevatedBoardGames: '🇨🇦 Elevated BG',
             diceHollow: '🇨🇦 Dice Hollow',
             laPioche: '🇨🇦 La Pioche',
+            alwaysGames: '🇨🇦 Always Games',
             buttonShyEtsy: '🇺🇸 Button Shy',
             zatu: '🇬🇧 Zatu Games',
             chaosCards: '🇬🇧 Chaos Cards',

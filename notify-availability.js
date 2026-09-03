@@ -31,6 +31,7 @@ const STORE_META = {
     elevatedBoardGames: { name: 'Elevated Board Games', icon: '🇨🇦' },
     diceHollow: { name: 'Dice Hollow', icon: '🇨🇦' },
     laPioche: { name: 'La Pioche', icon: '🇨🇦' },
+    alwaysGames: { name: 'Always Games', icon: '🇨🇦' },
     buttonShyEtsy: { name: 'Button Shy', icon: '🇺🇸' },
     zatu: { name: 'Zatu Games', icon: '🇬🇧' },
     chaosCards: { name: 'Chaos Cards', icon: '🇬🇧' },

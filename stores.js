@@ -49,6 +49,7 @@ const STORES = [
     { key: 'elevatedBoardGames', name: '🇨🇦 Elevated Board Games' },
     { key: 'diceHollow', name: '🇨🇦 Dice Hollow' },
     { key: 'laPioche', name: '🇨🇦 La Pioche' },
+    { key: 'alwaysGames', name: '🇨🇦 Always Games' },
     { key: 'buttonShyEtsy', name: '🇺🇸 Button Shy' },
     { key: 'zatu', name: '🇬🇧 Zatu Games' },
     { key: 'chaosCards', name: '🇬🇧 Chaos Cards' },

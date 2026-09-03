@@ -30,6 +30,7 @@ const CANADIAN_STORE_KEYS = new Set([
     'elevatedBoardGames',
     'diceHollow',
     'laPioche',
+    'alwaysGames',
     'bggMarket'
 ]);
 
@@ -1618,6 +1619,11 @@ async function checkAvailability() {
             laPioche: {
                 type: 'shopify',
                 baseUrl: 'https://boutiquelapioche.com',
+                currencySymbol: '$'
+            },
+            alwaysGames: {
+                type: 'shopify',
+                baseUrl: 'https://alwaysgames.ca',
                 currencySymbol: '$'
             },
             crowdfinder: {
