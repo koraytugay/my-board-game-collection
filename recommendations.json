@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-02T14:32:26.623Z",
+  "generatedAt": "2026-09-03T01:09:49.008Z",
   "total": 400,
   "recommendations": [
     {
@@ -3549,6 +3549,47 @@
       "minPlayers": 3,
       "maxPlayers": 5,
       "playingTime": 60
+    },
+    {
+      "objectId": "217449",
+      "name": "NMBR 9",
+      "yearPublished": "2017",
+      "bggRating": 6.83,
+      "bggRank": 1310,
+      "numVoters": 8264,
+      "numFans": 195,
+      "coverUrl": "https://cf.geekdo-images.com/a6j6yZmBJ5J2hcuo0KOW-A__square100@2x/img/RXXSnqA3vBDEEpcO4ZBsgSrwboo=/0x12:1000x1012/200x200/filters:strip_icc()/pic3328269.jpg",
+      "thumbnail": "images/thumbnails/217449.jpg",
+      "image": "images/full/217449.jpg",
+      "description": "Cleverly stack number-shaped polyominoes higher and higher without leaving any gaps.",
+      "rawScore": 4.098901250819935,
+      "recommendedBy": [
+        {
+          "ownedId": "244522",
+          "ownedName": "That&#039;s Pretty Clever!",
+          "userRating": 8,
+          "bggRecRank": 17,
+          "contributionScore": 1.55
+        },
+        {
+          "ownedId": "228504",
+          "ownedName": "Cat Lady",
+          "userRating": 7,
+          "bggRecRank": 11,
+          "contributionScore": 1.48
+        },
+        {
+          "ownedId": "153318",
+          "ownedName": "Dimension",
+          "userRating": 7,
+          "bggRecRank": 21,
+          "contributionScore": 1.07
+        }
+      ],
+      "matchScore": 5.8,
+      "minPlayers": 1,
+      "maxPlayers": 4,
+      "playingTime": 20
     },
     {
       "objectId": "107529",
@@ -13069,33 +13110,6 @@
       "matchScore": 1.3,
       "minPlayers": 2,
       "maxPlayers": 8,
-      "playingTime": 45
-    },
-    {
-      "objectId": "396542",
-      "name": "The Same Game",
-      "yearPublished": "2023",
-      "bggRating": 7.12,
-      "bggRank": 3613,
-      "numVoters": 879,
-      "numFans": 47,
-      "coverUrl": "https://cf.geekdo-images.com/R7GZPK79bMdsCZFamu7Z7A__square100@2x/img/jKMs8Tlfuay_DycNxxTeXQf_UZE=/200x200/filters:strip_icc()/pic7653476.jpg",
-      "thumbnail": "images/thumbnails/396542.jpg",
-      "image": "images/full/396542.jpg",
-      "description": "Discuss how completely different objects might share something in common.",
-      "rawScore": 1.2651745597610893,
-      "recommendedBy": [
-        {
-          "ownedId": "445045",
-          "ownedName": "Dice Pool Party",
-          "userRating": 7,
-          "bggRecRank": 15,
-          "contributionScore": 1.27
-        }
-      ],
-      "matchScore": 1.3,
-      "minPlayers": 3,
-      "maxPlayers": 6,
       "playingTime": 45
     }
   ]
