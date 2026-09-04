@@ -991,73 +991,365 @@ body.dark-mode .btn-secondary:hover {
 }
 
 @media (max-width: 768px) {
-    .random-game-display {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
+    body {
+        padding: 8px 10px 24px 10px;
     }
 
-    .random-game-img {
-        width: 100%;
-        max-width: 250px;
-        height: 250px;
+    header {
+        padding: 4px 4px 2px 4px;
+        margin-bottom: 4px;
     }
 
-    .modal-actions {
-        flex-direction: column;
-    }
-
-    .btn {
-        width: 100%;
-    }
-}
-
-@media (max-width: 768px) {
     header h1 {
-        font-size: 2em;
+        font-size: 1.35rem;
+        margin-bottom: 2px;
     }
 
-    .games-grid {
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-        gap: 15px;
+    .username {
+        font-size: 0.78rem;
+        margin-bottom: 4px;
     }
 
-    .games-grid.view-list .game-card {
-        flex-direction: column;
+    /* Top navigation bar: MUST NOT be sticky on mobile */
+    .page-nav {
+        position: static;
+        top: auto;
+        padding: 4px 0 6px 0;
+        margin-bottom: 10px;
+        gap: 5px;
     }
 
-    .games-grid.view-list .game-thumbnail {
+    .page-nav .nav-row {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        justify-content: flex-start;
+        padding: 2px 2px 4px 2px;
+        gap: 6px;
         width: 100%;
-        height: 300px;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+    .page-nav .nav-row::-webkit-scrollbar {
+        display: none;
+    }
+
+    .nav-link {
+        padding: 5px 11px;
+        font-size: 0.78rem;
+        flex-shrink: 0;
+        border-radius: 5px;
+    }
+
+    /* Controls: Compact 2-column grid layout */
+    .controls {
+        margin-bottom: 12px;
+        border-radius: 8px;
     }
 
     .controls-row {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 12px;
-        padding: 18px 20px;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+        padding: 8px 10px;
     }
 
     .control-group {
         width: 100%;
+        display: flex;
         flex-direction: column;
-        align-items: flex-start;
-        gap: 8px;
+        align-items: stretch;
+        gap: 3px;
+    }
+
+    .control-group.control-group-full,
+    .control-group:has(#search-input),
+    .control-group:has(#designer-filter),
+    .control-group:has(#unplayed-only) {
+        grid-column: 1 / -1;
+    }
+
+    .controls label {
+        font-size: 0.72rem;
+        font-weight: 600;
+        color: #555;
+        margin: 0;
+    }
+
+    body.dark-mode .controls label {
+        color: #b0b0b0;
     }
 
     .controls select,
     .controls input[type="text"] {
         width: 100%;
-        min-width: auto;
+        height: 32px;
+        font-size: 0.78rem;
+        padding: 0 8px;
+        border-radius: 6px;
+        min-width: 0;
     }
 
-    .controls label {
-        font-size: 0.85em;
+    .btn-random {
+        height: 32px;
+        font-size: 0.78rem;
+        width: 100%;
+        padding: 0 8px;
     }
 
     .checkbox-label {
+        height: 32px;
+        font-size: 0.78rem;
+        padding: 0 8px;
         width: 100%;
+        border: 1.5px solid #e2e8f0;
+        border-radius: 6px;
+        background: #fafafa;
+        display: flex;
+        align-items: center;
         justify-content: flex-start;
+    }
+
+    body.dark-mode .checkbox-label {
+        background: #242424;
+        border-color: #444;
+        color: #b0b0b0;
+    }
+
+    body.dark-mode .controls select,
+    body.dark-mode .controls input[type="text"] {
+        background-color: #222;
+        color: #e0e0e0;
+        border-color: #444;
+    }
+
+    body.dark-mode .controls select option {
+        background-color: #222;
+        color: #e0e0e0;
+    }
+
+    /* Games Grid & Cards: Sized for 6-inch and smaller mobile phones */
+    .games-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+        padding: 4px 0;
+    }
+
+    .game-card {
+        border-radius: 8px;
+    }
+
+    .game-thumbnail {
+        height: 120px;
+        object-fit: cover;
+    }
+
+    .game-badges {
+        top: 5px;
+        left: 5px;
+        gap: 3px;
+    }
+
+    .badge {
+        padding: 2px 5px;
+        font-size: 0.58rem;
+        border-radius: 4px;
+        letter-spacing: 0.2px;
+    }
+
+    .game-info {
+        padding: 7px 8px;
+    }
+
+    .game-year {
+        font-size: 0.68rem;
+        margin-bottom: 2px;
+    }
+
+    .game-name {
+        font-size: 0.82rem;
+        font-weight: 700;
+        margin-bottom: 3px;
+        line-height: 1.22;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        word-break: break-word;
+    }
+
+    .game-meta {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3px 4px;
+        margin-top: 5px;
+        padding-top: 5px;
+        font-size: 0.68rem;
+    }
+
+    .meta-item {
+        gap: 3px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .meta-item.meta-best-at {
+        grid-column: 1 / -1;
+        font-size: 0.66rem;
+        white-space: normal;
+    }
+
+    /* Compact View on mobile */
+    .games-grid.view-compact {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 6px;
+    }
+
+    .games-grid.view-compact .game-thumbnail {
+        height: 90px;
+    }
+
+    .games-grid.view-compact .game-info {
+        padding: 5px 6px;
+    }
+
+    .games-grid.view-compact .game-name {
+        font-size: 0.76rem;
+    }
+
+    .games-grid.view-compact .game-meta {
+        font-size: 0.64rem;
+        gap: 2px 3px;
+        margin-top: 4px;
+        padding-top: 4px;
+    }
+
+    /* List View on mobile: sleek horizontal cards */
+    .games-grid.view-list {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    .games-grid.view-list .game-card {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        border-radius: 8px;
+    }
+
+    .games-grid.view-list .game-thumbnail {
+        width: 80px;
+        height: 80px;
+        min-width: 80px;
+        object-fit: cover;
+    }
+
+    .games-grid.view-list .game-info {
+        flex: 1;
+        min-width: 0;
+        padding: 6px 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .games-grid.view-list .game-year {
+        font-size: 0.68rem;
+        margin-bottom: 1px;
+    }
+
+    .games-grid.view-list .game-name {
+        font-size: 0.84rem;
+        margin-bottom: 3px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .games-grid.view-list .game-meta {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 4px 8px;
+        margin-top: 3px;
+        padding-top: 0;
+        border-top: none;
+        font-size: 0.68rem;
+    }
+
+    /* Random Modal on mobile */
+    .modal {
+        padding: 12px;
+    }
+
+    .modal-content {
+        padding: 16px 14px;
+        border-radius: 12px;
+        width: 100%;
+        max-width: 360px;
+        max-height: 90vh;
+    }
+
+    .modal-close {
+        top: 10px;
+        right: 10px;
+        width: 32px;
+        height: 32px;
+        font-size: 1.5em;
+    }
+
+    .modal-content h2 {
+        font-size: 1.25rem;
+        margin-bottom: 12px;
+    }
+
+    .random-game-display {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 12px;
+        margin-bottom: 16px;
+    }
+
+    .random-game-img {
+        width: 130px;
+        height: 130px;
+        max-width: 130px;
+        border-radius: 8px;
+    }
+
+    .random-game-name {
+        font-size: 1.1rem;
+        margin-bottom: 2px;
+    }
+
+    .random-game-year {
+        font-size: 0.78rem;
+        margin-bottom: 6px;
+    }
+
+    .random-game-meta {
+        gap: 5px;
+        align-items: center;
+    }
+
+    .random-game-meta .meta-item {
+        font-size: 0.78rem;
+    }
+
+    .modal-actions {
+        flex-direction: column;
+        gap: 8px;
+        width: 100%;
+    }
+
+    .modal-actions .btn {
+        width: 100%;
+        padding: 9px 16px;
+        font-size: 0.85rem;
     }
 }
 

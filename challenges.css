@@ -346,10 +346,46 @@ body.dark-mode .empty-state {
 
 @media (max-width: 600px) {
     .challenge-section {
-        padding: 16px;
+        padding: 12px 10px;
+        margin-bottom: 16px;
+        border-radius: 8px;
+    }
+    .challenge-header {
+        margin-bottom: 12px;
+        padding-bottom: 8px;
+    }
+    .challenge-title {
+        font-size: 1.1rem;
+    }
+    .challenge-stats-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+        margin-bottom: 14px;
+    }
+    .challenge-stat-box {
+        padding: 12px 8px;
+    }
+    .stat-number {
+        font-size: 1.35rem;
+    }
+    .stat-label {
+        font-size: 0.68rem;
     }
     .unplayed-games-grid {
-        grid-template-columns: repeat(auto-fill, minmax(95px, 1fr));
-        gap: 10px;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 8px;
+    }
+    .achievements-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+    }
+    .achievement-card {
+        padding: 10px 8px;
+    }
+    .achievement-name {
+        font-size: 0.85rem;
+    }
+    .achievement-val {
+        font-size: 0.95rem;
     }
 }

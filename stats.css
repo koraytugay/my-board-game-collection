@@ -314,10 +314,41 @@ body.dark-mode .empty-state {
 
 @media (max-width: 600px) {
     .stats-section {
-        padding: 16px;
+        padding: 12px 10px;
+        margin-bottom: 16px;
+        border-radius: 8px;
+    }
+    .stats-header {
+        margin-bottom: 12px;
+        padding-bottom: 8px;
+    }
+    .stats-title {
+        font-size: 1.1rem;
+    }
+    .stats-cards,
+    .insights-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+    }
+    .stat-card-box {
+        padding: 12px 8px;
+    }
+    .stat-number {
+        font-size: 1.35rem;
+    }
+    .stat-label {
+        font-size: 0.68rem;
     }
     .top-played-grid {
-        grid-template-columns: repeat(auto-fill, minmax(95px, 1fr));
-        gap: 10px;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 8px;
+    }
+    .chart-label {
+        width: 60px;
+        font-size: 0.72rem;
+    }
+    .chart-count {
+        width: 24px;
+        font-size: 0.72rem;
     }
 }
