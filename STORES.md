@@ -10,14 +10,14 @@ Canada:
 - Great Boardgames: https://www.greatboardgames.ca (HTML)
 - Meeplemart: https://meeplemart.com (HTML)
 - KB Hobbies: https://kbhobbies.com (Square Online / REST API)
-- Amazon.ca: https://www.amazon.ca (Custom)
+- Amazon.ca: https://www.amazon.ca (Puppeteer)
 - Wood for Sheep: https://www.woodforsheep.ca (Shopify)
-- J&J Cards: https://jjcards.com (Shopify)
-- Boardgames.ca: https://boardgames.ca (Shopify)
+- J&J Cards: https://jjcards.com (Custom Sitemap / HTML)
+- Boardgames.ca: https://boardgames.ca (Ecwid JSON API)
 - Screen Free Games: https://screenfreegames.com (Shopify)
 - All Systems Go: https://allsystemsgo.games (Shopify)
 - Tabletop Cafe: https://www.tabletopcafe.ca (Shopify)
-- Elevated Board Games: https://elevatedboardgames.com (Shopify)
+- Elevated Board Games: https://elevatedboardgames.com (Custom Sitemap / HTML)
 - Dice Hollow: https://www.dicehollow.com (Shopify)
 - La Pioche: https://boutiquelapioche.com (Shopify)
 - Always Games: https://alwaysgames.ca (Shopify)
@@ -25,13 +25,13 @@ Canada:
 - Board Game Bandit: https://boardgamebandit.ca (Shopify)
 
 United States:
-- Miniature Market: https://www.miniaturemarket.com (Custom)
+- Miniature Market: https://www.miniaturemarket.com (HTML)
 - Cardhaus Games: https://www.cardhaus.com (HTML)
 - The Game Steward: https://thegamesteward.com (Shopify)
 
 United Kingdom & Europe:
-- Zatu Games: https://www.zatugames.co.uk (HTML)
-- Chaos Cards: https://www.chaoscards.co.uk (HTML)
+- Zatu Games: https://zatu.com (Shopify)
+- Chaos Cards: https://www.chaoscards.co.uk (Custom)
 - Philibert: https://www.philibertnet.com (Custom)
 - Crowdfinder: https://www.crowdfinder.be (Custom)
 
@@ -137,23 +137,15 @@ Notes: French discount retailer, often significantly undercutting Philibert on E
 ## How to Add or Remove Stores in Codebase
 
 To add a new store:
-1. check-availability.js:
-   - Add store config to storeConfigs (type: 'shopify', baseUrl, currencySymbol: '$', or custom checker).
-2. notify-availability.js:
-   - Add to STORE_META with display name and flag emoji icon.
-3. stores.js:
-   - Add to STORES array ({ key: '...', name: '🇨🇦 ...' }).
-   - If foreign currency, add conversion in formatPrice().
-4. wanttobuy.js:
-   - Add to STORES array.
-   - Add fallback entry { available: false, price: null, url: null } in fetchCollection().
-   - If foreign currency, add conversion in formatPrice().
-5. liketohave.js:
-   - Add to STORES array.
-   - If foreign currency, add conversion in formatPrice().
-6. game-details.js:
-   - Add to storeNames mapping.
-   - If foreign currency, add conversion in formatGdPrice().
+1. `check-availability.js`:
+   - Add store config to `getStoreConfigs(skippedSellers)` (`type: 'shopify'`, `baseUrl`, `currencySymbol: '$'`, or custom checker).
+2. `notify-availability.js`:
+   - Add to `STORE_META` with display name and flag emoji icon.
+3. `api.js`:
+   - Add to shared `STORES` array (`{ key: '...', name: '🇨🇦 ...' }`).
+   - If foreign currency, add conversion in shared `formatPrice()`.
+4. `game-details.js`:
+   - Add to `storeNames` mapping if custom short label is preferred.
 
 To remove a store:
-- Reverse the edits in the 6 files listed above.
+- Reverse the edits in the files listed above.
