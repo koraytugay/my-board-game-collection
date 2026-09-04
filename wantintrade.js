@@ -3,7 +3,7 @@ let filteredGames = [];
 let currentSort = 'name';
 let currentViewMode = 'grid';
 
-function formatPrice(price, storeKey = null) {
+function formatPrice(price) {
     if (!price && price !== 0) return '';
     const str = String(price).trim();
     if (!str) return '';
@@ -15,9 +15,11 @@ function formatPrice(price, storeKey = null) {
     if (isNaN(num)) return str;
 
     let cadPrice;
-    if (str.includes('€') || /\bEUR\b/i.test(str) || storeKey === 'philibert') {
+    if (str.includes('€') || /\bEUR\b/i.test(str)) {
         cadPrice = num * 1.65;
-    } else if (/\bUSD\b/i.test(str) || /\$US\b/i.test(str) || /US\$/i.test(str) || storeKey === 'miniatureMarket' || storeKey === 'cardhaus' || storeKey === 'theGameSteward') {
+    } else if (str.includes('£') || /\bGBP\b/i.test(str)) {
+        cadPrice = num * 1.90;
+    } else if (/\bUSD\b/i.test(str) || /\$US\b/i.test(str) || /US\$/i.test(str)) {
         cadPrice = num * 1.40;
     } else {
         cadPrice = num;
