@@ -26,6 +26,7 @@ Canada:
 
 United States:
 - Miniature Market: https://www.miniaturemarket.com (Custom)
+- Cardhaus Games: https://www.cardhaus.com (HTML)
 
 United Kingdom & Europe:
 - Zatu Games: https://www.zatugames.co.uk (HTML)
@@ -83,15 +84,7 @@ Currency: GBP (£) / CAD display
 Shipping: Tracked Royal Mail / Courier to Canada
 Notes: European import specialist. Carries hard-to-find German and indie European games. Non-UK orders automatically have 20% UK VAT deducted at checkout.
 
-4. Cardhaus Games
-URL: https://www.cardhaus.com
-Location: Indiana, USA
-Platform: BigCommerce (embeds clean structured product JSON in HTML)
-Currency: USD ($) / CAD conversion
-Shipping: Dedicated FedEx Ground (Canada) and USPS
-Notes: Major US discount retailer alongside Miniature Market. High stock levels and reliable Canadian shipping options.
-
-5. Gamers Guild AZ
+4. Gamers Guild AZ
 URL: https://gamersguildaz.com
 Location: Arizona, USA
 Platform: Shopify (/search/suggest.json)
@@ -99,7 +92,7 @@ Currency: USD ($)
 Shipping: DDP (Delivered Duty Paid) shipping to Canada
 Notes: Popular US community favorite. Duties and taxes are calculated and collected upfront at checkout so there are no surprise fees at the door. Supports order holds.
 
-6. Game Knight Games
+5. Game Knight Games
 URL: https://gameknight.ca
 Location: Winnipeg, Manitoba
 Platform: Shopify (/search/suggest.json)
@@ -107,7 +100,7 @@ Currency: CAD ($)
 Shipping: Canada-wide shipping
 Notes: Manitoba's premier hobby store; strong inventory of Euro and solo games.
 
-7. Black Knight Games
+6. Black Knight Games
 URL: https://blackknightgames.ca
 Location: Hamilton, Ontario
 Platform: Shopify (/search/suggest.json)
@@ -115,7 +108,7 @@ Currency: CAD ($)
 Shipping: Canada-wide shipping
 Notes: Established Ontario FLGS (est. 2007) with active online catalog and broad expansion stock.
 
-8. Strategies Games & Hobbies
+7. Strategies Games & Hobbies
 URL: https://strategiesgames.ca
 Location: Vancouver, British Columbia
 Platform: Shopify (/search/suggest.json)
@@ -123,7 +116,7 @@ Currency: CAD ($)
 Shipping: Canada-wide shipping
 Notes: Canada's oldest hobby shop (est. 1974). Great West Coast inventory for classic, indie, and niche games.
 
-9. Dragons Den Games
+8. Dragons Den Games
 URL: https://dragonsdengames.com
 Location: Saskatoon, Saskatchewan
 Platform: Shopify (/search/suggest.json)
@@ -131,7 +124,7 @@ Currency: CAD ($)
 Shipping: Canada-wide shipping
 Notes: Saskatchewan's largest hobby store. Great alternative source when Ontario/Quebec stock runs dry.
 
-10. Rain City Games
+9. Rain City Games
 URL: https://raincity.games
 Location: Vancouver, British Columbia
 Platform: Shopify (/search/suggest.json)
@@ -139,7 +132,7 @@ Currency: CAD ($)
 Shipping: Canada-wide shipping
 Notes: Vancouver indie specialist with strong curated selection of modern tabletop and solo games.
 
-11. Ludifolie
+10. Ludifolie
 URL: https://www.ludifolie.com
 Location: France
 Platform: PrestaShop (/recherche?controller=search&s=...)

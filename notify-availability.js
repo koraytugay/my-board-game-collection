@@ -19,6 +19,7 @@ const STORE_META = {
     meeplemart: { name: 'Meeplemart', icon: '🇨🇦' },
     kbHobbies: { name: 'KB Hobbies', icon: '🇨🇦' },
     miniatureMarket: { name: 'Miniature Market', icon: '🇺🇸' },
+    cardhaus: { name: 'Cardhaus Games', icon: '🇺🇸' },
     amazonCa: { name: 'Amazon.ca', icon: '🇨🇦' },
     woodForSheep: { name: 'Wood for Sheep', icon: '🇨🇦' },
     jjCards: { name: 'J&J Cards', icon: '🇨🇦' },
@@ -261,7 +262,7 @@ function formatPrice(price, storeKey = null) {
         cadPrice = num * 1.65;
     } else if (str.includes('£') || /\bGBP\b/i.test(str) || storeKey === 'zatu' || storeKey === 'chaosCards') {
         cadPrice = num * 1.90;
-    } else if (/\bUSD\b/i.test(str) || /\$US\b/i.test(str) || /US\$/i.test(str) || storeKey === 'miniatureMarket') {
+    } else if (/\bUSD\b/i.test(str) || /\$US\b/i.test(str) || /US\$/i.test(str) || storeKey === 'miniatureMarket' || storeKey === 'cardhaus') {
         cadPrice = num * 1.40;
     } else {
         cadPrice = num;
