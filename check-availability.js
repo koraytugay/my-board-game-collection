@@ -1347,12 +1347,6 @@ async function checkAvailability() {
         } catch (e) {
             console.error('Error reading skipped-sellers.json:', e);
         }
-    } else if (fs.existsSync('skipped-sellers.js')) {
-        try {
-            skippedSellers = require('./skipped-sellers.js');
-        } catch (e) {
-            console.error('Error reading skipped-sellers.js:', e);
-        }
     }
     if (!Array.isArray(skippedSellers)) skippedSellers = [];
     console.log(`Loaded ${skippedSellers.length} skipped seller(s).`);
