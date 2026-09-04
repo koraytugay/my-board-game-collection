@@ -135,6 +135,10 @@ const runStats = {
     }
 };
 
+const GAME_ALIASES = {
+    'Back to the Future: Back in Time': ['Back to the Future']
+};
+
 function decodeXmlEntities(str) {
     if (!str) return '';
     return str
@@ -693,10 +697,6 @@ function parseElevatedBoardGames(html, gameName, targetUrl) {
         url: targetUrl
     };
 }
-
-const GAME_ALIASES = {
-    'Back to the Future: Back in Time': ['Back to the Future']
-};
 
 function isMatch(bggName, shopifyProduct) {
     if (!bggName || !shopifyProduct) return false;
