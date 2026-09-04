@@ -254,35 +254,10 @@ async function showGameDetails(objectId) {
             crowdfinder: '🇧🇪 Crowdfinder'
         };
 
-        function formatGdPrice(price, storeKey = null) {
-            if (!price && price !== 0) return '';
-            const str = String(price).trim();
-            if (!str) return '';
-
-            const clean = str.replace(/,/g, '');
-            const match = clean.match(/[0-9]+(?:\.[0-9]+)?/);
-            if (!match) return str;
-            const num = parseFloat(match[0]);
-            if (isNaN(num)) return str;
-
-            let cadPrice;
-            if (str.includes('€') || /\bEUR\b/i.test(str) || storeKey === 'philibert' || storeKey === 'crowdfinder') {
-                cadPrice = num * 1.65;
-            } else if (str.includes('£') || /\bGBP\b/i.test(str) || storeKey === 'zatu' || storeKey === 'chaosCards') {
-                cadPrice = num * 1.90;
-            } else if (/\bUSD\b/i.test(str) || /\$US\b/i.test(str) || /US\$/i.test(str) || storeKey === 'miniatureMarket' || storeKey === 'cardhaus' || storeKey === 'theGameSteward') {
-                cadPrice = num * 1.40;
-            } else {
-                cadPrice = num;
-            }
-
-            return `$${cadPrice.toFixed(2)}`;
-        }
-
         Object.keys(storeNames).forEach(key => {
             const store = avail[key];
             if (store && store.available && store.url) {
-                const priceFormatted = formatGdPrice(store.price, key);
+                const priceFormatted = typeof formatPrice === 'function' ? formatPrice(store.price, key) : store.price;
                 storeChipsHtml += `
                     <a href="${store.url}" target="_blank" class="store-chip" title="View on ${storeNames[key]}">
                         <span class="store-chip-name">${storeNames[key]}</span>

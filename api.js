@@ -241,3 +241,68 @@ function calculateHIndex(games) {
     }
     return hIndex;
 }
+
+// --- Shared Store Definitions & Price Formatting ---
+const STORES = [
+    { key: 'boardGameBliss', name: '🇨🇦 BoardGameBliss' },
+    { key: 'fourZeroOneGames', name: '🇨🇦 401 Games' },
+    { key: 'lvlUpGames', name: '🇨🇦 LVLUP Games' },
+    { key: 'asDesJeux', name: '🇨🇦 As des Jeux' },
+    { key: 'greatBoardgames', name: '🇨🇦 Great Boardgames' },
+    { key: 'meeplemart', name: '🇨🇦 Meeplemart' },
+    { key: 'kbHobbies', name: '🇨🇦 KB Hobbies' },
+    { key: 'miniatureMarket', name: '🇺🇸 Miniature Market' },
+    { key: 'cardhaus', name: '🇺🇸 Cardhaus Games' },
+    { key: 'theGameSteward', name: '🇺🇸 The Game Steward' },
+    { key: 'amazonCa', name: '🇨🇦 Amazon.ca' },
+    { key: 'woodForSheep', name: '🇨🇦 Wood for Sheep' },
+    { key: 'jjCards', name: '🇨🇦 J&J Cards' },
+    { key: 'boardgamesCa', name: '🇨🇦 Boardgames.ca' },
+    { key: 'screenFreeGames', name: '🇨🇦 Screen Free Games' },
+    { key: 'allSystemsGo', name: '🇨🇦 All Systems Go' },
+    { key: 'tabletopCafe', name: '🇨🇦 Tabletop Cafe' },
+    { key: 'elevatedBoardGames', name: '🇨🇦 Elevated Board Games' },
+    { key: 'diceHollow', name: '🇨🇦 Dice Hollow' },
+    { key: 'laPioche', name: '🇨🇦 La Pioche' },
+    { key: 'alwaysGames', name: '🇨🇦 Always Games' },
+    { key: 'legendsWarehouse', name: '🇨🇦 Legends Warehouse' },
+    { key: 'boardGameBandit', name: '🇨🇦 Board Game Bandit' },
+    { key: 'zatu', name: '🇬🇧 Zatu Games' },
+    { key: 'chaosCards', name: '🇬🇧 Chaos Cards' },
+    { key: 'philibert', name: '🇫🇷 Philibert' },
+    { key: 'crowdfinder', name: '🇧🇪 Crowdfinder' },
+    { key: 'bggMarket', name: 'BGG Market' }
+];
+
+function formatPrice(price, storeKey = null) {
+    if (!price && price !== 0) return '';
+    const str = String(price).trim();
+    if (!str) return '';
+
+    const clean = str.replace(/,/g, '');
+    const match = clean.match(/[0-9]+(?:\.[0-9]+)?/);
+    if (!match) return str;
+    const num = parseFloat(match[0]);
+    if (isNaN(num)) return str;
+
+    let cadPrice;
+    if (str.includes('€') || /\bEUR\b/i.test(str) || storeKey === 'philibert' || storeKey === 'crowdfinder') {
+        cadPrice = num * 1.65;
+    } else if (str.includes('£') || /\bGBP\b/i.test(str) || storeKey === 'zatu' || storeKey === 'chaosCards') {
+        cadPrice = num * 1.90;
+    } else if (/\bUSD\b/i.test(str) || /\$US\b/i.test(str) || /US\$/i.test(str) || storeKey === 'miniatureMarket' || storeKey === 'cardhaus' || storeKey === 'theGameSteward') {
+        cadPrice = num * 1.40;
+    } else {
+        cadPrice = num;
+    }
+
+    return `$${cadPrice.toFixed(2)}`;
+}
+
+function extractNumericPrice(priceStr) {
+    if (!priceStr) return null;
+    const clean = String(priceStr).replace(/,/g, '');
+    const match = clean.match(/[0-9]+(?:\.[0-9]+)?/);
+    return match ? parseFloat(match[0]) : null;
+}
+
