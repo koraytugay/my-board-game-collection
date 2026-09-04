@@ -1142,7 +1142,7 @@
           "ignored": false
         }
       ],
-      "lastChecked": "2026-09-03T19:23:01.564Z",
+      "lastChecked": "2026-09-04T01:25:36.154Z",
       "lastCheckSuccess": true
     }
   },
@@ -1659,7 +1659,7 @@
           "ignored": false
         }
       ],
-      "lastChecked": "2026-09-03T19:23:16.795Z",
+      "lastChecked": "2026-09-04T01:25:41.246Z",
       "lastCheckSuccess": true
     }
   },
@@ -2735,7 +2735,7 @@
           "ignored": false
         }
       ],
-      "lastChecked": "2026-09-03T19:24:48.162Z",
+      "lastChecked": "2026-09-04T01:25:51.426Z",
       "lastCheckSuccess": true
     }
   },
@@ -3201,6 +3201,14 @@
       "lastChecked": "2026-09-03T19:40:48.315Z",
       "lastCheckSuccess": true
     },
+    "buttonShyEtsy": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": "https://www.etsy.com/shop/ButtonShyGames",
+      "lastChecked": "2026-09-03T19:40:47.609Z",
+      "lastCheckSuccess": true
+    },
     "bggMarket": {
       "available": true,
       "price": "C$15.00 CAD",
@@ -3216,15 +3224,7 @@
           "ignored": false
         }
       ],
-      "lastChecked": "2026-09-03T19:26:01.097Z",
-      "lastCheckSuccess": true
-    },
-    "buttonShyEtsy": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": "https://www.etsy.com/shop/ButtonShyGames",
-      "lastChecked": "2026-09-03T19:40:47.609Z",
+      "lastChecked": "2026-09-04T01:26:02.667Z",
       "lastCheckSuccess": true
     }
   },
@@ -3245,7 +3245,7 @@
           "ignored": false
         }
       ],
-      "lastChecked": "2026-09-03T19:24:07.562Z",
+      "lastChecked": "2026-09-04T01:25:46.323Z",
       "lastCheckSuccess": true
     }
   },
@@ -9415,14 +9415,6 @@
       "lastChecked": "2026-09-03T19:40:37.691Z",
       "lastCheckSuccess": true
     },
-    "asDesJeux": {
-      "available": true,
-      "price": "$109.99",
-      "baselinePrice": "$109.99",
-      "url": "https://www.asdesjeux.com/products/the-anarchy-fr?_pos=1&_psq=The+Anarchy&_psid=a4dce7b27&_ss=e",
-      "lastChecked": "2026-09-03T19:25:50.712Z",
-      "lastCheckSuccess": true
-    },
     "greatBoardgames": {
       "available": false,
       "price": "$59.95",
@@ -9543,14 +9535,6 @@
       "lastChecked": "2026-09-03T19:40:38.486Z",
       "lastCheckSuccess": true
     },
-    "laPioche": {
-      "available": true,
-      "price": "$99.99",
-      "baselinePrice": "$99.99",
-      "url": "https://boutiquelapioche.com/products/the-anarchy-francais?_pos=1&_psq=The+Anarchy&_psid=62d98cb17&_ss=e",
-      "lastChecked": "2026-09-03T19:25:51.330Z",
-      "lastCheckSuccess": true
-    },
     "alwaysGames": {
       "available": false,
       "price": null,
@@ -9607,22 +9591,6 @@
       "lastChecked": "2026-09-03T19:40:42.428Z",
       "lastCheckSuccess": true
     },
-    "zatu": {
-      "available": true,
-      "price": "£49.95",
-      "baselinePrice": "£49.95",
-      "url": "https://zatu.com/products/the-anarchy?_pos=1&_psq=The+Anarchy&_psid=31d7cf8a1&_ss=e",
-      "lastChecked": "2026-09-03T19:25:51.901Z",
-      "lastCheckSuccess": true
-    },
-    "philibert": {
-      "available": true,
-      "price": "€40.90",
-      "baselinePrice": "€40.90",
-      "url": "https://www.philibertnet.com/en/garphill-games/158522-the-anarchy-3701358301548.html",
-      "lastChecked": "2026-09-03T19:25:51.442Z",
-      "lastCheckSuccess": true
-    },
     "bggMarket": {
       "available": false,
       "price": null,
@@ -9637,6 +9605,38 @@
       "baselinePrice": null,
       "url": "https://www.etsy.com/shop/ButtonShyGames",
       "lastChecked": "2026-09-03T19:40:37.532Z",
+      "lastCheckSuccess": true
+    },
+    "asDesJeux": {
+      "available": true,
+      "price": "$109.99",
+      "baselinePrice": "$109.99",
+      "url": "https://www.asdesjeux.com/products/the-anarchy-fr?_pos=1&_psq=The+Anarchy&_psid=d727a62a5&_ss=e",
+      "lastChecked": "2026-09-04T01:25:56.770Z",
+      "lastCheckSuccess": true
+    },
+    "laPioche": {
+      "available": true,
+      "price": "$99.99",
+      "baselinePrice": "$99.99",
+      "url": "https://boutiquelapioche.com/products/the-anarchy-francais?_pos=1&_psq=The+Anarchy&_psid=5fdc2e590&_ss=e",
+      "lastChecked": "2026-09-04T01:25:56.946Z",
+      "lastCheckSuccess": true
+    },
+    "zatu": {
+      "available": true,
+      "price": "£94.13",
+      "baselinePrice": "£94.13",
+      "url": "https://zatu.com/products/the-anarchy?_pos=1&_psq=The+Anarchy&_psid=9e4c47010&_ss=e",
+      "lastChecked": "2026-09-04T01:25:57.329Z",
+      "lastCheckSuccess": true
+    },
+    "philibert": {
+      "available": true,
+      "price": "€40.90",
+      "baselinePrice": "€40.90",
+      "url": "https://www.philibertnet.com/en/garphill-games/158522-the-anarchy-3701358301548.html",
+      "lastChecked": "2026-09-04T01:25:57.577Z",
       "lastCheckSuccess": true
     }
   },
