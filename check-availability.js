@@ -1565,7 +1565,18 @@ async function checkAvailability() {
         const tradeOnlyCount = wantedGames.filter(g => g.isWantInTrade && !g.isWantToBuy).length;
         console.log(`Found ${wantedGames.length} games in Wanted list (${wtbCount} Want to Buy, ${tradeOnlyCount} Want in Trade only).`);
     }
-    const availabilityData = { ...existingData };
+
+    let availabilityData = {};
+    if (isRecommended) {
+        availabilityData = { ...existingData };
+    } else {
+        const activeIds = new Set(wantedGames.map(g => g.objectId));
+        for (const id of activeIds) {
+            if (existingData[id]) {
+                availabilityData[id] = existingData[id];
+            }
+        }
+    }
 
     for (let i = 0; i < wantedGames.length; i++) {
         const game = wantedGames[i];
