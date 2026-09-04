@@ -147,8 +147,6 @@ const CANADIAN_STORE_KEYS = new Set([
     'kbHobbies',
     'amazonCa',
     'woodForSheep',
-    'faceToFaceGames',
-    'obsidianGames',
     'jjCards',
     'boardgamesCa',
     'screenFreeGames',
@@ -158,7 +156,6 @@ const CANADIAN_STORE_KEYS = new Set([
     'diceHollow',
     'laPioche',
     'alwaysGames',
-    'pokeJeux',
     'legendsWarehouse',
     'boardGameBandit',
     'bggMarket'
@@ -408,41 +405,6 @@ function fetchJson(url, redirectCount = 0, customHeaders = {}, retryCount = 0) {
     });
 }
 
-let buttonShyShopId = null;
-let buttonShyListingsCache = null;
-
-async function fetchButtonShyEtsyListings(apiKey) {
-    if (buttonShyListingsCache) return buttonShyListingsCache;
-    try {
-        if (!buttonShyShopId) {
-            const shopRes = await fetchJson('https://openapi.etsy.com/v3/application/shops?shop_name=ButtonShyGames', 0, {
-                'x-api-key': apiKey
-            });
-            if (shopRes?.results?.[0]?.shop_id) {
-                buttonShyShopId = shopRes.results[0].shop_id;
-            } else if (shopRes?.shop_id) {
-                buttonShyShopId = shopRes.shop_id;
-            }
-        }
-        
-        const shopId = buttonShyShopId || 'ButtonShyGames';
-        const listingsRes = await fetchJson(`https://openapi.etsy.com/v3/application/shops/${shopId}/listings/active?limit=100`, 0, {
-            'x-api-key': apiKey
-        });
-        
-        if (!listingsRes) {
-            throw new Error(`[Button Shy Etsy] Failed to fetch active listings from Etsy API.`);
-        }
-        buttonShyListingsCache = listingsRes?.results || [];
-        if (buttonShyListingsCache.length > 0) {
-            console.log(`[Button Shy Etsy] Fetched ${buttonShyListingsCache.length} active listings from Etsy API.`);
-        }
-        return buttonShyListingsCache;
-    } catch (err) {
-        console.error(`[Button Shy Etsy] Error fetching shop listings:`, err.message);
-        throw err;
-    }
-}
 
 // Helper to make HTTPS requests in Node and automatically follow redirects and Akamai challenges (HTML response)
 function fetchHtml(url, redirectCount = 0, cookieHeader = '', retryCount = 0) {
@@ -663,44 +625,25 @@ async function getElevatedBoardGamesProductUrl(query) {
     return match ? match.url : null;
 }
 
-let kbHobbiesSitemapProducts = null;
-
-async function getKbHobbiesProduct(query) {
-    if (!kbHobbiesSitemapProducts) {
-        try {
-            const xml = await fetchHtml('https://www.kbhobbies.com/sitemap.xml');
-            if (xml) {
-                kbHobbiesSitemapProducts = [];
-                const locRegex = /<loc>(https:\/\/www\.kbhobbies\.com\/product\/([^\/]+)\/([^<]+))<\/loc>/gi;
-                let match;
-                const normalizeStr = str => str.toLowerCase().replace(/[^a-z0-9]/g, '');
-                while ((match = locRegex.exec(xml)) !== null) {
-                    const url = match[1];
-                    const slug = match[2];
-                    const productId = match[3];
-                    const rawTitle = slug.replace(/-/g, ' ');
-                    kbHobbiesSitemapProducts.push({
-                        title: rawTitle,
-                        slug,
-                        productId,
-                        url,
-                        normTitle: normalizeStr(rawTitle)
-                    });
-                }
-            }
-        } catch (e) {
-            console.error('Error fetching KB Hobbies sitemap:', e);
-        }
+function parseKbHobbies(res, gameName) {
+    const items = res?.data;
+    if (!items || !Array.isArray(items) || items.length === 0) return null;
+    const products = items.map(item => ({
+        title: item.name,
+        type: '',
+        available: Boolean((item.inventory?.total > 0 || item.inventory?.all_inventory_total > 0) && !item.badges?.out_of_stock && !item.inventory?.all_variations_sold_out),
+        price: item.price?.regular_high_formatted || item.price?.high_formatted || (item.price?.high ? `$${item.price.high}` : null),
+        url: item.absolute_site_link || (item.site_link ? `https://www.kbhobbies.com/${item.site_link.replace(/^\//, '')}` : null)
+    }));
+    const match = products.find(p => isMatch(gameName, p));
+    if (match) {
+        return {
+            available: match.available,
+            price: match.price,
+            url: match.url
+        };
     }
-    if (!kbHobbiesSitemapProducts || kbHobbiesSitemapProducts.length === 0) return null;
-
-    const cleanQ = cleanName(query);
-    const normalizeStr = str => str.toLowerCase().replace(/[^a-z0-9]/g, '');
-    const nQ = normalizeStr(cleanQ);
-
-    const match = kbHobbiesSitemapProducts.find(p => p.normTitle === nQ) ||
-                  kbHobbiesSitemapProducts.find(p => isMatch(query, { title: p.title }));
-    return match || null;
+    return null;
 }
 
 function parseElevatedBoardGames(html, gameName, targetUrl) {
@@ -1203,47 +1146,6 @@ async function checkCrowdfinderStock(gameName) {
     }
 }
 
-async function checkSpelspulStock(gameName) {
-    try {
-        const q = cleanName(gameName);
-        const searchUrl = `https://www.spelspul.nl/nl/zoeken?controller=search&s=${encodeURIComponent(q)}`;
-        const html = await fetchHtml(searchUrl);
-        if (!html) throw new Error(`Failed to fetch Spelspul search HTML for ${gameName}`);
-
-        const jsonLdMatches = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/gi)];
-        let items = [];
-        for (const m of jsonLdMatches) {
-            try {
-                const parsed = JSON.parse(m[1]);
-                if (parsed.itemListElement) {
-                    items = parsed.itemListElement;
-                    break;
-                }
-            } catch (_) {}
-        }
-        if (!items.length) return { available: false, price: null, url: null };
-
-        const match = items.find(it => isMatch(gameName, { title: it.name, type: '' }));
-        if (!match?.url) return { available: false, price: null, url: null };
-
-        const prodHtml = await fetchHtml(match.url);
-        if (!prodHtml) throw new Error(`Failed to fetch Spelspul product HTML for ${match.url}`);
-
-        const priceMatch = prodHtml.match(/itemprop="price"[^>]*content="([^"]+)"/i) || prodHtml.match(/content="([0-9]+\.[0-9]{2})"/);
-        const rawPrice = priceMatch ? priceMatch[1] : null;
-        if (isPriceUnderThreshold(rawPrice)) return { available: false, price: null, url: null };
-        const price = rawPrice ? `€${rawPrice}` : null;
-        const inStock = prodHtml.includes('InStock') || (!prodHtml.includes('niet op voorraad') && !prodHtml.includes('Niet op voorraad'));
-
-        return {
-            available: inStock,
-            price,
-            url: match.url
-        };
-    } catch (err) {
-        throw err;
-    }
-}
 
 async function checkChaosCardsStock(gameName) {
     const browser = await getBrowserInstance();
@@ -1636,27 +1538,9 @@ async function checkAvailability() {
                 }
             },
             kbHobbies: {
-                type: 'custom',
-                checker: async (game) => {
-                    const prod = await getKbHobbiesProduct(game.name);
-                    if (!prod) {
-                        return { available: false, price: null, url: null };
-                    }
-                    const skusRes = await fetchJson(`https://cdn5.editmysite.com/app/store/api/v28/editor/users/151297753/sites/680972496472648272/products/${prod.productId}/skus`);
-                    if (skusRes === null) {
-                        throw new Error(`Failed to fetch KB Hobbies SKU for ${prod.productId}`);
-                    }
-                    const sku = skusRes?.data?.[0];
-                    const inventory = typeof sku?.inventory === 'number' ? sku.inventory : 0;
-                    const available = inventory > 0;
-                    let price = sku?.price?.current_formatted || (sku?.price?.current ? `$${sku.price.current}` : null);
-                    if (price && !price.startsWith('$')) price = `$${price}`;
-                    return {
-                        available,
-                        price,
-                        url: prod.url
-                    };
-                }
+                type: 'json',
+                url: `https://cdn5.editmysite.com/app/store/api/v28/editor/users/151297753/sites/680972496472648272/products?q=${encodeURIComponent(query)}`,
+                parser: (res, gameName) => parseKbHobbies(res, gameName)
             },
             miniatureMarket: {
                 type: 'html',
@@ -1681,16 +1565,6 @@ async function checkAvailability() {
             woodForSheep: {
                 type: 'shopify',
                 baseUrl: 'https://www.woodforsheep.ca',
-                currencySymbol: '$'
-            },
-            faceToFaceGames: {
-                type: 'shopify',
-                baseUrl: 'https://facetofacegames.com',
-                currencySymbol: '$'
-            },
-            obsidianGames: {
-                type: 'shopify',
-                baseUrl: 'https://obsidiangames.ca',
                 currencySymbol: '$'
             },
             jjCards: {
@@ -1773,11 +1647,6 @@ async function checkAvailability() {
                 baseUrl: 'https://alwaysgames.ca',
                 currencySymbol: '$'
             },
-            pokeJeux: {
-                type: 'shopify',
-                baseUrl: 'https://www.pokejeux.ca',
-                currencySymbol: '$'
-            },
             legendsWarehouse: {
                 type: 'shopify',
                 baseUrl: 'https://legendswarehouse.ca',
@@ -1792,12 +1661,6 @@ async function checkAvailability() {
                 type: 'custom',
                 checker: async (game, existingStoreData) => {
                     return await checkCrowdfinderStock(game.name);
-                }
-            },
-            spelspul: {
-                type: 'custom',
-                checker: async (game, existingStoreData) => {
-                    return await checkSpelspulStock(game.name);
                 }
             },
             chaosCards: {
@@ -1878,41 +1741,6 @@ async function checkAvailability() {
                         }
                     }
                     return null;
-                }
-            },
-            buttonShyEtsy: {
-                type: 'custom',
-                checker: async (game, existingStoreData) => {
-                    const apiKey = process.env.ETSY_API_KEY;
-                    if (!apiKey) {
-                        return existingStoreData || { available: false, price: null, url: 'https://www.etsy.com/shop/ButtonShyGames' };
-                    }
-                    const listings = await fetchButtonShyEtsyListings(apiKey);
-                    if (!listings || listings.length === 0) {
-                        return { available: false, price: null, url: 'https://www.etsy.com/shop/ButtonShyGames' };
-                    }
-                    
-                    const match = listings.find(l => {
-                        const title = l.title || '';
-                        return isMatch(game.name, { title: title });
-                    });
-                    
-                    if (match && (match.quantity > 0 || match.state === 'active')) {
-                        const priceNum = match.price ? (match.price.amount / (match.price.divisor || 100)).toFixed(2) : null;
-                        const currency = match.price?.currency_code || 'USD';
-                        const priceStr = priceNum ? `$${priceNum} ${currency}` : null;
-                        return {
-                            available: true,
-                            price: priceStr,
-                            url: match.url || `https://www.etsy.com/listing/${match.listing_id}`
-                        };
-                    }
-                    
-                    return {
-                        available: false,
-                        price: null,
-                        url: 'https://www.etsy.com/shop/ButtonShyGames'
-                    };
                 }
             }
         };

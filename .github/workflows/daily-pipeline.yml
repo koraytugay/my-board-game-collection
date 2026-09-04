@@ -111,7 +111,6 @@ jobs:
           ICLOUD_EMAIL: ${{ secrets.ICLOUD_EMAIL }}
           ICLOUD_APP_PASSWORD: ${{ secrets.ICLOUD_APP_PASSWORD }}
           NOTIFICATION_EMAIL: ${{ secrets.NOTIFICATION_EMAIL }}
-          ETSY_API_KEY: ${{ secrets.ETSY_API_KEY }}
         run: |
           echo "Checking store availability for Want to Buy games..."
           node check-availability.js
@@ -152,7 +151,6 @@ jobs:
           ICLOUD_EMAIL: ${{ secrets.ICLOUD_EMAIL }}
           ICLOUD_APP_PASSWORD: ${{ secrets.ICLOUD_APP_PASSWORD }}
           NOTIFICATION_EMAIL: ${{ secrets.NOTIFICATION_EMAIL }}
-          ETSY_API_KEY: ${{ secrets.ETSY_API_KEY }}
         run: |
           echo "Pausing 30s before Like to Have checks to maintain healthy rate limits..."
           sleep 30

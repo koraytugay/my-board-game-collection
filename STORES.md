@@ -9,11 +9,9 @@ Canada:
 - As des Jeux: https://www.asdesjeux.com (Shopify)
 - Great Boardgames: https://www.greatboardgames.ca (HTML)
 - Meeplemart: https://meeplemart.com (HTML)
-- KB Hobbies: https://kbhobbies.com (Shopify)
+- KB Hobbies: https://kbhobbies.com (Square Online / REST API)
 - Amazon.ca: https://www.amazon.ca (Custom)
 - Wood for Sheep: https://www.woodforsheep.ca (Shopify)
-- Face to Face Games: https://facetofacegames.com (Shopify)
-- Obsidian Games: https://obsidiangames.ca (Shopify)
 - J&J Cards: https://jjcards.com (Shopify)
 - Boardgames.ca: https://boardgames.ca (Shopify)
 - Screen Free Games: https://screenfreegames.com (Shopify)
@@ -23,23 +21,38 @@ Canada:
 - Dice Hollow: https://www.dicehollow.com (Shopify)
 - La Pioche: https://boutiquelapioche.com (Shopify)
 - Always Games: https://alwaysgames.ca (Shopify)
-- Poké Jeux: https://www.pokejeux.ca (Shopify)
 - Legends Warehouse: https://legendswarehouse.ca (Shopify)
 - Board Game Bandit: https://boardgamebandit.ca (Shopify)
 
 United States:
 - Miniature Market: https://www.miniaturemarket.com (Custom)
-- Button Shy (Etsy): https://www.etsy.com/shop/ButtonShyGames (Etsy API)
 
 United Kingdom & Europe:
 - Zatu Games: https://www.zatugames.co.uk (HTML)
 - Chaos Cards: https://www.chaoscards.co.uk (HTML)
 - Philibert: https://www.philibertnet.com (Custom)
 - Crowdfinder: https://www.crowdfinder.be (Custom)
-- Spelspul: https://www.spelspul.nl (Custom)
 
 Marketplace:
 - BGG Market: https://boardgamegeek.com/market (BGG Geekdo API)
+
+
+## Removed Stores (Do NOT Add Back)
+
+The following stores were evaluated, tracked, and permanently removed due to having zero relevant inventory or unusable catalogs. **Do not re-add them to the pipeline:**
+
+1. **Face to Face Games** (https://facetofacegames.com - 🇨🇦)
+   - Reason: 0 games in stock across entire wanted and like-to-have lists. Focuses predominantly on Magic: The Gathering and TCGs rather than modern board games.
+2. **Obsidian Games** (https://obsidiangames.ca - 🇨🇦)
+   - Reason: 0 games in stock / not listed across entire list. Extremely sparse board game inventory.
+3. **Poké Jeux** (https://www.pokejeux.ca - 🇨🇦)
+   - Reason: 0 games in stock / not listed. Almost exclusively Pokémon/TCG products.
+4. **Button Shy Games (Etsy)** (https://www.etsy.com/shop/ButtonShyGames - 🇺🇸)
+   - Reason: Requires Etsy API key which is fragile with strict limits, and the store only produces their own wallet line (which is already covered by BGG Market or direct).
+5. **Spelspul** (https://www.spelspul.nl - 🇳🇱)
+   - Reason: 0 games in stock / not listed. European shipping is already covered much better by Philibert, Zatu, and Crowdfinder.
+6. **Limolin** (https://www.limolin.com - 🇨🇦)
+   - Reason: 0 games in stock / not carried (0/24). A general home, kitchenware, and baby goods retailer with only ~10 mass-market games on the entire site. Triggers false matches on home decor (e.g., "Blink Wall Clock").
 
 
 ## Candidate Stores (To Add / Remove Later)

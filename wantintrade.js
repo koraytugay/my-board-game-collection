@@ -17,7 +17,7 @@ function formatPrice(price, storeKey = null) {
     let cadPrice;
     if (str.includes('€') || /\bEUR\b/i.test(str) || storeKey === 'philibert') {
         cadPrice = num * 1.65;
-    } else if (/\bUSD\b/i.test(str) || /\$US\b/i.test(str) || /US\$/i.test(str) || storeKey === 'miniatureMarket' || storeKey === 'buttonShyEtsy') {
+    } else if (/\bUSD\b/i.test(str) || /\$US\b/i.test(str) || /US\$/i.test(str) || storeKey === 'miniatureMarket') {
         cadPrice = num * 1.40;
     } else {
         cadPrice = num;

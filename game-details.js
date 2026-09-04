@@ -234,8 +234,6 @@ async function showGameDetails(objectId) {
             miniatureMarket: '🇺🇸 Miniature Market',
             amazonCa: '🇨🇦 Amazon.ca',
             woodForSheep: '🇨🇦 Wood for Sheep',
-            faceToFaceGames: '🇨🇦 Face to Face',
-            obsidianGames: '🇨🇦 Obsidian Games',
             jjCards: '🇨🇦 J&J Cards',
             boardgamesCa: '🇨🇦 Boardgames.ca',
             screenFreeGames: '🇨🇦 Screen Free',
@@ -245,15 +243,12 @@ async function showGameDetails(objectId) {
             diceHollow: '🇨🇦 Dice Hollow',
             laPioche: '🇨🇦 La Pioche',
             alwaysGames: '🇨🇦 Always Games',
-            pokeJeux: '🇨🇦 Poké Jeux',
             legendsWarehouse: '🇨🇦 Legends Warehouse',
             boardGameBandit: '🇨🇦 Board Game Bandit',
-            buttonShyEtsy: '🇺🇸 Button Shy',
             zatu: '🇬🇧 Zatu Games',
             chaosCards: '🇬🇧 Chaos Cards',
             philibert: '🇫🇷 Philibert',
-            crowdfinder: '🇧🇪 Crowdfinder',
-            spelspul: '🇳🇱 Spelspul'
+            crowdfinder: '🇧🇪 Crowdfinder'
         };
 
         function formatGdPrice(price, storeKey = null) {
@@ -268,11 +263,11 @@ async function showGameDetails(objectId) {
             if (isNaN(num)) return str;
 
             let cadPrice;
-            if (str.includes('€') || /\bEUR\b/i.test(str) || storeKey === 'philibert' || storeKey === 'crowdfinder' || storeKey === 'spelspul') {
+            if (str.includes('€') || /\bEUR\b/i.test(str) || storeKey === 'philibert' || storeKey === 'crowdfinder') {
                 cadPrice = num * 1.65;
             } else if (str.includes('£') || /\bGBP\b/i.test(str) || storeKey === 'zatu' || storeKey === 'chaosCards') {
                 cadPrice = num * 1.90;
-            } else if (/\bUSD\b/i.test(str) || /\$US\b/i.test(str) || /US\$/i.test(str) || storeKey === 'miniatureMarket' || storeKey === 'buttonShyEtsy') {
+            } else if (/\bUSD\b/i.test(str) || /\$US\b/i.test(str) || /US\$/i.test(str) || storeKey === 'miniatureMarket') {
                 cadPrice = num * 1.40;
             } else {
                 cadPrice = num;

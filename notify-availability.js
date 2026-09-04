@@ -21,8 +21,6 @@ const STORE_META = {
     miniatureMarket: { name: 'Miniature Market', icon: '🇺🇸' },
     amazonCa: { name: 'Amazon.ca', icon: '🇨🇦' },
     woodForSheep: { name: 'Wood for Sheep', icon: '🇨🇦' },
-    faceToFaceGames: { name: 'Face to Face', icon: '🇨🇦' },
-    obsidianGames: { name: 'Obsidian Games', icon: '🇨🇦' },
     jjCards: { name: 'J&J Cards', icon: '🇨🇦' },
     boardgamesCa: { name: 'Boardgames.ca', icon: '🇨🇦' },
     screenFreeGames: { name: 'Screen Free Games', icon: '🇨🇦' },
@@ -32,15 +30,12 @@ const STORE_META = {
     diceHollow: { name: 'Dice Hollow', icon: '🇨🇦' },
     laPioche: { name: 'La Pioche', icon: '🇨🇦' },
     alwaysGames: { name: 'Always Games', icon: '🇨🇦' },
-    pokeJeux: { name: 'Poké Jeux', icon: '🇨🇦' },
     legendsWarehouse: { name: 'Legends Warehouse', icon: '🇨🇦' },
     boardGameBandit: { name: 'Board Game Bandit', icon: '🇨🇦' },
-    buttonShyEtsy: { name: 'Button Shy', icon: '🇺🇸' },
     zatu: { name: 'Zatu Games', icon: '🇬🇧' },
     chaosCards: { name: 'Chaos Cards', icon: '🇬🇧' },
     philibert: { name: 'Philibert', icon: '🇫🇷' },
     crowdfinder: { name: 'Crowdfinder', icon: '🇧🇪' },
-    spelspul: { name: 'Spelspul', icon: '🇳🇱' },
     bggMarket: { name: 'BGG Market', icon: '🏷️' }
 };
 
@@ -262,11 +257,11 @@ function formatPrice(price, storeKey = null) {
     if (isNaN(num)) return str;
 
     let cadPrice;
-    if (str.includes('€') || /\bEUR\b/i.test(str) || storeKey === 'philibert' || storeKey === 'crowdfinder' || storeKey === 'spelspul') {
+    if (str.includes('€') || /\bEUR\b/i.test(str) || storeKey === 'philibert' || storeKey === 'crowdfinder') {
         cadPrice = num * 1.65;
     } else if (str.includes('£') || /\bGBP\b/i.test(str) || storeKey === 'zatu' || storeKey === 'chaosCards') {
         cadPrice = num * 1.90;
-    } else if (/\bUSD\b/i.test(str) || /\$US\b/i.test(str) || /US\$/i.test(str) || storeKey === 'miniatureMarket' || storeKey === 'buttonShyEtsy') {
+    } else if (/\bUSD\b/i.test(str) || /\$US\b/i.test(str) || /US\$/i.test(str) || storeKey === 'miniatureMarket') {
         cadPrice = num * 1.40;
     } else {
         cadPrice = num;
