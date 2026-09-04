@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><items totalitems="467"><item objecttype="thing" objectid="423517" subtype="boardgame" collid="148161790">
+<?xml version="1.0" encoding="utf-8"?><items totalitems="469"><item objecttype="thing" objectid="423517" subtype="boardgame" collid="148161790">
 	<name sortindex="1">3 Chapters</name>
 		<yearpublished>2024</yearpublished>			<image>https://cf.geekdo-images.com/es3F2drfUOIVnqsTds3BDQ__original/img/aagzL4ORPemw2xi3FL4575gKYhA=/0x0/filters:format(png)/pic8940639.png</image>
 		<thumbnail>https://cf.geekdo-images.com/es3F2drfUOIVnqsTds3BDQ__small/img/bCpN5Ool_-QFKQbPlAfmIfFUdRI=/fit-in/200x150/filters:strip_icc()/pic8940639.png</thumbnail>
@@ -1152,7 +1152,7 @@
 			<median value="0" />			<ranks>
 												<rank type="subtype" id="1" name="boardgame" friendlyname="Board Game Rank" value="9689" bayesaverage="5.59708" />
 											</ranks>		</rating>
-			</stats>	<status own="0" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="1" wishlistpriority="4" preordered="0" lastmodified="2026-08-25 06:01:53" />
+			</stats>	<status own="0" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="1" wishlistpriority="3" preordered="0" lastmodified="2026-09-03 20:44:09" />
 	<numplays>0</numplays>							</item>
 <item objecttype="thing" objectid="393672" subtype="boardgame" collid="148625439">
 	<name sortindex="1">Gloomhaven: Buttons &amp; Bugs</name>
@@ -1180,6 +1180,18 @@
 								<rank type="family" id="5497" name="strategygames" friendlyname="Strategy Game Rank" value="14" bayesaverage="8.06515" />
 											</ranks>		</rating>
 			</stats>	<status own="0" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="1" wishlistpriority="5" preordered="0" lastmodified="2026-08-21 13:58:34" />
+	<numplays>0</numplays>							</item>
+<item objecttype="thing" objectid="477459" subtype="boardgame" collid="149200307">
+	<name sortindex="1">Got Five: Ghost!</name>
+		<yearpublished>2027</yearpublished>			<image>https://cf.geekdo-images.com/rAckl6BGsJehZ0wPdKB8-w__original/img/Ame8AHpCt3RLT6gbp1eB8Mb_wNQ=/0x0/filters:format(jpeg)/pic9755827.jpg</image>
+		<thumbnail>https://cf.geekdo-images.com/rAckl6BGsJehZ0wPdKB8-w__small/img/Ccq9z2olDyObSrAV31ePqEXHR6I=/fit-in/200x150/filters:strip_icc()/pic9755827.jpg</thumbnail>
+		<stats minplayers="2"																	maxplayers="4"																	minplaytime="20"																	maxplaytime="20"																	playingtime="20"																	numowned="0" >
+				<rating value="N/A">			<usersrated value="0" />			<average value="0" />
+			<bayesaverage value="0" />			<stddev value="0" />
+			<median value="0" />			<ranks>
+												<rank type="subtype" id="1" name="boardgame" friendlyname="Board Game Rank" value="Not Ranked" bayesaverage="Not Ranked" />
+											</ranks>		</rating>
+			</stats>	<status own="0" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="1" wishlistpriority="4" preordered="0" lastmodified="2026-09-03 20:55:58" />
 	<numplays>0</numplays>							</item>
 <item objecttype="thing" objectid="93" subtype="boardgame" collid="148751653">
 	<name sortindex="4">El Grande</name>
@@ -2441,6 +2453,19 @@
 																<rank type="family" id="5499" name="familygames" friendlyname="Family Game Rank" value="993" bayesaverage="6.12506" />
 											</ranks>		</rating>
 			</stats>	<status own="0" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="1" wishlistpriority="5" preordered="0" lastmodified="2026-08-05 09:32:11" />
+	<numplays>0</numplays>							</item>
+<item objecttype="thing" objectid="279537" subtype="boardgame" collid="149199796">
+	<name sortindex="5">The Search for Planet X</name>
+		<yearpublished>2020</yearpublished>			<image>https://cf.geekdo-images.com/NItjtztEUAKOpaTWZddu9A__original/img/fr-JmerGdiEj6r9UM7F6laogGF0=/0x0/filters:format(jpeg)/pic5744928.jpg</image>
+		<thumbnail>https://cf.geekdo-images.com/NItjtztEUAKOpaTWZddu9A__small/img/x8YD4cAVOAbSDsZbmKgU0-WQ9wI=/fit-in/200x150/filters:strip_icc()/pic5744928.jpg</thumbnail>
+		<stats minplayers="1"																	maxplayers="4"																	minplaytime="60"																	maxplaytime="75"																	playingtime="75"																	numowned="27399" >
+				<rating value="N/A">			<usersrated value="16019" />			<average value="7.88892" />
+			<bayesaverage value="7.54697" />			<stddev value="1.23574" />
+			<median value="0" />			<ranks>
+												<rank type="subtype" id="1" name="boardgame" friendlyname="Board Game Rank" value="116" bayesaverage="7.54697" />
+																<rank type="family" id="5497" name="strategygames" friendlyname="Strategy Game Rank" value="90" bayesaverage="7.59974" />
+											</ranks>		</rating>
+			</stats>	<status own="0" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="1" wishlistpriority="3" preordered="0" lastmodified="2026-09-03 20:24:23" />
 	<numplays>0</numplays>							</item>
 <item objecttype="thing" objectid="188834" subtype="boardgame" collid="148109573">
 	<name sortindex="1">Secret Hitler</name>
@@ -4819,7 +4844,7 @@ Overall: a mediocre experience for me. Nice theme and artwork, but too long, too
 																<rank type="family" id="5499" name="familygames" friendlyname="Family Game Rank" value="554" bayesaverage="6.43409" />
 											</ranks>		</rating>
 			</stats>	<status own="1" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="0"  preordered="0" lastmodified="2026-07-30 21:47:37" />
-	<numplays>7</numplays>			<comment>Rounds are too short.</comment>				</item>
+	<numplays>8</numplays>			<comment>Rounds are too short.</comment>				</item>
 <item objecttype="thing" objectid="171668" subtype="boardgame" collid="145822151">
 	<name sortindex="5">The Grizzled</name>
 		<yearpublished>2015</yearpublished>			<image>https://cf.geekdo-images.com/5JuQCtSAeSZpAL3WgWdwow__original/img/hn5gRpKVlmB3Ds9gIxD7k2SrVt4=/0x0/filters:format(png)/pic3719610.png</image>
@@ -5381,7 +5406,7 @@ I can&#039;t comment on the multiplayer experience, but as a solo game, I found 
 																<rank type="family" id="5499" name="familygames" friendlyname="Family Game Rank" value="306" bayesaverage="6.70549" />
 											</ranks>		</rating>
 			</stats>	<status own="1" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="0"  preordered="0" lastmodified="2026-03-24 20:54:54" />
-	<numplays>8</numplays>			<comment>Honestly it is just selecting what is available. The last 2 rounds decide who wins based on what is available in the market and whether you can get them or not. Still a nice way to spend time as a family. More of a relaxing and casual let&#039;s see what happens game.</comment>				</item>
+	<numplays>9</numplays>			<comment>Honestly it is just selecting what is available. The last 2 rounds decide who wins based on what is available in the market and whether you can get them or not. Still a nice way to spend time as a family. More of a relaxing and casual let&#039;s see what happens game.</comment>				</item>
 <item objecttype="thing" objectid="431998" subtype="boardgame" collid="137662500">
 	<name sortindex="1">Point Galaxy</name>
 		<yearpublished>2025</yearpublished>			<image>https://cf.geekdo-images.com/J7_O8J6IU38a-NS9WMD_2A__original/img/SivLr1q8QsSx2hW1b3W34xIZt0Q=/0x0/filters:format(png)/pic8514367.png</image>

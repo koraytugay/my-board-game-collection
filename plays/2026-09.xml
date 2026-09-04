@@ -1,5 +1,20 @@
-<?xml version="1.0" encoding="utf-8"?><plays username="koraytugay" userid="4151779" total="5" page="1" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse">
-<play id="118264849" date="2026-09-02" quantity="1" length="20" incomplete="0" nowinstats="0" location="">
+<?xml version="1.0" encoding="utf-8"?><plays username="koraytugay" userid="4151779" total="7" page="1" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse">
+<play id="118300623" date="2026-09-03" quantity="1" length="15" incomplete="0" nowinstats="0" location="">
+			<item name="Got Five!" objecttype="thing" objectid="453526">
+				<subtypes>
+										<subtype value="boardgame" />
+									</subtypes>
+			</item>
+								</play>
+	<play id="118300639" date="2026-09-03" quantity="1" length="30" incomplete="0" nowinstats="0" location="">
+			<item name="Point City" objecttype="thing" objectid="368017">
+				<subtypes>
+										<subtype value="boardgame" />
+										<subtype value="boardgameimplementation" />
+									</subtypes>
+			</item>
+								</play>
+	<play id="118264849" date="2026-09-02" quantity="1" length="20" incomplete="0" nowinstats="0" location="">
 			<item name="A Carnivore Did It!" objecttype="thing" objectid="451594">
 				<subtypes>
 										<subtype value="boardgame" />
