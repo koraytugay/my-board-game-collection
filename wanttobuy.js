@@ -283,34 +283,7 @@ async function fetchCollection() {
             ...game,
             lastPlayed: '',
             designers: designersRes[game.objectId]?.designers || [],
-            availability: availabilityRes[game.objectId] || {
-                boardGameBliss: { available: false, price: null, url: null },
-                fourZeroOneGames: { available: false, price: null, url: null },
-                lvlUpGames: { available: false, price: null, url: null },
-                asDesJeux: { available: false, price: null, url: null },
-                greatBoardgames: { available: false, price: null, url: null },
-                meeplemart: { available: false, price: null, url: null },
-                kbHobbies: { available: false, price: null, url: null },
-                miniatureMarket: { available: false, price: null, url: null },
-                cardhaus: { available: false, price: null, url: null },
-                theGameSteward: { available: false, price: null, url: null },
-                amazonCa: { available: false, price: null, url: null },
-                woodForSheep: { available: false, price: null, url: null },
-                jjCards: { available: false, price: null, url: null },
-                boardgamesCa: { available: false, price: null, url: null },
-                screenFreeGames: { available: false, price: null, url: null },
-                allSystemsGo: { available: false, price: null, url: null },
-                tabletopCafe: { available: false, price: null, url: null },
-                elevatedBoardGames: { available: false, price: null, url: null },
-                diceHollow: { available: false, price: null, url: null },
-                laPioche: { available: false, price: null, url: null },
-                alwaysGames: { available: false, price: null, url: null },
-                legendsWarehouse: { available: false, price: null, url: null },
-                boardGameBandit: { available: false, price: null, url: null },
-                zatu: { available: false, price: null, url: null },
-                philibert: { available: false, price: null, url: null },
-                bggMarket: { available: false, price: null, url: null }
-            }
+            availability: availabilityRes[game.objectId] || null
         }));
 
         populateListTypeFilter();
