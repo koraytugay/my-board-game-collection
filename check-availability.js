@@ -1322,6 +1322,286 @@ async function fetchAmazonWithPuppeteer(gameName) {
     }
 }
 
+function getStoreConfigs(skippedSellers = []) {
+    return {
+        boardGameBliss: {
+            type: 'shopify',
+            baseUrl: 'https://www.boardgamebliss.com',
+            currencySymbol: '$'
+        },
+        fourZeroOneGames: {
+            type: 'shopify',
+            baseUrl: 'https://store.401games.ca',
+            currencySymbol: '$'
+        },
+        lvlUpGames: {
+            type: 'shopify',
+            baseUrl: 'https://www.lvlupgames.ca',
+            currencySymbol: '$'
+        },
+        asDesJeux: {
+            type: 'shopify',
+            baseUrl: 'https://www.asdesjeux.com',
+            currencySymbol: '$'
+        },
+        greatBoardgames: {
+            type: 'html',
+            url: (game, query) => `https://www.greatboardgames.ca/search?q=${encodeURIComponent(query)}`,
+            parser: (html, gameName) => {
+                const match = parseGreatBoardgames(html, gameName);
+                if (match) {
+                    return {
+                        available: match.available,
+                        price: match.price,
+                        url: match.url
+                    };
+                }
+                return null;
+            }
+        },
+        meeplemart: {
+            type: 'html',
+            url: (game, query) => `https://www.meeplemart.com/store/Search.aspx?SearchTerms=${encodeURIComponent(query)}`,
+            parser: (html, gameName) => {
+                const match = parseMeeplemart(html, gameName);
+                if (match) {
+                    return {
+                        available: match.available,
+                        price: match.price,
+                        url: match.url
+                    };
+                }
+                return null;
+            }
+        },
+        kbHobbies: {
+            type: 'custom',
+            checker: async (game) => await fetchKbHobbies(game.name)
+        },
+        miniatureMarket: {
+            type: 'html',
+            url: (game, query) => `https://www.miniaturemarket.com/search?search=${encodeURIComponent(query)}`,
+            parser: (html, gameName) => {
+                const match = parseMiniatureMarket(html, gameName);
+                if (match) {
+                    return {
+                        available: match.available,
+                        price: match.price,
+                        url: match.url
+                    };
+                }
+                return null;
+            }
+        },
+        cardhaus: {
+            type: 'html',
+            url: (game, query) => `https://www.cardhaus.com/search.php?search_query=${encodeURIComponent(query)}&setCurrencyId=1`,
+            parser: (html, gameName) => {
+                const match = parseCardhaus(html, gameName);
+                if (match) {
+                    return {
+                        available: match.available,
+                        price: match.price,
+                        url: match.url
+                    };
+                }
+                return null;
+            }
+        },
+        theGameSteward: {
+            type: 'shopify',
+            baseUrl: 'https://thegamesteward.com',
+            currencySymbol: '$'
+        },
+        amazonCa: {
+            type: 'puppeteer',
+            url: (game) => `https://www.amazon.ca/s?k=${encodeURIComponent(game.name + " board game")}`,
+            parser: null
+        },
+        woodForSheep: {
+            type: 'shopify',
+            baseUrl: 'https://www.woodforsheep.ca',
+            currencySymbol: '$'
+        },
+        jjCards: {
+            type: 'html',
+            url: async (game) => await getJJCardsProductUrl(game.name),
+            parser: (html, gameName, targetUrl) => {
+                if (!html) return null;
+                const priceMatch = html.match(/itemprop="price"[^>]*content="([^"]+)"/i) ||
+                                   html.match(/id="price"[^>]*>\s*\$?([0-9\.]+)/i);
+                let price = priceMatch ? priceMatch[1].trim() : null;
+                if (price && !price.startsWith('$')) price = `$${price}`;
+
+                const availMatch = html.match(/id="availability"[^>]*>([^<]+)<\/span>/i);
+                const availText = availMatch ? availMatch[1].trim() : '';
+                const available = /in stock/i.test(availText) && !/out of stock/i.test(availText);
+
+                return {
+                    available,
+                    price,
+                    url: targetUrl
+                };
+            }
+        },
+        boardgamesCa: {
+            type: 'json',
+            url: (game, query) => `https://app.ecwid.com/api/v3/122261030/products?keyword=${encodeURIComponent(query)}&token=public_w37fvtk2kUVuY6X7N2TdhZFLqVLKs68j`,
+            parser: (res, gameName) => {
+                if (res?.items && Array.isArray(res.items) && res.items.length > 0) {
+                    const products = res.items.map(item => ({
+                        title: item.name,
+                        type: '',
+                        available: item.inStock ?? false,
+                        price: item.defaultDisplayedPriceFormatted || (item.price ? `$${item.price}` : null),
+                        url: item.url || (item.slug ? `https://boardgames.ca/products/${item.slug}` : null)
+                    }));
+                    const matchProduct = products.find(p => isMatch(gameName, p));
+                    if (matchProduct) {
+                        return {
+                            available: matchProduct.available,
+                            price: matchProduct.price,
+                            url: matchProduct.url
+                        };
+                    }
+                }
+                return null;
+            }
+        },
+        screenFreeGames: {
+            type: 'shopify',
+            baseUrl: 'https://screenfreegames.com',
+            currencySymbol: '$'
+        },
+        allSystemsGo: {
+            type: 'shopify',
+            baseUrl: 'https://allsystemsgo.games',
+            currencySymbol: '$'
+        },
+        tabletopCafe: {
+            type: 'shopify',
+            baseUrl: 'https://www.tabletopcafe.ca',
+            currencySymbol: '$'
+        },
+        elevatedBoardGames: {
+            type: 'html',
+            url: async (game) => await getElevatedBoardGamesProductUrl(game.name),
+            parser: (html, gameName, targetUrl) => parseElevatedBoardGames(html, gameName, targetUrl)
+        },
+        diceHollow: {
+            type: 'shopify',
+            baseUrl: 'https://www.dicehollow.com',
+            currencySymbol: '$'
+        },
+        laPioche: {
+            type: 'shopify',
+            baseUrl: 'https://boutiquelapioche.com',
+            currencySymbol: '$'
+        },
+        alwaysGames: {
+            type: 'shopify',
+            baseUrl: 'https://alwaysgames.ca',
+            currencySymbol: '$'
+        },
+        legendsWarehouse: {
+            type: 'shopify',
+            baseUrl: 'https://legendswarehouse.ca',
+            currencySymbol: '$'
+        },
+        boardGameBandit: {
+            type: 'shopify',
+            baseUrl: 'https://boardgamebandit.ca',
+            currencySymbol: '$'
+        },
+        crowdfinder: {
+            type: 'custom',
+            checker: async (game, existingStoreData) => {
+                return await checkCrowdfinderStock(game.name);
+            }
+        },
+        chaosCards: {
+            type: 'custom',
+            checker: async (game, existingStoreData) => {
+                return await checkChaosCardsStock(game.name);
+            }
+        },
+        zatu: {
+            type: 'shopify',
+            baseUrl: 'https://zatu.com',
+            currencySymbol: '£'
+        },
+        philibert: {
+            type: 'custom',
+            checker: async (game, existingStoreData) => {
+                return await checkPhilibertStock(game.name);
+            }
+        },
+        bggMarket: {
+            type: 'json',
+            url: (game) => `https://api.geekdo.com/api/market/products?ajax=1&browsetype=browse&country=CA&marketdomain=boardgame&nosession=1&objectid=${game.objectId}&objecttype=thing&pageid=1&productstate=active&stock=instock`,
+            parser: (res, gameName, targetUrl, existingStoreData) => {
+                if (res?.products && Array.isArray(res.products) && res.products.length > 0) {
+                    // Only Canadian sellers
+                    const caProducts = res.products.filter(p => p.itemlocation_code === 'CA' || p.itemlocation === 'Canada');
+                    
+                    // Filter out sellers in skippedSellers list (case-insensitive) and listings <= $5.0
+                    const allowedProducts = caProducts.filter(p => {
+                        const sellerName = p.linkeduser?.username;
+                        if (!sellerName) return false;
+                        if (skippedSellers.some(s => s.toLowerCase() === sellerName.toLowerCase())) return false;
+                        if (isPriceUnderThreshold(p.price)) return false;
+                        return true;
+                    });
+
+                    if (allowedProducts.length > 0) {
+                        const sorted = [...allowedProducts].sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
+                        const existingListings = Array.isArray(existingStoreData?.listings) ? existingStoreData.listings : [];
+
+                        const listings = sorted.map(match => {
+                            const symbol = match.currencysymbol || '$';
+                            const seller = match.linkeduser?.username || 'Unknown';
+
+                            const existing = existingListings.find(l => l.seller && l.seller.toLowerCase() === seller.toLowerCase());
+                            const firstSeen = existing?.firstSeen || new Date().toISOString();
+
+                            const isIgnored = isPriceUnderThreshold(match.price);
+
+                            return {
+                                price: `${symbol}${match.price} ${match.currency}`,
+                                seller: seller,
+                                condition: match.prettycondition || '',
+                                url: `https://boardgamegeek.com${match.producthref}`,
+                                firstSeen: firstSeen,
+                                ignored: isIgnored
+                            };
+                        });
+
+                        const activeListings = listings.filter(l => !l.ignored);
+
+                        if (activeListings.length > 0) {
+                            const primary = activeListings[0];
+                            return {
+                                available: true,
+                                price: primary.price,
+                                url: primary.url,
+                                listings: listings
+                            };
+                        } else {
+                            return {
+                                available: false,
+                                price: null,
+                                url: null,
+                                listings: listings
+                            };
+                        }
+                    }
+                }
+                return null;
+            }
+        }
+    };
+}
+
 async function checkAvailability() {
     console.log(`Starting ${isLikeToHave ? 'like to have games' : 'board game'} availability check...`);
     if (!fs.existsSync(COLLECTION_FILE)) {
@@ -1423,291 +1703,15 @@ async function checkAvailability() {
         }
     }
 
+    const storeConfigs = getStoreConfigs(skippedSellers);
+    const storeKeys = Object.keys(storeConfigs);
+
     for (let i = 0; i < wantedGames.length; i++) {
         const game = wantedGames[i];
         const query = cleanName(game.name);
 
-        const storeConfigs = {
-            boardGameBliss: {
-                type: 'shopify',
-                baseUrl: 'https://www.boardgamebliss.com',
-                currencySymbol: '$'
-            },
-            fourZeroOneGames: {
-                type: 'shopify',
-                baseUrl: 'https://store.401games.ca',
-                currencySymbol: '$'
-            },
-            lvlUpGames: {
-                type: 'shopify',
-                baseUrl: 'https://www.lvlupgames.ca',
-                currencySymbol: '$'
-            },
-            asDesJeux: {
-                type: 'shopify',
-                baseUrl: 'https://www.asdesjeux.com',
-                currencySymbol: '$'
-            },
-            greatBoardgames: {
-                type: 'html',
-                url: `https://www.greatboardgames.ca/search?q=${encodeURIComponent(query)}`,
-                parser: (html, gameName) => {
-                    const match = parseGreatBoardgames(html, gameName);
-                    if (match) {
-                        return {
-                            available: match.available,
-                            price: match.price,
-                            url: match.url
-                        };
-                    }
-                    return null;
-                }
-            },
-            meeplemart: {
-                type: 'html',
-                url: `https://www.meeplemart.com/store/Search.aspx?SearchTerms=${encodeURIComponent(query)}`,
-                parser: (html, gameName) => {
-                    const match = parseMeeplemart(html, gameName);
-                    if (match) {
-                        return {
-                            available: match.available,
-                            price: match.price,
-                            url: match.url
-                        };
-                    }
-                    return null;
-                }
-            },
-            kbHobbies: {
-                type: 'custom',
-                checker: async (game) => await fetchKbHobbies(game.name)
-            },
-            miniatureMarket: {
-                type: 'html',
-                url: `https://www.miniaturemarket.com/search?search=${encodeURIComponent(query)}`,
-                parser: (html, gameName) => {
-                    const match = parseMiniatureMarket(html, gameName);
-                    if (match) {
-                        return {
-                            available: match.available,
-                            price: match.price,
-                            url: match.url
-                        };
-                    }
-                    return null;
-                }
-            },
-            cardhaus: {
-                type: 'html',
-                url: `https://www.cardhaus.com/search.php?search_query=${encodeURIComponent(query)}&setCurrencyId=1`,
-                parser: (html, gameName) => {
-                    const match = parseCardhaus(html, gameName);
-                    if (match) {
-                        return {
-                            available: match.available,
-                            price: match.price,
-                            url: match.url
-                        };
-                    }
-                    return null;
-                }
-            },
-            theGameSteward: {
-                type: 'shopify',
-                baseUrl: 'https://thegamesteward.com',
-                currencySymbol: '$'
-            },
-            amazonCa: {
-                type: 'puppeteer',
-                url: (game) => `https://www.amazon.ca/s?k=${encodeURIComponent(game.name + " board game")}`,
-                parser: null
-            },
-            woodForSheep: {
-                type: 'shopify',
-                baseUrl: 'https://www.woodforsheep.ca',
-                currencySymbol: '$'
-            },
-            jjCards: {
-                type: 'html',
-                url: async (game) => await getJJCardsProductUrl(game.name),
-                parser: (html, gameName, targetUrl) => {
-                    if (!html) return null;
-                    const priceMatch = html.match(/itemprop="price"[^>]*content="([^"]+)"/i) ||
-                                       html.match(/id="price"[^>]*>\s*\$?([0-9\.]+)/i);
-                    let price = priceMatch ? priceMatch[1].trim() : null;
-                    if (price && !price.startsWith('$')) price = `$${price}`;
-
-                    const availMatch = html.match(/id="availability"[^>]*>([^<]+)<\/span>/i);
-                    const availText = availMatch ? availMatch[1].trim() : '';
-                    const available = /in stock/i.test(availText) && !/out of stock/i.test(availText);
-
-                    return {
-                        available,
-                        price,
-                        url: targetUrl
-                    };
-                }
-            },
-            boardgamesCa: {
-                type: 'json',
-                url: `https://app.ecwid.com/api/v3/122261030/products?keyword=${encodeURIComponent(query)}&token=public_w37fvtk2kUVuY6X7N2TdhZFLqVLKs68j`,
-                parser: (res, gameName) => {
-                    if (res?.items && Array.isArray(res.items) && res.items.length > 0) {
-                        const products = res.items.map(item => ({
-                            title: item.name,
-                            type: '',
-                            available: item.inStock ?? false,
-                            price: item.defaultDisplayedPriceFormatted || (item.price ? `$${item.price}` : null),
-                            url: item.url || (item.slug ? `https://boardgames.ca/products/${item.slug}` : null)
-                        }));
-                        const matchProduct = products.find(p => isMatch(gameName, p));
-                        if (matchProduct) {
-                            return {
-                                available: matchProduct.available,
-                                price: matchProduct.price,
-                                url: matchProduct.url
-                            };
-                        }
-                    }
-                    return null;
-                }
-            },
-            screenFreeGames: {
-                type: 'shopify',
-                baseUrl: 'https://screenfreegames.com',
-                currencySymbol: '$'
-            },
-            allSystemsGo: {
-                type: 'shopify',
-                baseUrl: 'https://allsystemsgo.games',
-                currencySymbol: '$'
-            },
-            tabletopCafe: {
-                type: 'shopify',
-                baseUrl: 'https://www.tabletopcafe.ca',
-                currencySymbol: '$'
-            },
-            elevatedBoardGames: {
-                type: 'html',
-                url: async (game) => await getElevatedBoardGamesProductUrl(game.name),
-                parser: (html, gameName, targetUrl) => parseElevatedBoardGames(html, gameName, targetUrl)
-            },
-            diceHollow: {
-                type: 'shopify',
-                baseUrl: 'https://www.dicehollow.com',
-                currencySymbol: '$'
-            },
-            laPioche: {
-                type: 'shopify',
-                baseUrl: 'https://boutiquelapioche.com',
-                currencySymbol: '$'
-            },
-            alwaysGames: {
-                type: 'shopify',
-                baseUrl: 'https://alwaysgames.ca',
-                currencySymbol: '$'
-            },
-            legendsWarehouse: {
-                type: 'shopify',
-                baseUrl: 'https://legendswarehouse.ca',
-                currencySymbol: '$'
-            },
-            boardGameBandit: {
-                type: 'shopify',
-                baseUrl: 'https://boardgamebandit.ca',
-                currencySymbol: '$'
-            },
-            crowdfinder: {
-                type: 'custom',
-                checker: async (game, existingStoreData) => {
-                    return await checkCrowdfinderStock(game.name);
-                }
-            },
-            chaosCards: {
-                type: 'custom',
-                checker: async (game, existingStoreData) => {
-                    return await checkChaosCardsStock(game.name);
-                }
-            },
-            zatu: {
-                type: 'shopify',
-                baseUrl: 'https://zatu.com',
-                currencySymbol: '£'
-            },
-            philibert: {
-                type: 'custom',
-                checker: async (game, existingStoreData) => {
-                    return await checkPhilibertStock(game.name);
-                }
-            },
-            bggMarket: {
-                type: 'json',
-                url: (game) => `https://api.geekdo.com/api/market/products?ajax=1&browsetype=browse&country=CA&marketdomain=boardgame&nosession=1&objectid=${game.objectId}&objecttype=thing&pageid=1&productstate=active&stock=instock`,
-                parser: (res, gameName, targetUrl, existingStoreData) => {
-                    if (res?.products && Array.isArray(res.products) && res.products.length > 0) {
-                        // Only Canadian sellers
-                        const caProducts = res.products.filter(p => p.itemlocation_code === 'CA' || p.itemlocation === 'Canada');
-                        
-                        // Filter out sellers in skippedSellers list (case-insensitive) and listings <= $5.0
-                        const allowedProducts = caProducts.filter(p => {
-                            const sellerName = p.linkeduser?.username;
-                            if (!sellerName) return false;
-                            if (skippedSellers.some(s => s.toLowerCase() === sellerName.toLowerCase())) return false;
-                            if (isPriceUnderThreshold(p.price)) return false;
-                            return true;
-                        });
-
-                        if (allowedProducts.length > 0) {
-                            const sorted = [...allowedProducts].sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
-                            const existingListings = Array.isArray(existingStoreData?.listings) ? existingStoreData.listings : [];
-
-                            const listings = sorted.map(match => {
-                                const symbol = match.currencysymbol || '$';
-                                const seller = match.linkeduser?.username || 'Unknown';
-
-                                const existing = existingListings.find(l => l.seller && l.seller.toLowerCase() === seller.toLowerCase());
-                                const firstSeen = existing?.firstSeen || new Date().toISOString();
-
-                                const isIgnored = isPriceUnderThreshold(match.price);
-
-                                return {
-                                    price: `${symbol}${match.price} ${match.currency}`,
-                                    seller: seller,
-                                    condition: match.prettycondition || '',
-                                    url: `https://boardgamegeek.com${match.producthref}`,
-                                    firstSeen: firstSeen,
-                                    ignored: isIgnored
-                                };
-                            });
-
-                            const activeListings = listings.filter(l => !l.ignored);
-
-                            if (activeListings.length > 0) {
-                                const primary = activeListings[0];
-                                return {
-                                    available: true,
-                                    price: primary.price,
-                                    url: primary.url,
-                                    listings: listings
-                                };
-                            } else {
-                                return {
-                                    available: false,
-                                    price: null,
-                                    url: null,
-                                    listings: listings
-                                };
-                            }
-                        }
-                    }
-                    return null;
-                }
-            }
-        };
-
         const availability = {};
         const fetchPromises = [];
-        const storeKeys = Object.keys(storeConfigs);
         const skippedStores = [];
         let shopifyStoreIndex = 0;
 
@@ -1772,7 +1776,7 @@ async function checkAvailability() {
                         } else if (config.type === 'custom' && typeof config.checker === 'function') {
                             resultObj = await config.checker(game, existingStoreData);
                         } else {
-                            const targetUrl = typeof config.url === 'function' ? await config.url(game) : config.url;
+                            const targetUrl = typeof config.url === 'function' ? await config.url(game, query) : config.url;
                             if (!targetUrl) {
                                 resultObj = { available: false, price: null, url: null };
                             } else if (config.type === 'puppeteer') {
