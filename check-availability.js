@@ -646,6 +646,26 @@ function parseKbHobbies(res, gameName) {
     return null;
 }
 
+async function fetchKbHobbies(gameName) {
+    const queries = [cleanName(gameName)];
+    const aliases = GAME_ALIASES[gameName] || GAME_ALIASES[cleanName(gameName)] || [];
+    for (const a of aliases) {
+        if (!queries.includes(a)) queries.push(a);
+    }
+
+    for (let qi = 0; qi < queries.length; qi++) {
+        if (qi > 0) await sleep(200);
+        const q = queries[qi];
+        const url = `https://cdn5.editmysite.com/app/store/api/v28/editor/users/151297753/sites/680972496472648272/products?q=${encodeURIComponent(q)}`;
+        const res = await fetchJson(url);
+        if (res !== null) {
+            const match = parseKbHobbies(res, gameName);
+            if (match) return match;
+        }
+    }
+    return { available: false, price: null, url: null };
+}
+
 function parseElevatedBoardGames(html, gameName, targetUrl) {
     if (!html) return null;
 
@@ -1538,9 +1558,8 @@ async function checkAvailability() {
                 }
             },
             kbHobbies: {
-                type: 'json',
-                url: `https://cdn5.editmysite.com/app/store/api/v28/editor/users/151297753/sites/680972496472648272/products?q=${encodeURIComponent(query)}`,
-                parser: (res, gameName) => parseKbHobbies(res, gameName)
+                type: 'custom',
+                checker: async (game) => await fetchKbHobbies(game.name)
             },
             miniatureMarket: {
                 type: 'html',
