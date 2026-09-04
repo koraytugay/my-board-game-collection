@@ -367,9 +367,13 @@ function createGameCard(game) {
     const card = document.createElement('div');
     card.className = 'game-card';
     card.onclick = (e) => {
-        // Prevent opening BGG page if user is clicking a store link, button, or any interactive element
+        // Prevent opening modal if user is clicking a store link, button, or any interactive element
         if (e.target.closest('a') || e.target.closest('button') || e.target.closest('.store-chip')) return;
-        window.open(`https://boardgamegeek.com/boardgame/${game.objectId}`, '_blank');
+        if (typeof showGameDetails === 'function') {
+            showGameDetails(game.objectId);
+        } else {
+            window.open(`https://boardgamegeek.com/boardgame/${game.objectId}`, '_blank');
+        }
     };
 
     let badgesHtml = '';
