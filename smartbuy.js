@@ -4,35 +4,7 @@ let allStoreGroups = [];
 let filteredStoreGroups = [];
 let storeSelections = {}; // { storeKey: Set(gameRowKeys) }
 
-const STORE_META = {
-    boardGameBliss: { region: '🇨🇦 Canada', currency: 'CAD', url: 'https://www.boardgamebliss.com' },
-    fourZeroOneGames: { region: '🇨🇦 Canada', currency: 'CAD', url: 'https://store.401games.ca' },
-    lvlUpGames: { region: '🇨🇦 Canada', currency: 'CAD', url: 'https://www.lvlupgames.ca' },
-    asDesJeux: { region: '🇨🇦 Canada', currency: 'CAD', url: 'https://www.asdesjeux.com' },
-    greatBoardgames: { region: '🇨🇦 Canada', currency: 'CAD', url: 'https://www.greatboardgames.ca' },
-    meeplemart: { region: '🇨🇦 Canada', currency: 'CAD', url: 'https://meeplemart.com' },
-    kbHobbies: { region: '🇨🇦 Canada', currency: 'CAD', url: 'https://kbhobbies.com' },
-    miniatureMarket: { region: '🇺🇸 USA', currency: 'USD (~1.40 CAD)', url: 'https://www.miniaturemarket.com' },
-    cardhaus: { region: '🇺🇸 USA', currency: 'USD (~1.40 CAD)', url: 'https://www.cardhaus.com' },
-    theGameSteward: { region: '🇺🇸 USA', currency: 'USD (~1.40 CAD)', url: 'https://thegamesteward.com' },
-    amazonCa: { region: '🇨🇦 Canada', currency: 'CAD', url: 'https://www.amazon.ca' },
-    woodForSheep: { region: '🇨🇦 Canada', currency: 'CAD', url: 'https://www.woodforsheep.ca' },
-    jjCards: { region: '🇨🇦 Canada', currency: 'CAD', url: 'https://jjcards.com' },
-    boardgamesCa: { region: '🇨🇦 Canada', currency: 'CAD', url: 'https://boardgames.ca' },
-    screenFreeGames: { region: '🇨🇦 Canada', currency: 'CAD', url: 'https://screenfreegames.com' },
-    allSystemsGo: { region: '🇺🇸 USA', currency: 'CAD', url: 'https://allsystemsgo.games' },
-    tabletopCafe: { region: '🇨🇦 Canada', currency: 'CAD', url: 'https://www.tabletopcafe.ca' },
-    elevatedBoardGames: { region: '🇨🇦 Canada', currency: 'CAD', url: 'https://elevatedboardgames.com' },
-    diceHollow: { region: '🇨🇦 Canada', currency: 'CAD', url: 'https://www.dicehollow.com' },
-    laPioche: { region: '🇨🇦 Canada', currency: 'CAD', url: 'https://boutiquelapioche.com' },
-    alwaysGames: { region: '🇨🇦 Canada', currency: 'CAD', url: 'https://alwaysgames.ca' },
-    legendsWarehouse: { region: '🇨🇦 Canada', currency: 'CAD', url: 'https://legendswarehouse.ca' },
-    boardGameBandit: { region: '🇨🇦 Canada', currency: 'CAD', url: 'https://boardgamebandit.ca' },
-    zatu: { region: '🇬🇧 UK', currency: 'GBP (~1.90 CAD)', url: 'https://zatu.com' },
-    chaosCards: { region: '🇬🇧 UK', currency: 'GBP (~1.90 CAD)', url: 'https://www.chaoscards.co.uk' },
-    philibert: { region: '🇫🇷 Europe', currency: 'EUR (~1.65 CAD)', url: 'https://www.philibertnet.com' },
-    crowdfinder: { region: '🇧🇪 Europe', currency: 'EUR (~1.65 CAD)', url: 'https://www.crowdfinder.be' }
-};
+
 
 function escapeHtml(str) {
     if (!str) return '';
@@ -119,7 +91,6 @@ async function fetchSmartBuyData() {
 
         retailStores.forEach(storeDef => {
             const storeKey = storeDef.key;
-            const meta = STORE_META[storeKey] || { region: '', currency: '', url: '#' };
             const storeGames = [];
 
             parsedGames.forEach(game => {
@@ -149,7 +120,6 @@ async function fetchSmartBuyData() {
                 allStoreGroups.push({
                     key: storeKey,
                     name: storeDef.name,
-                    meta: meta,
                     games: storeGames
                 });
             }
@@ -240,29 +210,11 @@ function renderStoreCard(group) {
     card.className = 'smartbuy-store-card';
     card.id = `store-${storeKey}`;
 
-    // Header HTML
-    const websiteLink = group.meta.url && group.meta.url !== '#'
-        ? `<a href="${group.meta.url}" target="_blank" class="store-website-link" title="Visit website">website ↗</a>`
-        : '';
-
+    // Header HTML: only store name and calculated total
     const headerHtml = `
         <div class="store-card-header">
-            <div class="store-header-left">
-                <span class="store-name">${escapeHtml(group.name)}</span>
-                ${websiteLink}
-                <span class="store-meta-line">• ${escapeHtml(group.meta.region)} • ${escapeHtml(group.meta.currency)} • ${games.length} in stock</span>
-            </div>
-            <div class="store-header-right">
-                <div class="store-order-total">
-                    <span class="total-label">Total:</span>
-                    <span class="total-amount" id="total-amount-${storeKey}">$${totalCad.toFixed(2)} CAD</span>
-                    <span class="total-count" id="total-count-${storeKey}">(${selectedCount} of ${games.length} selected)</span>
-                </div>
-                <div class="store-header-actions">
-                    <button type="button" class="btn-store-action" onclick="toggleSelectAllForStore('${storeKey}', true)">Select All</button>
-                    <button type="button" class="btn-store-action" onclick="toggleSelectAllForStore('${storeKey}', false)">Clear</button>
-                </div>
-            </div>
+            <span class="store-name">${escapeHtml(group.name)}</span>
+            <span class="total-amount" id="total-amount-${storeKey}">$${totalCad.toFixed(2)} CAD</span>
         </div>
     `;
 
@@ -446,11 +398,6 @@ function updateStoreHeaderTotal(storeKey) {
     const totalAmtEl = document.getElementById(`total-amount-${storeKey}`);
     if (totalAmtEl) {
         totalAmtEl.textContent = `$${totalCad.toFixed(2)} CAD`;
-    }
-
-    const totalCountEl = document.getElementById(`total-count-${storeKey}`);
-    if (totalCountEl) {
-        totalCountEl.textContent = `(${selectedCount} of ${games.length} selected)`;
     }
 
     const headerChk = document.getElementById(`header-chk-${storeKey}`);
