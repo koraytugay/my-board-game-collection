@@ -234,6 +234,7 @@ async function showGameDetails(objectId) {
             kbHobbies: '🇨🇦 KB Hobbies',
             miniatureMarket: '🇺🇸 Miniature Market',
             cardhaus: '🇺🇸 Cardhaus Games',
+            theGameSteward: '🇺🇸 The Game Steward',
             amazonCa: '🇨🇦 Amazon.ca',
             woodForSheep: '🇨🇦 Wood for Sheep',
             jjCards: '🇨🇦 J&J Cards',
@@ -269,7 +270,7 @@ async function showGameDetails(objectId) {
                 cadPrice = num * 1.65;
             } else if (str.includes('£') || /\bGBP\b/i.test(str) || storeKey === 'zatu' || storeKey === 'chaosCards') {
                 cadPrice = num * 1.90;
-            } else if (/\bUSD\b/i.test(str) || /\$US\b/i.test(str) || /US\$/i.test(str) || storeKey === 'miniatureMarket' || storeKey === 'cardhaus') {
+            } else if (/\bUSD\b/i.test(str) || /\$US\b/i.test(str) || /US\$/i.test(str) || storeKey === 'miniatureMarket' || storeKey === 'cardhaus' || storeKey === 'theGameSteward') {
                 cadPrice = num * 1.40;
             } else {
                 cadPrice = num;

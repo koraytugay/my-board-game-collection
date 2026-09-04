@@ -1667,6 +1667,11 @@ async function checkAvailability() {
                     return null;
                 }
             },
+            theGameSteward: {
+                type: 'shopify',
+                baseUrl: 'https://thegamesteward.com',
+                currencySymbol: '$'
+            },
             amazonCa: {
                 type: 'puppeteer',
                 url: (game) => `https://www.amazon.ca/s?k=${encodeURIComponent(game.name + " board game")}`,
