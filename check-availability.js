@@ -647,8 +647,13 @@ function parseKbHobbies(res, gameName) {
 }
 
 async function fetchKbHobbies(gameName) {
-    const queries = [cleanName(gameName)];
-    const aliases = GAME_ALIASES[gameName] || GAME_ALIASES[cleanName(gameName)] || [];
+    const clean = cleanName(gameName);
+    const queries = [clean];
+    const withoutArticle = clean.replace(/^(the|a|an)\s+/i, '');
+    if (withoutArticle !== clean && !queries.includes(withoutArticle)) {
+        queries.push(withoutArticle);
+    }
+    const aliases = GAME_ALIASES[gameName] || GAME_ALIASES[clean] || [];
     for (const a of aliases) {
         if (!queries.includes(a)) queries.push(a);
     }
@@ -656,11 +661,20 @@ async function fetchKbHobbies(gameName) {
     for (let qi = 0; qi < queries.length; qi++) {
         if (qi > 0) await sleep(200);
         const q = queries[qi];
-        const url = `https://cdn5.editmysite.com/app/store/api/v28/editor/users/151297753/sites/680972496472648272/products?q=${encodeURIComponent(q)}`;
-        const res = await fetchJson(url);
-        if (res !== null) {
-            const match = parseKbHobbies(res, gameName);
-            if (match) return match;
+        let page = 1;
+        let totalPages = 1;
+        while (page <= totalPages && page <= 3) {
+            if (page > 1) await sleep(200);
+            const url = `https://cdn5.editmysite.com/app/store/api/v28/editor/users/151297753/sites/680972496472648272/products?q=${encodeURIComponent(q)}&per_page=200&page=${page}`;
+            const res = await fetchJson(url);
+            if (res !== null) {
+                const match = parseKbHobbies(res, gameName);
+                if (match) return match;
+                totalPages = res?.meta?.pagination?.total_pages || 1;
+            } else {
+                break;
+            }
+            page++;
         }
     }
     return { available: false, price: null, url: null };
