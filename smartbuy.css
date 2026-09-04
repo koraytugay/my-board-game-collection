@@ -1,0 +1,589 @@
+/* smartbuy.css - Clean, Minimal Store Order Optimizer & Table Rows */
+
+/* Store Quick Jump Navigation */
+.store-quick-jump {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 16px;
+    align-items: center;
+}
+
+.jump-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 3px 9px;
+    background: #ffffff;
+    border: 1px solid #d0d7de;
+    border-radius: 14px;
+    font-size: 0.78rem;
+    color: #24292f;
+    text-decoration: none;
+    transition: all 0.15s ease;
+}
+
+.jump-pill:hover {
+    background: #f6f8fa;
+    border-color: #0969da;
+    color: #0969da;
+}
+
+body.dark-mode .jump-pill {
+    background: #242424;
+    border-color: #383838;
+    color: #e0e0e0;
+}
+
+body.dark-mode .jump-pill:hover {
+    background: #2c2c2c;
+    border-color: #58a6ff;
+    color: #58a6ff;
+}
+
+.jump-pill-count {
+    font-size: 0.72rem;
+    color: #57606a;
+    font-weight: 600;
+}
+
+body.dark-mode .jump-pill-count {
+    color: #8b949e;
+}
+
+/* Stores List */
+.stores-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Store Card */
+.smartbuy-store-card {
+    background: #ffffff;
+    border: 1px solid #d0d7de;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    overflow: hidden;
+    scroll-margin-top: 96px;
+}
+
+body.dark-mode .smartbuy-store-card {
+    background: #242424;
+    border-color: #383838;
+    box-shadow: none;
+}
+
+/* Store Card Header */
+.store-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 16px;
+    background: #f6f8fa;
+    border-bottom: 1px solid #d0d7de;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+body.dark-mode .store-card-header {
+    background: #1c1c1c;
+    border-bottom-color: #333333;
+}
+
+.store-header-left {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.store-name {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #24292f;
+}
+
+body.dark-mode .store-name {
+    color: #f0f6fc;
+}
+
+.store-website-link {
+    font-size: 0.76rem;
+    color: #0969da;
+    text-decoration: none;
+}
+
+.store-website-link:hover {
+    text-decoration: underline;
+}
+
+body.dark-mode .store-website-link {
+    color: #58a6ff;
+}
+
+.store-meta-line {
+    font-size: 0.76rem;
+    color: #57606a;
+}
+
+body.dark-mode .store-meta-line {
+    color: #8b949e;
+}
+
+/* Store Header Right / Clean Order Total & Action Buttons */
+.store-header-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.store-order-total {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 6px;
+}
+
+.total-label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #57606a;
+}
+
+body.dark-mode .total-label {
+    color: #8b949e;
+}
+
+.total-amount {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #24292f;
+    font-variant-numeric: tabular-nums;
+}
+
+body.dark-mode .total-amount {
+    color: #f0f6fc;
+}
+
+.total-count {
+    font-size: 0.76rem;
+    color: #57606a;
+}
+
+body.dark-mode .total-count {
+    color: #8b949e;
+}
+
+.store-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.btn-store-action {
+    background: #ffffff;
+    border: 1px solid #d0d7de;
+    color: #24292f;
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 3px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    font-family: inherit;
+}
+
+.btn-store-action:hover {
+    background: #f3f4f6;
+    border-color: #8c959f;
+}
+
+body.dark-mode .btn-store-action {
+    background: #2b2b2b;
+    border-color: #383838;
+    color: #e0e0e0;
+}
+
+body.dark-mode .btn-store-action:hover {
+    background: #363636;
+    border-color: #555555;
+}
+
+/* Table Layout */
+.playlist-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.playlist-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    text-align: left;
+}
+
+.playlist-table th {
+    padding: 8px 12px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #57606a;
+    border-bottom: 1px solid #d0d7de;
+    background: #ffffff;
+    user-select: none;
+}
+
+body.dark-mode .playlist-table th {
+    color: #8b949e;
+    border-bottom-color: #333333;
+    background: #242424;
+}
+
+.playlist-table th.col-checkbox {
+    width: 36px;
+    text-align: center;
+}
+
+.playlist-table th.col-index {
+    width: 32px;
+    text-align: center;
+}
+
+.playlist-table th.col-title {
+    min-width: 260px;
+}
+
+.playlist-table th.col-stats {
+    width: 170px;
+}
+
+.playlist-table th.col-price {
+    width: 120px;
+    text-align: right;
+}
+
+.playlist-table th.col-action {
+    width: 80px;
+    text-align: right;
+    padding-right: 16px;
+}
+
+/* Rows */
+.playlist-row {
+    border-bottom: 1px solid #f0f0f0;
+    transition: background-color 0.1s ease, opacity 0.15s ease;
+}
+
+body.dark-mode .playlist-row {
+    border-bottom-color: #2c2c2c;
+}
+
+.playlist-row:last-child {
+    border-bottom: none;
+}
+
+.playlist-row:hover {
+    background: #f6f8fa;
+}
+
+body.dark-mode .playlist-row:hover {
+    background: #2a2a2a;
+}
+
+/* Unselected row state */
+.playlist-row.is-unselected {
+    opacity: 0.35;
+}
+
+.playlist-row.is-unselected .price-cad {
+    text-decoration: line-through;
+}
+
+.playlist-table td {
+    padding: 8px 12px;
+    vertical-align: middle;
+}
+
+.td-checkbox {
+    text-align: center;
+}
+
+.playlist-checkbox {
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+    accent-color: #24292f;
+    vertical-align: middle;
+    margin: 0;
+}
+
+body.dark-mode .playlist-checkbox {
+    accent-color: #58a6ff;
+}
+
+.td-index {
+    text-align: center;
+    font-size: 0.78rem;
+    color: #57606a;
+    font-variant-numeric: tabular-nums;
+}
+
+body.dark-mode .td-index {
+    color: #8b949e;
+}
+
+/* Title & Artwork */
+.td-title {
+    min-width: 260px;
+}
+
+.game-title-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.game-cover-art {
+    width: 38px;
+    height: 38px;
+    border-radius: 4px;
+    object-fit: cover;
+    background: #f1f5f9;
+    border: 1px solid #d0d7de;
+    flex-shrink: 0;
+    cursor: pointer;
+}
+
+body.dark-mode .game-cover-art {
+    border-color: #383838;
+}
+
+.game-text-details {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+}
+
+.game-title-badges-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.game-row-title {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #24292f;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.game-row-title:hover {
+    color: #0969da;
+    text-decoration: underline;
+}
+
+body.dark-mode .game-row-title {
+    color: #f0f6fc;
+}
+
+body.dark-mode .game-row-title:hover {
+    color: #58a6ff;
+}
+
+/* Subtle Wishlist Badges */
+.badge-tag {
+    font-size: 0.68rem;
+    font-weight: 600;
+    padding: 1px 5px;
+    border-radius: 3px;
+    white-space: nowrap;
+}
+
+.badge-tag.badge-wtb {
+    background: #ddf4ff;
+    color: #0969da;
+}
+
+.badge-tag.badge-trade {
+    background: #fbefff;
+    color: #8250df;
+}
+
+.badge-tag.badge-like {
+    background: #dafbe1;
+    color: #1a7f37;
+}
+
+body.dark-mode .badge-tag.badge-wtb {
+    background: #033d8b;
+    color: #79c0ff;
+}
+
+body.dark-mode .badge-tag.badge-trade {
+    background: #3b1b6e;
+    color: #d2a8ff;
+}
+
+body.dark-mode .badge-tag.badge-like {
+    background: #114220;
+    color: #7ee787;
+}
+
+.game-subinfo {
+    font-size: 0.75rem;
+    color: #57606a;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 420px;
+}
+
+body.dark-mode .game-subinfo {
+    color: #8b949e;
+}
+
+/* Details Column */
+.td-stats {
+    white-space: nowrap;
+    font-size: 0.78rem;
+    color: #57606a;
+}
+
+body.dark-mode .td-stats {
+    color: #8b949e;
+}
+
+/* Price Column */
+.td-price {
+    text-align: right;
+    white-space: nowrap;
+}
+
+.price-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 1px;
+}
+
+.price-cad {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #24292f;
+    font-variant-numeric: tabular-nums;
+}
+
+body.dark-mode .price-cad {
+    color: #e0e0e0;
+}
+
+.price-orig {
+    font-size: 0.72rem;
+    color: #57606a;
+}
+
+body.dark-mode .price-orig {
+    color: #8b949e;
+}
+
+.row-deal-badge {
+    display: inline-block;
+    background: #cf222e;
+    color: #ffffff;
+    font-size: 0.65rem;
+    font-weight: 600;
+    padding: 1px 4px;
+    border-radius: 3px;
+}
+
+/* Store Link */
+.td-action {
+    text-align: right;
+    padding-right: 16px;
+    white-space: nowrap;
+}
+
+.store-link {
+    font-size: 0.76rem;
+    color: #0969da;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 2px 7px;
+    border: 1px solid #d0d7de;
+    border-radius: 4px;
+    background: #ffffff;
+    display: inline-block;
+    transition: all 0.15s ease;
+}
+
+.store-link:hover {
+    background: #f6f8fa;
+    border-color: #0969da;
+}
+
+body.dark-mode .store-link {
+    background: #242424;
+    border-color: #383838;
+    color: #58a6ff;
+}
+
+body.dark-mode .store-link:hover {
+    background: #2c2c2c;
+    border-color: #58a6ff;
+}
+
+/* Empty State */
+.smartbuy-empty {
+    text-align: center;
+    padding: 36px 20px;
+    background: #ffffff;
+    border-radius: 8px;
+    border: 1px dashed #d0d7de;
+    color: #57606a;
+}
+
+body.dark-mode .smartbuy-empty {
+    background: #242424;
+    border-color: #383838;
+    color: #8b949e;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .playlist-table th.col-stats,
+    .playlist-table td.td-stats {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .smartbuy-store-card {
+        scroll-margin-top: 14px;
+    }
+}
+
+@media (max-width: 640px) {
+    .store-card-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .store-header-right {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .playlist-table th.col-index,
+    .playlist-table td.td-index {
+        display: none;
+    }
+
+    .game-subinfo {
+        max-width: 180px;
+    }
+}

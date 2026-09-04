@@ -12,15 +12,15 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Play History - My Board Game Collection</title>
+    <title>Smart Buy - My Board Game Collection</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="history.css">
+    <link rel="stylesheet" href="smartbuy.css">
     <link rel="stylesheet" href="game-details.css">
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>Play History</h1>
+            <h1>Smart Buy</h1>
             <p class="username">@koraytugay on BoardGameGeek</p>
         </header>
 
@@ -29,7 +29,7 @@
                 <a href="index.html" class="nav-link">Collection</a>
                 <a href="tierlist.html" class="nav-link">Tier List</a>
                 <a href="calendar.html" class="nav-link">Play Calendar</a>
-                <a href="history.html" class="nav-link active">Play History</a>
+                <a href="history.html" class="nav-link">Play History</a>
                 <a href="stats.html" class="nav-link">Statistics</a>
                 <a href="challenges.html" class="nav-link">Collection Challenges</a>
                 <a href="tournament.html" class="nav-link">Game Tournament</a>
@@ -42,53 +42,29 @@
                 <a href="thinkingabout.html" class="nav-link">Thinking About</a>
                 <a href="recommended.html" class="nav-link">Recommended Games</a>
                 <a href="stores.html" class="nav-link">Stores</a>
-                <a href="smartbuy.html" class="nav-link">Smart Buy</a>
+                <a href="smartbuy.html" class="nav-link active">Smart Buy</a>
                 <a href="wanttosell.html" class="nav-link">Want to Sell</a>
             </div>
         </nav>
 
         <div id="loading" class="loading">
             <div class="spinner"></div>
-            <p>Loading play history...</p>
+            <p>Loading stores &amp; calculating bundles...</p>
         </div>
 
         <div id="error" class="error" style="display: none;"></div>
 
-        <div id="history-content" style="display: none;">
-            <section class="history-section">
-                <div class="history-header">
-                    <h2 class="history-title">Within This Month</h2>
-                    <span id="this-month-count" class="history-count-badge">0 games</span>
-                </div>
-                <div id="this-month-list" class="history-list">
-                    <!-- Populated by JS -->
-                </div>
-            </section>
+        <div id="smartbuy-content" style="display: none;">
+            <!-- Quick Jump Pills to jump directly to stores -->
+            <div class="store-quick-jump" id="store-quick-jump"></div>
 
-            <section class="history-section">
-                <div class="history-header">
-                    <h2 class="history-title">Within This Year</h2>
-                    <span id="this-year-count" class="history-count-badge">0 games</span>
-                </div>
-                <div id="this-year-list" class="history-list">
-                    <!-- Populated by JS -->
-                </div>
-            </section>
-
-            <section class="history-section">
-                <div class="history-header">
-                    <h2 class="history-title">Within Last Year</h2>
-                    <span id="last-year-count" class="history-count-badge">0 games</span>
-                </div>
-                <div id="last-year-list" class="history-list">
-                    <!-- Populated by JS -->
-                </div>
-            </section>
+            <!-- Container for all store tables -->
+            <div class="stores-container" id="stores-container"></div>
         </div>
     </div>
 
     <script src="api.js"></script>
     <script src="game-details.js"></script>
-    <script src="history.js"></script>
+    <script src="smartbuy.js"></script>
 </body>
 </html>

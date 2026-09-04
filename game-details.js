@@ -274,7 +274,7 @@ async function showGameDetails(objectId) {
                 : (mkt.available && mkt.url ? [mkt] : []);
             listings.forEach(l => {
                 if (l && !l.ignored && l.url) {
-                    const priceFormatted = formatGdPrice(l.price, 'bggMarket');
+                    const priceFormatted = typeof formatPrice === 'function' ? formatPrice(l.price, 'bggMarket') : l.price;
                     const sellerLabel = l.seller ? `🏷️ BGG Market (${l.seller})` : '🏷️ BGG Market';
                     storeChipsHtml += `
                         <a href="${l.url}" target="_blank" class="store-chip bgg-market" title="View BGG Market listing">
