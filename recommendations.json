@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-04T01:06:21.777Z",
+  "generatedAt": "2026-09-04T02:26:43.281Z",
   "total": 400,
   "recommendations": [
     {
@@ -2831,47 +2831,6 @@
       "playingTime": 20
     },
     {
-      "objectId": "279537",
-      "name": "The Search for Planet X",
-      "yearPublished": "2020",
-      "bggRating": 7.89,
-      "bggRank": 116,
-      "numVoters": 15910,
-      "numFans": 1239,
-      "coverUrl": "https://cf.geekdo-images.com/NItjtztEUAKOpaTWZddu9A__square100@2x/img/o7TS3qzk8smR83nhFrhSX80lYa0=/200x200/filters:strip_icc()/pic5744928.jpg",
-      "thumbnail": "images/thumbnails/279537.jpg",
-      "image": "images/full/279537.jpg",
-      "description": "Plan, scan, and theorize to find a new planet at the edge of our solar system.",
-      "rawScore": 4.679640873957699,
-      "recommendedBy": [
-        {
-          "ownedId": "284083",
-          "ownedName": "The Crew: The Quest for Planet Nine",
-          "userRating": 9,
-          "bggRecRank": 20,
-          "contributionScore": 1.81
-        },
-        {
-          "ownedId": "359152",
-          "ownedName": "Marvel: Remix",
-          "userRating": 9,
-          "bggRecRank": 27,
-          "contributionScore": 1.56
-        },
-        {
-          "ownedId": "260180",
-          "ownedName": "Project L",
-          "userRating": 7,
-          "bggRecRank": 14,
-          "contributionScore": 1.31
-        }
-      ],
-      "matchScore": 7.7,
-      "minPlayers": 1,
-      "maxPlayers": 4,
-      "playingTime": 75
-    },
-    {
       "objectId": "411567",
       "name": "The Gang",
       "yearPublished": "2024",
@@ -3839,7 +3798,10 @@
           "contributionScore": 1.73
         }
       ],
-      "matchScore": 5.5
+      "matchScore": 5.5,
+      "minPlayers": 2,
+      "maxPlayers": 6,
+      "playingTime": 15
     },
     {
       "objectId": "252929",
@@ -13164,6 +13126,33 @@
       "minPlayers": 2,
       "maxPlayers": 5,
       "playingTime": 20
+    },
+    {
+      "objectId": "231748",
+      "name": "Time Bomb Evolution",
+      "yearPublished": "2016",
+      "bggRating": 6.74,
+      "bggRank": 4654,
+      "numVoters": 891,
+      "numFans": 40,
+      "coverUrl": "https://cf.geekdo-images.com/yU8CtWKysxxZ62nFT2uqPA__square100@2x/img/MYpQ2k4QPGCeZ-0DTg_6oRaWDHk=/0x0:1176x1176/200x200/filters:strip_icc()/pic5397704.jpg",
+      "thumbnail": "images/thumbnails/231748.jpg",
+      "image": "images/full/231748.jpg",
+      "description": "Time is not your friend! Figure out who you can trust - and do it quickly!",
+      "rawScore": 1.4145081595145832,
+      "recommendedBy": [
+        {
+          "ownedId": "112373",
+          "ownedName": "BraveRats",
+          "userRating": 7,
+          "bggRecRank": 12,
+          "contributionScore": 1.41
+        }
+      ],
+      "matchScore": 1.3,
+      "minPlayers": 4,
+      "maxPlayers": 6,
+      "playingTime": 30
     }
   ]
 }
