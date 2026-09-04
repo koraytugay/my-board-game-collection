@@ -2,12 +2,9 @@ const fs = require('fs');
 const { execSync } = require('child_process');
 const nodemailer = require('nodemailer');
 
-const isRecommended = process.argv.includes('--recommended') || process.env.CHECK_TYPE === 'recommended';
 const isLikeToHave = process.argv.includes('--like-to-have') || process.argv.includes('--liketohave') || process.env.CHECK_TYPE === 'liketohave';
-const isDailySummary = process.argv.includes('--daily-summary') || process.env.DAILY_SUMMARY === 'true';
-const AVAILABILITY_FILE = isRecommended ? 'availability-recommended.json' : (isLikeToHave ? 'availability-liketohave.json' : 'availability.json');
-const NOTIFIED_SNAPSHOT_FILE = isRecommended ? 'last-notified-availability-recommended.json' : (isLikeToHave ? 'last-notified-availability-liketohave.json' : 'last-notified-availability.json');
-const RECOMMENDATIONS_FILE = 'recommendations.json';
+const AVAILABILITY_FILE = isLikeToHave ? 'availability-liketohave.json' : 'availability.json';
+const NOTIFIED_SNAPSHOT_FILE = isLikeToHave ? 'last-notified-availability-liketohave.json' : 'last-notified-availability.json';
 const COLLECTION_FILE = 'collection.xml';
 
 const STORE_META = {
@@ -41,100 +38,6 @@ const STORE_META = {
     bggMarket: { name: 'BGG Market', icon: '🏷️' }
 };
 
-function getRecommendedRange() {
-    let start = 0;
-    let end = null;
-    let limit = null;
-
-    if (process.env.REC_START !== undefined) start = parseInt(process.env.REC_START, 10);
-    else if (process.env.REC_OFFSET !== undefined) start = parseInt(process.env.REC_OFFSET, 10);
-
-    if (process.env.REC_END !== undefined) {
-        if (String(process.env.REC_END).toLowerCase() === 'max' || String(process.env.REC_END).toLowerCase() === 'all') {
-            end = Infinity;
-        } else {
-            end = parseInt(process.env.REC_END, 10);
-        }
-    } else if (process.env.REC_LIMIT !== undefined) {
-        limit = parseInt(process.env.REC_LIMIT, 10);
-    }
-
-    const args = process.argv;
-    for (let i = 0; i < args.length; i++) {
-        const arg = args[i];
-        if (arg === '--start' || arg === '--offset') {
-            const val = parseInt(args[i + 1], 10);
-            if (!isNaN(val)) start = val;
-        } else if (arg.startsWith('--start=') || arg.startsWith('--offset=')) {
-            const val = parseInt(arg.split('=')[1], 10);
-            if (!isNaN(val)) start = val;
-        } else if (arg === '--end') {
-            const valStr = args[i + 1];
-            if (valStr && (valStr.toLowerCase() === 'max' || valStr.toLowerCase() === 'all')) {
-                end = Infinity;
-            } else {
-                const val = parseInt(valStr, 10);
-                if (!isNaN(val)) end = val;
-            }
-        } else if (arg.startsWith('--end=')) {
-            const valStr = arg.split('=')[1];
-            if (valStr && (valStr.toLowerCase() === 'max' || valStr.toLowerCase() === 'all')) {
-                end = Infinity;
-            } else {
-                const val = parseInt(valStr, 10);
-                if (!isNaN(val)) end = val;
-            }
-        } else if (arg === '--limit') {
-            const val = parseInt(args[i + 1], 10);
-            if (!isNaN(val)) limit = val;
-        } else if (arg.startsWith('--limit=')) {
-            const val = parseInt(arg.split('=')[1], 10);
-            if (!isNaN(val)) limit = val;
-        } else if (arg === '--range' && args[i + 1]) {
-            const parts = args[i + 1].split(/[-:]/);
-            if (parts.length >= 1 && parts[0] !== '') {
-                const s = parseInt(parts[0], 10);
-                if (!isNaN(s)) start = s;
-            }
-            if (parts.length >= 2) {
-                if (parts[1].toLowerCase() === 'max' || parts[1].toLowerCase() === 'all' || parts[1] === '') {
-                    end = Infinity;
-                } else {
-                    const e = parseInt(parts[1], 10);
-                    if (!isNaN(e)) end = e;
-                }
-            }
-        } else if (arg.startsWith('--range=')) {
-            const parts = arg.split('=')[1].split(/[-:]/);
-            if (parts.length >= 1 && parts[0] !== '') {
-                const s = parseInt(parts[0], 10);
-                if (!isNaN(s)) start = s;
-            }
-            if (parts.length >= 2) {
-                if (parts[1].toLowerCase() === 'max' || parts[1].toLowerCase() === 'all' || parts[1] === '') {
-                    end = Infinity;
-                } else {
-                    const e = parseInt(parts[1], 10);
-                    if (!isNaN(e)) end = e;
-                }
-            }
-        }
-    }
-
-    if (isNaN(start) || start < 0) start = 0;
-    if (end === null) {
-        if (limit !== null && !isNaN(limit)) {
-            end = start + limit;
-        } else {
-            end = start === 0 ? 100 : Infinity;
-        }
-    }
-
-    const hasRangeFlag = args.some(a => a.startsWith('--start') || a.startsWith('--offset') || a.startsWith('--range') || a.startsWith('--limit') || a.startsWith('--end')) || process.env.REC_START !== undefined || process.env.REC_OFFSET !== undefined || process.env.REC_RANGE !== undefined;
-
-    return { start, end, hasRangeFlag };
-}
-
 function decodeXmlEntities(str) {
     if (!str) return '';
     return str
@@ -150,22 +53,6 @@ function decodeXmlEntities(str) {
 
 function getGameDetailsMap() {
     const map = {};
-    if (isRecommended && fs.existsSync(RECOMMENDATIONS_FILE)) {
-        try {
-            const recContent = JSON.parse(fs.readFileSync(RECOMMENDATIONS_FILE, 'utf8'));
-            (recContent.recommendations || []).forEach(r => {
-                const objectId = String(r.objectId);
-                map[objectId] = {
-                    name: r.name ? r.name.trim() : `Game #${objectId}`,
-                    image: r.image || r.thumbnail || r.coverUrl || '',
-                    thumbnail: r.thumbnail || r.coverUrl || r.image || '',
-                    year: r.yearPublished || ''
-                };
-            });
-        } catch (e) {
-            console.error('Error parsing recommendations.json:', e.message);
-        }
-    }
     if (fs.existsSync(COLLECTION_FILE)) {
         try {
             const content = fs.readFileSync(COLLECTION_FILE, 'utf8');
@@ -431,7 +318,6 @@ function computeDiff(prevData, currData, gamesMap) {
 function getOverallInStockSummary(currData, gamesMap) {
     let inStockCount = 0;
     const inStockGames = [];
-    const activeDeals = [];
 
     for (const [gameId, stores] of Object.entries(currData)) {
         const inStockStores = [];
@@ -443,18 +329,6 @@ function getOverallInStockSummary(currData, gamesMap) {
                 }
             } else if (isStoreAvailable(storeData)) {
                 inStockStores.push(STORE_META[storeKey]?.name || storeKey);
-                if (storeData.deal && storeData.deal.discountPercent >= 20) {
-                    const gameInfo = gamesMap[gameId] || { name: `Game #${gameId}` };
-                    activeDeals.push({
-                        gameId,
-                        gameName: gameInfo.name,
-                        storeName: STORE_META[storeKey]?.name || storeKey,
-                        price: formatPrice(storeData.price, storeKey),
-                        previousPrice: formatPrice(storeData.deal.previousPrice, storeKey),
-                        discountPercent: storeData.deal.discountPercent,
-                        url: storeData.url || `https://boardgamegeek.com/boardgame/${gameId}`
-                    });
-                }
             }
         }
         if (inStockStores.length > 0) {
@@ -466,26 +340,18 @@ function getOverallInStockSummary(currData, gamesMap) {
             });
         }
     }
-    return { inStockCount, inStockGames, activeDeals, totalGames: Object.keys(currData).length };
+    return { inStockCount, inStockGames, totalGames: Object.keys(currData).length };
 }
 
-function buildEmailSubject(diff, summary, range, isDaily) {
-    const defaultPrefix = isDaily 
-        ? '🎲 Daily Summary' 
-        : isRecommended 
-            ? `🎲 Rec Stock${range && range.hasRangeFlag ? ` (#${range.start + 1}-${range.end === Infinity ? '400+' : range.end})` : ''}` 
-            : isLikeToHave
-                ? '🎲 Like to Have Stock'
-                : '🎲 Stock Update';
+function buildEmailSubject(diff, summary) {
+    const defaultPrefix = isLikeToHave
+        ? '🎲 Like to Have Stock'
+        : '🎲 Stock Update';
 
     if (diff.totalDiffs === 0) {
-        return isDaily
-            ? `${defaultPrefix} No changes detected (${summary.inStockCount}/${summary.totalGames} in stock)`
-            : isRecommended
-                ? `${defaultPrefix} No changes detected (${summary.inStockCount}/${summary.totalGames} in stock)`
-                : isLikeToHave
-                    ? `🎲 Like to Have Stock Check: No changes detected (${summary.inStockCount}/${summary.totalGames} in stock)`
-                    : `🎲 Board Game Stock Check: No changes detected (${summary.inStockCount}/${summary.totalGames} in stock)`;
+        return isLikeToHave
+            ? `🎲 Like to Have Stock Check: No changes detected (${summary.inStockCount}/${summary.totalGames} in stock)`
+            : `🎲 Board Game Stock Check: No changes detected (${summary.inStockCount}/${summary.totalGames} in stock)`;
     }
 
     const parts = [];
@@ -507,20 +373,14 @@ function buildEmailSubject(diff, summary, range, isDaily) {
     return `${defaultPrefix}: ${parts.join(', ')}`;
 }
 
-function buildHtmlBody(diff, gamesMap, summary, range, isDaily) {
-    const listTitle = isRecommended ? 'Recommended Games' : (isLikeToHave ? 'Like to Have' : 'Want to Buy');
-    const listUrl = isRecommended 
-        ? 'https://koraytugay.github.io/my-board-game-collection/recommended.html' 
-        : (isLikeToHave 
-            ? 'https://koraytugay.github.io/my-board-game-collection/liketohave.html' 
-            : 'https://koraytugay.github.io/my-board-game-collection/wanttobuy.html');
-    const headerTitle = isDaily
-        ? '🎲 Recommended Games Daily Stock Summary'
-        : isRecommended 
-            ? `🎲 Recommended Games Stock Update${range && range.hasRangeFlag ? ` (#${range.start + 1} - ${range.end === Infinity ? '400+' : range.end})` : ''}` 
-            : (isLikeToHave 
-                ? '🎲 Like to Have Games Stock Update' 
-                : '🎲 Board Game Stock Update');
+function buildHtmlBody(diff, gamesMap, summary) {
+    const listTitle = isLikeToHave ? 'Like to Have' : 'Want to Buy';
+    const listUrl = isLikeToHave 
+        ? 'https://koraytugay.github.io/my-board-game-collection/liketohave.html' 
+        : 'https://koraytugay.github.io/my-board-game-collection/wanttobuy.html';
+    const headerTitle = isLikeToHave 
+        ? '🎲 Like to Have Games Stock Update' 
+        : '🎲 Board Game Stock Update';
 
     let html = `
     <!DOCTYPE html>
@@ -566,7 +426,7 @@ function buildHtmlBody(diff, gamesMap, summary, range, isDaily) {
         html += `
             <div class="card" style="border-left: 4px solid #4a5568; background: #f7fafc; padding: 18px;">
                 <h3 style="margin: 0 0 8px 0; color: #2d3748; font-size: 1.05rem;">✅ Stock Check Completed — No Changes</h3>
-                <p style="margin: 0 0 10px 0; color: #4a5568; font-size: 0.95rem;">All <strong>${summary.totalGames} ${isRecommended ? 'recommended' : 'wanted'} games</strong> were checked across tracked stores. No stock status changes or price updates were detected since the last check.</p>
+                <p style="margin: 0 0 10px 0; color: #4a5568; font-size: 0.95rem;">All <strong>${summary.totalGames} ${isLikeToHave ? 'like to have' : 'wanted'} games</strong> were checked across tracked stores. No stock status changes or price updates were detected since the last check.</p>
                 <p style="margin: 0; color: #718096; font-size: 0.9rem;">Currently, <strong>${summary.inStockCount} game${summary.inStockCount === 1 ? '' : 's'}</strong> remain in stock across tracked stores.</p>
             </div>
         `;
@@ -588,28 +448,6 @@ function buildHtmlBody(diff, gamesMap, summary, range, isDaily) {
                     </div>
                     <div>
                         <a href="${item.url}" target="_blank" class="btn" style="background: #dd6b20;">View Deal & Buy &rarr;</a>
-                    </div>
-                </div>
-            `;
-        }
-    }
-
-    // Active Deals in Daily Summary
-    if (isDaily && summary.activeDeals && summary.activeDeals.length > 0) {
-        html += `<div class="section-title" style="color: #c53030;">🔥 Active Recommended Game Deals (20%+ OFF) (${summary.activeDeals.length})</div>`;
-        for (const deal of summary.activeDeals) {
-            html += `
-                <div class="card" style="border-left: 4px solid #dd6b20; background: #fffaf0;">
-                    <div class="card-header">
-                        <a href="https://boardgamegeek.com/boardgame/${deal.gameId}" target="_blank" class="game-title">${deal.gameName}</a>
-                        <span style="background: #feebc8; color: #c05621; font-size: 0.75rem; font-weight: bold; padding: 3px 8px; border-radius: 9999px;">🔥 -${deal.discountPercent}% OFF</span>
-                    </div>
-                    <div class="meta-line">
-                        <span><strong>Store:</strong> ${deal.storeName}</span>
-                        <span><strong>Price:</strong> <span style="text-decoration: line-through; color: #a0aec0;">${deal.previousPrice}</span> &rarr; <strong style="color: #c53030;">${deal.price}</strong></span>
-                    </div>
-                    <div>
-                        <a href="${deal.url}" target="_blank" class="btn" style="background: #dd6b20;">View Deal & Buy &rarr;</a>
                     </div>
                 </div>
             `;
@@ -717,16 +555,16 @@ function buildHtmlBody(diff, gamesMap, summary, range, isDaily) {
 }
 
 function buildTextBody(diff, summary) {
-    const listTitle = isRecommended ? 'Recommended Games' : 'Want to Buy';
-    const listUrl = isRecommended 
-        ? 'https://koraytugay.github.io/my-board-game-collection/recommended.html' 
+    const listTitle = isLikeToHave ? 'Like to Have' : 'Want to Buy';
+    const listUrl = isLikeToHave 
+        ? 'https://koraytugay.github.io/my-board-game-collection/liketohave.html' 
         : 'https://koraytugay.github.io/my-board-game-collection/wanttobuy.html';
-    const title = isRecommended ? '🎲 Recommended Games Stock Update' : '🎲 Board Game Stock Update';
+    const title = isLikeToHave ? '🎲 Like to Have Games Stock Update' : '🎲 Board Game Stock Update';
     const lines = [`${title} (${new Date().toUTCString()})\n`];
 
     if (diff.totalDiffs === 0) {
         lines.push('✅ Stock check completed — no changes detected.');
-        lines.push(`All ${summary.totalGames} ${isRecommended ? 'recommended' : 'wanted'} games were checked across tracked stores.`);
+        lines.push(`All ${summary.totalGames} ${isLikeToHave ? 'like to have' : 'wanted'} games were checked across tracked stores.`);
         lines.push(`Currently, ${summary.inStockCount}/${summary.totalGames} games remain in stock.`);
         lines.push('');
     }
@@ -814,14 +652,6 @@ async function sendNotificationEmail(subject, htmlBody, textBody) {
 
 async function run() {
     console.log('--- Checking for board game stock diffs ---');
-    const range = isRecommended ? getRecommendedRange() : null;
-
-    if (isDailySummary) {
-        console.log(`[Daily Summary] Comparing current recommended games availability against snapshot (${NOTIFIED_SNAPSHOT_FILE})...`);
-    } else if (range && range.hasRangeFlag) {
-        const endDisplay = range.end === Infinity ? '400+' : range.end;
-        console.log(`Recommended games check batch: #${range.start + 1} to #${endDisplay}`);
-    }
 
     const gamesMap = getGameDetailsMap();
     const prevData = getPreviousAvailability();
@@ -836,8 +666,8 @@ async function run() {
 
     console.log(`Diff results: ${diff.newlyAvailable.length} newly in stock, ${diff.noLongerAvailable.length} out of stock, ${diff.priceChanges.length} price changes, ${diff.bggMarketNewListings.length} BGG listings.`);
 
-    const subject = buildEmailSubject(diff, summary, range, isDailySummary);
-    const htmlBody = buildHtmlBody(diff, gamesMap, summary, range, isDailySummary);
+    const subject = buildEmailSubject(diff, summary);
+    const htmlBody = buildHtmlBody(diff, gamesMap, summary);
     const textBody = buildTextBody(diff, summary);
 
     console.log(`Subject: ${subject}`);

@@ -138,7 +138,6 @@ Notes: French discount retailer, often significantly undercutting Philibert on E
 
 To add a new store:
 1. check-availability.js:
-   - Add store key to CANADIAN_STORE_KEYS (if Canadian store).
    - Add store config to storeConfigs (type: 'shopify', baseUrl, currencySymbol: '$', or custom checker).
 2. notify-availability.js:
    - Add to STORE_META with display name and flag emoji icon.
