@@ -48,6 +48,14 @@
       "lastChecked": "2026-09-04T02:00:50.546Z",
       "lastCheckSuccess": true
     },
+    "kbHobbies": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-04T02:16:02.116Z",
+      "lastCheckSuccess": true
+    },
     "miniatureMarket": {
       "available": false,
       "price": "$40.00",
@@ -199,13 +207,233 @@
       "url": null,
       "lastChecked": "2026-09-04T02:00:50.003Z",
       "lastCheckSuccess": true
+    }
+  },
+  "279537": {
+    "boardGameBliss": {
+      "available": false,
+      "price": "$32.83",
+      "baselinePrice": "$32.83",
+      "url": "https://www.boardgamebliss.com/products/the-search-for-planet-x?_pos=1&_psq=The+Search+for+Planet+X&_psid=003491389&_ss=e",
+      "lastChecked": "2026-09-04T02:27:46.948Z",
+      "lastCheckSuccess": true
+    },
+    "fourZeroOneGames": {
+      "available": false,
+      "price": "$43.95",
+      "baselinePrice": "$43.95",
+      "url": "https://store.401games.ca/products/the-search-for-planet-x?_pos=7&_psq=The+Search+for+Planet+X&_psid=455a053f6&_ss=e",
+      "lastChecked": "2026-09-04T02:27:47.068Z",
+      "lastCheckSuccess": true
+    },
+    "lvlUpGames": {
+      "available": false,
+      "price": "$34.00",
+      "baselinePrice": "$34.00",
+      "url": "https://www.lvlupgames.ca/products/the-search-for-planet-x?_pos=1&_psq=The+Search+for+Planet+X&_psid=ce9fde699&_ss=e",
+      "lastChecked": "2026-09-04T02:27:47.079Z",
+      "lastCheckSuccess": true
+    },
+    "asDesJeux": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-04T02:27:47.166Z",
+      "lastCheckSuccess": true
+    },
+    "greatBoardgames": {
+      "available": true,
+      "price": "$43.95",
+      "baselinePrice": "$43.95",
+      "url": "https://www.greatboardgames.ca/games/the-search-for-planet-x",
+      "lastChecked": "2026-09-04T02:27:47.116Z",
+      "lastCheckSuccess": true
+    },
+    "meeplemart": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-04T02:27:47.327Z",
+      "lastCheckSuccess": true
     },
     "kbHobbies": {
       "available": false,
       "price": null,
       "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-09-04T02:16:02.116Z",
+      "lastChecked": "2026-09-04T02:27:46.943Z",
+      "lastCheckSuccess": true
+    },
+    "miniatureMarket": {
+      "available": false,
+      "price": "$45.00",
+      "baselinePrice": "$45.00",
+      "url": "https://www.miniaturemarket.com/rgs02079.html",
+      "lastChecked": "2026-09-04T02:27:47.449Z",
+      "lastCheckSuccess": true
+    },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": "https://www.amazon.ca/s?k=The%20Search%20for%20Planet%20X%20board%20game",
+      "lastChecked": "2026-09-04T02:27:48.281Z",
+      "lastCheckSuccess": true
+    },
+    "woodForSheep": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-04T02:27:47.326Z",
+      "lastCheckSuccess": true
+    },
+    "jjCards": {
+      "available": true,
+      "price": "$46.99",
+      "baselinePrice": "$46.99",
+      "url": "https://shop.jjcards.com/The-Search-For-Planet-X_p_14400.html",
+      "lastChecked": "2026-09-04T02:27:48.488Z",
+      "lastCheckSuccess": true
+    },
+    "boardgamesCa": {
+      "available": true,
+      "price": "$59.95",
+      "baselinePrice": "$59.95",
+      "url": "https://boardgames.ca/products/the-search-for-planet-x",
+      "lastChecked": "2026-09-04T02:27:47.411Z",
+      "lastCheckSuccess": true
+    },
+    "screenFreeGames": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-04T02:27:47.544Z",
+      "lastCheckSuccess": true
+    },
+    "allSystemsGo": {
+      "available": false,
+      "price": "$19.99",
+      "baselinePrice": "$19.99",
+      "url": "https://allsystemsgo.games/products/the-search-for-planet-x?_pos=1&_psq=The+Search+for+Planet+X&_psid=3c0e0f4c8&_ss=e",
+      "lastChecked": "2026-09-04T02:27:47.769Z",
+      "lastCheckSuccess": true
+    },
+    "tabletopCafe": {
+      "available": false,
+      "price": "$59.99",
+      "baselinePrice": "$59.99",
+      "url": "https://www.tabletopcafe.ca/products/the-search-for-planet-x?_pos=2&_psq=The+Search+for+Planet+X&_psid=44005eede&_ss=e",
+      "lastChecked": "2026-09-04T02:27:47.827Z",
+      "lastCheckSuccess": true
+    },
+    "elevatedBoardGames": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-04T02:27:46.564Z",
+      "lastCheckSuccess": true
+    },
+    "diceHollow": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-04T02:27:47.939Z",
+      "lastCheckSuccess": true
+    },
+    "laPioche": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-04T02:27:48.187Z",
+      "lastCheckSuccess": true
+    },
+    "alwaysGames": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-04T02:27:48.291Z",
+      "lastCheckSuccess": true
+    },
+    "legendsWarehouse": {
+      "available": false,
+      "price": "$38.95",
+      "baselinePrice": "$38.95",
+      "url": "https://legendswarehouse.ca/products/search-for-planet-x?_pos=2&_psq=The+Search+for+Planet+X&_psid=e64289a8b&_ss=e",
+      "lastChecked": "2026-09-04T02:27:48.455Z",
+      "lastCheckSuccess": true
+    },
+    "boardGameBandit": {
+      "available": false,
+      "price": "$17.96",
+      "baselinePrice": "$17.96",
+      "url": "https://boardgamebandit.ca/products/the-search-for-planet-x-board-game-canada?_pos=1&_psq=The+Search+for+Planet+X&_psid=95b24ceab&_ss=e",
+      "lastChecked": "2026-09-04T02:27:48.581Z",
+      "lastCheckSuccess": true
+    },
+    "crowdfinder": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-04T02:27:47.220Z",
+      "lastCheckSuccess": true
+    },
+    "chaosCards": {
+      "available": false,
+      "price": "£36.95",
+      "baselinePrice": "£36.95",
+      "url": "https://www.chaoscards.co.uk/prod/all-board-games/the-search-for-planet-x",
+      "lastChecked": "2026-09-04T02:27:50.492Z",
+      "lastCheckSuccess": true
+    },
+    "zatu": {
+      "available": true,
+      "price": "£34.25",
+      "baselinePrice": "£34.25",
+      "url": "https://zatu.com/products/the-search-for-planet-x?_pos=1&_psq=The+Search+for+Planet+X&_psid=1a7fa1854&_ss=e",
+      "lastChecked": "2026-09-04T02:27:48.857Z",
+      "lastCheckSuccess": true
+    },
+    "philibert": {
+      "available": false,
+      "price": "€49.99",
+      "baselinePrice": "€49.99",
+      "url": "https://www.philibertnet.com/en/renegade-game-studios/170075-the-search-for-planet-x-0810011720794.html",
+      "lastChecked": "2026-09-04T02:27:47.368Z",
+      "lastCheckSuccess": true
+    },
+    "bggMarket": {
+      "available": true,
+      "price": "C$10.00 CAD",
+      "baselinePrice": "C$10.00 CAD",
+      "url": "https://boardgamegeek.com/market/product/3962623",
+      "listings": [
+        {
+          "price": "C$10.00 CAD",
+          "seller": "dustman95",
+          "condition": "Very Good",
+          "url": "https://boardgamegeek.com/market/product/3962623",
+          "firstSeen": "2026-09-04T02:27:46.950Z",
+          "ignored": false
+        },
+        {
+          "price": "C$50.00 CAD",
+          "seller": "dodahdave",
+          "condition": "Like New",
+          "url": "https://boardgamegeek.com/market/product/3221049",
+          "firstSeen": "2026-09-04T02:27:46.950Z",
+          "ignored": false
+        }
+      ],
+      "lastChecked": "2026-09-04T02:27:46.950Z",
       "lastCheckSuccess": true
     }
   },
@@ -256,6 +484,14 @@
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-09-04T02:01:00.545Z",
+      "lastCheckSuccess": true
+    },
+    "kbHobbies": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-04T02:16:07.143Z",
       "lastCheckSuccess": true
     },
     "miniatureMarket": {
@@ -409,14 +645,6 @@
       "url": null,
       "lastChecked": "2026-09-04T02:00:59.818Z",
       "lastCheckSuccess": true
-    },
-    "kbHobbies": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-09-04T02:16:07.143Z",
-      "lastCheckSuccess": true
     }
   },
   "320242": {
@@ -466,6 +694,14 @@
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-09-04T02:01:09.134Z",
+      "lastCheckSuccess": true
+    },
+    "kbHobbies": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-04T02:16:12.178Z",
       "lastCheckSuccess": true
     },
     "miniatureMarket": {
@@ -629,14 +865,6 @@
       ],
       "lastChecked": "2026-09-04T01:07:27.094Z",
       "lastCheckSuccess": true
-    },
-    "kbHobbies": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-09-04T02:16:12.178Z",
-      "lastCheckSuccess": true
     }
   },
   "345888": {
@@ -686,6 +914,14 @@
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-09-04T02:02:01.879Z",
+      "lastCheckSuccess": true
+    },
+    "kbHobbies": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-04T02:16:42.364Z",
       "lastCheckSuccess": true
     },
     "miniatureMarket": {
@@ -839,14 +1075,6 @@
       "url": null,
       "lastChecked": "2026-09-04T02:02:01.301Z",
       "lastCheckSuccess": true
-    },
-    "kbHobbies": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-09-04T02:16:42.364Z",
-      "lastCheckSuccess": true
     }
   },
   "364641": {
@@ -896,6 +1124,14 @@
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-09-04T02:01:18.792Z",
+      "lastCheckSuccess": true
+    },
+    "kbHobbies": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-04T02:16:17.211Z",
       "lastCheckSuccess": true
     },
     "miniatureMarket": {
@@ -1048,14 +1284,6 @@
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-09-04T02:01:17.306Z",
-      "lastCheckSuccess": true
-    },
-    "kbHobbies": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-09-04T02:16:17.211Z",
       "lastCheckSuccess": true
     }
   },
@@ -1300,6 +1528,14 @@
       "lastChecked": "2026-09-04T02:01:26.510Z",
       "lastCheckSuccess": true
     },
+    "kbHobbies": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-04T02:16:22.240Z",
+      "lastCheckSuccess": true
+    },
     "miniatureMarket": {
       "available": false,
       "price": "$18.99",
@@ -1451,14 +1687,6 @@
       "url": null,
       "lastChecked": "2026-09-04T02:01:25.957Z",
       "lastCheckSuccess": true
-    },
-    "kbHobbies": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-09-04T02:16:22.240Z",
-      "lastCheckSuccess": true
     }
   },
   "448740": {
@@ -1508,6 +1736,14 @@
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-09-04T02:01:35.300Z",
+      "lastCheckSuccess": true
+    },
+    "kbHobbies": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-04T02:16:27.274Z",
       "lastCheckSuccess": true
     },
     "miniatureMarket": {
@@ -1661,13 +1897,215 @@
       "url": null,
       "lastChecked": "2026-09-04T02:01:34.675Z",
       "lastCheckSuccess": true
+    }
+  },
+  "450539": {
+    "boardGameBliss": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-04T02:27:36.573Z",
+      "lastCheckSuccess": true
+    },
+    "fourZeroOneGames": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-04T02:27:36.447Z",
+      "lastCheckSuccess": true
+    },
+    "lvlUpGames": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-04T02:27:36.456Z",
+      "lastCheckSuccess": true
+    },
+    "asDesJeux": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-04T02:27:36.562Z",
+      "lastCheckSuccess": true
+    },
+    "greatBoardgames": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-04T02:27:36.216Z",
+      "lastCheckSuccess": true
+    },
+    "meeplemart": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-04T02:27:36.459Z",
+      "lastCheckSuccess": true
     },
     "kbHobbies": {
       "available": false,
       "price": null,
       "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-09-04T02:16:27.274Z",
+      "lastChecked": "2026-09-04T02:27:36.031Z",
+      "lastCheckSuccess": true
+    },
+    "miniatureMarket": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-04T02:27:36.449Z",
+      "lastCheckSuccess": true
+    },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": "https://www.amazon.ca/s?k=The%20Glasgow%20Train%20Robbery%20board%20game",
+      "lastChecked": "2026-09-04T02:27:38.310Z",
+      "lastCheckSuccess": true
+    },
+    "woodForSheep": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-04T02:27:36.647Z",
+      "lastCheckSuccess": true
+    },
+    "jjCards": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-04T02:27:37.242Z",
+      "lastCheckSuccess": true
+    },
+    "boardgamesCa": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-04T02:27:36.537Z",
+      "lastCheckSuccess": true
+    },
+    "screenFreeGames": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-04T02:27:36.622Z",
+      "lastCheckSuccess": true
+    },
+    "allSystemsGo": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-04T02:27:36.738Z",
+      "lastCheckSuccess": true
+    },
+    "tabletopCafe": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-04T02:27:36.811Z",
+      "lastCheckSuccess": true
+    },
+    "elevatedBoardGames": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-04T02:27:37.370Z",
+      "lastCheckSuccess": true
+    },
+    "diceHollow": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-04T02:27:37.256Z",
+      "lastCheckSuccess": true
+    },
+    "laPioche": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-04T02:27:37.462Z",
+      "lastCheckSuccess": true
+    },
+    "alwaysGames": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-04T02:27:37.532Z",
+      "lastCheckSuccess": true
+    },
+    "legendsWarehouse": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-04T02:27:37.554Z",
+      "lastCheckSuccess": true
+    },
+    "boardGameBandit": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-04T02:27:37.726Z",
+      "lastCheckSuccess": true
+    },
+    "crowdfinder": {
+      "available": false,
+      "price": "€45.00",
+      "baselinePrice": "€45.00",
+      "url": "https://www.crowdfinder.be/product/8804-the-glasgow-train-robbery-gf",
+      "lastChecked": "2026-09-04T02:27:36.451Z",
+      "lastCheckSuccess": true
+    },
+    "chaosCards": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-04T02:27:41.545Z",
+      "lastCheckSuccess": true
+    },
+    "zatu": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-04T02:27:37.902Z",
+      "lastCheckSuccess": true
+    },
+    "philibert": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-04T02:27:37.292Z",
+      "lastCheckSuccess": true
+    },
+    "bggMarket": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-04T02:27:36.157Z",
       "lastCheckSuccess": true
     }
   },
@@ -1718,6 +2156,14 @@
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-09-04T02:01:52.563Z",
+      "lastCheckSuccess": true
+    },
+    "kbHobbies": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-04T02:16:37.333Z",
       "lastCheckSuccess": true
     },
     "miniatureMarket": {
@@ -1871,14 +2317,6 @@
       "url": null,
       "lastChecked": "2026-09-04T02:01:51.983Z",
       "lastCheckSuccess": true
-    },
-    "kbHobbies": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-09-04T02:16:37.333Z",
-      "lastCheckSuccess": true
     }
   },
   "454119": {
@@ -1928,6 +2366,14 @@
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-09-04T02:01:44.009Z",
+      "lastCheckSuccess": true
+    },
+    "kbHobbies": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-04T02:16:32.304Z",
       "lastCheckSuccess": true
     },
     "miniatureMarket": {
@@ -2080,14 +2526,6 @@
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-09-04T02:01:43.322Z",
-      "lastCheckSuccess": true
-    },
-    "kbHobbies": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-09-04T02:16:32.304Z",
       "lastCheckSuccess": true
     }
   }
