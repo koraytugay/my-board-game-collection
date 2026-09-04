@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-04T19:01:48.890Z",
+  "generatedAt": "2026-09-04T23:09:45.112Z",
   "total": 400,
   "recommendations": [
     {
@@ -2590,6 +2590,47 @@
       "minPlayers": 1,
       "maxPlayers": 5,
       "playingTime": 60
+    },
+    {
+      "objectId": "372559",
+      "name": "Spots",
+      "yearPublished": "2022",
+      "bggRating": 7.13,
+      "bggRank": 891,
+      "numVoters": 8070,
+      "numFans": 540,
+      "coverUrl": "https://cf.geekdo-images.com/TCBUzmSNUYw_yqJAXGWnNQ__square100@2x/img/mvvJMKSDQTL_fmS2-iTdCqgzTFI=/0x133:2000x2133/200x200/filters:strip_icc()/pic7592453.png",
+      "thumbnail": "images/thumbnails/372559.png",
+      "image": "images/full/372559.png",
+      "description": "Roll and place dice to complete adorable dog cards.",
+      "rawScore": 5.72412621921109,
+      "recommendedBy": [
+        {
+          "ownedId": "367220",
+          "ownedName": "Sea Salt &amp; Paper",
+          "userRating": 8,
+          "bggRecRank": 5,
+          "contributionScore": 2.86
+        },
+        {
+          "ownedId": "63975",
+          "ownedName": "Mountain Goats",
+          "userRating": 8,
+          "bggRecRank": 15,
+          "contributionScore": 1.65
+        },
+        {
+          "ownedId": "414317",
+          "ownedName": "Harmonies",
+          "userRating": 8,
+          "bggRecRank": 28,
+          "contributionScore": 1.21
+        }
+      ],
+      "matchScore": 8.5,
+      "minPlayers": 1,
+      "maxPlayers": 4,
+      "playingTime": 30
     },
     {
       "objectId": "312484",
@@ -13126,33 +13167,6 @@
       "minPlayers": 2,
       "maxPlayers": 5,
       "playingTime": 20
-    },
-    {
-      "objectId": "231748",
-      "name": "Time Bomb Evolution",
-      "yearPublished": "2016",
-      "bggRating": 6.74,
-      "bggRank": 4654,
-      "numVoters": 891,
-      "numFans": 40,
-      "coverUrl": "https://cf.geekdo-images.com/yU8CtWKysxxZ62nFT2uqPA__square100@2x/img/MYpQ2k4QPGCeZ-0DTg_6oRaWDHk=/0x0:1176x1176/200x200/filters:strip_icc()/pic5397704.jpg",
-      "thumbnail": "images/thumbnails/231748.jpg",
-      "image": "images/full/231748.jpg",
-      "description": "Time is not your friend! Figure out who you can trust - and do it quickly!",
-      "rawScore": 1.4145081595145832,
-      "recommendedBy": [
-        {
-          "ownedId": "112373",
-          "ownedName": "BraveRats",
-          "userRating": 7,
-          "bggRecRank": 12,
-          "contributionScore": 1.41
-        }
-      ],
-      "matchScore": 1.3,
-      "minPlayers": 4,
-      "maxPlayers": 6,
-      "playingTime": 30
     }
   ]
 }
