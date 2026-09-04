@@ -101,6 +101,21 @@ async function fetchDesigners() {
     }
 
     const allGames = getAllTargetGames();
+    const activeIdSet = new Set(allGames.map(g => String(g.objectId)));
+
+    // Prune entries no longer in collection or recommendations
+    let prunedCount = 0;
+    for (const cachedId of Object.keys(designersCache)) {
+        if (!activeIdSet.has(cachedId)) {
+            delete designersCache[cachedId];
+            prunedCount++;
+        }
+    }
+    if (prunedCount > 0) {
+        console.log(`Pruned ${prunedCount} orphaned game(s) from designers cache.`);
+        fs.writeFileSync(DESIGNERS_FILE, JSON.stringify(designersCache, null, 2), 'utf8');
+    }
+
     const missingGames = allGames.filter(g => !designersCache[g.objectId] || !Array.isArray(designersCache[g.objectId].designers));
 
     console.log(`Total target games (collection + recommendations): ${allGames.length}. Missing from designers cache: ${missingGames.length}.`);

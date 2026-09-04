@@ -136,6 +136,21 @@ async function fetchBestAt() {
     }
 
     const allGames = getAllTargetGames();
+    const activeIdSet = new Set(allGames.map(g => String(g.objectId)));
+
+    // Prune entries no longer in collection or recommendations
+    let prunedCount = 0;
+    for (const cachedId of Object.keys(cache)) {
+        if (!activeIdSet.has(cachedId)) {
+            delete cache[cachedId];
+            prunedCount++;
+        }
+    }
+    if (prunedCount > 0) {
+        console.log(`Pruned ${prunedCount} orphaned game(s) from best-at cache.`);
+        fs.writeFileSync(BEST_AT_FILE, JSON.stringify(cache, null, 2), 'utf8');
+    }
+
     const missingGames = allGames.filter(g => !cache[g.objectId] || !Array.isArray(cache[g.objectId].bestAt));
 
     console.log(`Total target games: ${allGames.length}. Missing from best-at cache: ${missingGames.length}.`);
