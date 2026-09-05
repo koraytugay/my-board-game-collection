@@ -127,6 +127,67 @@ async function fetchSmartBuyData() {
             }
         });
 
+        // Calculate cross-store best prices and differences for each game
+        const gameBestPrices = {};
+        allStoreGroups.forEach(group => {
+            group.games.forEach(item => {
+                if (!item.cadPrice || item.cadPrice <= 0) return;
+                const id = item.game.objectId;
+                if (!gameBestPrices[id]) {
+                    gameBestPrices[id] = [];
+                }
+                gameBestPrices[id].push({
+                    storeKey: group.key,
+                    storeName: group.name,
+                    cadPrice: item.cadPrice
+                });
+            });
+        });
+
+        allStoreGroups.forEach(group => {
+            group.games.forEach(item => {
+                const id = item.game.objectId;
+                const offers = gameBestPrices[id] || [];
+                const storeCount = offers.length;
+
+                if (storeCount > 1) {
+                    const minCadPrice = Math.min(...offers.map(o => o.cadPrice));
+                    const bestOffer = offers.find(o => o.cadPrice === minCadPrice);
+                    const diffCad = item.cadPrice - minCadPrice;
+                    const diffPercent = Math.round((diffCad / minCadPrice) * 100);
+
+                    if (diffPercent > 0 && diffCad >= 0.25) {
+                        item.priceDiff = {
+                            diffPercent: diffPercent,
+                            diffCad: diffCad,
+                            diffStatus: 'higher',
+                            storeCount: storeCount,
+                            minCadPrice: minCadPrice,
+                            cheapestStoreName: bestOffer ? bestOffer.storeName : ''
+                        };
+                    } else {
+                        item.priceDiff = {
+                            diffPercent: 0,
+                            diffCad: 0,
+                            diffStatus: 'lowest',
+                            storeCount: storeCount,
+                            minCadPrice: minCadPrice,
+                            cheapestStoreName: bestOffer ? bestOffer.storeName : ''
+                        };
+                    }
+                } else {
+                    item.priceDiff = {
+                        diffPercent: 0,
+                        diffCad: 0,
+                        diffStatus: 'only',
+                        storeCount: 1,
+                        minCadPrice: item.cadPrice,
+                        cheapestStoreName: group.name
+                    };
+                }
+            });
+        });
+
         // Sort stores by games count descending (most in-stock games first)
         allStoreGroups.sort((a, b) => b.games.length - a.games.length);
         filteredStoreGroups = [...allStoreGroups];
@@ -245,6 +306,16 @@ function renderStoreCard(group) {
             dealHtml = `<span class="row-deal-badge">-${item.deal.discountPercent}%</span>`;
         }
 
+        // Price difference badge
+        let diffHtml = '<span class="diff-badge diff-only" title="Only store with this game in stock">—</span>';
+        if (item.priceDiff) {
+            if (item.priceDiff.diffStatus === 'higher') {
+                diffHtml = `<span class="diff-badge diff-higher" title="+$${item.priceDiff.diffCad.toFixed(2)} CAD (+${item.priceDiff.diffPercent}%) vs cheapest at ${escapeHtml(item.priceDiff.cheapestStoreName)} ($${item.priceDiff.minCadPrice.toFixed(2)} CAD)">+${item.priceDiff.diffPercent}% 🔺</span>`;
+            } else if (item.priceDiff.diffStatus === 'lowest') {
+                diffHtml = `<span class="diff-badge diff-lowest" title="Lowest price available across all stores ($${item.priceDiff.minCadPrice.toFixed(2)} CAD)">✓ Lowest</span>`;
+            }
+        }
+
         rowsHtml += `
             <tr class="playlist-row ${isSelected ? '' : 'is-unselected'}" id="row-${item.rowKey}" data-store="${storeKey}" data-key="${item.rowKey}" onclick="onRowClicked('${storeKey}', '${item.rowKey}', event)">
                 <td class="td-checkbox">
@@ -279,6 +350,7 @@ function renderStoreCard(group) {
                         ${dealHtml}
                     </div>
                 </td>
+                <td class="td-diff">${diffHtml}</td>
                 <td class="td-action">
                     <a href="${item.url}" target="_blank" class="store-link" title="Open product page on ${escapeHtml(group.name)}">
                         Store ↗
@@ -313,6 +385,9 @@ function renderStoreCard(group) {
                         </th>
                         <th class="col-price sortable" id="th-${storeKey}-price" onclick="sortStoreTable('${storeKey}', 'price')" title="Sort by Price">
                             Price<span class="sort-arrow" id="sort-arrow-${storeKey}-price"></span>
+                        </th>
+                        <th class="col-diff sortable" id="th-${storeKey}-diff" onclick="sortStoreTable('${storeKey}', 'diff')" title="Sort by Difference from Lowest Price">
+                            vs Lowest<span class="sort-arrow" id="sort-arrow-${storeKey}-diff"></span>
                         </th>
                         <th class="col-action">Link</th>
                     </tr>
@@ -441,7 +516,7 @@ function sortStoreTable(storeKey, column) {
     if (current.column === column) {
         direction = current.direction === 'asc' ? 'desc' : 'asc';
     } else {
-        if (column === 'year') {
+        if (column === 'year' || column === 'diff') {
             direction = 'desc';
         } else {
             direction = 'asc';
@@ -476,6 +551,13 @@ function sortStoreTable(storeKey, column) {
                 return direction === 'asc' ? priceA - priceB : priceB - priceA;
             }
             return a.game.name.localeCompare(b.game.name);
+        } else if (column === 'diff') {
+            const diffA = a.priceDiff ? a.priceDiff.diffPercent : 0;
+            const diffB = b.priceDiff ? b.priceDiff.diffPercent : 0;
+            if (diffA !== diffB) {
+                return direction === 'asc' ? diffA - diffB : diffB - diffA;
+            }
+            return a.game.name.localeCompare(b.game.name);
         }
         return 0;
     });
@@ -492,7 +574,7 @@ function sortStoreTable(storeKey, column) {
     }
 
     // Update sort arrows & active state on headers
-    const sortColumns = ['game', 'year', 'list', 'price'];
+    const sortColumns = ['game', 'year', 'list', 'price', 'diff'];
     sortColumns.forEach(col => {
         const thEl = document.getElementById(`th-${storeKey}-${col}`);
         const arrowEl = document.getElementById(`sort-arrow-${storeKey}-${col}`);

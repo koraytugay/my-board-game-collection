@@ -176,8 +176,13 @@ body.dark-mode .playlist-table th {
 }
 
 .playlist-table th.col-price {
-    width: 120px;
+    width: 110px;
     text-align: right;
+}
+
+.playlist-table th.col-diff {
+    width: 95px;
+    text-align: center;
 }
 
 .playlist-table th.col-action {
@@ -415,6 +420,47 @@ body.dark-mode .price-cad {
     border-radius: 3px;
 }
 
+/* Diff Column */
+.td-diff {
+    text-align: center;
+    white-space: nowrap;
+}
+
+.diff-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: 600;
+    line-height: 1;
+}
+
+.diff-badge.diff-higher {
+    color: #cf222e;
+}
+
+body.dark-mode .diff-badge.diff-higher {
+    color: #ff7b72;
+}
+
+.diff-badge.diff-lowest {
+    color: #1a7f37;
+    font-size: 0.76rem;
+}
+
+body.dark-mode .diff-badge.diff-lowest {
+    color: #3fb950;
+}
+
+.diff-badge.diff-only {
+    color: #8c959f;
+    font-weight: normal;
+}
+
+body.dark-mode .diff-badge.diff-only {
+    color: #6e7681;
+}
+
 /* Store Link */
 .td-action {
     text-align: right;
@@ -488,7 +534,9 @@ body.dark-mode .smartbuy-empty {
 
 @media (max-width: 640px) {
     .playlist-table th.col-list,
-    .playlist-table td.td-list {
+    .playlist-table td.td-list,
+    .playlist-table th.col-diff,
+    .playlist-table td.td-diff {
         display: none;
     }
 }
