@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><items totalitems="468"><item objecttype="thing" objectid="423517" subtype="boardgame" collid="148161790">
+<?xml version="1.0" encoding="utf-8"?><items totalitems="469"><item objecttype="thing" objectid="423517" subtype="boardgame" collid="148161790">
 	<name sortindex="1">3 Chapters</name>
 		<yearpublished>2024</yearpublished>			<image>https://cf.geekdo-images.com/es3F2drfUOIVnqsTds3BDQ__original/img/aagzL4ORPemw2xi3FL4575gKYhA=/0x0/filters:format(png)/pic8940639.png</image>
 		<thumbnail>https://cf.geekdo-images.com/es3F2drfUOIVnqsTds3BDQ__small/img/bCpN5Ool_-QFKQbPlAfmIfFUdRI=/fit-in/200x150/filters:strip_icc()/pic8940639.png</thumbnail>
@@ -922,6 +922,18 @@
 																<rank type="family" id="5499" name="familygames" friendlyname="Family Game Rank" value="1638" bayesaverage="5.83872" />
 											</ranks>		</rating>
 			</stats>	<status own="0" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="1" wishlistpriority="5" preordered="0" lastmodified="2026-08-15 15:51:36" />
+	<numplays>0</numplays>							</item>
+<item objecttype="thing" objectid="462963" subtype="boardgame" collid="149229619">
+	<name sortindex="1">Feather Lane</name>
+		<yearpublished>2026</yearpublished>			<image>https://cf.geekdo-images.com/8jR96ZZ5dJRyyu_MqgmEHg__original/img/VWqXVP6UyGXnWsBXJpcGoWv0CZE=/0x0/filters:format(png)/pic9390084.png</image>
+		<thumbnail>https://cf.geekdo-images.com/8jR96ZZ5dJRyyu_MqgmEHg__small/img/9T1HhjFk7-3sV3hyQzgJJzEJTbA=/fit-in/200x150/filters:strip_icc()/pic9390084.png</thumbnail>
+		<stats minplayers="2"																	maxplayers="6"																	minplaytime="30"																	maxplaytime="30"																	playingtime="30"																	numowned="31" >
+				<rating value="N/A">			<usersrated value="16" />			<average value="7.90625" />
+			<bayesaverage value="0" />			<stddev value="1.34883" />
+			<median value="0" />			<ranks>
+												<rank type="subtype" id="1" name="boardgame" friendlyname="Board Game Rank" value="Not Ranked" bayesaverage="Not Ranked" />
+											</ranks>		</rating>
+			</stats>	<status own="0" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="1" wishlistpriority="4" preordered="0" lastmodified="2026-09-04 18:33:38" />
 	<numplays>0</numplays>							</item>
 <item objecttype="thing" objectid="439209" subtype="boardgame" collid="147299347">
 	<name sortindex="1">Figment</name>
@@ -3363,6 +3375,19 @@
 											</ranks>		</rating>
 			</stats>	<status own="0" prevowned="0" fortrade="0" want="1" wanttoplay="0" wanttobuy="0" wishlist="0"  preordered="0" lastmodified="2026-08-26 10:59:00" />
 	<numplays>0</numplays>							</item>
+<item objecttype="thing" objectid="408637" subtype="boardgame" collid="148919546">
+	<name sortindex="5">The Anarchy</name>
+		<yearpublished>2025</yearpublished>			<image>https://cf.geekdo-images.com/HJmk-KN7SCLH46kQ1JnkDw__original/img/VyLpu7eFwXuQVQUUbrx7vldCPIY=/0x0/filters:format(jpeg)/pic7908662.jpg</image>
+		<thumbnail>https://cf.geekdo-images.com/HJmk-KN7SCLH46kQ1JnkDw__small/img/xyJIOEBvETtxW7L2Vt82yAObBvw=/fit-in/200x150/filters:strip_icc()/pic7908662.jpg</thumbnail>
+		<stats minplayers="1"																	maxplayers="4"																	minplaytime="60"																	maxplaytime="90"																	playingtime="90"																	numowned="4404" >
+				<rating value="N/A">			<usersrated value="1563" />			<average value="8.38687" />
+			<bayesaverage value="6.60318" />			<stddev value="1.19481" />
+			<median value="0" />			<ranks>
+												<rank type="subtype" id="1" name="boardgame" friendlyname="Board Game Rank" value="1101" bayesaverage="6.60318" />
+																<rank type="family" id="5497" name="strategygames" friendlyname="Strategy Game Rank" value="527" bayesaverage="6.83806" />
+											</ranks>		</rating>
+			</stats>	<status own="0" prevowned="0" fortrade="0" want="1" wanttoplay="0" wanttobuy="0" wishlist="0"  preordered="0" lastmodified="2026-09-04 19:53:06" />
+	<numplays>0</numplays>							</item>
 <item objecttype="thing" objectid="191300" subtype="boardgame" collid="147628898">
 	<name sortindex="1">Archaeology: The New Expedition</name>
 		<yearpublished>2016</yearpublished>			<image>https://cf.geekdo-images.com/5fsW7qzvnkg8L0iVx_AM1A__original/img/4EIwkLf_b6eVmziTozPeDKKOymc=/0x0/filters:format(png)/pic2805898.png</image>
@@ -4081,19 +4106,6 @@ Sorry if this sounds harsh. You may end up loving it, I just didn&#039;t enjoy i
 											</ranks>		</rating>
 			</stats>	<status own="1" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="0"  preordered="0" lastmodified="2025-11-30 16:50:31" />
 	<numplays>10</numplays>							</item>
-<item objecttype="thing" objectid="408637" subtype="boardgame" collid="148919546">
-	<name sortindex="5">The Anarchy</name>
-		<yearpublished>2025</yearpublished>			<image>https://cf.geekdo-images.com/HJmk-KN7SCLH46kQ1JnkDw__original/img/VyLpu7eFwXuQVQUUbrx7vldCPIY=/0x0/filters:format(jpeg)/pic7908662.jpg</image>
-		<thumbnail>https://cf.geekdo-images.com/HJmk-KN7SCLH46kQ1JnkDw__small/img/xyJIOEBvETtxW7L2Vt82yAObBvw=/fit-in/200x150/filters:strip_icc()/pic7908662.jpg</thumbnail>
-		<stats minplayers="1"																	maxplayers="4"																	minplaytime="60"																	maxplaytime="90"																	playingtime="90"																	numowned="4404" >
-				<rating value="N/A">			<usersrated value="1563" />			<average value="8.38687" />
-			<bayesaverage value="6.60318" />			<stddev value="1.19481" />
-			<median value="0" />			<ranks>
-												<rank type="subtype" id="1" name="boardgame" friendlyname="Board Game Rank" value="1101" bayesaverage="6.60318" />
-																<rank type="family" id="5497" name="strategygames" friendlyname="Strategy Game Rank" value="527" bayesaverage="6.83806" />
-											</ranks>		</rating>
-			</stats>	<status own="0" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="1" wishlist="0"  preordered="0" lastmodified="2026-08-26 09:47:13" />
-	<numplays>0</numplays>							</item>
 <item objecttype="thing" objectid="140934" subtype="boardgame" collid="137662446">
 	<name sortindex="1">Arboretum</name>
 		<yearpublished>2015</yearpublished>			<image>https://cf.geekdo-images.com/XYOn10oXBrDqHySf0jvnyQ__original/img/RMi0pEsP8agfH-tgYkeRGilD3oo=/0x0/filters:format(png)/pic4172124.png</image>
@@ -5356,12 +5368,12 @@ Overall, this is my favorite version of Next Station. The extra puzzle element a
 		<yearpublished>2026</yearpublished>			<image>https://cf.geekdo-images.com/pk9bnpASjE-j8Y3QthRC9A__original/img/kdJ058I9xNV-gqoW5eJZF6hTAHs=/0x0/filters:format(jpeg)/pic8466570.jpg</image>
 		<thumbnail>https://cf.geekdo-images.com/pk9bnpASjE-j8Y3QthRC9A__small/img/Y7sYpOS_rdPuaoyinHpbU0rzYJw=/fit-in/200x150/filters:strip_icc()/pic8466570.jpg</thumbnail>
 		<stats minplayers="1"																	maxplayers="4"																	minplaytime="30"																	maxplaytime="60"																	playingtime="60"																	numowned="59" >
-				<rating value="4">			<usersrated value="17" />			<average value="6.23529" />
+				<rating value="2">			<usersrated value="17" />			<average value="6.23529" />
 			<bayesaverage value="0" />			<stddev value="1.3625" />
 			<median value="0" />			<ranks>
 												<rank type="subtype" id="1" name="boardgame" friendlyname="Board Game Rank" value="Not Ranked" bayesaverage="Not Ranked" />
 											</ranks>		</rating>
-			</stats>	<status own="0" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="0"  preordered="0" lastmodified="2026-08-12 20:18:46" />
+			</stats>	<status own="1" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="0"  preordered="0" lastmodified="2026-09-04 19:53:40" />
 	<numplays>0</numplays>			<comment>I played the game solo only. I like the idea behind the game, and the artwork is good, but I found the actual gameplay quite limited and not very engaging.
 
 Each round, you pick 3 cards from a selection of 10, but I rarely found the choices particularly interesting. It often felt like there was very little I could actually do to influence the game. The choice is either obvious or there is nothing to do at all. The objectives also didn&#039;t feel very satisfying. For example, trying to make something go extinct felt less interesting to me than trying to grow it as much as possible, beat the AI, or beat my own previous score through different goals.
