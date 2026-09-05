@@ -252,6 +252,30 @@ function sleep(ms) {
 
 let shopifyGlobalCooldownUntil = 0;
 
+const KNOWN_SHOPIFY_HOSTS = new Set([
+    'www.boardgamebliss.com',
+    'store.401games.ca',
+    'www.lvlupgames.ca',
+    'www.asdesjeux.com',
+    'thegamesteward.com',
+    'www.woodforsheep.ca',
+    'screenfreegames.com',
+    'allsystemsgo.games',
+    'www.tabletopcafe.ca',
+    'www.dicehollow.com',
+    'boutiquelapioche.com',
+    'alwaysgames.ca',
+    'legendswarehouse.ca',
+    'boardgamebandit.ca',
+    'zatu.com'
+]);
+
+function isShopifyRequest(url, hostname) {
+    if (url && (url.includes('/search/suggest.json') || url.includes('.myshopify.com'))) return true;
+    if (hostname && KNOWN_SHOPIFY_HOSTS.has(hostname)) return true;
+    return false;
+}
+
 async function waitForShopifyCooldown() {
     const now = Date.now();
     if (shopifyGlobalCooldownUntil > now) {
@@ -269,7 +293,7 @@ function fetchJson(url, redirectCount = 0, customHeaders = {}, retryCount = 0) {
     }
     return new Promise(async (resolve, reject) => {
         const u = new URL(url);
-        const isShopify = url.includes('/search/suggest.json');
+        const isShopify = isShopifyRequest(url, u.hostname);
         if (isShopify) {
             await waitForShopifyCooldown();
         }
@@ -311,8 +335,10 @@ function fetchJson(url, redirectCount = 0, customHeaders = {}, retryCount = 0) {
                         waitSec = Math.min(120, parsed);
                     }
                 }
+                const jitterMs = Math.floor(Math.random() * 2500);
+                const totalWaitMs = (waitSec * 1000) + jitterMs;
                 if (isShopify) {
-                    shopifyGlobalCooldownUntil = Date.now() + (waitSec * 1000);
+                    shopifyGlobalCooldownUntil = Math.max(shopifyGlobalCooldownUntil, Date.now() + totalWaitMs);
                 }
                 const retryAfter = res.headers['retry-after'] || null;
                 const cfRay = res.headers['cf-ray'] || null;
@@ -320,10 +346,13 @@ function fetchJson(url, redirectCount = 0, customHeaders = {}, retryCount = 0) {
                 const server = res.headers['server'] || null;
                 const shopApiLimit = res.headers['x-shopify-shop-api-call-limit'] || null;
                 runStats.record429(u.hostname, waitSec, { retryAfter, cfRay, reqId, server, shopApiLimit });
-                console.warn(`[429 RATE LIMIT] Rate limited on ${u.hostname} (retry ${retryCount + 1}/3). Backing off for ${waitSec}s... [server=${server || 'unknown'}, retry-after=${retryAfter || 'none'}, cf-ray=${cfRay || 'none'}]`);
+                console.warn(`[429 RATE LIMIT] Rate limited on ${u.hostname} (retry ${retryCount + 1}/3). Backing off for ${(totalWaitMs / 1000).toFixed(1)}s (incl. jitter)... [server=${server || 'unknown'}, retry-after=${retryAfter || 'none'}, cf-ray=${cfRay || 'none'}]`);
                 if (!resolved) {
                     resolved = true;
-                    sleep(waitSec * 1000).then(() => {
+                    sleep(totalWaitMs).then(async () => {
+                        if (isShopify) {
+                            await waitForShopifyCooldown();
+                        }
                         return fetchJson(url, redirectCount, customHeaders, retryCount + 1);
                     }).then(resolve).catch(reject);
                 }
@@ -435,15 +464,17 @@ function fetchHtml(url, redirectCount = 0, cookieHeader = '', retryCount = 0) {
                         waitSec = Math.min(120, parsed);
                     }
                 }
+                const jitterMs = Math.floor(Math.random() * 2500);
+                const totalWaitMs = (waitSec * 1000) + jitterMs;
                 const retryAfter = res.headers['retry-after'] || null;
                 const cfRay = res.headers['cf-ray'] || null;
                 const reqId = res.headers['x-request-id'] || null;
                 const server = res.headers['server'] || null;
                 runStats.record429(u.hostname, waitSec, { retryAfter, cfRay, reqId, server });
-                console.warn(`[429 RATE LIMIT] Rate limited on ${u.hostname} (retry ${retryCount + 1}/3). Backing off for ${waitSec}s... [server=${server || 'unknown'}, retry-after=${retryAfter || 'none'}, cf-ray=${cfRay || 'none'}]`);
+                console.warn(`[429 RATE LIMIT] Rate limited on ${u.hostname} (retry ${retryCount + 1}/3). Backing off for ${(totalWaitMs / 1000).toFixed(1)}s (incl. jitter)... [server=${server || 'unknown'}, retry-after=${retryAfter || 'none'}, cf-ray=${cfRay || 'none'}]`);
                 if (!resolved) {
                     resolved = true;
-                    sleep(waitSec * 1000).then(() => {
+                    sleep(totalWaitMs).then(() => {
                         return fetchHtml(url, redirectCount, newCookies, retryCount + 1);
                     }).then(resolve).catch(reject);
                 }
@@ -798,7 +829,7 @@ async function fetchShopifyStore(baseUrl, query, gameName, currencySymbol = '$',
 
     for (let qi = 0; qi < queries.length; qi++) {
         if (qi > 0) {
-            await sleep(350);
+            await sleep(500);
         }
         const q = queries[qi];
         const suggestUrl = `${baseUrl}/search/suggest.json?q=${encodeURIComponent(q)}&resources[type]=product${countryParam}`;
@@ -812,6 +843,7 @@ async function fetchShopifyStore(baseUrl, query, gameName, currencySymbol = '$',
                     let priceVal = match.price;
                     if (baseUrl.includes('zatu.com') && match.handle) {
                         try {
+                            await sleep(350);
                             const prodData = await fetchJson(`${baseUrl}/products/${match.handle}.json`, 0, customHeaders);
                             if (prodData?.product?.variants?.[0]?.price) {
                                 priceVal = prodData.product.variants[0].price;
@@ -1574,6 +1606,18 @@ function getStoreConfigs(skippedSellers = []) {
     };
 }
 
+// Populate KNOWN_SHOPIFY_HOSTS dynamically from store configurations
+try {
+    const initialConfigs = getStoreConfigs();
+    for (const config of Object.values(initialConfigs)) {
+        if (config.type === 'shopify' && config.baseUrl) {
+            try {
+                KNOWN_SHOPIFY_HOSTS.add(new URL(config.baseUrl).hostname);
+            } catch (_) {}
+        }
+    }
+} catch (_) {}
+
 async function checkAvailability() {
     console.log(`Starting ${isLikeToHave ? 'like to have games' : 'board game'} availability check...`);
     if (!fs.existsSync(COLLECTION_FILE)) {
@@ -1683,9 +1727,9 @@ async function checkAvailability() {
         const query = cleanName(game.name);
 
         const availability = {};
-        const fetchPromises = [];
         const skippedStores = [];
-        let shopifyStoreIndex = 0;
+        const shopifyStoreKeys = [];
+        const nonShopifyStoreKeys = [];
 
         for (const storeKey of storeKeys) {
             // For games that are "Want in Trade" only (not "Want to Buy"), check stock ONLY in bggMarket
@@ -1735,117 +1779,136 @@ async function checkAvailability() {
                 };
             } else {
                 runStats.storesChecked++;
-                const staggerDelay = config.type === 'shopify' ? (shopifyStoreIndex++ * 150) : 0;
-                const fetchPromise = (async () => {
-                    if (staggerDelay > 0) {
-                        await sleep(staggerDelay);
-                    }
-                    try {
-                        let resultObj = null;
-
-                        if (config.type === 'shopify') {
-                            resultObj = await fetchShopifyStore(
-                                config.baseUrl,
-                                query,
-                                game.name,
-                                config.currencySymbol || '$',
-                                config.country || 'CA',
-                                config.currency || 'CAD'
-                            );
-                        } else if (config.type === 'custom' && typeof config.checker === 'function') {
-                            resultObj = await config.checker(game, existingStoreData);
-                        } else {
-                            const targetUrl = typeof config.url === 'function' ? await config.url(game, query) : config.url;
-                            if (!targetUrl) {
-                                resultObj = { available: false, price: null, url: null };
-                            } else if (config.type === 'puppeteer') {
-                                const pResult = await fetchAmazonWithPuppeteer(game.name);
-                                resultObj = pResult || { available: false, price: null, url: targetUrl };
-                            } else {
-                                const res = config.type === 'json' 
-                                    ? await fetchJson(targetUrl)
-                                    : await fetchHtml(targetUrl);
-
-                                if (res === null) {
-                                    throw new Error(`Fetch returned null (timeout/error)`);
-                                }
-                                resultObj = config.parser(res, game.name, targetUrl, existingStoreData);
-                            }
-                        }
-
-                        if (resultObj) {
-                            let available = Boolean(resultObj.available);
-                            let price = resultObj.price ?? null;
-                            let url = resultObj.url ?? null;
-                            let listings = resultObj.listings;
-
-                            if (available && isPriceUnderThreshold(price)) {
-                                available = false;
-                            }
-
-                            if (Array.isArray(listings)) {
-                                listings = listings.map(l => {
-                                    if (isPriceUnderThreshold(l.price)) return { ...l, ignored: true };
-                                    return l;
-                                });
-                                const activeListings = listings.filter(l => !l.ignored);
-                                if (activeListings.length === 0) available = false;
-                            }
-
-                            const { baselinePrice, deal } = computeDealInfo(price, url, available, existingStoreData);
-
-                            availability[storeKey] = {
-                                available,
-                                price,
-                                baselinePrice: baselinePrice ?? null,
-                                ...(deal ? { deal } : {}),
-                                url,
-                                ...(listings ? { listings } : {}),
-                                lastChecked: new Date().toISOString(),
-                                lastCheckSuccess: true
-                            };
-                        } else {
-                            availability[storeKey] = {
-                                available: false,
-                                price: null,
-                                baselinePrice: existingStoreData?.baselinePrice ?? null,
-                                url: null,
-                                lastChecked: new Date().toISOString(),
-                                lastCheckSuccess: true
-                            };
-                        }
-                    } catch (err) {
-                        runStats.recordFailure(storeKey, err.message);
-                        let available = existingStoreData?.available ?? false;
-                        if (available && isPriceUnderThreshold(existingStoreData?.price)) {
-                            available = false;
-                        }
-                        availability[storeKey] = {
-                            available,
-                            price: existingStoreData?.price ?? null,
-                            baselinePrice: existingStoreData?.baselinePrice ?? null,
-                            ...(existingStoreData?.deal ? { deal: existingStoreData.deal } : {}),
-                            url: existingStoreData?.url ?? null,
-                            ...(existingStoreData?.listings ? { listings: existingStoreData.listings } : {}),
-                            lastChecked: existingStoreData?.lastChecked ?? null,
-                            lastCheckSuccess: false
-                        };
-                    }
-                })();
-                fetchPromises.push(fetchPromise);
+                if (config.type === 'shopify') {
+                    shopifyStoreKeys.push(storeKey);
+                } else {
+                    nonShopifyStoreKeys.push(storeKey);
+                }
             }
         }
+
+        const totalStoresToCheck = shopifyStoreKeys.length + nonShopifyStoreKeys.length;
 
         if (game.isWantInTrade && !game.isWantToBuy) {
             console.log(`[${i+1}/${wantedGames.length}] "${game.name}" (Want in Trade only): Checking BGG Market only...`);
         } else if (skippedStores.length > 0) {
-            console.log(`[${i+1}/${wantedGames.length}] "${game.name}": skipped ${skippedStores.length} stores checked within 6 hours. Checking remaining ${fetchPromises.length} stores...`);
+            console.log(`[${i+1}/${wantedGames.length}] "${game.name}": skipped ${skippedStores.length} stores checked within 6 hours. Checking remaining ${totalStoresToCheck} stores (${shopifyStoreKeys.length} Shopify, ${nonShopifyStoreKeys.length} others)...`);
         } else {
-            console.log(`[${i+1}/${wantedGames.length}] "${game.name}": Checking all ${storeKeys.length} stores...`);
+            console.log(`[${i+1}/${wantedGames.length}] "${game.name}": Checking all ${storeKeys.length} stores (${shopifyStoreKeys.length} Shopify, ${nonShopifyStoreKeys.length} others)...`);
         }
 
-        if (fetchPromises.length > 0) {
-            await Promise.all(fetchPromises);
+        const checkStore = async (storeKey) => {
+            const config = storeConfigs[storeKey];
+            const existingStoreData = existingData[game.objectId]?.[storeKey];
+            try {
+                let resultObj = null;
+
+                if (config.type === 'shopify') {
+                    resultObj = await fetchShopifyStore(
+                        config.baseUrl,
+                        query,
+                        game.name,
+                        config.currencySymbol || '$',
+                        config.country || 'CA',
+                        config.currency || 'CAD'
+                    );
+                } else if (config.type === 'custom' && typeof config.checker === 'function') {
+                    resultObj = await config.checker(game, existingStoreData);
+                } else {
+                    const targetUrl = typeof config.url === 'function' ? await config.url(game, query) : config.url;
+                    if (!targetUrl) {
+                        resultObj = { available: false, price: null, url: null };
+                    } else if (config.type === 'puppeteer') {
+                        const pResult = await fetchAmazonWithPuppeteer(game.name);
+                        resultObj = pResult || { available: false, price: null, url: targetUrl };
+                    } else {
+                        const res = config.type === 'json' 
+                            ? await fetchJson(targetUrl)
+                            : await fetchHtml(targetUrl);
+
+                        if (res === null) {
+                            throw new Error(`Fetch returned null (timeout/error)`);
+                        }
+                        resultObj = config.parser(res, game.name, targetUrl, existingStoreData);
+                    }
+                }
+
+                if (resultObj) {
+                    let available = Boolean(resultObj.available);
+                    let price = resultObj.price ?? null;
+                    let url = resultObj.url ?? null;
+                    let listings = resultObj.listings;
+
+                    if (available && isPriceUnderThreshold(price)) {
+                        available = false;
+                    }
+
+                    if (Array.isArray(listings)) {
+                        listings = listings.map(l => {
+                            if (isPriceUnderThreshold(l.price)) return { ...l, ignored: true };
+                            return l;
+                        });
+                        const activeListings = listings.filter(l => !l.ignored);
+                        if (activeListings.length === 0) available = false;
+                    }
+
+                    const { baselinePrice, deal } = computeDealInfo(price, url, available, existingStoreData);
+
+                    availability[storeKey] = {
+                        available,
+                        price,
+                        baselinePrice: baselinePrice ?? null,
+                        ...(deal ? { deal } : {}),
+                        url,
+                        ...(listings ? { listings } : {}),
+                        lastChecked: new Date().toISOString(),
+                        lastCheckSuccess: true
+                    };
+                } else {
+                    availability[storeKey] = {
+                        available: false,
+                        price: null,
+                        baselinePrice: existingStoreData?.baselinePrice ?? null,
+                        url: null,
+                        lastChecked: new Date().toISOString(),
+                        lastCheckSuccess: true
+                    };
+                }
+            } catch (err) {
+                runStats.recordFailure(storeKey, err.message);
+                let available = existingStoreData?.available ?? false;
+                if (available && isPriceUnderThreshold(existingStoreData?.price)) {
+                    available = false;
+                }
+                availability[storeKey] = {
+                    available,
+                    price: existingStoreData?.price ?? null,
+                    baselinePrice: existingStoreData?.baselinePrice ?? null,
+                    ...(existingStoreData?.deal ? { deal: existingStoreData.deal } : {}),
+                    url: existingStoreData?.url ?? null,
+                    ...(existingStoreData?.listings ? { listings: existingStoreData.listings } : {}),
+                    lastChecked: existingStoreData?.lastChecked ?? null,
+                    lastCheckSuccess: false
+                };
+            }
+        };
+
+        const shopifyRunner = async () => {
+            for (let s = 0; s < shopifyStoreKeys.length; s++) {
+                if (s > 0) {
+                    await sleep(350);
+                }
+                await checkStore(shopifyStoreKeys[s]);
+            }
+        };
+
+        const nonShopifyPromises = nonShopifyStoreKeys.map(storeKey => checkStore(storeKey));
+
+        if (totalStoresToCheck > 0) {
+            await Promise.all([
+                Promise.all(nonShopifyPromises),
+                shopifyRunner()
+            ]);
         }
 
         availabilityData[game.objectId] = availability;
@@ -1858,7 +1921,7 @@ async function checkAvailability() {
         }
 
         // Politeness delay
-        if (fetchPromises.length > 0) {
+        if (totalStoresToCheck > 0) {
             await new Promise(r => setTimeout(r, POLITENESS_DELAY_MS));
         }
     }

@@ -114,8 +114,8 @@ jobs:
         run: |
           echo "Checking store availability for Want to Buy games..."
           node check-availability.js
-          echo "Pausing 15s before second pass retry..."
-          sleep 15
+          echo "Pausing 45s before second pass retry..."
+          sleep 45
           echo "Starting second pass retry for any failed/timed-out requests..."
           node check-availability.js
           echo "Sending stock alert notifications if changes found..."
@@ -152,12 +152,12 @@ jobs:
           ICLOUD_APP_PASSWORD: ${{ secrets.ICLOUD_APP_PASSWORD }}
           NOTIFICATION_EMAIL: ${{ secrets.NOTIFICATION_EMAIL }}
         run: |
-          echo "Pausing 30s before Like to Have checks to maintain healthy rate limits..."
-          sleep 30
+          echo "Pausing 45s before Like to Have checks to maintain healthy rate limits..."
+          sleep 45
           echo "Checking store availability for Like to Have games..."
           node check-availability.js --like-to-have
-          echo "Pausing 15s before second pass retry..."
-          sleep 15
+          echo "Pausing 45s before second pass retry..."
+          sleep 45
           echo "Starting second pass retry for any failed/timed-out requests..."
           node check-availability.js --like-to-have
           echo "Sending stock alert notifications if changes found..."
