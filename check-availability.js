@@ -223,7 +223,7 @@ const DEFAULT_HEADERS = {
     'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36',
     'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
     'Accept-Encoding': 'gzip, deflate, br',
-    'Accept-Language': 'en-US,en;q=0.9',
+    'Accept-Language': 'en-CA,en-US;q=0.9,en;q=0.8',
     'Sec-Ch-Ua': '"Chromium";v="128", "Not;A=Brand";v="24", "Google Chrome";v="128"',
     'Sec-Ch-Ua-Mobile': '?0',
     'Sec-Ch-Ua-Platform': '"macOS"',
@@ -782,7 +782,7 @@ function findBestShopifyMatch(products, gameName) {
     return products.find(p => isMatch(gameName, p)) || null;
 }
 
-async function fetchShopifyStore(baseUrl, query, gameName, currencySymbol = '$') {
+async function fetchShopifyStore(baseUrl, query, gameName, currencySymbol = '$', country = 'CA', currency = 'CAD') {
     const queries = [query];
     const aliases = GAME_ALIASES[gameName] || GAME_ALIASES[cleanName(gameName)] || [];
     for (const a of aliases) {
@@ -790,14 +790,19 @@ async function fetchShopifyStore(baseUrl, query, gameName, currencySymbol = '$')
     }
 
     let hadSuccessfulResponse = false;
+    const countryParam = country ? `&country=${encodeURIComponent(country)}` : '';
+    const customHeaders = {};
+    if (country && currency) {
+        customHeaders['Cookie'] = `localization=${country}; cart_currency=${currency}`;
+    }
 
     for (let qi = 0; qi < queries.length; qi++) {
         if (qi > 0) {
             await sleep(350);
         }
         const q = queries[qi];
-        const suggestUrl = `${baseUrl}/search/suggest.json?q=${encodeURIComponent(q)}&resources[type]=product`;
-        const suggestRes = await fetchJson(suggestUrl);
+        const suggestUrl = `${baseUrl}/search/suggest.json?q=${encodeURIComponent(q)}&resources[type]=product${countryParam}`;
+        const suggestRes = await fetchJson(suggestUrl, 0, customHeaders);
         
         if (suggestRes !== null) {
             hadSuccessfulResponse = true;
@@ -807,7 +812,7 @@ async function fetchShopifyStore(baseUrl, query, gameName, currencySymbol = '$')
                     let priceVal = match.price;
                     if (baseUrl.includes('zatu.com') && match.handle) {
                         try {
-                            const prodData = await fetchJson(`${baseUrl}/products/${match.handle}.json`);
+                            const prodData = await fetchJson(`${baseUrl}/products/${match.handle}.json`, 0, customHeaders);
                             if (prodData?.product?.variants?.[0]?.price) {
                                 priceVal = prodData.product.variants[0].price;
                             }
@@ -1327,22 +1332,30 @@ function getStoreConfigs(skippedSellers = []) {
         boardGameBliss: {
             type: 'shopify',
             baseUrl: 'https://www.boardgamebliss.com',
-            currencySymbol: '$'
+            currencySymbol: '$',
+            country: 'CA',
+            currency: 'CAD'
         },
         fourZeroOneGames: {
             type: 'shopify',
             baseUrl: 'https://store.401games.ca',
-            currencySymbol: '$'
+            currencySymbol: '$',
+            country: 'CA',
+            currency: 'CAD'
         },
         lvlUpGames: {
             type: 'shopify',
             baseUrl: 'https://www.lvlupgames.ca',
-            currencySymbol: '$'
+            currencySymbol: '$',
+            country: 'CA',
+            currency: 'CAD'
         },
         asDesJeux: {
             type: 'shopify',
             baseUrl: 'https://www.asdesjeux.com',
-            currencySymbol: '$'
+            currencySymbol: '$',
+            country: 'CA',
+            currency: 'CAD'
         },
         greatBoardgames: {
             type: 'html',
@@ -1411,7 +1424,9 @@ function getStoreConfigs(skippedSellers = []) {
         theGameSteward: {
             type: 'shopify',
             baseUrl: 'https://thegamesteward.com',
-            currencySymbol: '$'
+            currencySymbol: '$',
+            country: 'US',
+            currency: 'USD'
         },
         amazonCa: {
             type: 'puppeteer',
@@ -1421,7 +1436,9 @@ function getStoreConfigs(skippedSellers = []) {
         woodForSheep: {
             type: 'shopify',
             baseUrl: 'https://www.woodforsheep.ca',
-            currencySymbol: '$'
+            currencySymbol: '$',
+            country: 'CA',
+            currency: 'CAD'
         },
         jjCards: {
             type: 'html',
@@ -1471,17 +1488,23 @@ function getStoreConfigs(skippedSellers = []) {
         screenFreeGames: {
             type: 'shopify',
             baseUrl: 'https://screenfreegames.com',
-            currencySymbol: '$'
+            currencySymbol: '$',
+            country: 'CA',
+            currency: 'CAD'
         },
         allSystemsGo: {
             type: 'shopify',
             baseUrl: 'https://allsystemsgo.games',
-            currencySymbol: '$'
+            currencySymbol: '$',
+            country: 'CA',
+            currency: 'CAD'
         },
         tabletopCafe: {
             type: 'shopify',
             baseUrl: 'https://www.tabletopcafe.ca',
-            currencySymbol: '$'
+            currencySymbol: '$',
+            country: 'CA',
+            currency: 'CAD'
         },
         elevatedBoardGames: {
             type: 'html',
@@ -1491,27 +1514,37 @@ function getStoreConfigs(skippedSellers = []) {
         diceHollow: {
             type: 'shopify',
             baseUrl: 'https://www.dicehollow.com',
-            currencySymbol: '$'
+            currencySymbol: '$',
+            country: 'CA',
+            currency: 'CAD'
         },
         laPioche: {
             type: 'shopify',
             baseUrl: 'https://boutiquelapioche.com',
-            currencySymbol: '$'
+            currencySymbol: '$',
+            country: 'CA',
+            currency: 'CAD'
         },
         alwaysGames: {
             type: 'shopify',
             baseUrl: 'https://alwaysgames.ca',
-            currencySymbol: '$'
+            currencySymbol: '$',
+            country: 'CA',
+            currency: 'CAD'
         },
         legendsWarehouse: {
             type: 'shopify',
             baseUrl: 'https://legendswarehouse.ca',
-            currencySymbol: '$'
+            currencySymbol: '$',
+            country: 'CA',
+            currency: 'CAD'
         },
         boardGameBandit: {
             type: 'shopify',
             baseUrl: 'https://boardgamebandit.ca',
-            currencySymbol: '$'
+            currencySymbol: '$',
+            country: 'CA',
+            currency: 'CAD'
         },
         crowdfinder: {
             type: 'custom',
@@ -1528,7 +1561,9 @@ function getStoreConfigs(skippedSellers = []) {
         zatu: {
             type: 'shopify',
             baseUrl: 'https://zatu.com',
-            currencySymbol: '£'
+            currencySymbol: '£',
+            country: 'GB',
+            currency: 'GBP'
         },
         philibert: {
             type: 'custom',
@@ -1772,7 +1807,14 @@ async function checkAvailability() {
                         let resultObj = null;
 
                         if (config.type === 'shopify') {
-                            resultObj = await fetchShopifyStore(config.baseUrl, query, game.name, config.currencySymbol || '$');
+                            resultObj = await fetchShopifyStore(
+                                config.baseUrl,
+                                query,
+                                game.name,
+                                config.currencySymbol || '$',
+                                config.country || 'CA',
+                                config.currency || 'CAD'
+                            );
                         } else if (config.type === 'custom' && typeof config.checker === 'function') {
                             resultObj = await config.checker(game, existingStoreData);
                         } else {
