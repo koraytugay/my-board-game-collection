@@ -270,7 +270,6 @@ const STORES = [
     { key: 'zatu', name: '🇬🇧 Zatu Games', url: 'https://zatu.com' },
     { key: 'chaosCards', name: '🇬🇧 Chaos Cards', url: 'https://www.chaoscards.co.uk' },
     { key: 'philibert', name: '🇫🇷 Philibert', url: 'https://www.philibertnet.com' },
-    { key: 'crowdfinder', name: '🇧🇪 Crowdfinder', url: 'https://www.crowdfinder.be' },
     { key: 'bggMarket', name: 'BGG Market', url: 'https://boardgamegeek.com/market' }
 ];
 
@@ -286,7 +285,7 @@ function formatPrice(price, storeKey = null) {
     if (isNaN(num)) return str;
 
     let cadPrice;
-    if (str.includes('€') || /\bEUR\b/i.test(str) || storeKey === 'philibert' || storeKey === 'crowdfinder') {
+    if (str.includes('€') || /\bEUR\b/i.test(str) || storeKey === 'philibert') {
         cadPrice = num * 1.65;
     } else if (str.includes('£') || /\bGBP\b/i.test(str) || storeKey === 'zatu' || storeKey === 'chaosCards') {
         cadPrice = num * 1.90;

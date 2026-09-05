@@ -34,7 +34,6 @@ const STORE_META = {
     zatu: { name: 'Zatu Games', icon: '🇬🇧' },
     chaosCards: { name: 'Chaos Cards', icon: '🇬🇧' },
     philibert: { name: 'Philibert', icon: '🇫🇷' },
-    crowdfinder: { name: 'Crowdfinder', icon: '🇧🇪' },
     bggMarket: { name: 'BGG Market', icon: '🏷️' }
 };
 
@@ -146,7 +145,7 @@ function formatPrice(price, storeKey = null) {
     if (isNaN(num)) return str;
 
     let cadPrice;
-    if (str.includes('€') || /\bEUR\b/i.test(str) || storeKey === 'philibert' || storeKey === 'crowdfinder') {
+    if (str.includes('€') || /\bEUR\b/i.test(str) || storeKey === 'philibert') {
         cadPrice = num * 1.65;
     } else if (str.includes('£') || /\bGBP\b/i.test(str) || storeKey === 'zatu' || storeKey === 'chaosCards') {
         cadPrice = num * 1.90;

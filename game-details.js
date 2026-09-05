@@ -250,8 +250,7 @@ async function showGameDetails(objectId) {
             boardGameBandit: '🇨🇦 Board Game Bandit',
             zatu: '🇬🇧 Zatu Games',
             chaosCards: '🇬🇧 Chaos Cards',
-            philibert: '🇫🇷 Philibert',
-            crowdfinder: '🇧🇪 Crowdfinder'
+            philibert: '🇫🇷 Philibert'
         };
 
         Object.keys(storeNames).forEach(key => {

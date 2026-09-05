@@ -1153,64 +1153,7 @@ function fetchJsonPost(url, postData, customHeaders = {}) {
         req.end();
     });
 }
-
-function isMatchCrowdfinder(bggName, product) {
-    const title = decodeXmlEntities(product.name || '');
-    const cleanBgg = cleanName(bggName);
-    const normalize = str => str.toLowerCase().replace(/[^a-z0-9]/g, '');
-    const nBgg = normalize(cleanBgg);
-    const nTitle = normalize(title);
-
-    const disallowedKeywords = ['promo', 'expansion', 'extension', 'insert', 'organizer', 'playmat', 'sleeves', 'upgrade', 'mug', 'kids', 'mini-expansion', 'mat', 'tokens', 'coins'];
-    for (const kw of disallowedKeywords) {
-        if (title.toLowerCase().includes(kw) && !cleanBgg.toLowerCase().includes(kw)) {
-            return false;
-        }
-    }
-
-    if (nBgg === nTitle) return true;
-
-    const wordsBgg = cleanBgg.toLowerCase().split(/\s+/).filter(Boolean);
-    const wordsTitle = title.toLowerCase().split(/\s+/).filter(Boolean);
-
-    if (wordsBgg.length === 1 && wordsTitle.length > 1) {
-        return normalize(wordsBgg[0]) === normalize(wordsTitle[0]);
-    }
-
-    const allWordsPresent = wordsBgg.every(wb => wordsTitle.some(wt => wt === wb || normalize(wt) === normalize(wb)));
-    if (!allWordsPresent) return false;
-
-    return true;
-}
-
-async function checkCrowdfinderStock(gameName) {
-    try {
-        const q = cleanName(gameName);
-        const postData = JSON.stringify({ search: q });
-        const res = await fetchJsonPost('https://www.crowdfinder.be/api/crowdfinder/product', postData);
-        if (res === null) {
-            throw new Error(`Failed to fetch Crowdfinder API for ${gameName}`);
-        }
-        const products = res?.data || [];
-        if (!products.length) return { available: false, price: null, url: null };
-        const match = products.find(p => isMatchCrowdfinder(gameName, p));
-        if (match) {
-            const priceNum = match.reduced_price || match.price;
-            if (isPriceUnderThreshold(priceNum)) return { available: false, price: null, url: null };
-            const slug = (match.name || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
-            return {
-                available: (match.stock > 0),
-                price: priceNum ? `€${Number(priceNum).toFixed(2)}` : null,
-                url: `https://www.crowdfinder.be/product/${match.id}-${slug}`
-            };
-        }
-        return { available: false, price: null, url: null };
-    } catch (err) {
-        throw err;
-    }
-}
-
-
+ 
 async function checkChaosCardsStock(gameName) {
     const browser = await getBrowserInstance();
     if (!browser) throw new Error(`Puppeteer browser not available for Chaos Cards`);
@@ -1545,12 +1488,6 @@ function getStoreConfigs(skippedSellers = []) {
             currencySymbol: '$',
             country: 'CA',
             currency: 'CAD'
-        },
-        crowdfinder: {
-            type: 'custom',
-            checker: async (game, existingStoreData) => {
-                return await checkCrowdfinderStock(game.name);
-            }
         },
         chaosCards: {
             type: 'custom',

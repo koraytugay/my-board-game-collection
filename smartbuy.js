@@ -28,7 +28,7 @@ function getNumericCadPrice(price, storeKey = null) {
     const num = parseFloat(match[0]);
     if (isNaN(num)) return 0;
 
-    if (str.includes('€') || /\bEUR\b/i.test(str) || storeKey === 'philibert' || storeKey === 'crowdfinder') {
+    if (str.includes('€') || /\bEUR\b/i.test(str) || storeKey === 'philibert') {
         return num * 1.65;
     } else if (str.includes('£') || /\bGBP\b/i.test(str) || storeKey === 'zatu' || storeKey === 'chaosCards') {
         return num * 1.90;

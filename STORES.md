@@ -33,7 +33,6 @@ United Kingdom & Europe:
 - Zatu Games: https://zatu.com (Shopify)
 - Chaos Cards: https://www.chaoscards.co.uk (Custom)
 - Philibert: https://www.philibertnet.com (Custom)
-- Crowdfinder: https://www.crowdfinder.be (Custom)
 
 Marketplace:
 - BGG Market: https://boardgamegeek.com/market (BGG Geekdo API)
@@ -52,9 +51,11 @@ The following stores were evaluated, tracked, and permanently removed due to hav
 4. **Button Shy Games (Etsy)** (https://www.etsy.com/shop/ButtonShyGames - 🇺🇸)
    - Reason: Requires Etsy API key which is fragile with strict limits, and the store only produces their own wallet line (which is already covered by BGG Market or direct).
 5. **Spelspul** (https://www.spelspul.nl - 🇳🇱)
-   - Reason: 0 games in stock / not listed. European shipping is already covered much better by Philibert, Zatu, and Crowdfinder.
+   - Reason: 0 games in stock / not listed. European shipping is already covered much better by Philibert and Zatu.
 6. **Limolin** (https://www.limolin.com - 🇨🇦)
    - Reason: 0 games in stock / not carried (0/24). A general home, kitchenware, and baby goods retailer with only ~10 mass-market games on the entire site. Triggers false matches on home decor (e.g., "Blink Wall Clock").
+7. **Crowdfinder** (https://www.crowdfinder.be - 🇧🇪)
+   - Reason: Does not ship to Canada. Tracked inventory is not purchasable for Canadian delivery. Never add back.
 
 
 ## Candidate Stores (To Add / Remove Later)
