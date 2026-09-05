@@ -3,6 +3,7 @@
 let allStoreGroups = [];
 let filteredStoreGroups = [];
 let storeSelections = {}; // { storeKey: Set(gameRowKeys) }
+let storeSortStates = {}; // { storeKey: { column, direction } }
 
 
 
@@ -120,6 +121,7 @@ async function fetchSmartBuyData() {
                 allStoreGroups.push({
                     key: storeKey,
                     name: storeDef.name,
+                    url: storeDef.url || '#',
                     games: storeGames
                 });
             }
@@ -210,20 +212,20 @@ function renderStoreCard(group) {
     card.className = 'smartbuy-store-card';
     card.id = `store-${storeKey}`;
 
-    // Header HTML: only store name and calculated total
+    // Header HTML: store name as link and calculated total
+    const storeUrl = group.url || '#';
     const headerHtml = `
         <div class="store-card-header">
-            <span class="store-name">${escapeHtml(group.name)}</span>
+            <a href="${escapeHtml(storeUrl)}" target="_blank" rel="noopener noreferrer" class="store-name">${escapeHtml(group.name)}</a>
             <span class="total-amount" id="total-amount-${storeKey}">$${totalCad.toFixed(2)} CAD</span>
         </div>
     `;
 
     // Playlist Table HTML
     let rowsHtml = '';
-    games.forEach((item, index) => {
+    games.forEach(item => {
         const isSelected = selSet.has(item.rowKey);
         const game = item.game;
-        const rowIndex = index + 1;
 
         // List tag badges
         let tagBadges = '';
@@ -236,7 +238,6 @@ function renderStoreCard(group) {
             ? game.designers.join(', ')
             : '';
         const yearStr = game.yearPublished && game.yearPublished !== 'N/A' ? game.yearPublished : '';
-        const subInfoParts = [yearStr, designersStr].filter(Boolean).join(' • ');
 
         // Deal tag
         let dealHtml = '';
@@ -244,11 +245,8 @@ function renderStoreCard(group) {
             dealHtml = `<span class="row-deal-badge">-${item.deal.discountPercent}%</span>`;
         }
 
-        // Stats string
-        const statsStr = `⭐ ${game.rating ? game.rating.toFixed(1) : 'N/A'} · 👥 ${game.minPlayers}-${game.maxPlayers}${game.playingTime ? ` · ⏱️ ${game.playingTime}m` : ''}`;
-
         rowsHtml += `
-            <tr class="playlist-row ${isSelected ? '' : 'is-unselected'}" id="row-${item.rowKey}" data-store="${storeKey}" data-key="${item.rowKey}">
+            <tr class="playlist-row ${isSelected ? '' : 'is-unselected'}" id="row-${item.rowKey}" data-store="${storeKey}" data-key="${item.rowKey}" onclick="onRowClicked('${storeKey}', '${item.rowKey}', event)">
                 <td class="td-checkbox">
                     <input type="checkbox" 
                         class="playlist-checkbox" 
@@ -256,7 +254,6 @@ function renderStoreCard(group) {
                         ${isSelected ? 'checked' : ''} 
                         onchange="onGameCheckboxChanged('${storeKey}', '${item.rowKey}', this.checked)">
                 </td>
-                <td class="td-index">${rowIndex}</td>
                 <td class="td-title">
                     <div class="game-title-container">
                         <img src="${game.thumbnail || game.image || 'https://via.placeholder.com/38?text=No+Img'}" 
@@ -265,25 +262,20 @@ function renderStoreCard(group) {
                             loading="lazy" 
                             onclick="typeof showGameDetails === 'function' ? showGameDetails('${game.objectId}') : window.open('https://boardgamegeek.com/boardgame/${game.objectId}', '_blank')"
                             title="Click to view details for ${escapeHtml(game.name)}">
-                        <div class="game-text-details">
-                            <div class="game-title-badges-row">
-                                <a href="javascript:void(0)" 
-                                    class="game-row-title" 
-                                    onclick="typeof showGameDetails === 'function' ? showGameDetails('${game.objectId}') : window.open('https://boardgamegeek.com/boardgame/${game.objectId}', '_blank')"
-                                    title="${escapeHtml(game.name)}">
-                                    ${escapeHtml(game.name)}
-                                </a>
-                                ${tagBadges}
-                            </div>
-                            <div class="game-subinfo" title="${escapeHtml(subInfoParts)}">${escapeHtml(subInfoParts)}</div>
-                        </div>
+                        <a href="javascript:void(0)" 
+                            class="game-row-title" 
+                            onclick="typeof showGameDetails === 'function' ? showGameDetails('${game.objectId}') : window.open('https://boardgamegeek.com/boardgame/${game.objectId}', '_blank')"
+                            title="${escapeHtml(game.name)}">
+                            ${escapeHtml(game.name)}
+                        </a>
                     </div>
                 </td>
-                <td class="td-stats">${escapeHtml(statsStr)}</td>
+                <td class="td-year">${escapeHtml(yearStr || '—')}</td>
+                <td class="td-designers" title="${escapeHtml(designersStr)}">${escapeHtml(designersStr || '—')}</td>
+                <td class="td-list">${tagBadges || '—'}</td>
                 <td class="td-price">
                     <div class="price-container">
                         <span class="price-cad" id="price-cad-${item.rowKey}">$${(item.cadPrice || 0).toFixed(2)} CAD</span>
-                        ${item.rawPrice && item.rawPrice !== item.formattedCadPrice ? `<span class="price-orig">(${escapeHtml(item.rawPrice)})</span>` : ''}
                         ${dealHtml}
                     </div>
                 </td>
@@ -309,10 +301,19 @@ function renderStoreCard(group) {
                                 onchange="toggleSelectAllForStore('${storeKey}', this.checked)"
                                 title="Toggle all games for this store">
                         </th>
-                        <th class="col-index">#</th>
-                        <th class="col-title">Game</th>
-                        <th class="col-stats">Details</th>
-                        <th class="col-price">Price</th>
+                        <th class="col-title sortable" id="th-${storeKey}-game" onclick="sortStoreTable('${storeKey}', 'game')" title="Sort by Game">
+                            Game<span class="sort-arrow" id="sort-arrow-${storeKey}-game"></span>
+                        </th>
+                        <th class="col-year sortable" id="th-${storeKey}-year" onclick="sortStoreTable('${storeKey}', 'year')" title="Sort by Year">
+                            Year<span class="sort-arrow" id="sort-arrow-${storeKey}-year"></span>
+                        </th>
+                        <th class="col-designers">Designers</th>
+                        <th class="col-list sortable" id="th-${storeKey}-list" onclick="sortStoreTable('${storeKey}', 'list')" title="Sort by List">
+                            List<span class="sort-arrow" id="sort-arrow-${storeKey}-list"></span>
+                        </th>
+                        <th class="col-price sortable" id="th-${storeKey}-price" onclick="sortStoreTable('${storeKey}', 'price')" title="Sort by Price">
+                            Price<span class="sort-arrow" id="sort-arrow-${storeKey}-price"></span>
+                        </th>
                         <th class="col-action">Link</th>
                     </tr>
                 </thead>
@@ -325,6 +326,19 @@ function renderStoreCard(group) {
 
     card.innerHTML = headerHtml + tableHtml;
     return card;
+}
+ 
+function onRowClicked(storeKey, rowKey, event) {
+    // If clicked on an interactive element (link, checkbox, button, thumbnail), let its own handler handle it
+    if (event && event.target && event.target.closest('a, input, button, .game-cover-art')) {
+        return;
+    }
+
+    const chk = document.getElementById(`chk-${rowKey}`);
+    if (chk) {
+        chk.checked = !chk.checked;
+        onGameCheckboxChanged(storeKey, rowKey, chk.checked);
+    }
 }
 
 function onGameCheckboxChanged(storeKey, rowKey, isChecked) {
@@ -405,6 +419,93 @@ function updateStoreHeaderTotal(storeKey) {
         headerChk.checked = selectedCount === games.length && games.length > 0;
         headerChk.indeterminate = selectedCount > 0 && selectedCount < games.length;
     }
+}
+
+function getListRank(game) {
+    if (game.isWantToBuy) return 1;
+    if (game.isLikeToHave) return 2;
+    if (game.isWantInTrade) return 3;
+    return 4;
+}
+
+function sortStoreTable(storeKey, column) {
+    const group = allStoreGroups.find(g => g.key === storeKey);
+    if (!group || !group.games || group.games.length === 0) return;
+
+    if (!storeSortStates[storeKey]) {
+        storeSortStates[storeKey] = { column: null, direction: null };
+    }
+    const current = storeSortStates[storeKey];
+
+    let direction = 'asc';
+    if (current.column === column) {
+        direction = current.direction === 'asc' ? 'desc' : 'asc';
+    } else {
+        if (column === 'year') {
+            direction = 'desc';
+        } else {
+            direction = 'asc';
+        }
+    }
+    storeSortStates[storeKey] = { column, direction };
+
+    group.games.sort((a, b) => {
+        if (column === 'game') {
+            const cmp = a.game.name.localeCompare(b.game.name, undefined, { sensitivity: 'base' });
+            return direction === 'asc' ? cmp : -cmp;
+        } else if (column === 'year') {
+            const yearA = parseInt(a.game.yearPublished) || 0;
+            const yearB = parseInt(b.game.yearPublished) || 0;
+            if (yearA === 0 && yearB !== 0) return 1;
+            if (yearB === 0 && yearA !== 0) return -1;
+            if (yearA !== yearB) {
+                return direction === 'asc' ? yearA - yearB : yearB - yearA;
+            }
+            return a.game.name.localeCompare(b.game.name);
+        } else if (column === 'list') {
+            const rankA = getListRank(a.game);
+            const rankB = getListRank(b.game);
+            if (rankA !== rankB) {
+                return direction === 'asc' ? rankA - rankB : rankB - rankA;
+            }
+            return a.game.name.localeCompare(b.game.name);
+        } else if (column === 'price') {
+            const priceA = a.cadPrice || 0;
+            const priceB = b.cadPrice || 0;
+            if (priceA !== priceB) {
+                return direction === 'asc' ? priceA - priceB : priceB - priceA;
+            }
+            return a.game.name.localeCompare(b.game.name);
+        }
+        return 0;
+    });
+
+    // Reorder DOM rows in table tbody
+    const tbody = document.querySelector(`#store-${storeKey} .playlist-table tbody`);
+    if (tbody) {
+        group.games.forEach(item => {
+            const rowEl = document.getElementById(`row-${item.rowKey}`);
+            if (rowEl) {
+                tbody.appendChild(rowEl);
+            }
+        });
+    }
+
+    // Update sort arrows & active state on headers
+    const sortColumns = ['game', 'year', 'list', 'price'];
+    sortColumns.forEach(col => {
+        const thEl = document.getElementById(`th-${storeKey}-${col}`);
+        const arrowEl = document.getElementById(`sort-arrow-${storeKey}-${col}`);
+        if (!thEl || !arrowEl) return;
+
+        if (col === column) {
+            thEl.classList.add('active-sort');
+            arrowEl.textContent = direction === 'asc' ? ' ▲' : ' ▼';
+        } else {
+            thEl.classList.remove('active-sort');
+            arrowEl.textContent = '';
+        }
+    });
 }
 
 function toggleDarkMode(checked) {
