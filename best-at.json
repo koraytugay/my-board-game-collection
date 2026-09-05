@@ -75,19 +75,19 @@
     ],
     "lastUpdated": "2026-09-03T03:01:29.536Z"
   },
-  "88": {
-    "name": "Torres",
-    "bestAt": [
-      "4"
-    ],
-    "lastUpdated": "2026-09-03T03:05:37.531Z"
-  },
   "93": {
     "name": "El Grande",
     "bestAt": [
       "5"
     ],
     "lastUpdated": "2026-09-03T03:02:21.926Z"
+  },
+  "115": {
+    "name": "I'm the Boss!",
+    "bestAt": [
+      "6"
+    ],
+    "lastUpdated": "2026-09-05T18:21:54.239Z"
   },
   "118": {
     "name": "Modern Art",
@@ -124,28 +124,6 @@
       "2"
     ],
     "lastUpdated": "2026-09-03T03:04:59.637Z"
-  },
-  "201": {
-    "name": "The Rose King",
-    "bestAt": [
-      "2"
-    ],
-    "lastUpdated": "2026-09-03T03:06:23.824Z"
-  },
-  "215": {
-    "name": "Tichu",
-    "bestAt": [
-      "4"
-    ],
-    "lastUpdated": "2026-09-03T03:04:59.284Z"
-  },
-  "223": {
-    "name": "Expeditions: Around the World",
-    "bestAt": [
-      "3",
-      "4"
-    ],
-    "lastUpdated": "2026-09-03T03:06:13.259Z"
   },
   "320": {
     "name": "Scrabble",
@@ -198,6 +176,14 @@
       "2"
     ],
     "lastUpdated": "2026-09-03T03:04:35.209Z"
+  },
+  "634": {
+    "name": "River Dragons",
+    "bestAt": [
+      "4",
+      "6"
+    ],
+    "lastUpdated": "2026-09-05T18:21:55.857Z"
   },
   "681": {
     "name": "Quarto",
@@ -279,13 +265,12 @@
     ],
     "lastUpdated": "2026-09-03T03:01:18.017Z"
   },
-  "1294": {
-    "name": "Clue",
+  "1269": {
+    "name": "Skip-Bo",
     "bestAt": [
-      "4",
-      "5"
+      "4"
     ],
-    "lastUpdated": "2026-09-03T03:05:23.593Z"
+    "lastUpdated": "2026-09-05T18:21:53.778Z"
   },
   "1406": {
     "name": "Monopoly",
@@ -300,6 +285,13 @@
       "2"
     ],
     "lastUpdated": "2026-09-03T03:03:05.100Z"
+  },
+  "1961": {
+    "name": "5 Alive",
+    "bestAt": [
+      "5"
+    ],
+    "lastUpdated": "2026-09-05T18:21:55.240Z"
   },
   "2083": {
     "name": "Checkers",
@@ -446,6 +438,13 @@
     ],
     "lastUpdated": "2026-09-03T03:05:10.746Z"
   },
+  "4143": {
+    "name": "Guess Who?",
+    "bestAt": [
+      "2"
+    ],
+    "lastUpdated": "2026-09-05T18:22:09.553Z"
+  },
   "5782": {
     "name": "Coloretto",
     "bestAt": [
@@ -459,6 +458,42 @@
       "3"
     ],
     "lastUpdated": "2026-09-03T03:04:47.738Z"
+  },
+  "6411": {
+    "name": "Blokus 3D",
+    "bestAt": [
+      "4"
+    ],
+    "lastUpdated": "2026-09-05T18:22:09.128Z"
+  },
+  "7316": {
+    "name": "Bingo",
+    "bestAt": [
+      "3",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16",
+      "17",
+      "18",
+      "19",
+      "20",
+      "21",
+      "22",
+      "23",
+      "24",
+      "25",
+      "26",
+      "27",
+      "28",
+      "29",
+      "30",
+      "31"
+    ],
+    "lastUpdated": "2026-09-05T18:22:13.413Z"
   },
   "7803": {
     "name": "ONO 99",
@@ -497,6 +532,13 @@
     ],
     "lastUpdated": "2026-09-03T03:01:52.282Z"
   },
+  "11901": {
+    "name": "Tic-Tac-Toe",
+    "bestAt": [
+      "2"
+    ],
+    "lastUpdated": "2026-09-05T18:22:09.836Z"
+  },
   "11971": {
     "name": "Cockroach Poker",
     "bestAt": [
@@ -528,6 +570,13 @@
     ],
     "lastUpdated": "2026-09-03T03:04:03.310Z"
   },
+  "15817": {
+    "name": "Manila",
+    "bestAt": [
+      "4"
+    ],
+    "lastUpdated": "2026-09-05T18:21:57.127Z"
+  },
   "15818": {
     "name": "Pick-omino",
     "bestAt": [
@@ -542,6 +591,13 @@
       "2"
     ],
     "lastUpdated": "2026-09-03T03:06:27.699Z"
+  },
+  "16986": {
+    "name": "Ubongo",
+    "bestAt": [
+      "4"
+    ],
+    "lastUpdated": "2026-09-05T18:22:03.946Z"
   },
   "16992": {
     "name": "Tsuro",
@@ -611,19 +667,26 @@
     ],
     "lastUpdated": "2026-09-03T03:04:48.128Z"
   },
+  "28086": {
+    "name": "Age of War",
+    "bestAt": [
+      "3"
+    ],
+    "lastUpdated": "2026-09-05T18:21:51.512Z"
+  },
+  "29223": {
+    "name": "Marrakech",
+    "bestAt": [
+      "4"
+    ],
+    "lastUpdated": "2026-09-05T18:22:12.576Z"
+  },
   "30549": {
     "name": "Pandemic",
     "bestAt": [
       "4"
     ],
     "lastUpdated": "2026-09-03T03:04:05.013Z"
-  },
-  "31627": {
-    "name": "Ticket to Ride: Nordic Countries",
-    "bestAt": [
-      "3"
-    ],
-    "lastUpdated": "2026-09-03T03:06:21.325Z"
   },
   "34373": {
     "name": "Tiki Topple",
@@ -661,13 +724,6 @@
     ],
     "lastUpdated": "2026-09-03T03:03:27.377Z"
   },
-  "36553": {
-    "name": "Time's Up! Title Recall!",
-    "bestAt": [
-      "6"
-    ],
-    "lastUpdated": "2026-09-03T03:05:25.388Z"
-  },
   "40398": {
     "name": "Monopoly Deal Card Game",
     "bestAt": [
@@ -681,14 +737,6 @@
       "4"
     ],
     "lastUpdated": "2026-09-03T03:03:00.372Z"
-  },
-  "40793": {
-    "name": "Dice Town",
-    "bestAt": [
-      "4",
-      "5"
-    ],
-    "lastUpdated": "2026-09-03T03:06:00.119Z"
   },
   "42215": {
     "name": "Tobago",
@@ -753,13 +801,6 @@
       "4"
     ],
     "lastUpdated": "2026-09-03T03:02:15.966Z"
-  },
-  "67888": {
-    "name": "Lords of Scotland",
-    "bestAt": [
-      "3"
-    ],
-    "lastUpdated": "2026-09-03T03:05:43.057Z"
   },
   "70323": {
     "name": "King of Tokyo",
@@ -837,20 +878,20 @@
     ],
     "lastUpdated": "2026-09-03T03:04:32.558Z"
   },
-  "111148": {
-    "name": "Würfel Bohnanza",
-    "bestAt": [
-      "2",
-      "3"
-    ],
-    "lastUpdated": "2026-09-03T03:06:39.016Z"
-  },
   "112373": {
     "name": "BraveRats",
     "bestAt": [
       "2"
     ],
     "lastUpdated": "2026-09-03T03:01:01.546Z"
+  },
+  "113289": {
+    "name": "Snake Oil",
+    "bestAt": [
+      "5",
+      "6"
+    ],
+    "lastUpdated": "2026-09-05T18:22:10.172Z"
   },
   "117959": {
     "name": "Las Vegas",
@@ -896,20 +937,26 @@
     ],
     "lastUpdated": "2026-09-03T03:02:01.719Z"
   },
-  "123239": {
-    "name": "Wits & Wagers Party",
-    "bestAt": [
-      "5",
-      "6"
-    ],
-    "lastUpdated": "2026-09-03T03:06:09.030Z"
-  },
   "123540": {
     "name": "Tokaido",
     "bestAt": [
       "4"
     ],
     "lastUpdated": "2026-09-03T03:04:15.458Z"
+  },
+  "124361": {
+    "name": "Concordia",
+    "bestAt": [
+      "4"
+    ],
+    "lastUpdated": "2026-09-05T18:22:11.791Z"
+  },
+  "125311": {
+    "name": "Okiya",
+    "bestAt": [
+      "2"
+    ],
+    "lastUpdated": "2026-09-05T18:21:56.597Z"
   },
   "126163": {
     "name": "Tzolk'in: The Mayan Calendar",
@@ -925,6 +972,21 @@
       "8"
     ],
     "lastUpdated": "2026-09-03T03:04:17.054Z"
+  },
+  "129090": {
+    "name": "Roll For It!",
+    "bestAt": [
+      "4"
+    ],
+    "lastUpdated": "2026-09-05T18:21:52.594Z"
+  },
+  "129736": {
+    "name": "Cockroach Poker Royal",
+    "bestAt": [
+      "4",
+      "5"
+    ],
+    "lastUpdated": "2026-09-05T18:21:59.848Z"
   },
   "131260": {
     "name": "Qwixx",
@@ -969,14 +1031,6 @@
       "4"
     ],
     "lastUpdated": "2026-09-03T03:05:21.737Z"
-  },
-  "138016": {
-    "name": "WordARound",
-    "bestAt": [
-      "2",
-      "4"
-    ],
-    "lastUpdated": "2026-09-03T03:05:55.078Z"
   },
   "140934": {
     "name": "Arboretum",
@@ -1087,15 +1141,6 @@
       "2"
     ],
     "lastUpdated": "2026-09-03T03:06:08.292Z"
-  },
-  "155362": {
-    "name": "Ca$h 'n Guns: Second Edition",
-    "bestAt": [
-      "6",
-      "7",
-      "8"
-    ],
-    "lastUpdated": "2026-09-03T03:05:29.232Z"
   },
   "156009": {
     "name": "Port Royal",
@@ -1393,20 +1438,6 @@
     ],
     "lastUpdated": "2026-09-05T11:17:39.526Z"
   },
-  "187617": {
-    "name": "Nemo's War (Second Edition)",
-    "bestAt": [
-      "Solo"
-    ],
-    "lastUpdated": "2026-09-03T03:06:39.440Z"
-  },
-  "188465": {
-    "name": "Otrio",
-    "bestAt": [
-      "4"
-    ],
-    "lastUpdated": "2026-09-03T03:06:26.914Z"
-  },
   "188834": {
     "name": "Secret Hitler",
     "bestAt": [
@@ -1546,12 +1577,12 @@
     ],
     "lastUpdated": "2026-09-03T03:06:37.935Z"
   },
-  "200853": {
-    "name": "Habitats",
+  "200551": {
+    "name": "30 Rails",
     "bestAt": [
-      "3"
+      "Solo"
     ],
-    "lastUpdated": "2026-09-03T03:06:44.838Z"
+    "lastUpdated": "2026-09-05T18:22:08.049Z"
   },
   "201808": {
     "name": "Clank!: A Deck-Building Adventure",
@@ -1620,12 +1651,12 @@
     ],
     "lastUpdated": "2026-09-03T03:01:59.620Z"
   },
-  "205637": {
-    "name": "Arkham Horror: The Card Game",
+  "205597": {
+    "name": "Jump Drive",
     "bestAt": [
-      "2"
+      "3"
     ],
-    "lastUpdated": "2026-09-03T03:05:26.615Z"
+    "lastUpdated": "2026-09-05T18:21:58.818Z"
   },
   "206051": {
     "name": "Insider",
@@ -1677,6 +1708,13 @@
       "4"
     ],
     "lastUpdated": "2026-09-03T03:02:36.891Z"
+  },
+  "211534": {
+    "name": "Bears vs Babies",
+    "bestAt": [
+      "4"
+    ],
+    "lastUpdated": "2026-09-05T18:22:01.973Z"
   },
   "215311": {
     "name": "Downforce",
@@ -1760,6 +1798,14 @@
     ],
     "lastUpdated": "2026-09-03T03:02:47.712Z"
   },
+  "219215": {
+    "name": "Werewords",
+    "bestAt": [
+      "6",
+      "7"
+    ],
+    "lastUpdated": "2026-09-05T18:22:13.092Z"
+  },
   "219430": {
     "name": "Math Fluxx",
     "bestAt": [
@@ -1796,6 +1842,14 @@
       "3"
     ],
     "lastUpdated": "2026-09-03T03:01:10.531Z"
+  },
+  "223215": {
+    "name": "Flip Ships",
+    "bestAt": [
+      "3",
+      "4"
+    ],
+    "lastUpdated": "2026-09-05T18:22:03.661Z"
   },
   "223770": {
     "name": "Startups",
@@ -1890,12 +1944,12 @@
     ],
     "lastUpdated": "2026-09-03T03:03:25.720Z"
   },
-  "231748": {
-    "name": "Time Bomb Evolution",
+  "231696": {
+    "name": "Bob Ross: Art of Chill Game",
     "bestAt": [
-      "6"
+      "3"
     ],
-    "lastUpdated": "2026-09-05T11:17:39.028Z"
+    "lastUpdated": "2026-09-05T18:22:12.291Z"
   },
   "232043": {
     "name": "Queendomino",
@@ -1904,12 +1958,12 @@
     ],
     "lastUpdated": "2026-09-03T03:02:51.461Z"
   },
-  "233371": {
-    "name": "Clank! In! Space!: A Deck-Building Adventure",
+  "232661": {
+    "name": "Ada Lovelace: Consulting Mathematician",
     "bestAt": [
-      "3"
+      "Solo"
     ],
-    "lastUpdated": "2026-09-03T03:05:59.736Z"
+    "lastUpdated": "2026-09-05T18:22:15.728Z"
   },
   "233867": {
     "name": "Welcome To...",
@@ -1959,14 +2013,6 @@
     ],
     "lastUpdated": "2026-09-03T03:01:53.866Z"
   },
-  "241266": {
-    "name": "Little Town",
-    "bestAt": [
-      "3",
-      "4"
-    ],
-    "lastUpdated": "2026-09-03T03:05:47.872Z"
-  },
   "242302": {
     "name": "Space Base",
     "bestAt": [
@@ -1974,13 +2020,6 @@
       "4"
     ],
     "lastUpdated": "2026-09-03T03:04:16.017Z"
-  },
-  "242529": {
-    "name": "Medium",
-    "bestAt": [
-      "4"
-    ],
-    "lastUpdated": "2026-09-05T11:17:41.114Z"
   },
   "244228": {
     "name": "Reef",
@@ -2054,19 +2093,27 @@
     ],
     "lastUpdated": "2026-09-03T03:02:52.440Z"
   },
-  "246192": {
-    "name": "Gizmos",
-    "bestAt": [
-      "3"
-    ],
-    "lastUpdated": "2026-09-03T03:05:07.954Z"
-  },
   "246784": {
     "name": "Cryptid",
     "bestAt": [
       "4"
     ],
     "lastUpdated": "2026-09-03T03:04:08.899Z"
+  },
+  "247367": {
+    "name": "Air, Land, & Sea",
+    "bestAt": [
+      "2"
+    ],
+    "lastUpdated": "2026-09-05T18:22:08.334Z"
+  },
+  "248861": {
+    "name": "Metro X",
+    "bestAt": [
+      "Solo",
+      "2"
+    ],
+    "lastUpdated": "2026-09-05T18:22:03.086Z"
   },
   "251412": {
     "name": "On Tour",
@@ -2113,13 +2160,6 @@
     ],
     "lastUpdated": "2026-09-03T03:05:58.751Z"
   },
-  "254386": {
-    "name": "Raccoon Tycoon",
-    "bestAt": [
-      "4"
-    ],
-    "lastUpdated": "2026-09-03T16:42:34.492Z"
-  },
   "254640": {
     "name": "Just One",
     "bestAt": [
@@ -2127,14 +2167,6 @@
       "7"
     ],
     "lastUpdated": "2026-09-03T03:04:04.731Z"
-  },
-  "254683": {
-    "name": "Dodos Riding Dinos",
-    "bestAt": [
-      "4",
-      "6"
-    ],
-    "lastUpdated": "2026-09-05T11:17:40.616Z"
   },
   "255984": {
     "name": "Sleeping Gods",
@@ -2151,21 +2183,13 @@
     ],
     "lastUpdated": "2026-09-03T03:01:49.764Z"
   },
-  "256382": {
-    "name": "Disney Villainous: The Worst Takes it All",
+  "256788": {
+    "name": "Detective Club",
     "bestAt": [
-      "3"
-    ],
-    "lastUpdated": "2026-09-03T03:05:56.333Z"
-  },
-  "256804": {
-    "name": "Exploding Kittens: Party Pack",
-    "bestAt": [
-      "5",
       "6",
       "7"
     ],
-    "lastUpdated": "2026-09-03T03:05:22.410Z"
+    "lastUpdated": "2026-09-05T18:21:54.954Z"
   },
   "257614": {
     "name": "Tussie Mussie",
@@ -2247,6 +2271,13 @@
       "4"
     ],
     "lastUpdated": "2026-09-03T03:01:04.683Z"
+  },
+  "264055": {
+    "name": "Draftosaurus",
+    "bestAt": [
+      "4"
+    ],
+    "lastUpdated": "2026-09-05T18:21:51.091Z"
   },
   "264241": {
     "name": "Mandala",
@@ -2372,20 +2403,6 @@
     ],
     "lastUpdated": "2026-09-03T03:03:15.089Z"
   },
-  "269595": {
-    "name": "Copenhagen",
-    "bestAt": [
-      "4"
-    ],
-    "lastUpdated": "2026-09-03T03:06:28.630Z"
-  },
-  "269603": {
-    "name": "Minecraft: Builders & Biomes",
-    "bestAt": [
-      "3"
-    ],
-    "lastUpdated": "2026-09-03T03:05:54.683Z"
-  },
   "270314": {
     "name": "Ohanami",
     "bestAt": [
@@ -2454,6 +2471,13 @@
       "4"
     ],
     "lastUpdated": "2026-09-03T03:03:06.117Z"
+  },
+  "272738": {
+    "name": "Jaws",
+    "bestAt": [
+      "4"
+    ],
+    "lastUpdated": "2026-09-05T18:22:11.425Z"
   },
   "272993": {
     "name": "Dragonrealm",
@@ -2560,6 +2584,13 @@
     ],
     "lastUpdated": "2026-09-03T03:03:42.796Z"
   },
+  "280789": {
+    "name": "Pandemic: Rapid Response",
+    "bestAt": [
+      "2"
+    ],
+    "lastUpdated": "2026-09-05T18:22:05.978Z"
+  },
   "281132": {
     "name": "Cover Your Kingdom",
     "bestAt": [
@@ -2588,13 +2619,6 @@
     ],
     "lastUpdated": "2026-09-03T03:04:50.804Z"
   },
-  "281960": {
-    "name": "Kingdomino Duel",
-    "bestAt": [
-      "2"
-    ],
-    "lastUpdated": "2026-09-03T03:06:12.593Z"
-  },
   "282171": {
     "name": "Trial by Trolley",
     "bestAt": [
@@ -2602,6 +2626,13 @@
       "7"
     ],
     "lastUpdated": "2026-09-03T03:03:13.993Z"
+  },
+  "282524": {
+    "name": "Horrified",
+    "bestAt": [
+      "3"
+    ],
+    "lastUpdated": "2026-09-05T18:22:05.570Z"
   },
   "283155": {
     "name": "Calico",
@@ -2654,13 +2685,6 @@
       "3"
     ],
     "lastUpdated": "2026-09-03T03:02:24.854Z"
-  },
-  "285894": {
-    "name": "Bravo!",
-    "bestAt": [
-      "2"
-    ],
-    "lastUpdated": "2026-09-03T03:06:25.515Z"
   },
   "287322": {
     "name": "Mystic Market",
@@ -2801,6 +2825,13 @@
     ],
     "lastUpdated": "2026-09-03T03:04:13.394Z"
   },
+  "296626": {
+    "name": "Sonora",
+    "bestAt": [
+      "4"
+    ],
+    "lastUpdated": "2026-09-05T18:22:13.962Z"
+  },
   "296912": {
     "name": "Fort",
     "bestAt": [
@@ -2852,6 +2883,14 @@
       "5"
     ],
     "lastUpdated": "2026-09-03T03:02:57.856Z"
+  },
+  "299027": {
+    "name": "Colt Super Express",
+    "bestAt": [
+      "5",
+      "6"
+    ],
+    "lastUpdated": "2026-09-05T18:21:58.440Z"
   },
   "299169": {
     "name": "Spicy",
@@ -2934,13 +2973,6 @@
     ],
     "lastUpdated": "2026-09-03T03:03:46.168Z"
   },
-  "302477": {
-    "name": "Kittin",
-    "bestAt": [
-      "4"
-    ],
-    "lastUpdated": "2026-09-03T03:05:35.103Z"
-  },
   "302520": {
     "name": "Hues and Cues",
     "bestAt": [
@@ -2955,13 +2987,6 @@
       "2"
     ],
     "lastUpdated": "2026-09-03T03:06:20.154Z"
-  },
-  "303672": {
-    "name": "Trek 12: Himalaya",
-    "bestAt": [
-      "4"
-    ],
-    "lastUpdated": "2026-09-03T03:06:45.624Z"
   },
   "304051": {
     "name": "Creature Comforts",
@@ -3013,13 +3038,6 @@
       "2"
     ],
     "lastUpdated": "2026-09-03T03:04:00.144Z"
-  },
-  "307862": {
-    "name": "Dollars to Donuts",
-    "bestAt": [
-      "3"
-    ],
-    "lastUpdated": "2026-09-03T03:06:16.218Z"
   },
   "308412": {
     "name": "マストフォローソリティア (Follow-the-Suit Solitaire)",
@@ -3126,6 +3144,13 @@
       "2"
     ],
     "lastUpdated": "2026-09-03T03:02:00.334Z"
+  },
+  "317311": {
+    "name": "Switch & Signal",
+    "bestAt": [
+      "2"
+    ],
+    "lastUpdated": "2026-09-05T18:22:04.494Z"
   },
   "317515": {
     "name": "Águeda: City of Umbrellas",
@@ -3297,13 +3322,6 @@
     ],
     "lastUpdated": "2026-09-03T03:04:22.573Z"
   },
-  "328565": {
-    "name": "Caper: Europe",
-    "bestAt": [
-      "2"
-    ],
-    "lastUpdated": "2026-09-03T03:06:30.119Z"
-  },
   "328871": {
     "name": "Terraforming Mars: Ares Expedition",
     "bestAt": [
@@ -3317,6 +3335,13 @@
       "2"
     ],
     "lastUpdated": "2026-09-03T03:02:52.045Z"
+  },
+  "329465": {
+    "name": "Red Rising",
+    "bestAt": [
+      "3"
+    ],
+    "lastUpdated": "2026-09-05T18:22:06.328Z"
   },
   "329483": {
     "name": "Clear the Dungeon",
@@ -3339,14 +3364,6 @@
       "4"
     ],
     "lastUpdated": "2026-09-03T03:03:11.569Z"
-  },
-  "329845": {
-    "name": "Stella: Dixit Universe",
-    "bestAt": [
-      "5",
-      "6"
-    ],
-    "lastUpdated": "2026-09-03T03:05:17.460Z"
   },
   "329873": {
     "name": "Grove: 9 card solitaire game",
@@ -3421,14 +3438,6 @@
     ],
     "lastUpdated": "2026-09-03T03:01:12.546Z"
   },
-  "334717": {
-    "name": "Tranquility: The Ascent",
-    "bestAt": [
-      "Solo",
-      "2"
-    ],
-    "lastUpdated": "2026-09-03T03:05:48.979Z"
-  },
   "334986": {
     "name": "Daybreak",
     "bestAt": [
@@ -3458,13 +3467,6 @@
       "4"
     ],
     "lastUpdated": "2026-09-03T03:04:10.782Z"
-  },
-  "337787": {
-    "name": "Summer Camp",
-    "bestAt": [
-      "3"
-    ],
-    "lastUpdated": "2026-09-03T03:05:04.151Z"
   },
   "337833": {
     "name": "Bag of Butts",
@@ -3528,13 +3530,6 @@
     ],
     "lastUpdated": "2026-09-03T03:01:50.672Z"
   },
-  "340909": {
-    "name": "Gloomholdin'",
-    "bestAt": [
-      "Solo"
-    ],
-    "lastUpdated": "2026-09-03T03:06:33.342Z"
-  },
   "341164": {
     "name": "Exploding Minions",
     "bestAt": [
@@ -3549,13 +3544,6 @@
       "4"
     ],
     "lastUpdated": "2026-09-03T03:04:18.164Z"
-  },
-  "342010": {
-    "name": "The Golden Ticket Game",
-    "bestAt": [
-      "4"
-    ],
-    "lastUpdated": "2026-09-03T03:06:14.657Z"
   },
   "342016": {
     "name": "Tetris",
@@ -3766,6 +3754,14 @@
       "3"
     ],
     "lastUpdated": "2026-09-03T03:05:02.252Z"
+  },
+  "351605": {
+    "name": "Bohnanza: 25th Anniversary Edition",
+    "bestAt": [
+      "4",
+      "5"
+    ],
+    "lastUpdated": "2026-09-05T18:22:08.681Z"
   },
   "351810": {
     "name": "Viking See-Saw",
@@ -4064,6 +4060,14 @@
     ],
     "lastUpdated": "2026-09-03T03:01:58.805Z"
   },
+  "360471": {
+    "name": "Aquamarine",
+    "bestAt": [
+      "2",
+      "3"
+    ],
+    "lastUpdated": "2026-09-05T18:21:59.286Z"
+  },
   "360503": {
     "name": "Downtown Farmers Market",
     "bestAt": [
@@ -4086,13 +4090,6 @@
     ],
     "lastUpdated": "2026-09-03T03:06:04.951Z"
   },
-  "361241": {
-    "name": "Vaalbara",
-    "bestAt": [
-      "4"
-    ],
-    "lastUpdated": "2026-09-03T03:06:48.265Z"
-  },
   "361598": {
     "name": "At the Helm",
     "bestAt": [
@@ -4106,6 +4103,13 @@
       "3"
     ],
     "lastUpdated": "2026-09-03T03:04:54.042Z"
+  },
+  "361850": {
+    "name": "Nimalia",
+    "bestAt": [
+      "3"
+    ],
+    "lastUpdated": "2026-09-05T18:22:14.896Z"
   },
   "362020": {
     "name": "Cosmoctopus",
@@ -4127,13 +4131,6 @@
       "3"
     ],
     "lastUpdated": "2026-09-03T03:03:12.266Z"
-  },
-  "362692": {
-    "name": "Handy Brawl",
-    "bestAt": [
-      "Solo"
-    ],
-    "lastUpdated": "2026-09-03T03:06:33.820Z"
   },
   "362976": {
     "name": "Beacon Patrol",
@@ -4209,6 +4206,13 @@
       "3"
     ],
     "lastUpdated": "2026-09-03T03:01:44.618Z"
+  },
+  "365593": {
+    "name": "Old Town Road",
+    "bestAt": [
+      "Solo"
+    ],
+    "lastUpdated": "2026-09-05T18:22:16.261Z"
   },
   "365698": {
     "name": "Rainforest",
@@ -4377,20 +4381,6 @@
     ],
     "lastUpdated": "2026-09-03T03:06:35.078Z"
   },
-  "369548": {
-    "name": "After Us",
-    "bestAt": [
-      "3"
-    ],
-    "lastUpdated": "2026-09-03T03:05:15.923Z"
-  },
-  "369646": {
-    "name": "Disney Lorcana",
-    "bestAt": [
-      "2"
-    ],
-    "lastUpdated": "2026-09-03T03:06:20.943Z"
-  },
   "369899": {
     "name": "Big Top",
     "bestAt": [
@@ -4473,14 +4463,6 @@
     ],
     "lastUpdated": "2026-09-03T03:04:00.499Z"
   },
-  "373055": {
-    "name": "Ritual",
-    "bestAt": [
-      "4",
-      "5"
-    ],
-    "lastUpdated": "2026-09-03T03:06:23.404Z"
-  },
   "373106": {
     "name": "Sky Team",
     "bestAt": [
@@ -4501,6 +4483,13 @@
       "5"
     ],
     "lastUpdated": "2026-09-03T03:01:01.900Z"
+  },
+  "373828": {
+    "name": "Galdor's Grip",
+    "bestAt": [
+      "Solo"
+    ],
+    "lastUpdated": "2026-09-05T18:22:16.696Z"
   },
   "374145": {
     "name": "Dungeon Pages: Core Set",
@@ -4595,14 +4584,6 @@
     ],
     "lastUpdated": "2026-09-03T03:05:04.478Z"
   },
-  "378983": {
-    "name": "Tipperary",
-    "bestAt": [
-      "2",
-      "3"
-    ],
-    "lastUpdated": "2026-09-03T03:06:29.378Z"
-  },
   "379153": {
     "name": "Pacifica",
     "bestAt": [
@@ -4624,19 +4605,19 @@
     ],
     "lastUpdated": "2026-09-03T03:01:23.398Z"
   },
+  "380226": {
+    "name": "Forbidden Jungle",
+    "bestAt": [
+      "3"
+    ],
+    "lastUpdated": "2026-09-05T18:22:01.688Z"
+  },
   "380887": {
     "name": "Deduckto",
     "bestAt": [
       "2"
     ],
     "lastUpdated": "2026-09-03T03:01:07.846Z"
-  },
-  "381278": {
-    "name": "Dracula vs Van Helsing",
-    "bestAt": [
-      "2"
-    ],
-    "lastUpdated": "2026-09-03T03:05:02.598Z"
   },
   "381297": {
     "name": "Unmatched Adventures: Tales to Amaze",
@@ -4674,6 +4655,14 @@
       "5"
     ],
     "lastUpdated": "2026-09-03T03:04:58.573Z"
+  },
+  "382549": {
+    "name": "Biome",
+    "bestAt": [
+      "2",
+      "3"
+    ],
+    "lastUpdated": "2026-09-05T18:22:07.538Z"
   },
   "383109": {
     "name": "Dragonkeepers",
@@ -4791,14 +4780,13 @@
     ],
     "lastUpdated": "2026-09-03T03:03:10.707Z"
   },
-  "390340": {
-    "name": "Challengers! Beach Cup",
+  "390151": {
+    "name": "Anarchy Pancakes",
     "bestAt": [
-      "4",
-      "6",
-      "8"
+      "3",
+      "4"
     ],
-    "lastUpdated": "2026-09-03T03:06:29.788Z"
+    "lastUpdated": "2026-09-05T18:22:00.346Z"
   },
   "391163": {
     "name": "Forest Shuffle",
@@ -4895,6 +4883,14 @@
     ],
     "lastUpdated": "2026-09-03T03:04:27.662Z"
   },
+  "395906": {
+    "name": "Exploding Kittens: Good vs Evil",
+    "bestAt": [
+      "3",
+      "4"
+    ],
+    "lastUpdated": "2026-09-05T18:22:00.990Z"
+  },
   "396542": {
     "name": "The Same Game",
     "bestAt": [
@@ -4943,13 +4939,6 @@
       "4"
     ],
     "lastUpdated": "2026-09-03T03:04:49.473Z"
-  },
-  "398898": {
-    "name": "High Season: Grand Hotel Roll & Write",
-    "bestAt": [
-      "2"
-    ],
-    "lastUpdated": "2026-09-03T03:05:34.609Z"
   },
   "398996": {
     "name": "Panda Royale",
@@ -5069,27 +5058,12 @@
     ],
     "lastUpdated": "2026-09-03T03:02:01.346Z"
   },
-  "402324": {
-    "name": "Eternitium",
-    "bestAt": [
-      "2"
-    ],
-    "lastUpdated": "2026-09-03T03:05:59.357Z"
-  },
   "402676": {
     "name": "Cities",
     "bestAt": [
       "4"
     ],
     "lastUpdated": "2026-09-03T03:04:57.511Z"
-  },
-  "402679": {
-    "name": "Rock Hard: 1977",
-    "bestAt": [
-      "4",
-      "5"
-    ],
-    "lastUpdated": "2026-09-03T03:05:56.734Z"
   },
   "403116": {
     "name": "Next Station: Paris",
@@ -5127,6 +5101,13 @@
     ],
     "lastUpdated": "2026-09-03T03:02:32.878Z"
   },
+  "404936": {
+    "name": "Tap 4",
+    "bestAt": [
+      "4"
+    ],
+    "lastUpdated": "2026-09-05T18:22:10.511Z"
+  },
   "405537": {
     "name": "DroPolter",
     "bestAt": [
@@ -5163,12 +5144,27 @@
     ],
     "lastUpdated": "2026-09-03T03:03:55.261Z"
   },
+  "406652": {
+    "name": "Compile: Main 1",
+    "bestAt": [
+      "2"
+    ],
+    "lastUpdated": "2026-09-05T18:22:02.611Z"
+  },
   "406660": {
     "name": "Seaside",
     "bestAt": [
       "2"
     ],
     "lastUpdated": "2026-09-03T03:04:51.504Z"
+  },
+  "406663": {
+    "name": "That's Not a Hat: Pop Culture",
+    "bestAt": [
+      "4",
+      "5"
+    ],
+    "lastUpdated": "2026-09-05T18:21:55.526Z"
   },
   "406854": {
     "name": "Odin",
@@ -5247,6 +5243,13 @@
       "Solo"
     ],
     "lastUpdated": "2026-09-03T03:05:08.929Z"
+  },
+  "408842": {
+    "name": "Mysticana: A Foundation Deck",
+    "bestAt": [
+      "Solo"
+    ],
+    "lastUpdated": "2026-09-05T18:21:53.039Z"
   },
   "409572": {
     "name": "Intent to Kill",
@@ -5362,19 +5365,19 @@
     ],
     "lastUpdated": "2026-09-03T03:01:20.371Z"
   },
-  "413364": {
-    "name": "Bottle Imp",
+  "413260": {
+    "name": "Botanicus",
     "bestAt": [
       "3"
     ],
-    "lastUpdated": "2026-09-03T03:06:31.841Z"
+    "lastUpdated": "2026-09-05T18:22:10.876Z"
   },
-  "414174": {
-    "name": "Big Sur",
+  "414107": {
+    "name": "Ratjack",
     "bestAt": [
-      "2"
+      "3"
     ],
-    "lastUpdated": "2026-09-03T03:05:12.952Z"
+    "lastUpdated": "2026-09-05T18:22:14.310Z"
   },
   "414302": {
     "name": "Xylotar",
@@ -5435,13 +5438,6 @@
     ],
     "lastUpdated": "2026-09-03T03:01:48.936Z"
   },
-  "415981": {
-    "name": "Seers Catalog",
-    "bestAt": [
-      "4"
-    ],
-    "lastUpdated": "2026-09-03T03:06:30.803Z"
-  },
   "416059": {
     "name": "Gardlings",
     "bestAt": [
@@ -5462,6 +5458,13 @@
       "3"
     ],
     "lastUpdated": "2026-09-03T03:05:09.845Z"
+  },
+  "417518": {
+    "name": "Floristry",
+    "bestAt": [
+      "2"
+    ],
+    "lastUpdated": "2026-09-05T18:22:04.997Z"
   },
   "418062": {
     "name": "Railroad Tiles",
@@ -5491,14 +5494,6 @@
       "4"
     ],
     "lastUpdated": "2026-09-03T03:04:21.587Z"
-  },
-  "419130": {
-    "name": "Hutan: Life in the Rainforest",
-    "bestAt": [
-      "2",
-      "3"
-    ],
-    "lastUpdated": "2026-09-03T03:06:24.234Z"
   },
   "419195": {
     "name": "Fishing",
@@ -5558,6 +5553,13 @@
     ],
     "lastUpdated": "2026-09-03T03:02:31.942Z"
   },
+  "421630": {
+    "name": "Moose Match Mayhem",
+    "bestAt": [
+      "5"
+    ],
+    "lastUpdated": "2026-09-05T18:22:00.705Z"
+  },
   "421921": {
     "name": "Number Chain",
     "bestAt": [
@@ -5586,6 +5588,13 @@
       "2"
     ],
     "lastUpdated": "2026-09-03T03:00:59.137Z"
+  },
+  "422780": {
+    "name": "Mistborn: The Deckbuilding Game",
+    "bestAt": [
+      "2"
+    ],
+    "lastUpdated": "2026-09-05T18:22:17.544Z"
   },
   "423517": {
     "name": "3 Chapters",
@@ -5616,13 +5625,6 @@
     ],
     "lastUpdated": "2026-09-03T03:03:23.335Z"
   },
-  "424371": {
-    "name": "Octocube",
-    "bestAt": [
-      "3"
-    ],
-    "lastUpdated": "2026-09-03T03:05:05.606Z"
-  },
   "424751": {
     "name": "Cat and the Tower",
     "bestAt": [
@@ -5645,6 +5647,14 @@
       "4"
     ],
     "lastUpdated": "2026-09-03T03:05:11.931Z"
+  },
+  "424975": {
+    "name": "Wilmot's Warehouse",
+    "bestAt": [
+      "4",
+      "5"
+    ],
+    "lastUpdated": "2026-09-05T18:22:17.042Z"
   },
   "425005": {
     "name": "Everdell Duo",
@@ -5694,13 +5704,6 @@
       "2"
     ],
     "lastUpdated": "2026-09-03T03:06:17.746Z"
-  },
-  "428224": {
-    "name": "1 A.M. Jailbreak",
-    "bestAt": [
-      "4"
-    ],
-    "lastUpdated": "2026-09-03T03:06:30.467Z"
   },
   "428440": {
     "name": "Shallow Sea",
@@ -5835,6 +5838,14 @@
     ],
     "lastUpdated": "2026-09-03T03:05:20.531Z"
   },
+  "435330": {
+    "name": "Pondscape",
+    "bestAt": [
+      "Solo",
+      "2"
+    ],
+    "lastUpdated": "2026-09-05T18:21:53.494Z"
+  },
   "436046": {
     "name": "One Round?",
     "bestAt": [
@@ -5870,6 +5881,14 @@
       "4"
     ],
     "lastUpdated": "2026-09-03T03:01:35.411Z"
+  },
+  "437273": {
+    "name": "Brilliant",
+    "bestAt": [
+      "2",
+      "3"
+    ],
+    "lastUpdated": "2026-09-05T18:21:57.699Z"
   },
   "437301": {
     "name": "Ink",
@@ -5945,13 +5964,6 @@
     "bestAt": [],
     "lastUpdated": "2026-09-03T03:01:40.587Z"
   },
-  "440509": {
-    "name": "Fountains",
-    "bestAt": [
-      "3"
-    ],
-    "lastUpdated": "2026-09-03T03:06:16.649Z"
-  },
   "440540": {
     "name": "Take Time",
     "bestAt": [
@@ -5986,6 +5998,14 @@
       "2"
     ],
     "lastUpdated": "2026-09-03T03:03:43.535Z"
+  },
+  "443829": {
+    "name": "Wriggle Roulette",
+    "bestAt": [
+      "4",
+      "5"
+    ],
+    "lastUpdated": "2026-09-05T18:22:05.282Z"
   },
   "444226": {
     "name": "Dicemancy",
@@ -6055,6 +6075,13 @@
     ],
     "lastUpdated": "2026-09-03T03:05:08.644Z"
   },
+  "447002": {
+    "name": "Sanibel",
+    "bestAt": [
+      "4"
+    ],
+    "lastUpdated": "2026-09-05T18:22:06.846Z"
+  },
   "447174": {
     "name": "A Wild Venture",
     "bestAt": [
@@ -6090,13 +6117,6 @@
     ],
     "lastUpdated": "2026-09-03T03:03:39.017Z"
   },
-  "448432": {
-    "name": "Alice, de l'autre côté du miroir",
-    "bestAt": [
-      "4"
-    ],
-    "lastUpdated": "2026-09-03T03:05:36.997Z"
-  },
   "448500": {
     "name": "Formidable Farm",
     "bestAt": [
@@ -6124,6 +6144,13 @@
       "3"
     ],
     "lastUpdated": "2026-09-03T03:02:18.438Z"
+  },
+  "450112": {
+    "name": "Ghost Lift",
+    "bestAt": [
+      "4"
+    ],
+    "lastUpdated": "2026-09-05T18:22:15.236Z"
   },
   "450281": {
     "name": "Insurrection",
@@ -6238,19 +6265,19 @@
     "bestAt": [],
     "lastUpdated": "2026-09-03T03:02:02.550Z"
   },
-  "462464": {
-    "name": "First Giants",
-    "bestAt": [
-      "3"
-    ],
-    "lastUpdated": "2026-09-03T03:06:09.837Z"
-  },
   "462717": {
     "name": "Café Global",
     "bestAt": [
       "3"
     ],
     "lastUpdated": "2026-09-03T03:01:55.809Z"
+  },
+  "462742": {
+    "name": "Morty Sorty Magic Shop",
+    "bestAt": [
+      "3"
+    ],
+    "lastUpdated": "2026-09-05T18:22:07.187Z"
   },
   "462945": {
     "name": "Dino Racer",
@@ -6279,13 +6306,6 @@
       "Solo"
     ],
     "lastUpdated": "2026-09-03T03:03:12.970Z"
-  },
-  "464056": {
-    "name": "Spooky Tower",
-    "bestAt": [
-      "3"
-    ],
-    "lastUpdated": "2026-09-03T03:06:45.121Z"
   },
   "464164": {
     "name": "BYTE:SHIFT",
