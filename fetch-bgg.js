@@ -9,6 +9,12 @@ const PLAYS_DIR = path.join(__dirname, 'plays');
 
 const USER_AGENT = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36';
 
+function writeFileAtomic(filePath, data) {
+    const tmpPath = `${filePath}.tmp.${Date.now()}`;
+    fs.writeFileSync(tmpPath, data, 'utf8');
+    fs.renameSync(tmpPath, filePath);
+}
+
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
@@ -91,11 +97,9 @@ async function run() {
         fs.mkdirSync(PLAYS_DIR, { recursive: true });
     }
 
-    // 1. Fetch Collection Endpoints
+    // 1. Fetch Collection Endpoints (wishlist=1 already returns all priorities)
     const collectionEndpoints = [
         { name: 'Wishlist Items', url: `https://boardgamegeek.com/xmlapi2/collection?username=${encodeURIComponent(BGG_USER)}&stats=1&wishlist=1` },
-        { name: 'Like to Have Items', url: `https://boardgamegeek.com/xmlapi2/collection?username=${encodeURIComponent(BGG_USER)}&stats=1&wishlist=1&wishlistpriority=3` },
-        { name: 'Thinking About It Items', url: `https://boardgamegeek.com/xmlapi2/collection?username=${encodeURIComponent(BGG_USER)}&stats=1&wishlist=1&wishlistpriority=4` },
         { name: 'Want in Trade Items', url: `https://boardgamegeek.com/xmlapi2/collection?username=${encodeURIComponent(BGG_USER)}&stats=1&want=1` },
         { name: 'For Trade Items', url: `https://boardgamegeek.com/xmlapi2/collection?username=${encodeURIComponent(BGG_USER)}&stats=1&trade=1` },
         { name: 'Expansions', url: `https://boardgamegeek.com/xmlapi2/collection?username=${encodeURIComponent(BGG_USER)}&stats=1&subtype=boardgameexpansion` },
@@ -103,34 +107,42 @@ async function run() {
     ];
 
     const itemMap = new Map();
+    let allEndpointsSucceeded = true;
 
     for (const endpoint of collectionEndpoints) {
         const xml = await fetchXmlWithRetry(endpoint.url, endpoint.name);
-        if (xml) {
-            const matches = xml.match(/<item\b[\s\S]*?<\/item>/g) || [];
-            for (const item of matches) {
-                const idMatch = item.match(/objectid="(\d+)"/);
-                if (idMatch) {
-                    const id = idMatch[1];
-                    if (!itemMap.has(id) || item.includes('fortrade="1"') || item.includes('wishlist="1"')) {
-                        itemMap.set(id, item);
-                    }
+        if (!xml) {
+            console.error(`ERROR: Endpoint "${endpoint.name}" failed to fetch.`);
+            allEndpointsSucceeded = false;
+            break;
+        }
+        const matches = xml.match(/<item\b[\s\S]*?<\/item>/g) || [];
+        for (const item of matches) {
+            const idMatch = item.match(/objectid="(\d+)"/);
+            if (idMatch) {
+                const id = idMatch[1];
+                if (!itemMap.has(id) || item.includes('fortrade="1"') || item.includes('wishlist="1"')) {
+                    itemMap.set(id, item);
                 }
             }
         }
         await sleep(2000);
     }
 
+    if (!allEndpointsSucceeded) {
+        throw new Error(`One or more collection endpoints failed to fetch. Preserving existing ${COLLECTION_FILE} without overwriting.`);
+    }
+
     if (itemMap.size > 0) {
         const items = Array.from(itemMap.values());
         const xml = `<?xml version="1.0" encoding="utf-8"?><items totalitems="${items.length}">${items.join('\n')}</items>`;
-        fs.writeFileSync(COLLECTION_FILE, xml, 'utf8');
+        writeFileAtomic(COLLECTION_FILE, xml);
         console.log(`Successfully merged ${items.length} unique items into ${COLLECTION_FILE}`);
     } else {
-        console.warn(`No collection items retrieved. Preserving existing ${COLLECTION_FILE} if present.`);
+        throw new Error(`Zero collection items retrieved. Preserving existing ${COLLECTION_FILE}.`);
     }
 
-    // 2. Fetch Plays for Previous Month and Current Month
+    // 2. Fetch Plays for Previous Month and Current Month (with full pagination)
     const now = new Date();
     const curYear = now.getUTCFullYear();
     const curMonth = now.getUTCMonth() + 1; // 1-12
@@ -149,12 +161,47 @@ async function run() {
 
     for (const m of monthsToFetch) {
         console.log(`Fetching plays for ${m.target} (${m.start} to ${m.end})...`);
-        const playsUrl = `https://boardgamegeek.com/xmlapi2/plays?username=${encodeURIComponent(BGG_USER)}&mindate=${m.start}&maxdate=${m.end}`;
-        const playsXml = await fetchXmlWithRetry(playsUrl, `Plays for ${m.target}`);
-        if (playsXml) {
+        let page = 1;
+        let totalPlays = null;
+        const allPlayMatches = [];
+        let rootAttributes = '';
+
+        while (true) {
+            const playsUrl = `https://boardgamegeek.com/xmlapi2/plays?username=${encodeURIComponent(BGG_USER)}&mindate=${m.start}&maxdate=${m.end}&page=${page}`;
+            const playsXml = await fetchXmlWithRetry(playsUrl, `Plays for ${m.target} (page ${page})`);
+            if (!playsXml) {
+                console.warn(`Could not fetch plays for ${m.target} (page ${page}). Skipping this month update to preserve data.`);
+                break;
+            }
+
+            if (totalPlays === null) {
+                const totalMatch = playsXml.match(/<plays\b([^>]*\btotal="(\d+)"[^>]*)>/);
+                if (totalMatch) {
+                    rootAttributes = totalMatch[1];
+                    totalPlays = parseInt(totalMatch[2], 10) || 0;
+                }
+            }
+
+            const playMatches = playsXml.match(/<play\b[\s\S]*?<\/play>/g) || [];
+            allPlayMatches.push(...playMatches);
+
+            // BGG paginates at 100 plays per page
+            if (totalPlays !== null && allPlayMatches.length < totalPlays && playMatches.length > 0) {
+                page++;
+                await sleep(4000);
+            } else {
+                break;
+            }
+        }
+
+        if (allPlayMatches.length > 0) {
             const targetFile = path.join(PLAYS_DIR, `${m.target}.xml`);
-            fs.writeFileSync(targetFile, playsXml, 'utf8');
-            console.log(`Saved plays to ${targetFile}`);
+            const cleanedAttrs = (rootAttributes || `username="${BGG_USER}"`)
+                .replace(/\bpage="\d+"/, 'page="1"')
+                .replace(/\btotal="\d+"/, `total="${allPlayMatches.length}"`);
+            const mergedXml = `<?xml version="1.0" encoding="utf-8"?><plays ${cleanedAttrs}>\n${allPlayMatches.join('\n')}\n</plays>`;
+            writeFileAtomic(targetFile, mergedXml);
+            console.log(`Saved ${allPlayMatches.length} plays to ${targetFile}`);
         }
         await sleep(5000);
     }
