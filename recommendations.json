@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-05T18:23:26.439Z",
+  "generatedAt": "2026-09-06T00:57:30.789Z",
   "total": 400,
   "recommendations": [
     {
@@ -1400,6 +1400,75 @@
       "playingTime": 45
     },
     {
+      "objectId": "298069",
+      "name": "Cubitos",
+      "yearPublished": "2021",
+      "bggRating": 7.35,
+      "bggRank": 519,
+      "numVoters": 10987,
+      "numFans": 732,
+      "coverUrl": "https://cf.geekdo-images.com/_WY_JrQQRrSUlVof11hMpQ__square100@2x/img/6lw1Ua_Fit3Q1qfiHzXt3ASHfo8=/200x200/filters:strip_icc()/pic5226311.png",
+      "thumbnail": "images/thumbnails/298069.png",
+      "image": "images/full/298069.png",
+      "description": "Race for the glory of the Cube Cup in this exciting game of luck and strategy!",
+      "rawScore": 12.49534919625172,
+      "recommendedBy": [
+        {
+          "ownedId": "353288",
+          "ownedName": "Trekking Through History",
+          "userRating": 10,
+          "bggRecRank": 26,
+          "contributionScore": 1.96
+        },
+        {
+          "ownedId": "359152",
+          "ownedName": "Marvel: Remix",
+          "userRating": 9,
+          "bggRecRank": 4,
+          "contributionScore": 4.05
+        },
+        {
+          "ownedId": "295947",
+          "ownedName": "Cascadia",
+          "userRating": 8,
+          "bggRecRank": 24,
+          "contributionScore": 1.31
+        },
+        {
+          "ownedId": "260180",
+          "ownedName": "Project L",
+          "userRating": 7,
+          "bggRecRank": 5,
+          "contributionScore": 2.19
+        },
+        {
+          "ownedId": "228504",
+          "ownedName": "Cat Lady",
+          "userRating": 7,
+          "bggRecRank": 23,
+          "contributionScore": 1.02
+        },
+        {
+          "ownedId": "428664",
+          "ownedName": "Fantasy Realms: Greek Legends",
+          "userRating": 7,
+          "bggRecRank": 23,
+          "contributionScore": 1.02
+        },
+        {
+          "ownedId": "283155",
+          "ownedName": "Calico",
+          "userRating": 7,
+          "bggRecRank": 27,
+          "contributionScore": 0.94
+        }
+      ],
+      "matchScore": 31.9,
+      "minPlayers": 2,
+      "maxPlayers": 4,
+      "playingTime": 60
+    },
+    {
       "objectId": "350184",
       "name": "Earth",
       "yearPublished": "2023",
@@ -1460,68 +1529,6 @@
       "minPlayers": 1,
       "maxPlayers": 5,
       "playingTime": 90
-    },
-    {
-      "objectId": "298069",
-      "name": "Cubitos",
-      "yearPublished": "2021",
-      "bggRating": 7.35,
-      "bggRank": 519,
-      "numVoters": 10987,
-      "numFans": 732,
-      "coverUrl": "https://cf.geekdo-images.com/_WY_JrQQRrSUlVof11hMpQ__square100@2x/img/6lw1Ua_Fit3Q1qfiHzXt3ASHfo8=/200x200/filters:strip_icc()/pic5226311.png",
-      "thumbnail": "images/thumbnails/298069.png",
-      "image": "images/full/298069.png",
-      "description": "Race for the glory of the Cube Cup in this exciting game of luck and strategy!",
-      "rawScore": 11.473628567372053,
-      "recommendedBy": [
-        {
-          "ownedId": "353288",
-          "ownedName": "Trekking Through History",
-          "userRating": 10,
-          "bggRecRank": 26,
-          "contributionScore": 1.96
-        },
-        {
-          "ownedId": "359152",
-          "ownedName": "Marvel: Remix",
-          "userRating": 9,
-          "bggRecRank": 4,
-          "contributionScore": 4.05
-        },
-        {
-          "ownedId": "295947",
-          "ownedName": "Cascadia",
-          "userRating": 8,
-          "bggRecRank": 24,
-          "contributionScore": 1.31
-        },
-        {
-          "ownedId": "260180",
-          "ownedName": "Project L",
-          "userRating": 7,
-          "bggRecRank": 5,
-          "contributionScore": 2.19
-        },
-        {
-          "ownedId": "228504",
-          "ownedName": "Cat Lady",
-          "userRating": 7,
-          "bggRecRank": 23,
-          "contributionScore": 1.02
-        },
-        {
-          "ownedId": "283155",
-          "ownedName": "Calico",
-          "userRating": 7,
-          "bggRecRank": 27,
-          "contributionScore": 0.94
-        }
-      ],
-      "matchScore": 26.4,
-      "minPlayers": 2,
-      "maxPlayers": 4,
-      "playingTime": 60
     },
     {
       "objectId": "70919",
@@ -2161,6 +2168,61 @@
       "minPlayers": 2,
       "maxPlayers": 4,
       "playingTime": 60
+    },
+    {
+      "objectId": "361788",
+      "name": "First in Flight",
+      "yearPublished": "2023",
+      "bggRating": 7.41,
+      "bggRank": 1918,
+      "numVoters": 1725,
+      "numFans": 202,
+      "coverUrl": "https://cf.geekdo-images.com/NowJcoT3uCC9LJXjYaAXkw__square100@2x/img/hbn42rATwWHGZyjlhN-plpPrhaQ=/0x0:1535x1535/200x200/filters:strip_icc()/pic7518155.png",
+      "thumbnail": "images/thumbnails/361788.png",
+      "image": "images/full/361788.png",
+      "description": "Push your luck in the race of early aviation.",
+      "rawScore": 6.078888218581561,
+      "recommendedBy": [
+        {
+          "ownedId": "360503",
+          "ownedName": "Downtown Farmers Market",
+          "userRating": 8,
+          "bggRecRank": 26,
+          "contributionScore": 1.26
+        },
+        {
+          "ownedId": "431998",
+          "ownedName": "Point Galaxy",
+          "userRating": 7,
+          "bggRecRank": 13,
+          "contributionScore": 1.36
+        },
+        {
+          "ownedId": "428664",
+          "ownedName": "Fantasy Realms: Greek Legends",
+          "userRating": 7,
+          "bggRecRank": 14,
+          "contributionScore": 1.31
+        },
+        {
+          "ownedId": "368017",
+          "ownedName": "Point City",
+          "userRating": 7,
+          "bggRecRank": 18,
+          "contributionScore": 1.15
+        },
+        {
+          "ownedId": "365258",
+          "ownedName": "World Wonders",
+          "userRating": 7,
+          "bggRecRank": 24,
+          "contributionScore": 1
+        }
+      ],
+      "matchScore": 12.5,
+      "minPlayers": 1,
+      "maxPlayers": 4,
+      "playingTime": 75
     },
     {
       "objectId": "325698",
@@ -2851,54 +2913,6 @@
       "minPlayers": 2,
       "maxPlayers": 4,
       "playingTime": 45
-    },
-    {
-      "objectId": "361788",
-      "name": "First in Flight",
-      "yearPublished": "2023",
-      "bggRating": 7.41,
-      "bggRank": 1918,
-      "numVoters": 1725,
-      "numFans": 202,
-      "coverUrl": "https://cf.geekdo-images.com/NowJcoT3uCC9LJXjYaAXkw__square100@2x/img/hbn42rATwWHGZyjlhN-plpPrhaQ=/0x0:1535x1535/200x200/filters:strip_icc()/pic7518155.png",
-      "thumbnail": "images/thumbnails/361788.png",
-      "image": "images/full/361788.png",
-      "description": "Push your luck in the race of early aviation.",
-      "rawScore": 4.769308133210682,
-      "recommendedBy": [
-        {
-          "ownedId": "360503",
-          "ownedName": "Downtown Farmers Market",
-          "userRating": 8,
-          "bggRecRank": 26,
-          "contributionScore": 1.26
-        },
-        {
-          "ownedId": "431998",
-          "ownedName": "Point Galaxy",
-          "userRating": 7,
-          "bggRecRank": 13,
-          "contributionScore": 1.36
-        },
-        {
-          "ownedId": "368017",
-          "ownedName": "Point City",
-          "userRating": 7,
-          "bggRecRank": 18,
-          "contributionScore": 1.15
-        },
-        {
-          "ownedId": "365258",
-          "ownedName": "World Wonders",
-          "userRating": 7,
-          "bggRecRank": 24,
-          "contributionScore": 1
-        }
-      ],
-      "matchScore": 8.6,
-      "minPlayers": 1,
-      "maxPlayers": 4,
-      "playingTime": 75
     },
     {
       "objectId": "347703",
@@ -4046,6 +4060,40 @@
       "playingTime": 10
     },
     {
+      "objectId": "428635",
+      "name": "Ruins",
+      "yearPublished": "2025",
+      "bggRating": 7.07,
+      "bggRank": 2362,
+      "numVoters": 1848,
+      "numFans": 338,
+      "coverUrl": "https://cf.geekdo-images.com/oBvx0LBSv-_cACGZOK_J9Q__square100@2x/img/qRtKltqMqJmHT3sVtcZ2vPfa4Jo=/200x200/filters:strip_icc()/pic8426382.jpg",
+      "thumbnail": "images/thumbnails/428635.jpg",
+      "image": "images/full/428635.jpg",
+      "description": "Uncover ancient ruins and treasure by crafting powerful card combinations.",
+      "rawScore": 4.444823227814082,
+      "recommendedBy": [
+        {
+          "ownedId": "428664",
+          "ownedName": "Fantasy Realms: Greek Legends",
+          "userRating": 7,
+          "bggRecRank": 2,
+          "contributionScore": 3.46
+        },
+        {
+          "ownedId": "431998",
+          "ownedName": "Point Galaxy",
+          "userRating": 7,
+          "bggRecRank": 25,
+          "contributionScore": 0.98
+        }
+      ],
+      "matchScore": 5.5,
+      "minPlayers": 2,
+      "maxPlayers": 5,
+      "playingTime": 40
+    },
+    {
       "objectId": "300531",
       "name": "Paleo",
       "yearPublished": "2020",
@@ -4257,6 +4305,47 @@
       "playingTime": 15
     },
     {
+      "objectId": "417197",
+      "name": "Rebirth",
+      "yearPublished": "2024",
+      "bggRating": 7.77,
+      "bggRank": 327,
+      "numVoters": 7478,
+      "numFans": 1794,
+      "coverUrl": "https://cf.geekdo-images.com/tyv6lPMlyU7YIUztlILQYQ__square100@2x/img/bpCif3K4iTLK4r90STx9Ykea6FI=/200x200/filters:strip_icc()/pic8587890.png",
+      "thumbnail": "images/thumbnails/417197.png",
+      "image": "images/full/417197.png",
+      "description": "Rebuild old lands in a lush, hopeful future.",
+      "rawScore": 3.2555670983201725,
+      "recommendedBy": [
+        {
+          "ownedId": "445045",
+          "ownedName": "Dice Pool Party",
+          "userRating": 7,
+          "bggRecRank": 17,
+          "contributionScore": 1.19
+        },
+        {
+          "ownedId": "453526",
+          "ownedName": "Got Five!",
+          "userRating": 7,
+          "bggRecRank": 19,
+          "contributionScore": 1.12
+        },
+        {
+          "ownedId": "428664",
+          "ownedName": "Fantasy Realms: Greek Legends",
+          "userRating": 7,
+          "bggRecRank": 27,
+          "contributionScore": 0.94
+        }
+      ],
+      "matchScore": 5.3,
+      "minPlayers": 2,
+      "maxPlayers": 4,
+      "playingTime": 60
+    },
+    {
       "objectId": "309105",
       "name": "Sagani",
       "yearPublished": "2020",
@@ -4357,6 +4446,40 @@
       "minPlayers": 1,
       "maxPlayers": 2,
       "playingTime": 60
+    },
+    {
+      "objectId": "436215",
+      "name": "The Hobbit: There and Back Again",
+      "yearPublished": "2025",
+      "bggRating": 7.58,
+      "bggRank": 1134,
+      "numVoters": 2713,
+      "numFans": 530,
+      "coverUrl": "https://cf.geekdo-images.com/KCsAkHzgdx9fL78c15N-dw__square100@2x/img/ChKTV4uE7wX4Q9obXcT5ueW8HlE=/0x0:1459x1459/200x200/filters:strip_icc()/pic8831592.png",
+      "thumbnail": "images/thumbnails/436215.png",
+      "image": "images/full/436215.png",
+      "description": "Hobbits compete to make the most rewarding journey to The Lonely Mountain.",
+      "rawScore": 3.823136073376833,
+      "recommendedBy": [
+        {
+          "ownedId": "451594",
+          "ownedName": "A Carnivore Did It!",
+          "userRating": 8,
+          "bggRecRank": 5,
+          "contributionScore": 2.86
+        },
+        {
+          "ownedId": "428664",
+          "ownedName": "Fantasy Realms: Greek Legends",
+          "userRating": 7,
+          "bggRecRank": 26,
+          "contributionScore": 0.96
+        }
+      ],
+      "matchScore": 5,
+      "minPlayers": 1,
+      "maxPlayers": 4,
+      "playingTime": 30
     },
     {
       "objectId": "177524",
@@ -4493,6 +4616,33 @@
       "minPlayers": 2,
       "maxPlayers": 2,
       "playingTime": 30
+    },
+    {
+      "objectId": "454909",
+      "name": "Origin Story",
+      "yearPublished": "2025",
+      "bggRating": 7.18,
+      "bggRank": 1873,
+      "numVoters": 2280,
+      "numFans": 292,
+      "coverUrl": "https://cf.geekdo-images.com/aY8Kt9viVZgpkdO0Vdww-w__square100@2x/img/3r-LRLAqFS0IJ6LPQOJYS99rKl8=/0x0:1641x1641/200x200/filters:strip_icc()/pic9135406.jpg",
+      "thumbnail": "images/thumbnails/454909.jpg",
+      "image": "images/full/454909.jpg",
+      "description": "Craft a superhero origin story by trick taking and tableau building.",
+      "rawScore": 4.8999999999999995,
+      "recommendedBy": [
+        {
+          "ownedId": "428664",
+          "ownedName": "Fantasy Realms: Greek Legends",
+          "userRating": 7,
+          "bggRecRank": 1,
+          "contributionScore": 4.9
+        }
+      ],
+      "matchScore": 4.9,
+      "minPlayers": 1,
+      "maxPlayers": 5,
+      "playingTime": 45
     },
     {
       "objectId": "376683",
@@ -4785,6 +4935,40 @@
       "minPlayers": 1,
       "maxPlayers": 4,
       "playingTime": 80
+    },
+    {
+      "objectId": "415792",
+      "name": "Neko Syndicate",
+      "yearPublished": "2024",
+      "bggRating": 7.26,
+      "bggRank": 3963,
+      "numVoters": 720,
+      "numFans": 187,
+      "coverUrl": "https://cf.geekdo-images.com/BCIR6yORf7eVat2VzPtArQ__square100@2x/img/2Obefak5IJKikT36YvC0zBdoEd0=/0x0:1772x1772/200x200/filters:strip_icc()/pic8061612.jpg",
+      "thumbnail": "images/thumbnails/415792.jpg",
+      "image": "images/full/415792.jpg",
+      "description": "Sushi smuggling in a 30 min. tableau building game. Become the new Kumicho!",
+      "rawScore": 3.547841492847917,
+      "recommendedBy": [
+        {
+          "ownedId": "451594",
+          "ownedName": "A Carnivore Did It!",
+          "userRating": 8,
+          "bggRecRank": 9,
+          "contributionScore": 2.13
+        },
+        {
+          "ownedId": "428664",
+          "ownedName": "Fantasy Realms: Greek Legends",
+          "userRating": 7,
+          "bggRecRank": 12,
+          "contributionScore": 1.41
+        }
+      ],
+      "matchScore": 4.5,
+      "minPlayers": 1,
+      "maxPlayers": 4,
+      "playingTime": 40
     },
     {
       "objectId": "347013",
@@ -5296,6 +5480,40 @@
       "playingTime": 15
     },
     {
+      "objectId": "407233",
+      "name": "Tenby",
+      "yearPublished": "2025",
+      "bggRating": 7.64,
+      "bggRank": 1828,
+      "numVoters": 1531,
+      "numFans": 357,
+      "coverUrl": "https://cf.geekdo-images.com/8L5T9-_xGX5lFF-VlU77lA__square100@2x/img/tJVF1ocDllpIznUSYsKtLPDTWeU=/0x0:1571x1571/200x200/filters:strip_icc()/pic7880987.jpg",
+      "thumbnail": "images/thumbnails/407233.jpg",
+      "image": "images/full/407233.jpg",
+      "description": "Build the best Welsh seaside town!",
+      "rawScore": 3.124553719238681,
+      "recommendedBy": [
+        {
+          "ownedId": "431998",
+          "ownedName": "Point Galaxy",
+          "userRating": 7,
+          "bggRecRank": 6,
+          "contributionScore": 2
+        },
+        {
+          "ownedId": "428664",
+          "ownedName": "Fantasy Realms: Greek Legends",
+          "userRating": 7,
+          "bggRecRank": 19,
+          "contributionScore": 1.12
+        }
+      ],
+      "matchScore": 4.1,
+      "minPlayers": 1,
+      "maxPlayers": 5,
+      "playingTime": 60
+    },
+    {
       "objectId": "2389",
       "name": "Othello",
       "yearPublished": "1883",
@@ -5355,6 +5573,40 @@
       "minPlayers": 2,
       "maxPlayers": 7,
       "playingTime": 20
+    },
+    {
+      "objectId": "425549",
+      "name": "Moon Colony Bloodbath",
+      "yearPublished": "2025",
+      "bggRating": 7.64,
+      "bggRank": 465,
+      "numVoters": 6783,
+      "numFans": 1257,
+      "coverUrl": "https://cf.geekdo-images.com/KDrRxEKQMmHyM0QQ2ONX4Q__square100@2x/img/mljgQpJjOAhLBHeMegGCTCJkGcs=/200x200/filters:strip_icc()/pic8638247.jpg",
+      "thumbnail": "images/thumbnails/425549.jpg",
+      "image": "images/full/425549.jpg",
+      "description": "Whatever can go wrong will go wrong. Players compete to keep their colonists alive.",
+      "rawScore": 2.908489094030907,
+      "recommendedBy": [
+        {
+          "ownedId": "451594",
+          "ownedName": "A Carnivore Did It!",
+          "userRating": 8,
+          "bggRecRank": 20,
+          "contributionScore": 1.43
+        },
+        {
+          "ownedId": "428664",
+          "ownedName": "Fantasy Realms: Greek Legends",
+          "userRating": 7,
+          "bggRecRank": 11,
+          "contributionScore": 1.48
+        }
+      ],
+      "matchScore": 3.9,
+      "minPlayers": 1,
+      "maxPlayers": 5,
+      "playingTime": 90
     },
     {
       "objectId": "312484",
@@ -5484,6 +5736,40 @@
       "minPlayers": 2,
       "maxPlayers": 2,
       "playingTime": 20
+    },
+    {
+      "objectId": "422780",
+      "name": "Mistborn: The Deckbuilding Game",
+      "yearPublished": "2024",
+      "bggRating": 7.63,
+      "bggRank": 950,
+      "numVoters": 3615,
+      "numFans": 980,
+      "coverUrl": "https://cf.geekdo-images.com/Fr_k9-uU3hEUnw_3s-UnZQ__square100@2x/img/q2lfCG_WFUB_IHFIa4suiN4nfio=/200x200/filters:strip_icc()/pic8290518.png",
+      "thumbnail": "images/thumbnails/422780.png",
+      "image": "images/full/422780.png",
+      "description": "Burn metals in fast-paced allomantic battles.",
+      "rawScore": 2.888476598217711,
+      "recommendedBy": [
+        {
+          "ownedId": "353470",
+          "ownedName": "Star Wars: Jabba&#039;s Palace – A Love Letter Game",
+          "userRating": 8,
+          "bggRecRank": 26,
+          "contributionScore": 1.26
+        },
+        {
+          "ownedId": "428664",
+          "ownedName": "Fantasy Realms: Greek Legends",
+          "userRating": 7,
+          "bggRecRank": 9,
+          "contributionScore": 1.63
+        }
+      ],
+      "matchScore": 3.8,
+      "minPlayers": 1,
+      "maxPlayers": 4,
+      "playingTime": 60
     },
     {
       "objectId": "205059",
@@ -6734,40 +7020,6 @@
       "playingTime": 45
     },
     {
-      "objectId": "417197",
-      "name": "Rebirth",
-      "yearPublished": "2024",
-      "bggRating": 7.77,
-      "bggRank": 327,
-      "numVoters": 7478,
-      "numFans": 1794,
-      "coverUrl": "https://cf.geekdo-images.com/tyv6lPMlyU7YIUztlILQYQ__square100@2x/img/bpCif3K4iTLK4r90STx9Ykea6FI=/200x200/filters:strip_icc()/pic8587890.png",
-      "thumbnail": "images/thumbnails/417197.png",
-      "image": "images/full/417197.png",
-      "description": "Rebuild old lands in a lush, hopeful future.",
-      "rawScore": 2.3125616586437836,
-      "recommendedBy": [
-        {
-          "ownedId": "445045",
-          "ownedName": "Dice Pool Party",
-          "userRating": 7,
-          "bggRecRank": 17,
-          "contributionScore": 1.19
-        },
-        {
-          "ownedId": "453526",
-          "ownedName": "Got Five!",
-          "userRating": 7,
-          "bggRecRank": 19,
-          "contributionScore": 1.12
-        }
-      ],
-      "matchScore": 3.1,
-      "minPlayers": 2,
-      "maxPlayers": 4,
-      "playingTime": 60
-    },
-    {
       "objectId": "163967",
       "name": "Tiny Epic Galaxies",
       "yearPublished": "2015",
@@ -6888,33 +7140,6 @@
       "minPlayers": 1,
       "maxPlayers": 5,
       "playingTime": 150
-    },
-    {
-      "objectId": "436215",
-      "name": "The Hobbit: There and Back Again",
-      "yearPublished": "2025",
-      "bggRating": 7.58,
-      "bggRank": 1134,
-      "numVoters": 2713,
-      "numFans": 530,
-      "coverUrl": "https://cf.geekdo-images.com/KCsAkHzgdx9fL78c15N-dw__square100@2x/img/ChKTV4uE7wX4Q9obXcT5ueW8HlE=/0x0:1459x1459/200x200/filters:strip_icc()/pic8831592.png",
-      "thumbnail": "images/thumbnails/436215.png",
-      "image": "images/full/436215.png",
-      "description": "Hobbits compete to make the most rewarding journey to The Lonely Mountain.",
-      "rawScore": 2.8621670111997313,
-      "recommendedBy": [
-        {
-          "ownedId": "451594",
-          "ownedName": "A Carnivore Did It!",
-          "userRating": 8,
-          "bggRecRank": 5,
-          "contributionScore": 2.86
-        }
-      ],
-      "matchScore": 3,
-      "minPlayers": 1,
-      "maxPlayers": 4,
-      "playingTime": 30
     },
     {
       "objectId": "456440",
@@ -7757,6 +7982,33 @@
       "playingTime": 2
     },
     {
+      "objectId": "402679",
+      "name": "Rock Hard: 1977",
+      "yearPublished": "2024",
+      "bggRating": 7.5,
+      "bggRank": 1096,
+      "numVoters": 3184,
+      "numFans": 562,
+      "coverUrl": "https://cf.geekdo-images.com/CrJdKWVGgg24btEKtxNyzA__square100@2x/img/5hPhGR6H5eBnHtVuJZ0c7B9Yj3E=/200x200/filters:strip_icc()/pic8288389.jpg",
+      "thumbnail": "images/thumbnails/402679.jpg",
+      "image": "images/full/402679.jpg",
+      "description": "Rehearse, play gigs, get a record deal and become the most famous rock star of 1977.",
+      "rawScore": 2.4499999999999997,
+      "recommendedBy": [
+        {
+          "ownedId": "428664",
+          "ownedName": "Fantasy Realms: Greek Legends",
+          "userRating": 7,
+          "bggRecRank": 4,
+          "contributionScore": 2.45
+        }
+      ],
+      "matchScore": 2.6,
+      "minPlayers": 2,
+      "maxPlayers": 5,
+      "playingTime": 90
+    },
+    {
       "objectId": "260428",
       "name": "Fall of Rome",
       "yearPublished": "2018",
@@ -8426,33 +8678,6 @@
       "playingTime": 120
     },
     {
-      "objectId": "415792",
-      "name": "Neko Syndicate",
-      "yearPublished": "2024",
-      "bggRating": 7.26,
-      "bggRank": 3963,
-      "numVoters": 720,
-      "numFans": 187,
-      "coverUrl": "https://cf.geekdo-images.com/BCIR6yORf7eVat2VzPtArQ__square100@2x/img/2Obefak5IJKikT36YvC0zBdoEd0=/0x0:1772x1772/200x200/filters:strip_icc()/pic8061612.jpg",
-      "thumbnail": "images/thumbnails/415792.jpg",
-      "image": "images/full/415792.jpg",
-      "description": "Sushi smuggling in a 30 min. tableau building game. Become the new Kumicho!",
-      "rawScore": 2.1333333333333337,
-      "recommendedBy": [
-        {
-          "ownedId": "451594",
-          "ownedName": "A Carnivore Did It!",
-          "userRating": 8,
-          "bggRecRank": 9,
-          "contributionScore": 2.13
-        }
-      ],
-      "matchScore": 2.2,
-      "minPlayers": 1,
-      "maxPlayers": 4,
-      "playingTime": 40
-    },
-    {
       "objectId": "317515",
       "name": "Águeda: City of Umbrellas",
       "yearPublished": "2024",
@@ -8586,6 +8811,33 @@
       "minPlayers": 2,
       "maxPlayers": 6,
       "playingTime": 30
+    },
+    {
+      "objectId": "334652",
+      "name": "Goblin Vaults",
+      "yearPublished": "2023",
+      "bggRating": 7.14,
+      "bggRank": 4648,
+      "numVoters": 580,
+      "numFans": 86,
+      "coverUrl": "https://cf.geekdo-images.com/GfHvFSX1DJWU70V5ryJpRg__square100@2x/img/dnLYiZjpmI8EEdRjV_y3pARDoZc=/0x0:840x840/200x200/filters:strip_icc()/pic7404211.png",
+      "thumbnail": "images/thumbnails/334652.png",
+      "image": "images/full/334652.png",
+      "description": "Stash loot in your vault in this card game of clever manipulation.",
+      "rawScore": 2.191346617949794,
+      "recommendedBy": [
+        {
+          "ownedId": "428664",
+          "ownedName": "Fantasy Realms: Greek Legends",
+          "userRating": 7,
+          "bggRecRank": 5,
+          "contributionScore": 2.19
+        }
+      ],
+      "matchScore": 2.2,
+      "minPlayers": 1,
+      "maxPlayers": 5,
+      "playingTime": 45
     },
     {
       "objectId": "438",
@@ -8858,6 +9110,33 @@
       "playingTime": 20
     },
     {
+      "objectId": "415465",
+      "name": "Citizens of the Spark",
+      "yearPublished": "2025",
+      "bggRating": 7.41,
+      "bggRank": 3341,
+      "numVoters": 831,
+      "numFans": 224,
+      "coverUrl": "https://cf.geekdo-images.com/Ngki1QK4tOw-8z-PvBDpSQ__square100@2x/img/xJHmPtuKVVZUYva5jJIbr7iCMx8=/0x0:1000x1000/200x200/filters:strip_icc()/pic8058973.jpg",
+      "thumbnail": "images/thumbnails/415465.jpg",
+      "image": "images/full/415465.jpg",
+      "description": "Recruit the strongest and most brilliant animal citizens to your city.",
+      "rawScore": 2.000416623272929,
+      "recommendedBy": [
+        {
+          "ownedId": "428664",
+          "ownedName": "Fantasy Realms: Greek Legends",
+          "userRating": 7,
+          "bggRecRank": 6,
+          "contributionScore": 2
+        }
+      ],
+      "matchScore": 2.1,
+      "minPlayers": 1,
+      "maxPlayers": 5,
+      "playingTime": 60
+    },
+    {
       "objectId": "393175",
       "name": "Nocturne",
       "yearPublished": "2024",
@@ -8883,33 +9162,6 @@
       "minPlayers": 1,
       "maxPlayers": 4,
       "playingTime": 45
-    },
-    {
-      "objectId": "407233",
-      "name": "Tenby",
-      "yearPublished": "2025",
-      "bggRating": 7.64,
-      "bggRank": 1828,
-      "numVoters": 1531,
-      "numFans": 357,
-      "coverUrl": "https://cf.geekdo-images.com/8L5T9-_xGX5lFF-VlU77lA__square100@2x/img/tJVF1ocDllpIznUSYsKtLPDTWeU=/0x0:1571x1571/200x200/filters:strip_icc()/pic7880987.jpg",
-      "thumbnail": "images/thumbnails/407233.jpg",
-      "image": "images/full/407233.jpg",
-      "description": "Build the best Welsh seaside town!",
-      "rawScore": 2.000416623272929,
-      "recommendedBy": [
-        {
-          "ownedId": "431998",
-          "ownedName": "Point Galaxy",
-          "userRating": 7,
-          "bggRecRank": 6,
-          "contributionScore": 2
-        }
-      ],
-      "matchScore": 2.1,
-      "minPlayers": 1,
-      "maxPlayers": 5,
-      "playingTime": 60
     },
     {
       "objectId": "287322",
@@ -9234,6 +9486,33 @@
       "minPlayers": 2,
       "maxPlayers": 4,
       "playingTime": 45
+    },
+    {
+      "objectId": "298231",
+      "name": "Skyrise",
+      "yearPublished": "2024",
+      "bggRating": 7.66,
+      "bggRank": 731,
+      "numVoters": 4054,
+      "numFans": 809,
+      "coverUrl": "https://cf.geekdo-images.com/wQNNMPNOm43VMYPAPpJdEA__square100@2x/img/N3d--AtaKFT1qayywE0dDdU_R8Q=/200x200/filters:strip_icc()/pic8160197.jpg",
+      "thumbnail": "images/thumbnails/298231.jpg",
+      "image": "images/full/298231.jpg",
+      "description": "Architects build skyscrapers, each bigger than the last, in a city in the sky!",
+      "rawScore": 1.852025917745213,
+      "recommendedBy": [
+        {
+          "ownedId": "428664",
+          "ownedName": "Fantasy Realms: Greek Legends",
+          "userRating": 7,
+          "bggRecRank": 7,
+          "contributionScore": 1.85
+        }
+      ],
+      "matchScore": 2,
+      "minPlayers": 2,
+      "maxPlayers": 4,
+      "playingTime": 90
     },
     {
       "objectId": "390151",
@@ -10343,6 +10622,33 @@
       "playingTime": 20
     },
     {
+      "objectId": "388476",
+      "name": "Spectral",
+      "yearPublished": "2024",
+      "bggRating": 7.21,
+      "bggRank": 3545,
+      "numVoters": 828,
+      "numFans": 142,
+      "coverUrl": "https://cf.geekdo-images.com/m1r9KXSdtK8UDU54InCCYg__square100@2x/img/Xl93p-DHL_ZSGf2cG6Ybpa7zTUs=/0x322:1286x1608/200x200/filters:strip_icc()/pic7515218.png",
+      "thumbnail": "images/thumbnails/388476.png",
+      "image": "images/full/388476.png",
+      "description": "Find the treasures and beware the specters in this haunted manor treasure hunt.",
+      "rawScore": 1.7324116139070411,
+      "recommendedBy": [
+        {
+          "ownedId": "428664",
+          "ownedName": "Fantasy Realms: Greek Legends",
+          "userRating": 7,
+          "bggRecRank": 8,
+          "contributionScore": 1.73
+        }
+      ],
+      "matchScore": 1.7,
+      "minPlayers": 2,
+      "maxPlayers": 5,
+      "playingTime": 30
+    },
+    {
       "objectId": "394",
       "name": "Kahuna",
       "yearPublished": "1998",
@@ -10964,6 +11270,33 @@
       "playingTime": 20
     },
     {
+      "objectId": "379959",
+      "name": "The Battle of Versailles",
+      "yearPublished": "2024",
+      "bggRating": 7.35,
+      "bggRank": 4068,
+      "numVoters": 622,
+      "numFans": 103,
+      "coverUrl": "https://cf.geekdo-images.com/TCuxzLnOl7bhekjcPM2IDw__square100@2x/img/CtH1STWSP44WfwCC3p1SwXfPG-s=/200x200/filters:strip_icc()/pic8630039.png",
+      "thumbnail": "images/thumbnails/379959.png",
+      "image": "images/full/379959.png",
+      "description": "The best fashion designers of the world compete to become the most influential. ",
+      "rawScore": 1.5495160534825057,
+      "recommendedBy": [
+        {
+          "ownedId": "428664",
+          "ownedName": "Fantasy Realms: Greek Legends",
+          "userRating": 7,
+          "bggRecRank": 10,
+          "contributionScore": 1.55
+        }
+      ],
+      "matchScore": 1.6,
+      "minPlayers": 2,
+      "maxPlayers": 2,
+      "playingTime": 45
+    },
+    {
       "objectId": "171623",
       "name": "The Voyages of Marco Polo",
       "yearPublished": "2015",
@@ -11124,33 +11457,6 @@
       "minPlayers": 1,
       "maxPlayers": 6,
       "playingTime": 60
-    },
-    {
-      "objectId": "425549",
-      "name": "Moon Colony Bloodbath",
-      "yearPublished": "2025",
-      "bggRating": 7.64,
-      "bggRank": 465,
-      "numVoters": 6783,
-      "numFans": 1257,
-      "coverUrl": "https://cf.geekdo-images.com/KDrRxEKQMmHyM0QQ2ONX4Q__square100@2x/img/mljgQpJjOAhLBHeMegGCTCJkGcs=/200x200/filters:strip_icc()/pic8638247.jpg",
-      "thumbnail": "images/thumbnails/425549.jpg",
-      "image": "images/full/425549.jpg",
-      "description": "Whatever can go wrong will go wrong. Players compete to keep their colonists alive.",
-      "rawScore": 1.4310835055998656,
-      "recommendedBy": [
-        {
-          "ownedId": "451594",
-          "ownedName": "A Carnivore Did It!",
-          "userRating": 8,
-          "bggRecRank": 20,
-          "contributionScore": 1.43
-        }
-      ],
-      "matchScore": 1.5,
-      "minPlayers": 1,
-      "maxPlayers": 5,
-      "playingTime": 90
     },
     {
       "objectId": "218129",
@@ -12986,249 +13292,6 @@
       "matchScore": 1.3,
       "minPlayers": 2,
       "maxPlayers": 6,
-      "playingTime": 20
-    },
-    {
-      "objectId": "418581",
-      "name": "Bus & Stop",
-      "yearPublished": "2024",
-      "bggRating": 7.06,
-      "bggRank": 4319,
-      "numVoters": 698,
-      "numFans": 73,
-      "coverUrl": "https://cf.geekdo-images.com/x43rioxfA1oKiMtgrreagg__square100@2x/img/TymrX5ari_EIAZy30JM2iMeWYqw=/0x0:2685x2685/200x200/filters:strip_icc()/pic8132820.png",
-      "thumbnail": "images/thumbnails/418581.png",
-      "image": "images/full/418581.png",
-      "description": "Pick up and deliver passengers to be the best bus driver on the road.",
-      "rawScore": 1.3063945294843622,
-      "recommendedBy": [
-        {
-          "ownedId": "400113",
-          "ownedName": "Panda Panda",
-          "userRating": 8,
-          "bggRecRank": 24,
-          "contributionScore": 1.31
-        }
-      ],
-      "matchScore": 1.3,
-      "minPlayers": 2,
-      "maxPlayers": 4,
-      "playingTime": 15
-    },
-    {
-      "objectId": "232661",
-      "name": "Ada Lovelace: Consulting Mathematician",
-      "yearPublished": "2017",
-      "bggRating": 6.8,
-      "bggRank": 8893,
-      "numVoters": 229,
-      "numFans": 64,
-      "coverUrl": "https://cf.geekdo-images.com/lRTHm7jeRr1vD8WAMmvUYQ__square100@2x/img/HucyP2UUWAaltPPBzPXbEoZggAc=/0x0:905x905/200x200/filters:strip_icc()/pic3804826.jpg",
-      "thumbnail": "images/thumbnails/232661.jpg",
-      "image": "images/full/232661.jpg",
-      "description": "Roll dice and draw polyomino shapes to discover evidence to find a thief.",
-      "rawScore": 1.3644845846759068,
-      "recommendedBy": [
-        {
-          "ownedId": "191095",
-          "ownedName": "Scoundrel",
-          "userRating": 8,
-          "bggRecRank": 22,
-          "contributionScore": 1.36
-        }
-      ],
-      "matchScore": 1.3,
-      "minPlayers": 1,
-      "maxPlayers": 1,
-      "playingTime": 20
-    },
-    {
-      "objectId": "365593",
-      "name": "Old Town Road",
-      "yearPublished": "2021",
-      "bggRating": 7.35,
-      "bggRank": 12323,
-      "numVoters": 88,
-      "numFans": 38,
-      "coverUrl": "https://cf.geekdo-images.com/WVohIR7ZB0ZUv5bRBos-6A__square100@2x/img/qOrVqNhHil9OiDhgoA25n75YQRM=/500x0:1500x1000/200x200/filters:strip_icc()/pic7277845.png",
-      "thumbnail": "images/thumbnails/365593.png",
-      "image": "images/full/365593.png",
-      "description": "Craft poker hands using outlaws and lawmen...all in hand.",
-      "rawScore": 1.2316805742712018,
-      "recommendedBy": [
-        {
-          "ownedId": "191095",
-          "ownedName": "Scoundrel",
-          "userRating": 8,
-          "bggRecRank": 27,
-          "contributionScore": 1.23
-        }
-      ],
-      "matchScore": 1.3,
-      "minPlayers": 1,
-      "maxPlayers": 1,
-      "playingTime": 20
-    },
-    {
-      "objectId": "373828",
-      "name": "Galdor's Grip",
-      "yearPublished": "2022",
-      "bggRating": 7.92,
-      "bggRank": 3870,
-      "numVoters": 562,
-      "numFans": 301,
-      "coverUrl": "https://cf.geekdo-images.com/YLIPYD88MhAggJKXaW8QSw__square100@2x/img/T7eEaRh6RV_Xbn0GX1NV1IfT_8w=/0x0:1289x1228/fit-in/200x200/filters:fill(blur):strip_icc()/pic7183540.png",
-      "thumbnail": "images/thumbnails/373828.png",
-      "image": "images/full/373828.png",
-      "description": "Stop an evil telepath with just your hands in this fantasy card game for one player.",
-      "rawScore": 1.2094863136295273,
-      "recommendedBy": [
-        {
-          "ownedId": "191095",
-          "ownedName": "Scoundrel",
-          "userRating": 8,
-          "bggRecRank": 28,
-          "contributionScore": 1.21
-        }
-      ],
-      "matchScore": 1.3,
-      "minPlayers": 1,
-      "maxPlayers": 1,
-      "playingTime": 45
-    },
-    {
-      "objectId": "203430",
-      "name": "Fuji Flush",
-      "yearPublished": "2016",
-      "bggRating": 6.65,
-      "bggRank": 2209,
-      "numVoters": 4085,
-      "numFans": 118,
-      "coverUrl": "https://cf.geekdo-images.com/mobPzHA7UwgwiGzr2EVW9g__square100@2x/img/gSeSm-jH3CxvFJqccTNkbsQjK00=/0x0:549x549/200x200/filters:strip_icc()/pic3086849.jpg",
-      "thumbnail": "images/thumbnails/203430.jpg",
-      "image": "images/full/203430.jpg",
-      "description": "Be first to get rid of your cards by forming teams to beat other players' cards.",
-      "rawScore": 1.4310835055998656,
-      "recommendedBy": [
-        {
-          "ownedId": "291453",
-          "ownedName": "SCOUT",
-          "userRating": 8,
-          "bggRecRank": 20,
-          "contributionScore": 1.43
-        }
-      ],
-      "matchScore": 1.3,
-      "minPlayers": 3,
-      "maxPlayers": 8,
-      "playingTime": 20
-    },
-    {
-      "objectId": "424975",
-      "name": "Wilmot's Warehouse",
-      "yearPublished": "2024",
-      "bggRating": 7.46,
-      "bggRank": 1847,
-      "numVoters": 1705,
-      "numFans": 198,
-      "coverUrl": "https://cf.geekdo-images.com/me8N7vrfzBRD83d0VcRM-g__square100@2x/img/Ola8s889bfG2lZYkemqGZGUeh1k=/200x200/filters:strip_icc()/pic8327408.png",
-      "thumbnail": "images/thumbnails/424975.png",
-      "image": "images/full/424975.png",
-      "description": "Stack products in the warehouse, telling a story to remember where to find them.",
-      "rawScore": 1.2800000000000002,
-      "recommendedBy": [
-        {
-          "ownedId": "291453",
-          "ownedName": "SCOUT",
-          "userRating": 8,
-          "bggRecRank": 25,
-          "contributionScore": 1.28
-        }
-      ],
-      "matchScore": 1.3,
-      "minPlayers": 2,
-      "maxPlayers": 6,
-      "playingTime": 30
-    },
-    {
-      "objectId": "422780",
-      "name": "Mistborn: The Deckbuilding Game",
-      "yearPublished": "2024",
-      "bggRating": 7.63,
-      "bggRank": 950,
-      "numVoters": 3615,
-      "numFans": 980,
-      "coverUrl": "https://cf.geekdo-images.com/Fr_k9-uU3hEUnw_3s-UnZQ__square100@2x/img/q2lfCG_WFUB_IHFIa4suiN4nfio=/200x200/filters:strip_icc()/pic8290518.png",
-      "thumbnail": "images/thumbnails/422780.png",
-      "image": "images/full/422780.png",
-      "description": "Burn metals in fast-paced allomantic battles.",
-      "rawScore": 1.255143264884378,
-      "recommendedBy": [
-        {
-          "ownedId": "353470",
-          "ownedName": "Star Wars: Jabba&#039;s Palace – A Love Letter Game",
-          "userRating": 8,
-          "bggRecRank": 26,
-          "contributionScore": 1.26
-        }
-      ],
-      "matchScore": 1.3,
-      "minPlayers": 1,
-      "maxPlayers": 4,
-      "playingTime": 60
-    },
-    {
-      "objectId": "185244",
-      "name": "Autumn",
-      "yearPublished": "2015",
-      "bggRating": 6.45,
-      "bggRank": 10097,
-      "numVoters": 312,
-      "numFans": 38,
-      "coverUrl": "https://cf.geekdo-images.com/o8C6oBCZPl6rzEJeH6gIjQ__square100@2x/img/TEFqpJim94wx6vvO52qmBBvbCP4=/0x0:1102x1102/200x200/filters:strip_icc()/pic7958559.jpg",
-      "thumbnail": "images/thumbnails/185244.jpg",
-      "image": "images/full/185244.jpg",
-      "description": "Build the best pattern of fallen leaves.",
-      "rawScore": 1.4145081595145832,
-      "recommendedBy": [
-        {
-          "ownedId": "373778",
-          "ownedName": "Burger ASAP!",
-          "userRating": 7,
-          "bggRecRank": 12,
-          "contributionScore": 1.41
-        }
-      ],
-      "matchScore": 1.3,
-      "minPlayers": 1,
-      "maxPlayers": 3,
-      "playingTime": 20
-    },
-    {
-      "objectId": "274784",
-      "name": "Cosmic Cow Collectors",
-      "yearPublished": "2024",
-      "bggRating": 6.73,
-      "bggRank": 13367,
-      "numVoters": 123,
-      "numFans": 45,
-      "coverUrl": "https://cf.geekdo-images.com/w8g9PC6mipNs6YbTMdXY-Q__square100@2x/img/Cf3geZw8ENugsV3hqxiFN8483ow=/0x0:928x928/200x200/filters:strip_icc()/pic7601611.png",
-      "thumbnail": "images/thumbnails/274784.png",
-      "image": "images/full/274784.png",
-      "description": "Aliens explore the galaxy for planets to invade and abduct their cows.",
-      "rawScore": 1.3590154807518113,
-      "recommendedBy": [
-        {
-          "ownedId": "373778",
-          "ownedName": "Burger ASAP!",
-          "userRating": 7,
-          "bggRecRank": 13,
-          "contributionScore": 1.36
-        }
-      ],
-      "matchScore": 1.3,
-      "minPlayers": 2,
-      "maxPlayers": 4,
       "playingTime": 20
     }
   ]
