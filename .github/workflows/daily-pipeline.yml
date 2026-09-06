@@ -35,9 +35,9 @@ jobs:
         run: npm ci
 
       # ----------------------------------------------------
-      # Stage 1: Update BGG Collection, Plays & Designers
+      # Stage 1: Update BGG Collection, Plays & Images
       # ----------------------------------------------------
-      - name: 1. Update BGG Collection, Plays & Designers
+      - name: 1. Update BGG Collection, Plays & Images
         env:
           BGG_USER: koraytugay
           BGG_PASSWORD: ${{ secrets.BGG_PASSWORD }}
@@ -46,10 +46,6 @@ jobs:
           node fetch-bgg.js
           echo "Downloading new game images..."
           node download-images.js
-          echo "Fetching game designer metadata..."
-          node fetch-designers.js
-          echo "Fetching Best At player count metadata..."
-          node fetch-best-at.js
 
       - name: Commit & Push BGG Updates
         run: |
@@ -57,9 +53,9 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git pull --rebase --autostash origin ${{ github.ref_name }}
-          git add collection.xml plays/ images/ designers.json best-at.json
+          git add collection.xml plays/ images/
           if ! git diff --quiet --staged; then
-            git commit -m "chore: update collection, plays, designers & best-at ($(date -u +%F))"
+            git commit -m "chore: update collection, plays & images ($(date -u +%F))"
             git push
           else
             echo "No BGG collection changes to commit."
@@ -71,25 +67,29 @@ jobs:
           ICLOUD_EMAIL: ${{ secrets.ICLOUD_EMAIL }}
           ICLOUD_APP_PASSWORD: ${{ secrets.ICLOUD_APP_PASSWORD }}
           NOTIFICATION_EMAIL: ${{ secrets.NOTIFICATION_EMAIL }}
-        run: node notify-run-status.js --workflow="1. BGG Collection & Plays" --status="success" --message="Successfully synced collection, logged plays, images, and designers from BoardGameGeek."
+        run: node notify-run-status.js --workflow="1. BGG Collection & Plays" --status="success" --message="Successfully synced collection, logged plays, and images from BoardGameGeek."
 
       # ----------------------------------------------------
-      # Stage 2: Generate Fresh Game Recommendations
+      # Stage 2: Generate Fresh Game Recommendations & Metadata
       # ----------------------------------------------------
-      - name: 2. Generate Game Recommendations
+      - name: 2. Generate Game Recommendations & Metadata
         run: |
           echo "Calculating recommendations based on latest collection & plays..."
           node generate-recommendations.js
+          echo "Fetching game designer metadata for collection & recommendations..."
+          node fetch-designers.js
+          echo "Fetching Best At player count metadata for collection & recommendations..."
+          node fetch-best-at.js
 
-      - name: Commit & Push Recommendations
+      - name: Commit & Push Recommendations & Metadata
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git pull --rebase --autostash origin ${{ github.ref_name }}
-          git add recommendations.json bgg-recs-cache.json images/
+          git add recommendations.json bgg-recs-cache.json designers.json best-at.json images/
           if ! git diff --quiet --staged; then
-            git commit -m "chore: update game recommendations ($(date -u +%F))"
+            git commit -m "chore: update game recommendations & metadata ($(date -u +%F))"
             git push
           else
             echo "No recommendations changes to commit."
@@ -101,7 +101,7 @@ jobs:
           ICLOUD_EMAIL: ${{ secrets.ICLOUD_EMAIL }}
           ICLOUD_APP_PASSWORD: ${{ secrets.ICLOUD_APP_PASSWORD }}
           NOTIFICATION_EMAIL: ${{ secrets.NOTIFICATION_EMAIL }}
-        run: node notify-run-status.js --workflow="2. Game Recommendations" --status="success" --message="Successfully re-calculated recommendations based on latest plays and ratings."
+        run: node notify-run-status.js --workflow="2. Game Recommendations" --status="success" --message="Successfully re-calculated recommendations and metadata based on latest plays and ratings."
 
       # ----------------------------------------------------
       # Stage 3: Check Want to Buy Store Availability
@@ -127,9 +127,9 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git pull --rebase --autostash origin ${{ github.ref_name }}
-          git add availability.json last-notified-availability.json runlogs/
+          git add availability.json last-notified-availability.json
           if ! git diff --quiet --staged; then
-            git commit -m "chore: update wanted game availability & run logs ($(date -u +%F))"
+            git commit -m "chore: update wanted game availability ($(date -u +%F))"
             git push
           else
             echo "No wanted game availability changes to commit."
@@ -169,9 +169,9 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git pull --rebase --autostash origin ${{ github.ref_name }}
-          git add availability-liketohave.json last-notified-availability-liketohave.json runlogs/
+          git add availability-liketohave.json last-notified-availability-liketohave.json
           if ! git diff --quiet --staged; then
-            git commit -m "chore: update like to have availability & run logs ($(date -u +%F))"
+            git commit -m "chore: update like to have availability ($(date -u +%F))"
             git push
           else
             echo "No like to have availability changes to commit."
@@ -197,15 +197,10 @@ jobs:
           JOB_STATUS: ${{ job.status }}
         run: node notify-run-status.js --workflow="Daily Board Game Pipeline" --status="failure" --message="Pipeline encountered an error during execution. Please check the run logs."
 
-      - name: Commit & Push Run Logs on Failure
-        if: failure()
-        run: |
-          set -euo pipefail
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git pull --rebase --autostash origin ${{ github.ref_name }} || true
-          git add runlogs/
-          if ! git diff --quiet --staged; then
-            git commit -m "chore: save pipeline run logs on failure [skip ci]" || true
-            git push || true
-          fi
+      - name: Upload Run Logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pipeline-runlogs-${{ github.run_id }}
+          path: runlogs/
+          retention-days: 14
