@@ -11,6 +11,12 @@ const DEFAULT_HEADERS = {
     'Accept': 'application/json'
 };
 
+function writeFileAtomic(filePath, data) {
+    const tmpPath = `${filePath}.tmp.${Date.now()}`;
+    fs.writeFileSync(tmpPath, data, 'utf8');
+    fs.renameSync(tmpPath, filePath);
+}
+
 function fetchJson(url) {
     return new Promise((resolve) => {
         const u = new URL(url);
@@ -51,13 +57,14 @@ function fetchJson(url) {
 function getAllTargetGames() {
     const gameMap = new Map();
 
-    // 1. Games from collection.xml (owned games first, then other collection games)
+    // 1. Games from collection.xml (owned games first, then other collection games, excluding Priority 5)
     if (fs.existsSync(COLLECTION_FILE)) {
         const xml = fs.readFileSync(COLLECTION_FILE, 'utf8');
         const items = xml.match(/<item\b[\s\S]*?<\/item>/g) || [];
 
         // First pass: owned board games (the ones shown on index.html)
         for (const item of items) {
+            if (item.includes('wishlistpriority="5"')) continue;
             if (item.includes('subtype="boardgame"') && item.includes('own="1"')) {
                 const idMatch = item.match(/objectid="(\d+)"/);
                 const nameMatch = item.match(/<name[^>]*>([^<]+)<\/name>/);
@@ -72,6 +79,7 @@ function getAllTargetGames() {
 
         // Second pass: remaining games from collection.xml
         for (const item of items) {
+            if (item.includes('wishlistpriority="5"')) continue;
             const idMatch = item.match(/objectid="(\d+)"/);
             const nameMatch = item.match(/<name[^>]*>([^<]+)<\/name>/);
             if (idMatch && !gameMap.has(idMatch[1])) {
@@ -138,17 +146,19 @@ async function fetchBestAt() {
     const allGames = getAllTargetGames();
     const activeIdSet = new Set(allGames.map(g => String(g.objectId)));
 
-    // Prune entries no longer in collection or recommendations
-    let prunedCount = 0;
-    for (const cachedId of Object.keys(cache)) {
-        if (!activeIdSet.has(cachedId)) {
-            delete cache[cachedId];
-            prunedCount++;
+    // Prune entries no longer in collection or recommendations (with safety guard)
+    if (allGames.length >= 50) {
+        let prunedCount = 0;
+        for (const cachedId of Object.keys(cache)) {
+            if (!activeIdSet.has(cachedId)) {
+                delete cache[cachedId];
+                prunedCount++;
+            }
         }
-    }
-    if (prunedCount > 0) {
-        console.log(`Pruned ${prunedCount} orphaned game(s) from best-at cache.`);
-        fs.writeFileSync(BEST_AT_FILE, JSON.stringify(cache, null, 2), 'utf8');
+        if (prunedCount > 0) {
+            console.log(`Pruned ${prunedCount} orphaned game(s) from best-at cache.`);
+            writeFileAtomic(BEST_AT_FILE, JSON.stringify(cache, null, 2));
+        }
     }
 
     const missingGames = allGames.filter(g => !cache[g.objectId] || !Array.isArray(cache[g.objectId].bestAt));
@@ -165,28 +175,32 @@ async function fetchBestAt() {
         const game = missingGames[i];
 
         const res = await fetchJson(`https://api.geekdo.com/api/dynamicinfo?objectid=${game.objectId}&objecttype=thing`);
-        const bestAt = parseBestAt(res);
+        if (res && res.item) {
+            const bestAt = parseBestAt(res);
 
-        cache[game.objectId] = {
-            name: game.name,
-            bestAt,
-            lastUpdated: new Date().toISOString()
-        };
-        fetchedCount++;
-        if ((i + 1) % 10 === 0 || i === missingGames.length - 1 || bestAt.length > 0) {
-            console.log(`[${i + 1}/${missingGames.length}] "${game.name}": Best at ${bestAt.length > 0 ? bestAt.join(', ') : 'None'}`);
+            cache[game.objectId] = {
+                name: game.name,
+                bestAt,
+                lastUpdated: new Date().toISOString()
+            };
+            fetchedCount++;
+            if ((i + 1) % 10 === 0 || i === missingGames.length - 1 || bestAt.length > 0) {
+                console.log(`[${i + 1}/${missingGames.length}] "${game.name}": Best at ${bestAt.length > 0 ? bestAt.join(', ') : 'None'}`);
+            }
+        } else {
+            console.warn(`  -> Failed to fetch Best At info for "${game.name}" (ID: ${game.objectId}). Will retry on next run.`);
         }
 
         // Save progress incrementally every 15 games
         if ((i + 1) % 15 === 0 || i === missingGames.length - 1) {
-            fs.writeFileSync(BEST_AT_FILE, JSON.stringify(cache, null, 2), 'utf8');
+            writeFileAtomic(BEST_AT_FILE, JSON.stringify(cache, null, 2));
         }
 
         // Polite delay (250ms) between requests
         await new Promise(r => setTimeout(r, 250));
     }
 
-    fs.writeFileSync(BEST_AT_FILE, JSON.stringify(cache, null, 2), 'utf8');
+    writeFileAtomic(BEST_AT_FILE, JSON.stringify(cache, null, 2));
     console.log(`Finished fetching Best At player counts. Saved ${fetchedCount} new entries to ${BEST_AT_FILE}.`);
 }
 

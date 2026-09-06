@@ -11,6 +11,12 @@ const DEFAULT_HEADERS = {
     'Accept': 'application/json'
 };
 
+function writeFileAtomic(filePath, data) {
+    const tmpPath = `${filePath}.tmp.${Date.now()}`;
+    fs.writeFileSync(tmpPath, data, 'utf8');
+    fs.renameSync(tmpPath, filePath);
+}
+
 function fetchJson(url) {
     return new Promise((resolve) => {
         const u = new URL(url);
@@ -51,12 +57,13 @@ function fetchJson(url) {
 function getAllTargetGames() {
     const gameMap = new Map();
 
-    // 1. Games from collection.xml
+    // 1. Games from collection.xml (exclude Wishlist Priority 5 "Don't Buy" rejected games)
     if (fs.existsSync(COLLECTION_FILE)) {
         const xml = fs.readFileSync(COLLECTION_FILE, 'utf8');
         const items = xml.match(/<item\b[\s\S]*?<\/item>/g) || [];
 
         for (const item of items) {
+            if (item.includes('wishlistpriority="5"')) continue;
             const idMatch = item.match(/objectid="(\d+)"/);
             const nameMatch = item.match(/<name[^>]*>([^<]+)<\/name>/);
             if (idMatch) {
@@ -103,17 +110,19 @@ async function fetchDesigners() {
     const allGames = getAllTargetGames();
     const activeIdSet = new Set(allGames.map(g => String(g.objectId)));
 
-    // Prune entries no longer in collection or recommendations
-    let prunedCount = 0;
-    for (const cachedId of Object.keys(designersCache)) {
-        if (!activeIdSet.has(cachedId)) {
-            delete designersCache[cachedId];
-            prunedCount++;
+    // Prune entries no longer in collection or recommendations (with safety guard)
+    if (allGames.length >= 50) {
+        let prunedCount = 0;
+        for (const cachedId of Object.keys(designersCache)) {
+            if (!activeIdSet.has(cachedId)) {
+                delete designersCache[cachedId];
+                prunedCount++;
+            }
         }
-    }
-    if (prunedCount > 0) {
-        console.log(`Pruned ${prunedCount} orphaned game(s) from designers cache.`);
-        fs.writeFileSync(DESIGNERS_FILE, JSON.stringify(designersCache, null, 2), 'utf8');
+        if (prunedCount > 0) {
+            console.log(`Pruned ${prunedCount} orphaned game(s) from designers cache.`);
+            writeFileAtomic(DESIGNERS_FILE, JSON.stringify(designersCache, null, 2));
+        }
     }
 
     const missingGames = allGames.filter(g => !designersCache[g.objectId] || !Array.isArray(designersCache[g.objectId].designers));
@@ -131,8 +140,9 @@ async function fetchDesigners() {
         console.log(`[${i + 1}/${missingGames.length}] Fetching designers for "${game.name}" (ID: ${game.objectId})...`);
         
         const res = await fetchJson(`https://api.geekdo.com/api/geekitems?objectid=${game.objectId}&objecttype=thing`);
-        if (res?.item?.links?.boardgamedesigner) {
-            const designers = res.item.links.boardgamedesigner
+        if (res && res.item) {
+            const designerLinks = res.item.links?.boardgamedesigner || [];
+            const designers = designerLinks
                 .map(d => d.name?.trim())
                 .filter(Boolean);
             
@@ -142,25 +152,21 @@ async function fetchDesigners() {
                 lastUpdated: new Date().toISOString()
             };
             fetchedCount++;
-            console.log(`  -> Found ${designers.length} designer(s): ${designers.join(', ') || 'None'}`);
+            console.log(`  -> Found ${designers.length} designer(s): ${designers.join(', ') || '(Uncredited)'}`);
         } else {
-            designersCache[game.objectId] = {
-                name: game.name,
-                designers: ['(Uncredited)'],
-                lastUpdated: new Date().toISOString()
-            };
+            console.warn(`  -> Failed to fetch designer info for "${game.name}" (ID: ${game.objectId}). Will retry on next run.`);
         }
 
         // Save progress incrementally every 10 games
         if ((i + 1) % 10 === 0 || i === missingGames.length - 1) {
-            fs.writeFileSync(DESIGNERS_FILE, JSON.stringify(designersCache, null, 2), 'utf8');
+            writeFileAtomic(DESIGNERS_FILE, JSON.stringify(designersCache, null, 2));
         }
 
         // Polite delay (400ms) between BGG requests
         await new Promise(r => setTimeout(r, 400));
     }
 
-    fs.writeFileSync(DESIGNERS_FILE, JSON.stringify(designersCache, null, 2), 'utf8');
+    writeFileAtomic(DESIGNERS_FILE, JSON.stringify(designersCache, null, 2));
     console.log(`Finished fetching designers. Saved ${fetchedCount} new entries to ${DESIGNERS_FILE}.`);
 }
 
