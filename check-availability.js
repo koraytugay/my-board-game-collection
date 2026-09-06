@@ -44,6 +44,12 @@ function pruneOldLogs(maxDays = 14) {
 }
 pruneOldLogs(14);
 
+function writeFileAtomic(filePath, data) {
+    const tempPath = `${filePath}.tmp.${Date.now()}`;
+    fs.writeFileSync(tempPath, data, 'utf8');
+    fs.renameSync(tempPath, filePath);
+}
+
 // Tee console output to log file with timestamps
 const origLog = console.log;
 const origWarn = console.warn;
@@ -136,7 +142,6 @@ const runStats = {
 };
 
 const GAME_ALIASES = {
-    'Back to the Future: Back in Time': ['Back to the Future']
 };
 
 function decodeXmlEntities(str) {
@@ -352,11 +357,7 @@ function computeDealInfo(currentPrice, currentUrl, isAvailable, existingStoreDat
         };
     }
 
-    // If price dropped slightly (< 20%), update baseline
-    if (currNum < baselineNum && discountPercent < 20) {
-        return { baselinePrice: currentPrice, deal: null };
-    }
-
+    // Retain baselinePrice when price drops slightly (< 20%) to prevent baseline erosion
     return { baselinePrice, deal: null };
 }
 
@@ -870,15 +871,30 @@ function parseElevatedBoardGames(html, gameName, targetUrl) {
     };
 }
 
+function stripDescriptors(str) {
+    return (str || '')
+        .replace(/\([^)]*\)/g, ' ')
+        .replace(/\[[^\]]*\]/g, ' ')
+        .replace(/[\u2013\u2014]/g, '-')
+        .replace(/\b(board\s*game|card\s*game|dice\s*game|party\s*game|base\s*game|core\s*game|core\s*box|core\s*set|starter\s*set|new\s*release|pre-?order|english(\s*edition)?|french(\s*edition)?|fran[cç]ais|anglais|bilingual|multilingual|2nd\s*edition|second\s*edition|3rd\s*edition|third\s*edition)\b/gi, ' ')
+        .replace(/\s+/g, ' ')
+        .trim();
+}
+
+function normalizeTitle(str) {
+    return (str || '')
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .toLowerCase()
+        .replace(/[^a-z0-9]/g, '');
+}
+
 function isMatch(bggName, shopifyProduct) {
     if (!bggName || !shopifyProduct) return false;
     const shopifyTitle = decodeXmlEntities(shopifyProduct.title || '');
     const shopifyType = shopifyProduct.type || '';
     
     const cleanBgg = cleanName(bggName) || '';
-    const normalize = str => (str || '').toLowerCase().replace(/[^a-z0-9]/g, '');
-    const nBgg = normalize(cleanBgg);
-    const nShopify = normalize(shopifyTitle);
 
     // 1. Check product type: filter out obvious non-game categories
     const lowerType = shopifyType.toLowerCase();
@@ -895,15 +911,18 @@ function isMatch(bggName, shopifyProduct) {
         }
     }
 
-    // 3. Exact match of normalized titles
-    if (nBgg === nShopify) {
+    const nBggClean = normalizeTitle(stripDescriptors(cleanBgg));
+    const nShopifyClean = normalizeTitle(stripDescriptors(shopifyTitle));
+
+    // 3. Exact match after stripping store descriptors
+    if (nBggClean === nShopifyClean) {
         return true;
     }
 
     // 4. Check known game aliases
     const aliases = GAME_ALIASES[bggName] || GAME_ALIASES[cleanBgg] || [];
     for (const alias of aliases) {
-        if (normalize(alias) === nShopify) {
+        if (normalizeTitle(stripDescriptors(alias)) === nShopifyClean) {
             return true;
         }
     }
@@ -911,42 +930,45 @@ function isMatch(bggName, shopifyProduct) {
     // 5. If BGG name has a subtitle, ensure shopifyTitle contains key subtitle words
     if (cleanBgg.includes(':')) {
         const parts = cleanBgg.split(':');
+        const mainTitle = normalizeTitle(stripDescriptors(parts[0]));
         const subtitle = parts[1].trim();
         const subWords = subtitle.toLowerCase().split(/\s+/).filter(w => w.length > 2);
         const hasSubtitle = subWords.some(w => shopifyTitle.toLowerCase().includes(w));
         if (!hasSubtitle) {
             return false;
         }
+        if (!nShopifyClean.includes(mainTitle)) {
+            return false;
+        }
+        if (normalizeTitle(cleanBgg) === normalizeTitle(shopifyTitle)) {
+            return true;
+        }
     }
 
-    // 6. Word constraint to prevent generic single-word matching (e.g. "Parade" matching "Parade of Hundred Demons", "Barista" matching "Baristart")
-    const wordsBgg = cleanBgg.toLowerCase().split(/\s+/).filter(Boolean);
-    const wordsShopify = shopifyTitle.toLowerCase().split(/\s+/).filter(Boolean);
-    if (wordsBgg.length === 1) {
-        if (wordsShopify.length > 2) return false;
-        return normalize(wordsBgg[0]) === normalize(wordsShopify[0]);
-    }
-    if (wordsShopify.length === 1 && wordsBgg.length > 1) {
+    // 6. Word constraint: prevent single-word BGG titles matching multi-word products (e.g. "Blink" matching "Blink Dogs")
+    const wordsBgg = nBggClean ? cleanBgg.toLowerCase().split(/\s+/).filter(Boolean) : [];
+    const wordsShopify = nShopifyClean ? stripDescriptors(shopifyTitle).toLowerCase().split(/\s+/).filter(Boolean) : [];
+
+    if (wordsBgg.length === 1 && wordsShopify.length > 1) {
         return false;
     }
 
-    return nBgg === nShopify || nShopify.startsWith(nBgg) || nBgg.startsWith(nShopify);
+    return false;
 }
 
 function findBestShopifyMatch(products, gameName) {
     if (!products || !Array.isArray(products) || products.length === 0) return null;
-    const normalize = str => str.toLowerCase().replace(/[^a-z0-9]/g, '');
     const cleanBgg = cleanName(gameName);
-    const nBgg = normalize(cleanBgg);
+    const nBgg = normalizeTitle(cleanBgg);
     
     // 1. Exact normalized match first
-    const exact = products.find(p => normalize(cleanName(decodeXmlEntities(p.title || ''))) === nBgg);
+    const exact = products.find(p => normalizeTitle(cleanName(decodeXmlEntities(p.title || ''))) === nBgg);
     if (exact) return exact;
 
     // 2. Exact alias match
     const aliases = GAME_ALIASES[gameName] || GAME_ALIASES[cleanBgg] || [];
     for (const alias of aliases) {
-        const aliasMatch = products.find(p => normalize(cleanName(decodeXmlEntities(p.title || ''))) === normalize(alias));
+        const aliasMatch = products.find(p => normalizeTitle(cleanName(decodeXmlEntities(p.title || ''))) === normalizeTitle(alias));
         if (aliasMatch) return aliasMatch;
     }
     
@@ -1689,17 +1711,26 @@ function getStoreConfigs(skippedSellers = []) {
                     // Only Canadian sellers
                     const caProducts = res.products.filter(p => p.itemlocation_code === 'CA' || p.itemlocation === 'Canada');
                     
-                    // Filter out sellers in skippedSellers list (case-insensitive) and listings <= $5.0
+                    const getMarketCadPrice = (priceStr, currency) => {
+                        const num = parseFloat(priceStr) || 0;
+                        const cur = (currency || '').toUpperCase();
+                        if (cur === 'USD') return num * 1.40;
+                        if (cur === 'EUR') return num * 1.65;
+                        if (cur === 'GBP') return num * 1.90;
+                        return num;
+                    };
+
+                    // Filter out sellers in skippedSellers list (case-insensitive) and listings <= $5.0 CAD
                     const allowedProducts = caProducts.filter(p => {
                         const sellerName = p.linkeduser?.username;
                         if (!sellerName) return false;
                         if (skippedSellers.some(s => s.toLowerCase() === sellerName.toLowerCase())) return false;
-                        if (isPriceUnderThreshold(p.price)) return false;
+                        if (getMarketCadPrice(p.price, p.currency) <= MIN_PRICE_THRESHOLD) return false;
                         return true;
                     });
 
                     if (allowedProducts.length > 0) {
-                        const sorted = [...allowedProducts].sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
+                        const sorted = [...allowedProducts].sort((a, b) => getMarketCadPrice(a.price, a.currency) - getMarketCadPrice(b.price, b.currency));
                         const existingListings = Array.isArray(existingStoreData?.listings) ? existingStoreData.listings : [];
 
                         const listings = sorted.map(match => {
@@ -1709,7 +1740,7 @@ function getStoreConfigs(skippedSellers = []) {
                             const existing = existingListings.find(l => l.seller && l.seller.toLowerCase() === seller.toLowerCase());
                             const firstSeen = existing?.firstSeen || new Date().toISOString();
 
-                            const isIgnored = isPriceUnderThreshold(match.price);
+                            const isIgnored = getMarketCadPrice(match.price, match.currency) <= MIN_PRICE_THRESHOLD;
 
                             return {
                                 price: `${symbol}${match.price} ${match.currency}`,
@@ -2102,7 +2133,7 @@ async function checkAvailability() {
         // Incremental save every 5 games
         if ((i + 1) % 5 === 0 || i === wantedGames.length - 1) {
             try {
-                fs.writeFileSync(OUTPUT_FILE, JSON.stringify(availabilityData, null, 2), 'utf8');
+                writeFileAtomic(OUTPUT_FILE, JSON.stringify(availabilityData, null, 2));
             } catch (_) {}
         }
 
@@ -2121,7 +2152,7 @@ async function checkAvailability() {
         } catch (_) {}
     }
 
-    fs.writeFileSync(OUTPUT_FILE, JSON.stringify(availabilityData, null, 2), 'utf8');
+    writeFileAtomic(OUTPUT_FILE, JSON.stringify(availabilityData, null, 2));
     console.log(`Availability check finished. Saved results to ${OUTPUT_FILE}`);
     runStats.printSummary(wantedGames.length);
     logStream.end(() => {
