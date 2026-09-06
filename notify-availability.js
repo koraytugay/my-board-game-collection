@@ -263,7 +263,9 @@ function getPreviousAvailability() {
 
 function saveNotifiedSnapshot(data) {
     try {
-        fs.writeFileSync(NOTIFIED_SNAPSHOT_FILE, JSON.stringify(data, null, 2), 'utf8');
+        const tempFile = `${NOTIFIED_SNAPSHOT_FILE}.tmp.${Date.now()}`;
+        fs.writeFileSync(tempFile, JSON.stringify(data, null, 2), 'utf8');
+        fs.renameSync(tempFile, NOTIFIED_SNAPSHOT_FILE);
         console.log(`[INFO] Saved notification snapshot to ${NOTIFIED_SNAPSHOT_FILE}`);
     } catch (e) {
         console.error(`[ERROR] Failed to save snapshot ${NOTIFIED_SNAPSHOT_FILE}:`, e.message);
@@ -341,6 +343,13 @@ function computeDiff(prevData, currData, gamesMap) {
     for (const gameId of allGameIds) {
         const prevStores = prevData[gameId] || {};
         const currStores = currData[gameId] || {};
+
+        // If a game was completely removed from the monitored list (no longer in currData),
+        // do not trigger false "out of stock" alerts.
+        if (!currData[gameId] || Object.keys(currStores).length === 0) {
+            continue;
+        }
+
         const gameInfo = gamesMap[gameId] || { name: `Game #${gameId}`, bggUrl: `https://boardgamegeek.com/boardgame/${gameId}` };
         const gameName = gameInfo.name;
         const bggUrl = `https://boardgamegeek.com/boardgame/${gameId}`;
@@ -409,8 +418,8 @@ function computeDiff(prevData, currData, gamesMap) {
                     wasInStockAnywhere
                 });
             }
-            // 2. No longer in stock (only if check succeeded to avoid network glitch false alarms)
-            else if (wasAvail && !isAvail && curr.lastCheckSuccess !== false) {
+            // 2. No longer in stock (only if check succeeded and store was actively checked to avoid network glitch false alarms)
+            else if (wasAvail && !isAvail && curr && curr.lastCheckSuccess === true) {
                 noLongerAvailable.push({
                     gameId,
                     gameName,
@@ -773,7 +782,7 @@ async function sendNotificationEmail(subject, htmlBody, textBody) {
 
     if (!icloudEmail || !icloudPassword) {
         console.log('[INFO] ICLOUD_EMAIL or ICLOUD_APP_PASSWORD secret is not configured. Skipping email dispatch.');
-        return;
+        return true;
     }
 
     console.log(`[INFO] Preparing email notification via iCloud SMTP (from: ${icloudEmail} to: ${recipientEmail})...`);
@@ -799,8 +808,10 @@ async function sendNotificationEmail(subject, htmlBody, textBody) {
     try {
         const info = await transporter.sendMail(mailOptions);
         console.log(`[SUCCESS] Notification email sent successfully! Message ID: ${info.messageId}`);
+        return true;
     } catch (err) {
         console.error(`[ERROR] Failed to send email via iCloud SMTP:`, err.message);
+        return false;
     }
 }
 
@@ -825,10 +836,14 @@ async function run() {
     const textBody = buildTextBody(diff, summary);
 
     console.log(`Subject: ${subject}`);
-    await sendNotificationEmail(subject, htmlBody, textBody);
+    const emailSent = await sendNotificationEmail(subject, htmlBody, textBody);
 
-    // Save snapshot of what was notified
-    saveNotifiedSnapshot(currData);
+    // Save snapshot of what was notified only if email was sent successfully
+    if (emailSent) {
+        saveNotifiedSnapshot(currData);
+    } else {
+        console.warn('[WARN] Notification email failed to send. Preserving previous snapshot so stock changes will be notified on the next run.');
+    }
 }
 
 run().catch(err => {
