@@ -47,7 +47,7 @@ The following stores were evaluated, tracked, and permanently removed due to hav
 2. **Obsidian Games** (https://obsidiangames.ca - 🇨🇦)
    - Reason: 0 games in stock / not listed across entire list. Extremely sparse board game inventory.
 3. **Poké Jeux** (https://www.pokejeux.ca - 🇨🇦)
-   - Reason: 0 games in stock / not listed. Almost exclusively Pokémon/TCG products.
+   - Reason: 0 games in stock / not carried (0/22 across Want to Buy and Like to Have lists). Primarily focused on Pokémon and TCG singles. Its ~9,000 item board game catalog consists almost entirely of on-demand distributor "Special Orders" (minimum 2-week lead time, non-cancellable, non-refundable final sale) rather than local shelf stock, and its huge TCG catalog causes high false-positive noise on common title keywords.
 4. **Button Shy Games (Etsy)** (https://www.etsy.com/shop/ButtonShyGames - 🇺🇸)
    - Reason: Requires Etsy API key which is fragile with strict limits, and the store only produces their own wallet line (which is already covered by BGG Market or direct).
 5. **Spelspul** (https://www.spelspul.nl - 🇳🇱)
@@ -56,6 +56,8 @@ The following stores were evaluated, tracked, and permanently removed due to hav
    - Reason: 0 games in stock / not carried (0/24). A general home, kitchenware, and baby goods retailer with only ~10 mass-market games on the entire site. Triggers false matches on home decor (e.g., "Blink Wall Clock").
 7. **Crowdfinder** (https://www.crowdfinder.be - 🇧🇪)
    - Reason: Does not ship to Canada. Tracked inventory is not purchasable for Canadian delivery. Never add back.
+8. **Event Horizon Hobbies** (https://www.eventhorizonhobbies.com - 🇨🇦)
+   - Reason: Only 1 game carried (1/22 across Want to Buy and Like to Have lists). Store focuses heavily on Magic: The Gathering, Pokémon, and Warhammer miniatures (237k+ items) with an extremely small board game catalog (~288 items total). Titles use custom prefixes ("Boardgames - ", "Board Game - [Publisher] - "), pricing is at or above MSRP, and its massive card singles catalog causes heavy false-positive search noise.
 
 
 ## Candidate Stores (To Add / Remove Later)

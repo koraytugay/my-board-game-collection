@@ -152,6 +152,147 @@ function decodeXmlEntities(str) {
         .replace(/&#(\d+);/g, (match, dec) => String.fromCharCode(dec));
 }
 
+const STORE_KEY_ALIASES = {
+    'boardgamebliss': 'boardGameBliss',
+    'bgb': 'boardGameBliss',
+    'boardgameblisscom': 'boardGameBliss',
+
+    'fourzeroonegames': 'fourZeroOneGames',
+    '401': 'fourZeroOneGames',
+    '401games': 'fourZeroOneGames',
+    'store401gamesca': 'fourZeroOneGames',
+
+    'lvlupgames': 'lvlUpGames',
+    'lvlup': 'lvlUpGames',
+    'lvlupgamesca': 'lvlUpGames',
+
+    'asdesjeux': 'asDesJeux',
+    'asdesjeuxcom': 'asDesJeux',
+
+    'greatboardgames': 'greatBoardgames',
+    'gbg': 'greatBoardgames',
+    'greatboardgamesca': 'greatBoardgames',
+
+    'meeplemart': 'meeplemart',
+    'meeplemartcom': 'meeplemart',
+
+    'kbhobbies': 'kbHobbies',
+    'kbhobbiescom': 'kbHobbies',
+
+    'miniaturemarket': 'miniatureMarket',
+    'miniaturemarketcom': 'miniatureMarket',
+
+    'cardhaus': 'cardhaus',
+    'cardhausgames': 'cardhaus',
+    'cardhauscom': 'cardhaus',
+
+    'thegamesteward': 'theGameSteward',
+    'gamesteward': 'theGameSteward',
+    'thegamestewardcom': 'theGameSteward',
+
+    'amazon': 'amazonCa',
+    'amazonca': 'amazonCa',
+
+    'woodforsheep': 'woodForSheep',
+    'woodforsheepca': 'woodForSheep',
+
+    'jjcards': 'jjCards',
+    'jjcardscom': 'jjCards',
+
+    'boardgamesca': 'boardgamesCa',
+    'boardgames': 'boardgamesCa',
+
+    'screenfreegames': 'screenFreeGames',
+    'screenfreegamescom': 'screenFreeGames',
+
+    'allsystemsgo': 'allSystemsGo',
+    'allsystemsgogames': 'allSystemsGo',
+
+    'tabletopcafe': 'tabletopCafe',
+    'tabletopcafeca': 'tabletopCafe',
+
+    'elevatedboardgames': 'elevatedBoardGames',
+    'elevatedboardgamescom': 'elevatedBoardGames',
+
+    'dicehollow': 'diceHollow',
+    'dicehollowcom': 'diceHollow',
+
+    'lapioche': 'laPioche',
+    'boutiquelapioche': 'laPioche',
+    'boutiquelapiochecom': 'laPioche',
+
+    'alwaysgames': 'alwaysGames',
+    'alwaysgamesca': 'alwaysGames',
+
+    'legendswarehouse': 'legendsWarehouse',
+    'legendswarehouseca': 'legendsWarehouse',
+
+    'boardgamebandit': 'boardGameBandit',
+    'boardgamebanditca': 'boardGameBandit',
+
+    'zatu': 'zatu',
+    'zatugames': 'zatu',
+    'zatucom': 'zatu',
+
+    'chaoscards': 'chaosCards',
+    'chaoscardsuk': 'chaosCards',
+    'chaoscardsnet': 'chaosCards',
+
+    'philibert': 'philibert',
+    'philibertnet': 'philibert',
+
+    'bggmarket': 'bggMarket',
+    'bgg': 'bggMarket'
+};
+
+function resolveStoreKey(storeInput) {
+    if (!storeInput) return '';
+    const clean = String(storeInput).toLowerCase().replace(/[^a-z0-9]/g, '');
+    return STORE_KEY_ALIASES[clean] || clean;
+}
+
+function normalizeGameTitle(str) {
+    if (!str) return '';
+    return decodeXmlEntities(String(str))
+        .toLowerCase()
+        .replace(/['’`]/g, '')
+        .replace(/[^a-z0-9]/g, '');
+}
+
+function isMatchSkipped(skippedList, storeKey, gameName, gameObjectId = null) {
+    if (!Array.isArray(skippedList) || skippedList.length === 0) return false;
+    const resolvedTargetStore = resolveStoreKey(storeKey);
+    const normGame = normalizeGameTitle(gameName);
+    const idStr = gameObjectId ? String(gameObjectId).trim() : null;
+
+    for (const item of skippedList) {
+        let s = null;
+        let g = null;
+        if (Array.isArray(item)) {
+            s = item[0];
+            g = item[1];
+        } else if (item && typeof item === 'object') {
+            s = item.store || item.storeKey || item.storeName;
+            g = item.game || item.gameName || item.name || item.objectId;
+        }
+        if (!s || !g) continue;
+
+        const resolvedEntryStore = resolveStoreKey(s);
+        if (resolvedEntryStore.toLowerCase() !== resolvedTargetStore.toLowerCase()) {
+            continue;
+        }
+
+        if (idStr && String(g).trim() === idStr) {
+            return true;
+        }
+
+        if (normalizeGameTitle(g) === normGame) {
+            return true;
+        }
+    }
+    return false;
+}
+
 function extractNumericPrice(priceStr) {
     if (!priceStr) return null;
     const clean = String(priceStr).replace(/,/g, '');
@@ -1647,6 +1788,20 @@ async function checkAvailability() {
     if (!Array.isArray(skippedSellers)) skippedSellers = [];
     console.log(`Loaded ${skippedSellers.length} skipped seller(s).`);
 
+    // Load skipped store matches list
+    let skippedMatches = [];
+    const skippedMatchesFile = path.join(__dirname, 'skipped-matches.js');
+    if (fs.existsSync(skippedMatchesFile)) {
+        try {
+            delete require.cache[require.resolve(skippedMatchesFile)];
+            skippedMatches = require(skippedMatchesFile);
+        } catch (e) {
+            console.error('Error reading skipped-matches.js:', e);
+        }
+    }
+    if (!Array.isArray(skippedMatches)) skippedMatches = [];
+    console.log(`Loaded ${skippedMatches.length} skipped store match rule(s).`);
+
     const wantedGames = [];
 
     if (isLikeToHave) {
@@ -1711,6 +1866,24 @@ async function checkAvailability() {
         console.log(`Found ${wantedGames.length} games in Wanted list (${wtbCount} Want to Buy, ${tradeOnlyCount} Want in Trade only).`);
     }
 
+    // Clean any skipped matches from existingData right away
+    for (const [id, stores] of Object.entries(existingData)) {
+        const game = wantedGames.find(g => String(g.objectId) === String(id));
+        const gameName = game ? game.name : null;
+        for (const storeKey of Object.keys(stores)) {
+            if (isMatchSkipped(skippedMatches, storeKey, gameName, id)) {
+                stores[storeKey] = {
+                    available: false,
+                    price: null,
+                    baselinePrice: null,
+                    url: null,
+                    lastChecked: new Date().toISOString(),
+                    lastCheckSuccess: true
+                };
+            }
+        }
+    }
+
     let availabilityData = {};
     const activeIds = new Set(wantedGames.map(g => g.objectId));
     for (const id of activeIds) {
@@ -1734,6 +1907,19 @@ async function checkAvailability() {
         for (const storeKey of storeKeys) {
             // For games that are "Want in Trade" only (not "Want to Buy"), check stock ONLY in bggMarket
             if (game.isWantInTrade && !game.isWantToBuy && storeKey !== 'bggMarket') {
+                continue;
+            }
+
+            // Check if this store-game match is explicitly skipped/ignored
+            if (isMatchSkipped(skippedMatches, storeKey, game.name, game.objectId)) {
+                availability[storeKey] = {
+                    available: false,
+                    price: null,
+                    baselinePrice: null,
+                    url: null,
+                    lastChecked: new Date().toISOString(),
+                    lastCheckSuccess: true
+                };
                 continue;
             }
 
