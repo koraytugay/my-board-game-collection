@@ -268,7 +268,8 @@ function createGameCard(game) {
         <img src="${game.image || game.thumbnail || 'https://via.placeholder.com/300x300?text=No+Image'}" 
              alt="${escapeHtml(game.name)}" 
              class="game-thumbnail"
-             loading="lazy">
+             loading="lazy"
+             onerror="this.onerror=null;this.src='https://via.placeholder.com/300x300?text=No+Image';">
         <div class="game-info">
             <div class="game-year">${game.yearPublished !== 'N/A' ? game.yearPublished : ''}</div>
             <div class="game-name">${escapeHtml(game.name)}</div>

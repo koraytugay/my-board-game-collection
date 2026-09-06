@@ -13,12 +13,13 @@ async function initHistory() {
         const currentMonth = now.getMonth();
         
         const fetchPromises = [];
-        const startYear = currentYear - 1;
-        const totalMonthsToFetch = (currentYear - startYear) * 12 + currentMonth + 1;
+        const earliestYear = 2025;
+        const earliestMonth = 8; // September 2025 (0-indexed)
+        const totalMonthsToFetch = (currentYear - earliestYear) * 12 + (currentMonth - earliestMonth) + 1;
 
         for (let i = 0; i < totalMonthsToFetch; i++) {
             const d = new Date(currentYear, currentMonth - i, 1);
-            if (d.getFullYear() < startYear) break;
+            if (d.getFullYear() < earliestYear || (d.getFullYear() === earliestYear && d.getMonth() < earliestMonth)) break;
             fetchPromises.push(getPlaysForMonth(d.getFullYear(), d.getMonth()));
         }
 
@@ -140,7 +141,7 @@ function renderBucket(containerId, countId, items) {
         
         return `
             <div class="history-item" onclick="typeof showGameDetails === 'function' ? showGameDetails('${item.id}') : window.open('https://boardgamegeek.com/boardgame/${item.id}', '_blank')" title="${safeName} (Last played: ${formattedDate})">
-                <img src="${imageUrl || 'https://via.placeholder.com/180x180?text=?'}" alt="${safeName}" class="history-item-img" loading="lazy">
+                <img src="${imageUrl || 'https://via.placeholder.com/180x180?text=?'}" alt="${safeName}" class="history-item-img" loading="lazy" onerror="this.onerror=null;this.src='https://via.placeholder.com/180x180?text=?';">
                 ${formattedDate ? `<div class="history-item-date-overlay">${formattedDate}</div>` : ''}
             </div>
         `;

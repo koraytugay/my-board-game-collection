@@ -61,15 +61,16 @@ async function fetchCollection() {
     const controlsEl = document.getElementById('controls');
 
     try {
-        const [collection, availabilityRes, designersRes] = await Promise.all([
+        const [collection, availabilityRes, likeToHaveAvailRes, designersRes] = await Promise.all([
             getCollection('wantintrade'),
             fetch('availability.json').then(res => res.ok ? res.json() : {}).catch(() => ({})),
+            fetch('availability-liketohave.json').then(res => res.ok ? res.json() : {}).catch(() => ({})),
             fetch('designers.json').then(res => res.ok ? res.json() : {}).catch(() => ({}))
         ]);
         
         allGames = collection.map(game => ({
             ...game,
-            availability: availabilityRes[game.objectId] || null,
+            availability: { ...(availabilityRes[game.objectId] || {}), ...(likeToHaveAvailRes[game.objectId] || {}) },
             designers: designersRes[game.objectId]?.designers || []
         }));
         
@@ -334,7 +335,8 @@ function createGameCard(game) {
         <img src="${game.image || game.thumbnail || 'https://via.placeholder.com/300x300?text=No+Image'}" 
              alt="${game.name}" 
              class="game-thumbnail"
-             loading="lazy">
+             loading="lazy"
+             onerror="this.onerror=null;this.src='https://via.placeholder.com/300x300?text=No+Image';">
         <div class="game-info">
             <div class="game-year">${game.yearPublished !== 'N/A' ? game.yearPublished : ''}</div>
             <div class="game-name">${game.name}</div>
