@@ -17,6 +17,12 @@ const USER_AGENT = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)';
     }
 });
 
+function writeFileAtomic(filePath, data) {
+    const tmpPath = `${filePath}.tmp.${Date.now()}`;
+    fs.writeFileSync(tmpPath, data, 'utf8');
+    fs.renameSync(tmpPath, filePath);
+}
+
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
@@ -51,7 +57,7 @@ function fetchJson(url) {
     });
 }
 
-function downloadFile(url, dest) {
+function downloadFile(url, dest, maxRedirects = 3) {
     return new Promise((resolve) => {
         if (!url || url.trim() === '') {
             return resolve(false);
@@ -59,22 +65,33 @@ function downloadFile(url, dest) {
         if (fs.existsSync(dest)) {
             return resolve(true);
         }
-        const file = fs.createWriteStream(dest);
-        https.get(url, { headers: { 'User-Agent': USER_AGENT } }, (response) => {
-            if (response.statusCode !== 200) {
-                file.close();
+
+        const execute = (currentUrl, redirectsLeft) => {
+            const file = fs.createWriteStream(dest);
+            https.get(currentUrl, { headers: { 'User-Agent': USER_AGENT } }, (response) => {
+                if (response.statusCode >= 300 && response.statusCode < 400 && response.headers.location && redirectsLeft > 0) {
+                    file.close();
+                    fs.unlink(dest, () => {});
+                    const nextUrl = new URL(response.headers.location, currentUrl).href;
+                    return execute(nextUrl, redirectsLeft - 1);
+                }
+                if (response.statusCode !== 200) {
+                    file.close();
+                    fs.unlink(dest, () => {});
+                    return resolve(false);
+                }
+                response.pipe(file);
+                file.on('finish', () => {
+                    file.close();
+                    resolve(true);
+                });
+            }).on('error', () => {
                 fs.unlink(dest, () => {});
-                return resolve(false);
-            }
-            response.pipe(file);
-            file.on('finish', () => {
-                file.close();
-                resolve(true);
+                resolve(false);
             });
-        }).on('error', () => {
-            fs.unlink(dest, () => {});
-            resolve(false);
-        });
+        };
+
+        execute(url, maxRedirects);
     });
 }
 
@@ -297,29 +314,58 @@ async function generateRecommendations() {
     // Select TOP 400 recommendations AFTER all excluded games are removed
     const topRecommendations = candidates.slice(0, 400);
 
-    console.log(`\nFetching high-resolution 492x600 cover images for top ${topRecommendations.length} recommendations...`);
+    console.log(`\nFetching high-resolution 492x600 cover images and metadata for top ${topRecommendations.length} recommendations...`);
+    recsCache._metadata = recsCache._metadata || {};
+
+    let metadataLookups = 0;
     for (let i = 0; i < topRecommendations.length; i++) {
         const rec = topRecommendations[i];
-        
-        const geekUrl = `https://api.geekdo.com/api/geekitems?objectid=${rec.objectId}&objecttype=boardgame`;
-        const geekData = await fetchJson(geekUrl);
-        await sleep(120);
+        let cachedMeta = recsCache._metadata[rec.objectId];
 
-        let highResUrl = rec.coverUrl;
-        if (geekData && geekData.item) {
-            if (geekData.item['imageurl@2x']) {
-                highResUrl = geekData.item['imageurl@2x'];
-            } else if (geekData.item.imageurl) {
-                highResUrl = geekData.item.imageurl;
+        if (cachedMeta && cachedMeta.minPlayers !== undefined) {
+            rec.minPlayers = cachedMeta.minPlayers;
+            rec.maxPlayers = cachedMeta.maxPlayers;
+            rec.playingTime = cachedMeta.playingTime;
+            rec.highResUrl = cachedMeta.highResUrl || rec.coverUrl;
+        } else {
+            const geekUrl = `https://api.geekdo.com/api/geekitems?objectid=${rec.objectId}&objecttype=boardgame`;
+            const geekData = await fetchJson(geekUrl);
+            metadataLookups++;
+            await sleep(120);
+
+            let highResUrl = rec.coverUrl;
+            let minPlayers = 0;
+            let maxPlayers = 0;
+            let playingTime = 0;
+
+            if (geekData && geekData.item) {
+                if (geekData.item['imageurl@2x']) {
+                    highResUrl = geekData.item['imageurl@2x'];
+                } else if (geekData.item.imageurl) {
+                    highResUrl = geekData.item.imageurl;
+                }
+                minPlayers = parseInt(geekData.item.minplayers) || 0;
+                maxPlayers = parseInt(geekData.item.maxplayers) || 0;
+                playingTime = parseInt(geekData.item.playingtime || geekData.item.maxplaytime || geekData.item.minplaytime) || 0;
+
+                recsCache._metadata[rec.objectId] = {
+                    minPlayers,
+                    maxPlayers,
+                    playingTime,
+                    highResUrl
+                };
             }
-            rec.minPlayers = parseInt(geekData.item.minplayers) || 0;
-            rec.maxPlayers = parseInt(geekData.item.maxplayers) || 0;
-            rec.playingTime = parseInt(geekData.item.playingtime || geekData.item.maxplaytime || geekData.item.minplaytime) || 0;
+
+            rec.minPlayers = minPlayers;
+            rec.maxPlayers = maxPlayers;
+            rec.playingTime = playingTime;
+            rec.highResUrl = highResUrl;
         }
 
-        if (highResUrl) {
+        const targetImgUrl = rec.highResUrl || rec.coverUrl;
+        if (targetImgUrl) {
             try {
-                const ext = path.extname(new URL(highResUrl).pathname) || '.jpg';
+                const ext = path.extname(new URL(targetImgUrl).pathname) || '.jpg';
                 const localThumb = path.join(THUMBNAILS_DIR, `${rec.objectId}${ext}`);
                 const localFull = path.join(FULL_DIR, `${rec.objectId}${ext}`);
 
@@ -327,7 +373,7 @@ async function generateRecommendations() {
                 let fullExists = fs.existsSync(localFull);
 
                 if (!thumbExists && !fullExists) {
-                    const success = await downloadFile(highResUrl, localThumb);
+                    const success = await downloadFile(targetImgUrl, localThumb);
                     if (success) {
                         thumbExists = true;
                         try {
@@ -354,7 +400,32 @@ async function generateRecommendations() {
                     rec.image = `images/full/${rec.objectId}${ext}`;
                 }
             } catch (e) {
-                console.error(`Error downloading image for ${rec.name}:`, e);
+                console.error(`Error downloading image for ${rec.name}:`, e.message);
+            }
+        }
+    }
+    console.log(`Metadata network lookups made: ${metadataLookups} (${topRecommendations.length - metadataLookups} served from cache).`);
+
+    // Prune entries from recsCache where source game is no longer owned and rated >= 7
+    const activeSourceIds = new Set(gamesToAnalyze.map(g => String(g.objectId)));
+    let prunedSourceCount = 0;
+    for (const key of Object.keys(recsCache)) {
+        if (key.startsWith('_')) continue;
+        if (!activeSourceIds.has(key)) {
+            delete recsCache[key];
+            prunedSourceCount++;
+        }
+    }
+    if (prunedSourceCount > 0) {
+        console.log(`Pruned ${prunedSourceCount} unowned/low-rated game(s) from recsCache.`);
+    }
+
+    // Prune _metadata for games no longer in top recommendations
+    if (recsCache._metadata) {
+        const topIdSet = new Set(topRecommendations.map(r => String(r.objectId)));
+        for (const metaId of Object.keys(recsCache._metadata)) {
+            if (!topIdSet.has(metaId)) {
+                delete recsCache._metadata[metaId];
             }
         }
     }
@@ -365,8 +436,8 @@ async function generateRecommendations() {
         recommendations: topRecommendations
     };
 
-    fs.writeFileSync(CACHE_FILE, JSON.stringify(recsCache, null, 2), 'utf8');
-    fs.writeFileSync(OUTPUT_FILE, JSON.stringify(outputData, null, 2), 'utf8');
+    writeFileAtomic(CACHE_FILE, JSON.stringify(recsCache, null, 2));
+    writeFileAtomic(OUTPUT_FILE, JSON.stringify(outputData, null, 2));
     console.log(`Saved top ${topRecommendations.length} high-resolution recommendations to ${OUTPUT_FILE}`);
 }
 
