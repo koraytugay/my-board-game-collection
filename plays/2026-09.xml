@@ -1,5 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?><plays username="koraytugay" userid="4151779" total="11" page="1" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse">
-<play id="118368893" date="2026-09-05" quantity="2" length="40" incomplete="0" nowinstats="0" location="">
+<?xml version="1.0" encoding="utf-8"?><plays username="koraytugay" userid="4151779" total="13" page="1" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse">
+<play id="118388347" date="2026-09-05" quantity="1" length="30" incomplete="0" nowinstats="0" location="">
+			<item name="Dungeons, Dice &amp; Danger" objecttype="thing" objectid="349463">
+				<subtypes>
+										<subtype value="boardgame" />
+									</subtypes>
+			</item>
+								</play>
+	<play id="118368893" date="2026-09-05" quantity="2" length="40" incomplete="0" nowinstats="0" location="">
 			<item name="Fantasy Realms: Greek Legends" objecttype="thing" objectid="428664">
 				<subtypes>
 										<subtype value="boardgame" />
@@ -13,6 +20,13 @@
 										<subtype value="boardgame" />
 										<subtype value="boardgameimplementation" />
 										<subtype value="boardgameintegration" />
+									</subtypes>
+			</item>
+								</play>
+	<play id="118388341" date="2026-09-05" quantity="1" length="10" incomplete="0" nowinstats="0" location="">
+			<item name="Onitama" objecttype="thing" objectid="160477">
+				<subtypes>
+										<subtype value="boardgame" />
 									</subtypes>
 			</item>
 								</play>
