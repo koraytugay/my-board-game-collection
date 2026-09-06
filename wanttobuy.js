@@ -255,9 +255,9 @@ function sortGames(criteria) {
             case 'rating-asc':
                 return a.rating - b.rating;
             case 'year-desc':
-                return parseInt(b.yearPublished) - parseInt(b.yearPublished);
+                return (parseInt(b.yearPublished) || 0) - (parseInt(a.yearPublished) || 0);
             case 'year-asc':
-                return parseInt(a.yearPublished) - parseInt(a.yearPublished);
+                return (parseInt(a.yearPublished) || 0) - (parseInt(b.yearPublished) || 0);
             default:
                 return a.name.localeCompare(b.name);
         }
