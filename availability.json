@@ -1420,6 +1420,14 @@
       "lastChecked": "2026-09-09T19:22:09.344Z",
       "lastCheckSuccess": true
     },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": "https://www.amazon.ca/s?k=Back%20to%20the%20Future%3A%20Back%20in%20Time%20board%20game",
+      "lastChecked": "2026-09-09T19:26:10.912Z",
+      "lastCheckSuccess": true
+    },
     "woodForSheep": {
       "available": false,
       "price": null,
@@ -1557,14 +1565,6 @@
       ],
       "lastChecked": "2026-09-09T19:22:06.489Z",
       "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": "https://www.amazon.ca/s?k=Back%20to%20the%20Future%3A%20Back%20in%20Time%20board%20game",
-      "lastChecked": "2026-09-09T19:26:10.912Z",
-      "lastCheckSuccess": true
     }
   },
   "304783": {
@@ -1648,6 +1648,14 @@
       "lastChecked": "2026-09-09T19:20:11.666Z",
       "lastCheckSuccess": true
     },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "baselinePrice": "92.68",
+      "url": "https://www.amazon.ca/s?k=Hadrian's%20Wall%20board%20game",
+      "lastChecked": "2026-09-09T19:26:04.602Z",
+      "lastCheckSuccess": true
+    },
     "woodForSheep": {
       "available": false,
       "price": "$58.49",
@@ -1717,7 +1725,7 @@
       "price": null,
       "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-09-09T19:26:02.447Z",
+      "lastChecked": "2026-09-10T01:04:58.206Z",
       "lastCheckSuccess": true
     },
     "alwaysGames": {
@@ -1792,14 +1800,6 @@
         }
       ],
       "lastChecked": "2026-09-09T19:20:09.101Z",
-      "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "baselinePrice": "92.68",
-      "url": "https://www.amazon.ca/s?k=Hadrian's%20Wall%20board%20game",
-      "lastChecked": "2026-09-09T19:26:04.602Z",
       "lastCheckSuccess": true
     }
   },
