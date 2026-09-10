@@ -80,6 +80,14 @@
       "lastChecked": "2026-09-09T19:27:07.435Z",
       "lastCheckSuccess": true
     },
+    "amazonCa": {
+      "available": true,
+      "price": "79.89",
+      "baselinePrice": "79.89",
+      "url": "https://www.amazon.ca/dp/B07YXB9CY5",
+      "lastChecked": "2026-09-10T01:05:49.519Z",
+      "lastCheckSuccess": true
+    },
     "woodForSheep": {
       "available": false,
       "price": null,
@@ -207,14 +215,6 @@
       "url": null,
       "lastChecked": "2026-09-09T19:27:04.810Z",
       "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": true,
-      "price": "69.72",
-      "baselinePrice": "69.72",
-      "url": "https://www.amazon.ca/dp/B07YXB9CY5",
-      "lastChecked": "2026-09-09T12:32:24.529Z",
-      "lastCheckSuccess": false
     }
   },
   "319035": {
@@ -296,6 +296,14 @@
       "baselinePrice": "$74.99",
       "url": null,
       "lastChecked": "2026-09-09T19:27:22.134Z",
+      "lastCheckSuccess": true
+    },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": "https://www.amazon.ca/s?k=Fantastic%20Factories%3A%20Manufactions%20board%20game",
+      "lastChecked": "2026-09-10T01:05:55.429Z",
       "lastCheckSuccess": true
     },
     "woodForSheep": {
@@ -425,14 +433,6 @@
       "url": null,
       "lastChecked": "2026-09-09T19:27:18.694Z",
       "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": "https://www.amazon.ca/s?k=Fantastic%20Factories%3A%20Manufactions%20board%20game",
-      "lastChecked": "2026-09-09T12:32:40.099Z",
-      "lastCheckSuccess": false
     }
   },
   "320242": {
@@ -514,6 +514,14 @@
       "baselinePrice": "$7.99",
       "url": "https://thegamesteward.com/products/fantastic-factories-subterfuge-board-game-expansion?_pos=2&_psq=Fantastic+Factories%3A+Subterfuge&_psid=0e96cedf1&_ss=e",
       "lastChecked": "2026-09-09T19:27:36.343Z",
+      "lastCheckSuccess": true
+    },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": "https://www.amazon.ca/s?k=Fantastic%20Factories%3A%20Subterfuge%20board%20game",
+      "lastChecked": "2026-09-09T19:30:11.400Z",
       "lastCheckSuccess": true
     },
     "woodForSheep": {
@@ -652,14 +660,6 @@
         }
       ],
       "lastChecked": "2026-09-09T19:27:33.885Z",
-      "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": "https://www.amazon.ca/s?k=Fantastic%20Factories%3A%20Subterfuge%20board%20game",
-      "lastChecked": "2026-09-09T19:30:11.400Z",
       "lastCheckSuccess": true
     }
   },
