@@ -80,6 +80,14 @@
       "lastChecked": "2026-09-10T19:12:32.059Z",
       "lastCheckSuccess": true
     },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": "https://www.amazon.ca/s?k=Blink%20board%20game",
+      "lastChecked": "2026-09-10T19:16:35.388Z",
+      "lastCheckSuccess": true
+    },
     "woodForSheep": {
       "available": false,
       "price": null,
@@ -206,14 +214,6 @@
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-09-10T19:12:29.163Z",
-      "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": "https://www.amazon.ca/s?k=Blink%20board%20game",
-      "lastChecked": "2026-09-10T19:16:35.388Z",
       "lastCheckSuccess": true
     }
   },
@@ -1563,8 +1563,8 @@
       "price": null,
       "baselinePrice": null,
       "url": "https://www.amazon.ca/s?k=Back%20to%20the%20Future%3A%20Back%20in%20Time%20board%20game",
-      "lastChecked": "2026-09-09T19:26:10.912Z",
-      "lastCheckSuccess": false
+      "lastChecked": "2026-09-11T01:03:29.919Z",
+      "lastCheckSuccess": true
     }
   },
   "304783": {
@@ -1648,6 +1648,14 @@
       "lastChecked": "2026-09-10T19:10:13.934Z",
       "lastCheckSuccess": true
     },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "baselinePrice": "92.68",
+      "url": "https://www.amazon.ca/s?k=Hadrian's%20Wall%20board%20game",
+      "lastChecked": "2026-09-11T01:02:32.564Z",
+      "lastCheckSuccess": true
+    },
     "woodForSheep": {
       "available": false,
       "price": "$58.49",
@@ -1717,7 +1725,7 @@
       "price": null,
       "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-09-10T19:16:23.323Z",
+      "lastChecked": "2026-09-11T01:03:27.871Z",
       "lastCheckSuccess": true
     },
     "alwaysGames": {
@@ -1793,14 +1801,6 @@
       ],
       "lastChecked": "2026-09-10T19:10:10.504Z",
       "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "baselinePrice": "92.68",
-      "url": "https://www.amazon.ca/s?k=Hadrian's%20Wall%20board%20game",
-      "lastChecked": "2026-09-09T19:26:04.602Z",
-      "lastCheckSuccess": false
     }
   },
   "319793": {
