@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><items totalitems="476"><item objecttype="thing" objectid="423517" subtype="boardgame" collid="148161790">
+<?xml version="1.0" encoding="utf-8"?><items totalitems="478"><item objecttype="thing" objectid="423517" subtype="boardgame" collid="148161790">
 	<name sortindex="1">3 Chapters</name>
 		<yearpublished>2024</yearpublished>			<image>https://cf.geekdo-images.com/es3F2drfUOIVnqsTds3BDQ__original/img/aagzL4ORPemw2xi3FL4575gKYhA=/0x0/filters:format(png)/pic8940639.png</image>
 		<thumbnail>https://cf.geekdo-images.com/es3F2drfUOIVnqsTds3BDQ__small/img/bCpN5Ool_-QFKQbPlAfmIfFUdRI=/fit-in/200x150/filters:strip_icc()/pic8940639.png</thumbnail>
@@ -2363,6 +2363,19 @@
 											</ranks>		</rating>
 			</stats>	<status own="0" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="1" wishlistpriority="5" preordered="0" lastmodified="2026-08-04 22:42:37" />
 	<numplays>0</numplays>							</item>
+<item objecttype="thing" objectid="366683" subtype="boardgame" collid="149514629">
+	<name sortindex="1">Raising Robots</name>
+		<yearpublished>2023</yearpublished>			<image>https://cf.geekdo-images.com/kGmrDjZ1ZZ3HddqqN8aqnQ__original/img/AVOzSY2_SWGZjskLpwTHG5lDqyA=/0x0/filters:format(png)/pic7366753.png</image>
+		<thumbnail>https://cf.geekdo-images.com/kGmrDjZ1ZZ3HddqqN8aqnQ__small/img/JfazUjPd-mKowbCESp0nYgYYJ1U=/fit-in/200x150/filters:strip_icc()/pic7366753.png</thumbnail>
+		<stats minplayers="1"																	maxplayers="6"																	minplaytime="60"																	maxplaytime="90"																	playingtime="90"																	numowned="3831" >
+				<rating value="N/A">			<usersrated value="2072" />			<average value="7.63706" />
+			<bayesaverage value="6.45053" />			<stddev value="1.27508" />
+			<median value="0" />			<ranks>
+												<rank type="subtype" id="1" name="boardgame" friendlyname="Board Game Rank" value="1463" bayesaverage="6.45053" />
+																<rank type="family" id="5497" name="strategygames" friendlyname="Strategy Game Rank" value="756" bayesaverage="6.62912" />
+											</ranks>		</rating>
+			</stats>	<status own="0" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="1" wishlistpriority="4" preordered="0" lastmodified="2026-09-13 12:12:57" />
+	<numplays>0</numplays>							</item>
 <item objecttype="thing" objectid="351040" subtype="boardgame" collid="148111000">
 	<name sortindex="1">Ready Set Bet</name>
 		<yearpublished>2022</yearpublished>			<image>https://cf.geekdo-images.com/4ZCV2o_OiGha0bknXDTfdA__original/img/3ITIxi3iZsBvjnYWAn2KWRBAO-M=/0x0/filters:format(jpeg)/pic6678381.jpg</image>
@@ -2620,6 +2633,19 @@
 																<rank type="family" id="5499" name="familygames" friendlyname="Family Game Rank" value="188" bayesaverage="6.88942" />
 											</ranks>		</rating>
 			</stats>	<status own="0" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="1" wishlistpriority="5" preordered="0" lastmodified="2026-08-03 15:48:35" />
+	<numplays>0</numplays>							</item>
+<item objecttype="thing" objectid="408636" subtype="boardgame" collid="149514688">
+	<name sortindex="1">Skara Brae</name>
+		<yearpublished>2025</yearpublished>			<image>https://cf.geekdo-images.com/v10bXNbLAYa5PSrCYTbEUA__original/img/gKXy6q2sPQtjNQPyujo_lfzIDXQ=/0x0/filters:format(png)/pic7906024.png</image>
+		<thumbnail>https://cf.geekdo-images.com/v10bXNbLAYa5PSrCYTbEUA__small/img/OjEhoOb49kU4vpePRba-FNs-gJE=/fit-in/200x150/filters:strip_icc()/pic7906024.png</thumbnail>
+		<stats minplayers="1"																	maxplayers="4"																	minplaytime="45"																	maxplaytime="60"																	playingtime="60"																	numowned="3754" >
+				<rating value="N/A">			<usersrated value="1869" />			<average value="7.5444" />
+			<bayesaverage value="6.3925" />			<stddev value="1.20411" />
+			<median value="0" />			<ranks>
+												<rank type="subtype" id="1" name="boardgame" friendlyname="Board Game Rank" value="1623" bayesaverage="6.3925" />
+																<rank type="family" id="5497" name="strategygames" friendlyname="Strategy Game Rank" value="817" bayesaverage="6.57064" />
+											</ranks>		</rating>
+			</stats>	<status own="0" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="1" wishlistpriority="4" preordered="0" lastmodified="2026-09-13 12:14:49" />
 	<numplays>0</numplays>							</item>
 <item objecttype="thing" objectid="150145" subtype="boardgame" collid="148176348">
 	<name sortindex="1">Skull King</name>
@@ -3768,7 +3794,7 @@
 			<median value="0" />			<ranks>
 												<rank type="subtype" id="1" name="boardgame" friendlyname="Board Game Rank" value="16493" bayesaverage="5.53174" />
 											</ranks>		</rating>
-			</stats>	<status own="0" prevowned="0" fortrade="0" want="1" wanttoplay="0" wanttobuy="0" wishlist="0"  preordered="0" lastmodified="2026-08-24 17:14:39" />
+			</stats>	<status own="0" prevowned="0" fortrade="0" want="1" wanttoplay="0" wanttobuy="1" wishlist="0"  preordered="0" lastmodified="2026-09-13 13:31:28" />
 	<numplays>0</numplays>							</item>
 <item objecttype="thing" objectid="453620" subtype="boardgame" collid="148517147">
 	<name sortindex="1">Plague of Dracula</name>
@@ -5230,7 +5256,7 @@ Overall: a mediocre experience for me. Nice theme and artwork, but too long, too
 												<rank type="subtype" id="1" name="boardgame" friendlyname="Board Game Rank" value="Not Ranked" bayesaverage="Not Ranked" />
 											</ranks>		</rating>
 			</stats>	<status own="1" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="0"  preordered="0" lastmodified="2026-09-10 20:33:55" />
-	<numplays>9</numplays>			<comment>It is a good game. I think the original Fantasy Realms and the Marvel Remix are better but this one is not bad either. This is much slower compared to the others, some cards are very text heavy and getting the combos are much harder. Still fun.</comment>				</item>
+	<numplays>11</numplays>			<comment>It is a good game. I think the original Fantasy Realms and the Marvel Remix are better but this one is not bad either. This is much slower compared to the others, some cards are very text heavy and getting the combos are much harder. Still fun.</comment>				</item>
 <item objecttype="thing" objectid="473242" subtype="boardgame" collid="148744263">
 	<name sortindex="1">Master of Coin</name>
 		<yearpublished>2026</yearpublished>			<image>https://cf.geekdo-images.com/_Sbr456_USczSvXAecdR3Q__original/img/0l7_9Z-XgbyeF3lXCMPDFO7g56I=/0x0/filters:format(jpeg)/pic9649121.jpg</image>
