@@ -1422,6 +1422,14 @@
       "lastChecked": "2026-09-17T19:48:38.435Z",
       "lastCheckSuccess": true
     },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": "https://www.amazon.ca/s?k=Back%20to%20the%20Future%3A%20Back%20in%20Time%20board%20game",
+      "lastChecked": "2026-09-18T01:18:07.398Z",
+      "lastCheckSuccess": true
+    },
     "woodForSheep": {
       "available": false,
       "price": null,
@@ -1559,14 +1567,6 @@
       ],
       "lastChecked": "2026-09-17T19:48:35.012Z",
       "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": "https://www.amazon.ca/s?k=Back%20to%20the%20Future%3A%20Back%20in%20Time%20board%20game",
-      "lastChecked": "2026-09-16T19:38:54.256Z",
-      "lastCheckSuccess": false
     }
   },
   "304783": {
@@ -1719,7 +1719,7 @@
       "price": null,
       "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-09-17T19:52:46.148Z",
+      "lastChecked": "2026-09-18T01:18:57.561Z",
       "lastCheckSuccess": true
     },
     "alwaysGames": {
