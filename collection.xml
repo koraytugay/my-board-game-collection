@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><items totalitems="478"><item objecttype="thing" objectid="423517" subtype="boardgame" collid="148161790">
+<?xml version="1.0" encoding="utf-8"?><items totalitems="476"><item objecttype="thing" objectid="423517" subtype="boardgame" collid="148161790">
 	<name sortindex="1">3 Chapters</name>
 		<yearpublished>2024</yearpublished>			<image>https://cf.geekdo-images.com/es3F2drfUOIVnqsTds3BDQ__original/img/aagzL4ORPemw2xi3FL4575gKYhA=/0x0/filters:format(png)/pic8940639.png</image>
 		<thumbnail>https://cf.geekdo-images.com/es3F2drfUOIVnqsTds3BDQ__small/img/bCpN5Ool_-QFKQbPlAfmIfFUdRI=/fit-in/200x150/filters:strip_icc()/pic8940639.png</thumbnail>
@@ -549,18 +549,6 @@
 											</ranks>		</rating>
 			</stats>	<status own="0" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="1" wishlistpriority="5" preordered="0" lastmodified="2026-08-03 16:18:53" />
 	<numplays>0</numplays>							</item>
-<item objecttype="thing" objectid="459450" subtype="boardgame" collid="147266639">
-	<name sortindex="1">Crime Sprawl</name>
-		<yearpublished>2026</yearpublished>			<image>https://cf.geekdo-images.com/NFqGqNDdteSWko-GMdzOIQ__original/img/8f43_5rDKia_peWYhQq_fBQj6Q0=/0x0/filters:format(png)/pic9633936.png</image>
-		<thumbnail>https://cf.geekdo-images.com/NFqGqNDdteSWko-GMdzOIQ__small/img/N-SYRmdzLzOB2v7CAtviQ4t5UoU=/fit-in/200x150/filters:strip_icc()/pic9633936.png</thumbnail>
-		<stats minplayers="1"																	maxplayers="4"																	minplaytime="15"																	maxplaytime="15"																	playingtime="15"																	numowned="5" >
-				<rating value="N/A">			<usersrated value="1" />			<average value="2" />
-			<bayesaverage value="0" />			<stddev value="0" />
-			<median value="0" />			<ranks>
-												<rank type="subtype" id="1" name="boardgame" friendlyname="Board Game Rank" value="Not Ranked" bayesaverage="Not Ranked" />
-											</ranks>		</rating>
-			</stats>	<status own="0" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="1" wishlistpriority="4" preordered="0" lastmodified="2026-08-24 20:15:10" />
-	<numplays>0</numplays>							</item>
 <item objecttype="thing" objectid="521" subtype="boardgame" collid="148112163">
 	<name sortindex="1">Crokinole</name>
 		<yearpublished>1876</yearpublished>			<image>https://cf.geekdo-images.com/DOwZ7_Q1w68iBhARcDAxig__original/img/0E7UQ_sXErRusbZVixlIiN8MIJQ=/0x0/filters:format(jpeg)/pic8549797.jpg</image>
@@ -1028,7 +1016,9 @@
 	<numplays>0</numplays>							</item>
 <item objecttype="thing" objectid="438402" subtype="boardgame" collid="148110785">
 	<name sortindex="1">Forest Shuffle: Dartmoor</name>
-		<yearpublished>2025</yearpublished>		<stats minplayers="2"																	maxplayers="5"																	minplaytime="60"																	maxplaytime="60"																	playingtime="60"																	numowned="6471" >
+		<yearpublished>2025</yearpublished>			<image>https://cf.geekdo-images.com/SZzql0fotHDW-SgcbQCYgA__original/img/86FJ1UymECuZYZy9UpGQeqm-_1E=/0x0/filters:format(jpeg)/pic8676846.jpg</image>
+		<thumbnail>https://cf.geekdo-images.com/SZzql0fotHDW-SgcbQCYgA__small/img/iOo1HhZio2r20xU9IM-DAaIRub4=/fit-in/200x150/filters:strip_icc()/pic8676846.jpg</thumbnail>
+		<stats minplayers="2"																	maxplayers="5"																	minplaytime="60"																	maxplaytime="60"																	playingtime="60"																	numowned="6471" >
 				<rating value="N/A">			<usersrated value="2915" />			<average value="7.69763" />
 			<bayesaverage value="6.6846" />			<stddev value="1.25382" />
 			<median value="0" />			<ranks>
@@ -1609,7 +1599,7 @@
 			<median value="0" />			<ranks>
 												<rank type="subtype" id="1" name="boardgame" friendlyname="Board Game Rank" value="2930" bayesaverage="6.05388" />
 											</ranks>		</rating>
-			</stats>	<status own="0" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="1" wishlistpriority="4" preordered="0" lastmodified="2026-08-24 19:50:53" />
+			</stats>	<status own="0" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="1" wishlistpriority="3" preordered="0" lastmodified="2026-09-18 20:07:44" />
 	<numplays>0</numplays>							</item>
 <item objecttype="thing" objectid="421374" subtype="boardgame" collid="148161585">
 	<name sortindex="1">Landmarks</name>
@@ -2371,7 +2361,7 @@
 												<rank type="subtype" id="1" name="boardgame" friendlyname="Board Game Rank" value="1462" bayesaverage="6.45123" />
 																<rank type="family" id="5497" name="strategygames" friendlyname="Strategy Game Rank" value="757" bayesaverage="6.62982" />
 											</ranks>		</rating>
-			</stats>	<status own="0" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="1" wishlistpriority="4" preordered="0" lastmodified="2026-09-13 12:12:57" />
+			</stats>	<status own="0" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="1" wishlistpriority="3" preordered="0" lastmodified="2026-09-18 20:08:14" />
 	<numplays>0</numplays>							</item>
 <item objecttype="thing" objectid="351040" subtype="boardgame" collid="148111000">
 	<name sortindex="1">Ready Set Bet</name>
@@ -2423,7 +2413,7 @@
 			<median value="0" />			<ranks>
 												<rank type="subtype" id="1" name="boardgame" friendlyname="Board Game Rank" value="Not Ranked" bayesaverage="Not Ranked" />
 											</ranks>		</rating>
-			</stats>	<status own="0" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="1" wishlistpriority="4" preordered="0" lastmodified="2026-08-24 19:53:15" />
+			</stats>	<status own="0" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="1" wishlistpriority="3" preordered="0" lastmodified="2026-09-18 20:08:03" />
 	<numplays>0</numplays>							</item>
 <item objecttype="thing" objectid="237182" subtype="boardgame" collid="148751622">
 	<name sortindex="1">Root</name>
@@ -2516,18 +2506,6 @@
 											</ranks>		</rating>
 			</stats>	<status own="0" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="1" wishlistpriority="5" preordered="0" lastmodified="2026-08-05 09:32:11" />
 	<numplays>0</numplays>							</item>
-<item objecttype="thing" objectid="385799" subtype="boardgame" collid="149444235">
-	<name sortindex="1">Scram!</name>
-		<yearpublished>2023</yearpublished>			<image>https://cf.geekdo-images.com/fk2wYp7_ZcLJ6ogWvB2-1w__original/img/xUzRyWOYXUjNTIfMfHxuEwlG348=/0x0/filters:format(png)/pic7477795.png</image>
-		<thumbnail>https://cf.geekdo-images.com/fk2wYp7_ZcLJ6ogWvB2-1w__small/img/6DIrOU2tvdhFmNRKxBfLF93Gbis=/fit-in/200x150/filters:strip_icc()/pic7477795.png</thumbnail>
-		<stats minplayers="3"																	maxplayers="6"																	minplaytime="30"																	maxplaytime="30"																	playingtime="30"																	numowned="1726" >
-				<rating value="N/A">			<usersrated value="539" />			<average value="6.9202" />
-			<bayesaverage value="5.75295" />			<stddev value="1.40363" />
-			<median value="0" />			<ranks>
-												<rank type="subtype" id="1" name="boardgame" friendlyname="Board Game Rank" value="5488" bayesaverage="5.75295" />
-											</ranks>		</rating>
-			</stats>	<status own="0" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="1" wishlistpriority="4" preordered="0" lastmodified="2026-09-11 09:18:34" />
-	<numplays>0</numplays>							</item>
 <item objecttype="thing" objectid="188834" subtype="boardgame" collid="148109573">
 	<name sortindex="1">Secret Hitler</name>
 		<yearpublished>2016</yearpublished>			<image>https://cf.geekdo-images.com/rAQ3hIXoH6xDcj41v9iqCg__original/img/7oKwNUYakx3-vHUBLHWVuFNKfl4=/0x0/filters:format(jpeg)/pic5164305.jpg</image>
@@ -2617,7 +2595,7 @@
 												<rank type="subtype" id="1" name="boardgame" friendlyname="Board Game Rank" value="2235" bayesaverage="6.20629" />
 																<rank type="family" id="5499" name="familygames" friendlyname="Family Game Rank" value="680" bayesaverage="6.33314" />
 											</ranks>		</rating>
-			</stats>	<status own="0" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="1" wishlistpriority="4" preordered="0" lastmodified="2026-09-11 08:58:48" />
+			</stats>	<status own="0" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="1" wishlistpriority="3" preordered="0" lastmodified="2026-09-18 20:05:58" />
 	<numplays>0</numplays>							</item>
 <item objecttype="thing" objectid="270673" subtype="boardgame" collid="148109506">
 	<name sortindex="1">Silver &amp; Gold</name>
@@ -2643,7 +2621,7 @@
 												<rank type="subtype" id="1" name="boardgame" friendlyname="Board Game Rank" value="1619" bayesaverage="6.39533" />
 																<rank type="family" id="5497" name="strategygames" friendlyname="Strategy Game Rank" value="814" bayesaverage="6.57372" />
 											</ranks>		</rating>
-			</stats>	<status own="0" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="1" wishlistpriority="4" preordered="0" lastmodified="2026-09-13 12:14:49" />
+			</stats>	<status own="0" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="1" wishlistpriority="3" preordered="0" lastmodified="2026-09-18 20:05:23" />
 	<numplays>0</numplays>							</item>
 <item objecttype="thing" objectid="150145" subtype="boardgame" collid="148176348">
 	<name sortindex="1">Skull King</name>
