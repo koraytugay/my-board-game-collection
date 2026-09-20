@@ -1,8 +1,17 @@
-<?xml version="1.0" encoding="utf-8"?><plays  username="koraytugay" userid="4151779" total="32" page="1" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse">
+<?xml version="1.0" encoding="utf-8"?><plays  username="koraytugay" userid="4151779" total="33" page="1" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse">
 <play id="118899748" date="2026-09-19" quantity="1" length="30" incomplete="0" nowinstats="0" location="">
 			<item name="Azul" objecttype="thing" objectid="230802">
 				<subtypes>
 										<subtype value="boardgame" />
+									</subtypes>
+			</item>
+								</play>
+<play id="118902949" date="2026-09-19" quantity="3" length="60" incomplete="0" nowinstats="0" location="">
+			<item name="Marvel: Remix the Cosmos" objecttype="thing" objectid="459101">
+				<subtypes>
+										<subtype value="boardgame" />
+										<subtype value="boardgameimplementation" />
+										<subtype value="boardgameintegration" />
 									</subtypes>
 			</item>
 								</play>
