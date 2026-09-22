@@ -80,6 +80,18 @@
       "lastChecked": "2026-09-21T20:37:34.473Z",
       "lastCheckSuccess": true
     },
+    "amazonCa": {
+      "available": true,
+      "price": "61.90",
+      "baselinePrice": "79.89",
+      "deal": {
+        "previousPrice": "79.89",
+        "discountPercent": 23
+      },
+      "url": "https://www.amazon.ca/dp/B07YXB9CY5",
+      "lastChecked": "2026-09-21T20:41:50.679Z",
+      "lastCheckSuccess": true
+    },
     "woodForSheep": {
       "available": false,
       "price": null,
@@ -206,18 +218,6 @@
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-09-21T20:37:31.353Z",
-      "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": true,
-      "price": "61.90",
-      "baselinePrice": "79.89",
-      "deal": {
-        "previousPrice": "79.89",
-        "discountPercent": 23
-      },
-      "url": "https://www.amazon.ca/dp/B07YXB9CY5",
-      "lastChecked": "2026-09-21T20:41:50.679Z",
       "lastCheckSuccess": true
     }
   },
@@ -520,6 +520,14 @@
       "lastChecked": "2026-09-21T20:37:49.308Z",
       "lastCheckSuccess": true
     },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": "https://www.amazon.ca/s?k=Fantastic%20Factories%3A%20Manufactions%20board%20game",
+      "lastChecked": "2026-09-21T20:41:56.754Z",
+      "lastCheckSuccess": true
+    },
     "woodForSheep": {
       "available": false,
       "price": null,
@@ -646,14 +654,6 @@
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-09-21T20:37:46.485Z",
-      "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": "https://www.amazon.ca/s?k=Fantastic%20Factories%3A%20Manufactions%20board%20game",
-      "lastChecked": "2026-09-21T20:41:56.754Z",
       "lastCheckSuccess": true
     }
   },
