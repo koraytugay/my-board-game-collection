@@ -1020,6 +1020,14 @@
       "lastChecked": "2026-09-21T20:33:28.776Z",
       "lastCheckSuccess": true
     },
+    "philibert": {
+      "available": true,
+      "price": "€13.50",
+      "baselinePrice": "€13.50",
+      "url": "https://www.philibertnet.com/en/oya/65688-illusion-3760207030336.html",
+      "lastChecked": "2026-09-21T20:36:37.276Z",
+      "lastCheckSuccess": true
+    },
     "bggMarket": {
       "available": true,
       "price": "C$21.00 CAD",
@@ -1036,14 +1044,6 @@
         }
       ],
       "lastChecked": "2026-09-21T20:33:19.074Z",
-      "lastCheckSuccess": true
-    },
-    "philibert": {
-      "available": true,
-      "price": "€13.50",
-      "baselinePrice": "€13.50",
-      "url": "https://www.philibertnet.com/en/oya/65688-illusion-3760207030336.html",
-      "lastChecked": "2026-09-21T20:36:37.276Z",
       "lastCheckSuccess": true
     }
   },
@@ -1727,7 +1727,7 @@
       "price": null,
       "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-09-21T20:36:23.690Z",
+      "lastChecked": "2026-09-22T01:38:16.378Z",
       "lastCheckSuccess": true
     },
     "alwaysGames": {
@@ -2036,20 +2036,20 @@
       "lastChecked": "2026-09-21T20:33:11.912Z",
       "lastCheckSuccess": true
     },
-    "bggMarket": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-09-21T20:33:01.861Z",
-      "lastCheckSuccess": true
-    },
     "philibert": {
       "available": true,
       "price": "€31.95",
       "baselinePrice": "€31.95",
       "url": "https://www.philibertnet.com/en/write-stuff-games/158527-fliptown-2100001341862.html",
       "lastChecked": "2026-09-21T20:36:31.147Z",
+      "lastCheckSuccess": true
+    },
+    "bggMarket": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-09-21T20:33:01.861Z",
       "lastCheckSuccess": true
     }
   },
@@ -3556,6 +3556,14 @@
       "lastChecked": "2026-09-21T20:31:12.930Z",
       "lastCheckSuccess": true
     },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": "https://www.amazon.ca/s?k=The%20Path%20of%20the%20Priest%20board%20game",
+      "lastChecked": "2026-09-21T20:36:25.229Z",
+      "lastCheckSuccess": true
+    },
     "woodForSheep": {
       "available": false,
       "price": null,
@@ -3682,14 +3690,6 @@
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-09-21T20:31:09.971Z",
-      "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": "https://www.amazon.ca/s?k=The%20Path%20of%20the%20Priest%20board%20game",
-      "lastChecked": "2026-09-21T20:36:25.229Z",
       "lastCheckSuccess": true
     }
   },
