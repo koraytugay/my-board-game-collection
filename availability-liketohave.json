@@ -302,6 +302,14 @@
       "lastChecked": "2026-09-25T20:15:43.936Z",
       "lastCheckSuccess": true
     },
+    "amazonCa": {
+      "available": true,
+      "price": "43.93",
+      "baselinePrice": "43.93",
+      "url": "https://www.amazon.ca/dp/B07QNNCCQG",
+      "lastChecked": "2026-09-25T20:17:40.557Z",
+      "lastCheckSuccess": true
+    },
     "woodForSheep": {
       "available": false,
       "price": null,
@@ -428,14 +436,6 @@
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-09-25T20:15:39.729Z",
-      "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": true,
-      "price": "43.93",
-      "baselinePrice": "43.93",
-      "url": "https://www.amazon.ca/dp/B07QNNCCQG",
-      "lastChecked": "2026-09-25T20:17:40.557Z",
       "lastCheckSuccess": true
     }
   },
@@ -1184,6 +1184,14 @@
       "lastChecked": "2026-09-25T20:14:54.196Z",
       "lastCheckSuccess": true
     },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": "https://www.amazon.ca/s?k=Raising%20Robots%20board%20game",
+      "lastChecked": "2026-09-25T20:17:22.228Z",
+      "lastCheckSuccess": true
+    },
     "woodForSheep": {
       "available": false,
       "price": null,
@@ -1310,14 +1318,6 @@
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-09-25T20:14:51.003Z",
-      "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": "https://www.amazon.ca/s?k=Raising%20Robots%20board%20game",
-      "lastChecked": "2026-09-25T20:17:22.228Z",
       "lastCheckSuccess": true
     }
   },
@@ -1620,6 +1620,22 @@
       "lastChecked": "2026-09-25T20:16:05.693Z",
       "lastCheckSuccess": true
     },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": "https://www.amazon.ca/s?k=Skara%20Brae%20board%20game",
+      "lastChecked": "2026-09-25T20:17:46.650Z",
+      "lastCheckSuccess": true
+    },
+    "woodForSheep": {
+      "available": true,
+      "price": "$62.49",
+      "baselinePrice": "$62.49",
+      "url": "https://www.woodforsheep.ca/products/skara-brae?_pos=1&_psq=Skara+Brae&_psid=ea16aba18&_ss=e",
+      "lastChecked": "2026-09-25T20:17:45.837Z",
+      "lastCheckSuccess": true
+    },
     "jjCards": {
       "available": true,
       "price": "$60.99",
@@ -1739,22 +1755,6 @@
       "url": null,
       "lastChecked": "2026-09-25T20:16:02.919Z",
       "lastCheckSuccess": true
-    },
-    "woodForSheep": {
-      "available": true,
-      "price": "$62.49",
-      "baselinePrice": "$62.49",
-      "url": "https://www.woodforsheep.ca/products/skara-brae?_pos=1&_psq=Skara+Brae&_psid=ea16aba18&_ss=e",
-      "lastChecked": "2026-09-25T20:17:45.837Z",
-      "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": "https://www.amazon.ca/s?k=Skara%20Brae%20board%20game",
-      "lastChecked": "2026-09-25T20:17:46.650Z",
-      "lastCheckSuccess": true
     }
   },
   "424152": {
@@ -1836,6 +1836,14 @@
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-09-25T20:14:06.328Z",
+      "lastCheckSuccess": true
+    },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": "https://www.amazon.ca/s?k=Orapa%20Mine%20board%20game",
+      "lastChecked": "2026-09-26T01:32:44.583Z",
       "lastCheckSuccess": true
     },
     "woodForSheep": {
@@ -1965,14 +1973,6 @@
       "url": null,
       "lastChecked": "2026-09-25T20:14:03.399Z",
       "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": "https://www.amazon.ca/s?k=Orapa%20Mine%20board%20game",
-      "lastChecked": "2026-09-25T12:59:22.072Z",
-      "lastCheckSuccess": false
     }
   },
   "448740": {
@@ -2054,6 +2054,14 @@
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-09-25T20:14:22.679Z",
+      "lastCheckSuccess": true
+    },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": "https://www.amazon.ca/s?k=Orapa%20Space%20board%20game",
+      "lastChecked": "2026-09-26T01:32:50.441Z",
       "lastCheckSuccess": true
     },
     "woodForSheep": {
@@ -2183,14 +2191,6 @@
       "url": null,
       "lastChecked": "2026-09-25T20:14:19.306Z",
       "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": "https://www.amazon.ca/s?k=Orapa%20Space%20board%20game",
-      "lastChecked": "2026-09-25T12:59:35.783Z",
-      "lastCheckSuccess": false
     }
   },
   "450539": {
@@ -2492,6 +2492,14 @@
       "lastChecked": "2026-09-25T20:15:26.322Z",
       "lastCheckSuccess": true
     },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": "https://www.amazon.ca/s?k=The%20Secrets%20of%20Warden%20Keene%20board%20game",
+      "lastChecked": "2026-09-25T20:17:34.351Z",
+      "lastCheckSuccess": true
+    },
     "woodForSheep": {
       "available": false,
       "price": null,
@@ -2619,14 +2627,6 @@
       "url": null,
       "lastChecked": "2026-09-25T20:15:23.326Z",
       "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": "https://www.amazon.ca/s?k=The%20Secrets%20of%20Warden%20Keene%20board%20game",
-      "lastChecked": "2026-09-25T20:17:34.351Z",
-      "lastCheckSuccess": true
     }
   },
   "454119": {
@@ -2708,6 +2708,14 @@
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-09-25T20:14:38.207Z",
+      "lastCheckSuccess": true
+    },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": "https://www.amazon.ca/s?k=Queen%20of%20Spies%20board%20game",
+      "lastChecked": "2026-09-25T20:17:16.074Z",
       "lastCheckSuccess": true
     },
     "woodForSheep": {
@@ -2837,14 +2845,6 @@
       "url": null,
       "lastChecked": "2026-09-25T20:14:35.302Z",
       "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": "https://www.amazon.ca/s?k=Queen%20of%20Spies%20board%20game",
-      "lastChecked": "2026-09-25T20:17:16.074Z",
-      "lastCheckSuccess": true
     }
   },
   "471437": {
@@ -2926,6 +2926,14 @@
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-09-25T20:15:10.618Z",
+      "lastCheckSuccess": true
+    },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": "https://www.amazon.ca/s?k=Robo%20Run%20board%20game",
+      "lastChecked": "2026-09-25T20:17:28.340Z",
       "lastCheckSuccess": true
     },
     "woodForSheep": {
@@ -3054,14 +3062,6 @@
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-09-25T20:15:07.123Z",
-      "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": "https://www.amazon.ca/s?k=Robo%20Run%20board%20game",
-      "lastChecked": "2026-09-25T20:17:28.340Z",
       "lastCheckSuccess": true
     }
   }
