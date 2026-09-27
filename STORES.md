@@ -58,6 +58,9 @@ The following stores were evaluated, tracked, and permanently removed due to hav
    - Reason: Does not ship to Canada. Tracked inventory is not purchasable for Canadian delivery. Never add back.
 8. **Event Horizon Hobbies** (https://www.eventhorizonhobbies.com - 🇨🇦)
    - Reason: Only 1 game carried (1/22 across Want to Buy and Like to Have lists). Store focuses heavily on Magic: The Gathering, Pokémon, and Warhammer miniatures (237k+ items) with an extremely small board game catalog (~288 items total). Titles use custom prefixes ("Boardgames - ", "Board Game - [Publisher] - "), pricing is at or above MSRP, and its massive card singles catalog causes heavy false-positive search noise.
+9. **Top Shelf Co** (https://topshelfco.ca - 🇨🇦)
+   - Reason: 0 games in stock / not carried (0/63 across Want to Buy, Want in Trade, and Like to Have lists). Store focuses heavily on TCGs (Pokémon, Magic: The Gathering, Lorcana, Altered, Yu-Gi-Oh!), Warhammer miniatures, Gundam models, and paints/hobby supplies (8,200+ items total) with a small board game catalog (~379 items) limited to mass-market/evergreen titles. Its massive card singles and supplies catalog creates significant false-positive noise on common title keywords.
+
 
 
 ## Candidate Stores (To Add / Remove Later)
