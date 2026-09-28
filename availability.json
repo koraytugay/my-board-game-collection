@@ -1422,6 +1422,14 @@
       "lastChecked": "2026-09-27T19:52:22.277Z",
       "lastCheckSuccess": true
     },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": "https://www.amazon.ca/s?k=Back%20to%20the%20Future%3A%20Back%20in%20Time%20board%20game",
+      "lastChecked": "2026-09-27T19:56:38.996Z",
+      "lastCheckSuccess": true
+    },
     "woodForSheep": {
       "available": false,
       "price": null,
@@ -1559,14 +1567,6 @@
       ],
       "lastChecked": "2026-09-27T19:52:19.245Z",
       "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": "https://www.amazon.ca/s?k=Back%20to%20the%20Future%3A%20Back%20in%20Time%20board%20game",
-      "lastChecked": "2026-09-27T19:56:38.996Z",
-      "lastCheckSuccess": true
     }
   },
   "304783": {
@@ -1650,6 +1650,14 @@
       "lastChecked": "2026-09-27T19:50:13.686Z",
       "lastCheckSuccess": true
     },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "baselinePrice": "92.68",
+      "url": "https://www.amazon.ca/s?k=Hadrian's%20Wall%20board%20game",
+      "lastChecked": "2026-09-27T19:56:26.399Z",
+      "lastCheckSuccess": true
+    },
     "woodForSheep": {
       "available": false,
       "price": "$58.49",
@@ -1719,7 +1727,7 @@
       "price": null,
       "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-09-27T19:56:24.402Z",
+      "lastChecked": "2026-09-28T01:40:04.591Z",
       "lastCheckSuccess": true
     },
     "alwaysGames": {
@@ -1794,14 +1802,6 @@
         }
       ],
       "lastChecked": "2026-09-27T19:50:10.446Z",
-      "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "baselinePrice": "92.68",
-      "url": "https://www.amazon.ca/s?k=Hadrian's%20Wall%20board%20game",
-      "lastChecked": "2026-09-27T19:56:26.399Z",
       "lastCheckSuccess": true
     }
   },
@@ -3556,6 +3556,14 @@
       "lastChecked": "2026-09-27T19:51:15.135Z",
       "lastCheckSuccess": true
     },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": "https://www.amazon.ca/s?k=The%20Path%20of%20the%20Priest%20board%20game",
+      "lastChecked": "2026-09-27T19:56:32.620Z",
+      "lastCheckSuccess": true
+    },
     "woodForSheep": {
       "available": false,
       "price": null,
@@ -3682,14 +3690,6 @@
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-09-27T19:51:12.036Z",
-      "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": "https://www.amazon.ca/s?k=The%20Path%20of%20the%20Priest%20board%20game",
-      "lastChecked": "2026-09-27T19:56:32.620Z",
       "lastCheckSuccess": true
     }
   },
