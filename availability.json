@@ -1650,6 +1650,14 @@
       "lastChecked": "2026-09-30T20:52:20.594Z",
       "lastCheckSuccess": true
     },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "baselinePrice": "92.68",
+      "url": "https://www.amazon.ca/s?k=Hadrian's%20Wall%20board%20game",
+      "lastChecked": "2026-09-30T20:58:33.319Z",
+      "lastCheckSuccess": true
+    },
     "woodForSheep": {
       "available": false,
       "price": "$58.49",
@@ -1719,7 +1727,7 @@
       "price": null,
       "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-09-30T20:58:32.568Z",
+      "lastChecked": "2026-10-01T02:08:41.063Z",
       "lastCheckSuccess": true
     },
     "alwaysGames": {
@@ -1794,14 +1802,6 @@
         }
       ],
       "lastChecked": "2026-09-30T20:52:17.421Z",
-      "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "baselinePrice": "92.68",
-      "url": "https://www.amazon.ca/s?k=Hadrian's%20Wall%20board%20game",
-      "lastChecked": "2026-09-30T20:58:33.319Z",
       "lastCheckSuccess": true
     }
   },
@@ -3556,6 +3556,14 @@
       "lastChecked": "2026-09-30T20:53:22.189Z",
       "lastCheckSuccess": true
     },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": "https://www.amazon.ca/s?k=The%20Path%20of%20the%20Priest%20board%20game",
+      "lastChecked": "2026-09-30T20:58:39.219Z",
+      "lastCheckSuccess": true
+    },
     "woodForSheep": {
       "available": false,
       "price": null,
@@ -3682,14 +3690,6 @@
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-09-30T20:53:19.139Z",
-      "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": "https://www.amazon.ca/s?k=The%20Path%20of%20the%20Priest%20board%20game",
-      "lastChecked": "2026-09-30T20:58:39.219Z",
       "lastCheckSuccess": true
     }
   },
