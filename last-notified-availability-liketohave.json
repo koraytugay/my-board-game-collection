@@ -80,6 +80,18 @@
       "lastChecked": "2026-10-01T21:12:10.477Z",
       "lastCheckSuccess": true
     },
+    "amazonCa": {
+      "available": true,
+      "price": "62.60",
+      "baselinePrice": "79.89",
+      "deal": {
+        "previousPrice": "79.89",
+        "discountPercent": 22
+      },
+      "url": "https://www.amazon.ca/dp/B07YXB9CY5",
+      "lastChecked": "2026-10-01T21:16:23.517Z",
+      "lastCheckSuccess": true
+    },
     "woodForSheep": {
       "available": false,
       "price": null,
@@ -206,18 +218,6 @@
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-10-01T21:12:07.951Z",
-      "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": true,
-      "price": "62.60",
-      "baselinePrice": "79.89",
-      "deal": {
-        "previousPrice": "79.89",
-        "discountPercent": 22
-      },
-      "url": "https://www.amazon.ca/dp/B07YXB9CY5",
-      "lastChecked": "2026-10-01T21:16:23.517Z",
       "lastCheckSuccess": true
     }
   },
@@ -520,6 +520,14 @@
       "lastChecked": "2026-10-01T21:12:24.259Z",
       "lastCheckSuccess": true
     },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": "https://www.amazon.ca/s?k=Fantastic%20Factories%3A%20Manufactions%20board%20game",
+      "lastChecked": "2026-10-01T21:16:29.813Z",
+      "lastCheckSuccess": true
+    },
     "woodForSheep": {
       "available": false,
       "price": null,
@@ -646,14 +654,6 @@
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-10-01T21:12:21.549Z",
-      "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": "https://www.amazon.ca/s?k=Fantastic%20Factories%3A%20Manufactions%20board%20game",
-      "lastChecked": "2026-10-01T21:16:29.813Z",
       "lastCheckSuccess": true
     }
   },
@@ -966,6 +966,14 @@
       "lastChecked": "2026-10-01T21:13:10.705Z",
       "lastCheckSuccess": true
     },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": "https://www.amazon.ca/s?k=Joan%20of%20Arc%3A%20Orl%C3%A9ans%20Draw%20%26%20Write%20board%20game",
+      "lastChecked": "2026-10-01T21:16:35.575Z",
+      "lastCheckSuccess": true
+    },
     "woodForSheep": {
       "available": false,
       "price": null,
@@ -1092,14 +1100,6 @@
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-10-01T21:13:08.324Z",
-      "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": "https://www.amazon.ca/s?k=Joan%20of%20Arc%3A%20Orl%C3%A9ans%20Draw%20%26%20Write%20board%20game",
-      "lastChecked": "2026-10-01T21:16:35.575Z",
       "lastCheckSuccess": true
     }
   },
