@@ -638,18 +638,6 @@
 											</ranks>		</rating>
 			</stats>	<status own="0" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="1" wishlistpriority="5" preordered="0" lastmodified="2026-08-24 20:33:32" />
 	<numplays>0</numplays>							</item>
-<item objecttype="thing" objectid="462945" subtype="boardgame" collid="148507739">
-	<name sortindex="1">Dino Racer</name>
-		<yearpublished>2026</yearpublished>			<image>https://cf.geekdo-images.com/TRK66prEf72i90tARWxM3g__original/img/kf0CdZDvlXTJ9h0NGsHyMX1iMZs=/0x0/filters:format(jpeg)/pic9357687.jpg</image>
-		<thumbnail>https://cf.geekdo-images.com/TRK66prEf72i90tARWxM3g__small/img/JUAxzQZS4S6FAb8JpyQd6B9nwC0=/fit-in/200x150/filters:strip_icc()/pic9357687.jpg</thumbnail>
-		<stats minplayers="2"																	maxplayers="6"																	minplaytime="10"																	maxplaytime="20"																	playingtime="20"																	numowned="243" >
-				<rating value="N/A">			<usersrated value="216" />			<average value="7.69699" />
-			<bayesaverage value="5.67176" />			<stddev value="1.36273" />
-			<median value="0" />			<ranks>
-												<rank type="subtype" id="1" name="boardgame" friendlyname="Board Game Rank" value="7035" bayesaverage="5.67176" />
-											</ranks>		</rating>
-			</stats>	<status own="0" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="1" wishlistpriority="4" preordered="0" lastmodified="2026-08-24 19:57:53" />
-	<numplays>0</numplays>							</item>
 <item objecttype="thing" objectid="318009" subtype="boardgame" collid="148176116">
 	<name sortindex="1">Dinosaur Island: Rawr &#039;n Write</name>
 		<yearpublished>2021</yearpublished>			<image>https://cf.geekdo-images.com/xRP9jo5gfwhfFkgxQBgWTw__original/img/h-5jmA7e2JrfO9DM9OKy0S2MDjw=/0x0/filters:format(png)/pic5622932.png</image>
@@ -2568,18 +2556,6 @@
 											</ranks>		</rating>
 			</stats>	<status own="0" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="1" wishlistpriority="5" preordered="0" lastmodified="2026-08-03 15:49:53" />
 	<numplays>0</numplays>							</item>
-<item objecttype="thing" objectid="453913" subtype="boardgame" collid="147266337">
-	<name sortindex="5">The Secrets of Warden Keene</name>
-		<yearpublished>2026</yearpublished>			<image>https://cf.geekdo-images.com/8OaTAJaqMUw0ziYH9N4LEQ__original/img/OxUD6xpI_r8WbH-Kt07lp_BZnj8=/0x0/filters:format(png)/pic9094102.png</image>
-		<thumbnail>https://cf.geekdo-images.com/8OaTAJaqMUw0ziYH9N4LEQ__small/img/O1_VInCYTDIrB8K7fXPddr3GxxI=/fit-in/200x150/filters:strip_icc()/pic9094102.png</thumbnail>
-		<stats minplayers="1"																	maxplayers="4"																	minplaytime="20"																	maxplaytime="240"																	playingtime="240"																	numowned="369" >
-				<rating value="N/A">			<usersrated value="186" />			<average value="7.24382" />
-			<bayesaverage value="5.6261" />			<stddev value="1.45259" />
-			<median value="0" />			<ranks>
-												<rank type="subtype" id="1" name="boardgame" friendlyname="Board Game Rank" value="8377" bayesaverage="5.6261" />
-											</ranks>		</rating>
-			</stats>	<status own="0" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="1" wishlistpriority="3" preordered="0" lastmodified="2026-09-03 10:01:29" />
-	<numplays>0</numplays>							</item>
 <item objecttype="thing" objectid="2375" subtype="boardgame" collid="148752435">
 	<name sortindex="1">Sequence</name>
 		<yearpublished>1982</yearpublished>			<image>https://cf.geekdo-images.com/VosGBqkOjkhgC2QFS1o3_g__original/img/ZIc1p75HIEOIwtKy9ZIHsP2l0zQ=/0x0/filters:format(jpeg)/pic212893.jpg</image>
@@ -3883,6 +3859,18 @@
 											</ranks>		</rating>
 			</stats>	<status own="0" prevowned="0" fortrade="0" want="1" wanttoplay="0" wanttobuy="0" wishlist="0"  preordered="0" lastmodified="2026-09-04 17:44:15" />
 	<numplays>0</numplays>							</item>
+<item objecttype="thing" objectid="453913" subtype="boardgame" collid="147266337">
+	<name sortindex="5">The Secrets of Warden Keene</name>
+		<yearpublished>2026</yearpublished>			<image>https://cf.geekdo-images.com/8OaTAJaqMUw0ziYH9N4LEQ__original/img/OxUD6xpI_r8WbH-Kt07lp_BZnj8=/0x0/filters:format(png)/pic9094102.png</image>
+		<thumbnail>https://cf.geekdo-images.com/8OaTAJaqMUw0ziYH9N4LEQ__small/img/O1_VInCYTDIrB8K7fXPddr3GxxI=/fit-in/200x150/filters:strip_icc()/pic9094102.png</thumbnail>
+		<stats minplayers="1"																	maxplayers="4"																	minplaytime="20"																	maxplaytime="240"																	playingtime="240"																	numowned="369" >
+				<rating value="N/A">			<usersrated value="186" />			<average value="7.24382" />
+			<bayesaverage value="5.6261" />			<stddev value="1.45259" />
+			<median value="0" />			<ranks>
+												<rank type="subtype" id="1" name="boardgame" friendlyname="Board Game Rank" value="8377" bayesaverage="5.6261" />
+											</ranks>		</rating>
+			</stats>	<status own="0" prevowned="0" fortrade="0" want="1" wanttoplay="0" wanttobuy="0" wishlist="0"  preordered="0" lastmodified="2026-10-06 14:15:03" />
+	<numplays>0</numplays>							</item>
 <item objecttype="thing" objectid="447952" subtype="boardgame" collid="148865603">
 	<name sortindex="5">The Siege of Shaddis Horne</name>
 		<yearpublished>2026</yearpublished>			<image>https://cf.geekdo-images.com/1u2aOWzasyprJvhX5F_0SA__original/img/9FAWMOHcCG7leQZScw0S5yIQd2c=/0x0/filters:format(jpeg)/pic8927679.jpg</image>
@@ -4683,6 +4671,18 @@ Sorry if this sounds harsh. You may end up loving it, I just didn&#039;t enjoy i
 											</ranks>		</rating>
 			</stats>	<status own="1" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="0"  preordered="0" lastmodified="2026-09-02 21:45:15" />
 	<numplays>4</numplays>							</item>
+<item objecttype="thing" objectid="462945" subtype="boardgame" collid="148507739">
+	<name sortindex="1">Dino Racer</name>
+		<yearpublished>2026</yearpublished>			<image>https://cf.geekdo-images.com/TRK66prEf72i90tARWxM3g__original/img/kf0CdZDvlXTJ9h0NGsHyMX1iMZs=/0x0/filters:format(jpeg)/pic9357687.jpg</image>
+		<thumbnail>https://cf.geekdo-images.com/TRK66prEf72i90tARWxM3g__small/img/JUAxzQZS4S6FAb8JpyQd6B9nwC0=/fit-in/200x150/filters:strip_icc()/pic9357687.jpg</thumbnail>
+		<stats minplayers="2"																	maxplayers="6"																	minplaytime="10"																	maxplaytime="20"																	playingtime="20"																	numowned="243" >
+				<rating value="N/A">			<usersrated value="216" />			<average value="7.69699" />
+			<bayesaverage value="5.67176" />			<stddev value="1.36273" />
+			<median value="0" />			<ranks>
+												<rank type="subtype" id="1" name="boardgame" friendlyname="Board Game Rank" value="7035" bayesaverage="5.67176" />
+											</ranks>		</rating>
+			</stats>	<status own="0" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="1" wishlist="0"  preordered="0" lastmodified="2026-10-06 12:02:12" />
+	<numplays>0</numplays>							</item>
 <item objecttype="thing" objectid="216497" subtype="boardgame" collid="137662563">
 	<name sortindex="1">District Noir</name>
 		<yearpublished>2016</yearpublished>			<image>https://cf.geekdo-images.com/NyOyd9UXdzWAuLkrDPDUnA__original/img/sZ8hMZlwyasKwl3Rc0lqCehG1nw=/0x0/filters:format(jpeg)/pic6954556.jpg</image>
