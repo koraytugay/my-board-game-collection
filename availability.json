@@ -40,6 +40,14 @@
       "lastChecked": "2026-10-05T22:45:18.538Z",
       "lastCheckSuccess": true
     },
+    "meeplemart": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-05T22:49:25.098Z",
+      "lastCheckSuccess": true
+    },
     "kbHobbies": {
       "available": false,
       "price": null,
@@ -206,14 +214,6 @@
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-10-05T22:45:17.899Z",
-      "lastCheckSuccess": true
-    },
-    "meeplemart": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-05T22:49:25.098Z",
       "lastCheckSuccess": true
     }
   },
@@ -1650,6 +1650,14 @@
       "lastChecked": "2026-10-05T22:42:54.636Z",
       "lastCheckSuccess": true
     },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "baselinePrice": "92.68",
+      "url": "https://www.amazon.ca/s?k=Hadrian's%20Wall%20board%20game",
+      "lastChecked": "2026-10-06T02:58:16.004Z",
+      "lastCheckSuccess": true
+    },
     "woodForSheep": {
       "available": false,
       "price": "$58.49",
@@ -1719,7 +1727,7 @@
       "price": null,
       "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-10-05T22:49:18.542Z",
+      "lastChecked": "2026-10-06T02:59:06.165Z",
       "lastCheckSuccess": true
     },
     "alwaysGames": {
@@ -1795,14 +1803,6 @@
       ],
       "lastChecked": "2026-10-05T22:42:51.347Z",
       "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "baselinePrice": "92.68",
-      "url": "https://www.amazon.ca/s?k=Hadrian's%20Wall%20board%20game",
-      "lastChecked": "2026-10-05T16:14:59.782Z",
-      "lastCheckSuccess": false
     }
   },
   "319793": {
