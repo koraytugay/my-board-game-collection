@@ -1,37 +1,5 @@
 {
   "1197": {
-    "jjCards": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:44:42.268Z",
-      "lastCheckSuccess": true
-    },
-    "elevatedBoardGames": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:44:42.268Z",
-      "lastCheckSuccess": true
-    },
-    "bggMarket": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:44:42.345Z",
-      "lastCheckSuccess": true
-    },
-    "kbHobbies": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:44:42.348Z",
-      "lastCheckSuccess": true
-    },
     "boardGameBliss": {
       "available": false,
       "price": "$7.95",
@@ -40,76 +8,12 @@
       "lastChecked": "2026-10-06T11:44:42.563Z",
       "lastCheckSuccess": true
     },
-    "boardgamesCa": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:44:42.567Z",
-      "lastCheckSuccess": true
-    },
-    "greatBoardgames": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:44:42.789Z",
-      "lastCheckSuccess": true
-    },
-    "uplay": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:44:42.988Z",
-      "lastCheckSuccess": true
-    },
-    "philibert": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:44:43.051Z",
-      "lastCheckSuccess": true
-    },
-    "cardhaus": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:44:43.071Z",
-      "lastCheckSuccess": true
-    },
     "fourZeroOneGames": {
       "available": false,
       "price": "$0.38",
       "baselinePrice": "$0.38",
       "url": "https://store.401games.ca/products/blink-who?_pos=1&_psq=Blink&_psid=bd517ea8e&_ss=e",
       "lastChecked": "2026-10-06T11:44:43.218Z",
-      "lastCheckSuccess": true
-    },
-    "miniatureMarket": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:44:43.410Z",
-      "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": "https://www.amazon.ca/s?k=Blink%20board%20game",
-      "lastChecked": "2026-10-06T11:44:43.470Z",
-      "lastCheckSuccess": true
-    },
-    "meeplemart": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:44:43.771Z",
       "lastCheckSuccess": true
     },
     "lvlUpGames": {
@@ -128,12 +32,60 @@
       "lastChecked": "2026-10-06T11:44:44.524Z",
       "lastCheckSuccess": true
     },
+    "greatBoardgames": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:44:42.789Z",
+      "lastCheckSuccess": true
+    },
+    "meeplemart": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:44:43.771Z",
+      "lastCheckSuccess": true
+    },
+    "kbHobbies": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:44:42.348Z",
+      "lastCheckSuccess": true
+    },
+    "miniatureMarket": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:44:43.410Z",
+      "lastCheckSuccess": true
+    },
+    "cardhaus": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:44:43.071Z",
+      "lastCheckSuccess": true
+    },
     "theGameSteward": {
       "available": false,
       "price": null,
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-10-06T11:44:45.165Z",
+      "lastCheckSuccess": true
+    },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": "https://www.amazon.ca/s?k=Blink%20board%20game",
+      "lastChecked": "2026-10-06T11:44:43.470Z",
       "lastCheckSuccess": true
     },
     "woodForSheep": {
@@ -144,20 +96,28 @@
       "lastChecked": "2026-10-06T11:44:45.803Z",
       "lastCheckSuccess": true
     },
+    "jjCards": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:44:42.268Z",
+      "lastCheckSuccess": true
+    },
+    "boardgamesCa": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:44:42.567Z",
+      "lastCheckSuccess": true
+    },
     "screenFreeGames": {
       "available": false,
       "price": null,
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-10-06T11:44:46.446Z",
-      "lastCheckSuccess": true
-    },
-    "chaosCards": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:44:46.541Z",
       "lastCheckSuccess": true
     },
     "allSystemsGo": {
@@ -174,6 +134,14 @@
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-10-06T11:44:47.762Z",
+      "lastCheckSuccess": true
+    },
+    "elevatedBoardGames": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:44:42.268Z",
       "lastCheckSuccess": true
     },
     "diceHollow": {
@@ -216,12 +184,44 @@
       "lastChecked": "2026-10-06T11:44:51.038Z",
       "lastCheckSuccess": true
     },
+    "chaosCards": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:44:46.541Z",
+      "lastCheckSuccess": true
+    },
     "zatu": {
       "available": false,
       "price": null,
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-10-06T11:44:51.752Z",
+      "lastCheckSuccess": true
+    },
+    "philibert": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:44:43.051Z",
+      "lastCheckSuccess": true
+    },
+    "uplay": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:44:42.988Z",
+      "lastCheckSuccess": true
+    },
+    "bggMarket": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:44:42.345Z",
       "lastCheckSuccess": true
     }
   },
@@ -276,46 +276,6 @@
     }
   },
   "156336": {
-    "jjCards": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:46:54.825Z",
-      "lastCheckSuccess": true
-    },
-    "elevatedBoardGames": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:46:54.825Z",
-      "lastCheckSuccess": true
-    },
-    "bggMarket": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:46:54.905Z",
-      "lastCheckSuccess": true
-    },
-    "kbHobbies": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:46:54.912Z",
-      "lastCheckSuccess": true
-    },
-    "boardgamesCa": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:46:54.934Z",
-      "lastCheckSuccess": true
-    },
     "boardGameBliss": {
       "available": false,
       "price": "$28.95",
@@ -324,68 +284,12 @@
       "lastChecked": "2026-10-06T11:46:55.057Z",
       "lastCheckSuccess": true
     },
-    "meeplemart": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:46:55.330Z",
-      "lastCheckSuccess": true
-    },
-    "greatBoardgames": {
-      "available": false,
-      "price": "$27.95",
-      "baselinePrice": "$27.95",
-      "url": "https://www.greatboardgames.ca/games/onirim",
-      "lastChecked": "2026-10-06T11:46:55.332Z",
-      "lastCheckSuccess": true
-    },
-    "miniatureMarket": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:46:55.426Z",
-      "lastCheckSuccess": true
-    },
-    "uplay": {
-      "available": true,
-      "price": "€24.21",
-      "baselinePrice": "€24.21",
-      "url": "https://www.uplay.it/en/gioco-da-tavolo-onirim-.html",
-      "lastChecked": "2026-10-06T11:46:55.469Z",
-      "lastCheckSuccess": true
-    },
-    "cardhaus": {
-      "available": false,
-      "price": "$21.99",
-      "baselinePrice": "$21.99",
-      "url": "https://www.cardhaus.com/onirim/#x3D;3b7bb4b7-bb23-4e69-ac6e-1119d9fd4b7b&search_query&#x3D;Onirim",
-      "lastChecked": "2026-10-06T11:46:55.478Z",
-      "lastCheckSuccess": true
-    },
     "fourZeroOneGames": {
       "available": false,
       "price": null,
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-10-06T11:46:55.697Z",
-      "lastCheckSuccess": true
-    },
-    "philibert": {
-      "available": true,
-      "price": "€19.95",
-      "baselinePrice": "€19.95",
-      "url": "https://www.philibertnet.com/en/inpatience/112883-onirim-3760353370003.html",
-      "lastChecked": "2026-10-06T11:46:55.770Z",
-      "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": true,
-      "price": "62.44",
-      "baselinePrice": "62.44",
-      "url": "https://www.amazon.ca/dp/B0BW28CKVF",
-      "lastChecked": "2026-10-06T11:46:55.940Z",
       "lastCheckSuccess": true
     },
     "lvlUpGames": {
@@ -404,12 +308,60 @@
       "lastChecked": "2026-10-06T11:46:56.887Z",
       "lastCheckSuccess": true
     },
+    "greatBoardgames": {
+      "available": false,
+      "price": "$27.95",
+      "baselinePrice": "$27.95",
+      "url": "https://www.greatboardgames.ca/games/onirim",
+      "lastChecked": "2026-10-06T11:46:55.332Z",
+      "lastCheckSuccess": true
+    },
+    "meeplemart": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:46:55.330Z",
+      "lastCheckSuccess": true
+    },
+    "kbHobbies": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:46:54.912Z",
+      "lastCheckSuccess": true
+    },
+    "miniatureMarket": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:46:55.426Z",
+      "lastCheckSuccess": true
+    },
+    "cardhaus": {
+      "available": false,
+      "price": "$21.99",
+      "baselinePrice": "$21.99",
+      "url": "https://www.cardhaus.com/onirim/#x3D;3b7bb4b7-bb23-4e69-ac6e-1119d9fd4b7b&search_query&#x3D;Onirim",
+      "lastChecked": "2026-10-06T11:46:55.478Z",
+      "lastCheckSuccess": true
+    },
     "theGameSteward": {
       "available": false,
       "price": "$39.99",
       "baselinePrice": "$39.99",
       "url": "https://thegamesteward.com/products/onirim-second-edition-board-game?_pos=1&_psq=Onirim&_psid=5e767410d&_ss=e",
       "lastChecked": "2026-10-06T11:46:57.465Z",
+      "lastCheckSuccess": true
+    },
+    "amazonCa": {
+      "available": true,
+      "price": "62.44",
+      "baselinePrice": "62.44",
+      "url": "https://www.amazon.ca/dp/B0BW28CKVF",
+      "lastChecked": "2026-10-06T11:46:55.940Z",
       "lastCheckSuccess": true
     },
     "woodForSheep": {
@@ -420,12 +372,20 @@
       "lastChecked": "2026-10-06T11:46:58.055Z",
       "lastCheckSuccess": true
     },
-    "chaosCards": {
+    "jjCards": {
       "available": false,
       "price": null,
       "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-10-06T11:46:58.597Z",
+      "lastChecked": "2026-10-06T11:46:54.825Z",
+      "lastCheckSuccess": true
+    },
+    "boardgamesCa": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:46:54.934Z",
       "lastCheckSuccess": true
     },
     "screenFreeGames": {
@@ -450,6 +410,14 @@
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-10-06T11:46:59.860Z",
+      "lastCheckSuccess": true
+    },
+    "elevatedBoardGames": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:46:54.825Z",
       "lastCheckSuccess": true
     },
     "diceHollow": {
@@ -492,12 +460,44 @@
       "lastChecked": "2026-10-06T11:47:02.887Z",
       "lastCheckSuccess": true
     },
+    "chaosCards": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:46:58.597Z",
+      "lastCheckSuccess": true
+    },
     "zatu": {
       "available": true,
       "price": "£19.29",
       "baselinePrice": "£19.29",
       "url": "https://zatu.com/products/onirim?_pos=1&_psq=Onirim&_psid=4a4d27841&_ss=e",
       "lastChecked": "2026-10-06T11:47:04.094Z",
+      "lastCheckSuccess": true
+    },
+    "philibert": {
+      "available": true,
+      "price": "€19.95",
+      "baselinePrice": "€19.95",
+      "url": "https://www.philibertnet.com/en/inpatience/112883-onirim-3760353370003.html",
+      "lastChecked": "2026-10-06T11:46:55.770Z",
+      "lastCheckSuccess": true
+    },
+    "uplay": {
+      "available": true,
+      "price": "€24.21",
+      "baselinePrice": "€24.21",
+      "url": "https://www.uplay.it/en/gioco-da-tavolo-onirim-.html",
+      "lastChecked": "2026-10-06T11:46:55.469Z",
+      "lastCheckSuccess": true
+    },
+    "bggMarket": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:46:54.905Z",
       "lastCheckSuccess": true
     }
   },
@@ -542,32 +542,6 @@
     }
   },
   "196526": {
-    "bggMarket": {
-      "available": true,
-      "price": "C$45.00 CAD",
-      "baselinePrice": "C$45.00 CAD",
-      "url": "https://boardgamegeek.com/market/product/3652579",
-      "listings": [
-        {
-          "price": "C$45.00 CAD",
-          "seller": "Plume2",
-          "condition": "Like New",
-          "url": "https://boardgamegeek.com/market/product/3652579",
-          "firstSeen": "2026-08-19T19:55:30.307Z",
-          "ignored": false
-        }
-      ],
-      "lastChecked": "2026-10-06T11:44:56.852Z",
-      "lastCheckSuccess": true
-    },
-    "kbHobbies": {
-      "available": false,
-      "price": "$52.99",
-      "baselinePrice": "$52.99",
-      "url": "https://www.kbhobbies.com/product/coffee-roaster/143",
-      "lastChecked": "2026-10-06T11:44:56.858Z",
-      "lastCheckSuccess": true
-    },
     "boardGameBliss": {
       "available": false,
       "price": "$45.95",
@@ -576,84 +550,12 @@
       "lastChecked": "2026-10-06T11:44:57.046Z",
       "lastCheckSuccess": true
     },
-    "greatBoardgames": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:44:57.067Z",
-      "lastCheckSuccess": true
-    },
-    "boardgamesCa": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:44:57.331Z",
-      "lastCheckSuccess": true
-    },
-    "cardhaus": {
-      "available": false,
-      "price": "$34.49",
-      "baselinePrice": "$34.49",
-      "url": "https://www.cardhaus.com/coffee-roaster/#x3D;52c95b9f-0b25-4bb9-8993-4005ca165c4b&search_query&#x3D;Coffee+Roaster",
-      "lastChecked": "2026-10-06T11:44:57.389Z",
-      "lastCheckSuccess": true
-    },
-    "uplay": {
-      "available": true,
-      "price": "€25.49",
-      "baselinePrice": "€25.49",
-      "url": "https://www.uplay.it/en/gioco-da-tavolo-coffee-roaster.html",
-      "lastChecked": "2026-10-06T11:44:57.442Z",
-      "lastCheckSuccess": true
-    },
-    "miniatureMarket": {
-      "available": false,
-      "price": "$44.95",
-      "baselinePrice": "$44.95",
-      "url": "https://www.miniaturemarket.com/sg8047.html",
-      "lastChecked": "2026-10-06T11:44:57.494Z",
-      "lastCheckSuccess": true
-    },
-    "philibert": {
-      "available": true,
-      "price": "€37.95",
-      "baselinePrice": "€37.95",
-      "url": "https://www.philibertnet.com/en/dlp-games/80555-coffee-roaster-4260184330348.html",
-      "lastChecked": "2026-10-06T11:44:57.505Z",
-      "lastCheckSuccess": true
-    },
-    "meeplemart": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:44:57.522Z",
-      "lastCheckSuccess": true
-    },
-    "jjCards": {
-      "available": false,
-      "price": "$46.99",
-      "baselinePrice": "$46.99",
-      "url": "https://shop.jjcards.com/Coffee-Roaster_p_7304.html",
-      "lastChecked": "2026-10-06T11:44:57.675Z",
-      "lastCheckSuccess": true
-    },
     "fourZeroOneGames": {
       "available": false,
       "price": null,
       "baselinePrice": "$42.95",
       "url": null,
       "lastChecked": "2026-10-06T11:44:57.688Z",
-      "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": true,
-      "price": "63.23",
-      "baselinePrice": "63.46",
-      "url": "https://www.amazon.ca/dp/B07TNVYHWS",
-      "lastChecked": "2026-10-06T11:44:57.914Z",
       "lastCheckSuccess": true
     },
     "lvlUpGames": {
@@ -672,6 +574,46 @@
       "lastChecked": "2026-10-06T11:44:58.874Z",
       "lastCheckSuccess": true
     },
+    "greatBoardgames": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:44:57.067Z",
+      "lastCheckSuccess": true
+    },
+    "meeplemart": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:44:57.522Z",
+      "lastCheckSuccess": true
+    },
+    "kbHobbies": {
+      "available": false,
+      "price": "$52.99",
+      "baselinePrice": "$52.99",
+      "url": "https://www.kbhobbies.com/product/coffee-roaster/143",
+      "lastChecked": "2026-10-06T11:44:56.858Z",
+      "lastCheckSuccess": true
+    },
+    "miniatureMarket": {
+      "available": false,
+      "price": "$44.95",
+      "baselinePrice": "$44.95",
+      "url": "https://www.miniaturemarket.com/sg8047.html",
+      "lastChecked": "2026-10-06T11:44:57.494Z",
+      "lastCheckSuccess": true
+    },
+    "cardhaus": {
+      "available": false,
+      "price": "$34.49",
+      "baselinePrice": "$34.49",
+      "url": "https://www.cardhaus.com/coffee-roaster/#x3D;52c95b9f-0b25-4bb9-8993-4005ca165c4b&search_query&#x3D;Coffee+Roaster",
+      "lastChecked": "2026-10-06T11:44:57.389Z",
+      "lastCheckSuccess": true
+    },
     "theGameSteward": {
       "available": false,
       "price": null,
@@ -680,12 +622,12 @@
       "lastChecked": "2026-10-06T11:44:59.423Z",
       "lastCheckSuccess": true
     },
-    "elevatedBoardGames": {
+    "amazonCa": {
       "available": true,
-      "price": "$39.99",
-      "baselinePrice": "$39.99",
-      "url": "https://www.elevatedboardgames.com/product-page/coffee-roaster",
-      "lastChecked": "2026-10-06T11:44:59.983Z",
+      "price": "63.23",
+      "baselinePrice": "63.46",
+      "url": "https://www.amazon.ca/dp/B07TNVYHWS",
+      "lastChecked": "2026-10-06T11:44:57.914Z",
       "lastCheckSuccess": true
     },
     "woodForSheep": {
@@ -696,20 +638,28 @@
       "lastChecked": "2026-10-06T11:44:59.989Z",
       "lastCheckSuccess": true
     },
+    "jjCards": {
+      "available": false,
+      "price": "$46.99",
+      "baselinePrice": "$46.99",
+      "url": "https://shop.jjcards.com/Coffee-Roaster_p_7304.html",
+      "lastChecked": "2026-10-06T11:44:57.675Z",
+      "lastCheckSuccess": true
+    },
+    "boardgamesCa": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:44:57.331Z",
+      "lastCheckSuccess": true
+    },
     "screenFreeGames": {
       "available": false,
       "price": null,
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-10-06T11:45:00.609Z",
-      "lastCheckSuccess": true
-    },
-    "chaosCards": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:45:00.866Z",
       "lastCheckSuccess": true
     },
     "allSystemsGo": {
@@ -726,6 +676,14 @@
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-10-06T11:45:01.800Z",
+      "lastCheckSuccess": true
+    },
+    "elevatedBoardGames": {
+      "available": true,
+      "price": "$39.99",
+      "baselinePrice": "$39.99",
+      "url": "https://www.elevatedboardgames.com/product-page/coffee-roaster",
+      "lastChecked": "2026-10-06T11:44:59.983Z",
       "lastCheckSuccess": true
     },
     "diceHollow": {
@@ -768,12 +726,54 @@
       "lastChecked": "2026-10-06T11:45:04.861Z",
       "lastCheckSuccess": true
     },
+    "chaosCards": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:45:00.866Z",
+      "lastCheckSuccess": true
+    },
     "zatu": {
       "available": true,
       "price": "£22.60",
       "baselinePrice": "£22.60",
       "url": "https://zatu.com/products/coffee-roaster?_pos=1&_psq=Coffee+Roaster&_psid=4e91d9ff6&_ss=e",
       "lastChecked": "2026-10-06T11:45:06.099Z",
+      "lastCheckSuccess": true
+    },
+    "philibert": {
+      "available": true,
+      "price": "€37.95",
+      "baselinePrice": "€37.95",
+      "url": "https://www.philibertnet.com/en/dlp-games/80555-coffee-roaster-4260184330348.html",
+      "lastChecked": "2026-10-06T11:44:57.505Z",
+      "lastCheckSuccess": true
+    },
+    "uplay": {
+      "available": true,
+      "price": "€25.49",
+      "baselinePrice": "€25.49",
+      "url": "https://www.uplay.it/en/gioco-da-tavolo-coffee-roaster.html",
+      "lastChecked": "2026-10-06T11:44:57.442Z",
+      "lastCheckSuccess": true
+    },
+    "bggMarket": {
+      "available": true,
+      "price": "C$45.00 CAD",
+      "baselinePrice": "C$45.00 CAD",
+      "url": "https://boardgamegeek.com/market/product/3652579",
+      "listings": [
+        {
+          "price": "C$45.00 CAD",
+          "seller": "Plume2",
+          "condition": "Like New",
+          "url": "https://boardgamegeek.com/market/product/3652579",
+          "firstSeen": "2026-08-19T19:55:30.307Z",
+          "ignored": false
+        }
+      ],
+      "lastChecked": "2026-10-06T11:44:56.852Z",
       "lastCheckSuccess": true
     }
   },
@@ -844,22 +844,6 @@
     }
   },
   "244995": {
-    "elevatedBoardGames": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:45:25.897Z",
-      "lastCheckSuccess": true
-    },
-    "kbHobbies": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:45:25.980Z",
-      "lastCheckSuccess": true
-    },
     "boardGameBliss": {
       "available": false,
       "price": "$13.95",
@@ -868,102 +852,12 @@
       "lastChecked": "2026-10-06T11:45:26.176Z",
       "lastCheckSuccess": true
     },
-    "bggMarket": {
-      "available": true,
-      "price": "C$21.00 CAD",
-      "baselinePrice": "C$21.00 CAD",
-      "url": "https://boardgamegeek.com/market/product/3108645",
-      "listings": [
-        {
-          "price": "C$21.00 CAD",
-          "seller": "MRGGen",
-          "condition": "Like New",
-          "url": "https://boardgamegeek.com/market/product/3108645",
-          "firstSeen": "2026-08-19T19:58:14.956Z",
-          "ignored": false
-        }
-      ],
-      "lastChecked": "2026-10-06T11:45:26.207Z",
-      "lastCheckSuccess": true
-    },
-    "greatBoardgames": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:45:26.413Z",
-      "lastCheckSuccess": true
-    },
-    "meeplemart": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:45:26.481Z",
-      "lastCheckSuccess": true
-    },
-    "boardgamesCa": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:45:26.493Z",
-      "lastCheckSuccess": true
-    },
-    "cardhaus": {
-      "available": false,
-      "price": "$11.59",
-      "baselinePrice": "$11.59",
-      "url": "https://www.cardhaus.com/illusion/#x3D;83b4a287-28db-4abd-a1ff-e9d8460e2f71&search_query&#x3D;Illusion",
-      "lastChecked": "2026-10-06T11:45:26.580Z",
-      "lastCheckSuccess": true
-    },
-    "uplay": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": "https://www.uplay.it/en/gioco-da-tavolo-illusion.html",
-      "lastChecked": "2026-10-06T11:45:26.602Z",
-      "lastCheckSuccess": true
-    },
-    "jjCards": {
-      "available": false,
-      "price": "$14.99",
-      "baselinePrice": "$14.99",
-      "url": "https://shop.jjcards.com/Illusion_p_6028.html",
-      "lastChecked": "2026-10-06T11:45:26.763Z",
-      "lastCheckSuccess": true
-    },
-    "philibert": {
-      "available": true,
-      "price": "€13.50",
-      "baselinePrice": "€13.50",
-      "url": "https://www.philibertnet.com/en/oya/65688-illusion-3760207030336.html",
-      "lastChecked": "2026-10-06T11:45:26.840Z",
-      "lastCheckSuccess": true
-    },
     "fourZeroOneGames": {
       "available": false,
       "price": null,
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-10-06T11:45:26.850Z",
-      "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": "https://www.amazon.ca/s?k=Illusion%20board%20game",
-      "lastChecked": "2026-10-06T11:45:27.104Z",
-      "lastCheckSuccess": true
-    },
-    "miniatureMarket": {
-      "available": false,
-      "price": "$12.95",
-      "baselinePrice": "$12.95",
-      "url": "https://www.miniaturemarket.com/pan201819.html",
-      "lastChecked": "2026-10-06T11:45:27.265Z",
       "lastCheckSuccess": true
     },
     "lvlUpGames": {
@@ -982,12 +876,60 @@
       "lastChecked": "2026-10-06T11:45:28.157Z",
       "lastCheckSuccess": true
     },
+    "greatBoardgames": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:45:26.413Z",
+      "lastCheckSuccess": true
+    },
+    "meeplemart": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:45:26.481Z",
+      "lastCheckSuccess": true
+    },
+    "kbHobbies": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:45:25.980Z",
+      "lastCheckSuccess": true
+    },
+    "miniatureMarket": {
+      "available": false,
+      "price": "$12.95",
+      "baselinePrice": "$12.95",
+      "url": "https://www.miniaturemarket.com/pan201819.html",
+      "lastChecked": "2026-10-06T11:45:27.265Z",
+      "lastCheckSuccess": true
+    },
+    "cardhaus": {
+      "available": false,
+      "price": "$11.59",
+      "baselinePrice": "$11.59",
+      "url": "https://www.cardhaus.com/illusion/#x3D;83b4a287-28db-4abd-a1ff-e9d8460e2f71&search_query&#x3D;Illusion",
+      "lastChecked": "2026-10-06T11:45:26.580Z",
+      "lastCheckSuccess": true
+    },
     "theGameSteward": {
       "available": false,
       "price": null,
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-10-06T11:45:28.768Z",
+      "lastCheckSuccess": true
+    },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": "https://www.amazon.ca/s?k=Illusion%20board%20game",
+      "lastChecked": "2026-10-06T11:45:27.104Z",
       "lastCheckSuccess": true
     },
     "woodForSheep": {
@@ -998,12 +940,20 @@
       "lastChecked": "2026-10-06T11:45:29.398Z",
       "lastCheckSuccess": true
     },
-    "chaosCards": {
+    "jjCards": {
+      "available": false,
+      "price": "$14.99",
+      "baselinePrice": "$14.99",
+      "url": "https://shop.jjcards.com/Illusion_p_6028.html",
+      "lastChecked": "2026-10-06T11:45:26.763Z",
+      "lastCheckSuccess": true
+    },
+    "boardgamesCa": {
       "available": false,
       "price": null,
       "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-10-06T11:45:29.425Z",
+      "lastChecked": "2026-10-06T11:45:26.493Z",
       "lastCheckSuccess": true
     },
     "screenFreeGames": {
@@ -1028,6 +978,14 @@
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-10-06T11:45:31.377Z",
+      "lastCheckSuccess": true
+    },
+    "elevatedBoardGames": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:45:25.897Z",
       "lastCheckSuccess": true
     },
     "diceHollow": {
@@ -1070,6 +1028,14 @@
       "lastChecked": "2026-10-06T11:45:34.707Z",
       "lastCheckSuccess": true
     },
+    "chaosCards": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:45:29.425Z",
+      "lastCheckSuccess": true
+    },
     "zatu": {
       "available": false,
       "price": null,
@@ -1077,49 +1043,43 @@
       "url": null,
       "lastChecked": "2026-10-06T11:45:35.467Z",
       "lastCheckSuccess": true
-    }
-  },
-  "267979": {
-    "jjCards": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:47:09.255Z",
+    },
+    "philibert": {
+      "available": true,
+      "price": "€13.50",
+      "baselinePrice": "€13.50",
+      "url": "https://www.philibertnet.com/en/oya/65688-illusion-3760207030336.html",
+      "lastChecked": "2026-10-06T11:45:26.840Z",
       "lastCheckSuccess": true
     },
-    "elevatedBoardGames": {
+    "uplay": {
       "available": false,
       "price": null,
       "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:47:09.255Z",
+      "url": "https://www.uplay.it/en/gioco-da-tavolo-illusion.html",
+      "lastChecked": "2026-10-06T11:45:26.602Z",
       "lastCheckSuccess": true
     },
     "bggMarket": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:47:09.330Z",
+      "available": true,
+      "price": "C$21.00 CAD",
+      "baselinePrice": "C$21.00 CAD",
+      "url": "https://boardgamegeek.com/market/product/3108645",
+      "listings": [
+        {
+          "price": "C$21.00 CAD",
+          "seller": "MRGGen",
+          "condition": "Like New",
+          "url": "https://boardgamegeek.com/market/product/3108645",
+          "firstSeen": "2026-08-19T19:58:14.956Z",
+          "ignored": false
+        }
+      ],
+      "lastChecked": "2026-10-06T11:45:26.207Z",
       "lastCheckSuccess": true
-    },
-    "kbHobbies": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:47:09.333Z",
-      "lastCheckSuccess": true
-    },
-    "boardgamesCa": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:47:09.476Z",
-      "lastCheckSuccess": true
-    },
+    }
+  },
+  "267979": {
     "boardGameBliss": {
       "available": false,
       "price": "$48.95",
@@ -1128,68 +1088,12 @@
       "lastChecked": "2026-10-06T11:47:09.522Z",
       "lastCheckSuccess": true
     },
-    "greatBoardgames": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:47:09.569Z",
-      "lastCheckSuccess": true
-    },
-    "philibert": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:47:09.809Z",
-      "lastCheckSuccess": true
-    },
-    "cardhaus": {
-      "available": false,
-      "price": "$45.99",
-      "baselinePrice": "$45.99",
-      "url": "https://www.cardhaus.com/tiwanaku/#x3D;0ca2ae82-9e83-44a9-bd5b-bd52e98ffe71&search_query&#x3D;Tiwanaku",
-      "lastChecked": "2026-10-06T11:47:09.916Z",
-      "lastCheckSuccess": true
-    },
-    "uplay": {
-      "available": true,
-      "price": "€54.36",
-      "baselinePrice": "€54.36",
-      "url": "https://www.uplay.it/en/gioco-da-tavolo-tiwanaku--edizione-italiana-.html",
-      "lastChecked": "2026-10-06T11:47:09.917Z",
-      "lastCheckSuccess": true
-    },
-    "miniatureMarket": {
-      "available": false,
-      "price": null,
-      "baselinePrice": "$49.99",
-      "url": null,
-      "lastChecked": "2026-10-06T11:47:10.088Z",
-      "lastCheckSuccess": true
-    },
     "fourZeroOneGames": {
       "available": false,
       "price": "$46.95",
       "baselinePrice": "$46.95",
       "url": "https://store.401games.ca/products/tiwanaku?_pos=2&_psq=Tiwanaku&_psid=c96eb7fb3&_ss=e",
       "lastChecked": "2026-10-06T11:47:10.116Z",
-      "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": "https://www.amazon.ca/s?k=Tiwanaku%20board%20game",
-      "lastChecked": "2026-10-06T11:47:10.422Z",
-      "lastCheckSuccess": true
-    },
-    "meeplemart": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:47:10.458Z",
       "lastCheckSuccess": true
     },
     "lvlUpGames": {
@@ -1208,12 +1112,60 @@
       "lastChecked": "2026-10-06T11:47:11.255Z",
       "lastCheckSuccess": true
     },
+    "greatBoardgames": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:47:09.569Z",
+      "lastCheckSuccess": true
+    },
+    "meeplemart": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:47:10.458Z",
+      "lastCheckSuccess": true
+    },
+    "kbHobbies": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:47:09.333Z",
+      "lastCheckSuccess": true
+    },
+    "miniatureMarket": {
+      "available": false,
+      "price": null,
+      "baselinePrice": "$49.99",
+      "url": null,
+      "lastChecked": "2026-10-06T11:47:10.088Z",
+      "lastCheckSuccess": true
+    },
+    "cardhaus": {
+      "available": false,
+      "price": "$45.99",
+      "baselinePrice": "$45.99",
+      "url": "https://www.cardhaus.com/tiwanaku/#x3D;0ca2ae82-9e83-44a9-bd5b-bd52e98ffe71&search_query&#x3D;Tiwanaku",
+      "lastChecked": "2026-10-06T11:47:09.916Z",
+      "lastCheckSuccess": true
+    },
     "theGameSteward": {
       "available": false,
       "price": null,
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-10-06T11:47:11.818Z",
+      "lastCheckSuccess": true
+    },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": "https://www.amazon.ca/s?k=Tiwanaku%20board%20game",
+      "lastChecked": "2026-10-06T11:47:10.422Z",
       "lastCheckSuccess": true
     },
     "woodForSheep": {
@@ -1224,20 +1176,28 @@
       "lastChecked": "2026-10-06T11:47:12.365Z",
       "lastCheckSuccess": true
     },
+    "jjCards": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:47:09.255Z",
+      "lastCheckSuccess": true
+    },
+    "boardgamesCa": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:47:09.476Z",
+      "lastCheckSuccess": true
+    },
     "screenFreeGames": {
       "available": false,
       "price": null,
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-10-06T11:47:12.923Z",
-      "lastCheckSuccess": true
-    },
-    "chaosCards": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:47:12.962Z",
       "lastCheckSuccess": true
     },
     "allSystemsGo": {
@@ -1254,6 +1214,14 @@
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-10-06T11:47:14.143Z",
+      "lastCheckSuccess": true
+    },
+    "elevatedBoardGames": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:47:09.255Z",
       "lastCheckSuccess": true
     },
     "diceHollow": {
@@ -1296,12 +1264,44 @@
       "lastChecked": "2026-10-06T11:47:17.111Z",
       "lastCheckSuccess": true
     },
+    "chaosCards": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:47:12.962Z",
+      "lastCheckSuccess": true
+    },
     "zatu": {
       "available": true,
       "price": "£42.45",
       "baselinePrice": "£42.45",
       "url": "https://zatu.com/products/tiwanaku?_pos=1&_psq=Tiwanaku&_psid=58c509d51&_ss=e",
       "lastChecked": "2026-10-06T11:47:18.343Z",
+      "lastCheckSuccess": true
+    },
+    "philibert": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:47:09.809Z",
+      "lastCheckSuccess": true
+    },
+    "uplay": {
+      "available": true,
+      "price": "€54.36",
+      "baselinePrice": "€54.36",
+      "url": "https://www.uplay.it/en/gioco-da-tavolo-tiwanaku--edizione-italiana-.html",
+      "lastChecked": "2026-10-06T11:47:09.917Z",
+      "lastCheckSuccess": true
+    },
+    "bggMarket": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:47:09.330Z",
       "lastCheckSuccess": true
     }
   },
@@ -1382,22 +1382,6 @@
     }
   },
   "302388": {
-    "jjCards": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:44:27.053Z",
-      "lastCheckSuccess": true
-    },
-    "elevatedBoardGames": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:44:27.053Z",
-      "lastCheckSuccess": true
-    },
     "boardGameBliss": {
       "available": false,
       "price": "$30.95",
@@ -1406,102 +1390,12 @@
       "lastChecked": "2026-10-06T11:44:27.441Z",
       "lastCheckSuccess": true
     },
-    "bggMarket": {
-      "available": true,
-      "price": "C$15.00 CAD",
-      "baselinePrice": "C$15.00 CAD",
-      "url": "https://boardgamegeek.com/market/product/3302876",
-      "listings": [
-        {
-          "price": "C$15.00 CAD",
-          "seller": "AlwayzFresh",
-          "condition": "Like New",
-          "url": "https://boardgamegeek.com/market/product/3302876",
-          "firstSeen": "2026-08-19T19:54:20.459Z",
-          "ignored": false
-        }
-      ],
-      "lastChecked": "2026-10-06T11:44:27.551Z",
-      "lastCheckSuccess": true
-    },
-    "greatBoardgames": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:44:27.576Z",
-      "lastCheckSuccess": true
-    },
-    "kbHobbies": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:44:27.732Z",
-      "lastCheckSuccess": true
-    },
-    "uplay": {
-      "available": true,
-      "price": "€35.66",
-      "baselinePrice": "€35.66",
-      "url": "https://www.uplay.it/en/gioco-da-tavolo-back-to-the-future--back-in-time.html",
-      "lastChecked": "2026-10-06T11:44:27.772Z",
-      "lastCheckSuccess": true
-    },
-    "cardhaus": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:44:27.776Z",
-      "lastCheckSuccess": true
-    },
-    "philibert": {
-      "available": false,
-      "price": "€34.95",
-      "baselinePrice": "€34.95",
-      "url": "https://www.philibertnet.com/en/funko-games/136888-back-to-the-future-back-in-time-889698689076.html",
-      "lastChecked": "2026-10-06T11:44:27.898Z",
-      "lastCheckSuccess": true
-    },
-    "miniatureMarket": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:44:28.117Z",
-      "lastCheckSuccess": true
-    },
-    "boardgamesCa": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:44:28.131Z",
-      "lastCheckSuccess": true
-    },
     "fourZeroOneGames": {
       "available": false,
       "price": "$29.95",
       "baselinePrice": "$29.95",
       "url": "https://store.401games.ca/products/back-to-the-future-back-in-time?_pos=2&_psq=Back+to+the+Future%3A+Back+in+Time&_psid=e4efb094e&_ss=e",
       "lastChecked": "2026-10-06T11:44:28.157Z",
-      "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": "https://www.amazon.ca/s?k=Back%20to%20the%20Future%3A%20Back%20in%20Time%20board%20game",
-      "lastChecked": "2026-10-06T11:44:28.355Z",
-      "lastCheckSuccess": true
-    },
-    "meeplemart": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:44:28.491Z",
       "lastCheckSuccess": true
     },
     "lvlUpGames": {
@@ -1520,12 +1414,60 @@
       "lastChecked": "2026-10-06T11:44:29.542Z",
       "lastCheckSuccess": true
     },
+    "greatBoardgames": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:44:27.576Z",
+      "lastCheckSuccess": true
+    },
+    "meeplemart": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:44:28.491Z",
+      "lastCheckSuccess": true
+    },
+    "kbHobbies": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:44:27.732Z",
+      "lastCheckSuccess": true
+    },
+    "miniatureMarket": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:44:28.117Z",
+      "lastCheckSuccess": true
+    },
+    "cardhaus": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:44:27.776Z",
+      "lastCheckSuccess": true
+    },
     "theGameSteward": {
       "available": false,
       "price": null,
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-10-06T11:44:30.219Z",
+      "lastCheckSuccess": true
+    },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": "https://www.amazon.ca/s?k=Back%20to%20the%20Future%3A%20Back%20in%20Time%20board%20game",
+      "lastChecked": "2026-10-06T11:44:28.355Z",
       "lastCheckSuccess": true
     },
     "woodForSheep": {
@@ -1536,12 +1478,20 @@
       "lastChecked": "2026-10-06T11:44:30.871Z",
       "lastCheckSuccess": true
     },
-    "chaosCards": {
+    "jjCards": {
       "available": false,
       "price": null,
       "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-10-06T11:44:31.394Z",
+      "lastChecked": "2026-10-06T11:44:27.053Z",
+      "lastCheckSuccess": true
+    },
+    "boardgamesCa": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:44:28.131Z",
       "lastCheckSuccess": true
     },
     "screenFreeGames": {
@@ -1566,6 +1516,14 @@
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-10-06T11:44:32.978Z",
+      "lastCheckSuccess": true
+    },
+    "elevatedBoardGames": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:44:27.053Z",
       "lastCheckSuccess": true
     },
     "diceHollow": {
@@ -1608,6 +1566,14 @@
       "lastChecked": "2026-10-06T11:44:36.349Z",
       "lastCheckSuccess": true
     },
+    "chaosCards": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:44:31.394Z",
+      "lastCheckSuccess": true
+    },
     "zatu": {
       "available": false,
       "price": null,
@@ -1615,73 +1581,49 @@
       "url": null,
       "lastChecked": "2026-10-06T11:44:37.101Z",
       "lastCheckSuccess": true
-    }
-  },
-  "304783": {
-    "laPioche": {
+    },
+    "philibert": {
       "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:42:20.691Z",
+      "price": "€34.95",
+      "baselinePrice": "€34.95",
+      "url": "https://www.philibertnet.com/en/funko-games/136888-back-to-the-future-back-in-time-889698689076.html",
+      "lastChecked": "2026-10-06T11:44:27.898Z",
       "lastCheckSuccess": true
     },
-    "kbHobbies": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:42:20.928Z",
+    "uplay": {
+      "available": true,
+      "price": "€35.66",
+      "baselinePrice": "€35.66",
+      "url": "https://www.uplay.it/en/gioco-da-tavolo-back-to-the-future--back-in-time.html",
+      "lastChecked": "2026-10-06T11:44:27.772Z",
       "lastCheckSuccess": true
     },
     "bggMarket": {
       "available": true,
-      "price": "C$30.00 CAD",
-      "baselinePrice": "C$30.00 CAD",
-      "url": "https://boardgamegeek.com/market/product/4115780",
+      "price": "C$15.00 CAD",
+      "baselinePrice": "C$15.00 CAD",
+      "url": "https://boardgamegeek.com/market/product/3302876",
       "listings": [
         {
-          "price": "C$30.00 CAD",
-          "seller": "carnodingo",
+          "price": "C$15.00 CAD",
+          "seller": "AlwayzFresh",
           "condition": "Like New",
-          "url": "https://boardgamegeek.com/market/product/4115780",
-          "firstSeen": "2026-09-04T19:03:03.333Z",
-          "ignored": false
-        },
-        {
-          "price": "C$35.00 CAD",
-          "seller": "LeMoyne",
-          "condition": "Like New",
-          "url": "https://boardgamegeek.com/market/product/3944808",
-          "firstSeen": "2026-08-22T20:28:55.486Z",
+          "url": "https://boardgamegeek.com/market/product/3302876",
+          "firstSeen": "2026-08-19T19:54:20.459Z",
           "ignored": false
         }
       ],
-      "lastChecked": "2026-10-06T11:42:21.033Z",
+      "lastChecked": "2026-10-06T11:44:27.551Z",
       "lastCheckSuccess": true
-    },
+    }
+  },
+  "304783": {
     "boardGameBliss": {
       "available": false,
       "price": "$59.95",
       "baselinePrice": "$59.95",
       "url": "https://www.boardgamebliss.com/products/hadrians-wall?_pos=2&_psq=Hadrian%27s+Wall&_psid=65523f6ff&_ss=e",
       "lastChecked": "2026-10-06T11:42:21.201Z",
-      "lastCheckSuccess": true
-    },
-    "uplay": {
-      "available": true,
-      "price": "€50.99",
-      "baselinePrice": "€50.99",
-      "url": "https://www.uplay.it/en/gioco-da-tavolo-hadrian-s-wall.html",
-      "lastChecked": "2026-10-06T11:42:21.638Z",
-      "lastCheckSuccess": true
-    },
-    "cardhaus": {
-      "available": false,
-      "price": "$60.00",
-      "baselinePrice": "$60.00",
-      "url": "https://www.cardhaus.com/hadrians-wall/#x3D;5b05a69d-ac0c-4434-81c1-8b99b1dd3b2c&search_query&#x3D;Hadrian%27s+Wall",
-      "lastChecked": "2026-10-06T11:42:21.790Z",
       "lastCheckSuccess": true
     },
     "fourZeroOneGames": {
@@ -1692,60 +1634,12 @@
       "lastChecked": "2026-10-06T11:42:21.918Z",
       "lastCheckSuccess": true
     },
-    "greatBoardgames": {
-      "available": true,
-      "price": "$55.95",
-      "baselinePrice": "$55.95",
-      "url": "https://www.greatboardgames.ca/games/hadrians-wall",
-      "lastChecked": "2026-10-06T11:42:21.972Z",
-      "lastCheckSuccess": true
-    },
-    "philibert": {
-      "available": false,
-      "price": "€65.99",
-      "baselinePrice": "€65.99",
-      "url": "https://www.philibertnet.com/en/renegade-game-studios/170107-hadrian-s-wall-0810011722002.html",
-      "lastChecked": "2026-10-06T11:42:21.973Z",
-      "lastCheckSuccess": true
-    },
-    "meeplemart": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:42:21.978Z",
-      "lastCheckSuccess": true
-    },
-    "miniatureMarket": {
-      "available": false,
-      "price": "$60.00",
-      "baselinePrice": "$60.00",
-      "url": "https://www.miniaturemarket.com/rgs02200.html",
-      "lastChecked": "2026-10-06T11:42:22.000Z",
-      "lastCheckSuccess": true
-    },
-    "boardgamesCa": {
-      "available": true,
-      "price": "$72.95",
-      "baselinePrice": "$72.95",
-      "url": "https://boardgames.ca/products/hadrians-wall",
-      "lastChecked": "2026-10-06T11:42:22.030Z",
-      "lastCheckSuccess": true
-    },
     "lvlUpGames": {
       "available": false,
       "price": "$61.95",
       "baselinePrice": "$61.95",
       "url": "https://www.lvlupgames.ca/products/hadrians-wall?_pos=3&_psq=Hadrian%27s+Wall&_psid=267c000ee&_ss=e",
       "lastChecked": "2026-10-06T11:42:22.547Z",
-      "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "baselinePrice": "92.68",
-      "url": "https://www.amazon.ca/s?k=Hadrian's%20Wall%20board%20game",
-      "lastChecked": "2026-10-06T11:42:23.094Z",
       "lastCheckSuccess": true
     },
     "asDesJeux": {
@@ -1756,12 +1650,44 @@
       "lastChecked": "2026-10-06T11:42:23.210Z",
       "lastCheckSuccess": true
     },
-    "jjCards": {
+    "greatBoardgames": {
       "available": true,
-      "price": "$61.99",
-      "baselinePrice": "$61.99",
-      "url": "https://shop.jjcards.com/Hadrians-Wall_p_21063.html",
-      "lastChecked": "2026-10-06T11:42:23.302Z",
+      "price": "$55.95",
+      "baselinePrice": "$55.95",
+      "url": "https://www.greatboardgames.ca/games/hadrians-wall",
+      "lastChecked": "2026-10-06T11:42:21.972Z",
+      "lastCheckSuccess": true
+    },
+    "meeplemart": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:42:21.978Z",
+      "lastCheckSuccess": true
+    },
+    "kbHobbies": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:42:20.928Z",
+      "lastCheckSuccess": true
+    },
+    "miniatureMarket": {
+      "available": false,
+      "price": "$60.00",
+      "baselinePrice": "$60.00",
+      "url": "https://www.miniaturemarket.com/rgs02200.html",
+      "lastChecked": "2026-10-06T11:42:22.000Z",
+      "lastCheckSuccess": true
+    },
+    "cardhaus": {
+      "available": false,
+      "price": "$60.00",
+      "baselinePrice": "$60.00",
+      "url": "https://www.cardhaus.com/hadrians-wall/#x3D;5b05a69d-ac0c-4434-81c1-8b99b1dd3b2c&search_query&#x3D;Hadrian%27s+Wall",
+      "lastChecked": "2026-10-06T11:42:21.790Z",
       "lastCheckSuccess": true
     },
     "theGameSteward": {
@@ -1772,6 +1698,14 @@
       "lastChecked": "2026-10-06T11:42:23.827Z",
       "lastCheckSuccess": true
     },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "baselinePrice": "92.68",
+      "url": "https://www.amazon.ca/s?k=Hadrian's%20Wall%20board%20game",
+      "lastChecked": "2026-10-06T11:42:23.094Z",
+      "lastCheckSuccess": true
+    },
     "woodForSheep": {
       "available": false,
       "price": "$58.49",
@@ -1780,12 +1714,20 @@
       "lastChecked": "2026-10-06T11:42:24.434Z",
       "lastCheckSuccess": true
     },
-    "elevatedBoardGames": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:42:24.505Z",
+    "jjCards": {
+      "available": true,
+      "price": "$61.99",
+      "baselinePrice": "$61.99",
+      "url": "https://shop.jjcards.com/Hadrians-Wall_p_21063.html",
+      "lastChecked": "2026-10-06T11:42:23.302Z",
+      "lastCheckSuccess": true
+    },
+    "boardgamesCa": {
+      "available": true,
+      "price": "$72.95",
+      "baselinePrice": "$72.95",
+      "url": "https://boardgames.ca/products/hadrians-wall",
+      "lastChecked": "2026-10-06T11:42:22.030Z",
       "lastCheckSuccess": true
     },
     "screenFreeGames": {
@@ -1804,14 +1746,6 @@
       "lastChecked": "2026-10-06T11:42:25.758Z",
       "lastCheckSuccess": true
     },
-    "chaosCards": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:42:26.317Z",
-      "lastCheckSuccess": true
-    },
     "tabletopCafe": {
       "available": true,
       "price": "$79.99",
@@ -1820,12 +1754,28 @@
       "lastChecked": "2026-10-06T11:42:26.427Z",
       "lastCheckSuccess": true
     },
+    "elevatedBoardGames": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:42:24.505Z",
+      "lastCheckSuccess": true
+    },
     "diceHollow": {
       "available": false,
       "price": null,
       "baselinePrice": "$54.00",
       "url": null,
       "lastChecked": "2026-10-06T11:42:27.028Z",
+      "lastCheckSuccess": true
+    },
+    "laPioche": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T14:16:46.060Z",
       "lastCheckSuccess": true
     },
     "alwaysGames": {
@@ -1852,12 +1802,62 @@
       "lastChecked": "2026-10-06T11:42:28.931Z",
       "lastCheckSuccess": true
     },
+    "chaosCards": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:42:26.317Z",
+      "lastCheckSuccess": true
+    },
     "zatu": {
       "available": false,
       "price": "£49.20",
       "baselinePrice": "£50.70",
       "url": "https://zatu.com/products/hadrians-wall?_pos=5&_psq=Hadrian%27s+Wall&_psid=349f5fe1e&_ss=e",
       "lastChecked": "2026-10-06T11:42:30.256Z",
+      "lastCheckSuccess": true
+    },
+    "philibert": {
+      "available": false,
+      "price": "€65.99",
+      "baselinePrice": "€65.99",
+      "url": "https://www.philibertnet.com/en/renegade-game-studios/170107-hadrian-s-wall-0810011722002.html",
+      "lastChecked": "2026-10-06T11:42:21.973Z",
+      "lastCheckSuccess": true
+    },
+    "uplay": {
+      "available": true,
+      "price": "€50.99",
+      "baselinePrice": "€50.99",
+      "url": "https://www.uplay.it/en/gioco-da-tavolo-hadrian-s-wall.html",
+      "lastChecked": "2026-10-06T11:42:21.638Z",
+      "lastCheckSuccess": true
+    },
+    "bggMarket": {
+      "available": true,
+      "price": "C$30.00 CAD",
+      "baselinePrice": "C$30.00 CAD",
+      "url": "https://boardgamegeek.com/market/product/4115780",
+      "listings": [
+        {
+          "price": "C$30.00 CAD",
+          "seller": "carnodingo",
+          "condition": "Like New",
+          "url": "https://boardgamegeek.com/market/product/4115780",
+          "firstSeen": "2026-09-04T19:03:03.333Z",
+          "ignored": false
+        },
+        {
+          "price": "C$35.00 CAD",
+          "seller": "LeMoyne",
+          "condition": "Like New",
+          "url": "https://boardgamegeek.com/market/product/3944808",
+          "firstSeen": "2026-08-22T20:28:55.486Z",
+          "ignored": false
+        }
+      ],
+      "lastChecked": "2026-10-06T11:42:21.033Z",
       "lastCheckSuccess": true
     }
   },
@@ -1892,54 +1892,6 @@
     }
   },
   "352418": {
-    "jjCards": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:45:11.261Z",
-      "lastCheckSuccess": true
-    },
-    "elevatedBoardGames": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:45:11.261Z",
-      "lastCheckSuccess": true
-    },
-    "kbHobbies": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:45:11.341Z",
-      "lastCheckSuccess": true
-    },
-    "bggMarket": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:45:11.341Z",
-      "lastCheckSuccess": true
-    },
-    "boardgamesCa": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:45:11.420Z",
-      "lastCheckSuccess": true
-    },
-    "greatBoardgames": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:45:11.524Z",
-      "lastCheckSuccess": true
-    },
     "boardGameBliss": {
       "available": true,
       "price": "$42.95",
@@ -1948,60 +1900,12 @@
       "lastChecked": "2026-10-06T11:45:11.527Z",
       "lastCheckSuccess": true
     },
-    "meeplemart": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:45:11.693Z",
-      "lastCheckSuccess": true
-    },
-    "cardhaus": {
-      "available": false,
-      "price": "$34.99",
-      "baselinePrice": "$34.99",
-      "url": "https://www.cardhaus.com/fliptown/#x3D;0dced3b0-7223-496b-9b60-f62f1b0ccba7&search_query&#x3D;Fliptown",
-      "lastChecked": "2026-10-06T11:45:11.859Z",
-      "lastCheckSuccess": true
-    },
-    "uplay": {
-      "available": true,
-      "price": "€38.25",
-      "baselinePrice": "€38.25",
-      "url": "https://www.uplay.it/en/gioco-da-tavolo-fliptown.html",
-      "lastChecked": "2026-10-06T11:45:11.953Z",
-      "lastCheckSuccess": true
-    },
-    "philibert": {
-      "available": true,
-      "price": "€31.95",
-      "baselinePrice": "€31.95",
-      "url": "https://www.philibertnet.com/en/write-stuff-games/158527-fliptown-2100001341862.html",
-      "lastChecked": "2026-10-06T11:45:12.095Z",
-      "lastCheckSuccess": true
-    },
     "fourZeroOneGames": {
       "available": false,
       "price": null,
       "baselinePrice": "$39.95",
       "url": null,
       "lastChecked": "2026-10-06T11:45:12.177Z",
-      "lastCheckSuccess": true
-    },
-    "miniatureMarket": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:45:12.410Z",
-      "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": "https://www.amazon.ca/s?k=Fliptown%20board%20game",
-      "lastChecked": "2026-10-06T11:45:12.469Z",
       "lastCheckSuccess": true
     },
     "lvlUpGames": {
@@ -2020,12 +1924,60 @@
       "lastChecked": "2026-10-06T11:45:13.443Z",
       "lastCheckSuccess": true
     },
+    "greatBoardgames": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:45:11.524Z",
+      "lastCheckSuccess": true
+    },
+    "meeplemart": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:45:11.693Z",
+      "lastCheckSuccess": true
+    },
+    "kbHobbies": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:45:11.341Z",
+      "lastCheckSuccess": true
+    },
+    "miniatureMarket": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:45:12.410Z",
+      "lastCheckSuccess": true
+    },
+    "cardhaus": {
+      "available": false,
+      "price": "$34.99",
+      "baselinePrice": "$34.99",
+      "url": "https://www.cardhaus.com/fliptown/#x3D;0dced3b0-7223-496b-9b60-f62f1b0ccba7&search_query&#x3D;Fliptown",
+      "lastChecked": "2026-10-06T11:45:11.859Z",
+      "lastCheckSuccess": true
+    },
     "theGameSteward": {
       "available": false,
       "price": null,
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-10-06T11:45:14.027Z",
+      "lastCheckSuccess": true
+    },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": "https://www.amazon.ca/s?k=Fliptown%20board%20game",
+      "lastChecked": "2026-10-06T11:45:12.469Z",
       "lastCheckSuccess": true
     },
     "woodForSheep": {
@@ -2036,12 +1988,20 @@
       "lastChecked": "2026-10-06T11:45:14.796Z",
       "lastCheckSuccess": true
     },
-    "chaosCards": {
+    "jjCards": {
       "available": false,
       "price": null,
       "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-10-06T11:45:15.011Z",
+      "lastChecked": "2026-10-06T11:45:11.261Z",
+      "lastCheckSuccess": true
+    },
+    "boardgamesCa": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:45:11.420Z",
       "lastCheckSuccess": true
     },
     "screenFreeGames": {
@@ -2066,6 +2026,14 @@
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-10-06T11:45:16.660Z",
+      "lastCheckSuccess": true
+    },
+    "elevatedBoardGames": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:45:11.261Z",
       "lastCheckSuccess": true
     },
     "diceHollow": {
@@ -2108,6 +2076,14 @@
       "lastChecked": "2026-10-06T11:45:19.655Z",
       "lastCheckSuccess": true
     },
+    "chaosCards": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:45:15.011Z",
+      "lastCheckSuccess": true
+    },
     "zatu": {
       "available": false,
       "price": "£20.99",
@@ -2115,23 +2091,21 @@
       "url": "https://zatu.com/products/fliptown?_pos=6&_psq=Fliptown&_psid=d6daa0a18&_ss=e",
       "lastChecked": "2026-10-06T11:45:20.860Z",
       "lastCheckSuccess": true
-    }
-  },
-  "354342": {
-    "jjCards": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:46:38.806Z",
+    },
+    "philibert": {
+      "available": true,
+      "price": "€31.95",
+      "baselinePrice": "€31.95",
+      "url": "https://www.philibertnet.com/en/write-stuff-games/158527-fliptown-2100001341862.html",
+      "lastChecked": "2026-10-06T11:45:12.095Z",
       "lastCheckSuccess": true
     },
-    "elevatedBoardGames": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:46:38.806Z",
+    "uplay": {
+      "available": true,
+      "price": "€38.25",
+      "baselinePrice": "€38.25",
+      "url": "https://www.uplay.it/en/gioco-da-tavolo-fliptown.html",
+      "lastChecked": "2026-10-06T11:45:11.953Z",
       "lastCheckSuccess": true
     },
     "bggMarket": {
@@ -2139,25 +2113,11 @@
       "price": null,
       "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-10-06T11:46:38.884Z",
+      "lastChecked": "2026-10-06T11:45:11.341Z",
       "lastCheckSuccess": true
-    },
-    "kbHobbies": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:46:38.886Z",
-      "lastCheckSuccess": true
-    },
-    "greatBoardgames": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:46:39.118Z",
-      "lastCheckSuccess": true
-    },
+    }
+  },
+  "354342": {
     "boardGameBliss": {
       "available": false,
       "price": "$26.95",
@@ -2166,68 +2126,12 @@
       "lastChecked": "2026-10-06T11:46:39.121Z",
       "lastCheckSuccess": true
     },
-    "meeplemart": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:46:39.342Z",
-      "lastCheckSuccess": true
-    },
-    "cardhaus": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:46:39.468Z",
-      "lastCheckSuccess": true
-    },
-    "uplay": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": "https://www.uplay.it/en/gioco-da-tavolo-marvel-mayhem.html",
-      "lastChecked": "2026-10-06T11:46:39.475Z",
-      "lastCheckSuccess": true
-    },
-    "philibert": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:46:39.487Z",
-      "lastCheckSuccess": true
-    },
-    "miniatureMarket": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:46:39.556Z",
-      "lastCheckSuccess": true
-    },
     "fourZeroOneGames": {
       "available": false,
       "price": null,
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-10-06T11:46:39.701Z",
-      "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "baselinePrice": "20.72",
-      "url": "https://www.amazon.ca/s?k=Marvel%20Mayhem%20board%20game",
-      "lastChecked": "2026-10-06T11:46:39.985Z",
-      "lastCheckSuccess": true
-    },
-    "boardgamesCa": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:46:40.222Z",
       "lastCheckSuccess": true
     },
     "lvlUpGames": {
@@ -2246,12 +2150,60 @@
       "lastChecked": "2026-10-06T11:46:40.967Z",
       "lastCheckSuccess": true
     },
+    "greatBoardgames": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:46:39.118Z",
+      "lastCheckSuccess": true
+    },
+    "meeplemart": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:46:39.342Z",
+      "lastCheckSuccess": true
+    },
+    "kbHobbies": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:46:38.886Z",
+      "lastCheckSuccess": true
+    },
+    "miniatureMarket": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:46:39.556Z",
+      "lastCheckSuccess": true
+    },
+    "cardhaus": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:46:39.468Z",
+      "lastCheckSuccess": true
+    },
     "theGameSteward": {
       "available": false,
       "price": null,
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-10-06T11:46:41.558Z",
+      "lastCheckSuccess": true
+    },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "baselinePrice": "20.72",
+      "url": "https://www.amazon.ca/s?k=Marvel%20Mayhem%20board%20game",
+      "lastChecked": "2026-10-06T11:46:39.985Z",
       "lastCheckSuccess": true
     },
     "woodForSheep": {
@@ -2262,12 +2214,20 @@
       "lastChecked": "2026-10-06T11:46:42.184Z",
       "lastCheckSuccess": true
     },
-    "chaosCards": {
+    "jjCards": {
       "available": false,
       "price": null,
       "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-10-06T11:46:42.561Z",
+      "lastChecked": "2026-10-06T11:46:38.806Z",
+      "lastCheckSuccess": true
+    },
+    "boardgamesCa": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:46:40.222Z",
       "lastCheckSuccess": true
     },
     "screenFreeGames": {
@@ -2292,6 +2252,14 @@
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-10-06T11:46:44.086Z",
+      "lastCheckSuccess": true
+    },
+    "elevatedBoardGames": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:46:38.806Z",
       "lastCheckSuccess": true
     },
     "diceHollow": {
@@ -2334,6 +2302,14 @@
       "lastChecked": "2026-10-06T11:46:47.451Z",
       "lastCheckSuccess": true
     },
+    "chaosCards": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:46:42.561Z",
+      "lastCheckSuccess": true
+    },
     "zatu": {
       "available": false,
       "price": null,
@@ -2341,51 +2317,33 @@
       "url": null,
       "lastChecked": "2026-10-06T11:46:49.669Z",
       "lastCheckSuccess": true
-    }
-  },
-  "354934": {
-    "elevatedBoardGames": {
+    },
+    "philibert": {
       "available": false,
       "price": null,
       "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-10-06T11:46:23.771Z",
+      "lastChecked": "2026-10-06T11:46:39.487Z",
       "lastCheckSuccess": true
     },
-    "jjCards": {
+    "uplay": {
       "available": false,
-      "price": "$59.99",
-      "baselinePrice": "$59.99",
-      "url": "https://shop.jjcards.com/Legacy-of-Yu_p_31199.html",
-      "lastChecked": "2026-10-06T11:46:23.871Z",
+      "price": null,
+      "baselinePrice": null,
+      "url": "https://www.uplay.it/en/gioco-da-tavolo-marvel-mayhem.html",
+      "lastChecked": "2026-10-06T11:46:39.475Z",
       "lastCheckSuccess": true
     },
     "bggMarket": {
-      "available": true,
-      "price": "C$60.00 CAD",
-      "baselinePrice": "C$60.00 CAD",
-      "url": "https://boardgamegeek.com/market/product/3924479",
-      "listings": [
-        {
-          "price": "C$60.00 CAD",
-          "seller": "JamesJakeJones",
-          "condition": "Like New",
-          "url": "https://boardgamegeek.com/market/product/3924479",
-          "firstSeen": "2026-08-19T19:58:53.265Z",
-          "ignored": false
-        }
-      ],
-      "lastChecked": "2026-10-06T11:46:23.878Z",
-      "lastCheckSuccess": true
-    },
-    "kbHobbies": {
       "available": false,
       "price": null,
       "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-10-06T11:46:23.906Z",
+      "lastChecked": "2026-10-06T11:46:38.884Z",
       "lastCheckSuccess": true
-    },
+    }
+  },
+  "354934": {
     "boardGameBliss": {
       "available": false,
       "price": "$59.95",
@@ -2394,76 +2352,12 @@
       "lastChecked": "2026-10-06T11:46:24.069Z",
       "lastCheckSuccess": true
     },
-    "greatBoardgames": {
-      "available": false,
-      "price": "$55.95",
-      "baselinePrice": "$55.95",
-      "url": "https://www.greatboardgames.ca/games/legacy-of-yu",
-      "lastChecked": "2026-10-06T11:46:24.275Z",
-      "lastCheckSuccess": true
-    },
-    "uplay": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": "https://www.uplay.it/en/gioco-da-tavolo-legacy-of-yu.html",
-      "lastChecked": "2026-10-06T11:46:24.461Z",
-      "lastCheckSuccess": true
-    },
-    "meeplemart": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:46:24.611Z",
-      "lastCheckSuccess": true
-    },
-    "miniatureMarket": {
-      "available": false,
-      "price": "$60.00",
-      "baselinePrice": "$60.00",
-      "url": "https://www.miniaturemarket.com/legacy-of-yu-rgs02510.html",
-      "lastChecked": "2026-10-06T11:46:24.618Z",
-      "lastCheckSuccess": true
-    },
-    "cardhaus": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:46:24.695Z",
-      "lastCheckSuccess": true
-    },
     "fourZeroOneGames": {
       "available": false,
       "price": null,
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-10-06T11:46:24.776Z",
-      "lastCheckSuccess": true
-    },
-    "philibert": {
-      "available": true,
-      "price": "€40.50",
-      "baselinePrice": "€40.50",
-      "url": "https://www.philibertnet.com/en/garphill-games/123434-legacy-of-yu-3701358300930.html",
-      "lastChecked": "2026-10-06T11:46:24.781Z",
-      "lastCheckSuccess": true
-    },
-    "boardgamesCa": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:46:24.795Z",
-      "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "baselinePrice": "125.01",
-      "url": "https://www.amazon.ca/s?k=Legacy%20of%20Yu%20board%20game",
-      "lastChecked": "2026-10-06T11:46:25.024Z",
       "lastCheckSuccess": true
     },
     "lvlUpGames": {
@@ -2482,12 +2376,60 @@
       "lastChecked": "2026-10-06T11:46:26.116Z",
       "lastCheckSuccess": true
     },
+    "greatBoardgames": {
+      "available": false,
+      "price": "$55.95",
+      "baselinePrice": "$55.95",
+      "url": "https://www.greatboardgames.ca/games/legacy-of-yu",
+      "lastChecked": "2026-10-06T11:46:24.275Z",
+      "lastCheckSuccess": true
+    },
+    "meeplemart": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:46:24.611Z",
+      "lastCheckSuccess": true
+    },
+    "kbHobbies": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:46:23.906Z",
+      "lastCheckSuccess": true
+    },
+    "miniatureMarket": {
+      "available": false,
+      "price": "$60.00",
+      "baselinePrice": "$60.00",
+      "url": "https://www.miniaturemarket.com/legacy-of-yu-rgs02510.html",
+      "lastChecked": "2026-10-06T11:46:24.618Z",
+      "lastCheckSuccess": true
+    },
+    "cardhaus": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:46:24.695Z",
+      "lastCheckSuccess": true
+    },
     "theGameSteward": {
       "available": false,
       "price": null,
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-10-06T11:46:26.711Z",
+      "lastCheckSuccess": true
+    },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "baselinePrice": "125.01",
+      "url": "https://www.amazon.ca/s?k=Legacy%20of%20Yu%20board%20game",
+      "lastChecked": "2026-10-06T11:46:25.024Z",
       "lastCheckSuccess": true
     },
     "woodForSheep": {
@@ -2498,12 +2440,20 @@
       "lastChecked": "2026-10-06T11:46:27.367Z",
       "lastCheckSuccess": true
     },
-    "chaosCards": {
+    "jjCards": {
+      "available": false,
+      "price": "$59.99",
+      "baselinePrice": "$59.99",
+      "url": "https://shop.jjcards.com/Legacy-of-Yu_p_31199.html",
+      "lastChecked": "2026-10-06T11:46:23.871Z",
+      "lastCheckSuccess": true
+    },
+    "boardgamesCa": {
       "available": false,
       "price": null,
       "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-10-06T11:46:27.418Z",
+      "lastChecked": "2026-10-06T11:46:24.795Z",
       "lastCheckSuccess": true
     },
     "screenFreeGames": {
@@ -2528,6 +2478,14 @@
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-10-06T11:46:29.302Z",
+      "lastCheckSuccess": true
+    },
+    "elevatedBoardGames": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:46:23.771Z",
       "lastCheckSuccess": true
     },
     "diceHollow": {
@@ -2570,12 +2528,54 @@
       "lastChecked": "2026-10-06T11:46:32.914Z",
       "lastCheckSuccess": true
     },
+    "chaosCards": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:46:27.418Z",
+      "lastCheckSuccess": true
+    },
     "zatu": {
       "available": false,
       "price": null,
       "baselinePrice": "£55.05",
       "url": null,
       "lastChecked": "2026-10-06T11:46:33.637Z",
+      "lastCheckSuccess": true
+    },
+    "philibert": {
+      "available": true,
+      "price": "€40.50",
+      "baselinePrice": "€40.50",
+      "url": "https://www.philibertnet.com/en/garphill-games/123434-legacy-of-yu-3701358300930.html",
+      "lastChecked": "2026-10-06T11:46:24.781Z",
+      "lastCheckSuccess": true
+    },
+    "uplay": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": "https://www.uplay.it/en/gioco-da-tavolo-legacy-of-yu.html",
+      "lastChecked": "2026-10-06T11:46:24.461Z",
+      "lastCheckSuccess": true
+    },
+    "bggMarket": {
+      "available": true,
+      "price": "C$60.00 CAD",
+      "baselinePrice": "C$60.00 CAD",
+      "url": "https://boardgamegeek.com/market/product/3924479",
+      "listings": [
+        {
+          "price": "C$60.00 CAD",
+          "seller": "JamesJakeJones",
+          "condition": "Like New",
+          "url": "https://boardgamegeek.com/market/product/3924479",
+          "firstSeen": "2026-08-19T19:58:53.265Z",
+          "ignored": false
+        }
+      ],
+      "lastChecked": "2026-10-06T11:46:23.878Z",
       "lastCheckSuccess": true
     }
   },
@@ -2620,38 +2620,6 @@
     }
   },
   "383499": {
-    "elevatedBoardGames": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:47:23.366Z",
-      "lastCheckSuccess": true
-    },
-    "kbHobbies": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:47:23.479Z",
-      "lastCheckSuccess": true
-    },
-    "bggMarket": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:47:23.489Z",
-      "lastCheckSuccess": true
-    },
-    "jjCards": {
-      "available": false,
-      "price": "$26.99",
-      "baselinePrice": "$26.99",
-      "url": "https://shop.jjcards.com/Witchcraft_p_39160.html",
-      "lastChecked": "2026-10-06T11:47:23.492Z",
-      "lastCheckSuccess": true
-    },
     "boardGameBliss": {
       "available": false,
       "price": "$19.95",
@@ -2660,76 +2628,12 @@
       "lastChecked": "2026-10-06T11:47:23.676Z",
       "lastCheckSuccess": true
     },
-    "boardgamesCa": {
-      "available": true,
-      "price": "$31.95",
-      "baselinePrice": "$31.95",
-      "url": "https://boardgames.ca/products/witchcraft",
-      "lastChecked": "2026-10-06T11:47:23.680Z",
-      "lastCheckSuccess": true
-    },
-    "greatBoardgames": {
-      "available": false,
-      "price": "$25.95",
-      "baselinePrice": "$25.95",
-      "url": "https://www.greatboardgames.ca/games/witchcraft",
-      "lastChecked": "2026-10-06T11:47:23.918Z",
-      "lastCheckSuccess": true
-    },
-    "uplay": {
-      "available": true,
-      "price": "€25.46",
-      "baselinePrice": "€25.46",
-      "url": "https://www.uplay.it/en/gioco-da-tavolo-witchcraft-.html",
-      "lastChecked": "2026-10-06T11:47:24.107Z",
-      "lastCheckSuccess": true
-    },
-    "cardhaus": {
-      "available": true,
-      "price": "$23.99",
-      "baselinePrice": "$23.99",
-      "url": "https://www.cardhaus.com/witchcraft/#x3D;c8c0d6fd-f1cd-411a-92e5-e3395c9be3ae&search_query&#x3D;Witchcraft%21",
-      "lastChecked": "2026-10-06T11:47:24.215Z",
-      "lastCheckSuccess": true
-    },
-    "philibert": {
-      "available": true,
-      "price": "€27.95",
-      "baselinePrice": "€28.95",
-      "url": "https://www.philibertnet.com/en/salt-pepper-games/131102-witchcraft-8495390733713.html",
-      "lastChecked": "2026-10-06T11:47:24.334Z",
-      "lastCheckSuccess": true
-    },
     "fourZeroOneGames": {
       "available": false,
       "price": null,
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-10-06T11:47:24.334Z",
-      "lastCheckSuccess": true
-    },
-    "miniatureMarket": {
-      "available": false,
-      "price": "$24.99",
-      "baselinePrice": "$24.99",
-      "url": "https://www.miniaturemarket.com/witchcraft-tfc61000.html",
-      "lastChecked": "2026-10-06T11:47:24.450Z",
-      "lastCheckSuccess": true
-    },
-    "meeplemart": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:47:24.741Z",
-      "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": "https://www.amazon.ca/s?k=Witchcraft!%20board%20game",
-      "lastChecked": "2026-10-06T11:47:24.751Z",
       "lastCheckSuccess": true
     },
     "lvlUpGames": {
@@ -2748,12 +2652,60 @@
       "lastChecked": "2026-10-06T11:47:25.670Z",
       "lastCheckSuccess": true
     },
+    "greatBoardgames": {
+      "available": false,
+      "price": "$25.95",
+      "baselinePrice": "$25.95",
+      "url": "https://www.greatboardgames.ca/games/witchcraft",
+      "lastChecked": "2026-10-06T11:47:23.918Z",
+      "lastCheckSuccess": true
+    },
+    "meeplemart": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:47:24.741Z",
+      "lastCheckSuccess": true
+    },
+    "kbHobbies": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:47:23.479Z",
+      "lastCheckSuccess": true
+    },
+    "miniatureMarket": {
+      "available": false,
+      "price": "$24.99",
+      "baselinePrice": "$24.99",
+      "url": "https://www.miniaturemarket.com/witchcraft-tfc61000.html",
+      "lastChecked": "2026-10-06T11:47:24.450Z",
+      "lastCheckSuccess": true
+    },
+    "cardhaus": {
+      "available": true,
+      "price": "$23.99",
+      "baselinePrice": "$23.99",
+      "url": "https://www.cardhaus.com/witchcraft/#x3D;c8c0d6fd-f1cd-411a-92e5-e3395c9be3ae&search_query&#x3D;Witchcraft%21",
+      "lastChecked": "2026-10-06T11:47:24.215Z",
+      "lastCheckSuccess": true
+    },
     "theGameSteward": {
       "available": false,
       "price": null,
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-10-06T11:47:26.278Z",
+      "lastCheckSuccess": true
+    },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": "https://www.amazon.ca/s?k=Witchcraft!%20board%20game",
+      "lastChecked": "2026-10-06T11:47:24.751Z",
       "lastCheckSuccess": true
     },
     "woodForSheep": {
@@ -2764,12 +2716,20 @@
       "lastChecked": "2026-10-06T11:47:26.934Z",
       "lastCheckSuccess": true
     },
-    "chaosCards": {
+    "jjCards": {
       "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:47:27.116Z",
+      "price": "$26.99",
+      "baselinePrice": "$26.99",
+      "url": "https://shop.jjcards.com/Witchcraft_p_39160.html",
+      "lastChecked": "2026-10-06T11:47:23.492Z",
+      "lastCheckSuccess": true
+    },
+    "boardgamesCa": {
+      "available": true,
+      "price": "$31.95",
+      "baselinePrice": "$31.95",
+      "url": "https://boardgames.ca/products/witchcraft",
+      "lastChecked": "2026-10-06T11:47:23.680Z",
       "lastCheckSuccess": true
     },
     "screenFreeGames": {
@@ -2794,6 +2754,14 @@
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-10-06T11:47:28.872Z",
+      "lastCheckSuccess": true
+    },
+    "elevatedBoardGames": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:47:23.366Z",
       "lastCheckSuccess": true
     },
     "diceHollow": {
@@ -2836,12 +2804,44 @@
       "lastChecked": "2026-10-06T11:47:32.294Z",
       "lastCheckSuccess": true
     },
+    "chaosCards": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:47:27.116Z",
+      "lastCheckSuccess": true
+    },
     "zatu": {
       "available": true,
       "price": "£39.99",
       "baselinePrice": "£39.99",
       "url": "https://zatu.com/products/witchcraft?_pos=1&_psq=Witchcraft%21&_psid=a8d7861a2&_ss=e",
       "lastChecked": "2026-10-06T11:47:33.742Z",
+      "lastCheckSuccess": true
+    },
+    "philibert": {
+      "available": true,
+      "price": "€27.95",
+      "baselinePrice": "€28.95",
+      "url": "https://www.philibertnet.com/en/salt-pepper-games/131102-witchcraft-8495390733713.html",
+      "lastChecked": "2026-10-06T11:47:24.334Z",
+      "lastCheckSuccess": true
+    },
+    "uplay": {
+      "available": true,
+      "price": "€25.46",
+      "baselinePrice": "€25.46",
+      "url": "https://www.uplay.it/en/gioco-da-tavolo-witchcraft-.html",
+      "lastChecked": "2026-10-06T11:47:24.107Z",
+      "lastCheckSuccess": true
+    },
+    "bggMarket": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:47:23.489Z",
       "lastCheckSuccess": true
     }
   },
@@ -2866,30 +2866,6 @@
     }
   },
   "402111": {
-    "elevatedBoardGames": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:46:09.633Z",
-      "lastCheckSuccess": true
-    },
-    "bggMarket": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:46:09.713Z",
-      "lastCheckSuccess": true
-    },
-    "kbHobbies": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:46:09.714Z",
-      "lastCheckSuccess": true
-    },
     "boardGameBliss": {
       "available": false,
       "price": "$28.95",
@@ -2898,84 +2874,12 @@
       "lastChecked": "2026-10-06T11:46:09.855Z",
       "lastCheckSuccess": true
     },
-    "greatBoardgames": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:46:09.911Z",
-      "lastCheckSuccess": true
-    },
-    "meeplemart": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:46:10.152Z",
-      "lastCheckSuccess": true
-    },
-    "uplay": {
-      "available": true,
-      "price": "€21.17",
-      "baselinePrice": "€21.17",
-      "url": "https://www.uplay.it/en/gioco-da-tavolo-kronologic--paris-1920--edizione-italiana-.html",
-      "lastChecked": "2026-10-06T11:46:10.264Z",
-      "lastCheckSuccess": true
-    },
-    "cardhaus": {
-      "available": true,
-      "price": "$27.99",
-      "baselinePrice": "$27.99",
-      "url": "https://www.cardhaus.com/kronologic-paris-1920/#x3D;30d87f17-eba7-4811-951d-7a1582dce5c7&search_query&#x3D;Kronologic%3A+Paris+1920",
-      "lastChecked": "2026-10-06T11:46:10.330Z",
-      "lastCheckSuccess": true
-    },
     "fourZeroOneGames": {
       "available": false,
       "price": "$27.95",
       "baselinePrice": "$27.95",
       "url": "https://store.401games.ca/products/kronologic-paris-1920?_pos=7&_psq=Kronologic%3A+Paris+1920&_psid=38a195951&_ss=e",
       "lastChecked": "2026-10-06T11:46:10.454Z",
-      "lastCheckSuccess": true
-    },
-    "jjCards": {
-      "available": false,
-      "price": "$29.99",
-      "baselinePrice": "$29.99",
-      "url": "https://shop.jjcards.com/Kronologic-Paris-1920_p_40960.html",
-      "lastChecked": "2026-10-06T11:46:10.469Z",
-      "lastCheckSuccess": true
-    },
-    "boardgamesCa": {
-      "available": false,
-      "price": "$34.95",
-      "baselinePrice": "$34.95",
-      "url": "https://boardgames.ca/products/kronologic-paris-1920",
-      "lastChecked": "2026-10-06T11:46:10.471Z",
-      "lastCheckSuccess": true
-    },
-    "philibert": {
-      "available": true,
-      "price": "€23.90",
-      "baselinePrice": "€23.90",
-      "url": "https://www.philibertnet.com/en/origames/134140-kronologic-paris-1920-3760243851858.html",
-      "lastChecked": "2026-10-06T11:46:10.475Z",
-      "lastCheckSuccess": true
-    },
-    "miniatureMarket": {
-      "available": false,
-      "price": "$27.99",
-      "baselinePrice": "$27.99",
-      "url": "https://www.miniaturemarket.com/kronologic-paris-1920-spmkr1920en.html",
-      "lastChecked": "2026-10-06T11:46:10.670Z",
-      "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": "https://www.amazon.ca/s?k=Kronologic%3A%20Paris%201920%20board%20game",
-      "lastChecked": "2026-10-06T11:46:10.718Z",
       "lastCheckSuccess": true
     },
     "lvlUpGames": {
@@ -2994,12 +2898,60 @@
       "lastChecked": "2026-10-06T11:46:11.711Z",
       "lastCheckSuccess": true
     },
+    "greatBoardgames": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:46:09.911Z",
+      "lastCheckSuccess": true
+    },
+    "meeplemart": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:46:10.152Z",
+      "lastCheckSuccess": true
+    },
+    "kbHobbies": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:46:09.714Z",
+      "lastCheckSuccess": true
+    },
+    "miniatureMarket": {
+      "available": false,
+      "price": "$27.99",
+      "baselinePrice": "$27.99",
+      "url": "https://www.miniaturemarket.com/kronologic-paris-1920-spmkr1920en.html",
+      "lastChecked": "2026-10-06T11:46:10.670Z",
+      "lastCheckSuccess": true
+    },
+    "cardhaus": {
+      "available": true,
+      "price": "$27.99",
+      "baselinePrice": "$27.99",
+      "url": "https://www.cardhaus.com/kronologic-paris-1920/#x3D;30d87f17-eba7-4811-951d-7a1582dce5c7&search_query&#x3D;Kronologic%3A+Paris+1920",
+      "lastChecked": "2026-10-06T11:46:10.330Z",
+      "lastCheckSuccess": true
+    },
     "theGameSteward": {
       "available": false,
       "price": null,
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-10-06T11:46:12.275Z",
+      "lastCheckSuccess": true
+    },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": "https://www.amazon.ca/s?k=Kronologic%3A%20Paris%201920%20board%20game",
+      "lastChecked": "2026-10-06T11:46:10.718Z",
       "lastCheckSuccess": true
     },
     "woodForSheep": {
@@ -3010,12 +2962,20 @@
       "lastChecked": "2026-10-06T11:46:12.825Z",
       "lastCheckSuccess": true
     },
-    "chaosCards": {
-      "available": true,
-      "price": "£21.95",
-      "baselinePrice": "£21.95",
-      "url": "https://www.chaoscards.co.uk/prod/all-board-games/kronologic-paris-1920",
-      "lastChecked": "2026-10-06T11:46:13.191Z",
+    "jjCards": {
+      "available": false,
+      "price": "$29.99",
+      "baselinePrice": "$29.99",
+      "url": "https://shop.jjcards.com/Kronologic-Paris-1920_p_40960.html",
+      "lastChecked": "2026-10-06T11:46:10.469Z",
+      "lastCheckSuccess": true
+    },
+    "boardgamesCa": {
+      "available": false,
+      "price": "$34.95",
+      "baselinePrice": "$34.95",
+      "url": "https://boardgames.ca/products/kronologic-paris-1920",
+      "lastChecked": "2026-10-06T11:46:10.471Z",
       "lastCheckSuccess": true
     },
     "screenFreeGames": {
@@ -3040,6 +3000,14 @@
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-10-06T11:46:14.577Z",
+      "lastCheckSuccess": true
+    },
+    "elevatedBoardGames": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:46:09.633Z",
       "lastCheckSuccess": true
     },
     "diceHollow": {
@@ -3082,6 +3050,14 @@
       "lastChecked": "2026-10-06T11:46:17.500Z",
       "lastCheckSuccess": true
     },
+    "chaosCards": {
+      "available": true,
+      "price": "£21.95",
+      "baselinePrice": "£21.95",
+      "url": "https://www.chaoscards.co.uk/prod/all-board-games/kronologic-paris-1920",
+      "lastChecked": "2026-10-06T11:46:13.191Z",
+      "lastCheckSuccess": true
+    },
     "zatu": {
       "available": true,
       "price": "£19.99",
@@ -3089,31 +3065,21 @@
       "url": "https://zatu.com/products/kronologic-paris-1920?_pos=1&_psq=Kronologic%3A+Paris+1920&_psid=700992f21&_ss=e",
       "lastChecked": "2026-10-06T11:46:18.742Z",
       "lastCheckSuccess": true
-    }
-  },
-  "406618": {
-    "jjCards": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:45:40.645Z",
+    },
+    "philibert": {
+      "available": true,
+      "price": "€23.90",
+      "baselinePrice": "€23.90",
+      "url": "https://www.philibertnet.com/en/origames/134140-kronologic-paris-1920-3760243851858.html",
+      "lastChecked": "2026-10-06T11:46:10.475Z",
       "lastCheckSuccess": true
     },
-    "elevatedBoardGames": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:45:40.645Z",
-      "lastCheckSuccess": true
-    },
-    "kbHobbies": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:45:40.729Z",
+    "uplay": {
+      "available": true,
+      "price": "€21.17",
+      "baselinePrice": "€21.17",
+      "url": "https://www.uplay.it/en/gioco-da-tavolo-kronologic--paris-1920--edizione-italiana-.html",
+      "lastChecked": "2026-10-06T11:46:10.264Z",
       "lastCheckSuccess": true
     },
     "bggMarket": {
@@ -3121,17 +3087,11 @@
       "price": null,
       "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-10-06T11:45:40.729Z",
+      "lastChecked": "2026-10-06T11:46:09.713Z",
       "lastCheckSuccess": true
-    },
-    "boardgamesCa": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:45:40.856Z",
-      "lastCheckSuccess": true
-    },
+    }
+  },
+  "406618": {
     "boardGameBliss": {
       "available": false,
       "price": null,
@@ -3140,68 +3100,12 @@
       "lastChecked": "2026-10-06T11:45:40.905Z",
       "lastCheckSuccess": true
     },
-    "greatBoardgames": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:45:40.956Z",
-      "lastCheckSuccess": true
-    },
-    "cardhaus": {
-      "available": false,
-      "price": "$27.99",
-      "baselinePrice": "$27.99",
-      "url": "https://www.cardhaus.com/kronologic-babylon-2500/#x3D;8faab342-8ee9-40f0-a731-d2c9de4555fe&search_query&#x3D;Kronologic%3A+Babylon+2500",
-      "lastChecked": "2026-10-06T11:45:41.202Z",
-      "lastCheckSuccess": true
-    },
-    "uplay": {
-      "available": false,
-      "price": "€24.90",
-      "baselinePrice": "€24.90",
-      "url": "https://www.uplay.it/en/gioco-da-tavolo-kronologic--babylon-2500.html",
-      "lastChecked": "2026-10-06T11:45:41.299Z",
-      "lastCheckSuccess": true
-    },
-    "miniatureMarket": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:45:41.375Z",
-      "lastCheckSuccess": true
-    },
-    "philibert": {
-      "available": true,
-      "price": "€22.50",
-      "baselinePrice": "€22.50",
-      "url": "https://www.philibertnet.com/en/origames/165221-kronologic-babylon-2500-3760243852404.html",
-      "lastChecked": "2026-10-06T11:45:41.417Z",
-      "lastCheckSuccess": true
-    },
     "fourZeroOneGames": {
       "available": false,
       "price": null,
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-10-06T11:45:41.468Z",
-      "lastCheckSuccess": true
-    },
-    "meeplemart": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:45:41.664Z",
-      "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": "https://www.amazon.ca/s?k=Kronologic%3A%20Babylon%202500%20board%20game",
-      "lastChecked": "2026-10-06T11:45:41.878Z",
       "lastCheckSuccess": true
     },
     "lvlUpGames": {
@@ -3220,12 +3124,60 @@
       "lastChecked": "2026-10-06T11:45:42.584Z",
       "lastCheckSuccess": true
     },
+    "greatBoardgames": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:45:40.956Z",
+      "lastCheckSuccess": true
+    },
+    "meeplemart": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:45:41.664Z",
+      "lastCheckSuccess": true
+    },
+    "kbHobbies": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:45:40.729Z",
+      "lastCheckSuccess": true
+    },
+    "miniatureMarket": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:45:41.375Z",
+      "lastCheckSuccess": true
+    },
+    "cardhaus": {
+      "available": false,
+      "price": "$27.99",
+      "baselinePrice": "$27.99",
+      "url": "https://www.cardhaus.com/kronologic-babylon-2500/#x3D;8faab342-8ee9-40f0-a731-d2c9de4555fe&search_query&#x3D;Kronologic%3A+Babylon+2500",
+      "lastChecked": "2026-10-06T11:45:41.202Z",
+      "lastCheckSuccess": true
+    },
     "theGameSteward": {
       "available": false,
       "price": null,
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-10-06T11:45:43.157Z",
+      "lastCheckSuccess": true
+    },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": "https://www.amazon.ca/s?k=Kronologic%3A%20Babylon%202500%20board%20game",
+      "lastChecked": "2026-10-06T11:45:41.878Z",
       "lastCheckSuccess": true
     },
     "woodForSheep": {
@@ -3236,12 +3188,20 @@
       "lastChecked": "2026-10-06T11:45:43.717Z",
       "lastCheckSuccess": true
     },
-    "chaosCards": {
+    "jjCards": {
       "available": false,
       "price": null,
       "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-10-06T11:45:44.193Z",
+      "lastChecked": "2026-10-06T11:45:40.645Z",
+      "lastCheckSuccess": true
+    },
+    "boardgamesCa": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:45:40.856Z",
       "lastCheckSuccess": true
     },
     "screenFreeGames": {
@@ -3266,6 +3226,14 @@
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-10-06T11:45:45.421Z",
+      "lastCheckSuccess": true
+    },
+    "elevatedBoardGames": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:45:40.645Z",
       "lastCheckSuccess": true
     },
     "diceHollow": {
@@ -3308,6 +3276,14 @@
       "lastChecked": "2026-10-06T11:45:48.274Z",
       "lastCheckSuccess": true
     },
+    "chaosCards": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:45:44.193Z",
+      "lastCheckSuccess": true
+    },
     "zatu": {
       "available": true,
       "price": "£20.20",
@@ -3315,31 +3291,21 @@
       "url": "https://zatu.com/products/kronologic-babylon-2500?_pos=1&_psq=Kronologic%3A+Babylon+2500&_psid=a6c174f80&_ss=e",
       "lastChecked": "2026-10-06T11:45:49.491Z",
       "lastCheckSuccess": true
-    }
-  },
-  "406619": {
-    "jjCards": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:45:54.664Z",
+    },
+    "philibert": {
+      "available": true,
+      "price": "€22.50",
+      "baselinePrice": "€22.50",
+      "url": "https://www.philibertnet.com/en/origames/165221-kronologic-babylon-2500-3760243852404.html",
+      "lastChecked": "2026-10-06T11:45:41.417Z",
       "lastCheckSuccess": true
     },
-    "elevatedBoardGames": {
+    "uplay": {
       "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:45:54.664Z",
-      "lastCheckSuccess": true
-    },
-    "kbHobbies": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:45:54.743Z",
+      "price": "€24.90",
+      "baselinePrice": "€24.90",
+      "url": "https://www.uplay.it/en/gioco-da-tavolo-kronologic--babylon-2500.html",
+      "lastChecked": "2026-10-06T11:45:41.299Z",
       "lastCheckSuccess": true
     },
     "bggMarket": {
@@ -3347,17 +3313,11 @@
       "price": null,
       "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-10-06T11:45:54.781Z",
+      "lastChecked": "2026-10-06T11:45:40.729Z",
       "lastCheckSuccess": true
-    },
-    "boardgamesCa": {
-      "available": false,
-      "price": "$34.95",
-      "baselinePrice": "$29.66",
-      "url": "https://boardgames.ca/products/kronologic-cuzco-1450",
-      "lastChecked": "2026-10-06T11:45:54.902Z",
-      "lastCheckSuccess": true
-    },
+    }
+  },
+  "406619": {
     "boardGameBliss": {
       "available": true,
       "price": "$55.95",
@@ -3366,68 +3326,12 @@
       "lastChecked": "2026-10-06T11:45:54.937Z",
       "lastCheckSuccess": true
     },
-    "greatBoardgames": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:45:54.961Z",
-      "lastCheckSuccess": true
-    },
-    "meeplemart": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:45:55.252Z",
-      "lastCheckSuccess": true
-    },
-    "uplay": {
-      "available": true,
-      "price": "€16.96",
-      "baselinePrice": "€16.96",
-      "url": "https://www.uplay.it/en/gioco-da-tavolo-kronologic---cuzco-1450.html",
-      "lastChecked": "2026-10-06T11:45:55.334Z",
-      "lastCheckSuccess": true
-    },
-    "cardhaus": {
-      "available": true,
-      "price": "$27.99",
-      "baselinePrice": "$27.99",
-      "url": "https://www.cardhaus.com/kronologic-cuzco-1450/#x3D;5afc3d4b-0067-4b09-a219-91e5666c56b0&search_query&#x3D;Kronologic%3A+Cuzco+1450",
-      "lastChecked": "2026-10-06T11:45:55.348Z",
-      "lastCheckSuccess": true
-    },
-    "miniatureMarket": {
-      "available": false,
-      "price": "$27.99",
-      "baselinePrice": "$27.99",
-      "url": "https://www.miniaturemarket.com/Kronologic-Cuzco-1450/SPMKR1450EN",
-      "lastChecked": "2026-10-06T11:45:55.492Z",
-      "lastCheckSuccess": true
-    },
     "fourZeroOneGames": {
       "available": false,
       "price": null,
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-10-06T11:45:55.532Z",
-      "lastCheckSuccess": true
-    },
-    "philibert": {
-      "available": true,
-      "price": "€22.50",
-      "baselinePrice": "€22.50",
-      "url": "https://www.philibertnet.com/en/origames/146794-kronologic-cuzco-1450-3760243852138.html",
-      "lastChecked": "2026-10-06T11:45:55.638Z",
-      "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": true,
-      "price": "68.02",
-      "baselinePrice": "68.40",
-      "url": "https://www.amazon.ca/dp/B0FC6TYDPP",
-      "lastChecked": "2026-10-06T11:45:55.791Z",
       "lastCheckSuccess": true
     },
     "lvlUpGames": {
@@ -3446,6 +3350,46 @@
       "lastChecked": "2026-10-06T11:45:56.683Z",
       "lastCheckSuccess": true
     },
+    "greatBoardgames": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:45:54.961Z",
+      "lastCheckSuccess": true
+    },
+    "meeplemart": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:45:55.252Z",
+      "lastCheckSuccess": true
+    },
+    "kbHobbies": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:45:54.743Z",
+      "lastCheckSuccess": true
+    },
+    "miniatureMarket": {
+      "available": false,
+      "price": "$27.99",
+      "baselinePrice": "$27.99",
+      "url": "https://www.miniaturemarket.com/Kronologic-Cuzco-1450/SPMKR1450EN",
+      "lastChecked": "2026-10-06T11:45:55.492Z",
+      "lastCheckSuccess": true
+    },
+    "cardhaus": {
+      "available": true,
+      "price": "$27.99",
+      "baselinePrice": "$27.99",
+      "url": "https://www.cardhaus.com/kronologic-cuzco-1450/#x3D;5afc3d4b-0067-4b09-a219-91e5666c56b0&search_query&#x3D;Kronologic%3A+Cuzco+1450",
+      "lastChecked": "2026-10-06T11:45:55.348Z",
+      "lastCheckSuccess": true
+    },
     "theGameSteward": {
       "available": false,
       "price": null,
@@ -3454,12 +3398,12 @@
       "lastChecked": "2026-10-06T11:45:58.226Z",
       "lastCheckSuccess": true
     },
-    "chaosCards": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:45:58.277Z",
+    "amazonCa": {
+      "available": true,
+      "price": "68.02",
+      "baselinePrice": "68.40",
+      "url": "https://www.amazon.ca/dp/B0FC6TYDPP",
+      "lastChecked": "2026-10-06T11:45:55.791Z",
       "lastCheckSuccess": true
     },
     "woodForSheep": {
@@ -3468,6 +3412,22 @@
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-10-06T11:45:58.784Z",
+      "lastCheckSuccess": true
+    },
+    "jjCards": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:45:54.664Z",
+      "lastCheckSuccess": true
+    },
+    "boardgamesCa": {
+      "available": false,
+      "price": "$34.95",
+      "baselinePrice": "$29.66",
+      "url": "https://boardgames.ca/products/kronologic-cuzco-1450",
+      "lastChecked": "2026-10-06T11:45:54.902Z",
       "lastCheckSuccess": true
     },
     "screenFreeGames": {
@@ -3492,6 +3452,14 @@
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-10-06T11:46:00.490Z",
+      "lastCheckSuccess": true
+    },
+    "elevatedBoardGames": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:45:54.664Z",
       "lastCheckSuccess": true
     },
     "diceHollow": {
@@ -3534,12 +3502,44 @@
       "lastChecked": "2026-10-06T11:46:03.380Z",
       "lastCheckSuccess": true
     },
+    "chaosCards": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:45:58.277Z",
+      "lastCheckSuccess": true
+    },
     "zatu": {
       "available": true,
       "price": "£19.99",
       "baselinePrice": "£19.99",
       "url": "https://zatu.com/products/kronologic-cuzco-1450?_pos=1&_psq=Kronologic%3A+Cuzco+1450&_psid=27bc641a7&_ss=e",
       "lastChecked": "2026-10-06T11:46:04.599Z",
+      "lastCheckSuccess": true
+    },
+    "philibert": {
+      "available": true,
+      "price": "€22.50",
+      "baselinePrice": "€22.50",
+      "url": "https://www.philibertnet.com/en/origames/146794-kronologic-cuzco-1450-3760243852138.html",
+      "lastChecked": "2026-10-06T11:45:55.638Z",
+      "lastCheckSuccess": true
+    },
+    "uplay": {
+      "available": true,
+      "price": "€16.96",
+      "baselinePrice": "€16.96",
+      "url": "https://www.uplay.it/en/gioco-da-tavolo-kronologic---cuzco-1450.html",
+      "lastChecked": "2026-10-06T11:45:55.334Z",
+      "lastCheckSuccess": true
+    },
+    "bggMarket": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:45:54.781Z",
       "lastCheckSuccess": true
     }
   },
@@ -3574,30 +3574,6 @@
     }
   },
   "438732": {
-    "jjCards": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:43:21.307Z",
-      "lastCheckSuccess": true
-    },
-    "elevatedBoardGames": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:43:21.307Z",
-      "lastCheckSuccess": true
-    },
-    "bggMarket": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:43:21.406Z",
-      "lastCheckSuccess": true
-    },
     "boardGameBliss": {
       "available": false,
       "price": null,
@@ -3606,84 +3582,12 @@
       "lastChecked": "2026-10-06T11:43:21.582Z",
       "lastCheckSuccess": true
     },
-    "greatBoardgames": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:43:21.657Z",
-      "lastCheckSuccess": true
-    },
-    "uplay": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": "https://www.uplay.it/en/gioco-da-tavolo-the-path-of-the-priest.html",
-      "lastChecked": "2026-10-06T11:43:21.968Z",
-      "lastCheckSuccess": true
-    },
-    "cardhaus": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:43:21.977Z",
-      "lastCheckSuccess": true
-    },
-    "miniatureMarket": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:43:22.124Z",
-      "lastCheckSuccess": true
-    },
-    "boardgamesCa": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:43:22.145Z",
-      "lastCheckSuccess": true
-    },
     "fourZeroOneGames": {
       "available": false,
       "price": null,
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-10-06T11:43:22.253Z",
-      "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": "https://www.amazon.ca/s?k=The%20Path%20of%20the%20Priest%20board%20game",
-      "lastChecked": "2026-10-06T11:43:22.560Z",
-      "lastCheckSuccess": true
-    },
-    "meeplemart": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:43:22.656Z",
-      "lastCheckSuccess": true
-    },
-    "philibert": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:43:22.709Z",
-      "lastCheckSuccess": true
-    },
-    "kbHobbies": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T11:43:22.807Z",
       "lastCheckSuccess": true
     },
     "lvlUpGames": {
@@ -3702,12 +3606,60 @@
       "lastChecked": "2026-10-06T11:43:23.526Z",
       "lastCheckSuccess": true
     },
+    "greatBoardgames": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:43:21.657Z",
+      "lastCheckSuccess": true
+    },
+    "meeplemart": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:43:22.656Z",
+      "lastCheckSuccess": true
+    },
+    "kbHobbies": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:43:22.807Z",
+      "lastCheckSuccess": true
+    },
+    "miniatureMarket": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:43:22.124Z",
+      "lastCheckSuccess": true
+    },
+    "cardhaus": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:43:21.977Z",
+      "lastCheckSuccess": true
+    },
     "theGameSteward": {
       "available": false,
       "price": null,
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-10-06T11:43:24.139Z",
+      "lastCheckSuccess": true
+    },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": "https://www.amazon.ca/s?k=The%20Path%20of%20the%20Priest%20board%20game",
+      "lastChecked": "2026-10-06T11:43:22.560Z",
       "lastCheckSuccess": true
     },
     "woodForSheep": {
@@ -3718,12 +3670,20 @@
       "lastChecked": "2026-10-06T11:43:24.785Z",
       "lastCheckSuccess": true
     },
-    "chaosCards": {
+    "jjCards": {
       "available": false,
       "price": null,
       "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-10-06T11:43:24.876Z",
+      "lastChecked": "2026-10-06T11:43:21.307Z",
+      "lastCheckSuccess": true
+    },
+    "boardgamesCa": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:43:22.145Z",
       "lastCheckSuccess": true
     },
     "screenFreeGames": {
@@ -3748,6 +3708,14 @@
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-10-06T11:43:26.852Z",
+      "lastCheckSuccess": true
+    },
+    "elevatedBoardGames": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:43:21.307Z",
       "lastCheckSuccess": true
     },
     "diceHollow": {
@@ -3790,12 +3758,44 @@
       "lastChecked": "2026-10-06T11:43:30.233Z",
       "lastCheckSuccess": true
     },
+    "chaosCards": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:43:24.876Z",
+      "lastCheckSuccess": true
+    },
     "zatu": {
       "available": false,
       "price": null,
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-10-06T11:43:30.953Z",
+      "lastCheckSuccess": true
+    },
+    "philibert": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:43:22.709Z",
+      "lastCheckSuccess": true
+    },
+    "uplay": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": "https://www.uplay.it/en/gioco-da-tavolo-the-path-of-the-priest.html",
+      "lastChecked": "2026-10-06T11:43:21.968Z",
+      "lastCheckSuccess": true
+    },
+    "bggMarket": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T11:43:21.406Z",
       "lastCheckSuccess": true
     }
   },
