@@ -33,6 +33,7 @@ United Kingdom & Europe:
 - Zatu Games: https://zatu.com (Shopify)
 - Chaos Cards: https://www.chaoscards.co.uk (Custom)
 - Philibert: https://www.philibertnet.com (Custom)
+- uplay.it: https://www.uplay.it (HTML)
 
 Marketplace:
 - BGG Market: https://boardgamegeek.com/market (BGG Geekdo API)

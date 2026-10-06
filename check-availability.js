@@ -246,6 +246,10 @@ const STORE_KEY_ALIASES = {
     'philibert': 'philibert',
     'philibertnet': 'philibert',
 
+    'uplay': 'uplay',
+    'uplayit': 'uplay',
+    'uplaygames': 'uplay',
+
     'bggmarket': 'bggMarket',
     'bgg': 'bggMarket'
 };
@@ -876,7 +880,7 @@ function stripDescriptors(str) {
         .replace(/\([^)]*\)/g, ' ')
         .replace(/\[[^\]]*\]/g, ' ')
         .replace(/[\u2013\u2014]/g, '-')
-        .replace(/\b(board\s*game|card\s*game|dice\s*game|party\s*game|base\s*game|core\s*game|core\s*box|core\s*set|starter\s*set|new\s*release|pre-?order|english(\s*edition)?|french(\s*edition)?|fran[cç]ais|anglais|bilingual|multilingual|2nd\s*edition|second\s*edition|3rd\s*edition|third\s*edition)\b/gi, ' ')
+        .replace(/\b(board\s*game|card\s*game|dice\s*game|party\s*game|base\s*game|core\s*game|core\s*box|core\s*set|starter\s*set|new\s*release|pre-?order|english(\s*edition)?|french(\s*edition)?|fran[cç]ais|anglais|bilingual|multilingual|2nd\s*edition|second\s*edition|3rd\s*edition|third\s*edition|edizione(\s*(italiana|inglese|tedesca|francese|spagnola))?|gioco\s*da\s*tavolo)\b/gi, ' ')
         .replace(/\s+/g, ' ')
         .trim();
 }
@@ -1161,6 +1165,54 @@ function parseCardhaus(html, gameName) {
             price,
             url,
             available
+        });
+    }
+
+    return findBestShopifyMatch(products, gameName);
+}
+
+// Parser for uplay.it HTML
+function parseUplay(html, gameName) {
+    if (!html) return null;
+    const items = html.split(/<div[^>]*class="[^"]*product-wrapper\b[^"]*"[^>]*>/i).slice(1);
+    const products = [];
+
+    for (const item of items) {
+        const titleMatch = item.match(/<a[^>]*class="[^"]*block-name[^"]*"[^>]*href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/i) ||
+                           item.match(/<a[^>]*href="([^"]+)"[^>]*class="[^"]*block-name[^"]*"[^>]*>([\s\S]*?)<\/a>/i);
+        if (!titleMatch) continue;
+
+        let url = titleMatch[1].trim();
+        if (!url.startsWith('http')) {
+            url = url.startsWith('/') ? `https://www.uplay.it${url}` : `https://www.uplay.it/${url}`;
+        }
+        const title = decodeXmlEntities(titleMatch[2].replace(/<[^>]+>/g, '').trim());
+
+        const promoMatch = item.match(/<div[^>]*class="[^"]*promo-price[^"]*"[^>]*>([\s\S]*?)<p>/i);
+        const priceMatch = item.match(/<div[^>]*class="[^"]*(?:retail-)?price[^"]*"[^>]*>([\s\S]*?)<\/div>/i);
+        const rawPrice = promoMatch ? promoMatch[1] : (priceMatch ? priceMatch[1] : null);
+        let price = null;
+        if (rawPrice) {
+            const clean = rawPrice.trim();
+            const numMatch = clean.replace(/[^0-9,.]/g, '').replace(/\.(?=\d{3})/g, '').replace(',', '.');
+            if (numMatch && !isNaN(parseFloat(numMatch))) {
+                price = `€${parseFloat(numMatch).toFixed(2)}`;
+            }
+        }
+
+        const hasAddToCart = /action="[^"]*add-cart"/i.test(item);
+        const isCannotOrder = /notOrderableText|cannot be ordered|non ordinabile/i.test(item);
+        const btnMatch = item.match(/<button[^>]*>([\s\S]*?)<\/button>/i);
+        const btnText = btnMatch ? btnMatch[1].replace(/<[^>]+>/g, '').trim() : '';
+        const isPreorder = /pre-?order|prenota/i.test(btnText);
+        const available = hasAddToCart && !isCannotOrder && !isPreorder && /(add|aggiungi)/i.test(btnText);
+
+        products.push({
+            title,
+            price,
+            available,
+            url,
+            type: 'Board Games'
         });
     }
 
@@ -1701,6 +1753,21 @@ function getStoreConfigs(skippedSellers = []) {
             type: 'custom',
             checker: async (game, existingStoreData) => {
                 return await checkPhilibertStock(game.name);
+            }
+        },
+        uplay: {
+            type: 'html',
+            url: (game, query) => `https://www.uplay.it/en/search?query=${encodeURIComponent(query)}`,
+            parser: (html, gameName) => {
+                const match = parseUplay(html, gameName);
+                if (match) {
+                    return {
+                        available: match.available,
+                        price: match.price,
+                        url: match.url
+                    };
+                }
+                return null;
             }
         },
         bggMarket: {
