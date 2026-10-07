@@ -1,5 +1,37 @@
 {
   "1197": {
+    "boardGameBliss": {
+      "available": false,
+      "price": "$7.95",
+      "baselinePrice": "$7.95",
+      "url": "https://www.boardgamebliss.com/products/blink-1?_pos=1&_psq=Blink&_psid=e9159b22c&_ss=e",
+      "lastChecked": "2026-10-06T21:21:57.451Z",
+      "lastCheckSuccess": true
+    },
+    "fourZeroOneGames": {
+      "available": false,
+      "price": "$0.38",
+      "baselinePrice": "$0.38",
+      "url": "https://store.401games.ca/products/blink-who?_pos=1&_psq=Blink&_psid=1d3d23cbd&_ss=e",
+      "lastChecked": "2026-10-06T21:21:58.376Z",
+      "lastCheckSuccess": true
+    },
+    "lvlUpGames": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T21:21:59.037Z",
+      "lastCheckSuccess": true
+    },
+    "asDesJeux": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T21:21:59.781Z",
+      "lastCheckSuccess": true
+    },
     "greatBoardgames": {
       "available": false,
       "price": null,
@@ -38,6 +70,14 @@
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-10-06T21:06:40.347Z",
+      "lastCheckSuccess": true
+    },
+    "theGameSteward": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-06T21:22:00.555Z",
       "lastCheckSuccess": true
     },
     "amazonCa": {
@@ -183,46 +223,6 @@
       "url": null,
       "lastChecked": "2026-10-06T11:44:42.988Z",
       "lastCheckSuccess": false
-    },
-    "boardGameBliss": {
-      "available": false,
-      "price": "$7.95",
-      "baselinePrice": "$7.95",
-      "url": "https://www.boardgamebliss.com/products/blink-1?_pos=1&_psq=Blink&_psid=e9159b22c&_ss=e",
-      "lastChecked": "2026-10-06T21:21:57.451Z",
-      "lastCheckSuccess": true
-    },
-    "fourZeroOneGames": {
-      "available": false,
-      "price": "$0.38",
-      "baselinePrice": "$0.38",
-      "url": "https://store.401games.ca/products/blink-who?_pos=1&_psq=Blink&_psid=1d3d23cbd&_ss=e",
-      "lastChecked": "2026-10-06T21:21:58.376Z",
-      "lastCheckSuccess": true
-    },
-    "lvlUpGames": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T21:21:59.037Z",
-      "lastCheckSuccess": true
-    },
-    "asDesJeux": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T21:21:59.781Z",
-      "lastCheckSuccess": true
-    },
-    "theGameSteward": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-06T21:22:00.555Z",
-      "lastCheckSuccess": true
     }
   },
   "35472": {
@@ -1462,6 +1462,14 @@
       "lastChecked": "2026-10-06T21:06:25.855Z",
       "lastCheckSuccess": true
     },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": "https://www.amazon.ca/s?k=Back%20to%20the%20Future%3A%20Back%20in%20Time%20board%20game",
+      "lastChecked": "2026-10-06T21:21:52.121Z",
+      "lastCheckSuccess": true
+    },
     "woodForSheep": {
       "available": false,
       "price": null,
@@ -1607,14 +1615,6 @@
       "url": "https://www.uplay.it/en/gioco-da-tavolo-back-to-the-future--back-in-time.html",
       "lastChecked": "2026-10-06T11:44:27.772Z",
       "lastCheckSuccess": false
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": "https://www.amazon.ca/s?k=Back%20to%20the%20Future%3A%20Back%20in%20Time%20board%20game",
-      "lastChecked": "2026-10-06T21:21:52.121Z",
-      "lastCheckSuccess": true
     }
   },
   "304783": {
@@ -1698,6 +1698,14 @@
       "lastChecked": "2026-10-06T21:04:06.453Z",
       "lastCheckSuccess": true
     },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "baselinePrice": "92.68",
+      "url": "https://www.amazon.ca/s?k=Hadrian's%20Wall%20board%20game",
+      "lastChecked": "2026-10-07T02:20:18.824Z",
+      "lastCheckSuccess": true
+    },
     "woodForSheep": {
       "available": false,
       "price": "$58.49",
@@ -1767,7 +1775,7 @@
       "price": null,
       "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-10-06T21:21:40.189Z",
+      "lastChecked": "2026-10-07T02:22:25.561Z",
       "lastCheckSuccess": true
     },
     "alwaysGames": {
@@ -1850,14 +1858,6 @@
       "baselinePrice": "€50.99",
       "url": "https://www.uplay.it/en/gioco-da-tavolo-hadrian-s-wall.html",
       "lastChecked": "2026-10-06T11:42:21.638Z",
-      "lastCheckSuccess": false
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "baselinePrice": "92.68",
-      "url": "https://www.amazon.ca/s?k=Hadrian's%20Wall%20board%20game",
-      "lastChecked": "2026-10-06T11:42:23.094Z",
       "lastCheckSuccess": false
     }
   },
@@ -3654,6 +3654,14 @@
       "lastChecked": "2026-10-06T21:05:11.074Z",
       "lastCheckSuccess": true
     },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": "https://www.amazon.ca/s?k=The%20Path%20of%20the%20Priest%20board%20game",
+      "lastChecked": "2026-10-07T02:20:25.094Z",
+      "lastCheckSuccess": true
+    },
     "woodForSheep": {
       "available": false,
       "price": null,
@@ -3781,14 +3789,6 @@
       "url": null,
       "lastChecked": "2026-10-06T21:05:05.124Z",
       "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": "https://www.amazon.ca/s?k=The%20Path%20of%20the%20Priest%20board%20game",
-      "lastChecked": "2026-10-06T11:43:22.560Z",
-      "lastCheckSuccess": false
     },
     "uplay": {
       "available": false,
