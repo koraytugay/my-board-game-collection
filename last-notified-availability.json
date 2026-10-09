@@ -80,6 +80,14 @@
       "lastChecked": "2026-10-08T21:26:18.245Z",
       "lastCheckSuccess": true
     },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": "https://www.amazon.ca/s?k=Blink%20board%20game",
+      "lastChecked": "2026-10-08T21:30:42.725Z",
+      "lastCheckSuccess": true
+    },
     "woodForSheep": {
       "available": false,
       "price": null,
@@ -215,14 +223,250 @@
       "url": null,
       "lastChecked": "2026-10-06T11:44:42.988Z",
       "lastCheckSuccess": false
+    }
+  },
+  "16986": {
+    "boardGameBliss": {
+      "available": false,
+      "price": "$39.95",
+      "baselinePrice": "$39.95",
+      "url": "https://www.boardgamebliss.com/products/ubongo-french?_pos=1&_psq=Ubongo&_psid=b4cf68bfd&_ss=e",
+      "lastChecked": "2026-10-09T02:58:03.242Z",
+      "lastCheckSuccess": true
+    },
+    "fourZeroOneGames": {
+      "available": false,
+      "price": "$35.95",
+      "baselinePrice": "$35.95",
+      "url": "https://store.401games.ca/products/ubongo?_pos=2&_psq=Ubongo&_psid=43803f7f5&_ss=e",
+      "lastChecked": "2026-10-09T02:58:06.102Z",
+      "lastCheckSuccess": true
+    },
+    "lvlUpGames": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-09T02:58:08.939Z",
+      "lastCheckSuccess": true
+    },
+    "asDesJeux": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-09T02:58:09.594Z",
+      "lastCheckSuccess": true
+    },
+    "greatBoardgames": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-09T02:58:03.032Z",
+      "lastCheckSuccess": true
+    },
+    "meeplemart": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-09T02:58:03.775Z",
+      "lastCheckSuccess": true
+    },
+    "kbHobbies": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-09T02:58:02.385Z",
+      "lastCheckSuccess": true
+    },
+    "miniatureMarket": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-09T02:58:03.418Z",
+      "lastCheckSuccess": true
+    },
+    "cardhaus": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-09T02:58:03.301Z",
+      "lastCheckSuccess": true
+    },
+    "theGameSteward": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-09T02:58:10.279Z",
+      "lastCheckSuccess": true
+    },
+    "woodForSheep": {
+      "available": false,
+      "price": "$41.49",
+      "baselinePrice": "$41.49",
+      "url": "https://www.woodforsheep.ca/products/ubongo-1?_pos=2&_psq=Ubongo&_psid=b2e590a61&_ss=e",
+      "lastChecked": "2026-10-09T02:58:10.975Z",
+      "lastCheckSuccess": true
+    },
+    "jjCards": {
+      "available": false,
+      "price": "$39.99",
+      "baselinePrice": "$39.99",
+      "url": "https://shop.jjcards.com/Ubongo_p_1249.html",
+      "lastChecked": "2026-10-09T02:58:03.562Z",
+      "lastCheckSuccess": true
+    },
+    "boardgamesCa": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-09T02:58:03.055Z",
+      "lastCheckSuccess": true
+    },
+    "screenFreeGames": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-09T02:58:11.690Z",
+      "lastCheckSuccess": true
+    },
+    "allSystemsGo": {
+      "available": false,
+      "price": "$14.99",
+      "baselinePrice": "$14.99",
+      "url": "https://allsystemsgo.games/products/ubongo?_pos=1&_psq=Ubongo&_psid=e10e29148&_ss=e",
+      "lastChecked": "2026-10-09T02:58:12.376Z",
+      "lastCheckSuccess": true
+    },
+    "tabletopCafe": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-09T02:58:13.044Z",
+      "lastCheckSuccess": true
+    },
+    "elevatedBoardGames": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-09T02:58:03.937Z",
+      "lastCheckSuccess": true
+    },
+    "diceHollow": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-09T02:58:13.864Z",
+      "lastCheckSuccess": true
+    },
+    "laPioche": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-09T02:58:14.539Z",
+      "lastCheckSuccess": true
+    },
+    "alwaysGames": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-09T02:58:15.243Z",
+      "lastCheckSuccess": true
+    },
+    "legendsWarehouse": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-09T02:58:15.968Z",
+      "lastCheckSuccess": true
+    },
+    "boardGameBandit": {
+      "available": false,
+      "price": "$15.16",
+      "baselinePrice": "$15.16",
+      "url": "https://boardgamebandit.ca/products/ubongo-abstract-puzzle-game?_pos=1&_psq=Ubongo&_psid=564ca3269&_ss=e",
+      "lastChecked": "2026-10-09T02:58:18.902Z",
+      "lastCheckSuccess": true
+    },
+    "chaosCards": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-09T02:58:06.707Z",
+      "lastCheckSuccess": true
+    },
+    "zatu": {
+      "available": true,
+      "price": "£29.99",
+      "baselinePrice": "£29.99",
+      "url": "https://zatu.com/products/ubongo?_pos=1&_psq=Ubongo&_psid=420b597b9&_ss=e",
+      "lastChecked": "2026-10-09T02:58:20.176Z",
+      "lastCheckSuccess": true
+    },
+    "philibert": {
+      "available": true,
+      "price": "€31.50",
+      "baselinePrice": "€31.50",
+      "url": "https://www.philibertnet.com/en/iello/132888-ubongo-3701551702395.html",
+      "lastChecked": "2026-10-09T02:58:04.090Z",
+      "lastCheckSuccess": true
+    },
+    "bggMarket": {
+      "available": true,
+      "price": "C$20.00 CAD",
+      "baselinePrice": "C$20.00 CAD",
+      "url": "https://boardgamegeek.com/market/product/4116336",
+      "listings": [
+        {
+          "price": "C$20.00 CAD",
+          "seller": "haustor",
+          "condition": "Like New",
+          "url": "https://boardgamegeek.com/market/product/4116336",
+          "firstSeen": "2026-10-09T02:58:02.845Z",
+          "ignored": false
+        },
+        {
+          "price": "C$39.00 CAD",
+          "seller": "JamesJakeJones",
+          "condition": "Very Good",
+          "url": "https://boardgamegeek.com/market/product/3934656",
+          "firstSeen": "2026-10-09T02:58:02.845Z",
+          "ignored": false
+        }
+      ],
+      "lastChecked": "2026-10-09T02:58:02.845Z",
+      "lastCheckSuccess": true
+    },
+    "uplay": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": null,
+      "lastCheckSuccess": false
     },
     "amazonCa": {
       "available": false,
       "price": null,
       "baselinePrice": null,
-      "url": "https://www.amazon.ca/s?k=Blink%20board%20game",
-      "lastChecked": "2026-10-08T21:30:42.725Z",
-      "lastCheckSuccess": true
+      "url": null,
+      "lastChecked": null,
+      "lastCheckSuccess": false
     }
   },
   "35472": {
@@ -622,6 +866,14 @@
       "lastChecked": "2026-10-08T21:26:34.175Z",
       "lastCheckSuccess": true
     },
+    "amazonCa": {
+      "available": true,
+      "price": "58.10",
+      "baselinePrice": "63.46",
+      "url": "https://www.amazon.ca/dp/B07TNVYHWS",
+      "lastChecked": "2026-10-08T21:30:48.851Z",
+      "lastCheckSuccess": true
+    },
     "woodForSheep": {
       "available": false,
       "price": null,
@@ -767,14 +1019,6 @@
       "url": "https://www.uplay.it/en/gioco-da-tavolo-coffee-roaster.html",
       "lastChecked": "2026-10-06T11:44:57.442Z",
       "lastCheckSuccess": false
-    },
-    "amazonCa": {
-      "available": true,
-      "price": "58.10",
-      "baselinePrice": "63.46",
-      "url": "https://www.amazon.ca/dp/B07TNVYHWS",
-      "lastChecked": "2026-10-08T21:30:48.851Z",
-      "lastCheckSuccess": true
     }
   },
   "204175": {
@@ -924,6 +1168,14 @@
       "lastChecked": "2026-10-08T21:27:21.551Z",
       "lastCheckSuccess": true
     },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": "https://www.amazon.ca/s?k=Illusion%20board%20game",
+      "lastChecked": "2026-10-08T21:31:06.076Z",
+      "lastCheckSuccess": true
+    },
     "woodForSheep": {
       "available": false,
       "price": null,
@@ -1069,14 +1321,6 @@
       "url": "https://www.uplay.it/en/gioco-da-tavolo-illusion.html",
       "lastChecked": "2026-10-06T11:45:26.602Z",
       "lastCheckSuccess": false
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": "https://www.amazon.ca/s?k=Illusion%20board%20game",
-      "lastChecked": "2026-10-08T21:31:06.076Z",
-      "lastCheckSuccess": true
     }
   },
   "267979": {
@@ -1698,6 +1942,14 @@
       "lastChecked": "2026-10-08T21:23:47.987Z",
       "lastCheckSuccess": true
     },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "baselinePrice": "92.68",
+      "url": "https://www.amazon.ca/s?k=Hadrian's%20Wall%20board%20game",
+      "lastChecked": "2026-10-08T21:30:26.366Z",
+      "lastCheckSuccess": true
+    },
     "woodForSheep": {
       "available": false,
       "price": "$58.49",
@@ -1767,7 +2019,7 @@
       "price": null,
       "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-10-08T21:30:24.535Z",
+      "lastChecked": "2026-10-09T03:00:21.332Z",
       "lastCheckSuccess": true
     },
     "alwaysGames": {
@@ -1851,14 +2103,6 @@
       "url": "https://www.uplay.it/en/gioco-da-tavolo-hadrian-s-wall.html",
       "lastChecked": "2026-10-06T11:42:21.638Z",
       "lastCheckSuccess": false
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "baselinePrice": "92.68",
-      "url": "https://www.amazon.ca/s?k=Hadrian's%20Wall%20board%20game",
-      "lastChecked": "2026-10-08T21:30:26.366Z",
-      "lastCheckSuccess": true
     }
   },
   "319793": {
@@ -2198,6 +2442,14 @@
       "lastChecked": "2026-10-08T21:28:38.752Z",
       "lastCheckSuccess": true
     },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "baselinePrice": "20.72",
+      "url": "https://www.amazon.ca/s?k=Marvel%20Mayhem%20board%20game",
+      "lastChecked": "2026-10-08T21:31:36.705Z",
+      "lastCheckSuccess": true
+    },
     "woodForSheep": {
       "available": false,
       "price": null,
@@ -2333,14 +2585,6 @@
       "url": "https://www.uplay.it/en/gioco-da-tavolo-marvel-mayhem.html",
       "lastChecked": "2026-10-06T11:46:39.475Z",
       "lastCheckSuccess": false
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "baselinePrice": "20.72",
-      "url": "https://www.amazon.ca/s?k=Marvel%20Mayhem%20board%20game",
-      "lastChecked": "2026-10-08T21:31:36.705Z",
-      "lastCheckSuccess": true
     }
   },
   "354934": {
@@ -2422,6 +2666,14 @@
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-10-08T21:28:23.332Z",
+      "lastCheckSuccess": true
+    },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "baselinePrice": "125.01",
+      "url": "https://www.amazon.ca/s?k=Legacy%20of%20Yu%20board%20game",
+      "lastChecked": "2026-10-08T21:31:30.542Z",
       "lastCheckSuccess": true
     },
     "woodForSheep": {
@@ -2569,14 +2821,6 @@
       "url": "https://www.uplay.it/en/gioco-da-tavolo-legacy-of-yu.html",
       "lastChecked": "2026-10-06T11:46:24.461Z",
       "lastCheckSuccess": false
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "baselinePrice": "125.01",
-      "url": "https://www.amazon.ca/s?k=Legacy%20of%20Yu%20board%20game",
-      "lastChecked": "2026-10-08T21:31:30.542Z",
-      "lastCheckSuccess": true
     }
   },
   "367059": {
@@ -2946,6 +3190,14 @@
       "lastChecked": "2026-10-08T21:28:07.653Z",
       "lastCheckSuccess": true
     },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": "https://www.amazon.ca/s?k=Kronologic%3A%20Paris%201920%20board%20game",
+      "lastChecked": "2026-10-08T21:31:24.311Z",
+      "lastCheckSuccess": true
+    },
     "woodForSheep": {
       "available": false,
       "price": null,
@@ -3081,14 +3333,6 @@
       "url": "https://www.uplay.it/en/gioco-da-tavolo-kronologic--paris-1920--edizione-italiana-.html",
       "lastChecked": "2026-10-06T11:46:10.264Z",
       "lastCheckSuccess": false
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": "https://www.amazon.ca/s?k=Kronologic%3A%20Paris%201920%20board%20game",
-      "lastChecked": "2026-10-08T21:31:24.311Z",
-      "lastCheckSuccess": true
     }
   },
   "406618": {
@@ -3170,6 +3414,14 @@
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-10-08T21:27:37.093Z",
+      "lastCheckSuccess": true
+    },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": "https://www.amazon.ca/s?k=Kronologic%3A%20Babylon%202500%20board%20game",
+      "lastChecked": "2026-10-08T21:31:12.143Z",
       "lastCheckSuccess": true
     },
     "woodForSheep": {
@@ -3307,14 +3559,6 @@
       "url": "https://www.uplay.it/en/gioco-da-tavolo-kronologic--babylon-2500.html",
       "lastChecked": "2026-10-06T11:45:41.299Z",
       "lastCheckSuccess": false
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": "https://www.amazon.ca/s?k=Kronologic%3A%20Babylon%202500%20board%20game",
-      "lastChecked": "2026-10-08T21:31:12.143Z",
-      "lastCheckSuccess": true
     }
   },
   "406619": {
@@ -3396,6 +3640,14 @@
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-10-08T21:27:52.420Z",
+      "lastCheckSuccess": true
+    },
+    "amazonCa": {
+      "available": true,
+      "price": "68.02",
+      "baselinePrice": "68.40",
+      "url": "https://www.amazon.ca/dp/B0FC6TYDPP",
+      "lastChecked": "2026-10-08T21:31:18.189Z",
       "lastCheckSuccess": true
     },
     "woodForSheep": {
@@ -3533,14 +3785,6 @@
       "url": "https://www.uplay.it/en/gioco-da-tavolo-kronologic---cuzco-1450.html",
       "lastChecked": "2026-10-06T11:45:55.334Z",
       "lastCheckSuccess": false
-    },
-    "amazonCa": {
-      "available": true,
-      "price": "68.02",
-      "baselinePrice": "68.40",
-      "url": "https://www.amazon.ca/dp/B0FC6TYDPP",
-      "lastChecked": "2026-10-08T21:31:18.189Z",
-      "lastCheckSuccess": true
     }
   },
   "408637": {
@@ -3950,6 +4194,14 @@
       "lastChecked": "2026-10-08T21:26:49.935Z",
       "lastCheckSuccess": true
     },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": "https://www.amazon.ca/s?k=Dino%20Racer%20board%20game",
+      "lastChecked": "2026-10-08T21:30:54.908Z",
+      "lastCheckSuccess": true
+    },
     "woodForSheep": {
       "available": false,
       "price": null,
@@ -4085,14 +4337,6 @@
       "url": null,
       "lastChecked": null,
       "lastCheckSuccess": false
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": "https://www.amazon.ca/s?k=Dino%20Racer%20board%20game",
-      "lastChecked": "2026-10-08T21:30:54.908Z",
-      "lastCheckSuccess": true
     }
   },
   "470544": {
