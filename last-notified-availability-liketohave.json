@@ -310,6 +310,14 @@
       "lastChecked": "2026-10-08T21:35:43.544Z",
       "lastCheckSuccess": true
     },
+    "amazonCa": {
+      "available": true,
+      "price": "45.77",
+      "baselinePrice": "45.77",
+      "url": "https://www.amazon.ca/dp/B07QNNCCQG",
+      "lastChecked": "2026-10-08T21:37:59.589Z",
+      "lastCheckSuccess": true
+    },
     "woodForSheep": {
       "available": false,
       "price": null,
@@ -445,14 +453,6 @@
       "url": "https://www.uplay.it/en/gioco-da-tavolo-silver.html",
       "lastChecked": "2026-10-06T11:50:47.713Z",
       "lastCheckSuccess": false
-    },
-    "amazonCa": {
-      "available": true,
-      "price": "45.77",
-      "baselinePrice": "45.77",
-      "url": "https://www.amazon.ca/dp/B07QNNCCQG",
-      "lastChecked": "2026-10-08T21:37:59.589Z",
-      "lastCheckSuccess": true
     }
   },
   "319035": {
@@ -1224,6 +1224,14 @@
       "lastChecked": "2026-10-08T21:35:12.646Z",
       "lastCheckSuccess": true
     },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": "https://www.amazon.ca/s?k=Raising%20Robots%20board%20game",
+      "lastChecked": "2026-10-08T21:37:47.472Z",
+      "lastCheckSuccess": true
+    },
     "woodForSheep": {
       "available": false,
       "price": "$58.49",
@@ -1359,14 +1367,6 @@
       "url": "https://www.uplay.it/en/gioco-da-tavolo-raising-robots.html",
       "lastChecked": "2026-10-06T11:50:03.213Z",
       "lastCheckSuccess": false
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": "https://www.amazon.ca/s?k=Raising%20Robots%20board%20game",
-      "lastChecked": "2026-10-08T21:37:47.472Z",
-      "lastCheckSuccess": true
     }
   },
   "404883": {
@@ -1448,6 +1448,14 @@
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-10-08T21:34:06.974Z",
+      "lastCheckSuccess": true
+    },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": "https://www.amazon.ca/s?k=Lairs%20board%20game",
+      "lastChecked": "2026-10-08T21:37:23.393Z",
       "lastCheckSuccess": true
     },
     "woodForSheep": {
@@ -1585,14 +1593,6 @@
       "url": "https://www.uplay.it/en/gioco-da-tavolo-lairs.html",
       "lastChecked": "2026-10-06T11:49:06.064Z",
       "lastCheckSuccess": false
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": "https://www.amazon.ca/s?k=Lairs%20board%20game",
-      "lastChecked": "2026-10-08T21:37:23.393Z",
-      "lastCheckSuccess": true
     }
   },
   "408636": {
@@ -1674,6 +1674,14 @@
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-10-08T21:35:58.849Z",
+      "lastCheckSuccess": true
+    },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": "https://www.amazon.ca/s?k=Skara%20Brae%20board%20game",
+      "lastChecked": "2026-10-08T21:38:05.514Z",
       "lastCheckSuccess": true
     },
     "woodForSheep": {
@@ -1811,14 +1819,6 @@
       "url": "https://www.uplay.it/en/gioco-da-tavolo-skara-brae--edizione-italiana-.html",
       "lastChecked": "2026-10-06T11:51:02.775Z",
       "lastCheckSuccess": false
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": "https://www.amazon.ca/s?k=Skara%20Brae%20board%20game",
-      "lastChecked": "2026-10-08T21:38:05.514Z",
-      "lastCheckSuccess": true
     }
   },
   "424152": {
@@ -1900,6 +1900,14 @@
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-10-08T21:34:22.820Z",
+      "lastCheckSuccess": true
+    },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": "https://www.amazon.ca/s?k=Orapa%20Mine%20board%20game",
+      "lastChecked": "2026-10-08T21:37:29.293Z",
       "lastCheckSuccess": true
     },
     "woodForSheep": {
@@ -2037,14 +2045,6 @@
       "url": "https://www.uplay.it/en/gioco-da-tavolo-orapa-mine--edizione-inglese-.html",
       "lastChecked": "2026-10-06T11:49:20.860Z",
       "lastCheckSuccess": false
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": "https://www.amazon.ca/s?k=Orapa%20Mine%20board%20game",
-      "lastChecked": "2026-10-08T21:37:29.293Z",
-      "lastCheckSuccess": true
     }
   },
   "448740": {
@@ -2126,6 +2126,14 @@
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-10-08T21:34:38.981Z",
+      "lastCheckSuccess": true
+    },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": "https://www.amazon.ca/s?k=Orapa%20Space%20board%20game",
+      "lastChecked": "2026-10-08T21:37:35.338Z",
       "lastCheckSuccess": true
     },
     "woodForSheep": {
@@ -2263,14 +2271,6 @@
       "url": "https://www.uplay.it/en/gioco-da-tavolo-orapa-space.html",
       "lastChecked": "2026-10-06T11:49:35.091Z",
       "lastCheckSuccess": false
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": "https://www.amazon.ca/s?k=Orapa%20Space%20board%20game",
-      "lastChecked": "2026-10-08T21:37:35.338Z",
-      "lastCheckSuccess": true
     }
   },
   "450539": {
@@ -2540,6 +2540,14 @@
       "lastChecked": "2026-10-08T21:34:52.558Z",
       "lastCheckSuccess": true
     },
+    "meeplemart": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-10-08T21:37:41.410Z",
+      "lastCheckSuccess": true
+    },
     "kbHobbies": {
       "available": false,
       "price": null,
@@ -2570,6 +2578,14 @@
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-10-08T21:34:55.115Z",
+      "lastCheckSuccess": true
+    },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": "https://www.amazon.ca/s?k=Queen%20of%20Spies%20board%20game",
+      "lastChecked": "2026-10-08T21:37:41.204Z",
       "lastCheckSuccess": true
     },
     "woodForSheep": {
@@ -2707,22 +2723,6 @@
       "url": "https://www.uplay.it/en/gioco-da-tavolo-queen-of-spies.html",
       "lastChecked": "2026-10-06T11:49:49.107Z",
       "lastCheckSuccess": false
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": "https://www.amazon.ca/s?k=Queen%20of%20Spies%20board%20game",
-      "lastChecked": "2026-10-08T21:37:41.204Z",
-      "lastCheckSuccess": true
-    },
-    "meeplemart": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-10-08T21:37:41.410Z",
-      "lastCheckSuccess": true
     }
   },
   "471437": {
@@ -2804,6 +2804,14 @@
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-10-08T21:35:28.162Z",
+      "lastCheckSuccess": true
+    },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": "https://www.amazon.ca/s?k=Robo%20Run%20board%20game",
+      "lastChecked": "2026-10-08T21:37:53.415Z",
       "lastCheckSuccess": true
     },
     "woodForSheep": {
@@ -2941,14 +2949,6 @@
       "url": "https://www.uplay.it/en/gioco-da-tavolo-robo-run--pegasus-spiele-.html",
       "lastChecked": "2026-10-06T11:50:18.468Z",
       "lastCheckSuccess": false
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": "https://www.amazon.ca/s?k=Robo%20Run%20board%20game",
-      "lastChecked": "2026-10-08T21:37:53.415Z",
-      "lastCheckSuccess": true
     }
   }
 }
