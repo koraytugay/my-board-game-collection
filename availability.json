@@ -306,6 +306,18 @@
       "lastChecked": "2026-10-16T19:38:35.120Z",
       "lastCheckSuccess": true
     },
+    "amazonCa": {
+      "available": true,
+      "price": "107.82",
+      "baselinePrice": "134.45",
+      "deal": {
+        "previousPrice": "134.45",
+        "discountPercent": 20
+      },
+      "url": "https://www.amazon.ca/dp/B076ML49Y1",
+      "lastChecked": "2026-10-16T19:43:34.438Z",
+      "lastCheckSuccess": true
+    },
     "woodForSheep": {
       "available": false,
       "price": "$41.49",
@@ -459,18 +471,6 @@
       "url": null,
       "lastChecked": null,
       "lastCheckSuccess": false
-    },
-    "amazonCa": {
-      "available": true,
-      "price": "107.82",
-      "baselinePrice": "134.45",
-      "deal": {
-        "previousPrice": "134.45",
-        "discountPercent": 20
-      },
-      "url": "https://www.amazon.ca/dp/B076ML49Y1",
-      "lastChecked": "2026-10-16T19:43:34.438Z",
-      "lastCheckSuccess": true
     }
   },
   "35472": {
@@ -2005,7 +2005,7 @@
       "price": null,
       "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-10-16T19:43:20.283Z",
+      "lastChecked": "2026-10-17T01:19:15.446Z",
       "lastCheckSuccess": true
     },
     "alwaysGames": {
@@ -3892,6 +3892,14 @@
       "lastChecked": "2026-10-16T19:37:27.002Z",
       "lastCheckSuccess": true
     },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": "https://www.amazon.ca/s?k=The%20Path%20of%20the%20Priest%20board%20game",
+      "lastChecked": "2026-10-16T19:43:28.201Z",
+      "lastCheckSuccess": true
+    },
     "woodForSheep": {
       "available": false,
       "price": null,
@@ -4027,14 +4035,6 @@
       "url": "https://www.uplay.it/en/gioco-da-tavolo-the-path-of-the-priest.html",
       "lastChecked": "2026-10-06T11:43:21.968Z",
       "lastCheckSuccess": false
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": "https://www.amazon.ca/s?k=The%20Path%20of%20the%20Priest%20board%20game",
-      "lastChecked": "2026-10-16T19:43:28.201Z",
-      "lastCheckSuccess": true
     }
   },
   "439367": {
