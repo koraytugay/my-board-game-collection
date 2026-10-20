@@ -452,14 +452,6 @@
       "lastChecked": "2026-10-19T21:10:21.547Z",
       "lastCheckSuccess": true
     },
-    "amazonCa": {
-      "available": true,
-      "price": "134.56",
-      "baselinePrice": "134.56",
-      "url": "https://www.amazon.ca/dp/B076ML49Y1",
-      "lastChecked": "2026-10-19T14:46:34.637Z",
-      "lastCheckSuccess": false
-    },
     "uplay": {
       "available": false,
       "price": null,
@@ -467,6 +459,14 @@
       "url": null,
       "lastChecked": null,
       "lastCheckSuccess": false
+    },
+    "amazonCa": {
+      "available": true,
+      "price": "134.56",
+      "baselinePrice": "134.56",
+      "url": "https://www.amazon.ca/dp/B076ML49Y1",
+      "lastChecked": "2026-10-20T01:49:34.174Z",
+      "lastCheckSuccess": true
     }
   },
   "35472": {
@@ -2009,7 +2009,7 @@
       "price": null,
       "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-10-19T21:15:04.695Z",
+      "lastChecked": "2026-10-20T01:49:21.754Z",
       "lastCheckSuccess": true
     },
     "alwaysGames": {
