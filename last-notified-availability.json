@@ -306,6 +306,14 @@
       "lastChecked": "2026-10-20T20:04:39.464Z",
       "lastCheckSuccess": true
     },
+    "amazonCa": {
+      "available": true,
+      "price": "133.38",
+      "baselinePrice": "134.56",
+      "url": "https://www.amazon.ca/dp/B076ML49Y1",
+      "lastChecked": "2026-10-20T20:09:32.209Z",
+      "lastCheckSuccess": true
+    },
     "woodForSheep": {
       "available": false,
       "price": "$41.49",
@@ -459,14 +467,6 @@
       "url": null,
       "lastChecked": null,
       "lastCheckSuccess": false
-    },
-    "amazonCa": {
-      "available": true,
-      "price": "133.38",
-      "baselinePrice": "134.56",
-      "url": "https://www.amazon.ca/dp/B076ML49Y1",
-      "lastChecked": "2026-10-20T20:09:32.209Z",
-      "lastCheckSuccess": true
     }
   },
   "35472": {
@@ -1993,7 +1993,7 @@
       "price": null,
       "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-10-20T20:09:19.898Z",
+      "lastChecked": "2026-10-21T01:34:10.970Z",
       "lastCheckSuccess": true
     },
     "alwaysGames": {
@@ -4008,20 +4008,20 @@
       "lastChecked": "2026-10-20T20:03:29.114Z",
       "lastCheckSuccess": true
     },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": "https://www.amazon.ca/s?k=The%20Path%20of%20the%20Priest%20board%20game",
+      "lastChecked": "2026-10-21T01:34:16.744Z",
+      "lastCheckSuccess": true
+    },
     "uplay": {
       "available": false,
       "price": null,
       "baselinePrice": null,
       "url": "https://www.uplay.it/en/gioco-da-tavolo-the-path-of-the-priest.html",
       "lastChecked": "2026-10-06T11:43:21.968Z",
-      "lastCheckSuccess": false
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": "https://www.amazon.ca/s?k=The%20Path%20of%20the%20Priest%20board%20game",
-      "lastChecked": "2026-10-19T01:13:41.889Z",
       "lastCheckSuccess": false
     }
   },
