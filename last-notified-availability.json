@@ -306,6 +306,14 @@
       "lastChecked": "2026-10-21T20:16:20.994Z",
       "lastCheckSuccess": true
     },
+    "amazonCa": {
+      "available": true,
+      "price": "134.02",
+      "baselinePrice": "134.56",
+      "url": "https://www.amazon.ca/dp/B076ML49Y1",
+      "lastChecked": "2026-10-21T20:21:32.790Z",
+      "lastCheckSuccess": true
+    },
     "woodForSheep": {
       "available": false,
       "price": "$41.49",
@@ -463,14 +471,6 @@
       "url": null,
       "lastChecked": null,
       "lastCheckSuccess": false
-    },
-    "amazonCa": {
-      "available": true,
-      "price": "134.02",
-      "baselinePrice": "134.56",
-      "url": "https://www.amazon.ca/dp/B076ML49Y1",
-      "lastChecked": "2026-10-21T20:21:32.790Z",
-      "lastCheckSuccess": true
     }
   },
   "35472": {
@@ -1692,6 +1692,14 @@
       "lastChecked": "2026-10-21T20:16:43.107Z",
       "lastCheckSuccess": true
     },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": "https://www.amazon.ca/s?k=Back%20to%20the%20Future%3A%20Back%20in%20Time%20board%20game",
+      "lastChecked": "2026-10-21T20:21:39.133Z",
+      "lastCheckSuccess": true
+    },
     "woodForSheep": {
       "available": false,
       "price": null,
@@ -1837,14 +1845,6 @@
       "url": "https://www.uplay.it/en/gioco-da-tavolo-back-to-the-future--back-in-time.html",
       "lastChecked": "2026-10-06T11:44:27.772Z",
       "lastCheckSuccess": false
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": "https://www.amazon.ca/s?k=Back%20to%20the%20Future%3A%20Back%20in%20Time%20board%20game",
-      "lastChecked": "2026-10-21T20:21:39.133Z",
-      "lastCheckSuccess": true
     }
   },
   "304783": {
@@ -1997,7 +1997,7 @@
       "price": null,
       "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-10-21T20:21:19.064Z",
+      "lastChecked": "2026-10-22T01:30:50.565Z",
       "lastCheckSuccess": true
     },
     "alwaysGames": {
@@ -2087,8 +2087,8 @@
       "price": null,
       "baselinePrice": "92.68",
       "url": "https://www.amazon.ca/s?k=Hadrian's%20Wall%20board%20game",
-      "lastChecked": "2026-10-19T21:08:14.015Z",
-      "lastCheckSuccess": false
+      "lastChecked": "2026-10-22T01:30:52.531Z",
+      "lastCheckSuccess": true
     }
   },
   "319793": {
@@ -3884,6 +3884,14 @@
       "lastChecked": "2026-10-21T20:15:13.664Z",
       "lastCheckSuccess": true
     },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": "https://www.amazon.ca/s?k=The%20Path%20of%20the%20Priest%20board%20game",
+      "lastChecked": "2026-10-21T20:21:26.561Z",
+      "lastCheckSuccess": true
+    },
     "woodForSheep": {
       "available": false,
       "price": null,
@@ -4019,14 +4027,6 @@
       "url": "https://www.uplay.it/en/gioco-da-tavolo-the-path-of-the-priest.html",
       "lastChecked": "2026-10-06T11:43:21.968Z",
       "lastCheckSuccess": false
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": "https://www.amazon.ca/s?k=The%20Path%20of%20the%20Priest%20board%20game",
-      "lastChecked": "2026-10-21T20:21:26.561Z",
-      "lastCheckSuccess": true
     }
   },
   "439367": {
