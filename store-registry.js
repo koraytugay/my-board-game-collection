@@ -9,7 +9,7 @@
 //   currency   - CAD, USD, GBP or EUR; drives conversion to CAD
 //   platform   - "shopify" stores are checked generically via /search/suggest.json using `country`
 //                (and `shopifyUrl` if it differs from `url`); "custom" stores need a checker in
-//                getCustomStoreConfigs() in check-availability.js
+//                getCustomStoreConfigs() in lib/store-configs.js
 //   aliases    - extra names accepted in skipped-matches.js (lowercase, letters/digits only)
 const STORE_REGISTRY = [
     { key: 'boardGameBliss', name: 'BoardGameBliss', flag: '🇨🇦', url: 'https://www.boardgamebliss.com', currency: 'CAD', platform: 'shopify', country: 'CA', aliases: ['bgb', 'boardgameblisscom'] },

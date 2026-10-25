@@ -151,11 +151,23 @@ To add a **Shopify** store:
 
 To add a **custom** store (HTML scraper, JSON API, Puppeteer, etc.):
 1. Add its entry to `store-registry.js` with `platform: 'custom'`.
-2. Add its checker under the same key in `getCustomStoreConfigs()` in `check-availability.js`.
+2. Put its parsing/fetching code in a new file under `lib/stores/`, and wire it up under the same key in `getCustomStoreConfigs()` in `lib/store-configs.js`.
 
 The checker throws on startup if a custom store has no checker, or a checker has no registry entry.
 
 To remove a store:
-1. Delete its entry from `store-registry.js` (and its checker/parser if it's custom).
+1. Delete its entry from `store-registry.js` (and, if it's custom, its `lib/stores/` file and its entry in `lib/store-configs.js`).
 2. Remove its key from the availability JSON files.
 3. Move it to **Removed Stores** above with the reason.
+
+## Pipeline Code Layout
+
+`check-availability.js` only runs the check loop. Everything else lives in `lib/`:
+
+- `lib/store-configs.js`: how each store is checked (built from `store-registry.js`)
+- `lib/stores/`: one file per custom store (HTML scrapers, APIs, Puppeteer), plus `shopify.js` for all Shopify stores
+- `lib/matching.js`: decides whether a store product title is the game we want
+- `lib/http.js`: fetching, redirects, 429 backoff and the shared Shopify cooldown
+- `lib/deals.js`: price thresholds, baseline prices and deal detection
+- `lib/skip-rules.js`: applies `skipped-matches.js`
+- `lib/run-log.js`, `lib/run-stats.js`: the run log file and the end-of-run summary
