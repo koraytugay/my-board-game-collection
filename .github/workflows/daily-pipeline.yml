@@ -34,6 +34,11 @@ jobs:
       - name: Install Dependencies
         run: npm ci
 
+      # Matching, store parser and deal tests run against saved pages (no network);
+      # a failure stops the run before any stock data is written.
+      - name: Run Tests
+        run: npm test
+
       # ----------------------------------------------------
       # Stage 1: Update BGG Collection, Plays & Images
       # ----------------------------------------------------
