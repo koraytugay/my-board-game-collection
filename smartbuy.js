@@ -7,16 +7,6 @@ let storeSortStates = {}; // { storeKey: { column, direction } }
 
 
 
-function escapeHtml(str) {
-    if (!str) return '';
-    return String(str)
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;')
-        .replace(/'/g, '&#039;');
-}
-
 function getNumericCadPrice(price, storeKey = null) {
     if (!price && price !== 0) return 0;
     const str = String(price).trim();

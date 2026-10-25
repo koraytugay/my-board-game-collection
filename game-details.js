@@ -130,16 +130,6 @@ function closeGameDetails() {
     }
 }
 
-function gdEscapeHtml(str) {
-    if (!str) return '';
-    return String(str)
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;')
-        .replace(/'/g, '&#039;');
-}
-
 function gdFormatDate(dateStr) {
     if (!dateStr) return '';
     const [year, month, day] = dateStr.split('-');
@@ -198,7 +188,7 @@ async function showGameDetails(objectId) {
         }
     }
 
-    const safeName = gdEscapeHtml(game.name);
+    const safeName = escapeHtml(game.name);
     const imageUrl = game.image || game.thumbnail || 'https://via.placeholder.com/300x300?text=No+Image';
 
     // Player range text
@@ -254,7 +244,7 @@ async function showGameDetails(objectId) {
                     const sellerLabel = l.seller ? `🏷️ BGG Market (${l.seller})` : '🏷️ BGG Market';
                     storeChipsHtml += `
                         <a href="${l.url}" target="_blank" class="store-chip bgg-market" title="View BGG Market listing">
-                            <span class="store-chip-name">${gdEscapeHtml(sellerLabel)}</span>
+                            <span class="store-chip-name">${escapeHtml(sellerLabel)}</span>
                             ${priceFormatted ? `<span class="store-chip-price">${priceFormatted}</span>` : ''}
                         </a>
                     `;
@@ -273,7 +263,7 @@ async function showGameDetails(objectId) {
                 <h2 id="modal-game-title" class="game-modal-title">${safeName}</h2>
                 <div class="game-modal-submeta">
                     ${game.yearPublished && game.yearPublished !== 'N/A' ? `<span>${game.yearPublished}</span>` : ''}
-                    ${designersText ? `<span class="bullet">&bull;</span><span>${gdEscapeHtml(designersText)}</span>` : ''}
+                    ${designersText ? `<span class="bullet">&bull;</span><span>${escapeHtml(designersText)}</span>` : ''}
                 </div>
             </div>
         </div>
@@ -289,7 +279,7 @@ async function showGameDetails(objectId) {
             </div>
             <div class="game-modal-stat-card">
                 <span class="game-modal-stat-label">Players</span>
-                <span class="game-modal-stat-value">${playersText}${bestAtList.length > 0 ? `<span style="display:block; font-size: 0.76rem; font-weight: 500; color: #718096; margin-top: 3px;">Best: ${gdEscapeHtml(bestAtList.join(', '))}</span>` : ''}</span>
+                <span class="game-modal-stat-value">${playersText}${bestAtList.length > 0 ? `<span style="display:block; font-size: 0.76rem; font-weight: 500; color: #718096; margin-top: 3px;">Best: ${escapeHtml(bestAtList.join(', '))}</span>` : ''}</span>
             </div>
             <div class="game-modal-stat-card">
                 <span class="game-modal-stat-label">Play Time</span>

@@ -66,16 +66,6 @@ function renderTierList() {
     renderTierRow('f', tiers.f);
 }
 
-function escapeHtml(str) {
-    if (!str) return '';
-    return str
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;')
-        .replace(/'/g, '&#039;');
-}
-
 function renderTierRow(tierKey, games) {
     const gridEl = document.getElementById(`tier-${tierKey}-grid`);
     if (!gridEl) return;

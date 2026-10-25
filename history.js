@@ -107,16 +107,6 @@ function formatDate(dateStr) {
     return new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric', year: 'numeric' }).format(date);
 }
 
-function escapeHtml(str) {
-    if (!str) return '';
-    return str
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;')
-        .replace(/'/g, '&#039;');
-}
-
 function renderBucket(containerId, countId, items) {
     const container = document.getElementById(containerId);
     const countEl = document.getElementById(countId);

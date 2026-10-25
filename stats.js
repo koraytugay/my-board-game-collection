@@ -24,16 +24,6 @@ async function fetchStats() {
     }
 }
 
-function escapeHtml(str) {
-    if (!str) return '';
-    return str
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;')
-        .replace(/'/g, '&#039;');
-}
-
 function updateOverviewStats() {
     const totalGames = allGames.length;
     const totalPlays = allGames.reduce((sum, game) => sum + game.numPlays, 0);

@@ -3,58 +3,6 @@ let filteredGames = [];
 let currentSort = 'name';
 let currentViewMode = 'grid';
 
-function formatPrice(price) {
-    if (!price && price !== 0) return '';
-    const str = String(price).trim();
-    if (!str) return '';
-
-    const clean = str.replace(/,/g, '');
-    const match = clean.match(/[0-9]+(?:\.[0-9]+)?/);
-    if (!match) return str;
-    const num = parseFloat(match[0]);
-    if (isNaN(num)) return str;
-
-    let cadPrice;
-    if (str.includes('€') || /\bEUR\b/i.test(str)) {
-        cadPrice = num * 1.65;
-    } else if (str.includes('£') || /\bGBP\b/i.test(str)) {
-        cadPrice = num * 1.90;
-    } else if (/\bUSD\b/i.test(str) || /\$US\b/i.test(str) || /US\$/i.test(str)) {
-        cadPrice = num * 1.40;
-    } else {
-        cadPrice = num;
-    }
-
-    return `$${cadPrice.toFixed(2)}`;
-}
-
-function extractNumericPrice(priceStr) {
-    if (!priceStr) return null;
-    const clean = String(priceStr).replace(/,/g, '');
-    const match = clean.match(/[0-9]+(?:\.[0-9]+)?/);
-    return match ? parseFloat(match[0]) : null;
-}
-
-function getActiveBggListings(game) {
-    const bggmkt = game.availability?.bggMarket;
-    if (!bggmkt) return [];
-    if (Array.isArray(bggmkt.listings) && bggmkt.listings.length > 0) {
-        return bggmkt.listings.filter(l => !l.ignored && (extractNumericPrice(l.price) === null || extractNumericPrice(l.price) > 5.0));
-    }
-    if (bggmkt.available && bggmkt.url && !bggmkt.ignored) {
-        const num = extractNumericPrice(bggmkt.price);
-        if (num !== null && num <= 5.0) return [];
-        return [{
-            price: bggmkt.price,
-            seller: bggmkt.seller || 'BGG Market',
-            condition: bggmkt.condition || '',
-            url: bggmkt.url,
-            ignored: false
-        }];
-    }
-    return [];
-}
-
 async function fetchCollection() {
     const loadingEl = document.getElementById('loading');
     const errorEl = document.getElementById('error');

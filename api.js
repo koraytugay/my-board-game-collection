@@ -282,3 +282,78 @@ function extractNumericPrice(priceStr) {
     return match ? parseFloat(match[0]) : null;
 }
 
+
+// --- Shared HTML & Stock Helpers ---
+function escapeHtml(str) {
+    if (!str) return '';
+    return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+}
+
+// BGG Market sellers to hide; filled from skipped-sellers.json by pages that use it (stores.html).
+const skippedBggSellers = new Set();
+
+function getActiveBggListings(game) {
+    const bggmkt = game.availability?.bggMarket;
+    if (!bggmkt) return [];
+    let listings = [];
+    if (Array.isArray(bggmkt.listings) && bggmkt.listings.length > 0) {
+        listings = bggmkt.listings.filter(l => !l.ignored && (extractNumericPrice(l.price) === null || extractNumericPrice(l.price) > 5.0));
+    } else if (bggmkt.available && bggmkt.url && !bggmkt.ignored) {
+        const num = extractNumericPrice(bggmkt.price);
+        if (num === null || num > 5.0) {
+            listings = [{
+                price: bggmkt.price,
+                seller: bggmkt.seller || 'BGG Market',
+                condition: bggmkt.condition || '',
+                url: bggmkt.url,
+                ignored: false
+            }];
+        }
+    }
+    return listings.filter(l => !l.seller || !skippedBggSellers.has(l.seller.toLowerCase()));
+}
+
+function isGameInStockAtStore(game, storeKey) {
+    if (!game.availability || !game.availability[storeKey]) return false;
+    const storeData = game.availability[storeKey];
+    if (storeKey === 'bggMarket') {
+        return getActiveBggListings(game).length > 0;
+    }
+    if (!storeData.available) return false;
+    const num = extractNumericPrice(storeData.price);
+    if (num !== null && num <= 5.0) return false;
+    return true;
+}
+
+function isGameInStockAtAnyStore(game) {
+    return STORES.some(store => isGameInStockAtStore(game, store.key));
+}
+
+// Biggest in-stock retail discount of 20% or more, or null.
+function getGameDealInfo(game) {
+    if (!game.availability) return null;
+    let maxDeal = null;
+    for (const [storeKey, storeData] of Object.entries(game.availability)) {
+        if (storeKey === 'bggMarket') continue;
+        if (storeData && isGameInStockAtStore(game, storeKey) && storeData.deal && storeData.deal.discountPercent >= 20) {
+            if (!maxDeal || storeData.deal.discountPercent > maxDeal.discountPercent) {
+                maxDeal = {
+                    storeKey,
+                    discountPercent: storeData.deal.discountPercent,
+                    previousPrice: storeData.deal.previousPrice,
+                    currentPrice: storeData.price
+                };
+            }
+        }
+    }
+    return maxDeal;
+}
+
+function hasGameMajorDeal(game) {
+    return getGameDealInfo(game) !== null;
+}
