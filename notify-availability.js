@@ -391,15 +391,44 @@ function getOverallInStockSummary(currData, gamesMap) {
     return { inStockCount, inStockGames, totalGames: Object.keys(currData).length };
 }
 
-function buildEmailSubject(diff, summary) {
+// Every in-stock retail deal (20%+ below the store's baseline) right now, including ones
+// already announced, so a missed alert still shows up in the next email.
+function getCurrentDeals(currData, gamesMap) {
+    const deals = [];
+    for (const [gameId, stores] of Object.entries(currData)) {
+        const gameName = gamesMap[gameId]?.name || `Game #${gameId}`;
+        for (const [storeKey, data] of Object.entries(stores || {})) {
+            if (storeKey === 'bggMarket') continue;
+            if (!isStoreAvailable(data, storeKey, gameName, gameId)) continue;
+            if (!data.deal || data.deal.discountPercent < 20) continue;
+            const storeMeta = STORE_META[storeKey] || { name: storeKey, icon: '🏪' };
+            deals.push({
+                gameName,
+                bggUrl: `https://boardgamegeek.com/boardgame/${gameId}`,
+                storeName: `${storeMeta.icon} ${storeMeta.name}`,
+                price: formatPrice(data.price, storeKey),
+                previousPrice: formatPrice(data.deal.previousPrice, storeKey),
+                discountPercent: data.deal.discountPercent,
+                url: data.url || `https://boardgamegeek.com/boardgame/${gameId}`
+            });
+        }
+    }
+    return deals.sort((a, b) => b.discountPercent - a.discountPercent || a.gameName.localeCompare(b.gameName));
+}
+
+function buildEmailSubject(diff, summary, currentDeals = []) {
     const defaultPrefix = isLikeToHave
         ? '🎲 Like to Have Stock'
         : '🎲 Stock Update';
 
+    const liveDeals = currentDeals.length > 0 && !(diff.majorDeals && diff.majorDeals.length > 0)
+        ? ` · 🔥 ${currentDeals.length} live deal${currentDeals.length > 1 ? 's' : ''}`
+        : '';
+
     if (diff.totalDiffs === 0) {
-        return isLikeToHave
+        return (isLikeToHave
             ? `🎲 Like to Have Stock Check: No changes detected (${summary.inStockCount}/${summary.totalGames} in stock)`
-            : `🎲 Board Game Stock Check: No changes detected (${summary.inStockCount}/${summary.totalGames} in stock)`;
+            : `🎲 Board Game Stock Check: No changes detected (${summary.inStockCount}/${summary.totalGames} in stock)`) + liveDeals;
     }
 
     const parts = [];
@@ -418,10 +447,10 @@ function buildEmailSubject(diff, summary) {
     if (diff.bggMarketNewListings.length > 0) {
         parts.push(`📦 ${diff.bggMarketNewListings.length} BGG listing${diff.bggMarketNewListings.length > 1 ? 's' : ''}`);
     }
-    return `${defaultPrefix}: ${parts.join(', ')}`;
+    return `${defaultPrefix}: ${parts.join(', ')}${liveDeals}`;
 }
 
-function buildHtmlBody(diff, gamesMap, summary) {
+function buildHtmlBody(diff, gamesMap, summary, currentDeals = []) {
     const listTitle = isLikeToHave ? 'Like to Have' : 'Want to Buy';
     const listUrl = isLikeToHave 
         ? 'https://koraytugay.github.io/my-board-game-collection/liketohave.html' 
@@ -588,6 +617,21 @@ function buildHtmlBody(diff, gamesMap, summary) {
         }
     }
 
+    // 5. Current Deals (every live deal, even if announced before)
+    if (currentDeals.length > 0) {
+        html += `<div class="section-title" style="color: #c05621;">🔥 Current Deals (${currentDeals.length})</div>
+            <p style="margin: 0 0 10px 0; color: #718096; font-size: 0.85rem;">Every in-stock deal of 20% or more right now, including ones announced before.</p>
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.9rem;">`;
+        for (const item of currentDeals) {
+            html += `
+                <tr style="border-top: 1px solid #edf2f7;">
+                    <td style="padding: 8px 6px 8px 0;"><a href="${item.url}" target="_blank" class="game-title" style="font-size: 0.92rem;">${item.gameName}</a><br><span style="color: #718096; font-size: 0.8rem;">${item.storeName}</span></td>
+                    <td style="padding: 8px 0; text-align: right; white-space: nowrap;"><span style="text-decoration: line-through; color: #a0aec0;">${item.previousPrice}</span> <strong style="color: #c53030;">${item.price}</strong><br><span style="background: #feebc8; color: #c05621; font-size: 0.75rem; font-weight: bold; padding: 2px 7px; border-radius: 9999px;">-${item.discountPercent}%</span></td>
+                </tr>`;
+        }
+        html += `</table>`;
+    }
+
     html += `
             </div>
             <div class="footer">
@@ -602,7 +646,7 @@ function buildHtmlBody(diff, gamesMap, summary) {
     return html;
 }
 
-function buildTextBody(diff, summary) {
+function buildTextBody(diff, summary, currentDeals = []) {
     const listTitle = isLikeToHave ? 'Like to Have' : 'Want to Buy';
     const listUrl = isLikeToHave 
         ? 'https://koraytugay.github.io/my-board-game-collection/liketohave.html' 
@@ -614,6 +658,16 @@ function buildTextBody(diff, summary) {
         lines.push('✅ Stock check completed — no changes detected.');
         lines.push(`All ${summary.totalGames} ${isLikeToHave ? 'like to have' : 'wanted'} games were checked across tracked stores.`);
         lines.push(`Currently, ${summary.inStockCount}/${summary.totalGames} games remain in stock.`);
+        lines.push('');
+    }
+
+    if (diff.majorDeals && diff.majorDeals.length > 0) {
+        lines.push(`🔥 MAJOR DEALS (${diff.majorDeals.length}):`);
+        for (const item of diff.majorDeals) {
+            lines.push(`- ${item.gameName} -${item.discountPercent}%`);
+            lines.push(`  Store: ${item.storeName} | Price: ${item.oldPrice} -> ${item.newPrice}`);
+            lines.push(`  Link: ${item.url}`);
+        }
         lines.push('');
     }
 
@@ -650,6 +704,15 @@ function buildTextBody(diff, summary) {
         lines.push(`📦 NEW BGG MARKET LISTINGS (${diff.bggMarketNewListings.length}):`);
         for (const item of diff.bggMarketNewListings) {
             lines.push(`- ${item.gameName} from seller ${item.seller} for ${item.price}`);
+            lines.push(`  Link: ${item.url}`);
+        }
+        lines.push('');
+    }
+
+    if (currentDeals.length > 0) {
+        lines.push(`🔥 CURRENT DEALS (${currentDeals.length}), including ones announced before:`);
+        for (const item of currentDeals) {
+            lines.push(`- ${item.gameName} -${item.discountPercent}% at ${item.storeName}: ${item.previousPrice} -> ${item.price}`);
             lines.push(`  Link: ${item.url}`);
         }
         lines.push('');
@@ -713,12 +776,13 @@ async function run() {
 
     const diff = computeDiff(prevData, currData, gamesMap);
     const summary = getOverallInStockSummary(currData, gamesMap);
+    const currentDeals = getCurrentDeals(currData, gamesMap);
 
     console.log(`Diff results: ${diff.newlyAvailable.length} newly in stock, ${diff.noLongerAvailable.length} out of stock, ${diff.priceChanges.length} price changes, ${diff.bggMarketNewListings.length} BGG listings.`);
 
-    const subject = buildEmailSubject(diff, summary);
-    const htmlBody = buildHtmlBody(diff, gamesMap, summary);
-    const textBody = buildTextBody(diff, summary);
+    const subject = buildEmailSubject(diff, summary, currentDeals);
+    const htmlBody = buildHtmlBody(diff, gamesMap, summary, currentDeals);
+    const textBody = buildTextBody(diff, summary, currentDeals);
 
     console.log(`Subject: ${subject}`);
     const emailSent = await sendNotificationEmail(subject, htmlBody, textBody);
