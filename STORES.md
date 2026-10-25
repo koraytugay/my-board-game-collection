@@ -73,15 +73,7 @@ The following stores were evaluated, tracked, and permanently removed due to hav
 
 All candidate stores below have been verified to ship to Canada.
 
-1. Hobbiesville
-URL: https://hobbiesville.com
-Location: Ottawa & Toronto, Ontario
-Platform: Shopify (/search/suggest.json)
-Currency: CAD ($)
-Shipping: $9.99 flat-rate Canada-wide, free shipping over $175
-Notes: Huge Canadian hobby store, deep inventory for board games and expansions.
-
-2. Meeples Corner
+1. Meeples Corner
 URL: https://meeplescorner.co.uk
 Location: United Kingdom
 Platform: Shopify (/search/suggest.json)
@@ -89,7 +81,7 @@ Currency: GBP (£) / CAD display
 Shipping: Tracked Royal Mail / Courier to Canada
 Notes: European import specialist. Carries hard-to-find German and indie European games. Non-UK orders automatically have 20% UK VAT deducted at checkout.
 
-3. Gamers Guild AZ
+2. Gamers Guild AZ
 URL: https://gamersguildaz.com
 Location: Arizona, USA
 Platform: Shopify (/search/suggest.json)
@@ -97,23 +89,7 @@ Currency: USD ($)
 Shipping: DDP (Delivered Duty Paid) shipping to Canada
 Notes: Popular US community favorite. Duties and taxes are calculated and collected upfront at checkout so there are no surprise fees at the door. Supports order holds.
 
-4. Game Knight Games
-URL: https://gameknight.ca
-Location: Winnipeg, Manitoba
-Platform: Shopify (/search/suggest.json)
-Currency: CAD ($)
-Shipping: Canada-wide shipping
-Notes: Manitoba's premier hobby store; strong inventory of Euro and solo games.
-
-5. Black Knight Games
-URL: https://blackknightgames.ca
-Location: Hamilton, Ontario
-Platform: Shopify (/search/suggest.json)
-Currency: CAD ($)
-Shipping: Canada-wide shipping
-Notes: Established Ontario FLGS (est. 2007) with active online catalog and broad expansion stock.
-
-6. Strategies Games & Hobbies
+3. Strategies Games & Hobbies
 URL: https://strategiesgames.ca
 Location: Vancouver, British Columbia
 Platform: Shopify (/search/suggest.json)
@@ -121,15 +97,7 @@ Currency: CAD ($)
 Shipping: Canada-wide shipping
 Notes: Canada's oldest hobby shop (est. 1974). Great West Coast inventory for classic, indie, and niche games.
 
-8. Rain City Games
-URL: https://raincity.games
-Location: Vancouver, British Columbia
-Platform: Shopify (/search/suggest.json)
-Currency: CAD ($)
-Shipping: Canada-wide shipping
-Notes: Vancouver indie specialist with strong curated selection of modern tabletop and solo games.
-
-9. Ludifolie
+4. Ludifolie
 URL: https://www.ludifolie.com
 Location: France
 Platform: PrestaShop (/recherche?controller=search&s=...)
@@ -142,6 +110,11 @@ Notes: French discount retailer, often significantly undercutting Philibert on E
 
 Candidates came from Board Game Oracle's Canadian store directory (https://boardgameoracle.com/en-CA/store) and UltraBoardGames' Canadian shop list. Each one was searched for all 30 Want to Buy + Like to Have games with the pipeline's real Shopify checker and matcher. Re-check one only if its catalogue changes.
 
+- Mostly Magic/TCG, almost none of our games (checked 2026-10-25 against 65 Want to Buy + Like to Have games; hits reviewed by hand):
+  - Hobbiesville (Ottawa & Toronto): 2 real listings, 1 in stock; the rest were Magic, Doctor Who and Lorcana cards, figures and diecast
+  - Game Knight Games (Winnipeg): 0 real listings; every hit was a Magic card
+  - Black Knight Games (Hamilton, ON): 3 real listings (Mental Blocks, Search for Planet X, A Gentle Rain), 0 in stock; heavy Magic catalogue
+  - Rain City Games (Vancouver): about 4 real listings, 1 in stock (Witchcraft!); Magic noise
 - Too few of our games (1-4 of 30): WiredVillage Games (Pictou, NS), Studio Staja, A Muse N Games, Multizone, Across the Board Game Cafe (Toronto, WooCommerce)
 - Shopify, but none of our games: Board Game Emporium, Brimstone Games, C.D. Jeux, Fusion Gaming, Cardboard Memories, Pandora's Boox, The Mana Lounge, Le Roi des Cartes (tcgandgames.com), Tadenac Games, Arctic Board Games (2 listed, 0 in stock)
 - F.G. Bradley's (Pickering, ON): site search finds none of our games
