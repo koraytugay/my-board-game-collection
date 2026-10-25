@@ -49,17 +49,7 @@ jobs:
 
       - name: Commit & Push BGG Updates
         run: |
-          set -euo pipefail
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git pull --rebase --autostash origin ${{ github.ref_name }}
-          git add collection.xml plays/ images/
-          if ! git diff --quiet --staged; then
-            git commit -m "chore: update collection, plays & images ($(date -u +%F))"
-            git push
-          else
-            echo "No BGG collection changes to commit."
-          fi
+          ./commit-and-push.sh "chore: update collection, plays & images ($(date -u +%F))" collection.xml plays/ images/
 
       - name: Notify BGG Sync Success
         if: success()
@@ -83,17 +73,7 @@ jobs:
 
       - name: Commit & Push Recommendations & Metadata
         run: |
-          set -euo pipefail
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git pull --rebase --autostash origin ${{ github.ref_name }}
-          git add recommendations.json bgg-recs-cache.json designers.json best-at.json images/
-          if ! git diff --quiet --staged; then
-            git commit -m "chore: update game recommendations & metadata ($(date -u +%F))"
-            git push
-          else
-            echo "No recommendations changes to commit."
-          fi
+          ./commit-and-push.sh "chore: update game recommendations & metadata ($(date -u +%F))" recommendations.json bgg-recs-cache.json designers.json best-at.json images/
 
       - name: Notify Recommendations Success
         if: success()
@@ -123,17 +103,7 @@ jobs:
 
       - name: Commit & Push Want to Buy Availability
         run: |
-          set -euo pipefail
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git pull --rebase --autostash origin ${{ github.ref_name }}
-          git add availability.json last-notified-availability.json
-          if ! git diff --quiet --staged; then
-            git commit -m "chore: update wanted game availability ($(date -u +%F))"
-            git push
-          else
-            echo "No wanted game availability changes to commit."
-          fi
+          ./commit-and-push.sh "chore: update wanted game availability ($(date -u +%F))" availability.json last-notified-availability.json
 
       - name: Notify Want to Buy Check Success
         if: success()
@@ -165,17 +135,7 @@ jobs:
 
       - name: Commit & Push Like to Have Availability
         run: |
-          set -euo pipefail
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git pull --rebase --autostash origin ${{ github.ref_name }}
-          git add availability-liketohave.json last-notified-availability-liketohave.json
-          if ! git diff --quiet --staged; then
-            git commit -m "chore: update like to have availability ($(date -u +%F))"
-            git push
-          else
-            echo "No like to have availability changes to commit."
-          fi
+          ./commit-and-push.sh "chore: update like to have availability ($(date -u +%F))" availability-liketohave.json last-notified-availability-liketohave.json
 
       - name: Notify Like to Have Check Success
         if: success()
