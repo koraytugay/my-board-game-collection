@@ -23,6 +23,10 @@ Canada:
 - Always Games: https://alwaysgames.ca (Shopify)
 - Legends Warehouse: https://legendswarehouse.ca (Shopify)
 - Board Game Bandit: https://boardgamebandit.ca (Shopify)
+- The Gamer's Table: https://gamerstable.ca (Shopify) - Whitby/Oshawa, ON
+- Game Shack: https://www.gameshack.ca (Shopify) - Toronto, ON
+- Dragons Den Games: https://dragonsdengames.com (Shopify) - Saskatoon, SK
+- La Ribouldingue: https://www.laribouldingue.ca (Shopify) - Vaudreuil-Dorion, QC (often stocks French editions)
 
 United States:
 - Miniature Market: https://www.miniaturemarket.com (HTML)
@@ -117,14 +121,6 @@ Currency: CAD ($)
 Shipping: Canada-wide shipping
 Notes: Canada's oldest hobby shop (est. 1974). Great West Coast inventory for classic, indie, and niche games.
 
-7. Dragons Den Games
-URL: https://dragonsdengames.com
-Location: Saskatoon, Saskatchewan
-Platform: Shopify (/search/suggest.json)
-Currency: CAD ($)
-Shipping: Canada-wide shipping
-Notes: Saskatchewan's largest hobby store. Great alternative source when Ontario/Quebec stock runs dry.
-
 8. Rain City Games
 URL: https://raincity.games
 Location: Vancouver, British Columbia
@@ -140,6 +136,19 @@ Platform: PrestaShop (/recherche?controller=search&s=...)
 Currency: EUR (€)
 Shipping: International postal shipping to Canada
 Notes: French discount retailer, often significantly undercutting Philibert on European editions.
+
+
+## Evaluated and Not Added (2026-10-25 survey)
+
+Candidates came from Board Game Oracle's Canadian store directory (https://boardgameoracle.com/en-CA/store) and UltraBoardGames' Canadian shop list. Each one was searched for all 30 Want to Buy + Like to Have games with the pipeline's real Shopify checker and matcher. Re-check one only if its catalogue changes.
+
+- Too few of our games (1-4 of 30): WiredVillage Games (Pictou, NS), Studio Staja, A Muse N Games, Multizone, Across the Board Game Cafe (Toronto, WooCommerce)
+- Shopify, but none of our games: Board Game Emporium, Brimstone Games, C.D. Jeux, Fusion Gaming, Cardboard Memories, Pandora's Boox, The Mana Lounge, Le Roi des Cartes (tcgandgames.com), Tadenac Games, Arctic Board Games (2 listed, 0 in stock)
+- F.G. Bradley's (Pickering, ON): site search finds none of our games
+- Blocked by Cloudflare (403 to scripts, like uplay): Imaginaire, Amazing Stories
+- Online shop closed (Shopify 402): The Kessel Run (Ottawa), Meeples and Milkshakes
+- No longer a store / site gone: Starlit Citadel (now a publisher), German Boardgame Company, Sentry Box (broken certificate), Hit Games, Board Game Warriors, Le Monde des Jeux, Rainy Day Games, Captain Boardgames
+- Not Shopify, would need a custom scraper: Game Keeper Online, The Connection Games (CrystalCommerce), Snakes & Lattes (Squarespace), Fun Games Cafe, Espace Jeux (no WooCommerce API), Geek Stop, Board Games N More, Magic Stronghold, Supernova, Craving for a Game, Boutique La Revanche, Castle, Playtime Games (Ottawa), Pe Metawe, Owl's Hollow, Toys on Fire, Victory Pints
 
 
 ## How to Add or Remove Stores in Codebase
