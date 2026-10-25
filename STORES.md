@@ -144,16 +144,18 @@ Notes: French discount retailer, often significantly undercutting Philibert on E
 
 ## How to Add or Remove Stores in Codebase
 
-To add a new store:
-1. `check-availability.js`:
-   - Add store config to `getStoreConfigs(skippedSellers)` (`type: 'shopify'`, `baseUrl`, `currencySymbol: '$'`, or custom checker).
-2. `notify-availability.js`:
-   - Add to `STORE_META` with display name and flag emoji icon.
-3. `api.js`:
-   - Add to shared `STORES` array (`{ key: '...', name: '🇨🇦 ...' }`).
-   - If foreign currency, add conversion in shared `formatPrice()`.
-4. `game-details.js`:
-   - Add to `storeNames` mapping if custom short label is preferred.
+Every store is defined once, in `store-registry.js`. The pipeline (`check-availability.js`), the alert emails (`notify-availability.js`) and the website (`api.js`, `game-details.js`, every page) all read from it.
+
+To add a **Shopify** store:
+1. Add one entry to `STORE_REGISTRY` in `store-registry.js` with `platform: 'shopify'`, its `country` (Shopify localization, e.g. `'CA'`) and `currency` (`CAD`, `USD`, `GBP` or `EUR`). Nothing else is needed.
+
+To add a **custom** store (HTML scraper, JSON API, Puppeteer, etc.):
+1. Add its entry to `store-registry.js` with `platform: 'custom'`.
+2. Add its checker under the same key in `getCustomStoreConfigs()` in `check-availability.js`.
+
+The checker throws on startup if a custom store has no checker, or a checker has no registry entry.
 
 To remove a store:
-- Reverse the edits in the files listed above.
+1. Delete its entry from `store-registry.js` (and its checker/parser if it's custom).
+2. Remove its key from the availability JSON files.
+3. Move it to **Removed Stores** above with the reason.

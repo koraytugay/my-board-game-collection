@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const https = require('https');
 const zlib = require('zlib');
+const { STORE_REGISTRY, buildStoreKeyAliases } = require('./store-registry');
 
 const isLikeToHave = process.argv.includes('--like-to-have') || process.argv.includes('--liketohave') || process.env.CHECK_TYPE === 'liketohave';
 const COLLECTION_FILE = 'collection.xml';
@@ -157,98 +158,7 @@ function decodeXmlEntities(str) {
         .replace(/&#(\d+);/g, (match, dec) => String.fromCharCode(dec));
 }
 
-const STORE_KEY_ALIASES = {
-    'boardgamebliss': 'boardGameBliss',
-    'bgb': 'boardGameBliss',
-    'boardgameblisscom': 'boardGameBliss',
-
-    'fourzeroonegames': 'fourZeroOneGames',
-    '401': 'fourZeroOneGames',
-    '401games': 'fourZeroOneGames',
-    'store401gamesca': 'fourZeroOneGames',
-
-    'lvlupgames': 'lvlUpGames',
-    'lvlup': 'lvlUpGames',
-    'lvlupgamesca': 'lvlUpGames',
-
-    'asdesjeux': 'asDesJeux',
-    'asdesjeuxcom': 'asDesJeux',
-
-    'greatboardgames': 'greatBoardgames',
-    'gbg': 'greatBoardgames',
-    'greatboardgamesca': 'greatBoardgames',
-
-    'meeplemart': 'meeplemart',
-    'meeplemartcom': 'meeplemart',
-
-    'kbhobbies': 'kbHobbies',
-    'kbhobbiescom': 'kbHobbies',
-
-    'miniaturemarket': 'miniatureMarket',
-    'miniaturemarketcom': 'miniatureMarket',
-
-    'cardhaus': 'cardhaus',
-    'cardhausgames': 'cardhaus',
-    'cardhauscom': 'cardhaus',
-
-    'thegamesteward': 'theGameSteward',
-    'gamesteward': 'theGameSteward',
-    'thegamestewardcom': 'theGameSteward',
-
-    'amazon': 'amazonCa',
-    'amazonca': 'amazonCa',
-
-    'woodforsheep': 'woodForSheep',
-    'woodforsheepca': 'woodForSheep',
-
-    'jjcards': 'jjCards',
-    'jjcardscom': 'jjCards',
-
-    'boardgamesca': 'boardgamesCa',
-    'boardgames': 'boardgamesCa',
-
-    'screenfreegames': 'screenFreeGames',
-    'screenfreegamescom': 'screenFreeGames',
-
-    'allsystemsgo': 'allSystemsGo',
-    'allsystemsgogames': 'allSystemsGo',
-
-    'tabletopcafe': 'tabletopCafe',
-    'tabletopcafeca': 'tabletopCafe',
-
-    'elevatedboardgames': 'elevatedBoardGames',
-    'elevatedboardgamescom': 'elevatedBoardGames',
-
-    'dicehollow': 'diceHollow',
-    'dicehollowcom': 'diceHollow',
-
-    'lapioche': 'laPioche',
-    'boutiquelapioche': 'laPioche',
-    'boutiquelapiochecom': 'laPioche',
-
-    'alwaysgames': 'alwaysGames',
-    'alwaysgamesca': 'alwaysGames',
-
-    'legendswarehouse': 'legendsWarehouse',
-    'legendswarehouseca': 'legendsWarehouse',
-
-    'boardgamebandit': 'boardGameBandit',
-    'boardgamebanditca': 'boardGameBandit',
-
-    'zatu': 'zatu',
-    'zatugames': 'zatu',
-    'zatucom': 'zatu',
-
-    'chaoscards': 'chaosCards',
-    'chaoscardsuk': 'chaosCards',
-    'chaoscardsnet': 'chaosCards',
-
-    'philibert': 'philibert',
-    'philibertnet': 'philibert',
-
-    'bggmarket': 'bggMarket',
-    'bgg': 'bggMarket'
-};
+const STORE_KEY_ALIASES = buildStoreKeyAliases();
 
 function resolveStoreKey(storeInput) {
     if (!storeInput) return '';
@@ -1465,36 +1375,9 @@ async function fetchAmazonWithPuppeteer(gameName) {
     }
 }
 
-function getStoreConfigs(skippedSellers = []) {
+// Checkers for stores whose registry platform is 'custom' (everything except generic Shopify).
+function getCustomStoreConfigs(skippedSellers = []) {
     return {
-        boardGameBliss: {
-            type: 'shopify',
-            baseUrl: 'https://www.boardgamebliss.com',
-            currencySymbol: '$',
-            country: 'CA',
-            currency: 'CAD'
-        },
-        fourZeroOneGames: {
-            type: 'shopify',
-            baseUrl: 'https://store.401games.ca',
-            currencySymbol: '$',
-            country: 'CA',
-            currency: 'CAD'
-        },
-        lvlUpGames: {
-            type: 'shopify',
-            baseUrl: 'https://www.lvlupgames.ca',
-            currencySymbol: '$',
-            country: 'CA',
-            currency: 'CAD'
-        },
-        asDesJeux: {
-            type: 'shopify',
-            baseUrl: 'https://www.asdesjeux.com',
-            currencySymbol: '$',
-            country: 'CA',
-            currency: 'CAD'
-        },
         greatBoardgames: {
             type: 'html',
             url: (game, query) => `https://www.greatboardgames.ca/search?q=${encodeURIComponent(query)}`,
@@ -1559,24 +1442,10 @@ function getStoreConfigs(skippedSellers = []) {
                 return null;
             }
         },
-        theGameSteward: {
-            type: 'shopify',
-            baseUrl: 'https://thegamesteward.com',
-            currencySymbol: '$',
-            country: 'US',
-            currency: 'USD'
-        },
         amazonCa: {
             type: 'puppeteer',
             url: (game) => `https://www.amazon.ca/s?k=${encodeURIComponent(game.name + " board game")}`,
             parser: null
-        },
-        woodForSheep: {
-            type: 'shopify',
-            baseUrl: 'https://www.woodforsheep.ca',
-            currencySymbol: '$',
-            country: 'CA',
-            currency: 'CAD'
         },
         jjCards: {
             type: 'html',
@@ -1623,79 +1492,16 @@ function getStoreConfigs(skippedSellers = []) {
                 return null;
             }
         },
-        screenFreeGames: {
-            type: 'shopify',
-            baseUrl: 'https://screenfreegames.com',
-            currencySymbol: '$',
-            country: 'CA',
-            currency: 'CAD'
-        },
-        allSystemsGo: {
-            type: 'shopify',
-            baseUrl: 'https://allsystemsgo.games',
-            currencySymbol: '$',
-            country: 'CA',
-            currency: 'CAD'
-        },
-        tabletopCafe: {
-            type: 'shopify',
-            baseUrl: 'https://www.tabletopcafe.ca',
-            currencySymbol: '$',
-            country: 'CA',
-            currency: 'CAD'
-        },
         elevatedBoardGames: {
             type: 'html',
             url: async (game) => await getElevatedBoardGamesProductUrl(game.name),
             parser: (html, gameName, targetUrl) => parseElevatedBoardGames(html, gameName, targetUrl)
-        },
-        diceHollow: {
-            type: 'shopify',
-            baseUrl: 'https://www.dicehollow.com',
-            currencySymbol: '$',
-            country: 'CA',
-            currency: 'CAD'
-        },
-        laPioche: {
-            type: 'shopify',
-            baseUrl: 'https://boutiquelapioche.com',
-            currencySymbol: '$',
-            country: 'CA',
-            currency: 'CAD'
-        },
-        alwaysGames: {
-            type: 'shopify',
-            baseUrl: 'https://alwaysgames.ca',
-            currencySymbol: '$',
-            country: 'CA',
-            currency: 'CAD'
-        },
-        legendsWarehouse: {
-            type: 'shopify',
-            baseUrl: 'https://legendswarehouse.ca',
-            currencySymbol: '$',
-            country: 'CA',
-            currency: 'CAD'
-        },
-        boardGameBandit: {
-            type: 'shopify',
-            baseUrl: 'https://boardgamebandit.ca',
-            currencySymbol: '$',
-            country: 'CA',
-            currency: 'CAD'
         },
         chaosCards: {
             type: 'custom',
             checker: async (game, existingStoreData) => {
                 return await checkChaosCardsStock(game.name);
             }
-        },
-        zatu: {
-            type: 'shopify',
-            baseUrl: 'https://zatu.com',
-            currencySymbol: '£',
-            country: 'GB',
-            currency: 'GBP'
         },
         philibert: {
             type: 'custom',
@@ -1776,6 +1582,35 @@ function getStoreConfigs(skippedSellers = []) {
             }
         }
     };
+}
+
+const CURRENCY_SYMBOLS = { CAD: '$', USD: '$', GBP: '£', EUR: '€' };
+
+// Builds the config for every store in store-registry.js, in registry order.
+function getStoreConfigs(skippedSellers = []) {
+    const customConfigs = getCustomStoreConfigs(skippedSellers);
+    const configs = {};
+    for (const store of STORE_REGISTRY) {
+        if (store.platform === 'shopify') {
+            configs[store.key] = {
+                type: 'shopify',
+                baseUrl: store.shopifyUrl || store.url,
+                currencySymbol: CURRENCY_SYMBOLS[store.currency],
+                country: store.country,
+                currency: store.currency
+            };
+        } else if (customConfigs[store.key]) {
+            configs[store.key] = customConfigs[store.key];
+        } else {
+            throw new Error(`Store "${store.key}" is marked custom in store-registry.js but has no checker in getCustomStoreConfigs()`);
+        }
+    }
+    for (const key of Object.keys(customConfigs)) {
+        if (!configs[key]) {
+            throw new Error(`Checker "${key}" in getCustomStoreConfigs() has no matching custom entry in store-registry.js`);
+        }
+    }
+    return configs;
 }
 
 // Populate KNOWN_SHOPIFY_HOSTS dynamically from store configurations

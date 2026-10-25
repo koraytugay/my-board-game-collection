@@ -1,41 +1,16 @@
 const fs = require('fs');
 const { execSync } = require('child_process');
 const nodemailer = require('nodemailer');
+const { STORE_REGISTRY, buildStoreKeyAliases } = require('./store-registry');
 
 const isLikeToHave = process.argv.includes('--like-to-have') || process.argv.includes('--liketohave') || process.env.CHECK_TYPE === 'liketohave';
 const AVAILABILITY_FILE = isLikeToHave ? 'availability-liketohave.json' : 'availability.json';
 const NOTIFIED_SNAPSHOT_FILE = isLikeToHave ? 'last-notified-availability-liketohave.json' : 'last-notified-availability.json';
 const COLLECTION_FILE = 'collection.xml';
 
-const STORE_META = {
-    boardGameBliss: { name: 'BoardGameBliss', icon: '🇨🇦' },
-    fourZeroOneGames: { name: '401 Games', icon: '🇨🇦' },
-    lvlUpGames: { name: 'LVLUP Games', icon: '🇨🇦' },
-    asDesJeux: { name: 'As des Jeux', icon: '🇨🇦' },
-    greatBoardgames: { name: 'Great Boardgames', icon: '🇨🇦' },
-    meeplemart: { name: 'Meeplemart', icon: '🇨🇦' },
-    kbHobbies: { name: 'KB Hobbies', icon: '🇨🇦' },
-    miniatureMarket: { name: 'Miniature Market', icon: '🇺🇸' },
-    cardhaus: { name: 'Cardhaus Games', icon: '🇺🇸' },
-    theGameSteward: { name: 'The Game Steward', icon: '🇺🇸' },
-    amazonCa: { name: 'Amazon.ca', icon: '🇨🇦' },
-    woodForSheep: { name: 'Wood for Sheep', icon: '🇨🇦' },
-    jjCards: { name: 'J&J Cards', icon: '🇨🇦' },
-    boardgamesCa: { name: 'Boardgames.ca', icon: '🇨🇦' },
-    screenFreeGames: { name: 'Screen Free Games', icon: '🇨🇦' },
-    allSystemsGo: { name: 'All Systems Go', icon: '🇨🇦' },
-    tabletopCafe: { name: 'Tabletop Cafe', icon: '🇨🇦' },
-    elevatedBoardGames: { name: 'Elevated Board Games', icon: '🇨🇦' },
-    diceHollow: { name: 'Dice Hollow', icon: '🇨🇦' },
-    laPioche: { name: 'La Pioche', icon: '🇨🇦' },
-    alwaysGames: { name: 'Always Games', icon: '🇨🇦' },
-    legendsWarehouse: { name: 'Legends Warehouse', icon: '🇨🇦' },
-    boardGameBandit: { name: 'Board Game Bandit', icon: '🇨🇦' },
-    zatu: { name: 'Zatu Games', icon: '🇬🇧' },
-    chaosCards: { name: 'Chaos Cards', icon: '🇬🇧' },
-    philibert: { name: 'Philibert', icon: '🇫🇷' },
-    bggMarket: { name: 'BGG Market', icon: '🏷️' }
-};
+const STORE_META = Object.fromEntries(
+    STORE_REGISTRY.map(store => [store.key, { name: store.name, icon: store.flag }])
+);
 
 const path = require('path');
 
@@ -63,98 +38,7 @@ function decodeXmlEntities(str) {
         .replace(/&#(\d+);/g, (match, dec) => String.fromCharCode(dec));
 }
 
-const STORE_KEY_ALIASES = {
-    'boardgamebliss': 'boardGameBliss',
-    'bgb': 'boardGameBliss',
-    'boardgameblisscom': 'boardGameBliss',
-
-    'fourzeroonegames': 'fourZeroOneGames',
-    '401': 'fourZeroOneGames',
-    '401games': 'fourZeroOneGames',
-    'store401gamesca': 'fourZeroOneGames',
-
-    'lvlupgames': 'lvlUpGames',
-    'lvlup': 'lvlUpGames',
-    'lvlupgamesca': 'lvlUpGames',
-
-    'asdesjeux': 'asDesJeux',
-    'asdesjeuxcom': 'asDesJeux',
-
-    'greatboardgames': 'greatBoardgames',
-    'gbg': 'greatBoardgames',
-    'greatboardgamesca': 'greatBoardgames',
-
-    'meeplemart': 'meeplemart',
-    'meeplemartcom': 'meeplemart',
-
-    'kbhobbies': 'kbHobbies',
-    'kbhobbiescom': 'kbHobbies',
-
-    'miniaturemarket': 'miniatureMarket',
-    'miniaturemarketcom': 'miniatureMarket',
-
-    'cardhaus': 'cardhaus',
-    'cardhausgames': 'cardhaus',
-    'cardhauscom': 'cardhaus',
-
-    'thegamesteward': 'theGameSteward',
-    'gamesteward': 'theGameSteward',
-    'thegamestewardcom': 'theGameSteward',
-
-    'amazon': 'amazonCa',
-    'amazonca': 'amazonCa',
-
-    'woodforsheep': 'woodForSheep',
-    'woodforsheepca': 'woodForSheep',
-
-    'jjcards': 'jjCards',
-    'jjcardscom': 'jjCards',
-
-    'boardgamesca': 'boardgamesCa',
-    'boardgames': 'boardgamesCa',
-
-    'screenfreegames': 'screenFreeGames',
-    'screenfreegamescom': 'screenFreeGames',
-
-    'allsystemsgo': 'allSystemsGo',
-    'allsystemsgogames': 'allSystemsGo',
-
-    'tabletopcafe': 'tabletopCafe',
-    'tabletopcafeca': 'tabletopCafe',
-
-    'elevatedboardgames': 'elevatedBoardGames',
-    'elevatedboardgamescom': 'elevatedBoardGames',
-
-    'dicehollow': 'diceHollow',
-    'dicehollowcom': 'diceHollow',
-
-    'lapioche': 'laPioche',
-    'boutiquelapioche': 'laPioche',
-    'boutiquelapiochecom': 'laPioche',
-
-    'alwaysgames': 'alwaysGames',
-    'alwaysgamesca': 'alwaysGames',
-
-    'legendswarehouse': 'legendsWarehouse',
-    'legendswarehouseca': 'legendsWarehouse',
-
-    'boardgamebandit': 'boardGameBandit',
-    'boardgamebanditca': 'boardGameBandit',
-
-    'zatu': 'zatu',
-    'zatugames': 'zatu',
-    'zatucom': 'zatu',
-
-    'chaoscards': 'chaosCards',
-    'chaoscardsuk': 'chaosCards',
-    'chaoscardsnet': 'chaosCards',
-
-    'philibert': 'philibert',
-    'philibertnet': 'philibert',
-
-    'bggmarket': 'bggMarket',
-    'bgg': 'bggMarket'
-};
+const STORE_KEY_ALIASES = buildStoreKeyAliases();
 
 function resolveStoreKey(storeInput) {
     if (!storeInput) return '';
@@ -300,12 +184,13 @@ function formatPrice(price, storeKey = null) {
     const num = parseFloat(match[0]);
     if (isNaN(num)) return str;
 
+    const storeCurrency = STORE_REGISTRY.find(store => store.key === storeKey)?.currency || null;
     let cadPrice;
-    if (str.includes('€') || /\bEUR\b/i.test(str) || storeKey === 'philibert') {
+    if (str.includes('€') || /\bEUR\b/i.test(str) || storeCurrency === 'EUR') {
         cadPrice = num * 1.65;
-    } else if (str.includes('£') || /\bGBP\b/i.test(str) || storeKey === 'zatu' || storeKey === 'chaosCards') {
+    } else if (str.includes('£') || /\bGBP\b/i.test(str) || storeCurrency === 'GBP') {
         cadPrice = num * 1.90;
-    } else if (/\bUSD\b/i.test(str) || /\$US\b/i.test(str) || /US\$/i.test(str) || storeKey === 'miniatureMarket' || storeKey === 'cardhaus' || storeKey === 'theGameSteward') {
+    } else if (/\bUSD\b/i.test(str) || /\$US\b/i.test(str) || /US\$/i.test(str) || storeCurrency === 'USD') {
         cadPrice = num * 1.40;
     } else {
         cadPrice = num;

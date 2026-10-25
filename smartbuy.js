@@ -28,11 +28,12 @@ function getNumericCadPrice(price, storeKey = null) {
     const num = parseFloat(match[0]);
     if (isNaN(num)) return 0;
 
-    if (str.includes('€') || /\bEUR\b/i.test(str) || storeKey === 'philibert') {
+    const storeCurrency = getStoreCurrency(storeKey);
+    if (str.includes('€') || /\bEUR\b/i.test(str) || storeCurrency === 'EUR') {
         return num * 1.65;
-    } else if (str.includes('£') || /\bGBP\b/i.test(str) || storeKey === 'zatu' || storeKey === 'chaosCards') {
+    } else if (str.includes('£') || /\bGBP\b/i.test(str) || storeCurrency === 'GBP') {
         return num * 1.90;
-    } else if (/\bUSD\b/i.test(str) || /\$US\b/i.test(str) || /US\$/i.test(str) || storeKey === 'miniatureMarket' || storeKey === 'cardhaus' || storeKey === 'theGameSteward') {
+    } else if (/\bUSD\b/i.test(str) || /\$US\b/i.test(str) || /US\$/i.test(str) || storeCurrency === 'USD') {
         return num * 1.40;
     }
     return num;

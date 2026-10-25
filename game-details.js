@@ -224,34 +224,11 @@ async function showGameDetails(objectId) {
     const avail = gdCachedAvailability ? gdCachedAvailability[objectId] : null;
     let storeChipsHtml = '';
     if (avail) {
-        const storeNames = {
-            boardGameBliss: '🇨🇦 BoardGameBliss',
-            fourZeroOneGames: '🇨🇦 401 Games',
-            lvlUpGames: '🇨🇦 LVLUP Games',
-            asDesJeux: '🇨🇦 As des Jeux',
-            greatBoardgames: '🇨🇦 Great Boardgames',
-            meeplemart: '🇨🇦 Meeplemart',
-            kbHobbies: '🇨🇦 KB Hobbies',
-            miniatureMarket: '🇺🇸 Miniature Market',
-            cardhaus: '🇺🇸 Cardhaus Games',
-            theGameSteward: '🇺🇸 The Game Steward',
-            amazonCa: '🇨🇦 Amazon.ca',
-            woodForSheep: '🇨🇦 Wood for Sheep',
-            jjCards: '🇨🇦 J&J Cards',
-            boardgamesCa: '🇨🇦 Boardgames.ca',
-            screenFreeGames: '🇨🇦 Screen Free',
-            allSystemsGo: '🇨🇦 All Systems Go',
-            tabletopCafe: '🇨🇦 Tabletop Cafe',
-            elevatedBoardGames: '🇨🇦 Elevated BG',
-            diceHollow: '🇨🇦 Dice Hollow',
-            laPioche: '🇨🇦 La Pioche',
-            alwaysGames: '🇨🇦 Always Games',
-            legendsWarehouse: '🇨🇦 Legends Warehouse',
-            boardGameBandit: '🇨🇦 Board Game Bandit',
-            zatu: '🇬🇧 Zatu Games',
-            chaosCards: '🇬🇧 Chaos Cards',
-            philibert: '🇫🇷 Philibert'
-        };
+        const storeNames = Object.fromEntries(
+            STORE_REGISTRY
+                .filter(store => store.key !== 'bggMarket')
+                .map(store => [store.key, store.shortLabel || getStoreLabel(store)])
+        );
 
         Object.keys(storeNames).forEach(key => {
             const store = avail[key];

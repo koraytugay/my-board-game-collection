@@ -243,35 +243,11 @@ function calculateHIndex(games) {
 }
 
 // --- Shared Store Definitions & Price Formatting ---
-const STORES = [
-    { key: 'boardGameBliss', name: '🇨🇦 BoardGameBliss', url: 'https://www.boardgamebliss.com' },
-    { key: 'fourZeroOneGames', name: '🇨🇦 401 Games', url: 'https://store.401games.ca' },
-    { key: 'lvlUpGames', name: '🇨🇦 LVLUP Games', url: 'https://www.lvlupgames.ca' },
-    { key: 'asDesJeux', name: '🇨🇦 As des Jeux', url: 'https://www.asdesjeux.com' },
-    { key: 'greatBoardgames', name: '🇨🇦 Great Boardgames', url: 'https://www.greatboardgames.ca' },
-    { key: 'meeplemart', name: '🇨🇦 Meeplemart', url: 'https://www.meeplemart.com' },
-    { key: 'kbHobbies', name: '🇨🇦 KB Hobbies', url: 'https://kbhobbies.com' },
-    { key: 'miniatureMarket', name: '🇺🇸 Miniature Market', url: 'https://www.miniaturemarket.com' },
-    { key: 'cardhaus', name: '🇺🇸 Cardhaus Games', url: 'https://www.cardhaus.com' },
-    { key: 'theGameSteward', name: '🇺🇸 The Game Steward', url: 'https://thegamesteward.com' },
-    { key: 'amazonCa', name: '🇨🇦 Amazon.ca', url: 'https://www.amazon.ca' },
-    { key: 'woodForSheep', name: '🇨🇦 Wood for Sheep', url: 'https://www.woodforsheep.ca' },
-    { key: 'jjCards', name: '🇨🇦 J&J Cards', url: 'https://jjcards.com' },
-    { key: 'boardgamesCa', name: '🇨🇦 Boardgames.ca', url: 'https://boardgames.ca' },
-    { key: 'screenFreeGames', name: '🇨🇦 Screen Free Games', url: 'https://screenfreegames.com' },
-    { key: 'allSystemsGo', name: '🇨🇦 All Systems Go', url: 'https://allsystemsgo.games' },
-    { key: 'tabletopCafe', name: '🇨🇦 Tabletop Cafe', url: 'https://www.tabletopcafe.ca' },
-    { key: 'elevatedBoardGames', name: '🇨🇦 Elevated Board Games', url: 'https://elevatedboardgames.com' },
-    { key: 'diceHollow', name: '🇨🇦 Dice Hollow', url: 'https://www.dicehollow.com' },
-    { key: 'laPioche', name: '🇨🇦 La Pioche', url: 'https://boutiquelapioche.com' },
-    { key: 'alwaysGames', name: '🇨🇦 Always Games', url: 'https://alwaysgames.ca' },
-    { key: 'legendsWarehouse', name: '🇨🇦 Legends Warehouse', url: 'https://legendswarehouse.ca' },
-    { key: 'boardGameBandit', name: '🇨🇦 Board Game Bandit', url: 'https://boardgamebandit.ca' },
-    { key: 'zatu', name: '🇬🇧 Zatu Games', url: 'https://zatu.com' },
-    { key: 'chaosCards', name: '🇬🇧 Chaos Cards', url: 'https://www.chaoscards.co.uk' },
-    { key: 'philibert', name: '🇫🇷 Philibert', url: 'https://www.philibertnet.com' },
-    { key: 'bggMarket', name: 'BGG Market', url: 'https://boardgamegeek.com/market' }
-];
+const STORES = STORE_REGISTRY.map(store => ({ key: store.key, name: getStoreLabel(store), url: store.url }));
+
+function getStoreCurrency(storeKey) {
+    return STORE_REGISTRY.find(store => store.key === storeKey)?.currency || null;
+}
 
 function formatPrice(price, storeKey = null) {
     if (!price && price !== 0) return '';
@@ -284,12 +260,13 @@ function formatPrice(price, storeKey = null) {
     const num = parseFloat(match[0]);
     if (isNaN(num)) return str;
 
+    const storeCurrency = getStoreCurrency(storeKey);
     let cadPrice;
-    if (str.includes('€') || /\bEUR\b/i.test(str) || storeKey === 'philibert') {
+    if (str.includes('€') || /\bEUR\b/i.test(str) || storeCurrency === 'EUR') {
         cadPrice = num * 1.65;
-    } else if (str.includes('£') || /\bGBP\b/i.test(str) || storeKey === 'zatu' || storeKey === 'chaosCards') {
+    } else if (str.includes('£') || /\bGBP\b/i.test(str) || storeCurrency === 'GBP') {
         cadPrice = num * 1.90;
-    } else if (/\bUSD\b/i.test(str) || /\$US\b/i.test(str) || /US\$/i.test(str) || storeKey === 'miniatureMarket' || storeKey === 'cardhaus' || storeKey === 'theGameSteward') {
+    } else if (/\bUSD\b/i.test(str) || /\$US\b/i.test(str) || /US\$/i.test(str) || storeCurrency === 'USD') {
         cadPrice = num * 1.40;
     } else {
         cadPrice = num;
