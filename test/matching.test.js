@@ -26,7 +26,13 @@ const SHOULD_MATCH = [
     ['A Gentle Rain', 'A Gentle Rain (Hobby Edition)'],
     ['Ubongo', 'Ubongo Board Game (English)'],
     ['Witchcraft!', 'Witchcraft!'],
-    ['Back to the Future: Back in Time', 'Back to the Future: Back in Time']
+    ['Back to the Future: Back in Time', 'Back to the Future: Back in Time'],
+    // edition label, dropped "The", "&" spelled out
+    ['A Gentle Rain', 'A Gentle Rain: Hobby Edition (Core Game)'],
+    ['The Search for Planet X', 'Search for Planet X'],
+    ['Joan of Arc: Orléans Draw & Write', 'Joan of Arc Orleans Draw and Write'],
+    ['Joan of Arc: Orléans Draw & Write', 'Joan Of Arc Orleans Draw Write'],   // J&J Cards URL slug
+    ['Queen of Spies', 'The Queen of Spies']
 ];
 
 const SHOULD_NOT_MATCH = [
@@ -72,13 +78,6 @@ const SHOULD_NOT_MATCH = [
     ['Skara Brae', 'Skara Brae - Édition française']
 ];
 
-// Real listings the matcher currently misses; flip to SHOULD_MATCH once handled.
-const KNOWN_MISSES = [
-    ['A Gentle Rain', 'A Gentle Rain: Hobby Edition (Core Game)'],
-    ['The Search for Planet X', 'Search for Planet X'],
-    ['Joan of Arc: Orléans Draw & Write', 'Joan of Arc Orleans Draw and Write']
-];
-
 for (const [bgg, title, type] of SHOULD_MATCH) {
     test(`matches: "${bgg}" ~ "${title}"${type ? ` [${type}]` : ''}`, () => {
         assert.equal(isMatch(bgg, product(title, type)), true);
@@ -88,12 +87,6 @@ for (const [bgg, title, type] of SHOULD_MATCH) {
 for (const [bgg, title, type] of SHOULD_NOT_MATCH) {
     test(`rejects: "${bgg}" vs "${title}"${type ? ` [${type}]` : ''}`, () => {
         assert.equal(isMatch(bgg, product(title, type)), false);
-    });
-}
-
-for (const [bgg, title] of KNOWN_MISSES) {
-    test(`known miss: "${bgg}" ~ "${title}"`, { todo: 'matcher does not handle this yet' }, () => {
-        assert.equal(isMatch(bgg, product(title)), true);
     });
 }
 
