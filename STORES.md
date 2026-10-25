@@ -33,7 +33,6 @@ United Kingdom & Europe:
 - Zatu Games: https://zatu.com (Shopify)
 - Chaos Cards: https://www.chaoscards.co.uk (Custom)
 - Philibert: https://www.philibertnet.com (Custom)
-- uplay.it: https://www.uplay.it (HTML)
 
 Marketplace:
 - BGG Market: https://boardgamegeek.com/market (BGG Geekdo API)
@@ -61,6 +60,8 @@ The following stores were evaluated, tracked, and permanently removed due to hav
    - Reason: Only 1 game carried (1/22 across Want to Buy and Like to Have lists). Store focuses heavily on Magic: The Gathering, Pokémon, and Warhammer miniatures (237k+ items) with an extremely small board game catalog (~288 items total). Titles use custom prefixes ("Boardgames - ", "Board Game - [Publisher] - "), pricing is at or above MSRP, and its massive card singles catalog causes heavy false-positive search noise.
 9. **Top Shelf Co** (https://topshelfco.ca - 🇨🇦)
    - Reason: 0 games in stock / not carried (0/63 across Want to Buy, Want in Trade, and Like to Have lists). Store focuses heavily on TCGs (Pokémon, Magic: The Gathering, Lorcana, Altered, Yu-Gi-Oh!), Warhammer miniatures, Gundam models, and paints/hobby supplies (8,200+ items total) with a small board game catalog (~379 items) limited to mass-market/evergreen titles. Its massive card singles and supplies catalog creates significant false-positive noise on common title keywords.
+10. **uplay.it** (https://www.uplay.it - 🇮🇹)
+   - Reason: Cloudflare returns HTTP 403 to every request from GitHub Actions runners (datacenter IPs), so the pipeline can never check it. It works from a home connection, so the code is fine. The block is IP-based, and Puppeteer will not get around it. Every check failed from when it was added (2026-10-06) until it was removed (2026-10-25). European stock is already covered by Philibert and Zatu. **Never add back.**
 
 
 

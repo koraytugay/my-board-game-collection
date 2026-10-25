@@ -246,10 +246,6 @@ const STORE_KEY_ALIASES = {
     'philibert': 'philibert',
     'philibertnet': 'philibert',
 
-    'uplay': 'uplay',
-    'uplayit': 'uplay',
-    'uplaygames': 'uplay',
-
     'bggmarket': 'bggMarket',
     'bgg': 'bggMarket'
 };
@@ -1171,54 +1167,6 @@ function parseCardhaus(html, gameName) {
     return findBestShopifyMatch(products, gameName);
 }
 
-// Parser for uplay.it HTML
-function parseUplay(html, gameName) {
-    if (!html) return null;
-    const items = html.split(/<div[^>]*class="[^"]*product-wrapper\b[^"]*"[^>]*>/i).slice(1);
-    const products = [];
-
-    for (const item of items) {
-        const titleMatch = item.match(/<a[^>]*class="[^"]*block-name[^"]*"[^>]*href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/i) ||
-                           item.match(/<a[^>]*href="([^"]+)"[^>]*class="[^"]*block-name[^"]*"[^>]*>([\s\S]*?)<\/a>/i);
-        if (!titleMatch) continue;
-
-        let url = titleMatch[1].trim();
-        if (!url.startsWith('http')) {
-            url = url.startsWith('/') ? `https://www.uplay.it${url}` : `https://www.uplay.it/${url}`;
-        }
-        const title = decodeXmlEntities(titleMatch[2].replace(/<[^>]+>/g, '').trim());
-
-        const promoMatch = item.match(/<div[^>]*class="[^"]*promo-price[^"]*"[^>]*>([\s\S]*?)<p>/i);
-        const priceMatch = item.match(/<div[^>]*class="[^"]*(?:retail-)?price[^"]*"[^>]*>([\s\S]*?)<\/div>/i);
-        const rawPrice = promoMatch ? promoMatch[1] : (priceMatch ? priceMatch[1] : null);
-        let price = null;
-        if (rawPrice) {
-            const clean = rawPrice.trim();
-            const numMatch = clean.replace(/[^0-9,.]/g, '').replace(/\.(?=\d{3})/g, '').replace(',', '.');
-            if (numMatch && !isNaN(parseFloat(numMatch))) {
-                price = `€${parseFloat(numMatch).toFixed(2)}`;
-            }
-        }
-
-        const hasAddToCart = /action="[^"]*add-cart"/i.test(item);
-        const isCannotOrder = /notOrderableText|cannot be ordered|non ordinabile/i.test(item);
-        const btnMatch = item.match(/<button[^>]*>([\s\S]*?)<\/button>/i);
-        const btnText = btnMatch ? btnMatch[1].replace(/<[^>]+>/g, '').trim() : '';
-        const isPreorder = /pre-?order|prenota/i.test(btnText);
-        const available = hasAddToCart && !isCannotOrder && !isPreorder && /(add|aggiungi)/i.test(btnText);
-
-        products.push({
-            title,
-            price,
-            available,
-            url,
-            type: 'Board Games'
-        });
-    }
-
-    return findBestShopifyMatch(products, gameName);
-}
-
 // Parser for Meeplemart HTML
 function parseMeeplemart(html, gameName) {
     if (!html) return null;
@@ -1753,21 +1701,6 @@ function getStoreConfigs(skippedSellers = []) {
             type: 'custom',
             checker: async (game, existingStoreData) => {
                 return await checkPhilibertStock(game.name);
-            }
-        },
-        uplay: {
-            type: 'html',
-            url: (game, query) => `https://www.uplay.it/en/search?query=${encodeURIComponent(query)}`,
-            parser: (html, gameName) => {
-                const match = parseUplay(html, gameName);
-                if (match) {
-                    return {
-                        available: match.available,
-                        price: match.price,
-                        url: match.url
-                    };
-                }
-                return null;
             }
         },
         bggMarket: {
