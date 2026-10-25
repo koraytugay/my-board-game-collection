@@ -42,8 +42,8 @@ async function fetchSmartBuyData() {
             designersRes
         ] = await Promise.all([
             getCollection(false).catch(err => { console.warn('Collection load error:', err); return []; }),
-            fetch('availability.json').then(res => res.ok ? res.json() : {}).catch(() => ({})),
-            fetch('availability-liketohave.json').then(res => res.ok ? res.json() : {}).catch(() => ({})),
+            loadAvailabilityFile('availability.json'),
+            loadAvailabilityFile('availability-liketohave.json'),
             fetch('designers.json').then(res => res.ok ? res.json() : {}).catch(() => ({}))
         ]);
 
@@ -187,6 +187,7 @@ async function fetchSmartBuyData() {
 
         loadingEl.style.display = 'none';
         contentEl.style.display = 'block';
+        renderStockStatus(storeAvail, likeToHaveAvail);
 
         loadDarkModePreference();
 

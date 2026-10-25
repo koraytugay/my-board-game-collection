@@ -11,8 +11,8 @@ async function fetchCollection() {
     try {
         const [collection, availabilityRes, likeToHaveAvailRes, designersRes] = await Promise.all([
             getCollection('wantintrade'),
-            fetch('availability.json').then(res => res.ok ? res.json() : {}).catch(() => ({})),
-            fetch('availability-liketohave.json').then(res => res.ok ? res.json() : {}).catch(() => ({})),
+            loadAvailabilityFile('availability.json'),
+            loadAvailabilityFile('availability-liketohave.json'),
             fetch('designers.json').then(res => res.ok ? res.json() : {}).catch(() => ({}))
         ]);
         
@@ -29,6 +29,7 @@ async function fetchCollection() {
         
         loadingEl.style.display = 'none';
         controlsEl.style.display = 'block';
+        renderStockStatus(availabilityRes, likeToHaveAvailRes);
         
         loadDarkModePreference();
 

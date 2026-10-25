@@ -186,8 +186,8 @@ async function fetchAllStoreGames() {
             skippedSellersData
         ] = await Promise.all([
             getCollection(false).catch(err => { console.warn('Collection load error:', err); return []; }),
-            fetch('availability.json').then(res => res.ok ? res.json() : {}).catch(() => ({})),
-            fetch('availability-liketohave.json').then(res => res.ok ? res.json() : {}).catch(() => ({})),
+            loadAvailabilityFile('availability.json'),
+            loadAvailabilityFile('availability-liketohave.json'),
             fetch('designers.json').then(res => res.ok ? res.json() : {}).catch(() => ({})),
             fetch('skipped-sellers.json').then(res => res.ok ? res.json() : []).catch(() => [])
         ]);
@@ -256,6 +256,8 @@ async function fetchAllStoreGames() {
 
         loadingEl.style.display = 'none';
         controlsEl.style.display = 'block';
+        renderStockStatus(storeAvail, likeToHaveAvail);
+        renderStoreHealth(storeAvail, likeToHaveAvail);
 
         loadDarkModePreference();
 
@@ -412,10 +414,12 @@ function createGameCard(game) {
         const priceText = formatPrice(store.price, storeKey);
         const hasDeal = store.deal && store.deal.discountPercent >= 20;
         const prevPriceText = hasDeal ? formatPrice(store.deal.previousPrice, storeKey) : '';
-        const chipClass = isBggMarket ? 'store-chip bgg-market' : (hasDeal ? 'store-chip has-deal' : 'store-chip');
+        const stale = isStaleCheck(store.lastChecked);
+        const chipClass = (isBggMarket ? 'store-chip bgg-market' : (hasDeal ? 'store-chip has-deal' : 'store-chip')) + (stale ? ' stale' : '');
         const dealBadge = hasDeal ? `<span class="chip-deal-badge">-${store.deal.discountPercent}%</span>` : '';
+        const staleNote = stale ? ` · as of ${formatCheckDate(store.lastChecked)}, may be out of date` : '';
         return `
-            <a href="${store.url}" target="_blank" class="${chipClass}" title="View on ${name}${hasDeal ? ` (Was ${prevPriceText}, now ${priceText})` : ''}">
+            <a href="${store.url}" target="_blank" class="${chipClass}" title="View on ${name}${hasDeal ? ` (Was ${prevPriceText}, now ${priceText})` : ''}${staleNote}">
                 <span class="store-chip-name">${name}</span>
                 ${priceText ? `<span class="store-chip-price">${priceText} ${dealBadge}</span>` : ''}
             </a>
@@ -433,7 +437,8 @@ function createGameCard(game) {
             storeButtonsHtml += renderStoreChip({
                 available: true,
                 price: listing.price,
-                url: listing.url
+                url: listing.url,
+                lastChecked: game.availability?.bggMarket?.lastChecked
             }, label, 'bggMarket', true);
         });
     }
@@ -505,3 +510,54 @@ function loadDarkModePreference() {
 document.addEventListener('DOMContentLoaded', () => {
     fetchAllStoreGames();
 });
+
+// Per-store check results across both lists, so a store that keeps failing (or stopped being
+// checked) stands out. Shown under the stock status line.
+function renderStoreHealth(...availabilityMaps) {
+    document.getElementById('store-health')?.remove();
+    const anchor = document.getElementById('stock-status') || document.getElementById('error');
+    if (!anchor) return;
+
+    const health = STORES.map(store => {
+        let checks = 0, failures = 0, lastSuccess = null;
+        for (const map of availabilityMaps) {
+            for (const stores of Object.values(map || {})) {
+                const data = stores?.[store.key];
+                if (!data) continue;
+                checks++;
+                if (data.lastCheckSuccess === false) failures++;
+                else if (data.lastChecked && (!lastSuccess || data.lastChecked > lastSuccess)) lastSuccess = data.lastChecked;
+            }
+        }
+        const stale = !lastSuccess || isStaleCheck(lastSuccess);
+        return { ...store, checks, failures, lastSuccess, needsAttention: checks > 0 && (failures > 0 || stale) };
+    }).filter(s => s.checks > 0);
+
+    health.sort((a, b) => (b.needsAttention - a.needsAttention) || (b.failures - a.failures) || a.name.localeCompare(b.name));
+    const problemCount = health.filter(s => s.needsAttention).length;
+
+    const rows = health.map(s => {
+        const status = !s.needsAttention ? '<span class="health-ok">OK</span>'
+            : !s.lastSuccess ? '<span class="health-bad">Never succeeded</span>'
+            : s.failures > 0 ? `<span class="health-bad">${s.failures} failed</span>`
+            : '<span class="health-bad">Out of date</span>';
+        return `<tr class="${s.needsAttention ? 'needs-attention' : ''}">
+            <td>${escapeHtml(s.name)}</td>
+            <td>${s.checks - s.failures} / ${s.checks}</td>
+            <td title="${s.lastSuccess ? formatCheckDate(s.lastSuccess) : ''}">${s.lastSuccess ? formatCheckAge(s.lastSuccess) : 'never'}</td>
+            <td>${status}</td>
+        </tr>`;
+    }).join('');
+
+    const el = document.createElement('details');
+    el.id = 'store-health';
+    el.className = 'store-health';
+    el.open = problemCount > 0;
+    el.innerHTML = `
+        <summary>Store health: ${health.length - problemCount} OK${problemCount ? ` · <strong>${problemCount} need${problemCount === 1 ? 's' : ''} attention</strong>` : ''}</summary>
+        <table>
+            <thead><tr><th>Store</th><th>Latest checks OK</th><th>Last success</th><th>Status</th></tr></thead>
+            <tbody>${rows}</tbody>
+        </table>`;
+    anchor.insertAdjacentElement('afterend', el);
+}

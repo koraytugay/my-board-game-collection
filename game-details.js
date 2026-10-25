@@ -36,8 +36,8 @@ async function ensureDataLoaded() {
     if (!gdCachedAvailability) {
         promises.push(
             Promise.all([
-                fetch('availability.json').then(r => r.ok ? r.json() : {}).catch(() => ({})),
-                fetch('availability-liketohave.json').then(r => r.ok ? r.json() : {}).catch(() => ({}))
+                loadAvailabilityFile('availability.json'),
+                loadAvailabilityFile('availability-liketohave.json')
             ]).then(([avail, likeAvail]) => {
                 gdCachedAvailability = { ...likeAvail, ...avail };
             })

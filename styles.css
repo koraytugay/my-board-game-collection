@@ -1519,3 +1519,55 @@ body.dark-mode .store-chip.has-deal .store-chip-price {
     background: rgba(237, 137, 54, 0.25);
     color: #fc8181;
 }
+
+/* ===== Stock data freshness ===== */
+.stock-status {
+    margin-bottom: 12px;
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    border: 1px solid #edf2f7;
+    background: white;
+    color: #4a5568;
+}
+.stock-status-date { color: #a0aec0; }
+.stock-status-warn { background: #fffbeb; border-color: #fde68a; color: #92400e; }
+.stock-status-stale { background: #fef2f2; border-color: #fecaca; color: #991b1b; }
+.stock-status-problem { margin-top: 4px; font-weight: 600; }
+
+body.dark-mode .stock-status { background: #2a2a2a; border-color: #3a3a3a; color: #cbd5e0; }
+body.dark-mode .stock-status-date { color: #718096; }
+body.dark-mode .stock-status-warn { background: rgba(245, 158, 11, 0.12); border-color: rgba(245, 158, 11, 0.35); color: #fbbf24; }
+body.dark-mode .stock-status-stale { background: rgba(239, 68, 68, 0.12); border-color: rgba(239, 68, 68, 0.35); color: #f87171; }
+
+/* store chip whose data is more than a day old */
+.store-chip.stale { opacity: 0.55; border-style: dashed; }
+
+/* ===== Store health (Stores page) ===== */
+.store-health {
+    margin-bottom: 16px;
+    padding: 8px 14px;
+    border-radius: 8px;
+    border: 1px solid #edf2f7;
+    background: white;
+    font-size: 0.85rem;
+    color: #4a5568;
+}
+.store-health summary { cursor: pointer; padding: 2px 0; }
+.store-health table { width: 100%; border-collapse: collapse; margin-top: 8px; }
+.store-health th, .store-health td { text-align: left; padding: 5px 8px; border-top: 1px solid #edf2f7; }
+.store-health th { font-weight: 600; color: #718096; }
+.store-health tr.needs-attention td { background: #fef2f2; }
+.store-health .health-ok { color: #166534; font-weight: 600; }
+.store-health .health-bad { color: #b91c1c; font-weight: 600; }
+
+body.dark-mode .store-health { background: #2a2a2a; border-color: #3a3a3a; color: #cbd5e0; }
+body.dark-mode .store-health th, body.dark-mode .store-health td { border-top-color: #3a3a3a; }
+body.dark-mode .store-health th { color: #a0aec0; }
+body.dark-mode .store-health tr.needs-attention td { background: rgba(239, 68, 68, 0.12); }
+body.dark-mode .store-health .health-ok { color: #4ade80; }
+body.dark-mode .store-health .health-bad { color: #f87171; }
+
+@media (max-width: 600px) {
+    .store-health th:nth-child(2), .store-health td:nth-child(2) { display: none; }
+}

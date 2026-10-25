@@ -176,9 +176,7 @@ async function fetchCollection() {
         const [collection, designersRes, ...availabilityResults] = await Promise.all([
             getCollection(wishlistConfig.collection),
             fetch('designers.json').then(res => res.ok ? res.json() : {}).catch(() => ({})),
-            ...wishlistConfig.availabilityFiles.map(file =>
-                fetch(file).then(res => res.ok ? res.json() : {}).catch(() => ({}))
-            )
+            ...wishlistConfig.availabilityFiles.map(loadAvailabilityFile)
         ]);
 
         const availabilityMap = Object.assign({}, ...availabilityResults);
@@ -198,6 +196,7 @@ async function fetchCollection() {
 
         loadingEl.style.display = 'none';
         controlsEl.style.display = 'block';
+        renderStockStatus(...availabilityResults);
 
         loadDarkModePreference();
 
@@ -402,10 +401,12 @@ function createGameCard(game) {
         const priceText = formatPrice(store.price, storeKey);
         const hasDeal = store.deal && store.deal.discountPercent >= 20;
         const prevPriceText = hasDeal ? formatPrice(store.deal.previousPrice, storeKey) : '';
-        const chipClass = isBggMarket ? 'store-chip bgg-market' : (hasDeal ? 'store-chip has-deal' : 'store-chip');
+        const stale = isStaleCheck(store.lastChecked);
+        const chipClass = (isBggMarket ? 'store-chip bgg-market' : (hasDeal ? 'store-chip has-deal' : 'store-chip')) + (stale ? ' stale' : '');
         const dealBadge = hasDeal ? `<span class="chip-deal-badge">-${store.deal.discountPercent}%</span>` : '';
+        const staleNote = stale ? ` · as of ${formatCheckDate(store.lastChecked)}, may be out of date` : '';
         return `
-            <a href="${store.url}" target="_blank" class="${chipClass}" title="View on ${name}${hasDeal ? ` (Was ${prevPriceText}, now ${priceText})` : ''}">
+            <a href="${store.url}" target="_blank" class="${chipClass}" title="View on ${name}${hasDeal ? ` (Was ${prevPriceText}, now ${priceText})` : ''}${staleNote}">
                 <span class="store-chip-name">${name}</span>
                 ${priceText ? `<span class="store-chip-price">${priceText} ${dealBadge}</span>` : ''}
             </a>
@@ -423,7 +424,8 @@ function createGameCard(game) {
             storeButtonsHtml += renderStoreChip({
                 available: true,
                 price: listing.price,
-                url: listing.url
+                url: listing.url,
+                lastChecked: game.availability?.bggMarket?.lastChecked
             }, label, 'bggMarket', true);
         });
     }

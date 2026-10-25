@@ -357,3 +357,81 @@ function getGameDealInfo(game) {
 function hasGameMajorDeal(game) {
     return getGameDealInfo(game) !== null;
 }
+
+// --- Stock Data Freshness ---
+const STOCK_WARN_HOURS = 12;   // status line turns amber
+const STOCK_STALE_HOURS = 24;  // status line turns red, store chips fade
+
+// Problems hit while loading availability files, shown by renderStockStatus().
+const stockDataProblems = [];
+
+// Loads an availability JSON file. On failure returns {} like before, but records the problem.
+async function loadAvailabilityFile(file) {
+    try {
+        const res = await fetch(file);
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        return await res.json();
+    } catch (error) {
+        console.error(`Could not load ${file}:`, error);
+        stockDataProblems.push(`${file} could not be loaded (${error.message})`);
+        return {};
+    }
+}
+
+function hoursSince(isoDate) {
+    const t = Date.parse(isoDate);
+    return isNaN(t) ? null : (Date.now() - t) / 3600000;
+}
+
+function isStaleCheck(isoDate) {
+    const hours = hoursSince(isoDate);
+    return hours !== null && hours > STOCK_STALE_HOURS;
+}
+
+function formatCheckAge(isoDate) {
+    const hours = hoursSince(isoDate);
+    if (hours === null) return 'never';
+    if (hours < 1) return `${Math.max(1, Math.round(hours * 60))} min ago`;
+    if (hours < 48) return `${Math.round(hours)} hour${Math.round(hours) === 1 ? '' : 's'} ago`;
+    return `${Math.round(hours / 24)} days ago`;
+}
+
+function formatCheckDate(isoDate) {
+    const d = new Date(isoDate);
+    return isNaN(d) ? 'unknown' : d.toLocaleString(undefined, { weekday: 'short', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' });
+}
+
+// Newest lastChecked across one or more availability maps ({ gameId: { storeKey: data } }).
+function getNewestStockCheck(...availabilityMaps) {
+    let newest = null;
+    for (const map of availabilityMaps) {
+        for (const stores of Object.values(map || {})) {
+            for (const data of Object.values(stores || {})) {
+                if (data?.lastChecked && (!newest || data.lastChecked > newest)) newest = data.lastChecked;
+            }
+        }
+    }
+    return newest;
+}
+
+// Shows "Stock checked X ago" (amber/red when old) plus any load problems, just below #error.
+function renderStockStatus(...availabilityMaps) {
+    const anchor = document.getElementById('error');
+    if (!anchor) return;
+    document.getElementById('stock-status')?.remove();
+
+    const newest = getNewestStockCheck(...availabilityMaps);
+    const hours = hoursSince(newest);
+    const level = stockDataProblems.length || hours === null || hours > STOCK_STALE_HOURS ? 'stale'
+        : hours > STOCK_WARN_HOURS ? 'warn' : 'ok';
+
+    const el = document.createElement('div');
+    el.id = 'stock-status';
+    el.className = `stock-status stock-status-${level}`;
+    const checked = newest
+        ? `Stock checked <strong>${formatCheckAge(newest)}</strong> <span class="stock-status-date">(${formatCheckDate(newest)})</span>`
+        : 'No stock checks found';
+    const problems = stockDataProblems.map(p => `<div class="stock-status-problem">⚠️ ${escapeHtml(p)}. Stock shown may be incomplete.</div>`).join('');
+    el.innerHTML = `<div>${level === 'ok' ? '🟢' : level === 'warn' ? '🟡' : '🔴'} ${checked}</div>${problems}`;
+    anchor.insertAdjacentElement('afterend', el);
+}
