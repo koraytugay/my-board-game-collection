@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-25T12:36:10.502Z",
+  "generatedAt": "2026-10-25T19:05:29.965Z",
   "total": 400,
   "recommendations": [
     {
@@ -2023,7 +2023,7 @@
       "thumbnail": "images/thumbnails/358690.png",
       "image": "images/full/358690.png",
       "description": "A colorfully cutthroat card game of RAINBOWS and REVENGE.",
-      "rawScore": 11.632495744801682,
+      "rawScore": 11.752110048639855,
       "recommendedBy": [
         {
           "ownedId": "411404",
@@ -2043,11 +2043,11 @@
           "ownedId": "373778",
           "ownedName": "Burger ASAP!",
           "userRating": 7,
-          "bggRecRank": 8,
-          "contributionScore": 1.73
+          "bggRecRank": 7,
+          "contributionScore": 1.85
         }
       ],
-      "matchScore": 16,
+      "matchScore": 16.2,
       "minPlayers": 2,
       "maxPlayers": 6,
       "playingTime": 10,
@@ -2871,55 +2871,6 @@
       "maxPlayers": 4,
       "playingTime": 45,
       "highResUrl": "https://cf.geekdo-images.com/bTE1oeN-8Y-RdSpjR0b-2A__itemrep@2x/img/RnoRb1bWAi0zqSDvnzmX4tRcS8w=/fit-in/492x600/filters:strip_icc()/pic4199323.png"
-    },
-    {
-      "objectId": "129556",
-      "name": "Tapple",
-      "yearPublished": "2012",
-      "bggRating": 6.43,
-      "bggRank": 3330,
-      "numVoters": 3010,
-      "numFans": 108,
-      "coverUrl": "https://cf.geekdo-images.com/ug2wHUhS3E-LA_lmLQYyNQ__square100@2x/img/_Y17yRNgQiVtTVsHZMO1_h4frs4=/200x200/filters:strip_icc()/pic6650117.jpg",
-      "thumbnail": "images/thumbnails/129556.jpg",
-      "image": "images/full/129556.jpg",
-      "description": "Players shout answers to trivia categories and eliminate letters as they go.",
-      "rawScore": 5.535677185569505,
-      "recommendedBy": [
-        {
-          "ownedId": "411404",
-          "ownedName": "Power Hungry Pets",
-          "userRating": 10,
-          "bggRecRank": 25,
-          "contributionScore": 2
-        },
-        {
-          "ownedId": "380887",
-          "ownedName": "Deduckto",
-          "userRating": 7,
-          "bggRecRank": 13,
-          "contributionScore": 1.36
-        },
-        {
-          "ownedId": "216439",
-          "ownedName": "Trash Pandas",
-          "userRating": 7,
-          "bggRecRank": 18,
-          "contributionScore": 1.15
-        },
-        {
-          "ownedId": "373778",
-          "ownedName": "Burger ASAP!",
-          "userRating": 7,
-          "bggRecRank": 23,
-          "contributionScore": 1.02
-        }
-      ],
-      "matchScore": 8.7,
-      "minPlayers": 2,
-      "maxPlayers": 10,
-      "playingTime": 30,
-      "highResUrl": "https://cf.geekdo-images.com/ug2wHUhS3E-LA_lmLQYyNQ__itemrep/img/4puV1UqcFO4DbAJo1DztHsCXGPU=/fit-in/246x300/filters:strip_icc()/pic6650117.jpg"
     },
     {
       "objectId": "264055",
@@ -3881,6 +3832,48 @@
       "highResUrl": "https://cf.geekdo-images.com/b5VyYjNfAxJ4Z-Dx2UWlqg__itemrep@2x/img/WRMjcTjRqs1icMySG0dxNIkLJvc=/fit-in/492x600/filters:strip_icc()/pic7945692.jpg"
     },
     {
+      "objectId": "129556",
+      "name": "Tapple",
+      "yearPublished": "2012",
+      "bggRating": 6.43,
+      "bggRank": 3330,
+      "numVoters": 3010,
+      "numFans": 108,
+      "coverUrl": "https://cf.geekdo-images.com/ug2wHUhS3E-LA_lmLQYyNQ__square100@2x/img/_Y17yRNgQiVtTVsHZMO1_h4frs4=/200x200/filters:strip_icc()/pic6650117.jpg",
+      "thumbnail": "images/thumbnails/129556.jpg",
+      "image": "images/full/129556.jpg",
+      "description": "Players shout answers to trivia categories and eliminate letters as they go.",
+      "rawScore": 4.5139565566898385,
+      "recommendedBy": [
+        {
+          "ownedId": "411404",
+          "ownedName": "Power Hungry Pets",
+          "userRating": 10,
+          "bggRecRank": 25,
+          "contributionScore": 2
+        },
+        {
+          "ownedId": "380887",
+          "ownedName": "Deduckto",
+          "userRating": 7,
+          "bggRecRank": 13,
+          "contributionScore": 1.36
+        },
+        {
+          "ownedId": "216439",
+          "ownedName": "Trash Pandas",
+          "userRating": 7,
+          "bggRecRank": 18,
+          "contributionScore": 1.15
+        }
+      ],
+      "matchScore": 6,
+      "minPlayers": 2,
+      "maxPlayers": 10,
+      "playingTime": 30,
+      "highResUrl": "https://cf.geekdo-images.com/ug2wHUhS3E-LA_lmLQYyNQ__itemrep/img/4puV1UqcFO4DbAJo1DztHsCXGPU=/fit-in/246x300/filters:strip_icc()/pic6650117.jpg"
+    },
+    {
       "objectId": "388036",
       "name": "Ticket To Ride: Berlin",
       "yearPublished": "2023",
@@ -4595,6 +4588,34 @@
       "highResUrl": "https://cf.geekdo-images.com/dmo-WD6HZHVUPrbVHunaTw__itemrep@2x/img/zuzTFDhvV2L8IAtxo0XAcB5kq-w=/fit-in/492x600/filters:strip_icc()/pic2055255.jpg"
     },
     {
+      "objectId": "365119",
+      "name": "Party Panda Pirates",
+      "yearPublished": "2024",
+      "bggRating": 7.46,
+      "bggRank": 5441,
+      "numVoters": 450,
+      "numFans": 268,
+      "coverUrl": "https://cf.geekdo-images.com/Qwh8s6nWxmUhVUBklYSZ6A__square100@2x/img/Ac-ovVP2oUBa8Xi7_MdLZU8oM8I=/200x200/filters:strip_icc()/pic7882358.jpg",
+      "thumbnail": "images/thumbnails/365119.jpg",
+      "image": "images/full/365119.jpg",
+      "description": "Panda Pirates sail in search of fun mini games. Inspired by Mario Party.",
+      "rawScore": 4.8999999999999995,
+      "recommendedBy": [
+        {
+          "ownedId": "373778",
+          "ownedName": "Burger ASAP!",
+          "userRating": 7,
+          "bggRecRank": 1,
+          "contributionScore": 4.9
+        }
+      ],
+      "matchScore": 5.1,
+      "minPlayers": 2,
+      "maxPlayers": 6,
+      "playingTime": 45,
+      "highResUrl": "https://cf.geekdo-images.com/Qwh8s6nWxmUhVUBklYSZ6A__itemrep@2x/img/2QPFasTMBgFdnlifw2gEPJpwGm0=/fit-in/492x600/filters:strip_icc()/pic7882358.jpg"
+    },
+    {
       "objectId": "448271",
       "name": "The Lord of the Rings: The Two Towers – Trick-Taking Game",
       "yearPublished": "2026",
@@ -4628,6 +4649,41 @@
       "maxPlayers": 4,
       "playingTime": 20,
       "highResUrl": "https://cf.geekdo-images.com/TSwHNId9CUCq-bxAGmNJiQ__itemrep@2x/img/bpmmT1MVjWozNT-m0Wl0ixHGmRE=/fit-in/492x600/filters:strip_icc()/pic9044877.png"
+    },
+    {
+      "objectId": "341164",
+      "name": "Exploding Minions",
+      "yearPublished": "2021",
+      "bggRating": 6.42,
+      "bggRank": 6167,
+      "numVoters": 860,
+      "numFans": 31,
+      "coverUrl": "https://cf.geekdo-images.com/mQnQJ_AcabdhDz7zNHPGWQ__square100@2x/img/fTl27-XrVuIi1bgZLowhsfLsFdk=/0x0:1386x1386/200x200/filters:strip_icc()/pic6702309.png",
+      "thumbnail": "images/thumbnails/341164.png",
+      "image": "images/full/341164.png",
+      "description": "Exploding Minions is a Minions-powered version of Russian Roulette.",
+      "rawScore": 4.515533905932737,
+      "recommendedBy": [
+        {
+          "ownedId": "411404",
+          "ownedName": "Power Hungry Pets",
+          "userRating": 10,
+          "bggRecRank": 8,
+          "contributionScore": 3.54
+        },
+        {
+          "ownedId": "373778",
+          "ownedName": "Burger ASAP!",
+          "userRating": 7,
+          "bggRecRank": 25,
+          "contributionScore": 0.98
+        }
+      ],
+      "matchScore": 5,
+      "minPlayers": 2,
+      "maxPlayers": 5,
+      "playingTime": 15,
+      "highResUrl": "https://cf.geekdo-images.com/mQnQJ_AcabdhDz7zNHPGWQ__itemrep@2x/img/j7YJJYktiYUXCxUWaQ_s6add33o=/fit-in/492x600/filters:strip_icc()/pic6702309.png"
     },
     {
       "objectId": "160851",
@@ -5678,34 +5734,6 @@
       "maxPlayers": 2,
       "playingTime": 30,
       "highResUrl": "https://cf.geekdo-images.com/CDdF4xOQJsNK0gX8-tBdCQ__itemrep@2x/img/9LLoR-wc1kP6I9pR3PqBwwshilM=/fit-in/492x600/filters:strip_icc()/pic3066125.jpg"
-    },
-    {
-      "objectId": "302477",
-      "name": "Kittin",
-      "yearPublished": "2020",
-      "bggRating": 6.22,
-      "bggRank": 8036,
-      "numVoters": 650,
-      "numFans": 36,
-      "coverUrl": "https://cf.geekdo-images.com/9zBkfVaeZBR3O1ON50TRUg__square100@2x/img/ypPZ1BxIfap2YBxvKcaeOPd4ZME=/0x0:1010x1010/200x200/filters:strip_icc()/pic5290230.jpg",
-      "thumbnail": "images/thumbnails/302477.jpg",
-      "image": "images/full/302477.jpg",
-      "description": "Stack polyomino-shaped cats as quick as you can!",
-      "rawScore": 4.8999999999999995,
-      "recommendedBy": [
-        {
-          "ownedId": "373778",
-          "ownedName": "Burger ASAP!",
-          "userRating": 7,
-          "bggRecRank": 1,
-          "contributionScore": 4.9
-        }
-      ],
-      "matchScore": 4.2,
-      "minPlayers": 2,
-      "maxPlayers": 8,
-      "playingTime": 15,
-      "highResUrl": "https://cf.geekdo-images.com/9zBkfVaeZBR3O1ON50TRUg__itemrep@2x/img/7fpqx85nBdrf_3kysiD_BMNbf2s=/fit-in/492x600/filters:strip_icc()/pic5290230.jpg"
     },
     {
       "objectId": "436217",
@@ -6940,34 +6968,6 @@
       "highResUrl": "https://cf.geekdo-images.com/izl-fQWG77J6GWcy7cAhKQ__itemrep@2x/img/zeuEiQHGbKH1Gg75M3Sr_hJ_V-E=/fit-in/492x600/filters:strip_icc()/pic4781299.jpg"
     },
     {
-      "objectId": "341164",
-      "name": "Exploding Minions",
-      "yearPublished": "2021",
-      "bggRating": 6.42,
-      "bggRank": 6167,
-      "numVoters": 860,
-      "numFans": 31,
-      "coverUrl": "https://cf.geekdo-images.com/mQnQJ_AcabdhDz7zNHPGWQ__square100@2x/img/fTl27-XrVuIi1bgZLowhsfLsFdk=/0x0:1386x1386/200x200/filters:strip_icc()/pic6702309.png",
-      "thumbnail": "images/thumbnails/341164.png",
-      "image": "images/full/341164.png",
-      "description": "Exploding Minions is a Minions-powered version of Russian Roulette.",
-      "rawScore": 3.5355339059327373,
-      "recommendedBy": [
-        {
-          "ownedId": "411404",
-          "ownedName": "Power Hungry Pets",
-          "userRating": 10,
-          "bggRecRank": 8,
-          "contributionScore": 3.54
-        }
-      ],
-      "matchScore": 3.2,
-      "minPlayers": 2,
-      "maxPlayers": 5,
-      "playingTime": 15,
-      "highResUrl": "https://cf.geekdo-images.com/mQnQJ_AcabdhDz7zNHPGWQ__itemrep@2x/img/j7YJJYktiYUXCxUWaQ_s6add33o=/fit-in/492x600/filters:strip_icc()/pic6702309.png"
-    },
-    {
       "objectId": "136063",
       "name": "Forbidden Desert",
       "yearPublished": "2013",
@@ -7041,10 +7041,10 @@
       "objectId": "416850",
       "name": "Piggy Piggy",
       "yearPublished": "2024",
-      "bggRating": 6.59,
-      "bggRank": 9413,
-      "numVoters": 273,
-      "numFans": 21,
+      "bggRating": 6.61,
+      "bggRank": 9307,
+      "numVoters": 283,
+      "numFans": 22,
       "coverUrl": "https://cf.geekdo-images.com/mwChyBF5uHewFWNBOarp2g__square100@2x/img/tW44biAh6cMjqbsTm1aMsmX4RrA=/0x217:997x1214/200x200/filters:strip_icc()/pic8159879.png",
       "thumbnail": "images/thumbnails/416850.png",
       "image": "images/full/416850.png",
@@ -8347,6 +8347,34 @@
       "highResUrl": "https://cf.geekdo-images.com/zyWcsLTCgwC_O9kD2qS1YQ__itemrep@2x/img/iPVWw600IjCAAwhhVbw5j8qvmfs=/fit-in/492x600/filters:strip_icc()/pic8316143.png"
     },
     {
+      "objectId": "381834",
+      "name": "Piñata Blast",
+      "yearPublished": "2023",
+      "bggRating": 6.94,
+      "bggRank": 12802,
+      "numVoters": 152,
+      "numFans": 22,
+      "coverUrl": "https://cf.geekdo-images.com/2RrbEXQot720vDgpVS49RQ__square100@2x/img/LxmVzf6n_QKPYt8GjXTFFATfBPo=/0x0:1105x1105/200x200/filters:strip_icc()/pic7387688.png",
+      "thumbnail": "images/thumbnails/381834.png",
+      "image": "images/full/381834.png",
+      "description": "Grab dice to match your candy cards in hand.",
+      "rawScore": 2.8290163190291664,
+      "recommendedBy": [
+        {
+          "ownedId": "373778",
+          "ownedName": "Burger ASAP!",
+          "userRating": 7,
+          "bggRecRank": 3,
+          "contributionScore": 2.83
+        }
+      ],
+      "matchScore": 2.7,
+      "minPlayers": 3,
+      "maxPlayers": 6,
+      "playingTime": 15,
+      "highResUrl": "https://cf.geekdo-images.com/2RrbEXQot720vDgpVS49RQ__itemrep@2x/img/0ZNcc7sKPoMGNvt5OTMyk3m02xQ=/fit-in/492x600/filters:strip_icc()/pic7387688.png"
+    },
+    {
       "objectId": "426796",
       "name": "Stamp Swap",
       "yearPublished": "2024",
@@ -8865,34 +8893,6 @@
       "highResUrl": "https://cf.geekdo-images.com/a4fv53JLtFlpo7XjDsItPQ__itemrep@2x/img/gqIp2yuwtq05wugo0rblVBJlvX4=/fit-in/492x600/filters:strip_icc()/pic8896480.jpg"
     },
     {
-      "objectId": "351540",
-      "name": "Walkie Talkie",
-      "yearPublished": "2022",
-      "bggRating": 5.85,
-      "bggRank": 12363,
-      "numVoters": 641,
-      "numFans": 30,
-      "coverUrl": "https://cf.geekdo-images.com/3EKIBf583dBeFVMyy5b_Pw__square100@2x/img/mdGPo38j4OOmWY_bmcIeqN_eXsA=/0x274:1094x1429/fit-in/200x200/filters:fill(blur):strip_icc()/pic6774096.jpg",
-      "thumbnail": "images/thumbnails/351540.jpg",
-      "image": "images/full/351540.jpg",
-      "description": "Quick! Relate some impossible word to an unusual color! Now!",
-      "rawScore": 2.8290163190291664,
-      "recommendedBy": [
-        {
-          "ownedId": "373778",
-          "ownedName": "Burger ASAP!",
-          "userRating": 7,
-          "bggRecRank": 3,
-          "contributionScore": 2.83
-        }
-      ],
-      "matchScore": 2.4,
-      "minPlayers": 2,
-      "maxPlayers": 8,
-      "playingTime": 4,
-      "highResUrl": "https://cf.geekdo-images.com/3EKIBf583dBeFVMyy5b_Pw__itemrep@2x/img/wSFc9NfebegCetWEhIs2gvgDVaQ=/fit-in/492x600/filters:strip_icc()/pic6774096.jpg"
-    },
-    {
       "objectId": "134253",
       "name": "Hostage Negotiator",
       "yearPublished": "2015",
@@ -9376,32 +9376,32 @@
       "highResUrl": "https://cf.geekdo-images.com/UNpPJ6cfc4kjNmOO9G7aTw__itemrep@2x/img/ms--rOS6H3PWbxY-Leia-ftCS9s=/fit-in/492x600/filters:strip_icc()/pic5532615.jpg"
     },
     {
-      "objectId": "185244",
-      "name": "Autumn",
-      "yearPublished": "2015",
-      "bggRating": 6.45,
-      "bggRank": 9987,
-      "numVoters": 318,
-      "numFans": 38,
-      "coverUrl": "https://cf.geekdo-images.com/o8C6oBCZPl6rzEJeH6gIjQ__square100@2x/img/TEFqpJim94wx6vvO52qmBBvbCP4=/0x0:1102x1102/200x200/filters:strip_icc()/pic7958559.jpg",
-      "thumbnail": "images/thumbnails/185244.jpg",
-      "image": "images/full/185244.jpg",
-      "description": "Build the best pattern of fallen leaves.",
-      "rawScore": 2.4499999999999997,
+      "objectId": "350637",
+      "name": "Regroup! Chicken Army",
+      "yearPublished": "2023",
+      "bggRating": 7.24,
+      "bggRank": 4849,
+      "numVoters": 686,
+      "numFans": 86,
+      "coverUrl": "https://cf.geekdo-images.com/kodOl_ef_-__fhAbjf_19g__square100@2x/img/x0pbA19ffO0Ml1o78M1OMcm1NSE=/200x200/filters:strip_icc()/pic6983608.jpg",
+      "thumbnail": "images/thumbnails/350637.jpg",
+      "image": "images/full/350637.jpg",
+      "description": "Regroup your Chicken Warriors and Chicken Wizards to fight for the glory!",
+      "rawScore": 2.191346617949794,
       "recommendedBy": [
         {
           "ownedId": "373778",
           "ownedName": "Burger ASAP!",
           "userRating": 7,
-          "bggRecRank": 4,
-          "contributionScore": 2.45
+          "bggRecRank": 5,
+          "contributionScore": 2.19
         }
       ],
       "matchScore": 2.2,
-      "minPlayers": 1,
-      "maxPlayers": 3,
+      "minPlayers": 2,
+      "maxPlayers": 4,
       "playingTime": 20,
-      "highResUrl": "https://cf.geekdo-images.com/o8C6oBCZPl6rzEJeH6gIjQ__itemrep@2x/img/K9lEG33SKJpkCdtaVLkukaaiCOI=/fit-in/492x600/filters:strip_icc()/pic7958559.jpg"
+      "highResUrl": "https://cf.geekdo-images.com/kodOl_ef_-__fhAbjf_19g__itemrep@2x/img/Kg4pXDWnhTgDds8L9YNzQKvgYas=/fit-in/492x600/filters:strip_icc()/pic6983608.jpg"
     },
     {
       "objectId": "1961",
@@ -9682,6 +9682,34 @@
       "maxPlayers": 1,
       "playingTime": 30,
       "highResUrl": "https://cf.geekdo-images.com/vE0NaNcH0Wj4A-CPL_rLKQ__itemrep/img/pWOyr_C_kZTFI0ia6ssjDt1JxwU=/fit-in/246x300/filters:strip_icc()/pic3044070.jpg"
+    },
+    {
+      "objectId": "392611",
+      "name": "Sushi Go!: Spin Some for Dim Sum",
+      "yearPublished": "2023",
+      "bggRating": 6.28,
+      "bggRank": 7578,
+      "numVoters": 654,
+      "numFans": 39,
+      "coverUrl": "https://cf.geekdo-images.com/gQ_oe5K0ajPyckRaYsih6Q__square100@2x/img/6o2IcQf53N_ByoUaSeMiRLb-6l8=/200x200/filters:strip_icc()/pic7598824.jpg",
+      "thumbnail": "images/thumbnails/392611.jpg",
+      "image": "images/full/392611.jpg",
+      "description": "Sushi Go Spinoff to collect the best combination of dishes",
+      "rawScore": 2.4499999999999997,
+      "recommendedBy": [
+        {
+          "ownedId": "373778",
+          "ownedName": "Burger ASAP!",
+          "userRating": 7,
+          "bggRecRank": 4,
+          "contributionScore": 2.45
+        }
+      ],
+      "matchScore": 2.1,
+      "minPlayers": 2,
+      "maxPlayers": 6,
+      "playingTime": 20,
+      "highResUrl": "https://cf.geekdo-images.com/gQ_oe5K0ajPyckRaYsih6Q__itemrep@2x/img/EVv65aWYF9m1ONYAViRSsDOTbBg=/fit-in/492x600/filters:strip_icc()/pic7598824.jpg"
     },
     {
       "objectId": "287322",
@@ -9990,34 +10018,6 @@
       "maxPlayers": 6,
       "playingTime": 30,
       "highResUrl": "https://cf.geekdo-images.com/DXA__BmtPAOfEyH9m_dvKQ__itemrep@2x/img/-tNuWIPJhydIZkd-MUBNr1Ux9lA=/fit-in/492x600/filters:strip_icc()/pic1374907.jpg"
-    },
-    {
-      "objectId": "350637",
-      "name": "Regroup! Chicken Army",
-      "yearPublished": "2023",
-      "bggRating": 7.23,
-      "bggRank": 4882,
-      "numVoters": 678,
-      "numFans": 83,
-      "coverUrl": "https://cf.geekdo-images.com/kodOl_ef_-__fhAbjf_19g__square100@2x/img/x0pbA19ffO0Ml1o78M1OMcm1NSE=/200x200/filters:strip_icc()/pic6983608.jpg",
-      "thumbnail": "images/thumbnails/350637.jpg",
-      "image": "images/full/350637.jpg",
-      "description": "Regroup your Chicken Warriors and Chicken Wizards to fight for the glory!",
-      "rawScore": 2.000416623272929,
-      "recommendedBy": [
-        {
-          "ownedId": "373778",
-          "ownedName": "Burger ASAP!",
-          "userRating": 7,
-          "bggRecRank": 6,
-          "contributionScore": 2
-        }
-      ],
-      "matchScore": 2,
-      "minPlayers": 2,
-      "maxPlayers": 4,
-      "playingTime": 20,
-      "highResUrl": "https://cf.geekdo-images.com/kodOl_ef_-__fhAbjf_19g__itemrep@2x/img/Kg4pXDWnhTgDds8L9YNzQKvgYas=/fit-in/492x600/filters:strip_icc()/pic6983608.jpg"
     },
     {
       "objectId": "49",
@@ -10384,34 +10384,6 @@
       "highResUrl": "https://cf.geekdo-images.com/vLG8jyYDcIcRZD9FtBHPdw__itemrep@2x/img/wKDj4OoL-m4znAXhsfHNQz-fc-s=/fit-in/492x600/filters:strip_icc()/pic5179567.jpg"
     },
     {
-      "objectId": "352710",
-      "name": "Ouch!",
-      "yearPublished": "2022",
-      "bggRating": 6.06,
-      "bggRank": 8077,
-      "numVoters": 1000,
-      "numFans": 42,
-      "coverUrl": "https://cf.geekdo-images.com/Oz5zTEaKN8f3eVeuGQF0gg__square100@2x/img/Zir1ZTacr62Ahb_KMMdsE-y5EYQ=/0x133:818x951/200x200/filters:strip_icc()/pic6561113.jpg",
-      "thumbnail": "images/thumbnails/352710.jpg",
-      "image": "images/full/352710.jpg",
-      "description": "Dare to take the card with the most flowers and risk being pricked by the cactus!",
-      "rawScore": 2.191346617949794,
-      "recommendedBy": [
-        {
-          "ownedId": "373778",
-          "ownedName": "Burger ASAP!",
-          "userRating": 7,
-          "bggRecRank": 5,
-          "contributionScore": 2.19
-        }
-      ],
-      "matchScore": 1.9,
-      "minPlayers": 2,
-      "maxPlayers": 5,
-      "playingTime": 15,
-      "highResUrl": "https://cf.geekdo-images.com/Oz5zTEaKN8f3eVeuGQF0gg__itemrep@2x/img/XKsIhSoUngrexIlrMpVeNcMUy38=/fit-in/492x600/filters:strip_icc()/pic6561113.jpg"
-    },
-    {
       "objectId": "363247",
       "name": "Azul: Master Chocolatier",
       "yearPublished": "2022",
@@ -10746,34 +10718,6 @@
       "maxPlayers": 4,
       "playingTime": 20,
       "highResUrl": "https://cf.geekdo-images.com/iJl9vUgXHrldbYAhFG9u9A__itemrep@2x/img/Y83LC3MhOJxwMhH_xHX4ZsMZkaw=/fit-in/492x600/filters:strip_icc()/pic4766250.jpg"
-    },
-    {
-      "objectId": "359857",
-      "name": "Winter",
-      "yearPublished": "2022",
-      "bggRating": 6.83,
-      "bggRank": 5126,
-      "numVoters": 720,
-      "numFans": 74,
-      "coverUrl": "https://cf.geekdo-images.com/R2BT6Kmf04qhWLkix1JZWQ__square100@2x/img/FODPspqEseGu680DJv972CBvJqY=/0x0:1132x1132/200x200/filters:strip_icc()/pic6886406.jpg",
-      "thumbnail": "images/thumbnails/359857.jpg",
-      "image": "images/full/359857.jpg",
-      "description": "Winter has arrived, and with it, the contest over control of the frozen lake.",
-      "rawScore": 1.852025917745213,
-      "recommendedBy": [
-        {
-          "ownedId": "373778",
-          "ownedName": "Burger ASAP!",
-          "userRating": 7,
-          "bggRecRank": 7,
-          "contributionScore": 1.85
-        }
-      ],
-      "matchScore": 1.8,
-      "minPlayers": 2,
-      "maxPlayers": 2,
-      "playingTime": 10,
-      "highResUrl": "https://cf.geekdo-images.com/R2BT6Kmf04qhWLkix1JZWQ__itemrep@2x/img/f1UNFU9xc1_iomqWpr3_ctdoG5Y=/fit-in/492x600/filters:strip_icc()/pic6886406.jpg"
     },
     {
       "objectId": "171131",
@@ -11140,6 +11084,62 @@
       "highResUrl": "https://cf.geekdo-images.com/6eQXDEMIWldaut9w7jXihg__itemrep@2x/img/GIbF2Y0HKHrc987X8eCQoUdDTDA=/fit-in/492x600/filters:strip_icc()/pic6771265.jpg"
     },
     {
+      "objectId": "402678",
+      "name": "Fritanga",
+      "yearPublished": "2025",
+      "bggRating": 5.27,
+      "bggRank": 29626,
+      "numVoters": 105,
+      "numFans": 18,
+      "coverUrl": "https://cf.geekdo-images.com/fuA6Q760e-7FPO85kV20zQ__square100@2x/img/4zEr5qSwPKk7M5l11KVnjMwIXgU=/0x0:1501x1501/200x200/filters:strip_icc()/pic8495326.jpg",
+      "thumbnail": "images/thumbnails/402678.jpg",
+      "image": "images/full/402678.jpg",
+      "description": "Move around the fryer to avoid falling into the boiling oil",
+      "rawScore": 2.000416623272929,
+      "recommendedBy": [
+        {
+          "ownedId": "373778",
+          "ownedName": "Burger ASAP!",
+          "userRating": 7,
+          "bggRecRank": 6,
+          "contributionScore": 2
+        }
+      ],
+      "matchScore": 1.7,
+      "minPlayers": 3,
+      "maxPlayers": 7,
+      "playingTime": 25,
+      "highResUrl": "https://cf.geekdo-images.com/fuA6Q760e-7FPO85kV20zQ__itemrep@2x/img/5lxKcrUrcIfIeYK581o_HJT8sQI=/fit-in/492x600/filters:strip_icc()/pic8495326.jpg"
+    },
+    {
+      "objectId": "254683",
+      "name": "Dodos Riding Dinos",
+      "yearPublished": "2021",
+      "bggRating": 7.45,
+      "bggRank": 2386,
+      "numVoters": 1904,
+      "numFans": 309,
+      "coverUrl": "https://cf.geekdo-images.com/qqpMTyv4vy-q7qYpl0NLFA__square100@2x/img/HIkq6GBeiDXtPDULXbBtcmqVB2w=/200x200/filters:strip_icc()/pic5182751.png",
+      "thumbnail": "images/thumbnails/254683.png",
+      "image": "images/full/254683.png",
+      "description": "Race in different tracks using projectiles vs your foes to test your dexterity skills",
+      "rawScore": 1.633333333333333,
+      "recommendedBy": [
+        {
+          "ownedId": "373778",
+          "ownedName": "Burger ASAP!",
+          "userRating": 7,
+          "bggRecRank": 9,
+          "contributionScore": 1.63
+        }
+      ],
+      "matchScore": 1.7,
+      "minPlayers": 1,
+      "maxPlayers": 8,
+      "playingTime": 20,
+      "highResUrl": "https://cf.geekdo-images.com/qqpMTyv4vy-q7qYpl0NLFA__itemrep@2x/img/er8EsHen3EAHK3wSaxtADGnfGtE=/fit-in/492x600/filters:strip_icc()/pic5182751.png"
+    },
+    {
       "objectId": "331265",
       "name": "Port Royal: Big Box",
       "yearPublished": "2022",
@@ -11390,34 +11390,6 @@
       "maxPlayers": 4,
       "playingTime": 40,
       "highResUrl": "https://cf.geekdo-images.com/L9czUzdXB6PFTkY7ibB8Ag__itemrep@2x/img/DYKLrAXE6RSneESknPdK-0OIFh8=/fit-in/492x600/filters:strip_icc()/pic7141470.jpg"
-    },
-    {
-      "objectId": "449893",
-      "name": "Cereal Killer",
-      "yearPublished": "2025",
-      "bggRating": 7.36,
-      "bggRank": 6226,
-      "numVoters": 332,
-      "numFans": 100,
-      "coverUrl": "https://cf.geekdo-images.com/EWeFYs626AszfaeUJ_75Iw__square100@2x/img/nqMoC6Tw9kfJdUSo4mSA77vH2-A=/0x0:1280x1280/200x200/filters:strip_icc()/pic8983429.png",
-      "thumbnail": "images/thumbnails/449893.png",
-      "image": "images/full/449893.png",
-      "description": "A cunning killer leaves victims in the shadows. Their weakness? A cereal addiction.",
-      "rawScore": 1.5495160534825057,
-      "recommendedBy": [
-        {
-          "ownedId": "373778",
-          "ownedName": "Burger ASAP!",
-          "userRating": 7,
-          "bggRecRank": 10,
-          "contributionScore": 1.55
-        }
-      ],
-      "matchScore": 1.6,
-      "minPlayers": 2,
-      "maxPlayers": 3,
-      "playingTime": 15,
-      "highResUrl": "https://cf.geekdo-images.com/EWeFYs626AszfaeUJ_75Iw__itemrep@2x/img/pm_gMls82HtFf69v6u9Q1Evnjz0=/fit-in/492x600/filters:strip_icc()/pic8983429.png"
     },
     {
       "objectId": "314421",
@@ -12118,6 +12090,62 @@
       "maxPlayers": 5,
       "playingTime": 60,
       "highResUrl": "https://cf.geekdo-images.com/SoClIcwjDo_iZs0idVikDw__itemrep@2x/img/WejlTKKkFpL1rpHkDHTeZ5T8GPQ=/fit-in/492x600/filters:strip_icc()/pic4848330.jpg"
+    },
+    {
+      "objectId": "425226",
+      "name": "Tilt 'N' Shout",
+      "yearPublished": "2024",
+      "bggRating": 5.8,
+      "bggRank": 19094,
+      "numVoters": 176,
+      "numFans": 8,
+      "coverUrl": "https://cf.geekdo-images.com/DvIXLSHV4AHokBwwzxrQ8A__square100@2x/img/sLPKzqhviWxmIBpnni9yRs9P1iM=/0x33:1150x1268/fit-in/200x200/filters:fill(blur):strip_icc()/pic8453329.jpg",
+      "thumbnail": "images/thumbnails/425226.jpg",
+      "image": "images/full/425226.jpg",
+      "description": "A fast-paced contest of wits that is fun for all ages. ",
+      "rawScore": 1.7324116139070411,
+      "recommendedBy": [
+        {
+          "ownedId": "373778",
+          "ownedName": "Burger ASAP!",
+          "userRating": 7,
+          "bggRecRank": 8,
+          "contributionScore": 1.73
+        }
+      ],
+      "matchScore": 1.5,
+      "minPlayers": 2,
+      "maxPlayers": 2,
+      "playingTime": 20,
+      "highResUrl": "https://cf.geekdo-images.com/DvIXLSHV4AHokBwwzxrQ8A__itemrep@2x/img/NS9hDoZrG9f2DJULK8ldZNtCcAo=/fit-in/492x600/filters:strip_icc()/pic8453329.jpg"
+    },
+    {
+      "objectId": "382410",
+      "name": "Coup X",
+      "yearPublished": "2023",
+      "bggRating": 7.15,
+      "bggRank": null,
+      "numVoters": 266,
+      "numFans": 23,
+      "coverUrl": "https://cf.geekdo-images.com/bjq_KAXULPQAHk0obmBh2Q__square100@2x/img/zDFlZVQ6id0ba-VzpHzwWpcToEs=/0x1088:2972x4060/200x200/filters:strip_icc()/pic7634667.png",
+      "thumbnail": "images/thumbnails/382410.png",
+      "image": "images/full/382410.png",
+      "description": "Bluff (and call bluffs!) to victory in this card game with no third chances.",
+      "rawScore": 1.4774055884310415,
+      "recommendedBy": [
+        {
+          "ownedId": "373778",
+          "ownedName": "Burger ASAP!",
+          "userRating": 7,
+          "bggRecRank": 11,
+          "contributionScore": 1.48
+        }
+      ],
+      "matchScore": 1.5,
+      "minPlayers": 2,
+      "maxPlayers": 10,
+      "playingTime": 20,
+      "highResUrl": "https://cf.geekdo-images.com/bjq_KAXULPQAHk0obmBh2Q__itemrep@2x/img/2qnNxRFBK-hs1VfgaALaM-t8MYE=/fit-in/492x600/filters:strip_icc()/pic7634667.png"
     },
     {
       "objectId": "367272",
@@ -12932,60 +12960,60 @@
       "highResUrl": "https://cf.geekdo-images.com/KaTRZHY0XpW-ZSgjaRNzmg__itemrep@2x/img/VLFqqooe25usFzOlD_9Z9KEhdJY=/fit-in/492x600/filters:strip_icc()/pic3066862.jpg"
     },
     {
-      "objectId": "429853",
-      "name": "Deep Dreams",
-      "yearPublished": "2025",
-      "bggRating": 6.34,
-      "bggRank": 21759,
-      "numVoters": 54,
-      "numFans": 11,
-      "coverUrl": "https://cf.geekdo-images.com/vAmvWH-2yon2rwSOhakCYw__square100@2x/img/SwI7nmJLEYYZygCanqKs3QHfquY=/0x0:1134x1134/200x200/filters:strip_icc()/pic8457059.jpg",
-      "thumbnail": "images/thumbnails/429853.jpg",
-      "image": "images/full/429853.jpg",
-      "description": "Connect cards and create the longest dream path.",
-      "rawScore": 1.633333333333333,
+      "objectId": "387219",
+      "name": "Trash Talk",
+      "yearPublished": "2023",
+      "bggRating": 6.69,
+      "bggRank": 8356,
+      "numVoters": 319,
+      "numFans": 22,
+      "coverUrl": "https://cf.geekdo-images.com/GPgTYgV1rV6SHTp8xrQ_cQ__square100@2x/img/5-RW8LdRT6OnsoCN2jEOzpXDKAw=/0x0:1556x1556/200x200/filters:strip_icc()/pic7653034.png",
+      "thumbnail": "images/thumbnails/387219.png",
+      "image": "images/full/387219.png",
+      "description": "Try to predict how your teammates will assign random objects to words.",
+      "rawScore": 1.5495160534825057,
       "recommendedBy": [
         {
           "ownedId": "373778",
           "ownedName": "Burger ASAP!",
           "userRating": 7,
-          "bggRecRank": 9,
-          "contributionScore": 1.63
+          "bggRecRank": 10,
+          "contributionScore": 1.55
         }
       ],
       "matchScore": 1.4,
       "minPlayers": 2,
-      "maxPlayers": 5,
-      "playingTime": 15,
-      "highResUrl": "https://cf.geekdo-images.com/vAmvWH-2yon2rwSOhakCYw__itemrep@2x/img/-ZKCR4j6BOKUg02IjgN92CIr-n8=/fit-in/492x600/filters:strip_icc()/pic8457059.jpg"
+      "maxPlayers": 8,
+      "playingTime": 45,
+      "highResUrl": "https://cf.geekdo-images.com/GPgTYgV1rV6SHTp8xrQ_cQ__itemrep@2x/img/Hrud4r7TXk58Wn8jTWcU-BQ66L4=/fit-in/492x600/filters:strip_icc()/pic7653034.png"
     },
     {
-      "objectId": "365119",
-      "name": "Party Panda Pirates",
-      "yearPublished": "2024",
-      "bggRating": 7.45,
-      "bggRank": 5499,
-      "numVoters": 442,
-      "numFans": 267,
-      "coverUrl": "https://cf.geekdo-images.com/Qwh8s6nWxmUhVUBklYSZ6A__square100@2x/img/Ac-ovVP2oUBa8Xi7_MdLZU8oM8I=/200x200/filters:strip_icc()/pic7882358.jpg",
-      "thumbnail": "images/thumbnails/365119.jpg",
-      "image": "images/full/365119.jpg",
-      "description": "Panda Pirates sail in search of fun mini games. Inspired by Mario Party.",
-      "rawScore": 1.3590154807518113,
+      "objectId": "267010",
+      "name": "Pátzcuaro",
+      "yearPublished": "2022",
+      "bggRating": 7.21,
+      "bggRank": 8816,
+      "numVoters": 234,
+      "numFans": 66,
+      "coverUrl": "https://cf.geekdo-images.com/hbOEKjZuw6-cqnR5Atimlg__square100@2x/img/UpkdEERCV80bGJT0lZqsu-qsQh0=/717x0:2991x2274/200x200/filters:strip_icc()/pic7240296.jpg",
+      "thumbnail": "images/thumbnails/267010.jpg",
+      "image": "images/full/267010.jpg",
+      "description": "Gather items to build the family altar for the Day of the Dead.",
+      "rawScore": 1.4145081595145832,
       "recommendedBy": [
         {
           "ownedId": "373778",
           "ownedName": "Burger ASAP!",
           "userRating": 7,
-          "bggRecRank": 13,
-          "contributionScore": 1.36
+          "bggRecRank": 12,
+          "contributionScore": 1.41
         }
       ],
       "matchScore": 1.4,
       "minPlayers": 2,
-      "maxPlayers": 6,
+      "maxPlayers": 4,
       "playingTime": 45,
-      "highResUrl": "https://cf.geekdo-images.com/Qwh8s6nWxmUhVUBklYSZ6A__itemrep@2x/img/2QPFasTMBgFdnlifw2gEPJpwGm0=/fit-in/492x600/filters:strip_icc()/pic7882358.jpg"
+      "highResUrl": "https://cf.geekdo-images.com/hbOEKjZuw6-cqnR5Atimlg__itemrep@2x/img/W2xu50Qn8CBjF8VdrNS_AEQh4cQ=/fit-in/492x600/filters:strip_icc()/pic7240296.jpg"
     },
     {
       "objectId": "336755",
@@ -13714,34 +13742,6 @@
       "maxPlayers": 2,
       "playingTime": 20,
       "highResUrl": "https://cf.geekdo-images.com/IP_7jW3NfT1ZpL6blp8_Fw__itemrep@2x/img/3tYZNVfYUx3bEQ9oPYX3trO8UaU=/fit-in/492x600/filters:strip_icc()/pic7365396.jpg"
-    },
-    {
-      "objectId": "203427",
-      "name": "Fabled Fruit",
-      "yearPublished": "2016",
-      "bggRating": 6.98,
-      "bggRank": 1184,
-      "numVoters": 6496,
-      "numFans": 221,
-      "coverUrl": "https://cf.geekdo-images.com/as7-SsHhtfKyuTbhHVCEkg__square100@2x/img/g4d-d6n4mGrpgYiqpVy0unz5L-g=/0x0:700x700/200x200/filters:strip_icc()/pic3086825.jpg",
-      "thumbnail": "images/thumbnails/203427.jpg",
-      "image": "images/full/203427.jpg",
-      "description": "Collect fruit and craft delicious juices while your action options change and shift.",
-      "rawScore": 1.3063945294843622,
-      "recommendedBy": [
-        {
-          "ownedId": "244522",
-          "ownedName": "That&#039;s Pretty Clever!",
-          "userRating": 8,
-          "bggRecRank": 24,
-          "contributionScore": 1.31
-        }
-      ],
-      "matchScore": 1.3,
-      "minPlayers": 2,
-      "maxPlayers": 5,
-      "playingTime": 30,
-      "highResUrl": "https://cf.geekdo-images.com/as7-SsHhtfKyuTbhHVCEkg__itemrep@2x/img/RgABzLmKpIgGELQjyfU3Vr--_2k=/fit-in/492x600/filters:strip_icc()/pic3086825.jpg"
     }
   ]
 }
