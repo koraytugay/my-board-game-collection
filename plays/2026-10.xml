@@ -1,4 +1,19 @@
-<?xml version="1.0" encoding="utf-8"?><plays  username="koraytugay" userid="4151779" total="20" page="1" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse">
+<?xml version="1.0" encoding="utf-8"?><plays  username="koraytugay" userid="4151779" total="22" page="1" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse">
+<play id="120298110" date="2026-10-28" quantity="1" length="10" incomplete="0" nowinstats="0" location="">
+			<item name="Chess" objecttype="thing" objectid="171">
+				<subtypes>
+										<subtype value="boardgame" />
+									</subtypes>
+			</item>
+								</play>
+<play id="120303720" date="2026-10-28" quantity="3" length="10" incomplete="0" nowinstats="0" location="">
+			<item name="Dungeon Mayhem" objecttype="thing" objectid="260300">
+				<subtypes>
+										<subtype value="boardgame" />
+										<subtype value="boardgameintegration" />
+									</subtypes>
+			</item>
+								</play>
 <play id="120284983" date="2026-10-27" quantity="3" length="30" incomplete="0" nowinstats="0" location="">
 			<item name="Questline" objecttype="thing" objectid="470190">
 				<subtypes>
