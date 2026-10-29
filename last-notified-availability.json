@@ -80,6 +80,14 @@
       "lastChecked": "2026-10-28T21:14:58.828Z",
       "lastCheckSuccess": true
     },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": "https://www.amazon.ca/s?k=Blink%20board%20game",
+      "lastChecked": "2026-10-28T21:19:52.379Z",
+      "lastCheckSuccess": true
+    },
     "woodForSheep": {
       "available": false,
       "price": null,
@@ -239,14 +247,6 @@
       "url": null,
       "lastChecked": "2026-10-28T21:14:55.648Z",
       "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": "https://www.amazon.ca/s?k=Blink%20board%20game",
-      "lastChecked": "2026-10-28T21:19:52.379Z",
-      "lastCheckSuccess": true
     }
   },
   "16986": {
@@ -328,6 +328,18 @@
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-10-28T21:14:16.155Z",
+      "lastCheckSuccess": true
+    },
+    "amazonCa": {
+      "available": true,
+      "price": "106.55",
+      "baselinePrice": "134.56",
+      "deal": {
+        "previousPrice": "134.56",
+        "discountPercent": 21
+      },
+      "url": "https://www.amazon.ca/dp/B076ML49Y1",
+      "lastChecked": "2026-10-29T02:24:11.538Z",
       "lastCheckSuccess": true
     },
     "woodForSheep": {
@@ -511,14 +523,6 @@
       ],
       "lastChecked": "2026-10-28T21:14:13.145Z",
       "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": true,
-      "price": "132.72",
-      "baselinePrice": "134.56",
-      "url": "https://www.amazon.ca/dp/B076ML49Y1",
-      "lastChecked": "2026-10-28T14:12:44.062Z",
-      "lastCheckSuccess": false
     }
   },
   "35472": {
@@ -640,6 +644,14 @@
       "baselinePrice": "$39.99",
       "url": "https://thegamesteward.com/products/onirim-second-edition-board-game?_pos=1&_psq=Onirim&_psid=bdb4d7b2a&_ss=e",
       "lastChecked": "2026-10-28T21:18:00.861Z",
+      "lastCheckSuccess": true
+    },
+    "amazonCa": {
+      "available": true,
+      "price": "60.96",
+      "baselinePrice": "61.32",
+      "url": "https://www.amazon.ca/dp/B0BW28CKVF",
+      "lastChecked": "2026-10-28T21:20:56.108Z",
       "lastCheckSuccess": true
     },
     "woodForSheep": {
@@ -801,14 +813,6 @@
       "url": null,
       "lastChecked": "2026-10-28T21:17:57.970Z",
       "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": true,
-      "price": "60.96",
-      "baselinePrice": "61.32",
-      "url": "https://www.amazon.ca/dp/B0BW28CKVF",
-      "lastChecked": "2026-10-28T21:20:56.108Z",
-      "lastCheckSuccess": true
     }
   },
   "158882": {
@@ -930,6 +934,14 @@
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-10-28T21:15:16.666Z",
+      "lastCheckSuccess": true
+    },
+    "amazonCa": {
+      "available": true,
+      "price": "52.95",
+      "baselinePrice": "63.46",
+      "url": "https://www.amazon.ca/dp/B07TNVYHWS",
+      "lastChecked": "2026-10-28T21:19:58.775Z",
       "lastCheckSuccess": true
     },
     "woodForSheep": {
@@ -1101,14 +1113,6 @@
       ],
       "lastChecked": "2026-10-28T21:15:13.804Z",
       "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": true,
-      "price": "52.95",
-      "baselinePrice": "63.46",
-      "url": "https://www.amazon.ca/dp/B07TNVYHWS",
-      "lastChecked": "2026-10-28T21:19:58.775Z",
-      "lastCheckSuccess": true
     }
   },
   "204175": {
@@ -1256,6 +1260,14 @@
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-10-28T21:16:11.853Z",
+      "lastCheckSuccess": true
+    },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": "https://www.amazon.ca/s?k=Illusion%20board%20game",
+      "lastChecked": "2026-10-28T21:20:17.748Z",
       "lastCheckSuccess": true
     },
     "woodForSheep": {
@@ -1427,14 +1439,6 @@
       ],
       "lastChecked": "2026-10-28T21:16:08.774Z",
       "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": "https://www.amazon.ca/s?k=Illusion%20board%20game",
-      "lastChecked": "2026-10-28T21:20:17.748Z",
-      "lastCheckSuccess": true
     }
   },
   "267979": {
@@ -1516,6 +1520,14 @@
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-10-28T21:18:18.719Z",
+      "lastCheckSuccess": true
+    },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": "https://www.amazon.ca/s?k=Tiwanaku%20board%20game",
+      "lastChecked": "2026-10-28T21:21:02.513Z",
       "lastCheckSuccess": true
     },
     "woodForSheep": {
@@ -1677,14 +1689,6 @@
       "url": null,
       "lastChecked": "2026-10-28T21:18:15.877Z",
       "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": "https://www.amazon.ca/s?k=Tiwanaku%20board%20game",
-      "lastChecked": "2026-10-28T21:21:02.513Z",
-      "lastCheckSuccess": true
     }
   },
   "275089": {
@@ -1834,6 +1838,14 @@
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-10-28T21:14:40.239Z",
+      "lastCheckSuccess": true
+    },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": "https://www.amazon.ca/s?k=Back%20to%20the%20Future%3A%20Back%20in%20Time%20board%20game",
+      "lastChecked": "2026-10-28T21:19:46.002Z",
       "lastCheckSuccess": true
     },
     "woodForSheep": {
@@ -2005,14 +2017,6 @@
       ],
       "lastChecked": "2026-10-28T21:14:36.906Z",
       "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": "https://www.amazon.ca/s?k=Back%20to%20the%20Future%3A%20Back%20in%20Time%20board%20game",
-      "lastChecked": "2026-10-28T21:19:46.002Z",
-      "lastCheckSuccess": true
     }
   },
   "304783": {
@@ -2173,7 +2177,7 @@
       "price": null,
       "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-10-28T21:19:37.680Z",
+      "lastChecked": "2026-10-29T02:25:01.657Z",
       "lastCheckSuccess": true
     },
     "alwaysGames": {
@@ -2386,6 +2390,14 @@
       "lastChecked": "2026-10-28T21:15:53.953Z",
       "lastCheckSuccess": true
     },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": "https://www.amazon.ca/s?k=Fliptown%20board%20game",
+      "lastChecked": "2026-10-28T21:20:11.377Z",
+      "lastCheckSuccess": true
+    },
     "woodForSheep": {
       "available": false,
       "price": null,
@@ -2545,14 +2557,6 @@
       "url": null,
       "lastChecked": "2026-10-28T21:15:50.991Z",
       "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": "https://www.amazon.ca/s?k=Fliptown%20board%20game",
-      "lastChecked": "2026-10-28T21:20:11.377Z",
-      "lastCheckSuccess": true
     }
   },
   "354342": {
@@ -2634,6 +2638,14 @@
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-10-28T21:17:42.926Z",
+      "lastCheckSuccess": true
+    },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "baselinePrice": "20.72",
+      "url": "https://www.amazon.ca/s?k=Marvel%20Mayhem%20board%20game",
+      "lastChecked": "2026-10-28T21:20:49.757Z",
       "lastCheckSuccess": true
     },
     "woodForSheep": {
@@ -2795,14 +2807,6 @@
       "url": null,
       "lastChecked": "2026-10-28T21:17:39.803Z",
       "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "baselinePrice": "20.72",
-      "url": "https://www.amazon.ca/s?k=Marvel%20Mayhem%20board%20game",
-      "lastChecked": "2026-10-28T21:20:49.757Z",
-      "lastCheckSuccess": true
     }
   },
   "354934": {
@@ -2884,6 +2888,14 @@
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-10-28T21:17:24.221Z",
+      "lastCheckSuccess": true
+    },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "baselinePrice": "125.01",
+      "url": "https://www.amazon.ca/s?k=Legacy%20of%20Yu%20board%20game",
+      "lastChecked": "2026-10-28T21:20:43.451Z",
       "lastCheckSuccess": true
     },
     "woodForSheep": {
@@ -3055,14 +3067,6 @@
       ],
       "lastChecked": "2026-10-28T21:17:20.721Z",
       "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "baselinePrice": "125.01",
-      "url": "https://www.amazon.ca/s?k=Legacy%20of%20Yu%20board%20game",
-      "lastChecked": "2026-10-28T21:20:43.451Z",
-      "lastCheckSuccess": true
     }
   },
   "367059": {
@@ -3184,6 +3188,14 @@
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-10-28T21:18:36.825Z",
+      "lastCheckSuccess": true
+    },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": "https://www.amazon.ca/s?k=Witchcraft!%20board%20game",
+      "lastChecked": "2026-10-28T21:21:08.811Z",
       "lastCheckSuccess": true
     },
     "woodForSheep": {
@@ -3345,14 +3357,6 @@
       "url": null,
       "lastChecked": "2026-10-28T21:18:33.538Z",
       "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": "https://www.amazon.ca/s?k=Witchcraft!%20board%20game",
-      "lastChecked": "2026-10-28T21:21:08.811Z",
-      "lastCheckSuccess": true
     }
   },
   "389593": {
@@ -3454,6 +3458,14 @@
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-10-28T21:17:05.662Z",
+      "lastCheckSuccess": true
+    },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": "https://www.amazon.ca/s?k=Kronologic%3A%20Paris%201920%20board%20game",
+      "lastChecked": "2026-10-28T21:20:36.809Z",
       "lastCheckSuccess": true
     },
     "woodForSheep": {
@@ -3615,14 +3627,6 @@
       "url": null,
       "lastChecked": "2026-10-28T21:17:02.754Z",
       "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": "https://www.amazon.ca/s?k=Kronologic%3A%20Paris%201920%20board%20game",
-      "lastChecked": "2026-10-28T21:20:36.809Z",
-      "lastCheckSuccess": true
     }
   },
   "406618": {
@@ -3704,6 +3708,14 @@
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-10-28T21:16:29.748Z",
+      "lastCheckSuccess": true
+    },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": "https://www.amazon.ca/s?k=Kronologic%3A%20Babylon%202500%20board%20game",
+      "lastChecked": "2026-10-28T21:20:24.263Z",
       "lastCheckSuccess": true
     },
     "woodForSheep": {
@@ -3865,14 +3877,6 @@
       "url": null,
       "lastChecked": "2026-10-28T21:16:27.009Z",
       "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": "https://www.amazon.ca/s?k=Kronologic%3A%20Babylon%202500%20board%20game",
-      "lastChecked": "2026-10-28T21:20:24.263Z",
-      "lastCheckSuccess": true
     }
   },
   "406619": {
@@ -3954,6 +3958,14 @@
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-10-28T21:16:47.894Z",
+      "lastCheckSuccess": true
+    },
+    "amazonCa": {
+      "available": true,
+      "price": "66.84",
+      "baselinePrice": "68.40",
+      "url": "https://www.amazon.ca/dp/B0FC6TYDPP",
+      "lastChecked": "2026-10-28T21:20:30.593Z",
       "lastCheckSuccess": true
     },
     "woodForSheep": {
@@ -4114,14 +4126,6 @@
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-10-28T21:16:44.939Z",
-      "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": true,
-      "price": "66.84",
-      "baselinePrice": "68.40",
-      "url": "https://www.amazon.ca/dp/B0FC6TYDPP",
-      "lastChecked": "2026-10-28T21:20:30.593Z",
       "lastCheckSuccess": true
     }
   },
@@ -4556,6 +4560,14 @@
       "lastChecked": "2026-10-28T21:15:35.334Z",
       "lastCheckSuccess": true
     },
+    "amazonCa": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": "https://www.amazon.ca/s?k=Dino%20Racer%20board%20game",
+      "lastChecked": "2026-10-28T21:20:05.021Z",
+      "lastCheckSuccess": true
+    },
     "woodForSheep": {
       "available": false,
       "price": null,
@@ -4714,14 +4726,6 @@
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-10-28T21:15:32.000Z",
-      "lastCheckSuccess": true
-    },
-    "amazonCa": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": "https://www.amazon.ca/s?k=Dino%20Racer%20board%20game",
-      "lastChecked": "2026-10-28T21:20:05.021Z",
       "lastCheckSuccess": true
     }
   },
