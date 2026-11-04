@@ -6,13 +6,6 @@
     ],
     "lastUpdated": "2026-08-22T17:55:03.977Z"
   },
-  "7": {
-    "name": "Cathedral",
-    "designers": [
-      "Robert P. Moore"
-    ],
-    "lastUpdated": "2026-08-22T17:58:47.131Z"
-  },
   "11": {
     "name": "Bohnanza",
     "designers": [
@@ -70,14 +63,12 @@
     ],
     "lastUpdated": "2026-08-22T17:56:29.313Z"
   },
-  "140": {
-    "name": "Pit",
+  "150": {
+    "name": "PitchCar",
     "designers": [
-      "Edgar Cayce",
-      "Harry Gavitt",
-      "George S. Parker"
+      "Jean du Poël"
     ],
-    "lastUpdated": "2026-10-05T16:06:28.554Z"
+    "lastUpdated": "2026-11-04T21:56:41.252Z"
   },
   "171": {
     "name": "Chess",
@@ -108,13 +99,6 @@
     ],
     "lastUpdated": "2026-08-22T17:56:17.330Z"
   },
-  "215": {
-    "name": "Tichu",
-    "designers": [
-      "Urs Hostettler"
-    ],
-    "lastUpdated": "2026-10-05T16:06:30.188Z"
-  },
   "220": {
     "name": "High Society",
     "designers": [
@@ -143,17 +127,12 @@
     ],
     "lastUpdated": "2026-08-22T17:01:41.809Z"
   },
-  "438": {
-    "name": "Scotland Yard",
+  "463": {
+    "name": "Magic: The Gathering",
     "designers": [
-      "Manfred Burggraf",
-      "Dorothy Garrels",
-      "Wolf Hoermann",
-      "Fritz Ifland",
-      "Werner Scheerer",
-      "Werner Schlegel"
+      "Richard Garfield"
     ],
-    "lastUpdated": "2026-08-22T17:55:22.275Z"
+    "lastUpdated": "2026-11-04T21:56:49.765Z"
   },
   "624": {
     "name": "Quoridor",
@@ -247,13 +226,6 @@
     ],
     "lastUpdated": "2026-08-22T17:01:54.252Z"
   },
-  "2266": {
-    "name": "Gobblet",
-    "designers": [
-      "Thierry Denoual"
-    ],
-    "lastUpdated": "2026-08-22T17:55:21.829Z"
-  },
   "2389": {
     "name": "Othello",
     "designers": [
@@ -291,12 +263,12 @@
     ],
     "lastUpdated": "2026-08-22T17:01:09.220Z"
   },
-  "2651": {
-    "name": "Power Grid",
+  "2653": {
+    "name": "Survive: Escape from Atlantis!",
     "designers": [
-      "Friedemann Friese"
+      "Julian Courtland-Smith"
     ],
-    "lastUpdated": "2026-10-05T16:06:31.257Z"
+    "lastUpdated": "2026-11-04T21:56:44.499Z"
   },
   "2719": {
     "name": "Connect Four",
@@ -356,12 +328,13 @@
     ],
     "lastUpdated": "2026-08-22T17:01:21.784Z"
   },
-  "7805": {
-    "name": "Fearsome Floors",
+  "7866": {
+    "name": "10 Days in the USA",
     "designers": [
-      "Friedemann Friese"
+      "Alan R. Moon",
+      "Aaron Weissblum"
     ],
-    "lastUpdated": "2026-10-05T16:06:26.327Z"
+    "lastUpdated": "2026-11-04T21:56:45.798Z"
   },
   "8203": {
     "name": "Hey, That's My Fish!",
@@ -384,6 +357,13 @@
       "Reiner Knizia"
     ],
     "lastUpdated": "2026-08-22T17:01:08.350Z"
+  },
+  "9851": {
+    "name": "Shut the Box",
+    "designers": [
+      "(Uncredited)"
+    ],
+    "lastUpdated": "2026-11-04T21:56:38.491Z"
   },
   "11901": {
     "name": "Tic-Tac-Toe",
@@ -421,22 +401,6 @@
     ],
     "lastUpdated": "2026-08-22T17:55:11.508Z"
   },
-  "16395": {
-    "name": "Blokus Duo",
-    "designers": [
-      "Bernard Tavitian"
-    ],
-    "lastUpdated": "2026-08-22T17:58:47.943Z"
-  },
-  "16747": {
-    "name": "Tumblin' Dice",
-    "designers": [
-      "Carey Grayson",
-      "Randy Nash",
-      "Rick Soued"
-    ],
-    "lastUpdated": "2026-10-05T16:06:51.166Z"
-  },
   "16986": {
     "name": "Ubongo",
     "designers": [
@@ -458,20 +422,6 @@
     ],
     "lastUpdated": "2026-08-22T17:00:31.823Z"
   },
-  "19841": {
-    "name": "Pentago",
-    "designers": [
-      "Tomas Flodén"
-    ],
-    "lastUpdated": "2026-08-22T17:56:38.444Z"
-  },
-  "20100": {
-    "name": "Wits & Wagers",
-    "designers": [
-      "Dominic Crapuchettes"
-    ],
-    "lastUpdated": "2026-08-22T17:57:54.928Z"
-  },
   "21763": {
     "name": "Mr. Jack",
     "designers": [
@@ -479,6 +429,13 @@
       "Ludovic Maublanc"
     ],
     "lastUpdated": "2026-08-22T17:55:25.468Z"
+  },
+  "24068": {
+    "name": "Shadow Hunters",
+    "designers": [
+      "Yasutaka Ikeda"
+    ],
+    "lastUpdated": "2026-11-04T21:56:57.901Z"
   },
   "25314": {
     "name": "Bowling Solitaire",
@@ -510,12 +467,12 @@
     ],
     "lastUpdated": "2026-08-22T17:54:33.127Z"
   },
-  "32125": {
-    "name": "Felicity: The Cat in the Sack",
+  "31627": {
+    "name": "Ticket to Ride: Nordic Countries",
     "designers": [
-      "Friedemann Friese"
+      "Alan R. Moon"
     ],
-    "lastUpdated": "2026-10-05T16:06:32.372Z"
+    "lastUpdated": "2026-11-04T21:57:04.548Z"
   },
   "34635": {
     "name": "Stone Age",
@@ -523,6 +480,13 @@
       "Bernd Brunnhofer"
     ],
     "lastUpdated": "2026-08-22T17:01:36.695Z"
+  },
+  "34819": {
+    "name": "Pengoloo",
+    "designers": [
+      "Thierry Denoual"
+    ],
+    "lastUpdated": "2026-11-04T21:56:52.966Z"
   },
   "35472": {
     "name": "Triovision",
@@ -538,14 +502,6 @@
       "Stephen McLaughlin"
     ],
     "lastUpdated": "2026-08-15T13:36:04.382Z"
-  },
-  "36553": {
-    "name": "Time's Up! Title Recall!",
-    "designers": [
-      "Michael Adams",
-      "Peter Sarrett"
-    ],
-    "lastUpdated": "2026-10-05T16:06:37.626Z"
   },
   "40398": {
     "name": "Monopoly Deal Card Game",
@@ -624,6 +580,13 @@
       "Jacques Zeimet"
     ],
     "lastUpdated": "2026-10-11T01:52:05.404Z"
+  },
+  "89912": {
+    "name": "Jasper and Zot",
+    "designers": [
+      "Nick Hayes"
+    ],
+    "lastUpdated": "2026-11-04T21:57:07.826Z"
   },
   "92415": {
     "name": "Skull",
@@ -718,13 +681,6 @@
     ],
     "lastUpdated": "2026-09-05T18:21:40.918Z"
   },
-  "125311": {
-    "name": "Okiya",
-    "designers": [
-      "Bruno Cathala"
-    ],
-    "lastUpdated": "2026-09-05T18:21:20.723Z"
-  },
   "126163": {
     "name": "Tzolk'in: The Mayan Calendar",
     "designers": [
@@ -754,6 +710,13 @@
     ],
     "lastUpdated": "2026-09-25T12:48:41.186Z"
   },
+  "129736": {
+    "name": "Cockroach Poker Royal",
+    "designers": [
+      "Jacques Zeimet"
+    ],
+    "lastUpdated": "2026-11-04T21:56:36.007Z"
+  },
   "131260": {
     "name": "Qwixx",
     "designers": [
@@ -774,13 +737,6 @@
       "Phil Walker-Harding"
     ],
     "lastUpdated": "2026-08-22T17:01:37.131Z"
-  },
-  "134253": {
-    "name": "Hostage Negotiator",
-    "designers": [
-      "A. J. Porfirio"
-    ],
-    "lastUpdated": "2026-10-09T20:57:25.049Z"
   },
   "136063": {
     "name": "Forbidden Desert",
@@ -809,6 +765,14 @@
       "Masao Suganuma"
     ],
     "lastUpdated": "2026-08-22T17:01:13.780Z"
+  },
+  "147151": {
+    "name": "Concept",
+    "designers": [
+      "Gaëtan Beaujannot",
+      "Alain Rivollet"
+    ],
+    "lastUpdated": "2026-11-04T21:57:05.001Z"
   },
   "148228": {
     "name": "Splendor",
@@ -862,6 +826,13 @@
     ],
     "lastUpdated": "2026-08-22T17:58:16.076Z"
   },
+  "155426": {
+    "name": "Castles of Mad King Ludwig",
+    "designers": [
+      "Ted Alspach"
+    ],
+    "lastUpdated": "2026-11-04T21:56:33.882Z"
+  },
   "156009": {
     "name": "Port Royal",
     "designers": [
@@ -890,13 +861,6 @@
     ],
     "lastUpdated": "2026-08-15T13:36:05.876Z"
   },
-  "158899": {
-    "name": "Colt Express",
-    "designers": [
-      "Christophe Raimbault"
-    ],
-    "lastUpdated": "2026-08-22T17:55:18.331Z"
-  },
   "159581": {
     "name": "Maskmen",
     "designers": [
@@ -911,13 +875,6 @@
       "Shimpei Sato"
     ],
     "lastUpdated": "2026-08-22T17:01:21.057Z"
-  },
-  "160851": {
-    "name": "Lanterns: The Harvest Festival",
-    "designers": [
-      "Christopher Chung"
-    ],
-    "lastUpdated": "2026-08-22T17:56:32.590Z"
   },
   "163412": {
     "name": "Patchwork",
@@ -999,12 +956,12 @@
     ],
     "lastUpdated": "2026-08-22T17:54:53.555Z"
   },
-  "175117": {
-    "name": "Celestia",
+  "173441": {
+    "name": "Bring Your Own Book",
     "designers": [
-      "Aaron Weissblum"
+      "Matthew Moore"
     ],
-    "lastUpdated": "2026-08-22T17:54:55.309Z"
+    "lastUpdated": "2026-11-04T21:56:53.480Z"
   },
   "176494": {
     "name": "Isle of Skye: From Chieftain to King",
@@ -1045,12 +1002,12 @@
     ],
     "lastUpdated": "2026-08-22T17:56:19.512Z"
   },
-  "183251": {
-    "name": "Karuba",
+  "184921": {
+    "name": "Bunny Kingdom",
     "designers": [
-      "Rüdiger Dorn"
+      "Richard Garfield"
     ],
-    "lastUpdated": "2026-08-22T17:56:18.639Z"
+    "lastUpdated": "2026-11-04T21:57:10.396Z"
   },
   "188018": {
     "name": "Nine Tiles",
@@ -1058,6 +1015,20 @@
       "Jean-Claude Pellin"
     ],
     "lastUpdated": "2026-10-05T16:06:41.047Z"
+  },
+  "188465": {
+    "name": "Otrio",
+    "designers": [
+      "Brady Peterson"
+    ],
+    "lastUpdated": "2026-11-04T21:57:06.071Z"
+  },
+  "188866": {
+    "name": "Awkward Guests: The Walton Case",
+    "designers": [
+      "Ron Gonzalo García"
+    ],
+    "lastUpdated": "2026-11-04T21:57:09.501Z"
   },
   "191095": {
     "name": "Scoundrel",
@@ -1112,6 +1083,14 @@
       "Steve Finn"
     ],
     "lastUpdated": "2026-08-22T17:00:29.209Z"
+  },
+  "196326": {
+    "name": "Love Letter: Premium Edition",
+    "designers": [
+      "Seiji Kanai",
+      "John Zinser"
+    ],
+    "lastUpdated": "2026-11-04T21:56:47.967Z"
   },
   "196526": {
     "name": "Coffee Roaster",
@@ -1172,6 +1151,27 @@
     ],
     "lastUpdated": "2026-08-22T17:55:45.435Z"
   },
+  "202821": {
+    "name": "The Fool's Journey",
+    "designers": [
+      "Desmond Meraz"
+    ],
+    "lastUpdated": "2026-11-04T21:57:08.525Z"
+  },
+  "203427": {
+    "name": "Fabled Fruit",
+    "designers": [
+      "Friedemann Friese"
+    ],
+    "lastUpdated": "2026-11-04T21:57:09.950Z"
+  },
+  "203430": {
+    "name": "Fuji Flush",
+    "designers": [
+      "Friedemann Friese"
+    ],
+    "lastUpdated": "2026-11-04T21:57:04.099Z"
+  },
   "203715": {
     "name": "The Shooting Party",
     "designers": [
@@ -1186,19 +1186,19 @@
     ],
     "lastUpdated": "2026-08-15T13:35:52.821Z"
   },
+  "204498": {
+    "name": "Match Madness",
+    "designers": [
+      "Jeppe Norsker"
+    ],
+    "lastUpdated": "2026-11-04T21:56:44.053Z"
+  },
   "204583": {
     "name": "Kingdomino",
     "designers": [
       "Bruno Cathala"
     ],
     "lastUpdated": "2026-08-22T17:01:10.096Z"
-  },
-  "205059": {
-    "name": "Mansions of Madness: Second Edition",
-    "designers": [
-      "Nikki Valens"
-    ],
-    "lastUpdated": "2026-08-22T17:55:14.955Z"
   },
   "205597": {
     "name": "Jump Drive",
@@ -1229,13 +1229,6 @@
     ],
     "lastUpdated": "2026-10-14T20:14:03.601Z"
   },
-  "208895": {
-    "name": "New York Slice",
-    "designers": [
-      "Jeffrey D. Allers"
-    ],
-    "lastUpdated": "2026-08-22T17:55:21.386Z"
-  },
   "209685": {
     "name": "Century: Spice Road",
     "designers": [
@@ -1251,12 +1244,12 @@
     ],
     "lastUpdated": "2026-09-05T18:21:25.948Z"
   },
-  "215471": {
-    "name": "Photograph",
+  "216403": {
+    "name": "Element",
     "designers": [
-      "Saashi"
+      "Mike Richie"
     ],
-    "lastUpdated": "2026-08-22T17:55:37.561Z"
+    "lastUpdated": "2026-11-04T21:57:00.910Z"
   },
   "216439": {
     "name": "Trash Pandas",
@@ -1303,14 +1296,6 @@
     ],
     "lastUpdated": "2026-08-22T17:54:44.623Z"
   },
-  "218129": {
-    "name": "Catch the Moon",
-    "designers": [
-      "Fabien Riffaud",
-      "Juan Rodriguez"
-    ],
-    "lastUpdated": "2026-09-03T16:42:30.765Z"
-  },
   "219430": {
     "name": "Math Fluxx",
     "designers": [
@@ -1331,13 +1316,6 @@
       "Bruce Glassco"
     ],
     "lastUpdated": "2026-08-22T17:01:00.130Z"
-  },
-  "223215": {
-    "name": "Flip Ships",
-    "designers": [
-      "Kane Klenko"
-    ],
-    "lastUpdated": "2026-09-05T18:21:27.309Z"
   },
   "224037": {
     "name": "Codenames: Duet",
@@ -1384,13 +1362,6 @@
     ],
     "lastUpdated": "2026-08-22T17:00:47.772Z"
   },
-  "228570": {
-    "name": "Raging Bulls",
-    "designers": [
-      "Mark Tuck"
-    ],
-    "lastUpdated": "2026-08-22T17:57:45.027Z"
-  },
   "228855": {
     "name": "Set a Watch",
     "designers": [
@@ -1412,13 +1383,6 @@
       "John Kean"
     ],
     "lastUpdated": "2026-08-15T13:35:53.581Z"
-  },
-  "232661": {
-    "name": "Ada Lovelace: Consulting Mathematician",
-    "designers": [
-      "Robin David"
-    ],
-    "lastUpdated": "2026-10-05T16:06:44.768Z"
   },
   "232832": {
     "name": "Century: Golem Edition",
@@ -1458,13 +1422,6 @@
       "Dennis Rappel"
     ],
     "lastUpdated": "2026-08-15T13:36:35.333Z"
-  },
-  "239464": {
-    "name": "Palm Island",
-    "designers": [
-      "Jon Mietling"
-    ],
-    "lastUpdated": "2026-10-05T16:06:50.470Z"
   },
   "242302": {
     "name": "Space Base",
@@ -1517,6 +1474,13 @@
     ],
     "lastUpdated": "2026-10-05T22:41:26.970Z"
   },
+  "246192": {
+    "name": "Gizmos",
+    "designers": [
+      "Phil Walker-Harding"
+    ],
+    "lastUpdated": "2026-11-04T21:56:39.915Z"
+  },
   "246784": {
     "name": "Cryptid",
     "designers": [
@@ -1525,19 +1489,12 @@
     ],
     "lastUpdated": "2026-08-22T17:54:37.072Z"
   },
-  "247367": {
-    "name": "Air, Land, & Sea",
+  "251219": {
+    "name": "Istanbul: Big Box",
     "designers": [
-      "Jon Perry"
+      "Rüdiger Dorn"
     ],
-    "lastUpdated": "2026-09-05T18:21:34.261Z"
-  },
-  "248861": {
-    "name": "Metro X",
-    "designers": [
-      "Hisashi Hayashi"
-    ],
-    "lastUpdated": "2026-09-05T18:21:26.817Z"
+    "lastUpdated": "2026-11-04T21:56:59.322Z"
   },
   "251412": {
     "name": "On Tour",
@@ -1583,13 +1540,6 @@
     ],
     "lastUpdated": "2026-08-22T17:57:51.346Z"
   },
-  "254386": {
-    "name": "Raccoon Tycoon",
-    "designers": [
-      "Glenn Drover"
-    ],
-    "lastUpdated": "2026-10-05T16:06:42.256Z"
-  },
   "254640": {
     "name": "Just One",
     "designers": [
@@ -1611,6 +1561,15 @@
       "Nick Hayes"
     ],
     "lastUpdated": "2026-10-14T20:14:02.680Z"
+  },
+  "256804": {
+    "name": "Exploding Kittens: Party Pack",
+    "designers": [
+      "Matthew Inman",
+      "Elan Lee",
+      "Shane Small"
+    ],
+    "lastUpdated": "2026-11-04T21:56:40.361Z"
   },
   "257614": {
     "name": "Tussie Mussie",
@@ -1717,6 +1676,21 @@
     ],
     "lastUpdated": "2026-08-22T17:01:11.130Z"
   },
+  "266507": {
+    "name": "Clank! Legacy: Acquisitions Incorporated",
+    "designers": [
+      "Andy Clautice",
+      "Paul Dennen"
+    ],
+    "lastUpdated": "2026-11-04T21:56:44.947Z"
+  },
+  "266722": {
+    "name": "Rumble Nation",
+    "designers": [
+      "Yogi Shinichi (与儀新一)"
+    ],
+    "lastUpdated": "2026-11-04T21:56:37.462Z"
+  },
   "266830": {
     "name": "QE",
     "designers": [
@@ -1790,15 +1764,6 @@
     ],
     "lastUpdated": "2026-08-22T17:56:54.595Z"
   },
-  "271601": {
-    "name": "Feed the Kraken",
-    "designers": [
-      "Maikel Cheney",
-      "Dr. Hans Joachim Höh",
-      "Tobias Immich"
-    ],
-    "lastUpdated": "2026-08-22T17:55:43.485Z"
-  },
   "272993": {
     "name": "Dragonrealm",
     "designers": [
@@ -1823,6 +1788,13 @@
     ],
     "lastUpdated": "2026-08-15T13:36:15.384Z"
   },
+  "276498": {
+    "name": "Paris: La Cité de la Lumière",
+    "designers": [
+      "José Antonio Abascal Acebo"
+    ],
+    "lastUpdated": "2026-11-04T21:56:36.902Z"
+  },
   "277085": {
     "name": "Love Letter",
     "designers": [
@@ -1831,6 +1803,14 @@
       "Alexandar Ortloff-Tang"
     ],
     "lastUpdated": "2026-08-22T17:01:13.343Z"
+  },
+  "277659": {
+    "name": "Final Girl Core Box",
+    "designers": [
+      "Evan Derrick",
+      "A. J. Porfirio"
+    ],
+    "lastUpdated": "2026-11-04T21:56:42.363Z"
   },
   "278553": {
     "name": "Silver",
@@ -1862,37 +1842,6 @@
     ],
     "lastUpdated": "2026-08-22T17:00:34.273Z"
   },
-  "280789": {
-    "name": "Pandemic: Rapid Response",
-    "designers": [
-      "Kane Klenko"
-    ],
-    "lastUpdated": "2026-09-05T18:21:31.192Z"
-  },
-  "281549": {
-    "name": "Beast",
-    "designers": [
-      "Aron Midhall",
-      "Elon Midhall",
-      "Assar Pettersson"
-    ],
-    "lastUpdated": "2026-08-22T17:55:35.953Z"
-  },
-  "281619": {
-    "name": "Ghosts of Christmas",
-    "designers": [
-      "新澤 大樹 (Taiki Shinzawa)"
-    ],
-    "lastUpdated": "2026-10-05T16:06:39.433Z"
-  },
-  "282524": {
-    "name": "Horrified",
-    "designers": [
-      "Prospero Hall",
-      "Peter Lee"
-    ],
-    "lastUpdated": "2026-09-05T18:21:30.472Z"
-  },
   "283155": {
     "name": "Calico",
     "designers": [
@@ -1906,6 +1855,14 @@
       "Thomas Sing"
     ],
     "lastUpdated": "2026-08-22T17:00:52.761Z"
+  },
+  "284108": {
+    "name": "Pictures",
+    "designers": [
+      "Christian Stöhr",
+      "Daniela Stöhr"
+    ],
+    "lastUpdated": "2026-11-04T21:56:50.212Z"
   },
   "285894": {
     "name": "Bravo!",
@@ -1959,13 +1916,6 @@
     ],
     "lastUpdated": "2026-08-20T11:52:22.262Z"
   },
-  "294702": {
-    "name": "Tenpenny Parks",
-    "designers": [
-      "Nate Linhart"
-    ],
-    "lastUpdated": "2026-08-22T17:57:49.847Z"
-  },
   "295192": {
     "name": "Tinderblox",
     "designers": [
@@ -1988,19 +1938,19 @@
     ],
     "lastUpdated": "2026-08-22T17:00:46.903Z"
   },
+  "296108": {
+    "name": "Terraforming Mars: The Dice Game",
+    "designers": [
+      "Jacob Fryxelius"
+    ],
+    "lastUpdated": "2026-11-04T21:57:01.356Z"
+  },
   "296237": {
     "name": "Warp's Edge",
     "designers": [
       "Scott Almes"
     ],
     "lastUpdated": "2026-08-22T17:54:40.584Z"
-  },
-  "296626": {
-    "name": "Sonora",
-    "designers": [
-      "Rob Newton"
-    ],
-    "lastUpdated": "2026-09-05T18:21:44.651Z"
   },
   "296912": {
     "name": "Fort",
@@ -2015,15 +1965,6 @@
       "Geonil"
     ],
     "lastUpdated": "2026-08-22T17:55:16.150Z"
-  },
-  "298060": {
-    "name": "Truffle Shuffle",
-    "designers": [
-      "Molly Johnson",
-      "Robert Melvin",
-      "Shawn Stankewich"
-    ],
-    "lastUpdated": "2026-10-05T16:06:42.693Z"
   },
   "298065": {
     "name": "Santa Monica",
@@ -2048,14 +1989,6 @@
     ],
     "lastUpdated": "2026-09-06T02:10:34.912Z"
   },
-  "299027": {
-    "name": "Colt Super Express",
-    "designers": [
-      "Cédric Lefebvre",
-      "Christophe Raimbault"
-    ],
-    "lastUpdated": "2026-09-05T18:21:22.257Z"
-  },
   "299571": {
     "name": "Bandida",
     "designers": [
@@ -2063,12 +1996,12 @@
     ],
     "lastUpdated": "2026-08-22T17:00:40.533Z"
   },
-  "300442": {
-    "name": "Trekking the World",
+  "299592": {
+    "name": "Beez",
     "designers": [
-      "Charlie Bink"
+      "Dan Halstad"
     ],
-    "lastUpdated": "2026-08-22T17:55:55.294Z"
+    "lastUpdated": "2026-11-04T21:56:57.034Z"
   },
   "300531": {
     "name": "Paleo",
@@ -2154,19 +2087,19 @@
     ],
     "lastUpdated": "2026-08-15T13:36:27.268Z"
   },
+  "307963": {
+    "name": "Durian",
+    "designers": [
+      "Masato Uesugi"
+    ],
+    "lastUpdated": "2026-11-04T21:57:06.732Z"
+  },
   "308412": {
     "name": "マストフォローソリティア (Follow-the-Suit Solitaire)",
     "designers": [
       "Rikkati"
     ],
     "lastUpdated": "2026-08-22T18:14:15.563Z"
-  },
-  "308565": {
-    "name": "Roll n Cook",
-    "designers": [
-      "Benjamin Gauthier"
-    ],
-    "lastUpdated": "2026-08-22T17:57:45.463Z"
   },
   "309105": {
     "name": "Sagani",
@@ -2230,22 +2163,12 @@
     ],
     "lastUpdated": "2026-08-22T18:14:15.126Z"
   },
-  "314421": {
-    "name": "The Fuzzies",
+  "316287": {
+    "name": "Quest",
     "designers": [
-      "Alex Hague",
-      "Justin Vickers",
-      "Wolfgang Warsch"
+      "Don Eskridge"
     ],
-    "lastUpdated": "2026-10-05T16:06:36.313Z"
-  },
-  "316412": {
-    "name": "The LOOP",
-    "designers": [
-      "Maxime Rambourg",
-      "Théo Rivière"
-    ],
-    "lastUpdated": "2026-08-22T17:55:19.305Z"
+    "lastUpdated": "2026-11-04T21:56:49.306Z"
   },
   "317311": {
     "name": "Switch & Signal",
@@ -2253,6 +2176,14 @@
       "David Thompson (I)"
     ],
     "lastUpdated": "2026-09-05T18:21:28.984Z"
+  },
+  "317515": {
+    "name": "Águeda: City of Umbrellas",
+    "designers": [
+      "Dustin Dobson",
+      "Milan Zivkovic"
+    ],
+    "lastUpdated": "2026-11-04T21:56:41.908Z"
   },
   "318182": {
     "name": "Imperium: Legends",
@@ -2300,21 +2231,19 @@
     ],
     "lastUpdated": "2026-08-15T13:35:46.811Z"
   },
-  "320718": {
-    "name": "Hidden Leaders",
-    "designers": [
-      "Andreas Müller",
-      "Markus Müller (II)",
-      "Raphael Stocker"
-    ],
-    "lastUpdated": "2026-10-05T16:06:33.248Z"
-  },
   "321539": {
     "name": "A Game of Cat & Mouth",
     "designers": [
       "(Uncredited)"
     ],
     "lastUpdated": "2026-08-22T17:56:51.605Z"
+  },
+  "322010": {
+    "name": "Enchanted Plumes",
+    "designers": [
+      "Brendan Hansen"
+    ],
+    "lastUpdated": "2026-11-04T21:56:51.174Z"
   },
   "322703": {
     "name": "Death Valley",
@@ -2329,6 +2258,13 @@
       "Thomas Sing"
     ],
     "lastUpdated": "2026-08-22T17:54:35.319Z"
+  },
+  "324914": {
+    "name": "Inside Job",
+    "designers": [
+      "Tanner Simmons"
+    ],
+    "lastUpdated": "2026-11-04T21:57:09.056Z"
   },
   "325698": {
     "name": "Juicy Fruits",
@@ -2351,6 +2287,14 @@
     ],
     "lastUpdated": "2026-08-22T17:56:36.692Z"
   },
+  "328124": {
+    "name": "Bot Factory",
+    "designers": [
+      "Vital Lacerda",
+      "João Quintela Martins"
+    ],
+    "lastUpdated": "2026-11-04T21:56:54.351Z"
+  },
   "328479": {
     "name": "Living Forest",
     "designers": [
@@ -2358,28 +2302,12 @@
     ],
     "lastUpdated": "2026-08-22T17:54:53.120Z"
   },
-  "329465": {
-    "name": "Red Rising",
-    "designers": [
-      "Alexander Schmidt (II)",
-      "Jamey Stegmaier"
-    ],
-    "lastUpdated": "2026-09-05T18:21:31.630Z"
-  },
   "329483": {
     "name": "Clear the Dungeon",
     "designers": [
       "Mark S Ball"
     ],
     "lastUpdated": "2026-08-22T17:58:02.373Z"
-  },
-  "329670": {
-    "name": "Pandemic: Hot Zone – Europe",
-    "designers": [
-      "Matt Leacock",
-      "Thomas Lehmann"
-    ],
-    "lastUpdated": "2026-10-05T16:06:47.320Z"
   },
   "329845": {
     "name": "Stella: Dixit Universe",
@@ -2446,12 +2374,21 @@
     ],
     "lastUpdated": "2026-08-22T17:01:03.752Z"
   },
-  "336131": {
-    "name": "Halls of Hegra",
+  "334652": {
+    "name": "Goblin Vaults",
     "designers": [
-      "Petter Schanke Olsen"
+      "Keith Matejka",
+      "Eric Schlautman"
     ],
-    "lastUpdated": "2026-08-22T18:14:05.778Z"
+    "lastUpdated": "2026-11-04T21:57:12.236Z"
+  },
+  "335869": {
+    "name": "A Little Wordy",
+    "designers": [
+      "Ian Clayman",
+      "Matthew Inman"
+    ],
+    "lastUpdated": "2026-11-04T21:56:46.793Z"
   },
   "336755": {
     "name": "King of Tokyo: Monster Box",
@@ -2533,6 +2470,21 @@
       "Milan Zivkovic"
     ],
     "lastUpdated": "2026-08-22T17:01:28.663Z"
+  },
+  "343745": {
+    "name": "Deckula!",
+    "designers": [
+      "Dr. Mindflip"
+    ],
+    "lastUpdated": "2026-11-04T21:56:47.522Z"
+  },
+  "344114": {
+    "name": "Bag of Chips",
+    "designers": [
+      "Mathieu Aubert",
+      "Théo Rivière"
+    ],
+    "lastUpdated": "2026-11-04T21:57:11.678Z"
   },
   "344258": {
     "name": "That Time You Killed Me",
@@ -2664,6 +2616,13 @@
     ],
     "lastUpdated": "2026-08-22T17:55:49.904Z"
   },
+  "351605": {
+    "name": "Bohnanza: 25th Anniversary Edition",
+    "designers": [
+      "Uwe Rosenberg"
+    ],
+    "lastUpdated": "2026-11-04T21:56:58.346Z"
+  },
   "352418": {
     "name": "Fliptown",
     "designers": [
@@ -2773,15 +2732,6 @@
     ],
     "lastUpdated": "2026-10-06T02:58:08.389Z"
   },
-  "357028": {
-    "name": "Dungeon Fighter: Second Edition",
-    "designers": [
-      "Aureliano Buonfino",
-      "Lorenzo Silva",
-      "Lorenzo Tucci Sorrentino"
-    ],
-    "lastUpdated": "2026-08-22T17:56:16.279Z"
-  },
   "358078": {
     "name": "The Emissary",
     "designers": [
@@ -2796,14 +2746,6 @@
     ],
     "lastUpdated": "2026-08-22T17:01:12.442Z"
   },
-  "358557": {
-    "name": "The Search for Lost Species",
-    "designers": [
-      "Matthew O'Malley",
-      "Ben Rosset"
-    ],
-    "lastUpdated": "2026-08-22T17:54:57.610Z"
-  },
   "358690": {
     "name": "Mantis",
     "designers": [
@@ -2811,14 +2753,6 @@
       "Jeremy Posner"
     ],
     "lastUpdated": "2026-08-22T17:55:00.683Z"
-  },
-  "358816": {
-    "name": "Rear Window",
-    "designers": [
-      "Prospero Hall",
-      "Peter Lee"
-    ],
-    "lastUpdated": "2026-09-03T16:42:31.230Z"
   },
   "359152": {
     "name": "Marvel: Remix",
@@ -2865,6 +2799,13 @@
     ],
     "lastUpdated": "2026-08-22T17:54:59.970Z"
   },
+  "360987": {
+    "name": "The Sandwich Guy",
+    "designers": [
+      "Wilhelm Su"
+    ],
+    "lastUpdated": "2026-11-04T21:56:52.387Z"
+  },
   "361598": {
     "name": "At the Helm",
     "designers": [
@@ -2880,12 +2821,26 @@
     ],
     "lastUpdated": "2026-08-22T17:55:41.047Z"
   },
+  "361850": {
+    "name": "Nimalia",
+    "designers": [
+      "William Liévin"
+    ],
+    "lastUpdated": "2026-11-04T21:56:35.073Z"
+  },
   "362020": {
     "name": "Cosmoctopus",
     "designers": [
       "Henry Audubon"
     ],
     "lastUpdated": "2026-08-22T17:58:31.817Z"
+  },
+  "362692": {
+    "name": "Handy Brawl",
+    "designers": [
+      "Igor Zuber"
+    ],
+    "lastUpdated": "2026-11-04T21:57:03.655Z"
   },
   "362976": {
     "name": "Beacon Patrol",
@@ -2907,6 +2862,13 @@
       "Hjalmar Hach"
     ],
     "lastUpdated": "2026-08-22T17:57:58.517Z"
+  },
+  "363369": {
+    "name": "Starship Captains",
+    "designers": [
+      "Peter B. Hoffgaard"
+    ],
+    "lastUpdated": "2026-11-04T21:56:39.021Z"
   },
   "364641": {
     "name": "Joan of Arc: Orléans Draw &amp; Write",
@@ -2941,13 +2903,6 @@
     ],
     "lastUpdated": "2026-10-05T16:06:45.203Z"
   },
-  "365698": {
-    "name": "Rainforest",
-    "designers": [
-      "Johannes Goupy"
-    ],
-    "lastUpdated": "2026-08-22T17:57:44.071Z"
-  },
   "365717": {
     "name": "Clank!: Catacombs",
     "designers": [
@@ -2961,21 +2916,6 @@
       "Morten Monrad Pedersen"
     ],
     "lastUpdated": "2026-08-22T17:55:10.345Z"
-  },
-  "366456": {
-    "name": "My Shelfie",
-    "designers": [
-      "Matthew Dunstan",
-      "Phil Walker-Harding"
-    ],
-    "lastUpdated": "2026-08-22T17:55:48.500Z"
-  },
-  "367030": {
-    "name": "Quests Over Coffee",
-    "designers": [
-      "Alexander Shen"
-    ],
-    "lastUpdated": "2026-08-22T17:58:57.335Z"
   },
   "367059": {
     "name": "Unsurmountable: Expansion Collection",
@@ -2998,13 +2938,6 @@
       "Joe Hout"
     ],
     "lastUpdated": "2026-10-05T16:06:34.559Z"
-  },
-  "367272": {
-    "name": "Puerto Rico 1897",
-    "designers": [
-      "Andreas Seyfarth"
-    ],
-    "lastUpdated": "2026-10-05T16:06:40.308Z"
   },
   "367498": {
     "name": "Horizons of Spirit Island",
@@ -3037,33 +2970,19 @@
     ],
     "lastUpdated": "2026-08-22T17:55:58.251Z"
   },
+  "368676": {
+    "name": "Leaf",
+    "designers": [
+      "Tim Eisner"
+    ],
+    "lastUpdated": "2026-11-04T21:57:05.446Z"
+  },
   "368846": {
     "name": "Dice Cards",
     "designers": [
       "Tucker Smedes"
     ],
     "lastUpdated": "2026-08-15T13:36:00.049Z"
-  },
-  "369142": {
-    "name": "Savernake Forest",
-    "designers": [
-      "Rodrigo Rego"
-    ],
-    "lastUpdated": "2026-08-22T17:59:00.925Z"
-  },
-  "369880": {
-    "name": "Beer & Bread",
-    "designers": [
-      "Scott Almes"
-    ],
-    "lastUpdated": "2026-10-05T16:06:25.639Z"
-  },
-  "369899": {
-    "name": "Big Top",
-    "designers": [
-      "新澤 大樹 (Taiki Shinzawa)"
-    ],
-    "lastUpdated": "2026-08-22T17:58:01.423Z"
   },
   "370164": {
     "name": "Fun Facts",
@@ -3093,6 +3012,13 @@
       "Alexandar Ortloff-Tang"
     ],
     "lastUpdated": "2026-08-22T17:54:51.798Z"
+  },
+  "371535": {
+    "name": "Chicken!",
+    "designers": [
+      "Scott Almes"
+    ],
+    "lastUpdated": "2026-11-04T21:57:01.802Z"
   },
   "372559": {
     "name": "Spots",
@@ -3198,12 +3124,13 @@
     ],
     "lastUpdated": "2026-08-22T17:01:12.009Z"
   },
-  "378983": {
-    "name": "Tipperary",
+  "379959": {
+    "name": "The Battle of Versailles",
     "designers": [
-      "Günter Burkhardt"
+      "Eloi Pujadas",
+      "Ferran Renalias"
     ],
-    "lastUpdated": "2026-10-05T16:06:43.584Z"
+    "lastUpdated": "2026-11-04T21:57:12.680Z"
   },
   "380165": {
     "name": "Next Station: Tokyo",
@@ -3218,6 +3145,16 @@
       "Robert Kerr"
     ],
     "lastUpdated": "2026-08-22T17:00:53.804Z"
+  },
+  "381249": {
+    "name": "Rebel Princess",
+    "designers": [
+      "Daniel Byrne",
+      "José Gerardo Guerrero",
+      "Kevin Peláez",
+      "Tirso Virgós"
+    ],
+    "lastUpdated": "2026-11-04T21:56:35.519Z"
   },
   "381278": {
     "name": "Dracula vs Van Helsing",
@@ -3248,6 +3185,20 @@
     ],
     "lastUpdated": "2026-08-22T17:55:01.703Z"
   },
+  "383452": {
+    "name": "Lunar",
+    "designers": [
+      "Masato Uesugi"
+    ],
+    "lastUpdated": "2026-11-04T21:56:46.244Z"
+  },
+  "383459": {
+    "name": "Aurum",
+    "designers": [
+      "Shreesh Bhat"
+    ],
+    "lastUpdated": "2026-11-04T21:56:56.061Z"
+  },
   "383499": {
     "name": "Witchcraft!",
     "designers": [
@@ -3256,20 +3207,6 @@
       "David Thompson (I)"
     ],
     "lastUpdated": "2026-08-15T13:36:37.853Z"
-  },
-  "383529": {
-    "name": "Mori",
-    "designers": [
-      "Daniel Newman"
-    ],
-    "lastUpdated": "2026-08-22T17:58:33.479Z"
-  },
-  "383790": {
-    "name": "Romi Rami",
-    "designers": [
-      "Antoine Lefebvre"
-    ],
-    "lastUpdated": "2026-10-05T16:06:52.113Z"
   },
   "385331": {
     "name": "Creature Caravan",
@@ -3374,6 +3311,14 @@
     ],
     "lastUpdated": "2026-08-22T17:00:44.812Z"
   },
+  "394325": {
+    "name": "Fruitoplay",
+    "designers": [
+      "Romaric Galonnier",
+      "Luc Rémond"
+    ],
+    "lastUpdated": "2026-11-04T21:56:59.834Z"
+  },
   "394889": {
     "name": "Snailed It!",
     "designers": [
@@ -3404,6 +3349,13 @@
     ],
     "lastUpdated": "2026-09-05T18:21:25.080Z"
   },
+  "396542": {
+    "name": "The Same Game",
+    "designers": [
+      "Wolfgang Warsch"
+    ],
+    "lastUpdated": "2026-11-04T21:57:00.339Z"
+  },
   "396545": {
     "name": "Sea Salt &amp; Paper: Extra Salt",
     "designers": [
@@ -3425,13 +3377,6 @@
       "Kasper Lapp"
     ],
     "lastUpdated": "2026-08-22T17:00:30.452Z"
-  },
-  "397931": {
-    "name": "Deep Regrets",
-    "designers": [
-      "Judson Cowan"
-    ],
-    "lastUpdated": "2026-08-22T17:56:49.380Z"
   },
   "398684": {
     "name": "Skyrockets: Festivals of Fire",
@@ -3468,13 +3413,6 @@
       "宮野 華也 (Kaya Miyano)"
     ],
     "lastUpdated": "2026-08-22T17:01:22.555Z"
-  },
-  "400265": {
-    "name": "Mooncake Master",
-    "designers": [
-      "Daryl Chow"
-    ],
-    "lastUpdated": "2026-08-22T17:57:43.499Z"
   },
   "400498": {
     "name": "Light Speed: Arena",
@@ -3602,14 +3540,6 @@
     ],
     "lastUpdated": "2026-08-15T13:36:12.383Z"
   },
-  "404936": {
-    "name": "Tap 4",
-    "designers": [
-      "Marilyn Dick",
-      "Dorene Mills"
-    ],
-    "lastUpdated": "2026-09-05T18:21:39.614Z"
-  },
   "405537": {
     "name": "DroPolter",
     "designers": [
@@ -3640,26 +3570,12 @@
     ],
     "lastUpdated": "2026-08-30T00:20:39.768Z"
   },
-  "406652": {
-    "name": "Compile: Main 1",
-    "designers": [
-      "Michael Yang"
-    ],
-    "lastUpdated": "2026-09-05T18:21:26.383Z"
-  },
   "406660": {
     "name": "Seaside",
     "designers": [
       "Bryan Burgoyne"
     ],
     "lastUpdated": "2026-08-22T18:14:02.248Z"
-  },
-  "406663": {
-    "name": "That's Not a Hat: Pop Culture",
-    "designers": [
-      "Kasper Lapp"
-    ],
-    "lastUpdated": "2026-09-05T18:21:19.581Z"
   },
   "406854": {
     "name": "Odin",
@@ -3676,13 +3592,6 @@
       "Benjie Talbott"
     ],
     "lastUpdated": "2026-08-22T17:58:25.487Z"
-  },
-  "408280": {
-    "name": "Twinkle Twinkle",
-    "designers": [
-      "Ammon Anderson"
-    ],
-    "lastUpdated": "2026-10-05T16:06:43.145Z"
   },
   "408545": {
     "name": "Fairy",
@@ -3711,13 +3620,6 @@
       "Bobby Hill"
     ],
     "lastUpdated": "2026-08-26T16:43:44.134Z"
-  },
-  "408770": {
-    "name": "In the Footsteps of Marie Curie",
-    "designers": [
-      "Florian Fay"
-    ],
-    "lastUpdated": "2026-08-22T17:56:09.821Z"
   },
   "408828": {
     "name": "Casinopolis",
@@ -3756,13 +3658,6 @@
       "Joachim Thôme"
     ],
     "lastUpdated": "2026-08-22T17:55:38.869Z"
-  },
-  "410201": {
-    "name": "Wyrmspan",
-    "designers": [
-      "Connie Vogelmann"
-    ],
-    "lastUpdated": "2026-10-05T16:06:47.759Z"
   },
   "410624": {
     "name": "Club Fight",
@@ -3846,6 +3741,13 @@
     ],
     "lastUpdated": "2026-08-22T17:01:16.287Z"
   },
+  "414174": {
+    "name": "Big Sur",
+    "designers": [
+      "Mondo Davis"
+    ],
+    "lastUpdated": "2026-11-04T21:56:36.452Z"
+  },
   "414302": {
     "name": "Xylotar",
     "designers": [
@@ -3859,6 +3761,13 @@
       "Johan Benvenuto"
     ],
     "lastUpdated": "2026-08-22T17:01:07.321Z"
+  },
+  "414349": {
+    "name": "Bebop",
+    "designers": [
+      "Robert Hovakimyan"
+    ],
+    "lastUpdated": "2026-11-04T21:57:02.690Z"
   },
   "414864": {
     "name": "Phanerozoic",
@@ -3902,13 +3811,6 @@
     ],
     "lastUpdated": "2026-08-31T00:38:22.334Z"
   },
-  "415981": {
-    "name": "Seers Catalog",
-    "designers": [
-      "Taylor Reiner"
-    ],
-    "lastUpdated": "2026-10-05T16:06:38.996Z"
-  },
   "416850": {
     "name": "Piggy Piggy",
     "designers": [
@@ -3931,6 +3833,21 @@
       "Reiner Knizia"
     ],
     "lastUpdated": "2026-08-22T17:56:02.524Z"
+  },
+  "417323": {
+    "name": "Panda Spin",
+    "designers": [
+      "Carl Chudyk"
+    ],
+    "lastUpdated": "2026-11-04T21:57:03.135Z"
+  },
+  "417518": {
+    "name": "Floristry",
+    "designers": [
+      "David Gordon (I)",
+      "TAM"
+    ],
+    "lastUpdated": "2026-11-04T21:56:42.913Z"
   },
   "418062": {
     "name": "Railroad Tiles",
@@ -3955,14 +3872,6 @@
     ],
     "lastUpdated": "2026-08-22T17:55:30.677Z"
   },
-  "419130": {
-    "name": "Hutan: Life in the Rainforest",
-    "designers": [
-      "Asger Aleksandrov Granerud",
-      "Daniel Skjold Pedersen"
-    ],
-    "lastUpdated": "2026-10-05T16:06:28.993Z"
-  },
   "419195": {
     "name": "Fishing",
     "designers": [
@@ -3983,6 +3892,13 @@
       "LEO (レオ)"
     ],
     "lastUpdated": "2026-08-22T17:56:17.765Z"
+  },
+  "420385": {
+    "name": "The Yellow House",
+    "designers": [
+      "Geonil"
+    ],
+    "lastUpdated": "2026-11-04T21:56:43.357Z"
   },
   "420498": {
     "name": "Unstoppable",
@@ -4035,6 +3951,13 @@
       "Wanjin Gill"
     ],
     "lastUpdated": "2026-08-20T11:52:21.371Z"
+  },
+  "424371": {
+    "name": "Octocube",
+    "designers": [
+      "Karl Lange"
+    ],
+    "lastUpdated": "2026-11-04T21:57:11.084Z"
   },
   "424751": {
     "name": "Cat and the Tower",
@@ -4135,12 +4058,12 @@
     ],
     "lastUpdated": "2026-08-22T17:57:55.367Z"
   },
-  "430856": {
-    "name": "Gachapon Trick",
+  "431290": {
+    "name": "LINKX",
     "designers": [
-      "Daniel Newman"
+      "Robert E. C. Coleman"
     ],
-    "lastUpdated": "2026-10-05T16:06:44.331Z"
+    "lastUpdated": "2026-11-04T21:56:55.616Z"
   },
   "431998": {
     "name": "Point Galaxy",
@@ -4165,6 +4088,13 @@
       "Kei Kajino (梶野 桂)"
     ],
     "lastUpdated": "2026-10-29T21:10:59.034Z"
+  },
+  "432487": {
+    "name": "Trickarus",
+    "designers": [
+      "Bajir Cannon"
+    ],
+    "lastUpdated": "2026-11-04T21:57:07.310Z"
   },
   "433205": {
     "name": "Torchlit",
@@ -4196,6 +4126,13 @@
     ],
     "lastUpdated": "2026-08-15T13:36:06.312Z"
   },
+  "434865": {
+    "name": "Lands of Amazement",
+    "designers": [
+      "Scott Almes"
+    ],
+    "lastUpdated": "2026-11-04T21:56:39.468Z"
+  },
   "435330": {
     "name": "Pondscape",
     "designers": [
@@ -4203,19 +4140,19 @@
     ],
     "lastUpdated": "2026-09-05T18:21:17.125Z"
   },
+  "435360": {
+    "name": "Waddle",
+    "designers": [
+      "Corné van Moorsel"
+    ],
+    "lastUpdated": "2026-11-04T21:56:56.505Z"
+  },
   "436215": {
     "name": "The Hobbit: There and Back Again",
     "designers": [
       "Reiner Knizia"
     ],
     "lastUpdated": "2026-08-31T00:38:20.659Z"
-  },
-  "436217": {
-    "name": "The Lord of the Rings: Fate of the Fellowship",
-    "designers": [
-      "Matt Leacock"
-    ],
-    "lastUpdated": "2026-08-22T17:55:23.582Z"
   },
   "436219": {
     "name": "Stitch: The Fix for 626",
@@ -4232,6 +4169,13 @@
       "Brett J. Gilbert"
     ],
     "lastUpdated": "2026-10-05T16:06:34.123Z"
+  },
+  "436931": {
+    "name": "Trinket Trove",
+    "designers": [
+      "Rocco Privetera"
+    ],
+    "lastUpdated": "2026-11-04T21:56:55.092Z"
   },
   "438231": {
     "name": "Forest Shuffle: Exploration",
@@ -4357,6 +4301,13 @@
     ],
     "lastUpdated": "2026-08-22T17:56:01.076Z"
   },
+  "447002": {
+    "name": "Sanibel",
+    "designers": [
+      "Elizabeth Hargrave"
+    ],
+    "lastUpdated": "2026-11-04T21:56:50.658Z"
+  },
   "447174": {
     "name": "A Wild Venture",
     "designers": [
@@ -4371,6 +4322,21 @@
       "Mathieu Rivero"
     ],
     "lastUpdated": "2026-08-22T17:00:28.243Z"
+  },
+  "447575": {
+    "name": "Spirits of the Wild: Awakening",
+    "designers": [
+      "Nick Hayes"
+    ],
+    "lastUpdated": "2026-11-04T21:56:40.806Z"
+  },
+  "447583": {
+    "name": "Viva Catrina",
+    "designers": [
+      "Fred Boulle",
+      "Grégory Grard"
+    ],
+    "lastUpdated": "2026-11-04T21:57:02.246Z"
   },
   "447707": {
     "name": "3 Witches",
@@ -4392,6 +4358,14 @@
       "Bryan Bornmueller"
     ],
     "lastUpdated": "2026-10-05T16:06:29.441Z"
+  },
+  "448428": {
+    "name": "Moustache",
+    "designers": [
+      "Alexandre Aguilar",
+      "Jules Messaud"
+    ],
+    "lastUpdated": "2026-11-04T21:57:13.125Z"
   },
   "448740": {
     "name": "Orapa Space",
@@ -4415,13 +4389,6 @@
       "Hep Sosing"
     ],
     "lastUpdated": "2026-10-24T18:51:03.781Z"
-  },
-  "450112": {
-    "name": "Ghost Lift",
-    "designers": [
-      "尾根ギア (Onegear)"
-    ],
-    "lastUpdated": "2026-10-05T16:06:52.985Z"
   },
   "450281": {
     "name": "Insurrection",
@@ -4597,12 +4564,27 @@
     ],
     "lastUpdated": "2026-08-15T13:36:00.484Z"
   },
+  "463296": {
+    "name": "Forest Shuffle: Smoky Mountains",
+    "designers": [
+      "Kosch"
+    ],
+    "lastUpdated": "2026-11-04T21:56:48.859Z"
+  },
   "463437": {
     "name": "Tippi Toppi: Hoch Hinaus!",
     "designers": [
       "Lars Ehresmann"
     ],
     "lastUpdated": "2026-08-15T13:36:33.879Z"
+  },
+  "463717": {
+    "name": "The Happiest Cat in the World",
+    "designers": [
+      "Olivier Cipière",
+      "Oussama Khelifati"
+    ],
+    "lastUpdated": "2026-11-04T21:56:51.896Z"
   },
   "464056": {
     "name": "Spooky Tower",
@@ -4660,6 +4642,14 @@
       "(Uncredited)"
     ],
     "lastUpdated": "2026-09-03T16:42:29.433Z"
+  },
+  "466239": {
+    "name": "Fugu",
+    "designers": [
+      "Flavio Foches",
+      "Riccardo Foches"
+    ],
+    "lastUpdated": "2026-11-04T21:56:48.410Z"
   },
   "466862": {
     "name": "Chronocritters",
