@@ -56,3 +56,13 @@ details > summary {
 @media (max-width: 768px) {
     .tournament-vs { gap: var(--kt-space-2); }
 }
+
+/* Smart Buy: rows left out of the basket are dimmed */
+.kt-table tr.is-unselected {
+    opacity: 0.45;
+}
+
+.kt-table input[type="checkbox"] {
+    accent-color: var(--kt-primary);
+    cursor: pointer;
+}

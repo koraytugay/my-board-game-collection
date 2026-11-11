@@ -220,9 +220,9 @@ function renderSmartBuyUI() {
             let pillsHtml = '';
             filteredStoreGroups.forEach(group => {
                 pillsHtml += `
-                    <a href="#store-${group.key}" class="jump-pill" title="Jump to ${escapeHtml(group.name)}">
+                    <a href="#store-${group.key}" class="kt-chip" title="Jump to ${escapeHtml(group.name)}">
                         <span>${escapeHtml(group.name)}</span>
-                        <span class="jump-pill-count">${group.games.length}</span>
+                        <span class="kt-chip__meta">${group.games.length}</span>
                     </a>
                 `;
             });
@@ -237,8 +237,8 @@ function renderSmartBuyUI() {
     // Stores container
     if (totalVisibleStores === 0) {
         container.innerHTML = `
-            <div class="smartbuy-empty">
-                <h3>No stores matched your filters</h3>
+            <div class="kt-empty">
+                <div class="kt-empty__title">No stores matched your filters</div>
                 <p>Try clearing your search or setting "Min Games" to 1+.</p>
             </div>
         `;
@@ -262,15 +262,15 @@ function renderStoreCard(group) {
     const allSelected = games.length > 0 && selectedCount === games.length;
 
     const card = document.createElement('div');
-    card.className = 'smartbuy-store-card';
+    card.className = 'kt-card kt-mb-5';
     card.id = `store-${storeKey}`;
 
     // Header HTML: store name as link and calculated total
     const storeUrl = group.url || '#';
     const headerHtml = `
-        <div class="store-card-header">
-            <a href="${escapeHtml(storeUrl)}" target="_blank" rel="noopener noreferrer" class="store-name">${escapeHtml(group.name)}</a>
-            <span class="total-amount" id="total-amount-${storeKey}">$${totalCad.toFixed(2)} CAD</span>
+        <div class="kt-card__header">
+            <a href="${escapeHtml(storeUrl)}" target="_blank" rel="noopener noreferrer" class="kt-card__title">${escapeHtml(group.name)}</a>
+            <strong class="kt-card__actions kt-fs-md kt-num" id="total-amount-${storeKey}">$${totalCad.toFixed(2)} CAD</strong>
         </div>
     `;
 
@@ -282,9 +282,9 @@ function renderStoreCard(group) {
 
         // List tag badges
         let tagBadges = '';
-        if (game.isWantToBuy) tagBadges += '<span class="badge-tag badge-wtb">Want to Buy</span>';
-        if (game.isWantInTrade) tagBadges += '<span class="badge-tag badge-trade">Want in Trade</span>';
-        if (game.isLikeToHave) tagBadges += '<span class="badge-tag badge-like">Like to Have</span>';
+        if (game.isWantToBuy) tagBadges += '<span class="kt-badge">Want to Buy</span>';
+        if (game.isWantInTrade) tagBadges += '<span class="kt-badge">Want in Trade</span>';
+        if (game.isLikeToHave) tagBadges += '<span class="kt-badge">Like to Have</span>';
 
         // Designers & Year
         const designersStr = (game.designers && game.designers.length > 0 && game.designers[0] !== '(Uncredited)')
@@ -295,56 +295,52 @@ function renderStoreCard(group) {
         // Deal tag
         let dealHtml = '';
         if (item.deal) {
-            dealHtml = `<span class="row-deal-badge">-${item.deal.discountPercent}%</span>`;
+            dealHtml = `<span class="kt-badge kt-badge--soft-success">-${item.deal.discountPercent}%</span>`;
         }
 
         // Price difference badge
-        let diffHtml = '<span class="diff-badge diff-only" title="Only store with this game in stock">—</span>';
+        let diffHtml = '<span class="kt-text-muted" title="Only store with this game in stock">—</span>';
         if (item.priceDiff) {
             if (item.priceDiff.diffStatus === 'higher') {
-                diffHtml = `<span class="diff-badge diff-higher" title="+$${item.priceDiff.diffCad.toFixed(2)} CAD (+${item.priceDiff.diffPercent}%) vs cheapest at ${escapeHtml(item.priceDiff.cheapestStoreName)} ($${item.priceDiff.minCadPrice.toFixed(2)} CAD)">+${item.priceDiff.diffPercent}% 🔺</span>`;
+                diffHtml = `<span class="kt-text-danger kt-fw-semibold" title="+$${item.priceDiff.diffCad.toFixed(2)} CAD (+${item.priceDiff.diffPercent}%) vs cheapest at ${escapeHtml(item.priceDiff.cheapestStoreName)} ($${item.priceDiff.minCadPrice.toFixed(2)} CAD)">+${item.priceDiff.diffPercent}% ▲</span>`;
             } else if (item.priceDiff.diffStatus === 'lowest') {
-                diffHtml = `<span class="diff-badge diff-lowest" title="Lowest price available across all stores ($${item.priceDiff.minCadPrice.toFixed(2)} CAD)">✓ Lowest</span>`;
+                diffHtml = `<span class="kt-text-success kt-fw-semibold" title="Lowest price available across all stores ($${item.priceDiff.minCadPrice.toFixed(2)} CAD)">✓ Lowest</span>`;
             }
         }
 
         rowsHtml += `
-            <tr class="playlist-row ${isSelected ? '' : 'is-unselected'}" id="row-${item.rowKey}" data-store="${storeKey}" data-key="${item.rowKey}" onclick="onRowClicked('${storeKey}', '${item.rowKey}', event)">
-                <td class="td-checkbox">
-                    <input type="checkbox" 
-                        class="playlist-checkbox" 
-                        id="chk-${item.rowKey}" 
-                        ${isSelected ? 'checked' : ''} 
+            <tr class="is-clickable${isSelected ? '' : ' is-unselected'}" id="row-${item.rowKey}" data-store="${storeKey}" data-key="${item.rowKey}" onclick="onRowClicked('${storeKey}', '${item.rowKey}', event)">
+                <td>
+                    <input type="checkbox"
+                        id="chk-${item.rowKey}"
+                        ${isSelected ? 'checked' : ''}
                         onchange="onGameCheckboxChanged('${storeKey}', '${item.rowKey}', this.checked)">
                 </td>
-                <td class="td-title">
-                    <div class="game-title-container">
-                        <img src="${game.thumbnail || game.image || 'https://via.placeholder.com/38?text=No+Img'}" 
-                            alt="${escapeHtml(game.name)}" 
-                            class="game-cover-art" 
-                            loading="lazy" 
+                <td>
+                    <div class="kt-cluster" style="flex-wrap: nowrap">
+                        <button type="button" class="kt-thumb kt-thumb--sm"
                             onclick="typeof showGameDetails === 'function' ? showGameDetails('${game.objectId}') : window.open('https://boardgamegeek.com/boardgame/${game.objectId}', '_blank')"
                             title="Click to view details for ${escapeHtml(game.name)}">
-                        <a href="javascript:void(0)" 
-                            class="game-row-title" 
+                            <img src="${game.thumbnail || game.image || 'https://via.placeholder.com/38?text=No+Img'}" alt="${escapeHtml(game.name)}" loading="lazy">
+                        </button>
+                        <a href="javascript:void(0)"
+                            class="kt-fw-semibold kt-text-primary"
                             onclick="typeof showGameDetails === 'function' ? showGameDetails('${game.objectId}') : window.open('https://boardgamegeek.com/boardgame/${game.objectId}', '_blank')"
                             title="${escapeHtml(game.name)}">
                             ${escapeHtml(game.name)}
                         </a>
                     </div>
                 </td>
-                <td class="td-year">${escapeHtml(yearStr || '—')}</td>
-                <td class="td-designers" title="${escapeHtml(designersStr)}">${escapeHtml(designersStr || '—')}</td>
-                <td class="td-list">${tagBadges || '—'}</td>
-                <td class="td-price">
-                    <div class="price-container">
-                        <span class="price-cad" id="price-cad-${item.rowKey}">$${(item.cadPrice || 0).toFixed(2)} CAD</span>
-                        ${dealHtml}
-                    </div>
+                <td class="kt-text-muted">${escapeHtml(yearStr || '—')}</td>
+                <td class="kt-text-secondary" title="${escapeHtml(designersStr)}">${escapeHtml(designersStr || '—')}</td>
+                <td>${tagBadges || '—'}</td>
+                <td class="kt-num">
+                    <strong id="price-cad-${item.rowKey}">$${(item.cadPrice || 0).toFixed(2)} CAD</strong>
+                    ${dealHtml}
                 </td>
-                <td class="td-diff">${diffHtml}</td>
-                <td class="td-action">
-                    <a href="${item.url}" target="_blank" class="store-link" title="Open product page on ${escapeHtml(group.name)}">
+                <td class="kt-num">${diffHtml}</td>
+                <td class="kt-num">
+                    <a href="${item.url}" target="_blank" class="kt-btn kt-btn--sm" title="Open product page on ${escapeHtml(group.name)}">
                         Store ↗
                     </a>
                 </td>
@@ -353,35 +349,24 @@ function renderStoreCard(group) {
     });
 
     const tableHtml = `
-        <div class="playlist-table-wrapper">
-            <table class="playlist-table">
+        <div style="overflow-x: auto">
+            <table class="kt-table kt-table--hover">
                 <thead>
                     <tr>
-                        <th class="col-checkbox">
-                            <input type="checkbox" 
-                                class="playlist-checkbox" 
-                                id="header-chk-${storeKey}" 
-                                ${allSelected ? 'checked' : ''} 
+                        <th>
+                            <input type="checkbox"
+                                id="header-chk-${storeKey}"
+                                ${allSelected ? 'checked' : ''}
                                 onchange="toggleSelectAllForStore('${storeKey}', this.checked)"
                                 title="Toggle all games for this store">
                         </th>
-                        <th class="col-title sortable" id="th-${storeKey}-game" onclick="sortStoreTable('${storeKey}', 'game')" title="Sort by Game">
-                            Game<span class="sort-arrow" id="sort-arrow-${storeKey}-game"></span>
-                        </th>
-                        <th class="col-year sortable" id="th-${storeKey}-year" onclick="sortStoreTable('${storeKey}', 'year')" title="Sort by Year">
-                            Year<span class="sort-arrow" id="sort-arrow-${storeKey}-year"></span>
-                        </th>
-                        <th class="col-designers">Designers</th>
-                        <th class="col-list sortable" id="th-${storeKey}-list" onclick="sortStoreTable('${storeKey}', 'list')" title="Sort by List">
-                            List<span class="sort-arrow" id="sort-arrow-${storeKey}-list"></span>
-                        </th>
-                        <th class="col-price sortable" id="th-${storeKey}-price" onclick="sortStoreTable('${storeKey}', 'price')" title="Sort by Price">
-                            Price<span class="sort-arrow" id="sort-arrow-${storeKey}-price"></span>
-                        </th>
-                        <th class="col-diff sortable" id="th-${storeKey}-diff" onclick="sortStoreTable('${storeKey}', 'diff')" title="Sort by Difference from Lowest Price">
-                            vs Lowest<span class="sort-arrow" id="sort-arrow-${storeKey}-diff"></span>
-                        </th>
-                        <th class="col-action">Link</th>
+                        <th id="th-${storeKey}-game" aria-sort="none" onclick="sortStoreTable('${storeKey}', 'game')" title="Sort by Game">Game</th>
+                        <th id="th-${storeKey}-year" aria-sort="none" onclick="sortStoreTable('${storeKey}', 'year')" title="Sort by Year">Year</th>
+                        <th>Designers</th>
+                        <th id="th-${storeKey}-list" aria-sort="none" onclick="sortStoreTable('${storeKey}', 'list')" title="Sort by List">List</th>
+                        <th class="kt-num" id="th-${storeKey}-price" aria-sort="none" onclick="sortStoreTable('${storeKey}', 'price')" title="Sort by Price">Price</th>
+                        <th class="kt-num" id="th-${storeKey}-diff" aria-sort="none" onclick="sortStoreTable('${storeKey}', 'diff')" title="Sort by Difference from Lowest Price">vs Lowest</th>
+                        <th class="kt-num">Link</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -394,10 +379,10 @@ function renderStoreCard(group) {
     card.innerHTML = headerHtml + tableHtml;
     return card;
 }
- 
+
 function onRowClicked(storeKey, rowKey, event) {
     // If clicked on an interactive element (link, checkbox, button, thumbnail), let its own handler handle it
-    if (event && event.target && event.target.closest('a, input, button, .game-cover-art')) {
+    if (event && event.target && event.target.closest('a, input, button')) {
         return;
     }
 
@@ -555,7 +540,7 @@ function sortStoreTable(storeKey, column) {
     });
 
     // Reorder DOM rows in table tbody
-    const tbody = document.querySelector(`#store-${storeKey} .playlist-table tbody`);
+    const tbody = document.querySelector(`#store-${storeKey} tbody`);
     if (tbody) {
         group.games.forEach(item => {
             const rowEl = document.getElementById(`row-${item.rowKey}`);
@@ -569,16 +554,8 @@ function sortStoreTable(storeKey, column) {
     const sortColumns = ['game', 'year', 'list', 'price', 'diff'];
     sortColumns.forEach(col => {
         const thEl = document.getElementById(`th-${storeKey}-${col}`);
-        const arrowEl = document.getElementById(`sort-arrow-${storeKey}-${col}`);
-        if (!thEl || !arrowEl) return;
-
-        if (col === column) {
-            thEl.classList.add('active-sort');
-            arrowEl.textContent = direction === 'asc' ? ' ▲' : ' ▼';
-        } else {
-            thEl.classList.remove('active-sort');
-            arrowEl.textContent = '';
-        }
+        if (!thEl) return;
+        thEl.setAttribute('aria-sort', col === column ? (direction === 'asc' ? 'ascending' : 'descending') : 'none');
     });
 }
 
