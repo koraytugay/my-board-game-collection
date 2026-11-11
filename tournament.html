@@ -13,31 +13,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game Tournament - My Board Game Collection</title>
+    <link rel="stylesheet" href="https://koraytugay.github.io/kt-styles/dist/kt.min.css">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="tournament.css">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Game Tournament</h1>
-            <p class="username">@koraytugay on BoardGameGeek</p>
+    <div class="kt-container">
+        <header class="kt-page-header">
+            <h1 class="kt-page-title">Game Tournament</h1>
+            <p class="kt-page-subtitle">@koraytugay on BoardGameGeek</p>
         </header>
 
-        <nav class="page-nav"></nav>
+        <nav class="kt-nav"></nav>
         <script src="nav.js"></script>
 
-        <div id="loading" class="loading">
-            <div class="spinner"></div>
+        <div id="loading" class="kt-loading">
+            <div class="kt-spinner"></div>
             <p>Loading your collection...</p>
         </div>
 
         <div id="setup-view" class="setup-view" style="display: none;">
             <h2>Choose Tournament Size</h2>
             <div class="size-options">
-                <button class="btn btn-primary size-btn" data-size="8">8 Games</button>
-                <button class="btn btn-primary size-btn" data-size="16">16 Games</button>
-                <button class="btn btn-primary size-btn" data-size="32">32 Games</button>
-                <button class="btn btn-secondary size-btn" data-size="all">Whole Collection</button>
+                <button class="kt-btn kt-btn--primary kt-btn--lg size-btn" data-size="8">8 Games</button>
+                <button class="kt-btn kt-btn--primary kt-btn--lg size-btn" data-size="16">16 Games</button>
+                <button class="kt-btn kt-btn--primary kt-btn--lg size-btn" data-size="32">32 Games</button>
+                <button class="kt-btn kt-btn--lg size-btn" data-size="all">Whole Collection</button>
             </div>
             <p class="hint">Games will be selected randomly from your collection.</p>
         </div>
@@ -62,7 +63,7 @@
                         <h2 class="game-name">Game A</h2>
                         <p class="game-year"></p>
                     </div>
-                    <button class="btn btn-primary select-btn">Pick This One</button>
+                    <button class="kt-btn kt-btn--primary kt-btn--block select-btn">Pick This One</button>
                 </div>
 
                 <div class="vs-divider">VS</div>
@@ -75,7 +76,7 @@
                         <h2 class="game-name">Game B</h2>
                         <p class="game-year"></p>
                     </div>
-                    <button class="btn btn-primary select-btn">Pick This One</button>
+                    <button class="kt-btn kt-btn--primary kt-btn--block select-btn">Pick This One</button>
                 </div>
             </div>
         </div>
@@ -86,8 +87,8 @@
                 <!-- Champion details will be injected here -->
             </div>
             <div class="actions">
-                <button id="restart-btn" class="btn btn-primary">Start New Tournament</button>
-                <a href="index.html" class="btn btn-secondary">Return to Collection</a>
+                <button id="restart-btn" class="kt-btn kt-btn--primary">Start New Tournament</button>
+                <a href="index.html" class="kt-btn">Return to Collection</a>
             </div>
         </div>
     </div>

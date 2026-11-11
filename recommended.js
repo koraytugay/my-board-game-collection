@@ -89,7 +89,7 @@ async function fetchRecommendations() {
         sortGames(currentSort);
 
         loadingEl.style.display = 'none';
-        controlsEl.style.display = 'block';
+        controlsEl.style.display = '';
 
         loadDarkModePreference();
 
@@ -211,15 +211,15 @@ function renderGames() {
     const gamesGridEl = document.getElementById('games-grid');
 
     if (currentViewMode === 'grid') {
-        gamesGridEl.className = 'games-grid';
+        gamesGridEl.className = 'kt-grid';
     } else if (currentViewMode === 'compact') {
-        gamesGridEl.className = 'games-grid view-compact';
+        gamesGridEl.className = 'kt-grid kt-grid--compact';
     } else if (currentViewMode === 'list') {
-        gamesGridEl.className = 'games-grid view-list';
+        gamesGridEl.className = 'kt-grid kt-grid--list';
     }
 
     if (filteredGames.length === 0) {
-        gamesGridEl.innerHTML = '<div class="no-results" style="grid-column: 1/-1; text-align: center; color: #666; padding: 40px;">No recommendations match your filters</div>';
+        gamesGridEl.innerHTML = '<div class="kt-empty">No recommendations match your filters</div>';
         return;
     }
 
@@ -231,24 +231,20 @@ function renderGames() {
 
 function createGameCard(game) {
     const card = document.createElement('div');
-    card.className = 'game-card';
+    card.className = 'kt-media-card kt-media-card--interactive kt-media-card--flow';
     card.onclick = (e) => {
-        if (e.target.closest('a') || e.target.closest('button') || e.target.closest('.btn-wont-buy') || e.target.closest('.source-thumb-chip')) return;
+        if (e.target.closest('a') || e.target.closest('button') || e.target.closest('.kt-thumb')) return;
         window.open(`https://boardgamegeek.com/boardgame/${game.objectId}`, '_blank');
     };
 
-    let badgesHtml = `<span class="badge badge-favorite">🔥 Match ${game.matchScore}</span>`;
+    let badgesHtml = `<span class="kt-badge kt-badge--dark">🔥 Match ${game.matchScore}</span>`;
 
     const sourcesHtml = (game.recommendedBy || []).map(s => {
         const thumbUrl = ownedThumbnailMap.get(String(s.ownedId)) || `images/thumbnails/${s.ownedId}.jpg`;
         return `
-            <div class="source-thumb-chip" title="${escapeHtml(s.ownedName)} (★${s.userRating})">
-                <img src="${thumbUrl}" 
-                     alt="${escapeHtml(s.ownedName)}" 
-                     class="source-thumb-img" 
-                     loading="lazy"
-                     onerror="this.onerror=null; this.src='images/thumbnails/${s.ownedId}.png';">
-                <span class="source-thumb-rating">★${s.userRating}</span>
+            <div class="kt-thumb kt-thumb--sm" title="${escapeHtml(s.ownedName)} (★${s.userRating})">
+                <img src="${thumbUrl}" alt="${escapeHtml(s.ownedName)}" loading="lazy" onerror="this.onerror=null; this.src='images/thumbnails/${s.ownedId}.png';">
+                <span class="kt-thumb__caption">★${s.userRating}</span>
             </div>
         `;
     }).join('');
@@ -262,36 +258,35 @@ function createGameCard(game) {
         : '';
 
     card.innerHTML = `
-        <div class="game-badges">
-            ${badgesHtml}
-        </div>
-        <img src="${game.image || game.thumbnail || 'https://via.placeholder.com/300x300?text=No+Image'}" 
-             alt="${escapeHtml(game.name)}" 
-             class="game-thumbnail"
+        <div class="kt-media-card__media">
+            <img src="${game.image || game.thumbnail || 'https://via.placeholder.com/300x300?text=No+Image'}" 
+             alt="${escapeHtml(game.name)}"
              loading="lazy"
              onerror="this.onerror=null;this.src='https://via.placeholder.com/300x300?text=No+Image';">
-        <div class="game-info">
-            <div class="game-year">${game.yearPublished !== 'N/A' ? game.yearPublished : ''}</div>
-            <div class="game-name">${escapeHtml(game.name)}</div>
-            <div class="game-meta">
-                ${playersText ? `<div class="meta-item"><span>👥</span> ${playersText}</div>` : ''}
-                ${game.playingTime ? `<div class="meta-item"><span>⏱️</span> ${game.playingTime} min</div>` : ''}
-                <div class="meta-item"><span>⭐</span> ${game.bggRating ? game.bggRating.toFixed(1) : 'N/A'}</div>
-                ${designersText ? `<div class="meta-item" title="Designer: ${escapeHtml(designersText)}"><span>✍️</span> ${escapeHtml(designersText)}</div>` : ''}
+            <div class="kt-media-card__badges">${badgesHtml}</div>
+        </div>
+        <div class="kt-media-card__body">
+            <div class="kt-media-card__title">${escapeHtml(game.name)}</div>
+            <div class="kt-media-card__subtitle">${game.yearPublished !== 'N/A' ? game.yearPublished : ''}</div>
+            <div class="kt-media-card__meta">
+                ${playersText ? `<div class="kt-meta-item"><span>👥</span> ${playersText}</div>` : ''}
+                ${game.playingTime ? `<div class="kt-meta-item"><span>⏱️</span> ${game.playingTime} min</div>` : ''}
+                <div class="kt-meta-item"><span>⭐</span> ${game.bggRating ? game.bggRating.toFixed(1) : 'N/A'}</div>
+                ${designersText ? `<div class="kt-meta-item" title="Designer: ${escapeHtml(designersText)}"><span>✍️</span> ${escapeHtml(designersText)}</div>` : ''}
             </div>
-            <div class="source-games-section">
-                <div class="source-games-title">Based on games you love:</div>
-                <div class="source-games-list">
+            <div class="kt-mt-3">
+                <div class="kt-eyebrow kt-mb-2">Based on games you love</div>
+                <div class="kt-cluster" style="--kt-gap: 4px">
                     ${sourcesHtml}
                 </div>
             </div>
-            <div class="game-actions" style="margin-top: 15px; padding-top: 12px; border-top: 1px solid #eee;"></div>
+            <div class="kt-mt-3" data-actions></div>
         </div>
     `;
 
-    const actionsContainer = card.querySelector('.game-actions');
+    const actionsContainer = card.querySelector('[data-actions]');
     const wontBuyBtn = document.createElement('button');
-    wontBuyBtn.className = 'btn-wont-buy';
+    wontBuyBtn.className = 'kt-btn kt-btn--sm kt-btn--block';
     wontBuyBtn.innerHTML = '💻 Copy Console JS (Don\'t Buy)';
     wontBuyBtn.onclick = (e) => copyConsoleScript(e, game, wontBuyBtn);
 
@@ -343,12 +338,10 @@ async function copyConsoleScript(event, game, button) {
         }
 
         const originalText = button.innerHTML;
-        button.className = 'btn-wont-buy success';
-        button.innerHTML = '✓ Copied JS!';
+                button.innerHTML = '✓ Copied JS!';
         showToast(`Copied console code for <strong>"${escapeHtml(game.name)}"</strong>! Paste & run in your browser console on boardgamegeek.com.`);
 
         setTimeout(() => {
-            button.className = 'btn-wont-buy';
             button.innerHTML = originalText;
         }, 3500);
 
@@ -373,21 +366,22 @@ function showToast(message, isError = false) {
     if (!toastContainer) {
         toastContainer = document.createElement('div');
         toastContainer.id = 'toast-container';
-        toastContainer.className = 'toast-container';
+        toastContainer.className = 'kt-toast-stack';
         document.body.appendChild(toastContainer);
     }
 
     const toast = document.createElement('div');
-    toast.className = `toast ${isError ? 'toast-error' : 'toast-success'}`;
+    toast.className = `kt-toast${isError ? ' kt-toast--danger' : ''}`;
+    toast.setAttribute('role', isError ? 'alert' : 'status');
     toast.innerHTML = message;
     toastContainer.appendChild(toast);
 
     setTimeout(() => {
-        toast.classList.add('show');
+        toast.classList.add('is-visible');
     }, 10);
 
     setTimeout(() => {
-        toast.classList.remove('show');
+        toast.classList.remove('is-visible');
         setTimeout(() => {
             toast.remove();
         }, 300);

@@ -195,7 +195,7 @@ async function fetchCollection() {
         sortGames(currentSort);
 
         loadingEl.style.display = 'none';
-        controlsEl.style.display = 'block';
+        controlsEl.style.display = '';
         renderStockStatus(...availabilityResults);
 
         loadDarkModePreference();
@@ -321,15 +321,15 @@ function renderGames() {
     const gamesGridEl = document.getElementById('games-grid');
 
     if (currentViewMode === 'grid') {
-        gamesGridEl.className = 'games-grid';
+        gamesGridEl.className = 'kt-grid';
     } else if (currentViewMode === 'compact') {
-        gamesGridEl.className = 'games-grid view-compact';
+        gamesGridEl.className = 'kt-grid kt-grid--compact';
     } else if (currentViewMode === 'list') {
-        gamesGridEl.className = 'games-grid view-list';
+        gamesGridEl.className = 'kt-grid kt-grid--list';
     }
 
     if (filteredGames.length === 0) {
-        gamesGridEl.innerHTML = '<div class="no-results">No games match your filters</div>';
+        gamesGridEl.innerHTML = '<div class="kt-empty">No games match your filters</div>';
         return;
     }
 
@@ -344,8 +344,8 @@ function buildBadgesHtml(game) {
 
     if (isGameInStockAtAnyStore(game)) {
         badgesHtml += wishlistConfig.dealBadge === 'detailed'
-            ? '<span class="badge badge-favorite">In Stock</span>'
-            : '<span class="badge badge-instock" style="background:#c6f6d5; color:#22543d;">In Stock</span>';
+            ? '<span class="kt-badge kt-badge--green">In Stock</span>'
+            : '<span class="kt-badge kt-badge--green">In Stock</span>';
     }
 
     if (wishlistConfig.dealBadge === 'detailed') {
@@ -353,38 +353,38 @@ function buildBadgesHtml(game) {
         if (dealInfo) {
             const prevPriceFormatted = formatPrice(dealInfo.previousPrice, dealInfo.storeKey);
             const currPriceFormatted = formatPrice(dealInfo.currentPrice, dealInfo.storeKey);
-            badgesHtml += `<span class="badge badge-deal" title="Was ${prevPriceFormatted}, now ${currPriceFormatted}">🔥 -${dealInfo.discountPercent}% Deal</span>`;
+            badgesHtml += `<span class="kt-badge kt-badge--green" title="Was ${prevPriceFormatted}, now ${currPriceFormatted}">🔥 -${dealInfo.discountPercent}% Deal</span>`;
         }
     } else if (hasAnyRetailDeal(game)) {
-        badgesHtml += '<span class="badge badge-deal" style="background:#feebc8; color:#7b341e;">🔥 Deal</span>';
+        badgesHtml += '<span class="kt-badge kt-badge--green">🔥 Deal</span>';
     }
 
     if (wishlistConfig.showTradeBadge && game.isWantInTrade) {
-        badgesHtml += '<span class="badge badge-want-trade">Want in Trade</span>';
+        badgesHtml += '<span class="kt-badge kt-badge--dark">Want in Trade</span>';
     }
 
-    if (game.minPlayers <= 1) badgesHtml += '<span class="badge badge-solo">Solo</span>';
-    if (game.rating >= 8) badgesHtml += '<span class="badge badge-highly-rated">Highly Rated</span>';
+    if (game.minPlayers <= 1) badgesHtml += '<span class="kt-badge kt-badge--dark">Solo</span>';
+    if (game.rating >= 8) badgesHtml += '<span class="kt-badge kt-badge--dark">Highly Rated</span>';
 
     return badgesHtml;
 }
 
 function buildMetaExtraHtml(game) {
     if (wishlistConfig.metaExtra === 'myRating') {
-        return game.myRating > 0 ? `<div class="meta-item"><span>💚</span> ${game.myRating.toFixed(1)}</div>` : '';
+        return game.myRating > 0 ? `<div class="kt-meta-item"><span>💚</span> ${game.myRating.toFixed(1)}</div>` : '';
     }
     const designersText = (game.designers && game.designers.length > 0 && game.designers[0] !== '(Uncredited)')
         ? game.designers.join(', ')
         : '';
-    return designersText ? `<div class="meta-item" title="Designer: ${designersText}"><span>✍️</span> ${designersText}</div>` : '';
+    return designersText ? `<div class="kt-meta-item" title="Designer: ${designersText}"><span>✍️</span> ${designersText}</div>` : '';
 }
 
 function createGameCard(game) {
     const card = document.createElement('div');
-    card.className = 'game-card';
+    card.className = 'kt-media-card kt-media-card--interactive kt-media-card--flow';
     card.onclick = (e) => {
         // Prevent opening modal if user is clicking a store link, button, or any interactive element
-        if (e.target.closest('a') || e.target.closest('button') || e.target.closest('.store-chip')) return;
+        if (e.target.closest('a') || e.target.closest('button') || e.target.closest('.kt-chip')) return;
         if (typeof showGameDetails === 'function') {
             showGameDetails(game.objectId);
         } else {
@@ -402,13 +402,13 @@ function createGameCard(game) {
         const hasDeal = store.deal && store.deal.discountPercent >= 20;
         const prevPriceText = hasDeal ? formatPrice(store.deal.previousPrice, storeKey) : '';
         const stale = isStaleCheck(store.lastChecked);
-        const chipClass = (isBggMarket ? 'store-chip bgg-market' : (hasDeal ? 'store-chip has-deal' : 'store-chip')) + (stale ? ' stale' : '');
-        const dealBadge = hasDeal ? `<span class="chip-deal-badge">-${store.deal.discountPercent}%</span>` : '';
+        const chipClass = 'kt-chip' + (stale ? ' is-stale' : '');
+        const dealBadge = hasDeal ? `<span class="kt-badge kt-badge--soft-success">-${store.deal.discountPercent}%</span>` : '';
         const staleNote = stale ? ` · as of ${formatCheckDate(store.lastChecked)}, may be out of date` : '';
         return `
             <a href="${store.url}" target="_blank" class="${chipClass}" title="View on ${name}${hasDeal ? ` (Was ${prevPriceText}, now ${priceText})` : ''}${staleNote}">
-                <span class="store-chip-name">${name}</span>
-                ${priceText ? `<span class="store-chip-price">${priceText} ${dealBadge}</span>` : ''}
+                <span class="kt-truncate">${name}</span>
+                ${priceText ? `<strong class="kt-ml-auto">${priceText} ${dealBadge}</strong>` : ''}
             </a>
         `;
     };
@@ -433,28 +433,25 @@ function createGameCard(game) {
     let storeHtml = '';
     if (storeButtonsHtml.trim()) {
         storeHtml = `
-            <div class="store-availability">
-                <div class="store-chips">${storeButtonsHtml}</div>
-            </div>
+            <div class="kt-stack kt-mt-2" style="--kt-gap: 4px">${storeButtonsHtml}</div>
         `;
     }
 
     card.innerHTML = `
-        <div class="game-badges">
-            ${buildBadgesHtml(game)}
-        </div>
-        <img src="${game.image || game.thumbnail || 'https://via.placeholder.com/300x300?text=No+Image'}"
-            alt="${game.name}"
-            class="game-thumbnail"
+        <div class="kt-media-card__media">
+            <img src="${game.image || game.thumbnail || 'https://via.placeholder.com/300x300?text=No+Image'}"
+                 alt="${game.name}"
             loading="lazy"
             onerror="this.onerror=null;this.src='https://via.placeholder.com/300x300?text=No+Image';">
-        <div class="game-info">
-            <div class="game-year">${game.yearPublished !== 'N/A' ? game.yearPublished : ''}</div>
-            <div class="game-name">${game.name}</div>
-            <div class="game-meta">
-                <div class="meta-item"><span>👥</span> ${game.minPlayers}-${game.maxPlayers}</div>
-                <div class="meta-item"><span>⏱️</span> ${game.playingTime} min</div>
-                <div class="meta-item"><span>⭐</span> ${game.rating.toFixed(1)}</div>
+            <div class="kt-media-card__badges">${buildBadgesHtml(game)}</div>
+        </div>
+        <div class="kt-media-card__body">
+            <div class="kt-media-card__title">${game.name}</div>
+            <div class="kt-media-card__subtitle">${game.yearPublished !== 'N/A' ? game.yearPublished : ''}</div>
+            <div class="kt-media-card__meta">
+                <div class="kt-meta-item"><span>👥</span> ${game.minPlayers}-${game.maxPlayers}</div>
+                <div class="kt-meta-item"><span>⏱️</span> ${game.playingTime} min</div>
+                <div class="kt-meta-item"><span>⭐</span> ${game.rating.toFixed(1)}</div>
                 ${buildMetaExtraHtml(game)}
             </div>
             ${storeHtml}

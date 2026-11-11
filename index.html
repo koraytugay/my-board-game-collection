@@ -13,31 +13,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Board Game Collection</title>
+    <link rel="stylesheet" href="https://koraytugay.github.io/kt-styles/dist/kt.min.css">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="game-details.css">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>My Board Game Collection</h1>
-            <p class="username">@koraytugay on BoardGameGeek</p>
+    <div class="kt-container">
+        <header class="kt-page-header">
+            <h1 class="kt-page-title">My Board Game Collection</h1>
+            <p class="kt-page-subtitle">@koraytugay on BoardGameGeek</p>
         </header>
 
-        <nav class="page-nav"></nav>
+        <nav class="kt-nav"></nav>
         <script src="nav.js"></script>
 
-        <div id="loading" class="loading">
-            <div class="spinner"></div>
+        <div id="loading" class="kt-loading">
+            <div class="kt-spinner"></div>
             <p>Loading your collection...</p>
         </div>
 
-        <div id="error" class="error" style="display: none;"></div>
+        <div id="error" class="kt-alert kt-alert--danger" style="display: none;"></div>
 
-        <div id="controls" class="controls" style="display: none;">
-            <div class="controls-row">
-                <div class="control-group">
-                    <label for="sort-select">Sort by:</label>
-                    <select id="sort-select" onchange="sortGames(this.value)">
+        <div id="controls" class="kt-toolbar" style="display: none;">
+            <div class="kt-toolbar__row">
+                <div class="kt-field kt-field--inline">
+                    <label class="kt-field__label" for="sort-select">Sort by</label>
+                    <select class="kt-select" id="sort-select" onchange="sortGames(this.value)">
                         <option value="name">Name</option>
                         <option value="rating-desc">Rating (High to Low)</option>
                         <option value="rating-asc">Rating (Low to High)</option>
@@ -52,36 +52,32 @@
                     </select>
                 </div>
 
-                <div class="control-group">
-                    <label for="view-mode">View:</label>
-                    <select id="view-mode" onchange="changeViewMode(this.value)">
+                <div class="kt-field kt-field--inline">
+                    <label class="kt-field__label" for="view-mode">View</label>
+                    <select class="kt-select" id="view-mode" onchange="changeViewMode(this.value)">
                         <option value="grid">Grid</option>
                         <option value="compact">Compact</option>
                         <option value="list">List</option>
                     </select>
                 </div>
 
-                <div class="control-group">
-                    <label class="checkbox-label">
-                        <input type="checkbox" id="dark-mode" onchange="toggleDarkMode(this.checked)">
-                        Dark Mode
-                    </label>
-                </div>
+                <label class="kt-check">
+                    <input type="checkbox" id="dark-mode" onchange="toggleDarkMode(this.checked)">
+                    Dark Mode
+                </label>
 
-                <div class="control-group">
-                    <button id="random-game-btn" class="btn-random">Random Game</button>
-                </div>
+                <button id="random-game-btn" class="kt-btn">Random Game</button>
             </div>
 
-            <div class="controls-row">
-                <div class="control-group control-group-full">
-                    <label for="search-input">Search:</label>
-                    <input type="text" id="search-input" placeholder="Filter by name..." oninput="applyFilters()">
+            <div class="kt-toolbar__row">
+                <div class="kt-field kt-field--inline kt-toolbar__full">
+                    <label class="kt-field__label" for="search-input">Search</label>
+                    <input type="text" class="kt-input" id="search-input" placeholder="Filter by name..." oninput="applyFilters()">
                 </div>
 
-                <div class="control-group">
-                    <label for="player-count">Players:</label>
-                    <select id="player-count" onchange="applyFilters()">
+                <div class="kt-field kt-field--inline">
+                    <label class="kt-field__label" for="player-count">Players</label>
+                    <select class="kt-select" id="player-count" onchange="applyFilters()">
                         <option value="all">All</option>
                         <option value="1">1</option>
                         <option value="1-only">Solo Only</option>
@@ -93,9 +89,9 @@
                     </select>
                 </div>
 
-                <div class="control-group">
-                    <label for="best-at-filter">Best At:</label>
-                    <select id="best-at-filter" onchange="applyFilters()">
+                <div class="kt-field kt-field--inline">
+                    <label class="kt-field__label" for="best-at-filter">Best At</label>
+                    <select class="kt-select" id="best-at-filter" onchange="applyFilters()">
                         <option value="all">All</option>
                         <option value="Solo">Solo</option>
                         <option value="2">2</option>
@@ -104,9 +100,9 @@
                     </select>
                 </div>
 
-                <div class="control-group">
-                    <label for="play-time">Play Time:</label>
-                    <select id="play-time" onchange="applyFilters()">
+                <div class="kt-field kt-field--inline">
+                    <label class="kt-field__label" for="play-time">Play Time</label>
+                    <select class="kt-select" id="play-time" onchange="applyFilters()">
                         <option value="all">All</option>
                         <option value="0-30">Under 30 min</option>
                         <option value="30-60">30-60 min</option>
@@ -115,9 +111,9 @@
                     </select>
                 </div>
 
-                <div class="control-group">
-                    <label for="rating-filter">Rating:</label>
-                    <select id="rating-filter" onchange="applyFilters()">
+                <div class="kt-field kt-field--inline">
+                    <label class="kt-field__label" for="rating-filter">Rating</label>
+                    <select class="kt-select" id="rating-filter" onchange="applyFilters()">
                         <option value="all">All</option>
                         <option value="8+">8.0+</option>
                         <option value="7+">7.0+</option>
@@ -125,42 +121,43 @@
                     </select>
                 </div>
 
-                <div class="control-group control-group-full">
-                    <label for="designer-filter">Designer:</label>
-                    <select id="designer-filter" onchange="applyFilters()">
+                <div class="kt-field kt-field--inline kt-toolbar__full">
+                    <label class="kt-field__label" for="designer-filter">Designer</label>
+                    <select class="kt-select" id="designer-filter" onchange="applyFilters()">
                         <option value="all">All Designers</option>
                     </select>
                 </div>
 
-                <div class="control-group control-group-full">
-                    <label class="checkbox-label">
-                        <input type="checkbox" id="unplayed-only" onchange="applyFilters()">
-                        Unplayed Only
-                    </label>
-                </div>
+                <label class="kt-check">
+                    <input type="checkbox" id="unplayed-only" onchange="applyFilters()">
+                    Unplayed Only
+                </label>
             </div>
         </div>
 
-        <div id="games-grid" class="games-grid"></div>
+        <div id="games-grid" class="kt-grid"></div>
     </div>
 
     <!-- Random Game Modal -->
-    <div id="random-modal" class="modal" style="display: none;">
-        <div class="modal-overlay" onclick="closeRandomModal()"></div>
-        <div class="modal-content">
-            <button class="modal-close" onclick="closeRandomModal()">×</button>
-            <h2>🎲 Random Game Pick</h2>
-            <div id="random-game-display" class="random-game-display">
-                <img id="random-game-img" class="random-game-img" src="" alt="">
-                <div class="random-game-info">
-                    <h3 id="random-game-name" class="random-game-name"></h3>
-                    <p id="random-game-year" class="random-game-year"></p>
-                    <div id="random-game-meta" class="random-game-meta"></div>
+    <div id="random-modal" class="kt-modal" role="dialog" aria-modal="true" aria-labelledby="random-modal-title" onclick="if (event.target === this) closeRandomModal()">
+        <div class="kt-modal__dialog">
+            <div class="kt-modal__header">
+                <h2 class="kt-modal__title" id="random-modal-title">🎲 Random Game Pick</h2>
+                <button class="kt-btn kt-btn--ghost kt-btn--icon kt-modal__close" aria-label="Close" onclick="closeRandomModal()">✕</button>
+            </div>
+            <div class="kt-modal__body">
+                <div id="random-game-display" class="kt-cluster" style="align-items: flex-start; --kt-gap: 16px">
+                    <div class="kt-thumb" style="--kt-thumb-size: 140px"><img id="random-game-img" src="" alt=""></div>
+                    <div class="kt-stack" style="--kt-gap: 4px">
+                        <h3 id="random-game-name" class="kt-card__title"></h3>
+                        <p id="random-game-year" class="kt-text-muted kt-fs-sm"></p>
+                        <div id="random-game-meta" class="kt-stack kt-fs-sm kt-mt-2" style="--kt-gap: 4px"></div>
+                    </div>
                 </div>
             </div>
-            <div class="modal-actions">
-                <button onclick="pickRandomGame()" class="btn btn-primary">Pick Another</button>
-                <button onclick="openRandomGameBGG()" class="btn btn-secondary">View on BGG</button>
+            <div class="kt-modal__footer">
+                <button onclick="openRandomGameBGG()" class="kt-btn">View on BGG</button>
+                <button onclick="pickRandomGame()" class="kt-btn kt-btn--primary">Pick Another</button>
             </div>
         </div>
     </div>

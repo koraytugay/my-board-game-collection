@@ -13,26 +13,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Play Calendar - My Board Game Collection</title>
+    <link rel="stylesheet" href="https://koraytugay.github.io/kt-styles/dist/kt.min.css">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="calendar.css">
-    <link rel="stylesheet" href="game-details.css">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Play Calendar</h1>
-            <p class="username">@koraytugay on BoardGameGeek</p>
+    <div class="kt-container">
+        <header class="kt-page-header">
+            <h1 class="kt-page-title">Play Calendar</h1>
+            <p class="kt-page-subtitle">@koraytugay on BoardGameGeek</p>
         </header>
 
-        <nav class="page-nav"></nav>
+        <nav class="kt-nav"></nav>
         <script src="nav.js"></script>
 
-        <div id="loading" class="loading">
-            <div class="spinner"></div>
+        <div id="loading" class="kt-loading">
+            <div class="kt-spinner"></div>
             <p>Loading plays...</p>
         </div>
 
-        <div id="error" class="error" style="display: none;"></div>
+        <div id="error" class="kt-alert kt-alert--danger" style="display: none;"></div>
 
         <div id="calendar-content" style="display: none;">
             <div class="calendar-container">

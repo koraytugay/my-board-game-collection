@@ -161,15 +161,15 @@ function renderGames() {
     if (!gamesGridEl) return;
 
     if (currentViewMode === "grid") {
-        gamesGridEl.className = "games-grid";
+        gamesGridEl.className = "kt-grid";
     } else if (currentViewMode === "compact") {
-        gamesGridEl.className = "games-grid view-compact";
+        gamesGridEl.className = "kt-grid kt-grid--compact";
     } else if (currentViewMode === "list") {
-        gamesGridEl.className = "games-grid view-list";
+        gamesGridEl.className = "kt-grid kt-grid--list";
     }
 
     if (filteredGames.length === 0) {
-        gamesGridEl.innerHTML = "<div class=\"no-results\">No games match your filters</div>";
+        gamesGridEl.innerHTML = "<div class=\"kt-empty\">No games match your filters</div>";
         return;
     }
 
@@ -181,7 +181,7 @@ function renderGames() {
 
 function createGameCard(game) {
     const card = document.createElement("div");
-    card.className = "game-card";
+    card.className = "kt-media-card kt-media-card--interactive kt-media-card--flow";
     card.onclick = () => {
         if (typeof showGameDetails === "function") {
             showGameDetails(game.objectId);
@@ -191,28 +191,27 @@ function createGameCard(game) {
     };
 
     let badgesHtml = "";
-    if (game.minPlayers <= 1) badgesHtml += "<span class=\"badge badge-solo\">Solo</span>";
-    if (game.rating >= 8) badgesHtml += "<span class=\"badge badge-highly-rated\">Highly Rated</span>";
+    if (game.minPlayers <= 1) badgesHtml += "<span class=\"kt-badge kt-badge--dark\">Solo</span>";
+    if (game.rating >= 8) badgesHtml += "<span class=\"kt-badge kt-badge--dark\">Highly Rated</span>";
 
-    const myRatingHtml = game.myRating > 0 ? `<div class="meta-item"><span>💚</span> ${game.myRating.toFixed(1)}</div>` : "";
-    const commentHtml = game.comment ? `<div class="game-comment">${game.comment}</div>` : "";
+    const myRatingHtml = game.myRating > 0 ? `<div class="kt-meta-item"><span>💚</span> ${game.myRating.toFixed(1)}</div>` : "";
+    const commentHtml = game.comment ? `<div class="kt-fs-sm kt-text-secondary kt-mt-2">${game.comment}</div>` : "";
 
     card.innerHTML = `
-        <div class="game-badges">
-            ${badgesHtml}
-        </div>
-        <img src="${game.image || game.thumbnail || "https://via.placeholder.com/300x300?text=No+Image"}" 
-             alt="${game.name}" 
-             class="game-thumbnail"
+        <div class="kt-media-card__media">
+            <img src="${game.image || game.thumbnail || "https://via.placeholder.com/300x300?text=No+Image"}" 
+             alt="${game.name}"
              loading="lazy"
              onerror="this.onerror=null;this.src='https://via.placeholder.com/300x300?text=No+Image';">
-        <div class="game-info">
-            <div class="game-year">${game.yearPublished !== "N/A" ? game.yearPublished : ""}</div>
-            <div class="game-name">${game.name}</div>
-            <div class="game-meta">
-                <div class="meta-item"><span>👥</span> ${game.minPlayers}-${game.maxPlayers}</div>
-                <div class="meta-item"><span>⏱️</span> ${game.playingTime} min</div>
-                <div class="meta-item"><span>⭐</span> ${game.rating.toFixed(1)}</div>
+            <div class="kt-media-card__badges">${badgesHtml}</div>
+        </div>
+        <div class="kt-media-card__body">
+            <div class="kt-media-card__title">${game.name}</div>
+            <div class="kt-media-card__subtitle">${game.yearPublished !== "N/A" ? game.yearPublished : ""}</div>
+            <div class="kt-media-card__meta">
+                <div class="kt-meta-item"><span>👥</span> ${game.minPlayers}-${game.maxPlayers}</div>
+                <div class="kt-meta-item"><span>⏱️</span> ${game.playingTime} min</div>
+                <div class="kt-meta-item"><span>⭐</span> ${game.rating.toFixed(1)}</div>
                 ${myRatingHtml}
             </div>
             ${commentHtml}

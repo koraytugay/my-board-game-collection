@@ -255,7 +255,7 @@ async function fetchAllStoreGames() {
         sortGames(currentSort);
 
         loadingEl.style.display = 'none';
-        controlsEl.style.display = 'block';
+        controlsEl.style.display = '';
         renderStockStatus(storeAvail, likeToHaveAvail);
         renderStoreHealth(storeAvail, likeToHaveAvail);
 
@@ -371,7 +371,7 @@ function renderGames() {
     if (!gamesGridEl) return;
 
     if (filteredGames.length === 0) {
-        gamesGridEl.innerHTML = '<div class="no-results" style="grid-column: 1/-1; text-align: center; padding: 40px; color: #666;">No games match your filters</div>';
+        gamesGridEl.innerHTML = '<div class="kt-empty">No games match your filters</div>';
         return;
     }
 
@@ -383,27 +383,27 @@ function renderGames() {
 
 function createGameCard(game) {
     const card = document.createElement('div');
-    card.className = 'game-card';
+    card.className = 'kt-media-card kt-media-card--interactive kt-media-card--flow';
     card.onclick = (e) => {
-        if (e.target.closest('a') || e.target.closest('button') || e.target.closest('.store-chip')) return;
+        if (e.target.closest('a') || e.target.closest('button') || e.target.closest('.kt-chip')) return;
         window.open(`https://boardgamegeek.com/boardgame/${game.objectId}`, '_blank');
     };
 
     let badgesHtml = '';
-    if (game.isWantToBuy) badgesHtml += '<span class="badge badge-favorite">Want to Buy</span> ';
-    if (game.isWantInTrade) badgesHtml += '<span class="badge badge-favorite">Want in Trade</span> ';
-    if (game.isLikeToHave) badgesHtml += '<span class="badge badge-favorite">Like to Have</span> ';
+    if (game.isWantToBuy) badgesHtml += '<span class="kt-badge kt-badge--dark">Want to Buy</span> ';
+    if (game.isWantInTrade) badgesHtml += '<span class="kt-badge kt-badge--dark">Want in Trade</span> ';
+    if (game.isLikeToHave) badgesHtml += '<span class="kt-badge kt-badge--dark">Like to Have</span> ';
     badgesHtml = badgesHtml.trim();
 
     const dealInfo = getGameDealInfo(game);
     if (dealInfo) {
         const prevPriceFormatted = formatPrice(dealInfo.previousPrice, dealInfo.storeKey);
         const currPriceFormatted = formatPrice(dealInfo.currentPrice, dealInfo.storeKey);
-        badgesHtml += `<span class="badge badge-deal" title="Was ${prevPriceFormatted}, now ${currPriceFormatted}">🔥 -${dealInfo.discountPercent}% Deal</span>`;
+        badgesHtml += `<span class="kt-badge kt-badge--green" title="Was ${prevPriceFormatted}, now ${currPriceFormatted}">🔥 -${dealInfo.discountPercent}% Deal</span>`;
     }
 
-    if (game.minPlayers <= 1) badgesHtml += '<span class="badge badge-solo">Solo</span>';
-    if (game.rating >= 8) badgesHtml += '<span class="badge badge-highly-rated">Highly Rated</span>';
+    if (game.minPlayers <= 1) badgesHtml += '<span class="kt-badge kt-badge--dark">Solo</span>';
+    if (game.rating >= 8) badgesHtml += '<span class="kt-badge kt-badge--dark">Highly Rated</span>';
 
     // Store availability chips
     let storeButtonsHtml = '';
@@ -415,13 +415,13 @@ function createGameCard(game) {
         const hasDeal = store.deal && store.deal.discountPercent >= 20;
         const prevPriceText = hasDeal ? formatPrice(store.deal.previousPrice, storeKey) : '';
         const stale = isStaleCheck(store.lastChecked);
-        const chipClass = (isBggMarket ? 'store-chip bgg-market' : (hasDeal ? 'store-chip has-deal' : 'store-chip')) + (stale ? ' stale' : '');
-        const dealBadge = hasDeal ? `<span class="chip-deal-badge">-${store.deal.discountPercent}%</span>` : '';
+        const chipClass = 'kt-chip' + (stale ? ' is-stale' : '');
+        const dealBadge = hasDeal ? `<span class="kt-badge kt-badge--soft-success">-${store.deal.discountPercent}%</span>` : '';
         const staleNote = stale ? ` · as of ${formatCheckDate(store.lastChecked)}, may be out of date` : '';
         return `
             <a href="${store.url}" target="_blank" class="${chipClass}" title="View on ${name}${hasDeal ? ` (Was ${prevPriceText}, now ${priceText})` : ''}${staleNote}">
-                <span class="store-chip-name">${name}</span>
-                ${priceText ? `<span class="store-chip-price">${priceText} ${dealBadge}</span>` : ''}
+                <span class="kt-truncate">${name}</span>
+                ${priceText ? `<strong class="kt-ml-auto">${priceText} ${dealBadge}</strong>` : ''}
             </a>
         `;
     };
@@ -446,9 +446,7 @@ function createGameCard(game) {
     let storeHtml = '';
     if (storeButtonsHtml.trim()) {
         storeHtml = `
-            <div class="store-availability">
-                <div class="store-chips">${storeButtonsHtml}</div>
-            </div>
+            <div class="kt-stack kt-mt-2" style="--kt-gap: 4px">${storeButtonsHtml}</div>
         `;
     }
 
@@ -457,22 +455,21 @@ function createGameCard(game) {
         : '';
 
     card.innerHTML = `
-        <div class="game-badges">
-            ${badgesHtml}
-        </div>
-        <img src="${game.image || game.thumbnail || 'https://via.placeholder.com/300x300?text=No+Image'}" 
-            alt="${escapeHtml(game.name)}" 
-            class="game-thumbnail"
+        <div class="kt-media-card__media">
+            <img src="${game.image || game.thumbnail || 'https://via.placeholder.com/300x300?text=No+Image'}" 
+                 alt="${escapeHtml(game.name)}"
             loading="lazy"
             onerror="this.onerror=null;this.src='https://via.placeholder.com/300x300?text=No+Image';">
-        <div class="game-info">
-            <div class="game-year">${game.yearPublished !== 'N/A' ? game.yearPublished : ''}</div>
-            <div class="game-name">${escapeHtml(game.name)}</div>
-            <div class="game-meta">
-                <div class="meta-item"><span>👥</span> ${game.minPlayers}-${game.maxPlayers}</div>
-                <div class="meta-item"><span>⏱️</span> ${game.playingTime} min</div>
-                <div class="meta-item"><span>⭐</span> ${game.rating.toFixed(1)}</div>
-                ${designersText ? `<div class="meta-item" title="Designer: ${escapeHtml(designersText)}"><span>✍️</span> ${escapeHtml(designersText)}</div>` : ''}
+            <div class="kt-media-card__badges">${badgesHtml}</div>
+        </div>
+        <div class="kt-media-card__body">
+            <div class="kt-media-card__title">${escapeHtml(game.name)}</div>
+            <div class="kt-media-card__subtitle">${game.yearPublished !== 'N/A' ? game.yearPublished : ''}</div>
+            <div class="kt-media-card__meta">
+                <div class="kt-meta-item"><span>👥</span> ${game.minPlayers}-${game.maxPlayers}</div>
+                <div class="kt-meta-item"><span>⏱️</span> ${game.playingTime} min</div>
+                <div class="kt-meta-item"><span>⭐</span> ${game.rating.toFixed(1)}</div>
+                ${designersText ? `<div class="kt-meta-item" title="Designer: ${escapeHtml(designersText)}"><span>✍️</span> ${escapeHtml(designersText)}</div>` : ''}
             </div>
             ${storeHtml}
         </div>
@@ -484,7 +481,7 @@ function changeViewMode(mode) {
     currentViewMode = mode;
     const grid = document.getElementById('games-grid');
     if (grid) {
-        grid.className = 'games-grid' + (mode === 'compact' ? ' view-compact' : mode === 'list' ? ' view-list' : '');
+        grid.className = 'kt-grid' + (mode === 'compact' ? ' view-compact' : mode === 'list' ? ' view-list' : '');
     }
 }
 
@@ -537,13 +534,13 @@ function renderStoreHealth(...availabilityMaps) {
     const problemCount = health.filter(s => s.needsAttention).length;
 
     const rows = health.map(s => {
-        const status = !s.needsAttention ? '<span class="health-ok">OK</span>'
-            : !s.lastSuccess ? '<span class="health-bad">Never succeeded</span>'
-            : s.failures > 0 ? `<span class="health-bad">${s.failures} failed</span>`
-            : '<span class="health-bad">Out of date</span>';
-        return `<tr class="${s.needsAttention ? 'needs-attention' : ''}">
+        const status = !s.needsAttention ? '<span class="kt-text-success kt-fw-semibold">OK</span>'
+            : !s.lastSuccess ? '<span class="kt-text-danger kt-fw-semibold">Never succeeded</span>'
+            : s.failures > 0 ? `<span class="kt-text-danger kt-fw-semibold">${s.failures} failed</span>`
+            : '<span class="kt-text-danger kt-fw-semibold">Out of date</span>';
+        return `<tr>
             <td>${escapeHtml(s.name)}</td>
-            <td>${s.checks - s.failures} / ${s.checks}</td>
+            <td class="kt-num">${s.checks - s.failures} / ${s.checks}</td>
             <td title="${s.lastSuccess ? formatCheckDate(s.lastSuccess) : ''}">${s.lastSuccess ? formatCheckAge(s.lastSuccess) : 'never'}</td>
             <td>${status}</td>
         </tr>`;
@@ -551,12 +548,12 @@ function renderStoreHealth(...availabilityMaps) {
 
     const el = document.createElement('details');
     el.id = 'store-health';
-    el.className = 'store-health';
+    el.className = 'kt-card kt-mb-4';
     el.open = problemCount > 0;
     el.innerHTML = `
-        <summary>Store health: ${health.length - problemCount} OK${problemCount ? ` · <strong>${problemCount} need${problemCount === 1 ? 's' : ''} attention</strong>` : ''}</summary>
-        <table>
-            <thead><tr><th>Store</th><th>Latest checks OK</th><th>Last success</th><th>Status</th></tr></thead>
+        <summary class="kt-card__body kt-fs-sm">Store health: ${health.length - problemCount} OK${problemCount ? ` · <strong>${problemCount} need${problemCount === 1 ? 's' : ''} attention</strong>` : ''}</summary>
+        <table class="kt-table kt-table--compact">
+            <thead><tr><th>Store</th><th class="kt-num">Latest checks OK</th><th>Last success</th><th>Status</th></tr></thead>
             <tbody>${rows}</tbody>
         </table>`;
     anchor.insertAdjacentElement('afterend', el);

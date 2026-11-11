@@ -1,4 +1,4 @@
-// nav.js - Renders the shared navigation into the <nav class="page-nav"> placed right before this script.
+// nav.js - Renders the shared navigation into the <nav class="kt-nav"> placed right before this script.
 (function renderPageNav() {
     const NAV_ROWS = [
         [
@@ -27,7 +27,7 @@
     const currentPage = location.pathname.split('/').pop() || 'index.html';
 
     nav.innerHTML = NAV_ROWS.map(row => `
-        <div class="nav-row">
-            ${row.map(([href, label]) => `<a href="${href}" class="nav-link${href === currentPage ? ' active' : ''}">${label}</a>`).join('\n            ')}
+        <div class="kt-nav__row">
+            ${row.map(([href, label]) => `<a href="${href}" class="kt-nav__link"${href === currentPage ? ' aria-current="page"' : ''}>${label}</a>`).join('\n            ')}
         </div>`).join('') + '\n    ';
 })();

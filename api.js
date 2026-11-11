@@ -427,11 +427,11 @@ function renderStockStatus(...availabilityMaps) {
 
     const el = document.createElement('div');
     el.id = 'stock-status';
-    el.className = `stock-status stock-status-${level}`;
+    el.className = 'kt-alert kt-mb-3' + (level === 'warn' ? ' kt-alert--warning' : level === 'stale' ? ' kt-alert--danger' : '');
     const checked = newest
-        ? `Stock checked <strong>${formatCheckAge(newest)}</strong> <span class="stock-status-date">(${formatCheckDate(newest)})</span>`
+        ? `Stock checked <strong>${formatCheckAge(newest)}</strong> <span class="kt-text-muted">(${formatCheckDate(newest)})</span>`
         : 'No stock checks found';
-    const problems = stockDataProblems.map(p => `<div class="stock-status-problem">⚠️ ${escapeHtml(p)}. Stock shown may be incomplete.</div>`).join('');
+    const problems = stockDataProblems.map(p => `<div class="kt-fw-semibold kt-mt-1">⚠️ ${escapeHtml(p)}. Stock shown may be incomplete.</div>`).join('');
     el.innerHTML = `<div>${level === 'ok' ? '🟢' : level === 'warn' ? '🟡' : '🔴'} ${checked}</div>${problems}`;
     anchor.insertAdjacentElement('afterend', el);
 }

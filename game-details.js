@@ -92,19 +92,20 @@ function ensureModalContainer() {
     if (!backdrop) {
         backdrop = document.createElement('div');
         backdrop.id = 'game-details-modal';
-        backdrop.className = 'game-modal-backdrop';
+        backdrop.className = 'kt-modal kt-modal--lg';
+        backdrop.setAttribute('role', 'dialog');
+        backdrop.setAttribute('aria-modal', 'true');
+        backdrop.setAttribute('aria-labelledby', 'modal-game-title');
         backdrop.innerHTML = `
-            <div class="game-modal-container" role="dialog" aria-modal="true" aria-labelledby="modal-game-title">
-                <button type="button" class="game-modal-close-btn" aria-label="Close modal">&times;</button>
-                <div id="game-modal-body" class="game-modal-content">
-                    <p style="text-align: center; color: #718096; padding: 40px 0;">Loading game details...</p>
-                </div>
+            <div class="kt-modal__dialog">
+                <button type="button" class="kt-btn kt-btn--ghost kt-btn--icon kt-modal__close" aria-label="Close">✕</button>
+                <div id="game-modal-body"><div class="kt-modal__body"><div class="kt-loading"><div class="kt-spinner"></div>Loading game details...</div></div></div>
             </div>
         `;
         document.body.appendChild(backdrop);
 
         // Event listeners for closing
-        const closeBtn = backdrop.querySelector('.game-modal-close-btn');
+        const closeBtn = backdrop.querySelector('.kt-modal__close');
         closeBtn.addEventListener('click', closeGameDetails);
 
         backdrop.addEventListener('click', (e) => {
@@ -114,7 +115,7 @@ function ensureModalContainer() {
         });
 
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && backdrop.classList.contains('active')) {
+            if (e.key === 'Escape' && backdrop.classList.contains('is-open')) {
                 closeGameDetails();
             }
         });
@@ -125,8 +126,7 @@ function ensureModalContainer() {
 function closeGameDetails() {
     const backdrop = document.getElementById('game-details-modal');
     if (backdrop) {
-        backdrop.classList.remove('active');
-        document.body.style.overflow = '';
+        backdrop.classList.remove('is-open');
     }
 }
 
@@ -140,12 +140,11 @@ function gdFormatDate(dateStr) {
 
 async function showGameDetails(objectId) {
     const backdrop = ensureModalContainer();
-    const bodyEl = backdrop.querySelector('.game-modal-content') || document.getElementById('game-modal-body');
-    
+    const bodyEl = document.getElementById('game-modal-body');
+
     // Show modal in loading state
-    bodyEl.innerHTML = '<p style="text-align: center; color: #718096; padding: 40px 0;">Loading game details...</p>';
-    backdrop.classList.add('active');
-    document.body.style.overflow = 'hidden';
+    bodyEl.innerHTML = '<div class="kt-modal__body"><div class="kt-loading"><div class="kt-spinner"></div>Loading game details...</div></div>';
+    backdrop.classList.add('is-open');
 
     await ensureDataLoaded();
 
@@ -225,9 +224,9 @@ async function showGameDetails(objectId) {
             if (store && store.available && store.url) {
                 const priceFormatted = typeof formatPrice === 'function' ? formatPrice(store.price, key) : store.price;
                 storeChipsHtml += `
-                    <a href="${store.url}" target="_blank" class="store-chip" title="View on ${storeNames[key]}">
-                        <span class="store-chip-name">${storeNames[key]}</span>
-                        ${priceFormatted ? `<span class="store-chip-price">${priceFormatted}</span>` : ''}
+                    <a href="${store.url}" target="_blank" class="kt-chip" title="View on ${storeNames[key]}">
+                        <span class="kt-truncate">${storeNames[key]}</span>
+                        ${priceFormatted ? `<strong class="kt-ml-auto">${priceFormatted}</strong>` : ''}
                     </a>
                 `;
             }
@@ -243,9 +242,9 @@ async function showGameDetails(objectId) {
                     const priceFormatted = typeof formatPrice === 'function' ? formatPrice(l.price, 'bggMarket') : l.price;
                     const sellerLabel = l.seller ? `🏷️ BGG Market (${l.seller})` : '🏷️ BGG Market';
                     storeChipsHtml += `
-                        <a href="${l.url}" target="_blank" class="store-chip bgg-market" title="View BGG Market listing">
-                            <span class="store-chip-name">${escapeHtml(sellerLabel)}</span>
-                            ${priceFormatted ? `<span class="store-chip-price">${priceFormatted}</span>` : ''}
+                        <a href="${l.url}" target="_blank" class="kt-chip" title="View BGG Market listing">
+                            <span class="kt-truncate">${escapeHtml(sellerLabel)}</span>
+                            ${priceFormatted ? `<strong class="kt-ml-auto">${priceFormatted}</strong>` : ''}
                         </a>
                     `;
                 }
@@ -253,62 +252,67 @@ async function showGameDetails(objectId) {
         }
     }
 
-    // Build streamlined modal body with large cover art
+    const subtitle = [
+        game.yearPublished && game.yearPublished !== 'N/A' ? game.yearPublished : '',
+        designersText ? escapeHtml(designersText) : ''
+    ].filter(Boolean).join(' · ');
+
+    // Header, cover beside the key numbers, store links, actions
     bodyEl.innerHTML = `
-        <div class="game-modal-hero">
-            <div class="game-modal-cover-wrap">
-                <img src="${imageUrl}" alt="${safeName}" class="game-modal-cover">
+        <div class="kt-modal__header" style="padding-right: 56px">
+            <div class="kt-stack" style="--kt-gap: 2px">
+                <h2 id="modal-game-title" class="kt-modal__title kt-fs-lg">${safeName}</h2>
+                ${subtitle ? `<div class="kt-fs-sm kt-text-secondary">${subtitle}</div>` : ''}
             </div>
-            <div class="game-modal-header-info">
-                <h2 id="modal-game-title" class="game-modal-title">${safeName}</h2>
-                <div class="game-modal-submeta">
-                    ${game.yearPublished && game.yearPublished !== 'N/A' ? `<span>${game.yearPublished}</span>` : ''}
-                    ${designersText ? `<span class="bullet">&bull;</span><span>${escapeHtml(designersText)}</span>` : ''}
+        </div>
+
+        <div class="kt-modal__body">
+            <div class="kt-cluster" style="align-items: flex-start; --kt-gap: 20px">
+                <div class="kt-thumb" style="--kt-thumb-size: 180px">
+                    <img src="${imageUrl}" alt="${safeName}">
+                </div>
+                <div class="kt-grid" style="flex: 1 1 300px; --kt-grid-min: 140px; --kt-grid-gap: 10px">
+                    <div class="kt-stat kt-stat--inset">
+                        <div class="kt-stat__label">My Rating</div>
+                        <div class="kt-stat__value">${game.myRating > 0 ? `${game.myRating.toFixed(1)} ★` : '—'}</div>
+                    </div>
+                    <div class="kt-stat kt-stat--inset">
+                        <div class="kt-stat__label">BGG Rating</div>
+                        <div class="kt-stat__value">${game.rating > 0 ? `${game.rating.toFixed(1)} ★` : '—'}</div>
+                    </div>
+                    <div class="kt-stat kt-stat--inset">
+                        <div class="kt-stat__label">Players</div>
+                        <div class="kt-stat__value">${playersText}</div>${bestAtList.length > 0 ? `
+                        <div class="kt-stat__sub">Best: ${escapeHtml(bestAtList.join(', '))}</div>` : ''}
+                    </div>
+                    <div class="kt-stat kt-stat--inset">
+                        <div class="kt-stat__label">Play Time</div>
+                        <div class="kt-stat__value">${game.playingTime > 0 ? `${game.playingTime} min` : '—'}</div>
+                    </div>
+                    <div class="kt-stat kt-stat--inset">
+                        <div class="kt-stat__label">Total Plays</div>
+                        <div class="kt-stat__value">${game.numPlays}</div>
+                    </div>
+                    <div class="kt-stat kt-stat--inset">
+                        <div class="kt-stat__label">Last Played</div>
+                        <div class="kt-stat__value">${lastPlayedText}</div>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="game-modal-stats-grid">
-            <div class="game-modal-stat-card">
-                <span class="game-modal-stat-label">My Rating</span>
-                <span class="game-modal-stat-value">${game.myRating > 0 ? `${game.myRating.toFixed(1)} ★` : '—'}</span>
-            </div>
-            <div class="game-modal-stat-card">
-                <span class="game-modal-stat-label">BGG Rating</span>
-                <span class="game-modal-stat-value">${game.rating > 0 ? `${game.rating.toFixed(1)} ★` : '—'}</span>
-            </div>
-            <div class="game-modal-stat-card">
-                <span class="game-modal-stat-label">Players</span>
-                <span class="game-modal-stat-value">${playersText}${bestAtList.length > 0 ? `<span style="display:block; font-size: 0.76rem; font-weight: 500; color: #718096; margin-top: 3px;">Best: ${escapeHtml(bestAtList.join(', '))}</span>` : ''}</span>
-            </div>
-            <div class="game-modal-stat-card">
-                <span class="game-modal-stat-label">Play Time</span>
-                <span class="game-modal-stat-value">${game.playingTime > 0 ? `${game.playingTime} min` : '—'}</span>
-            </div>
-            <div class="game-modal-stat-card">
-                <span class="game-modal-stat-label">Total Plays</span>
-                <span class="game-modal-stat-value">${game.numPlays}</span>
-            </div>
-            <div class="game-modal-stat-card">
-                <span class="game-modal-stat-label">Last Played</span>
-                <span class="game-modal-stat-value" style="font-size: 0.96rem;">${lastPlayedText}</span>
-            </div>
-        </div>
-
-        ${storeChipsHtml ? `
-            <div class="game-modal-section">
-                <h3 class="game-modal-section-title">Store Availability</h3>
-                <div class="game-modal-stores">
+            ${storeChipsHtml ? `
+                <h3 class="kt-eyebrow kt-mt-5 kt-mb-2">Store Availability</h3>
+                <div class="kt-grid" style="--kt-grid-min: 220px; --kt-grid-gap: 6px">
                     ${storeChipsHtml}
                 </div>
-            </div>
-        ` : ''}
+            ` : ''}
+        </div>
 
-        <div class="game-modal-footer">
-            <a href="https://boardgamegeek.com/boardgame/${game.objectId}" target="_blank" rel="noopener noreferrer" class="game-modal-bgg-link">
+        <div class="kt-modal__footer">
+            <button type="button" class="kt-btn" onclick="closeGameDetails()">Close</button>
+            <a href="https://boardgamegeek.com/boardgame/${game.objectId}" target="_blank" rel="noopener noreferrer" class="kt-btn kt-btn--primary">
                 View on BoardGameGeek &nearr;
             </a>
-            <button type="button" class="game-modal-secondary-btn" onclick="closeGameDetails()">Close</button>
         </div>
     `;
 }

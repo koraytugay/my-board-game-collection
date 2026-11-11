@@ -4,32 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Like to Have - My Board Game Collection</title>
+    <link rel="stylesheet" href="https://koraytugay.github.io/kt-styles/dist/kt.min.css">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="game-details.css">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎲</text></svg>">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Like to Have List</h1>
-            <p class="subtitle">Games that I would like to have, with live store availability</p>
+    <div class="kt-container">
+        <header class="kt-page-header">
+            <h1 class="kt-page-title">Like to Have List</h1>
+            <p class="kt-page-subtitle">Games that I would like to have, with live store availability</p>
         </header>
 
-        <nav class="page-nav"></nav>
+        <nav class="kt-nav"></nav>
         <script src="nav.js"></script>
 
-        <div id="loading" class="loading">
-            <div class="spinner"></div>
+        <div id="loading" class="kt-loading">
+            <div class="kt-spinner"></div>
             <p>Loading Like to Have games and store availability...</p>
         </div>
 
-        <div id="error" class="error" style="display: none;"></div>
+        <div id="error" class="kt-alert kt-alert--danger" style="display: none;"></div>
 
-        <div id="controls" class="controls" style="display: none;">
-            <div class="controls-row">
-                <div class="control-group">
-                    <label for="sort-select">Sort by:</label>
-                    <select id="sort-select" onchange="sortGames(this.value)">
+        <div id="controls" class="kt-toolbar" style="display: none;">
+            <div class="kt-toolbar__row">
+                <div class="kt-field kt-field--inline">
+                    <label class="kt-field__label" for="sort-select">Sort by</label>
+                    <select class="kt-select" id="sort-select" onchange="sortGames(this.value)">
                         <option value="name">Name</option>
                         <option value="rating-desc">Rating (High to Low)</option>
                         <option value="rating-asc">Rating (Low to High)</option>
@@ -40,46 +40,40 @@
                     </select>
                 </div>
 
-                <div class="control-group">
-                    <label for="view-mode">View:</label>
-                    <select id="view-mode" onchange="changeViewMode(this.value)">
+                <div class="kt-field kt-field--inline">
+                    <label class="kt-field__label" for="view-mode">View</label>
+                    <select class="kt-select" id="view-mode" onchange="changeViewMode(this.value)">
                         <option value="grid">Grid</option>
                         <option value="compact">Compact</option>
                         <option value="list">List</option>
                     </select>
                 </div>
 
-                <div class="control-group">
-                    <label class="checkbox-label">
-                        <input type="checkbox" id="in-stock-only" onchange="applyFilters()">
-                        In Stock Only
-                    </label>
-                </div>
+                <label class="kt-check">
+                    <input type="checkbox" id="in-stock-only" onchange="applyFilters()">
+                    In Stock Only
+                </label>
 
-                <div class="control-group">
-                    <label class="checkbox-label">
-                        <input type="checkbox" id="major-deals-only" onchange="applyFilters()">
-                        Deals
-                    </label>
-                </div>
+                <label class="kt-check">
+                    <input type="checkbox" id="major-deals-only" onchange="applyFilters()">
+                    Deals
+                </label>
 
-                <div class="control-group">
-                    <label class="checkbox-label">
-                        <input type="checkbox" id="dark-mode" onchange="toggleDarkMode(this.checked)">
-                        Dark Mode
-                    </label>
-                </div>
+                <label class="kt-check">
+                    <input type="checkbox" id="dark-mode" onchange="toggleDarkMode(this.checked)">
+                    Dark Mode
+                </label>
             </div>
 
-            <div class="controls-row">
-                <div class="control-group">
-                    <label for="search-input">Search:</label>
-                    <input type="text" id="search-input" placeholder="Filter by name..." oninput="applyFilters()">
+            <div class="kt-toolbar__row">
+                <div class="kt-field kt-field--inline">
+                    <label class="kt-field__label" for="search-input">Search</label>
+                    <input type="text" class="kt-input" id="search-input" placeholder="Filter by name..." oninput="applyFilters()">
                 </div>
 
-                <div class="control-group">
-                    <label for="player-count">Players:</label>
-                    <select id="player-count" onchange="applyFilters()">
+                <div class="kt-field kt-field--inline">
+                    <label class="kt-field__label" for="player-count">Players</label>
+                    <select class="kt-select" id="player-count" onchange="applyFilters()">
                         <option value="all">All</option>
                         <option value="1">1</option>
                         <option value="1-only">Solo Only</option>
@@ -91,9 +85,9 @@
                     </select>
                 </div>
 
-                <div class="control-group">
-                    <label for="play-time">Play Time:</label>
-                    <select id="play-time" onchange="applyFilters()">
+                <div class="kt-field kt-field--inline">
+                    <label class="kt-field__label" for="play-time">Play Time</label>
+                    <select class="kt-select" id="play-time" onchange="applyFilters()">
                         <option value="all">All</option>
                         <option value="0-30">Under 30 min</option>
                         <option value="30-60">30-60 min</option>
@@ -102,9 +96,9 @@
                     </select>
                 </div>
 
-                <div class="control-group">
-                    <label for="rating-filter">Rating:</label>
-                    <select id="rating-filter" onchange="applyFilters()">
+                <div class="kt-field kt-field--inline">
+                    <label class="kt-field__label" for="rating-filter">Rating</label>
+                    <select class="kt-select" id="rating-filter" onchange="applyFilters()">
                         <option value="all">All</option>
                         <option value="8+">8.0+</option>
                         <option value="7+">7.0+</option>
@@ -112,32 +106,32 @@
                     </select>
                 </div>
 
-                <div class="control-group">
-                    <label for="designer-filter">Designer:</label>
-                    <select id="designer-filter" onchange="applyFilters()">
+                <div class="kt-field kt-field--inline">
+                    <label class="kt-field__label" for="designer-filter">Designer</label>
+                    <select class="kt-select" id="designer-filter" onchange="applyFilters()">
                         <option value="all">All Designers</option>
                     </select>
                 </div>
             </div>
 
-            <div class="controls-row">
-                <div class="control-group">
-                    <label for="store-filter">Store:</label>
-                    <select id="store-filter" onchange="applyFilters()">
+            <div class="kt-toolbar__row">
+                <div class="kt-field kt-field--inline">
+                    <label class="kt-field__label" for="store-filter">Store</label>
+                    <select class="kt-select" id="store-filter" onchange="applyFilters()">
                         <option value="all">All Stores</option>
                     </select>
                 </div>
 
-                <div class="control-group">
-                    <label for="seller-filter">BGG Seller:</label>
-                    <select id="seller-filter" onchange="applyFilters()">
+                <div class="kt-field kt-field--inline">
+                    <label class="kt-field__label" for="seller-filter">BGG Seller</label>
+                    <select class="kt-select" id="seller-filter" onchange="applyFilters()">
                         <option value="all">All Sellers</option>
                     </select>
                 </div>
             </div>
         </div>
 
-        <div id="games-grid" class="games-grid"></div>
+        <div id="games-grid" class="kt-grid"></div>
     </div>
 
     <script src="store-registry.js"></script>
