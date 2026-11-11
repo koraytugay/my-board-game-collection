@@ -15,7 +15,6 @@
     <title>Game Tournament - My Board Game Collection</title>
     <link rel="stylesheet" href="https://koraytugay.github.io/kt-styles/dist/kt.min.css">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="tournament.css">
 </head>
 <body>
     <div class="kt-container">
@@ -32,61 +31,55 @@
             <p>Loading your collection...</p>
         </div>
 
-        <div id="setup-view" class="setup-view" style="display: none;">
-            <h2>Choose Tournament Size</h2>
-            <div class="size-options">
+        <div id="setup-view" class="kt-card kt-card--padded kt-align-center" style="display: none;">
+            <h2 class="kt-card__title kt-mb-4">Choose Tournament Size</h2>
+            <div class="kt-cluster" style="justify-content: center">
                 <button class="kt-btn kt-btn--primary kt-btn--lg size-btn" data-size="8">8 Games</button>
                 <button class="kt-btn kt-btn--primary kt-btn--lg size-btn" data-size="16">16 Games</button>
                 <button class="kt-btn kt-btn--primary kt-btn--lg size-btn" data-size="32">32 Games</button>
                 <button class="kt-btn kt-btn--lg size-btn" data-size="all">Whole Collection</button>
             </div>
-            <p class="hint">Games will be selected randomly from your collection.</p>
+            <p class="kt-fs-sm kt-text-muted kt-mt-4">Games will be selected randomly from your collection.</p>
         </div>
 
-        <div id="matchup-view" class="matchup-view" style="display: none;">
-            <div class="tournament-progress">
-                <div class="progress-info">
-                    <span id="round-name">Round 1</span>
-                    <span id="match-count">Match 1 of 4</span>
+        <div id="matchup-view" style="display: none;">
+            <div class="kt-mb-6" style="max-width: 760px; margin-left: auto; margin-right: auto">
+                <div class="kt-split kt-fs-sm kt-mb-2">
+                    <strong id="round-name">Round 1</strong>
+                    <span id="match-count" class="kt-text-muted">Match 1 of 4</span>
                 </div>
-                <div class="progress-bar-container">
-                    <div id="progress-bar" class="progress-bar" style="width: 0%"></div>
-                </div>
+                <div class="kt-progress"><div id="progress-bar" class="kt-progress__bar" style="width: 0%"></div></div>
             </div>
 
-            <div class="vs-container">
-                <div id="game-a" class="game-choice">
-                    <div class="game-image-wrapper">
-                        <img src="" alt="" class="game-image">
+            <div class="tournament-vs">
+                <div id="game-a" class="kt-media-card kt-media-card--interactive kt-media-card--square">
+                    <div class="kt-media-card__media"><img src="" alt="" data-image></div>
+                    <div class="kt-media-card__body">
+                        <h2 class="kt-media-card__title" data-name>Game A</h2>
+                        <p class="kt-media-card__subtitle" data-year></p>
+                        <button class="kt-btn kt-btn--primary kt-btn--block kt-mt-3" data-select>Pick This One</button>
                     </div>
-                    <div class="game-details">
-                        <h2 class="game-name">Game A</h2>
-                        <p class="game-year"></p>
-                    </div>
-                    <button class="kt-btn kt-btn--primary kt-btn--block select-btn">Pick This One</button>
                 </div>
 
-                <div class="vs-divider">VS</div>
+                <div class="kt-fs-xl kt-fw-heavy kt-text-muted">VS</div>
 
-                <div id="game-b" class="game-choice">
-                    <div class="game-image-wrapper">
-                        <img src="" alt="" class="game-image">
+                <div id="game-b" class="kt-media-card kt-media-card--interactive kt-media-card--square">
+                    <div class="kt-media-card__media"><img src="" alt="" data-image></div>
+                    <div class="kt-media-card__body">
+                        <h2 class="kt-media-card__title" data-name>Game B</h2>
+                        <p class="kt-media-card__subtitle" data-year></p>
+                        <button class="kt-btn kt-btn--primary kt-btn--block kt-mt-3" data-select>Pick This One</button>
                     </div>
-                    <div class="game-details">
-                        <h2 class="game-name">Game B</h2>
-                        <p class="game-year"></p>
-                    </div>
-                    <button class="kt-btn kt-btn--primary kt-btn--block select-btn">Pick This One</button>
                 </div>
             </div>
         </div>
 
-        <div id="winner-view" class="winner-view" style="display: none;">
-            <h2>🏆 The Champion! 🏆</h2>
-            <div id="champion-display" class="champion-display">
+        <div id="winner-view" class="kt-align-center" style="display: none;">
+            <h2 class="kt-fs-xl kt-fw-bold kt-mb-4">🏆 The Champion! 🏆</h2>
+            <div id="champion-display" class="tournament-stage kt-mb-5">
                 <!-- Champion details will be injected here -->
             </div>
-            <div class="actions">
+            <div class="kt-cluster" style="justify-content: center">
                 <button id="restart-btn" class="kt-btn kt-btn--primary">Start New Tournament</button>
                 <a href="index.html" class="kt-btn">Return to Collection</a>
             </div>

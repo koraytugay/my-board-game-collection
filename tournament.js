@@ -104,15 +104,15 @@ function getRoundName(count) {
 
 function fillGameDetails(elementId, game) {
     const container = document.getElementById(elementId);
-    container.querySelector('.game-image').src = game.image || game.thumbnail || 'https://via.placeholder.com/300x300?text=No+Image';
-    container.querySelector('.game-name').textContent = game.name;
-    container.querySelector('.game-year').textContent = game.yearPublished !== 'N/A' ? `(${game.yearPublished})` : '';
+    container.querySelector('[data-image]').src = game.image || game.thumbnail || 'https://via.placeholder.com/300x300?text=No+Image';
+    container.querySelector('[data-name]').textContent = game.name;
+    container.querySelector('[data-year]').textContent = game.yearPublished !== 'N/A' ? `(${game.yearPublished})` : '';
     
     // Set the click handler on the container itself
     container.onclick = () => selectWinner(game);
     
     // Ensure the button also works but doesn't double-trigger
-    const btn = container.querySelector('.select-btn');
+    const btn = container.querySelector('[data-select]');
     btn.onclick = (e) => {
         e.stopPropagation();
         selectWinner(game);
@@ -133,13 +133,13 @@ function showWinner(game) {
 
     const display = document.getElementById('champion-display');
     display.innerHTML = `
-        <div class="game-choice">
-            <div class="game-image-wrapper">
-                <img src="${game.image || game.thumbnail || 'https://via.placeholder.com/300x300?text=No+Image'}" alt="${game.name}" class="game-image">
+        <div class="kt-media-card kt-media-card--square kt-align-left">
+            <div class="kt-media-card__media">
+                <img src="${game.image || game.thumbnail || 'https://via.placeholder.com/300x300?text=No+Image'}" alt="${game.name}">
             </div>
-            <div class="game-details">
-                <h2 class="game-name">${game.name}</h2>
-                <p class="game-year">${game.yearPublished !== 'N/A' ? `(${game.yearPublished})` : ''}</p>
+            <div class="kt-media-card__body">
+                <h2 class="kt-media-card__title">${game.name}</h2>
+                <p class="kt-media-card__subtitle">${game.yearPublished !== 'N/A' ? `(${game.yearPublished})` : ''}</p>
             </div>
         </div>
     `;

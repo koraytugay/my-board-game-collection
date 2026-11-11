@@ -36,3 +36,23 @@ details > summary {
     grid-template-columns: repeat(auto-fit, minmax(min(380px, 100%), 1fr));
     gap: var(--kt-space-6);
 }
+
+/* Tournament: two choices side by side with "VS" between them */
+.tournament-vs {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    align-items: center;
+    gap: var(--kt-space-5);
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+.tournament-stage {
+    max-width: 360px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+@media (max-width: 768px) {
+    .tournament-vs { gap: var(--kt-space-2); }
+}
