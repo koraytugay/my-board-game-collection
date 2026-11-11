@@ -119,7 +119,7 @@ function renderBucket(containerId, countId, items) {
     items.sort((a, b) => b.lastDate.localeCompare(a.lastDate) || a.name.localeCompare(b.name));
 
     if (items.length === 0) {
-        container.innerHTML = '<p class="empty-state">No plays recorded for this period.</p>';
+        container.innerHTML = '<p class="kt-empty">No plays recorded for this period.</p>';
         return;
     }
 
@@ -130,10 +130,10 @@ function renderBucket(containerId, countId, items) {
         const formattedDate = formatDate(item.lastDate);
         
         return `
-            <div class="history-item" onclick="typeof showGameDetails === 'function' ? showGameDetails('${item.id}') : window.open('https://boardgamegeek.com/boardgame/${item.id}', '_blank')" title="${safeName} (Last played: ${formattedDate})">
-                <img src="${imageUrl || 'https://via.placeholder.com/180x180?text=?'}" alt="${safeName}" class="history-item-img" loading="lazy" onerror="this.onerror=null;this.src='https://via.placeholder.com/180x180?text=?';">
-                ${formattedDate ? `<div class="history-item-date-overlay">${formattedDate}</div>` : ''}
-            </div>
+            <button type="button" class="kt-thumb" onclick="typeof showGameDetails === 'function' ? showGameDetails('${item.id}') : window.open('https://boardgamegeek.com/boardgame/${item.id}', '_blank')" title="${safeName} (Last played: ${formattedDate})">
+                <img src="${imageUrl || 'https://via.placeholder.com/180x180?text=?'}" alt="${safeName}" loading="lazy" onerror="this.onerror=null;this.src='https://via.placeholder.com/180x180?text=?';">
+                ${formattedDate ? `<span class="kt-thumb__caption">${formattedDate}</span>` : ''}
+            </button>
         `;
     }).join('');
 }

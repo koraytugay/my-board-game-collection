@@ -46,7 +46,7 @@ function renderUnplayedChallenge() {
     const container = document.getElementById('unplayed-games');
 
     if (unplayedGames.length === 0) {
-        container.innerHTML = '<p class="empty-state">Congratulations! You have played all your owned games.</p>';
+        container.innerHTML = '<p class="kt-empty">Congratulations! You have played all your owned games.</p>';
         return;
     }
 
@@ -59,9 +59,9 @@ function renderUnplayedChallenge() {
         const year = game.yearPublished !== 'N/A' ? game.yearPublished : '';
 
         return `
-            <div class="unplayed-game-chip" onclick="typeof showGameDetails === 'function' ? showGameDetails('${game.objectId}') : window.open('https://boardgamegeek.com/boardgame/${game.objectId}', '_blank')" title="${safeName} ${year ? `(${year})` : ''}">
-                <img src="${imageUrl}" alt="${safeName}" class="unplayed-game-img" loading="lazy">
-            </div>
+            <button type="button" class="kt-thumb" onclick="typeof showGameDetails === 'function' ? showGameDetails('${game.objectId}') : window.open('https://boardgamegeek.com/boardgame/${game.objectId}', '_blank')" title="${safeName} ${year ? `(${year})` : ''}">
+                <img src="${imageUrl}" alt="${safeName}" loading="lazy">
+            </button>
         `;
     }).join('');
 }

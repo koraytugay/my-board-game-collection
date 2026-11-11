@@ -48,7 +48,7 @@ function renderCalendar() {
     const gridEl = document.getElementById('calendar-grid');
     const monthDisplay = document.getElementById('current-month-display');
     
-    const labels = gridEl.querySelectorAll('.calendar-day-label');
+    const labels = gridEl.querySelectorAll('.kt-calendar__weekday');
     gridEl.innerHTML = '';
     labels.forEach(label => gridEl.appendChild(label));
 
@@ -82,16 +82,16 @@ function renderCalendar() {
 
     while (loopDay <= endDay) {
         const dayEl = document.createElement('div');
-        dayEl.className = 'calendar-day';
-        if (loopDay.getMonth() !== month) dayEl.classList.add('other-month');
-        if (loopDay.toDateString() === today.toDateString()) dayEl.classList.add('today');
+        dayEl.className = 'kt-calendar__day';
+        if (loopDay.getMonth() !== month) dayEl.classList.add('is-outside');
+        if (loopDay.toDateString() === today.toDateString()) dayEl.classList.add('is-today');
         
         const yearStr = loopDay.getFullYear();
         const monthStr = String(loopDay.getMonth() + 1).padStart(2, '0');
         const dayStr = String(loopDay.getDate()).padStart(2, '0');
         const dateStr = `${yearStr}-${monthStr}-${dayStr}`;
         
-        dayEl.innerHTML = `<span class="day-number">${loopDay.getDate()}</span>`;
+        dayEl.innerHTML = `<div class="kt-calendar__date">${loopDay.getDate()}</div>`;
         
         const dayPlays = allPlays.filter(p => p.date === dateStr);
         
@@ -110,31 +110,20 @@ function renderCalendar() {
                 aggregated[id].count += play.quantity;
             });
 
-            const playsContainer = document.createElement('div');
-            playsContainer.className = 'calendar-plays-container';
-            
             Object.values(aggregated).forEach(entry => {
                 const gameData = allGames.find(g => g.objectId === entry.id);
-                const playEl = document.createElement('div');
-                playEl.className = 'play-thumbnail-entry';
-                
-                let imgHtml = '';
                 const imgSrc = gameData ? (gameData.thumbnail || gameData.image) : '';
-                if (imgSrc) {
-                    imgHtml = `<img src="${imgSrc}" alt="${escapeHtml(entry.name)}" loading="lazy">`;
-                } else {
-                    // Fallback for games not in collection
-                    imgHtml = `<div class="play-placeholder-img"><span>?</span></div>`;
-                }
-
+                const playEl = document.createElement('button');
+                playEl.type = 'button';
+                playEl.className = 'kt-thumb kt-thumb--md kt-tooltip';
+                playEl.dataset.tooltip = entry.name;
+                playEl.setAttribute('aria-label', entry.name);
                 playEl.innerHTML = `
-                    <div class="thumbnail-wrapper">
-                        ${imgHtml}
-                        ${entry.count > 1 ? `<span class="play-count-badge">x${entry.count}</span>` : ''}
-                    </div>
-                    <span class="game-name-tooltip">${entry.name}</span>
+                    ${imgSrc
+                        ? `<img src="${imgSrc}" alt="${escapeHtml(entry.name)}" loading="lazy">`
+                        : '<div class="kt-media-placeholder"></div>'}
+                    ${entry.count > 1 ? `<span class="kt-thumb__corner">×${entry.count}</span>` : ''}
                 `;
-                
                 playEl.onclick = () => {
                     if (typeof showGameDetails === 'function') {
                         showGameDetails(entry.id);
@@ -142,9 +131,8 @@ function renderCalendar() {
                         window.open(`https://boardgamegeek.com/boardgame/${entry.id}`, '_blank');
                     }
                 };
-                playsContainer.appendChild(playEl);
+                dayEl.appendChild(playEl);
             });
-            dayEl.appendChild(playsContainer);
         }
 
         gridEl.appendChild(dayEl);

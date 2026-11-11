@@ -74,7 +74,7 @@ function renderTierRow(tierKey, games) {
     games.sort((a, b) => a.name.localeCompare(b.name));
 
     if (games.length === 0) {
-        gridEl.innerHTML = '<p class="tier-empty">No games in this tier.</p>';
+        gridEl.innerHTML = '<span class="kt-lanes__empty">No games in this tier.</span>';
         return;
     }
 
@@ -83,9 +83,9 @@ function renderTierRow(tierKey, games) {
         const imageUrl = game.thumbnail || game.image || 'https://via.placeholder.com/150x150?text=?';
 
         return `
-            <div class="tier-game-card" onclick="typeof showGameDetails === 'function' ? showGameDetails('${game.objectId}') : window.open('https://boardgamegeek.com/boardgame/${game.objectId}', '_blank')" title="${safeName} (My Rating: ${game.myRating})">
-                <img src="${imageUrl}" alt="${safeName}" class="tier-game-img" loading="lazy">
-            </div>
+            <button type="button" class="kt-thumb kt-thumb--lg" onclick="typeof showGameDetails === 'function' ? showGameDetails('${game.objectId}') : window.open('https://boardgamegeek.com/boardgame/${game.objectId}', '_blank')" title="${safeName} (My Rating: ${game.myRating})">
+                <img src="${imageUrl}" alt="${safeName}" loading="lazy">
+            </button>
         `;
     }).join('');
 }

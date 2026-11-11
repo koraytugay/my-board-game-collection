@@ -14,7 +14,8 @@
 }
 
 /* An empty-result message spans the whole grid */
-.kt-grid > .kt-empty {
+.kt-grid > .kt-empty,
+.kt-thumb-grid > .kt-empty {
     grid-column: 1 / -1;
 }
 
@@ -27,4 +28,11 @@
 /* Collapsible store health panel */
 details > summary {
     cursor: pointer;
+}
+
+/* Statistics: two sections side by side, stacked on narrow screens */
+.stats-two-cols {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(380px, 100%), 1fr));
+    gap: var(--kt-space-6);
 }

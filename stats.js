@@ -57,7 +57,7 @@ function renderMostPlayed() {
         .filter(g => g.numPlays > 0);
 
     if (topGames.length === 0) {
-        container.innerHTML = '<p class="empty-state">No play data available</p>';
+        container.innerHTML = '<p class="kt-empty">No play data available</p>';
         return;
     }
 
@@ -66,11 +66,11 @@ function renderMostPlayed() {
         const imageUrl = game.image || game.thumbnail || 'https://via.placeholder.com/150x150?text=?';
 
         return `
-            <div class="top-played-card" onclick="typeof showGameDetails === 'function' ? showGameDetails('${game.objectId}') : window.open('https://boardgamegeek.com/boardgame/${game.objectId}', '_blank')" title="${safeName} (${game.numPlays} plays)">
-                <span class="top-rank-badge">#${index + 1}</span>
-                <img src="${imageUrl}" alt="${safeName}" class="top-played-img" loading="lazy">
-                <div class="top-plays-overlay">${game.numPlays} ${game.numPlays === 1 ? 'play' : 'plays'}</div>
-            </div>
+            <button type="button" class="kt-thumb" onclick="typeof showGameDetails === 'function' ? showGameDetails('${game.objectId}') : window.open('https://boardgamegeek.com/boardgame/${game.objectId}', '_blank')" title="${safeName} (${game.numPlays} plays)">
+                <img src="${imageUrl}" alt="${safeName}" loading="lazy">
+                <span class="kt-thumb__badge">#${index + 1}</span>
+                <span class="kt-thumb__caption">${game.numPlays} ${game.numPlays === 1 ? 'play' : 'plays'}</span>
+            </button>
         `;
     }).join('');
 }
@@ -108,12 +108,10 @@ function renderRatingChart() {
         .map(([label, count]) => {
             const percentage = maxCount > 0 ? (count / maxCount) * 100 : 0;
             return `
-                <div class="chart-row">
-                    <div class="chart-label">${label}★</div>
-                    <div class="chart-bar-container">
-                        <div class="chart-bar" style="width: ${percentage}%"></div>
-                    </div>
-                    <span class="chart-count">${count}</span>
+                <div class="kt-bar-list__row">
+                    <span class="kt-bar-list__label">${label}★</span>
+                    <div class="kt-progress kt-progress--lg"><div class="kt-progress__bar" style="width: ${percentage}%"></div></div>
+                    <span class="kt-bar-list__value">${count}</span>
                 </div>
             `;
         }).join('');

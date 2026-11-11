@@ -15,7 +15,6 @@
     <title>Play Calendar - My Board Game Collection</title>
     <link rel="stylesheet" href="https://koraytugay.github.io/kt-styles/dist/kt.min.css">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="calendar.css">
 </head>
 <body>
     <div class="kt-container">
@@ -35,21 +34,21 @@
         <div id="error" class="kt-alert kt-alert--danger" style="display: none;"></div>
 
         <div id="calendar-content" style="display: none;">
-            <div class="calendar-container">
-                <div class="calendar-header">
-                    <button id="prev-month" class="month-nav-btn">← Prev</button>
-                    <div id="current-month-display">March 2026</div>
-                    <button id="next-month" class="month-nav-btn">Next →</button>
+            <div class="kt-card kt-card--padded">
+                <div class="kt-split kt-mb-4">
+                    <button id="prev-month" class="kt-btn">← Prev</button>
+                    <div id="current-month-display" class="kt-card__title">March 2026</div>
+                    <button id="next-month" class="kt-btn">Next →</button>
                 </div>
-                <div class="calendar-grid" id="calendar-grid">
+                <div class="kt-calendar" id="calendar-grid">
                     <!-- Day labels -->
-                    <div class="calendar-day-label">Mon</div>
-                    <div class="calendar-day-label">Tue</div>
-                    <div class="calendar-day-label">Wed</div>
-                    <div class="calendar-day-label">Thu</div>
-                    <div class="calendar-day-label">Fri</div>
-                    <div class="calendar-day-label">Sat</div>
-                    <div class="calendar-day-label">Sun</div>
+                    <div class="kt-calendar__weekday">Mon</div>
+                    <div class="kt-calendar__weekday">Tue</div>
+                    <div class="kt-calendar__weekday">Wed</div>
+                    <div class="kt-calendar__weekday">Thu</div>
+                    <div class="kt-calendar__weekday">Fri</div>
+                    <div class="kt-calendar__weekday">Sat</div>
+                    <div class="kt-calendar__weekday">Sun</div>
                     <!-- Days will be populated by JS -->
                 </div>
             </div>

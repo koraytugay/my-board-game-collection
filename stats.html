@@ -15,7 +15,6 @@
     <title>Statistics - My Board Game Collection</title>
     <link rel="stylesheet" href="https://koraytugay.github.io/kt-styles/dist/kt.min.css">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="stats.css">
 </head>
 <body>
     <div class="kt-container">
@@ -35,112 +34,68 @@
         <div id="error" class="kt-alert kt-alert--danger" style="display: none;"></div>
 
         <div id="stats-content" style="display: none;">
-            <!-- Overview Stats -->
-            <section class="stats-section">
-                <div class="stats-header">
-                    <h2 class="stats-title">Collection Overview</h2>
+            <section class="kt-card kt-mb-6">
+                <div class="kt-card__header">
+                    <h2 class="kt-card__title">Collection Overview</h2>
                 </div>
-                <div class="stats-cards">
-                    <div class="stat-card-box">
-                        <span class="stat-number" id="total-games">0</span>
-                        <span class="stat-label">Total Games</span>
-                    </div>
-                    <div class="stat-card-box">
-                        <span class="stat-number" id="total-plays">0</span>
-                        <span class="stat-label">Total Plays</span>
-                    </div>
-                    <div class="stat-card-box">
-                        <span class="stat-number" id="avg-rating">0</span>
-                        <span class="stat-label">Avg BGG Rating</span>
-                    </div>
-                    <div class="stat-card-box">
-                        <span class="stat-number" id="avg-my-rating">0</span>
-                        <span class="stat-label">Avg My Rating</span>
-                    </div>
-                    <div class="stat-card-box">
-                        <span class="stat-number" id="avg-playtime">0</span>
-                        <span class="stat-label">Avg Play Time (min)</span>
-                    </div>
-                    <div class="stat-card-box">
-                        <span class="stat-number" id="most-played-name">-</span>
-                        <span class="stat-label">Most Played Game</span>
-                    </div>
+                <div class="kt-card__body kt-stat-row">
+                    <div class="kt-stat"><div class="kt-stat__value" id="total-games">0</div><div class="kt-stat__label">Total Games</div></div>
+                    <div class="kt-stat"><div class="kt-stat__value" id="total-plays">0</div><div class="kt-stat__label">Total Plays</div></div>
+                    <div class="kt-stat"><div class="kt-stat__value" id="avg-rating">0</div><div class="kt-stat__label">Avg BGG Rating</div></div>
+                    <div class="kt-stat"><div class="kt-stat__value" id="avg-my-rating">0</div><div class="kt-stat__label">Avg My Rating</div></div>
+                    <div class="kt-stat"><div class="kt-stat__value" id="avg-playtime">0</div><div class="kt-stat__label">Avg Play Time (min)</div></div>
+                    <div class="kt-stat"><div class="kt-stat__value" id="most-played-name">0</div><div class="kt-stat__label">Most Played Game</div></div>
                 </div>
             </section>
-
-            <!-- Top 10 Most Played Games -->
-            <section class="stats-section">
-                <div class="stats-header">
-                    <h2 class="stats-title">Top 10 Most Played Games</h2>
+            <section class="kt-card kt-mb-6">
+                <div class="kt-card__header">
+                    <h2 class="kt-card__title">Top 10 Most Played Games</h2>
                 </div>
-                <div id="most-played-grid" class="top-played-grid">
+                <div id="most-played-grid" class="kt-card__body kt-thumb-grid">
                     <!-- Populated by JavaScript with thumbnail cards -->
                 </div>
             </section>
-
-            <!-- Play Milestones & Rating Distribution -->
-            <div class="stats-grid-two-cols">
-                <section class="stats-section">
-                    <div class="stats-header">
-                        <h2 class="stats-title">Play Milestones</h2>
+            <div class="stats-two-cols kt-mb-6">
+                <section class="kt-card">
+                    <div class="kt-card__header">
+                        <h2 class="kt-card__title">Play Milestones</h2>
                     </div>
-                    <div class="milestones-container">
-                        <div class="milestone-box">
-                            <div class="milestone-main">
-                                <span class="milestone-label">H-Index</span>
-                                <span class="milestone-number" id="h-index-val">0</span>
-                            </div>
-                            <span class="milestone-sub">Games played at least X times</span>
+                    <div class="kt-card__body kt-stack">
+                        <div class="kt-stat kt-stat--inset">
+                            <div class="kt-stat__label">H-Index</div>
+                            <div class="kt-stat__value" id="h-index-val">0</div>
+                            <div class="kt-stat__sub">Games played at least X times</div>
                         </div>
-                        <div class="milestone-box">
-                            <div class="milestone-main">
-                                <span class="milestone-label">Dime Club</span>
-                                <span class="milestone-number" id="dime-club-count">0</span>
-                            </div>
-                            <span class="milestone-sub">Games with 10+ recorded plays</span>
+                        <div class="kt-stat kt-stat--inset">
+                            <div class="kt-stat__label">Dime Club</div>
+                            <div class="kt-stat__value" id="dime-club-count">0</div>
+                            <div class="kt-stat__sub">Games with 10+ recorded plays</div>
                         </div>
-                        <div class="milestone-box">
-                            <div class="milestone-main">
-                                <span class="milestone-label">Nickel Club</span>
-                                <span class="milestone-number" id="nickel-club-count">0</span>
-                            </div>
-                            <span class="milestone-sub">Games with 5+ recorded plays</span>
+                        <div class="kt-stat kt-stat--inset">
+                            <div class="kt-stat__label">Nickel Club</div>
+                            <div class="kt-stat__value" id="nickel-club-count">0</div>
+                            <div class="kt-stat__sub">Games with 5+ recorded plays</div>
                         </div>
                     </div>
                 </section>
-
-                <section class="stats-section">
-                    <div class="stats-header">
-                        <h2 class="stats-title">My Rating Distribution</h2>
+                <section class="kt-card">
+                    <div class="kt-card__header">
+                        <h2 class="kt-card__title">My Rating Distribution</h2>
                     </div>
-                    <div id="rating-chart" class="css-chart">
+                    <div id="rating-chart" class="kt-card__body kt-bar-list">
                         <!-- Populated by JS -->
                     </div>
                 </section>
             </div>
-
-            <!-- Additional Insights -->
-            <section class="stats-section">
-                <div class="stats-header">
-                    <h2 class="stats-title">Additional Insights</h2>
+            <section class="kt-card kt-mb-6">
+                <div class="kt-card__header">
+                    <h2 class="kt-card__title">Additional Insights</h2>
                 </div>
-                <div class="insights-grid">
-                    <div class="stat-card-box">
-                        <span class="stat-number" id="solo-games-count">0</span>
-                        <span class="stat-label">Solo Playable</span>
-                    </div>
-                    <div class="stat-card-box">
-                        <span class="stat-number" id="unplayed-count">0</span>
-                        <span class="stat-label">Unplayed Games</span>
-                    </div>
-                    <div class="stat-card-box">
-                        <span class="stat-number" id="high-rated-count">0</span>
-                        <span class="stat-label">High Rated (BGG 7.5+)</span>
-                    </div>
-                    <div class="stat-card-box">
-                        <span class="stat-number" id="recent-games-count">0</span>
-                        <span class="stat-label">Published 2020+</span>
-                    </div>
+                <div class="kt-card__body kt-stat-row">
+                    <div class="kt-stat"><div class="kt-stat__value" id="solo-games-count">0</div><div class="kt-stat__label">Solo Playable</div></div>
+                    <div class="kt-stat"><div class="kt-stat__value" id="unplayed-count">0</div><div class="kt-stat__label">Unplayed Games</div></div>
+                    <div class="kt-stat"><div class="kt-stat__value" id="high-rated-count">0</div><div class="kt-stat__label">High Rated (BGG 7.5+)</div></div>
+                    <div class="kt-stat"><div class="kt-stat__value" id="recent-games-count">0</div><div class="kt-stat__label">Published 2020+</div></div>
                 </div>
             </section>
         </div>

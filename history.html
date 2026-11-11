@@ -15,7 +15,6 @@
     <title>Play History - My Board Game Collection</title>
     <link rel="stylesheet" href="https://koraytugay.github.io/kt-styles/dist/kt.min.css">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="history.css">
 </head>
 <body>
     <div class="kt-container">
@@ -35,32 +34,32 @@
         <div id="error" class="kt-alert kt-alert--danger" style="display: none;"></div>
 
         <div id="history-content" style="display: none;">
-            <section class="history-section">
-                <div class="history-header">
-                    <h2 class="history-title">Within This Month</h2>
-                    <span id="this-month-count" class="history-count-badge">0 games</span>
+            <section class="kt-card kt-mb-6">
+                <div class="kt-card__header">
+                    <h2 class="kt-card__title">Within This Month</h2>
+                    <span id="this-month-count" class="kt-badge kt-badge--pill kt-ml-auto">0 games</span>
                 </div>
-                <div id="this-month-list" class="history-list">
+                <div id="this-month-list" class="kt-card__body kt-thumb-grid">
                     <!-- Populated by JS -->
                 </div>
             </section>
 
-            <section class="history-section">
-                <div class="history-header">
-                    <h2 class="history-title">Within This Year</h2>
-                    <span id="this-year-count" class="history-count-badge">0 games</span>
+            <section class="kt-card kt-mb-6">
+                <div class="kt-card__header">
+                    <h2 class="kt-card__title">Within This Year</h2>
+                    <span id="this-year-count" class="kt-badge kt-badge--pill kt-ml-auto">0 games</span>
                 </div>
-                <div id="this-year-list" class="history-list">
+                <div id="this-year-list" class="kt-card__body kt-thumb-grid">
                     <!-- Populated by JS -->
                 </div>
             </section>
 
-            <section class="history-section">
-                <div class="history-header">
-                    <h2 class="history-title">Within Last Year</h2>
-                    <span id="last-year-count" class="history-count-badge">0 games</span>
+            <section class="kt-card kt-mb-6">
+                <div class="kt-card__header">
+                    <h2 class="kt-card__title">Within Last Year</h2>
+                    <span id="last-year-count" class="kt-badge kt-badge--pill kt-ml-auto">0 games</span>
                 </div>
-                <div id="last-year-list" class="history-list">
+                <div id="last-year-list" class="kt-card__body kt-thumb-grid">
                     <!-- Populated by JS -->
                 </div>
             </section>

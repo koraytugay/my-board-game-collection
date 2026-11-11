@@ -15,7 +15,6 @@
     <title>Collection Challenges - My Board Game Collection</title>
     <link rel="stylesheet" href="https://koraytugay.github.io/kt-styles/dist/kt.min.css">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="challenges.css">
 </head>
 <body>
     <div class="kt-container">
@@ -35,109 +34,77 @@
         <div id="error" class="kt-alert kt-alert--danger" style="display: none;"></div>
 
         <div id="challenges-content" style="display: none;">
-            <!-- Unplayed Games Challenge -->
-            <section class="challenge-section">
-                <div class="challenge-header">
-                    <h2 class="challenge-title">Unplayed Games</h2>
-                    <span id="unplayed-count-badge" class="challenge-count-badge">0 games</span>
+            <section class="kt-card kt-mb-6">
+                <div class="kt-card__header">
+                    <h2 class="kt-card__title">Unplayed Games</h2>
+                    <span id="unplayed-count-badge" class="kt-badge kt-badge--pill kt-ml-auto">0 games</span>
                 </div>
-
-                <div class="challenge-stats-grid">
-                    <div class="challenge-stat-box">
-                        <span class="stat-number" id="unplayed-remaining">0</span>
-                        <span class="stat-label">Unplayed Games</span>
+                <div class="kt-card__body kt-stack" style="--kt-gap: 16px">
+                    <div class="kt-stat-row">
+                        <div class="kt-stat"><div class="kt-stat__value" id="unplayed-remaining">0</div><div class="kt-stat__label">Unplayed Games</div></div>
+                        <div class="kt-stat"><div class="kt-stat__value" id="unplayed-percentage">0%</div><div class="kt-stat__label">Unplayed Percentage</div></div>
+                        <div class="kt-stat"><div class="kt-stat__value" id="played-count">0</div><div class="kt-stat__label">Played Games</div></div>
                     </div>
-                    <div class="challenge-stat-box">
-                        <span class="stat-number" id="unplayed-percentage">0%</span>
-                        <span class="stat-label">Unplayed Percentage</span>
+                    <div>
+                        <div class="kt-progress kt-progress--lg"><div id="unplayed-progress-bar" class="kt-progress__bar"></div></div>
+                        <div id="unplayed-progress-text" class="kt-fs-xs kt-text-muted kt-align-right kt-mt-1">0% Played</div>
                     </div>
-                    <div class="challenge-stat-box">
-                        <span class="stat-number" id="played-count">0</span>
-                        <span class="stat-label">Played Games</span>
-                    </div>
-                </div>
-
-                <div class="progress-bar-container">
-                    <div class="progress-bar-track">
-                        <div id="unplayed-progress-bar" class="progress-fill"></div>
-                    </div>
-                    <span id="unplayed-progress-text" class="progress-label">0% Played</span>
-                </div>
-
-                <div id="unplayed-games" class="unplayed-games-grid">
-                    <!-- Unplayed games will be listed here -->
-                </div>
-            </section>
-
-            <!-- Club Challenges -->
-            <section class="challenge-section">
-                <div class="challenge-header">
-                    <h2 class="challenge-title">Play Depth Challenges</h2>
-                </div>
-
-                <div class="club-challenges-grid">
-                    <div class="club-card">
-                        <div class="club-header">
-                            <span class="club-title">Dime Club</span>
-                            <span class="club-threshold">10+ Plays</span>
-                        </div>
-                        <div class="club-body">
-                            <span class="club-count" id="dime-count">0</span>
-                            <span class="club-label">games achieved</span>
-                        </div>
-                        <div class="progress-bar-container">
-                            <div class="progress-bar-track">
-                                <div id="dime-progress-bar" class="progress-fill"></div>
-                            </div>
-                            <span id="dime-progress-text" class="progress-label">0%</span>
-                        </div>
-                    </div>
-
-                    <div class="club-card">
-                        <div class="club-header">
-                            <span class="club-title">Nickel Club</span>
-                            <span class="club-threshold">5+ Plays</span>
-                        </div>
-                        <div class="club-body">
-                            <span class="club-count" id="nickel-count">0</span>
-                            <span class="club-label">games achieved</span>
-                        </div>
-                        <div class="progress-bar-container">
-                            <div class="progress-bar-track">
-                                <div id="nickel-progress-bar" class="progress-fill"></div>
-                            </div>
-                            <span id="nickel-progress-text" class="progress-label">0%</span>
-                        </div>
+                    <div id="unplayed-games" class="kt-thumb-grid">
+                        <!-- Unplayed games will be listed here -->
                     </div>
                 </div>
             </section>
 
-            <!-- Personal Bests -->
-            <section class="challenge-section">
-                <div class="challenge-header">
-                    <h2 class="challenge-title">Personal Bests</h2>
+            <section class="kt-card kt-mb-6">
+                <div class="kt-card__header">
+                    <h2 class="kt-card__title">Play Depth Challenges</h2>
                 </div>
+                <div class="kt-card__body kt-grid kt-grid--2" style="--kt-grid-gap: 12px">
+                    <div class="kt-card kt-card--padded kt-stack" style="--kt-gap: 8px">
+                        <div class="kt-split">
+                            <strong>Dime Club</strong>
+                            <span class="kt-badge">10+ Plays</span>
+                        </div>
+                        <div><span class="kt-fs-xl kt-fw-bold kt-num" id="dime-count">0</span> <span class="kt-fs-sm kt-text-muted">games achieved</span></div>
+                        <div class="kt-progress"><div id="dime-progress-bar" class="kt-progress__bar"></div></div>
+                        <div id="dime-progress-text" class="kt-fs-xs kt-text-muted">0%</div>
+                    </div>
+                    <div class="kt-card kt-card--padded kt-stack" style="--kt-gap: 8px">
+                        <div class="kt-split">
+                            <strong>Nickel Club</strong>
+                            <span class="kt-badge">5+ Plays</span>
+                        </div>
+                        <div><span class="kt-fs-xl kt-fw-bold kt-num" id="nickel-count">0</span> <span class="kt-fs-sm kt-text-muted">games achieved</span></div>
+                        <div class="kt-progress"><div id="nickel-progress-bar" class="kt-progress__bar"></div></div>
+                        <div id="nickel-progress-text" class="kt-fs-xs kt-text-muted">0%</div>
+                    </div>
+                </div>
+            </section>
 
-                <div class="achievements-grid">
-                    <div class="achievement-card">
-                        <span class="achievement-type">Most Played</span>
-                        <h3 id="most-played-game" class="achievement-name">-</h3>
-                        <span id="most-played-count" class="achievement-val">0 plays</span>
+            <section class="kt-card kt-mb-6">
+                <div class="kt-card__header">
+                    <h2 class="kt-card__title">Personal Bests</h2>
+                </div>
+                <div class="kt-card__body kt-grid kt-grid--fit" style="--kt-grid-min: 200px; --kt-grid-gap: 12px">
+                    <div class="kt-stat kt-stat--inset">
+                        <div class="kt-stat__label">Most Played</div>
+                        <div id="most-played-game" class="kt-stat__value kt-fs-md">-</div>
+                        <div id="most-played-count" class="kt-stat__sub">0 plays</div>
                     </div>
-                    <div class="achievement-card">
-                        <span class="achievement-type">Highest Rated</span>
-                        <h3 id="highest-rated-game" class="achievement-name">-</h3>
-                        <span id="highest-rated-value" class="achievement-val">0.0</span>
+                    <div class="kt-stat kt-stat--inset">
+                        <div class="kt-stat__label">Highest Rated</div>
+                        <div id="highest-rated-game" class="kt-stat__value kt-fs-md">-</div>
+                        <div id="highest-rated-value" class="kt-stat__sub">0.0</div>
                     </div>
-                    <div class="achievement-card">
-                        <span class="achievement-type">Oldest Game</span>
-                        <h3 id="oldest-game" class="achievement-name">-</h3>
-                        <span id="oldest-year" class="achievement-val">-</span>
+                    <div class="kt-stat kt-stat--inset">
+                        <div class="kt-stat__label">Oldest Game</div>
+                        <div id="oldest-game" class="kt-stat__value kt-fs-md">-</div>
+                        <div id="oldest-year" class="kt-stat__sub">-</div>
                     </div>
-                    <div class="achievement-card">
-                        <span class="achievement-type">Newest Game</span>
-                        <h3 id="newest-game" class="achievement-name">-</h3>
-                        <span id="newest-year" class="achievement-val">-</span>
+                    <div class="kt-stat kt-stat--inset">
+                        <div class="kt-stat__label">Newest Game</div>
+                        <div id="newest-game" class="kt-stat__value kt-fs-md">-</div>
+                        <div id="newest-year" class="kt-stat__sub">-</div>
                     </div>
                 </div>
             </section>
