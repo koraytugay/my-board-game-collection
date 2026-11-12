@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><plays  username="koraytugay" userid="4151779" total="13" page="1" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse">
+<?xml version="1.0" encoding="utf-8"?><plays  username="koraytugay" userid="4151779" total="14" page="1" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse">
 <play id="120850932" date="2026-11-11" quantity="1" length="10" incomplete="0" nowinstats="0" location="">
 			<item name="FUSE" objecttype="thing" objectid="171273">
 				<subtypes>
@@ -19,6 +19,15 @@
 			<item name="FUSE" objecttype="thing" objectid="171273">
 				<subtypes>
 										<subtype value="boardgame" />
+										<subtype value="boardgameintegration" />
+									</subtypes>
+			</item>
+								</play>
+<play id="120863876" date="2026-11-11" quantity="1" length="10" incomplete="0" nowinstats="0" location="">
+			<item name="Marvel: Remix" objecttype="thing" objectid="359152">
+				<subtypes>
+										<subtype value="boardgame" />
+										<subtype value="boardgameimplementation" />
 										<subtype value="boardgameintegration" />
 									</subtypes>
 			</item>
