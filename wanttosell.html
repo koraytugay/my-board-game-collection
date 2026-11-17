@@ -15,57 +15,6 @@
     <title>Want to Sell - My Board Game Collection</title>
     <link rel="stylesheet" href="https://koraytugay.github.io/kt-styles/dist/kt.min.css">
     <link rel="stylesheet" href="styles.css">
-    <style>
-        .empty-state {
-            grid-column: 1 / -1;
-            text-align: center;
-            padding: 60px 20px;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-            margin: 20px 0;
-        }
-        body.dark-mode .empty-state {
-            background: #2d2d2d;
-            color: #e0e0e0;
-        }
-        .empty-state-icon {
-            font-size: 3.5em;
-            margin-bottom: 15px;
-        }
-        .empty-state h3 {
-            font-size: 1.4em;
-            margin-bottom: 10px;
-            color: #333;
-        }
-        body.dark-mode .empty-state h3 {
-            color: #fff;
-        }
-        .empty-state p {
-            color: #666;
-            max-width: 500px;
-            margin: 0 auto 20px;
-            line-height: 1.5;
-        }
-        body.dark-mode .empty-state p {
-            color: #aaa;
-        }
-        .bgg-link-btn {
-            display: inline-block;
-            margin-top: 12px;
-            padding: 8px 14px;
-            background: #e65100;
-            color: white;
-            text-decoration: none;
-            border-radius: 6px;
-            font-size: 0.85em;
-            font-weight: bold;
-            transition: background 0.2s ease;
-        }
-        .bgg-link-btn:hover {
-            background: #bf360c;
-        }
-    </style>
 </head>
 <body>
     <div class="kt-container">
@@ -82,7 +31,7 @@
             <p>Loading items for sale...</p>
         </div>
 
-        <div id="error" class="kt-alert kt-alert--danger" style="display: none;"></div>
+        <div id="error" class="kt-alert kt-alert--danger kt-fs-sm" style="display: none;"></div>
 
         <div id="controls" class="kt-toolbar" style="display: none;">
             <div class="kt-toolbar__row">

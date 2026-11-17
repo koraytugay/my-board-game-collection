@@ -173,16 +173,7 @@ function renderGames() {
     }
     
     if (filteredGames.length === 0) {
-        gamesGridEl.innerHTML = `
-            <div class="kt-empty">
-                <div class="kt-empty__icon">🏷️</div>
-                <div class="kt-empty__title">No Games Match Your Filters</div>
-                <p>There are no games matching your current criteria.</p>
-                <a href="https://boardgamegeek.com/collection/user/koraytugay" target="_blank" class="kt-btn kt-btn--primary">
-                    Manage Collection on BGG ↗
-                </a>
-            </div>
-        `;
+        gamesGridEl.innerHTML = '<div class="kt-empty">No games match your filters</div>';
         return;
     }
 

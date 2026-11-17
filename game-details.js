@@ -261,7 +261,7 @@ async function showGameDetails(objectId) {
     bodyEl.innerHTML = `
         <div class="kt-modal__header" style="padding-right: 56px">
             <div class="kt-stack" style="--kt-gap: 2px">
-                <h2 id="modal-game-title" class="kt-modal__title kt-fs-lg">${safeName}</h2>
+                <h2 id="modal-game-title" class="kt-modal__title">${safeName}</h2>
                 ${subtitle ? `<div class="kt-fs-sm kt-text-secondary">${subtitle}</div>` : ''}
             </div>
         </div>

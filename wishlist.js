@@ -343,9 +343,7 @@ function buildBadgesHtml(game) {
     let badgesHtml = '';
 
     if (isGameInStockAtAnyStore(game)) {
-        badgesHtml += wishlistConfig.dealBadge === 'detailed'
-            ? '<span class="kt-badge kt-badge--green">In Stock</span>'
-            : '<span class="kt-badge kt-badge--green">In Stock</span>';
+        badgesHtml += '<span class="kt-badge kt-badge--success">In Stock</span>';
     }
 
     if (wishlistConfig.dealBadge === 'detailed') {
@@ -353,10 +351,10 @@ function buildBadgesHtml(game) {
         if (dealInfo) {
             const prevPriceFormatted = formatPrice(dealInfo.previousPrice, dealInfo.storeKey);
             const currPriceFormatted = formatPrice(dealInfo.currentPrice, dealInfo.storeKey);
-            badgesHtml += `<span class="kt-badge kt-badge--green" title="Was ${prevPriceFormatted}, now ${currPriceFormatted}">🔥 -${dealInfo.discountPercent}% Deal</span>`;
+            badgesHtml += `<span class="kt-badge kt-badge--success" title="Was ${prevPriceFormatted}, now ${currPriceFormatted}">🔥 -${dealInfo.discountPercent}% Deal</span>`;
         }
     } else if (hasAnyRetailDeal(game)) {
-        badgesHtml += '<span class="kt-badge kt-badge--green">🔥 Deal</span>';
+        badgesHtml += '<span class="kt-badge kt-badge--success">🔥 Deal</span>';
     }
 
     if (wishlistConfig.showTradeBadge && game.isWantInTrade) {

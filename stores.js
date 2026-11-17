@@ -399,7 +399,7 @@ function createGameCard(game) {
     if (dealInfo) {
         const prevPriceFormatted = formatPrice(dealInfo.previousPrice, dealInfo.storeKey);
         const currPriceFormatted = formatPrice(dealInfo.currentPrice, dealInfo.storeKey);
-        badgesHtml += `<span class="kt-badge kt-badge--green" title="Was ${prevPriceFormatted}, now ${currPriceFormatted}">🔥 -${dealInfo.discountPercent}% Deal</span>`;
+        badgesHtml += `<span class="kt-badge kt-badge--success" title="Was ${prevPriceFormatted}, now ${currPriceFormatted}">🔥 -${dealInfo.discountPercent}% Deal</span>`;
     }
 
     if (game.minPlayers <= 1) badgesHtml += '<span class="kt-badge kt-badge--dark">Solo</span>';

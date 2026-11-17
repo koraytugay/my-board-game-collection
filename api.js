@@ -427,7 +427,7 @@ function renderStockStatus(...availabilityMaps) {
 
     const el = document.createElement('div');
     el.id = 'stock-status';
-    el.className = 'kt-alert kt-mb-3' + (level === 'warn' ? ' kt-alert--warning' : level === 'stale' ? ' kt-alert--danger' : '');
+    el.className = 'kt-alert kt-fs-sm kt-mb-3' + (level === 'warn' ? ' kt-alert--warning' : level === 'stale' ? ' kt-alert--danger' : '');
     const checked = newest
         ? `Stock checked <strong>${formatCheckAge(newest)}</strong> <span class="kt-text-muted">(${formatCheckDate(newest)})</span>`
         : 'No stock checks found';

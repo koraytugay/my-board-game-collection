@@ -236,12 +236,7 @@ function renderSmartBuyUI() {
 
     // Stores container
     if (totalVisibleStores === 0) {
-        container.innerHTML = `
-            <div class="kt-empty">
-                <div class="kt-empty__title">No stores matched your filters</div>
-                <p>Try clearing your search or setting "Min Games" to 1+.</p>
-            </div>
-        `;
+        container.innerHTML = '<div class="kt-empty">No stores match your filters. Try clearing your search or setting "Min Games" to 1+.</div>';
         return;
     }
 

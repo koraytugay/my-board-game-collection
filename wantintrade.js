@@ -248,7 +248,7 @@ function createGameCard(game) {
 
     let badgesHtml = '';
     if (isInStock) {
-        badgesHtml += '<span class="kt-badge kt-badge--green">In Stock</span>';
+        badgesHtml += '<span class="kt-badge kt-badge--success">In Stock</span>';
     }
     if (game.minPlayers <= 1) badgesHtml += '<span class="kt-badge kt-badge--dark">Solo</span>';
     if (game.rating >= 8) badgesHtml += '<span class="kt-badge kt-badge--dark">Highly Rated</span>';
