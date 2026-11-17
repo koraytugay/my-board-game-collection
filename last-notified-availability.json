@@ -80,6 +80,14 @@
       "lastChecked": "2026-11-17T00:21:57.720Z",
       "lastCheckSuccess": true
     },
+    "elevatedBoardGames": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-11-17T00:21:55.229Z",
+      "lastCheckSuccess": true
+    },
     "amazonCa": {
       "available": false,
       "price": null,
@@ -134,14 +142,6 @@
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-11-17T00:22:00.216Z",
-      "lastCheckSuccess": true
-    },
-    "elevatedBoardGames": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-11-17T00:21:55.229Z",
       "lastCheckSuccess": true
     },
     "laPioche": {
@@ -229,7 +229,7 @@
       "price": null,
       "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-11-17T00:21:56.101Z",
+      "lastChecked": "2026-11-17T03:42:07.393Z",
       "lastCheckSuccess": true
     },
     "bggMarket": {
@@ -322,6 +322,14 @@
       "lastChecked": "2026-11-17T00:21:20.760Z",
       "lastCheckSuccess": true
     },
+    "elevatedBoardGames": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-11-17T00:21:18.326Z",
+      "lastCheckSuccess": true
+    },
     "amazonCa": {
       "available": false,
       "price": null,
@@ -376,14 +384,6 @@
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-11-17T00:21:22.887Z",
-      "lastCheckSuccess": true
-    },
-    "elevatedBoardGames": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-11-17T00:21:18.326Z",
       "lastCheckSuccess": true
     },
     "laPioche": {
@@ -467,11 +467,15 @@
       "lastCheckSuccess": true
     },
     "philibert": {
-      "available": false,
+      "available": true,
       "price": "€23.95",
       "baselinePrice": "€31.50",
+      "deal": {
+        "previousPrice": "€31.50",
+        "discountPercent": 24
+      },
       "url": "https://www.philibertnet.com/en/iello/132888-ubongo-3701551702395.html",
-      "lastChecked": "2026-11-17T00:21:19.290Z",
+      "lastChecked": "2026-11-17T03:41:55.899Z",
       "lastCheckSuccess": true
     },
     "bggMarket": {
@@ -682,6 +686,14 @@
       "lastChecked": "2026-11-17T00:22:13.913Z",
       "lastCheckSuccess": true
     },
+    "elevatedBoardGames": {
+      "available": true,
+      "price": "$39.99",
+      "baselinePrice": "$39.99",
+      "url": "https://www.elevatedboardgames.com/product-page/coffee-roaster",
+      "lastChecked": "2026-11-17T00:22:14.129Z",
+      "lastCheckSuccess": true
+    },
     "amazonCa": {
       "available": true,
       "price": "56.39",
@@ -736,14 +748,6 @@
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-11-17T00:22:16.048Z",
-      "lastCheckSuccess": true
-    },
-    "elevatedBoardGames": {
-      "available": true,
-      "price": "$39.99",
-      "baselinePrice": "$39.99",
-      "url": "https://www.elevatedboardgames.com/product-page/coffee-roaster",
-      "lastChecked": "2026-11-17T00:22:14.129Z",
       "lastCheckSuccess": true
     },
     "laPioche": {
@@ -827,11 +831,11 @@
       "lastCheckSuccess": true
     },
     "philibert": {
-      "available": false,
+      "available": true,
       "price": "€38.95",
       "baselinePrice": "€38.95",
       "url": "https://www.philibertnet.com/en/dlp-games/80555-coffee-roaster-4260184330348.html",
-      "lastChecked": "2026-11-17T00:22:12.360Z",
+      "lastChecked": "2026-11-17T03:42:12.693Z",
       "lastCheckSuccess": true
     },
     "bggMarket": {
@@ -1000,6 +1004,14 @@
       "lastChecked": "2026-11-17T00:23:01.797Z",
       "lastCheckSuccess": true
     },
+    "elevatedBoardGames": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-11-17T00:22:59.183Z",
+      "lastCheckSuccess": true
+    },
     "amazonCa": {
       "available": false,
       "price": null,
@@ -1054,14 +1066,6 @@
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-11-17T00:23:04.111Z",
-      "lastCheckSuccess": true
-    },
-    "elevatedBoardGames": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-11-17T00:22:59.183Z",
       "lastCheckSuccess": true
     },
     "laPioche": {
@@ -1145,11 +1149,11 @@
       "lastCheckSuccess": true
     },
     "philibert": {
-      "available": false,
+      "available": true,
       "price": "€13.50",
       "baselinePrice": "€13.50",
       "url": "https://www.philibertnet.com/en/oya/65688-illusion-3760207030336.html",
-      "lastChecked": "2026-11-17T00:23:00.162Z",
+      "lastChecked": "2026-11-17T03:42:35.387Z",
       "lastCheckSuccess": true
     },
     "bggMarket": {
@@ -1314,6 +1318,14 @@
       "lastChecked": "2026-11-17T00:21:41.981Z",
       "lastCheckSuccess": true
     },
+    "elevatedBoardGames": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-11-17T00:21:39.330Z",
+      "lastCheckSuccess": true
+    },
     "woodForSheep": {
       "available": false,
       "price": null,
@@ -1360,14 +1372,6 @@
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-11-17T00:21:44.288Z",
-      "lastCheckSuccess": true
-    },
-    "elevatedBoardGames": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-11-17T00:21:39.330Z",
       "lastCheckSuccess": true
     },
     "laPioche": {
@@ -1455,7 +1459,7 @@
       "price": "€34.95",
       "baselinePrice": "€34.95",
       "url": "https://www.philibertnet.com/en/funko-games/136888-back-to-the-future-back-in-time-889698689076.html",
-      "lastChecked": "2026-11-17T00:21:40.310Z",
+      "lastChecked": "2026-11-17T03:42:01.652Z",
       "lastCheckSuccess": true
     },
     "bggMarket": {
@@ -1566,6 +1570,14 @@
       "lastChecked": "2026-11-17T00:19:08.046Z",
       "lastCheckSuccess": true
     },
+    "elevatedBoardGames": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-11-17T00:19:05.199Z",
+      "lastCheckSuccess": true
+    },
     "amazonCa": {
       "available": false,
       "price": null,
@@ -1622,20 +1634,12 @@
       "lastChecked": "2026-11-17T00:19:10.377Z",
       "lastCheckSuccess": true
     },
-    "elevatedBoardGames": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-11-17T00:19:05.199Z",
-      "lastCheckSuccess": true
-    },
     "laPioche": {
       "available": false,
       "price": null,
       "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-11-17T03:27:39.445Z",
+      "lastChecked": "2026-11-17T03:43:42.851Z",
       "lastCheckSuccess": true
     },
     "alwaysGames": {
@@ -1715,7 +1719,7 @@
       "price": "€65.99",
       "baselinePrice": "€65.99",
       "url": "https://www.philibertnet.com/en/renegade-game-studios/170107-hadrian-s-wall-0810011722002.html",
-      "lastChecked": "2026-11-17T00:19:05.989Z",
+      "lastChecked": "2026-11-17T03:41:44.369Z",
       "lastCheckSuccess": true
     },
     "bggMarket": {
@@ -1848,6 +1852,14 @@
       "lastChecked": "2026-11-17T00:22:46.027Z",
       "lastCheckSuccess": true
     },
+    "elevatedBoardGames": {
+      "available": false,
+      "price": "$29.99",
+      "baselinePrice": "$29.99",
+      "url": "https://www.elevatedboardgames.com/product-page/fliptown",
+      "lastChecked": "2026-11-17T00:22:46.218Z",
+      "lastCheckSuccess": true
+    },
     "amazonCa": {
       "available": false,
       "price": null,
@@ -1902,14 +1914,6 @@
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-11-17T00:22:48.232Z",
-      "lastCheckSuccess": true
-    },
-    "elevatedBoardGames": {
-      "available": false,
-      "price": "$29.99",
-      "baselinePrice": "$29.99",
-      "url": "https://www.elevatedboardgames.com/product-page/fliptown",
-      "lastChecked": "2026-11-17T00:22:46.218Z",
       "lastCheckSuccess": true
     },
     "laPioche": {
@@ -1993,11 +1997,11 @@
       "lastCheckSuccess": true
     },
     "philibert": {
-      "available": false,
+      "available": true,
       "price": "€31.95",
       "baselinePrice": "€31.95",
       "url": "https://www.philibertnet.com/en/write-stuff-games/158527-fliptown-2100001341862.html",
-      "lastChecked": "2026-11-17T00:22:44.587Z",
+      "lastChecked": "2026-11-17T03:42:29.488Z",
       "lastCheckSuccess": true
     },
     "bggMarket": {
@@ -2090,6 +2094,14 @@
       "lastChecked": "2026-11-17T00:23:49.095Z",
       "lastCheckSuccess": true
     },
+    "elevatedBoardGames": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-11-17T00:23:46.542Z",
+      "lastCheckSuccess": true
+    },
     "amazonCa": {
       "available": false,
       "price": null,
@@ -2144,14 +2156,6 @@
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-11-17T00:23:51.345Z",
-      "lastCheckSuccess": true
-    },
-    "elevatedBoardGames": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-11-17T00:23:46.542Z",
       "lastCheckSuccess": true
     },
     "laPioche": {
@@ -2239,7 +2243,7 @@
       "price": null,
       "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-11-17T00:23:47.227Z",
+      "lastChecked": "2026-11-17T03:42:52.688Z",
       "lastCheckSuccess": true
     },
     "bggMarket": {
@@ -2332,6 +2336,14 @@
       "lastChecked": "2026-11-17T00:23:32.957Z",
       "lastCheckSuccess": true
     },
+    "elevatedBoardGames": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-11-17T00:23:30.301Z",
+      "lastCheckSuccess": true
+    },
     "amazonCa": {
       "available": false,
       "price": null,
@@ -2386,14 +2398,6 @@
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-11-17T00:23:35.283Z",
-      "lastCheckSuccess": true
-    },
-    "elevatedBoardGames": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-11-17T00:23:30.301Z",
       "lastCheckSuccess": true
     },
     "laPioche": {
@@ -2481,7 +2485,7 @@
       "price": "€40.50",
       "baselinePrice": "€40.50",
       "url": "https://www.philibertnet.com/en/garphill-games/123434-legacy-of-yu-3701358300930.html",
-      "lastChecked": "2026-11-17T00:23:31.101Z",
+      "lastChecked": "2026-11-17T03:42:46.942Z",
       "lastCheckSuccess": true
     },
     "bggMarket": {
@@ -2624,6 +2628,14 @@
       "lastChecked": "2026-11-17T00:23:17.447Z",
       "lastCheckSuccess": true
     },
+    "elevatedBoardGames": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-11-17T00:23:15.105Z",
+      "lastCheckSuccess": true
+    },
     "amazonCa": {
       "available": false,
       "price": null,
@@ -2678,14 +2690,6 @@
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-11-17T00:23:19.457Z",
-      "lastCheckSuccess": true
-    },
-    "elevatedBoardGames": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-11-17T00:23:15.105Z",
       "lastCheckSuccess": true
     },
     "laPioche": {
@@ -2773,7 +2777,7 @@
       "price": "€22.50",
       "baselinePrice": "€22.50",
       "url": "https://www.philibertnet.com/en/origames/165221-kronologic-babylon-2500-3760243852404.html",
-      "lastChecked": "2026-11-17T00:23:15.978Z",
+      "lastChecked": "2026-11-17T03:42:41.141Z",
       "lastCheckSuccess": true
     },
     "bggMarket": {
@@ -2896,6 +2900,14 @@
       "lastChecked": "2026-11-17T00:20:09.617Z",
       "lastCheckSuccess": true
     },
+    "elevatedBoardGames": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-11-17T00:20:06.985Z",
+      "lastCheckSuccess": true
+    },
     "woodForSheep": {
       "available": false,
       "price": null,
@@ -2942,14 +2954,6 @@
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-11-17T00:20:11.830Z",
-      "lastCheckSuccess": true
-    },
-    "elevatedBoardGames": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-11-17T00:20:06.985Z",
       "lastCheckSuccess": true
     },
     "laPioche": {
@@ -3037,7 +3041,7 @@
       "price": null,
       "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-11-17T00:20:08.083Z",
+      "lastChecked": "2026-11-17T03:41:50.453Z",
       "lastCheckSuccess": true
     },
     "bggMarket": {
@@ -3188,6 +3192,14 @@
       "lastChecked": "2026-11-17T00:22:30.139Z",
       "lastCheckSuccess": true
     },
+    "elevatedBoardGames": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-11-17T00:22:27.467Z",
+      "lastCheckSuccess": true
+    },
     "amazonCa": {
       "available": false,
       "price": null,
@@ -3242,14 +3254,6 @@
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-11-17T00:22:32.551Z",
-      "lastCheckSuccess": true
-    },
-    "elevatedBoardGames": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-11-17T00:22:27.467Z",
       "lastCheckSuccess": true
     },
     "laPioche": {
@@ -3337,7 +3341,7 @@
       "price": null,
       "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-11-17T00:22:28.217Z",
+      "lastChecked": "2026-11-17T03:42:18.278Z",
       "lastCheckSuccess": true
     },
     "bggMarket": {
@@ -3440,6 +3444,14 @@
       "lastChecked": "2026-11-17T03:26:39.816Z",
       "lastCheckSuccess": true
     },
+    "elevatedBoardGames": {
+      "available": false,
+      "price": null,
+      "baselinePrice": null,
+      "url": null,
+      "lastChecked": "2026-11-17T03:26:42.218Z",
+      "lastCheckSuccess": true
+    },
     "amazonCa": {
       "available": false,
       "price": null,
@@ -3494,14 +3506,6 @@
       "baselinePrice": null,
       "url": null,
       "lastChecked": "2026-11-17T03:26:42.850Z",
-      "lastCheckSuccess": true
-    },
-    "elevatedBoardGames": {
-      "available": false,
-      "price": null,
-      "baselinePrice": null,
-      "url": null,
-      "lastChecked": "2026-11-17T03:26:42.218Z",
       "lastCheckSuccess": true
     },
     "laPioche": {
@@ -3589,7 +3593,7 @@
       "price": null,
       "baselinePrice": null,
       "url": null,
-      "lastChecked": "2026-11-17T03:26:37.274Z",
+      "lastChecked": "2026-11-17T03:42:23.558Z",
       "lastCheckSuccess": true
     },
     "bggMarket": {
