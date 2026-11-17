@@ -17,7 +17,6 @@ Canada:
 - Screen Free Games: https://screenfreegames.com (Shopify)
 - All Systems Go: https://allsystemsgo.games (Shopify)
 - Tabletop Cafe: https://www.tabletopcafe.ca (Shopify)
-- Elevated Board Games: https://elevatedboardgames.com (Custom Sitemap / HTML)
 - La Pioche: https://boutiquelapioche.com (Shopify)
 - Always Games: https://alwaysgames.ca (Shopify)
 - Legends Warehouse: https://legendswarehouse.ca (Shopify)
@@ -31,6 +30,7 @@ United States:
 - Miniature Market: https://www.miniaturemarket.com (HTML)
 - Cardhaus Games: https://www.cardhaus.com (HTML)
 - The Game Steward: https://thegamesteward.com (Shopify)
+- Elevated Board Games: https://elevatedboardgames.com (Custom Sitemap / HTML)
 
 United Kingdom & Europe:
 - Zatu Games: https://zatu.com (Shopify)
