@@ -46,10 +46,9 @@ for (const [store, objectId, name, expected] of CASES) {
     });
 }
 
-test('philibert: if the stock check fails, the game is not reported in stock', async () => {
+test('philibert: if the stock check fails, the check fails instead of reporting out of stock', async () => {
     // the Coffee Roaster search page is saved, but its stock API response deliberately is not
-    const result = await checkStore('philibert', { objectId: '196526', name: 'Coffee Roaster' });
-    assert.deepEqual(result, { available: false, price: '€38.95', url: 'https://www.philibertnet.com/en/dlp-games/80555-coffee-roaster-4260184330348.html' });
+    await assert.rejects(checkStore('philibert', { objectId: '196526', name: 'Coffee Roaster' }), /stock lookup failed/);
 });
 
 test('miniatureMarket: an add-to-cart button with "out of stock" text counts as out of stock', () => {
