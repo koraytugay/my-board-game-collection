@@ -18,7 +18,6 @@ Canada:
 - All Systems Go: https://allsystemsgo.games (Shopify)
 - Tabletop Cafe: https://www.tabletopcafe.ca (Shopify)
 - Elevated Board Games: https://elevatedboardgames.com (Custom Sitemap / HTML)
-- Dice Hollow: https://www.dicehollow.com (Shopify)
 - La Pioche: https://boutiquelapioche.com (Shopify)
 - Always Games: https://alwaysgames.ca (Shopify)
 - Legends Warehouse: https://legendswarehouse.ca (Shopify)
@@ -66,6 +65,8 @@ The following stores were evaluated, tracked, and permanently removed due to hav
    - Reason: 0 games in stock / not carried (0/63 across Want to Buy, Want in Trade, and Like to Have lists). Store focuses heavily on TCGs (Pokémon, Magic: The Gathering, Lorcana, Altered, Yu-Gi-Oh!), Warhammer miniatures, Gundam models, and paints/hobby supplies (8,200+ items total) with a small board game catalog (~379 items) limited to mass-market/evergreen titles. Its massive card singles and supplies catalog creates significant false-positive noise on common title keywords.
 10. **uplay.it** (https://www.uplay.it - 🇮🇹)
    - Reason: Cloudflare returns HTTP 403 to every request from GitHub Actions runners (datacenter IPs), so the pipeline can never check it. It works from a home connection, so the code is fine. The block is IP-based, and Puppeteer will not get around it. Every check failed from when it was added (2026-10-06) until it was removed (2026-10-25). European stock is already covered by Philibert and Zatu. **Never add back.**
+11. **Dice Hollow** (https://www.dicehollow.com - 🇨🇦)
+   - Reason: Removed at the owner's request (2026-11-16). At removal it had 1 of 25 tracked games available (0/11 on Like to Have).
 
 
 

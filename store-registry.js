@@ -30,7 +30,6 @@ const STORE_REGISTRY = [
     { key: 'allSystemsGo', name: 'All Systems Go', flag: '🇨🇦', url: 'https://allsystemsgo.games', currency: 'CAD', platform: 'shopify', country: 'CA', aliases: ['allsystemsgogames'] },
     { key: 'tabletopCafe', name: 'Tabletop Cafe', flag: '🇨🇦', url: 'https://www.tabletopcafe.ca', currency: 'CAD', platform: 'shopify', country: 'CA', aliases: ['tabletopcafeca'] },
     { key: 'elevatedBoardGames', name: 'Elevated Board Games', flag: '🇨🇦', url: 'https://elevatedboardgames.com', currency: 'CAD', platform: 'custom', shortLabel: '🇨🇦 Elevated BG', aliases: ['elevatedboardgamescom'] },
-    { key: 'diceHollow', name: 'Dice Hollow', flag: '🇨🇦', url: 'https://www.dicehollow.com', currency: 'CAD', platform: 'shopify', country: 'CA', aliases: ['dicehollowcom'] },
     { key: 'laPioche', name: 'La Pioche', flag: '🇨🇦', url: 'https://boutiquelapioche.com', currency: 'CAD', platform: 'shopify', country: 'CA', aliases: ['boutiquelapioche', 'boutiquelapiochecom'] },
     { key: 'alwaysGames', name: 'Always Games', flag: '🇨🇦', url: 'https://alwaysgames.ca', currency: 'CAD', platform: 'shopify', country: 'CA', aliases: ['alwaysgamesca'] },
     { key: 'legendsWarehouse', name: 'Legends Warehouse', flag: '🇨🇦', url: 'https://legendswarehouse.ca', currency: 'CAD', platform: 'shopify', country: 'CA', aliases: ['legendswarehouseca'] },
