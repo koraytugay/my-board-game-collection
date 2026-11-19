@@ -9,9 +9,7 @@ const { sleep, decodeXmlEntities, cleanName, writeFileAtomic } = require('./lib/
 const { fetchJson, fetchHtml } = require('./lib/http');
 const { isMatchSkipped } = require('./lib/skip-rules');
 const { isPriceUnderThreshold, computeDealInfo } = require('./lib/deals');
-const { closeBrowser } = require('./lib/browser');
 const { fetchShopifyStore } = require('./lib/stores/shopify');
-const { fetchAmazonWithPuppeteer } = require('./lib/stores/amazon');
 const { getStoreConfigs } = require('./lib/store-configs');
 
 const isLikeToHave = process.argv.includes('--like-to-have') || process.argv.includes('--liketohave') || process.env.CHECK_TYPE === 'liketohave';
@@ -270,9 +268,6 @@ async function checkAvailability() {
                     const targetUrl = typeof config.url === 'function' ? await config.url(game, query) : config.url;
                     if (!targetUrl) {
                         resultObj = { available: false, price: null, url: null };
-                    } else if (config.type === 'puppeteer') {
-                        const pResult = await fetchAmazonWithPuppeteer(game.name);
-                        resultObj = pResult || { available: false, price: null, url: targetUrl };
                     } else {
                         const res = config.type === 'json' 
                             ? await fetchJson(targetUrl)
@@ -377,8 +372,6 @@ async function checkAvailability() {
             await new Promise(r => setTimeout(r, POLITENESS_DELAY_MS));
         }
     }
-
-    await closeBrowser();
 
     writeFileAtomic(OUTPUT_FILE, JSON.stringify(availabilityData, null, 2));
     console.log(`Availability check finished. Saved results to ${OUTPUT_FILE}`);

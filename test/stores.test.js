@@ -10,9 +10,6 @@ const NOT_FOUND = { available: false, price: null, url: null };
 const CASES = [
     ['greatBoardgames', '156336', 'Onirim (Second Edition)', { available: false, price: '$27.95', url: 'https://www.greatboardgames.ca/games/onirim' }],
     ['greatBoardgames', '1197', 'Blink', null],
-    ['miniatureMarket', '196526', 'Coffee Roaster', { available: true, price: '$44.95', url: 'https://www.miniaturemarket.com/sg8047.html' }],
-    ['miniatureMarket', '216600', 'Fantastic Factories', { available: false, price: '$40.00', url: 'https://www.miniaturemarket.com/dwgmtf0100.html' }],
-    ['miniatureMarket', '1197', 'Blink', null],
     // the stray "#x3D;..." fragment comes from an HTML entity decodeXmlEntities doesn't handle; the link still works
     ['cardhaus', '156336', 'Onirim (Second Edition)', { available: false, price: '$21.99', url: 'https://www.cardhaus.com/onirim/#x3D;49027f73-40ce-480b-b388-a6140bdb5bcf&search_query&#x3D;Onirim' }],
     ['meeplemart', '196526', 'Coffee Roaster', null],
@@ -32,7 +29,6 @@ const CASES = [
     ['zatu', '16986', 'Ubongo', { available: true, price: '£23.95', url: 'https://zatu.com/products/ubongo?_pos=1&_psq=Ubongo&_psid=54a0c849a&_ss=e' }],
     ['zatu', '304783', "Hadrian's Wall", { available: false, price: '£49.20', url: 'https://zatu.com/products/hadrians-wall?_pos=2&_psq=Hadrian%27s+Wall&_psid=c1f21ccb1&_ss=e' }],
     ['asDesJeux', '244995', 'Illusion', { available: true, price: '$22.99', url: 'https://www.asdesjeux.com/products/illusion-vf?_pos=1&_psq=Illusion&_psid=cb2789d47&_ss=e' }],
-    ['theGameSteward', '156336', 'Onirim (Second Edition)', { available: false, price: '$39.99', url: 'https://thegamesteward.com/products/onirim-second-edition-board-game?_pos=1&_psq=Onirim&_psid=87f054b1a&_ss=e' }]
 ];
 
 for (const [store, objectId, name, expected] of CASES) {
@@ -49,13 +45,6 @@ for (const [store, objectId, name, expected] of CASES) {
 test('philibert: if the stock check fails, the check fails instead of reporting out of stock', async () => {
     // the Coffee Roaster search page is saved, but its stock API response deliberately is not
     await assert.rejects(checkStore('philibert', { objectId: '196526', name: 'Coffee Roaster' }), /stock lookup failed/);
-});
-
-test('miniatureMarket: an add-to-cart button with "out of stock" text counts as out of stock', () => {
-    const { parseMiniatureMarket } = require('../lib/stores/miniature-market');
-    const box = (label) => `<div class="card product-box box-standard"><a href="https://www.miniaturemarket.com/x.html" class="product-name" title="Coffee Roaster">Coffee Roaster</a><span class="product-price">$44.95</span><button class="btn-buy">Add</button>${label}</div>`;
-    assert.equal(parseMiniatureMarket(box(''), 'Coffee Roaster').available, true);
-    assert.equal(parseMiniatureMarket(box('<span>Out of stock</span>'), 'Coffee Roaster').available, false);
 });
 
 test('bggMarket: only Canadian sellers count', () => {

@@ -10,7 +10,6 @@ Canada:
 - Great Boardgames: https://www.greatboardgames.ca (HTML)
 - Meeplemart: https://meeplemart.com (HTML)
 - KB Hobbies: https://kbhobbies.com (Square Online / REST API)
-- Amazon.ca: https://www.amazon.ca (Puppeteer)
 - Wood for Sheep: https://www.woodforsheep.ca (Shopify)
 - J&J Cards: https://jjcards.com (Custom Sitemap / HTML)
 - Boardgames.ca: https://boardgames.ca (Ecwid JSON API)
@@ -21,20 +20,16 @@ Canada:
 - Always Games: https://alwaysgames.ca (Shopify)
 - Legends Warehouse: https://legendswarehouse.ca (Shopify)
 - Board Game Bandit: https://boardgamebandit.ca (Shopify)
-- The Gamer's Table: https://gamerstable.ca (Shopify) - Whitby/Oshawa, ON
 - Game Shack: https://www.gameshack.ca (Shopify) - Toronto, ON
 - Dragons Den Games: https://dragonsdengames.com (Shopify) - Saskatoon, SK
 - La Ribouldingue: https://www.laribouldingue.ca (Shopify) - Vaudreuil-Dorion, QC (often stocks French editions)
 
 United States:
-- Miniature Market: https://www.miniaturemarket.com (HTML)
 - Cardhaus Games: https://www.cardhaus.com (HTML)
-- The Game Steward: https://thegamesteward.com (Shopify)
 - Elevated Board Games: https://elevatedboardgames.com (Custom Sitemap / HTML)
 
 United Kingdom & Europe:
 - Zatu Games: https://zatu.com (Shopify)
-- Chaos Cards: https://www.chaoscards.co.uk (Custom)
 - Philibert: https://www.philibertnet.com (Custom)
 
 Marketplace:
@@ -67,6 +62,8 @@ The following stores were evaluated, tracked, and permanently removed due to hav
    - Reason: Cloudflare returns HTTP 403 to every request from GitHub Actions runners (datacenter IPs), so the pipeline can never check it. It works from a home connection, so the code is fine. The block is IP-based, and Puppeteer will not get around it. Every check failed from when it was added (2026-10-06) until it was removed (2026-10-25). European stock is already covered by Philibert and Zatu. **Never add back.**
 11. **Dice Hollow** (https://www.dicehollow.com - 🇨🇦)
    - Reason: Removed at the owner's request (2026-11-16). At removal it had 1 of 25 tracked games available (0/11 on Like to Have).
+12. **Chaos Cards** (https://www.chaoscards.co.uk - 🇬🇧), **Miniature Market** (https://www.miniaturemarket.com - 🇺🇸), **The Gamer's Table** (https://gamerstable.ca - 🇨🇦), **Amazon.ca** (https://www.amazon.ca - 🇨🇦), **The Game Steward** (https://thegamesteward.com - 🇺🇸)
+   - Reason: Removed at the owner's request (2026-11-19). With Amazon.ca and Chaos Cards gone, nothing uses Puppeteer any more, so it was dropped from the pipeline too.
 
 
 
@@ -132,7 +129,7 @@ Every store is defined once, in `store-registry.js`. The pipeline (`check-availa
 To add a **Shopify** store:
 1. Add one entry to `STORE_REGISTRY` in `store-registry.js` with `platform: 'shopify'`, its `country` (Shopify localization, e.g. `'CA'`) and `currency` (`CAD`, `USD`, `GBP` or `EUR`). Nothing else is needed.
 
-To add a **custom** store (HTML scraper, JSON API, Puppeteer, etc.):
+To add a **custom** store (HTML scraper, JSON API, etc.):
 1. Add its entry to `store-registry.js` with `platform: 'custom'`.
 2. Put its parsing/fetching code in a new file under `lib/stores/`, and wire it up under the same key in `getCustomStoreConfigs()` in `lib/store-configs.js`.
 
@@ -148,7 +145,7 @@ To remove a store:
 `check-availability.js` only runs the check loop. Everything else lives in `lib/`:
 
 - `lib/store-configs.js`: how each store is checked (built from `store-registry.js`)
-- `lib/stores/`: one file per custom store (HTML scrapers, APIs, Puppeteer), plus `shopify.js` for all Shopify stores
+- `lib/stores/`: one file per custom store (HTML scrapers, APIs), plus `shopify.js` for all Shopify stores
 - `lib/matching.js`: decides whether a store product title is the game we want
 - `lib/http.js`: fetching, redirects, 429 backoff and the shared Shopify cooldown
 - `lib/deals.js`: price thresholds, baseline prices and deal detection
