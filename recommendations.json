@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-20T22:41:34.150Z",
+  "generatedAt": "2026-11-21T01:43:04.618Z",
   "total": 400,
   "recommendations": [
     {
@@ -2423,6 +2423,55 @@
       "maxPlayers": 5,
       "playingTime": 90,
       "highResUrl": "https://cf.geekdo-images.com/0xqF_KyOb7V26Lu5YT3fxw__itemrep@2x/img/LZSgjNYrTW7W29J62ft2YNqwwqU=/fit-in/492x600/filters:strip_icc()/pic6699821.jpg"
+    },
+    {
+      "objectId": "424152",
+      "name": "Orapa Mine",
+      "yearPublished": "2024",
+      "bggRating": 7.5,
+      "bggRank": 1503,
+      "numVoters": 2129,
+      "numFans": 177,
+      "coverUrl": "https://cf.geekdo-images.com/AA9S_-ZXnIFS0ABiFxmZ9w__square100@2x/img/tQvCJ8brWrx1R0qd7N5sxYkSmis=/0x0:985x985/200x200/filters:strip_icc()/pic8307047.jpg",
+      "thumbnail": "images/thumbnails/424152.jpg",
+      "image": "images/full/424152.jpg",
+      "description": "Time to mine! Use deduction to find the mineral locations to win!",
+      "rawScore": 6.474121455978399,
+      "recommendedBy": [
+        {
+          "ownedId": "353545",
+          "ownedName": "Next Station: London",
+          "userRating": 8,
+          "bggRecRank": 27,
+          "contributionScore": 1.23
+        },
+        {
+          "ownedId": "393325",
+          "ownedName": "Captain Flip",
+          "userRating": 7,
+          "bggRecRank": 3,
+          "contributionScore": 2.83
+        },
+        {
+          "ownedId": "403116",
+          "ownedName": "Next Station: Paris",
+          "userRating": 7,
+          "bggRecRank": 16,
+          "contributionScore": 1.22
+        },
+        {
+          "ownedId": "216497",
+          "ownedName": "District Noir",
+          "userRating": 7,
+          "bggRecRank": 17,
+          "contributionScore": 1.19
+        }
+      ],
+      "matchScore": 11.8,
+      "minPlayers": 2,
+      "maxPlayers": 5,
+      "playingTime": 30,
+      "highResUrl": "https://cf.geekdo-images.com/AA9S_-ZXnIFS0ABiFxmZ9w__itemrep@2x/img/3xjeRuilxuN28GSiIO2bSEoNYhc=/fit-in/492x600/filters:strip_icc()/pic8307047.jpg"
     },
     {
       "objectId": "328479",
@@ -8256,6 +8305,41 @@
       "highResUrl": "https://cf.geekdo-images.com/GSp2Gj5Cg5hvgj9JibNqww__itemrep@2x/img/OIFRi2J2YKjXXQtM3G-2lmLXrIU=/fit-in/492x600/filters:strip_icc()/pic305120.jpg"
     },
     {
+      "objectId": "16986",
+      "name": "Ubongo",
+      "yearPublished": "2003",
+      "bggRating": 6.66,
+      "bggRank": 1588,
+      "numVoters": 10663,
+      "numFans": 201,
+      "coverUrl": "https://cf.geekdo-images.com/0wSuQbmk4nPwNytp9_zzPw__square100@2x/img/cdsnbbnUHmMFiFefZubECTs4MK4=/200x200/filters:strip_icc()/pic4597123.jpg",
+      "thumbnail": "images/thumbnails/16986.jpg",
+      "image": "images/full/16986.jpg",
+      "description": "Race to fill the target shape using a set of polyominoes before your opponents do.",
+      "rawScore": 2.4755290123551124,
+      "recommendedBy": [
+        {
+          "ownedId": "46396",
+          "ownedName": "Ubongo 3D",
+          "userRating": 7,
+          "bggRecRank": 10,
+          "contributionScore": 1.55
+        },
+        {
+          "ownedId": "1219",
+          "ownedName": "Labyrinth",
+          "userRating": 7,
+          "bggRecRank": 28,
+          "contributionScore": 0.93
+        }
+      ],
+      "matchScore": 2.9,
+      "minPlayers": 1,
+      "maxPlayers": 4,
+      "playingTime": 25,
+      "highResUrl": "https://cf.geekdo-images.com/0wSuQbmk4nPwNytp9_zzPw__itemrep@2x/img/t5yoXjlYsRsDD0xY8mbhplCJPr4=/fit-in/492x600/filters:strip_icc()/pic4597123.jpg"
+    },
+    {
       "objectId": "205059",
       "name": "Mansions of Madness: Second Edition",
       "yearPublished": "2016",
@@ -13693,62 +13777,6 @@
       "maxPlayers": 3,
       "playingTime": 60,
       "highResUrl": "https://cf.geekdo-images.com/bCdjNIu-O_SzVCfMLZY_KQ__itemrep/img/5FgSTt_OnWPqzqTd06x8NnVGofg=/fit-in/246x300/filters:strip_icc()/pic7634498.png"
-    },
-    {
-      "objectId": "147151",
-      "name": "Concept",
-      "yearPublished": "2013",
-      "bggRating": 6.74,
-      "bggRank": 1158,
-      "numVoters": 22542,
-      "numFans": 544,
-      "coverUrl": "https://cf.geekdo-images.com/hHFs0_KRoW_FJ0cMIVgZcw__square100@2x/img/Vdi7NLZIiFGWScEdhhk_uAk03zg=/200x200/filters:strip_icc()/pic4991925.jpg",
-      "thumbnail": "images/thumbnails/147151.jpg",
-      "image": "images/full/147151.jpg",
-      "description": "Select icons to help your team guess a secret word or phrase.",
-      "rawScore": 1.4774055884310415,
-      "recommendedBy": [
-        {
-          "ownedId": "112373",
-          "ownedName": "BraveRats",
-          "userRating": 7,
-          "bggRecRank": 11,
-          "contributionScore": 1.48
-        }
-      ],
-      "matchScore": 1.4,
-      "minPlayers": 4,
-      "maxPlayers": 12,
-      "playingTime": 40,
-      "highResUrl": "https://cf.geekdo-images.com/hHFs0_KRoW_FJ0cMIVgZcw__itemrep@2x/img/6i08rmiKBfgz9cGOBqH7WxVU35s=/fit-in/492x600/filters:strip_icc()/pic4991925.jpg"
-    },
-    {
-      "objectId": "387219",
-      "name": "Trash Talk",
-      "yearPublished": "2023",
-      "bggRating": 6.69,
-      "bggRank": 8356,
-      "numVoters": 319,
-      "numFans": 22,
-      "coverUrl": "https://cf.geekdo-images.com/GPgTYgV1rV6SHTp8xrQ_cQ__square100@2x/img/5-RW8LdRT6OnsoCN2jEOzpXDKAw=/0x0:1556x1556/200x200/filters:strip_icc()/pic7653034.png",
-      "thumbnail": "images/thumbnails/387219.png",
-      "image": "images/full/387219.png",
-      "description": "Try to predict how your teammates will assign random objects to words.",
-      "rawScore": 1.5495160534825057,
-      "recommendedBy": [
-        {
-          "ownedId": "373778",
-          "ownedName": "Burger ASAP!",
-          "userRating": 7,
-          "bggRecRank": 10,
-          "contributionScore": 1.55
-        }
-      ],
-      "matchScore": 1.4,
-      "minPlayers": 2,
-      "maxPlayers": 8,
-      "playingTime": 45,
-      "highResUrl": "https://cf.geekdo-images.com/GPgTYgV1rV6SHTp8xrQ_cQ__itemrep@2x/img/Hrud4r7TXk58Wn8jTWcU-BQ66L4=/fit-in/492x600/filters:strip_icc()/pic7653034.png"
     }
   ]
 }
