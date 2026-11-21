@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><items totalitems="457"><item objecttype="thing" objectid="423517" subtype="boardgame" collid="148161790">
+<?xml version="1.0" encoding="utf-8"?><items totalitems="459"><item objecttype="thing" objectid="423517" subtype="boardgame" collid="148161790">
 	<name sortindex="1">3 Chapters</name>
 		<yearpublished>2024</yearpublished>			<image>https://cf.geekdo-images.com/es3F2drfUOIVnqsTds3BDQ__original/img/aagzL4ORPemw2xi3FL4575gKYhA=/0x0/filters:format(png)/pic8940639.png</image>
 		<thumbnail>https://cf.geekdo-images.com/es3F2drfUOIVnqsTds3BDQ__small/img/bCpN5Ool_-QFKQbPlAfmIfFUdRI=/fit-in/200x150/filters:strip_icc()/pic8940639.png</thumbnail>
@@ -3351,6 +3351,18 @@
 											</ranks>		</rating>
 			</stats>	<status own="0" prevowned="0" fortrade="0" want="1" wanttoplay="0" wanttobuy="0" wishlist="0"  preordered="0" lastmodified="2026-08-24 16:57:20" />
 	<numplays>0</numplays>							</item>
+<item objecttype="thing" objectid="421232" subtype="boardgame" collid="151894682">
+	<name sortindex="1">Captain Tsubasa: The Card Game</name>
+		<yearpublished>2024</yearpublished>			<image>https://cf.geekdo-images.com/iKvKQke5vp8iUrp8w0_GTg__original/img/fmNe-2WNILQKrd5LPFa-PnRJcT4=/0x0/filters:format(jpeg)/pic9851746.jpg</image>
+		<thumbnail>https://cf.geekdo-images.com/iKvKQke5vp8iUrp8w0_GTg__small/img/wThuziqXVuXlBeZkaUFKolo85cE=/fit-in/200x150/filters:strip_icc()/pic9851746.jpg</thumbnail>
+		<stats minplayers="2"																	maxplayers="2"																	minplaytime="25"																	maxplaytime="40"																	playingtime="40"																	numowned="742" >
+				<rating value="N/A">			<usersrated value="402" />			<average value="6.9991" />
+			<bayesaverage value="5.68213" />			<stddev value="1.68312" />
+			<median value="0" />			<ranks>
+												<rank type="subtype" id="1" name="boardgame" friendlyname="Board Game Rank" value="6857" bayesaverage="5.68213" />
+											</ranks>		</rating>
+			</stats>	<status own="0" prevowned="0" fortrade="0" want="1" wanttoplay="0" wanttobuy="0" wishlist="0"  preordered="0" lastmodified="2026-11-21 12:02:10" />
+	<numplays>0</numplays>							</item>
 <item objecttype="thing" objectid="389593" subtype="boardgame" collid="147266229">
 	<name sortindex="5">The Crows of Coppershell Bay</name>
 		<yearpublished>2023</yearpublished>			<image>https://cf.geekdo-images.com/_jEbuh-dutUq33TGluxwag__original/img/WdgVD-cnJGGD6uZaMQNQG9Af2qA=/0x0/filters:format(jpeg)/pic7972174.jpg</image>
@@ -5908,6 +5920,20 @@ I can&#039;t comment on the multiplayer experience, but as a solo game, I found 
 											</ranks>		</rating>
 			</stats>	<status own="1" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="0"  preordered="0" lastmodified="2026-08-19 11:47:41" />
 	<numplays>0</numplays>							</item>
+<item objecttype="thing" objectid="383499" subtype="boardgame" collid="151901231">
+	<name sortindex="1">Witchcraft!</name>
+		<yearpublished>2023</yearpublished>			<image>https://cf.geekdo-images.com/sfgo3BXIx9lE_OP1sOnzwA__original/img/E-OtrtBF_62Eu47OExvuzEojt-I=/0x0/filters:format(jpeg)/pic7442805.jpg</image>
+		<thumbnail>https://cf.geekdo-images.com/sfgo3BXIx9lE_OP1sOnzwA__small/img/R3D3u6uZQ2cUI8ehs3c-VxUzXy0=/fit-in/200x150/filters:strip_icc()/pic7442805.jpg</thumbnail>
+		<stats minplayers="1"																	maxplayers="1"																	minplaytime="20"																	maxplaytime="40"																	playingtime="40"																	numowned="8207" >
+				<rating value="8">			<usersrated value="2748" />			<average value="7.59665" />
+			<bayesaverage value="6.58551" />			<stddev value="1.14972" />
+			<median value="0" />			<ranks>
+												<rank type="subtype" id="1" name="boardgame" friendlyname="Board Game Rank" value="1150" bayesaverage="6.58551" />
+																<rank type="family" id="5496" name="thematic" friendlyname="Thematic Rank" value="211" bayesaverage="6.88095" />
+								<rank type="family" id="5497" name="strategygames" friendlyname="Strategy Game Rank" value="652" bayesaverage="6.72531" />
+											</ranks>		</rating>
+			</stats>	<status own="1" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="0"  preordered="0" lastmodified="2026-11-21 15:09:30" />
+	<numplays>1</numplays>							</item>
 <item objecttype="thing" objectid="400756" subtype="boardgame" collid="137662694">
 	<name sortindex="1">Wizards Cup</name>
 		<yearpublished>2023</yearpublished>			<image>https://cf.geekdo-images.com/CRWVxjUwIp7bZGcfWK_kOA__original/img/HwlfSKOcPNzVsKhjAouAPO6wnpg=/0x0/filters:format(jpeg)/pic8519444.jpg</image>
