@@ -65,6 +65,10 @@ The following stores were evaluated, tracked, and permanently removed due to hav
 12. **Chaos Cards** (https://www.chaoscards.co.uk - 🇬🇧), **Miniature Market** (https://www.miniaturemarket.com - 🇺🇸), **The Gamer's Table** (https://gamerstable.ca - 🇨🇦), **Amazon.ca** (https://www.amazon.ca - 🇨🇦), **The Game Steward** (https://thegamesteward.com - 🇺🇸)
    - Reason: Removed at the owner's request (2026-11-19). With Amazon.ca and Chaos Cards gone, nothing uses Puppeteer any more, so it was dropped from the pipeline too.
 
+13. **Outpost Gaming** (https://www.outpostgaming.ca - 🇨🇦)
+   - Reason: Evaluated locally (2026-11-23), never added. Carried 5 of 47 tracked games (Skara Brae, A Gentle Rain, Hadrian's Wall, Tiwanaku, Legacy of Yu), 0 in stock, with no price advantage. Mostly Warhammer and miniatures, so search results are noisy. Shopify, checker works.
+14. **Boardgames4us** (https://boardgames4us.ca - 🇨🇦)
+   - Reason: Evaluated locally (2026-11-23), never added. Carried 0 of 47 tracked games. Small catalog (~250 items) of jigsaw puzzles, dice and Warhammer, plus a few mainstream board games (Twilight Imperium, Clank! Catacombs). Shopify, checker works.
 
 
 ## Candidate Stores (To Add / Remove Later)
