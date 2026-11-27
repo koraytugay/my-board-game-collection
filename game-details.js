@@ -259,19 +259,19 @@ async function showGameDetails(objectId) {
 
     // Header, cover beside the key numbers, store links, actions
     bodyEl.innerHTML = `
-        <div class="kt-modal__header" style="padding-right: 56px">
-            <div class="kt-stack" style="--kt-gap: 2px">
+        <div class="kt-modal__header kt-modal__header--clear-close">
+            <div class="kt-stack kt-gap-1">
                 <h2 id="modal-game-title" class="kt-modal__title">${safeName}</h2>
                 ${subtitle ? `<div class="kt-fs-sm kt-text-secondary">${subtitle}</div>` : ''}
             </div>
         </div>
 
         <div class="kt-modal__body">
-            <div class="kt-cluster" style="align-items: flex-start; --kt-gap: 20px">
-                <div class="kt-thumb" style="--kt-thumb-size: 180px">
+            <div class="kt-cluster kt-items-start kt-gap-5">
+                <div class="kt-thumb kt-thumb--xl">
                     <img src="${imageUrl}" alt="${safeName}">
                 </div>
-                <div class="kt-grid" style="flex: 1 1 300px; --kt-grid-min: 140px; --kt-grid-gap: 10px">
+                <div class="kt-grid kt-grid--compact kt-gap-2 kt-grow" style="--kt-grow-basis: 300px">
                     <div class="kt-stat kt-stat--inset">
                         <div class="kt-stat__label">My Rating</div>
                         <div class="kt-stat__value">${game.myRating > 0 ? `${game.myRating.toFixed(1)} ★` : '—'}</div>
@@ -302,7 +302,7 @@ async function showGameDetails(objectId) {
 
             ${storeChipsHtml ? `
                 <h3 class="kt-eyebrow kt-mt-5 kt-mb-2">Store Availability</h3>
-                <div class="kt-grid" style="--kt-grid-min: 220px; --kt-grid-gap: 6px">
+                <div class="kt-grid kt-gap-2">
                     ${storeChipsHtml}
                 </div>
             ` : ''}

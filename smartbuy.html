@@ -14,7 +14,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smart Buy - My Board Game Collection</title>
     <link rel="stylesheet" href="https://koraytugay.github.io/kt-styles/dist/kt.min.css">
-    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="kt-container">
@@ -31,11 +30,11 @@
             <p>Loading stores &amp; calculating bundles...</p>
         </div>
 
-        <div id="error" class="kt-alert kt-alert--danger kt-fs-sm" style="display: none;"></div>
+        <div id="error" class="kt-alert kt-alert--danger kt-fs-sm" hidden></div>
 
-        <div id="smartbuy-content" style="display: none;">
+        <div id="smartbuy-content" hidden>
             <!-- Quick Jump Pills to jump directly to stores -->
-            <div class="kt-cluster kt-mb-4" id="store-quick-jump" style="--kt-gap: 6px"></div>
+            <div class="kt-cluster kt-gap-1 kt-mb-4" id="store-quick-jump"></div>
 
             <!-- Container for all store tables -->
             <div id="stores-container"></div>

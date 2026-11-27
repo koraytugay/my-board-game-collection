@@ -14,7 +14,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Board Game Collection</title>
     <link rel="stylesheet" href="https://koraytugay.github.io/kt-styles/dist/kt.min.css">
-    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="kt-container">
@@ -31,9 +30,9 @@
             <p>Loading your collection...</p>
         </div>
 
-        <div id="error" class="kt-alert kt-alert--danger kt-fs-sm" style="display: none;"></div>
+        <div id="error" class="kt-alert kt-alert--danger kt-fs-sm" hidden></div>
 
-        <div id="controls" class="kt-toolbar" style="display: none;">
+        <div id="controls" class="kt-toolbar" hidden>
             <div class="kt-toolbar__row">
                 <div class="kt-field kt-field--inline">
                     <label class="kt-field__label" for="sort-select">Sort by</label>
@@ -146,12 +145,12 @@
                 <button class="kt-btn kt-btn--ghost kt-btn--icon kt-modal__close" aria-label="Close" onclick="closeRandomModal()">✕</button>
             </div>
             <div class="kt-modal__body">
-                <div id="random-game-display" class="kt-cluster" style="align-items: flex-start; --kt-gap: 16px">
-                    <div class="kt-thumb" style="--kt-thumb-size: 140px"><img id="random-game-img" src="" alt=""></div>
-                    <div class="kt-stack" style="--kt-gap: 4px">
+                <div id="random-game-display" class="kt-cluster kt-items-start kt-gap-4">
+                    <div class="kt-thumb kt-thumb--xl"><img id="random-game-img" src="" alt=""></div>
+                    <div class="kt-stack kt-gap-1">
                         <h3 id="random-game-name" class="kt-card__title"></h3>
                         <p id="random-game-year" class="kt-text-muted kt-fs-sm"></p>
-                        <div id="random-game-meta" class="kt-stack kt-fs-sm kt-mt-2" style="--kt-gap: 4px"></div>
+                        <div id="random-game-meta" class="kt-stack kt-gap-1 kt-fs-sm kt-mt-2"></div>
                     </div>
                 </div>
             </div>

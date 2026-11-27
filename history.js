@@ -28,14 +28,14 @@ async function initHistory() {
         
         processAndRender(flattenedPlays, currentYear, currentMonth);
         
-        loadingEl.style.display = 'none';
-        contentEl.style.display = 'block';
+        loadingEl.hidden = true;
+        contentEl.hidden = false;
         loadDarkMode();
 
     } catch (error) {
         console.error('Error loading history:', error);
-        loadingEl.style.display = 'none';
-        errorEl.style.display = 'block';
+        loadingEl.hidden = true;
+        errorEl.hidden = false;
         errorEl.textContent = 'Failed to load play history.';
     }
 }

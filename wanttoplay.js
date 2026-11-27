@@ -25,15 +25,15 @@ async function fetchCollection() {
         filteredGames = [...allGames];
         sortGames(currentSort);
         
-        loadingEl.style.display = 'none';
-        controlsEl.style.display = '';
+        loadingEl.hidden = true;
+        controlsEl.hidden = false;
         
         loadDarkModePreference();
 
     } catch (error) {
         console.error('Error fetching collection:', error);
-        loadingEl.style.display = 'none';
-        errorEl.style.display = 'block';
+        loadingEl.hidden = true;
+        errorEl.hidden = false;
         errorEl.textContent = `Failed to load Want to Play games: ${error.message}`;
     }
 }
@@ -199,7 +199,7 @@ function renderGames() {
 
 function createGameCard(game) {
     const card = document.createElement('div');
-    card.className = 'kt-media-card kt-media-card--interactive';
+    card.className = 'kt-media-card kt-media-card--top kt-media-card--interactive';
     card.onclick = () => window.open(`https://boardgamegeek.com/boardgame/${game.objectId}`, '_blank');
 
     let badgesHtml = '';

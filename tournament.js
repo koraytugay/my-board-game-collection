@@ -13,8 +13,8 @@ async function init() {
 
     try {
         allGames = await getCollection();
-        loadingEl.style.display = 'none';
-        setupView.style.display = 'block';
+        loadingEl.hidden = true;
+        setupView.hidden = false;
         
         loadDarkMode();
     } catch (error) {
@@ -46,9 +46,9 @@ function startTournament(size) {
     matchInRound = 1;
     totalMatchesInRound = Math.floor(tournamentGames.length / 2);
 
-    document.getElementById('setup-view').style.display = 'none';
-    document.getElementById('matchup-view').style.display = 'block';
-    document.getElementById('winner-view').style.display = 'none';
+    document.getElementById('setup-view').hidden = true;
+    document.getElementById('matchup-view').hidden = false;
+    document.getElementById('winner-view').hidden = true;
 
     showNextMatch();
 }
@@ -127,13 +127,13 @@ function selectWinner(game) {
 }
 
 function showWinner(game) {
-    document.getElementById('matchup-view').style.display = 'none';
+    document.getElementById('matchup-view').hidden = true;
     const winnerView = document.getElementById('winner-view');
-    winnerView.style.display = 'block';
+    winnerView.hidden = false;
 
     const display = document.getElementById('champion-display');
     display.innerHTML = `
-        <div class="kt-media-card kt-media-card--square kt-align-left">
+        <div class="kt-media-card kt-media-card--top kt-media-card--square kt-align-left">
             <div class="kt-media-card__media">
                 <img src="${game.image || game.thumbnail || 'https://via.placeholder.com/300x300?text=No+Image'}" alt="${game.name}">
             </div>
@@ -164,7 +164,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     document.getElementById('restart-btn').addEventListener('click', () => {
-        document.getElementById('winner-view').style.display = 'none';
-        document.getElementById('setup-view').style.display = 'block';
+        document.getElementById('winner-view').hidden = true;
+        document.getElementById('setup-view').hidden = false;
     });
 });

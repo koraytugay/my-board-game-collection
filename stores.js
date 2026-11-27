@@ -254,8 +254,8 @@ async function fetchAllStoreGames() {
         filteredGames = [...allGames];
         sortGames(currentSort);
 
-        loadingEl.style.display = 'none';
-        controlsEl.style.display = '';
+        loadingEl.hidden = true;
+        controlsEl.hidden = false;
         renderStockStatus(storeAvail, likeToHaveAvail);
         renderStoreHealth(storeAvail, likeToHaveAvail);
 
@@ -263,8 +263,8 @@ async function fetchAllStoreGames() {
 
     } catch (error) {
         console.error('Error fetching store games:', error);
-        loadingEl.style.display = 'none';
-        errorEl.style.display = 'block';
+        loadingEl.hidden = true;
+        errorEl.hidden = false;
         errorEl.textContent = `Failed to load games: ${error.message}`;
     }
 }
@@ -383,7 +383,7 @@ function renderGames() {
 
 function createGameCard(game) {
     const card = document.createElement('div');
-    card.className = 'kt-media-card kt-media-card--interactive kt-media-card--flow';
+    card.className = 'kt-media-card kt-media-card--top kt-media-card--interactive kt-media-card--flow';
     card.onclick = (e) => {
         if (e.target.closest('a') || e.target.closest('button') || e.target.closest('.kt-chip')) return;
         window.open(`https://boardgamegeek.com/boardgame/${game.objectId}`, '_blank');
@@ -415,7 +415,7 @@ function createGameCard(game) {
         const hasDeal = store.deal && store.deal.discountPercent >= 20;
         const prevPriceText = hasDeal ? formatPrice(store.deal.previousPrice, storeKey) : '';
         const stale = isStaleCheck(store.lastChecked);
-        const chipClass = 'kt-chip' + (stale ? ' is-stale' : '');
+        const chipClass = 'kt-chip' + (stale ? ' is-dimmed' : '');
         const dealBadge = hasDeal ? `<span class="kt-badge kt-badge--soft-success">-${store.deal.discountPercent}%</span>` : '';
         const staleNote = stale ? ` · as of ${formatCheckDate(store.lastChecked)}, may be out of date` : '';
         return `
@@ -446,7 +446,7 @@ function createGameCard(game) {
     let storeHtml = '';
     if (storeButtonsHtml.trim()) {
         storeHtml = `
-            <div class="kt-stack kt-mt-2" style="--kt-gap: 4px">${storeButtonsHtml}</div>
+            <div class="kt-stack kt-gap-1 kt-mt-2">${storeButtonsHtml}</div>
         `;
     }
 
@@ -548,7 +548,7 @@ function renderStoreHealth(...availabilityMaps) {
 
     const el = document.createElement('details');
     el.id = 'store-health';
-    el.className = 'kt-card kt-mb-4';
+    el.className = 'kt-disclosure kt-card kt-mb-4';
     el.open = problemCount > 0;
     el.innerHTML = `
         <summary class="kt-card__body kt-fs-sm">Store health: ${health.length - problemCount} OK${problemCount ? ` · <strong>${problemCount} need${problemCount === 1 ? 's' : ''} attention</strong>` : ''}</summary>

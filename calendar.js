@@ -13,8 +13,8 @@ async function initCalendar() {
         // Fetch collection once, including unowned games for thumbnails
         allGames = await getCollection(false);
         
-        loadingEl.style.display = 'none';
-        contentEl.style.display = 'block';
+        loadingEl.hidden = true;
+        contentEl.hidden = false;
         
         loadDarkMode();
         await updateMonthData();
@@ -31,8 +31,8 @@ async function initCalendar() {
 
     } catch (error) {
         console.error('Error loading calendar:', error);
-        loadingEl.style.display = 'none';
-        errorEl.style.display = 'block';
+        loadingEl.hidden = true;
+        errorEl.hidden = false;
         errorEl.textContent = 'Failed to load initial data.';
     }
 }

@@ -13,13 +13,13 @@ async function initTierList() {
         loadDarkMode();
         renderTierList();
 
-        loadingEl.style.display = 'none';
-        contentEl.style.display = 'block';
+        loadingEl.hidden = true;
+        contentEl.hidden = false;
 
     } catch (error) {
         console.error('Error loading tier list:', error);
-        loadingEl.style.display = 'none';
-        errorEl.style.display = 'block';
+        loadingEl.hidden = true;
+        errorEl.hidden = false;
         errorEl.textContent = 'Failed to load tier list data.';
     }
 }

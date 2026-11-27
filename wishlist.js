@@ -194,16 +194,16 @@ async function fetchCollection() {
         filteredGames = [...allGames];
         sortGames(currentSort);
 
-        loadingEl.style.display = 'none';
-        controlsEl.style.display = '';
+        loadingEl.hidden = true;
+        controlsEl.hidden = false;
         renderStockStatus(...availabilityResults);
 
         loadDarkModePreference();
 
     } catch (error) {
         console.error(`Error fetching ${wishlistConfig.errorLabel}:`, error);
-        loadingEl.style.display = 'none';
-        errorEl.style.display = 'block';
+        loadingEl.hidden = true;
+        errorEl.hidden = false;
         errorEl.textContent = `Failed to load ${wishlistConfig.errorLabel}: ${error.message}`;
     }
 }
@@ -379,7 +379,7 @@ function buildMetaExtraHtml(game) {
 
 function createGameCard(game) {
     const card = document.createElement('div');
-    card.className = 'kt-media-card kt-media-card--interactive kt-media-card--flow';
+    card.className = 'kt-media-card kt-media-card--top kt-media-card--interactive kt-media-card--flow';
     card.onclick = (e) => {
         // Prevent opening modal if user is clicking a store link, button, or any interactive element
         if (e.target.closest('a') || e.target.closest('button') || e.target.closest('.kt-chip')) return;
@@ -400,7 +400,7 @@ function createGameCard(game) {
         const hasDeal = store.deal && store.deal.discountPercent >= 20;
         const prevPriceText = hasDeal ? formatPrice(store.deal.previousPrice, storeKey) : '';
         const stale = isStaleCheck(store.lastChecked);
-        const chipClass = 'kt-chip' + (stale ? ' is-stale' : '');
+        const chipClass = 'kt-chip' + (stale ? ' is-dimmed' : '');
         const dealBadge = hasDeal ? `<span class="kt-badge kt-badge--soft-success">-${store.deal.discountPercent}%</span>` : '';
         const staleNote = stale ? ` · as of ${formatCheckDate(store.lastChecked)}, may be out of date` : '';
         return `
@@ -431,7 +431,7 @@ function createGameCard(game) {
     let storeHtml = '';
     if (storeButtonsHtml.trim()) {
         storeHtml = `
-            <div class="kt-stack kt-mt-2" style="--kt-gap: 4px">${storeButtonsHtml}</div>
+            <div class="kt-stack kt-gap-1 kt-mt-2">${storeButtonsHtml}</div>
         `;
     }
 

@@ -185,16 +185,16 @@ async function fetchSmartBuyData() {
 
         renderSmartBuyUI();
 
-        loadingEl.style.display = 'none';
-        contentEl.style.display = 'block';
+        loadingEl.hidden = true;
+        contentEl.hidden = false;
         renderStockStatus(storeAvail, likeToHaveAvail);
 
         loadDarkModePreference();
 
     } catch (err) {
         console.error('Failed to load Smart Buy data:', err);
-        loadingEl.style.display = 'none';
-        errorEl.style.display = 'block';
+        loadingEl.hidden = true;
+        errorEl.hidden = false;
         errorEl.textContent = `Error loading Smart Buy: ${err.message}`;
     }
 }
@@ -227,10 +227,10 @@ function renderSmartBuyUI() {
                 `;
             });
             quickJump.innerHTML = pillsHtml;
-            quickJump.style.display = 'flex';
+            quickJump.hidden = false;
         } else {
             quickJump.innerHTML = '';
-            quickJump.style.display = 'none';
+            quickJump.hidden = true;
         }
     }
 
@@ -304,15 +304,15 @@ function renderStoreCard(group) {
         }
 
         rowsHtml += `
-            <tr class="is-clickable${isSelected ? '' : ' is-unselected'}" id="row-${item.rowKey}" data-store="${storeKey}" data-key="${item.rowKey}" onclick="onRowClicked('${storeKey}', '${item.rowKey}', event)">
+            <tr class="is-clickable${isSelected ? '' : ' is-dimmed'}" id="row-${item.rowKey}" data-store="${storeKey}" data-key="${item.rowKey}" onclick="onRowClicked('${storeKey}', '${item.rowKey}', event)">
                 <td>
-                    <input type="checkbox"
+                    <input type="checkbox" class="kt-checkbox"
                         id="chk-${item.rowKey}"
                         ${isSelected ? 'checked' : ''}
                         onchange="onGameCheckboxChanged('${storeKey}', '${item.rowKey}', this.checked)">
                 </td>
                 <td>
-                    <div class="kt-cluster" style="flex-wrap: nowrap">
+                    <div class="kt-cluster kt-nowrap">
                         <button type="button" class="kt-thumb kt-thumb--sm"
                             onclick="typeof showGameDetails === 'function' ? showGameDetails('${game.objectId}') : window.open('https://boardgamegeek.com/boardgame/${game.objectId}', '_blank')"
                             title="Click to view details for ${escapeHtml(game.name)}">
@@ -344,12 +344,12 @@ function renderStoreCard(group) {
     });
 
     const tableHtml = `
-        <div style="overflow-x: auto">
+        <div class="kt-table-wrap kt-table-wrap--bare">
             <table class="kt-table kt-table--hover">
                 <thead>
                     <tr>
                         <th>
-                            <input type="checkbox"
+                            <input type="checkbox" class="kt-checkbox"
                                 id="header-chk-${storeKey}"
                                 ${allSelected ? 'checked' : ''}
                                 onchange="toggleSelectAllForStore('${storeKey}', this.checked)"
@@ -403,9 +403,9 @@ function onGameCheckboxChanged(storeKey, rowKey, isChecked) {
     const rowEl = document.getElementById(`row-${rowKey}`);
     if (rowEl) {
         if (isChecked) {
-            rowEl.classList.remove('is-unselected');
+            rowEl.classList.remove('is-dimmed');
         } else {
-            rowEl.classList.add('is-unselected');
+            rowEl.classList.add('is-dimmed');
         }
     }
 
@@ -433,9 +433,9 @@ function toggleSelectAllForStore(storeKey, shouldSelectAll) {
         const rowEl = document.getElementById(`row-${item.rowKey}`);
         if (rowEl) {
             if (shouldSelectAll) {
-                rowEl.classList.remove('is-unselected');
+                rowEl.classList.remove('is-dimmed');
             } else {
-                rowEl.classList.add('is-unselected');
+                rowEl.classList.add('is-dimmed');
             }
         }
     });

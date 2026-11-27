@@ -13,13 +13,13 @@ async function fetchStats() {
         renderRatingChart();
         updateInsights();
 
-        loadingEl.style.display = 'none';
-        contentEl.style.display = 'block';
+        loadingEl.hidden = true;
+        contentEl.hidden = false;
 
     } catch (error) {
         console.error('Error fetching stats:', error);
-        loadingEl.style.display = 'none';
-        errorEl.style.display = 'block';
+        loadingEl.hidden = true;
+        errorEl.hidden = false;
         errorEl.textContent = `Failed to load statistics: ${error.message}`;
     }
 }

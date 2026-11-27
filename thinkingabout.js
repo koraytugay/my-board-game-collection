@@ -25,15 +25,15 @@ async function fetchCollection() {
         filteredGames = [...allGames];
         sortGames(currentSort);
 
-        loadingEl.style.display = "none";
-        controlsEl.style.display = "block";
+        loadingEl.hidden = true;
+        controlsEl.hidden = false;
 
         loadDarkModePreference();
 
     } catch (error) {
         console.error("Error fetching Thinking About collection:", error);
-        loadingEl.style.display = "none";
-        errorEl.style.display = "block";
+        loadingEl.hidden = true;
+        errorEl.hidden = false;
         errorEl.textContent = "Failed to load Thinking About games: " + error.message;
     }
 }
@@ -181,7 +181,7 @@ function renderGames() {
 
 function createGameCard(game) {
     const card = document.createElement("div");
-    card.className = "kt-media-card kt-media-card--interactive kt-media-card--flow";
+    card.className = "kt-media-card kt-media-card--top kt-media-card--interactive kt-media-card--flow";
     card.onclick = () => {
         if (typeof showGameDetails === "function") {
             showGameDetails(game.objectId);

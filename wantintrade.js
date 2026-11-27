@@ -27,16 +27,16 @@ async function fetchCollection() {
         filteredGames = [...allGames];
         sortGames(currentSort);
         
-        loadingEl.style.display = 'none';
-        controlsEl.style.display = '';
+        loadingEl.hidden = true;
+        controlsEl.hidden = false;
         renderStockStatus(availabilityRes, likeToHaveAvailRes);
         
         loadDarkModePreference();
 
     } catch (error) {
         console.error('Error fetching Want in Trade collection:', error);
-        loadingEl.style.display = 'none';
-        errorEl.style.display = 'block';
+        loadingEl.hidden = true;
+        errorEl.hidden = false;
         errorEl.textContent = `Failed to load Want in Trade games: ${error.message}`;
     }
 }
@@ -234,7 +234,7 @@ function renderGames() {
 
 function createGameCard(game) {
     const card = document.createElement('div');
-    card.className = 'kt-media-card kt-media-card--interactive kt-media-card--flow';
+    card.className = 'kt-media-card kt-media-card--top kt-media-card--interactive kt-media-card--flow';
     card.onclick = () => {
         if (typeof showGameDetails === 'function') {
             showGameDetails(game.objectId);
@@ -271,7 +271,7 @@ function createGameCard(game) {
     let storeHtml = '';
     if (storeButtonsHtml.trim()) {
         storeHtml = `
-            <div class="kt-stack kt-mt-2" style="--kt-gap: 4px">${storeButtonsHtml}</div>
+            <div class="kt-stack kt-gap-1 kt-mt-2">${storeButtonsHtml}</div>
         `;
     }
 

@@ -88,15 +88,15 @@ async function fetchRecommendations() {
         populateDesignerFilter();
         sortGames(currentSort);
 
-        loadingEl.style.display = 'none';
-        controlsEl.style.display = '';
+        loadingEl.hidden = true;
+        controlsEl.hidden = false;
 
         loadDarkModePreference();
 
     } catch (error) {
         console.error('Error fetching recommendations:', error);
-        loadingEl.style.display = 'none';
-        errorEl.style.display = 'block';
+        loadingEl.hidden = true;
+        errorEl.hidden = false;
         errorEl.textContent = `Failed to load recommendations: ${error.message}`;
     }
 }
@@ -231,7 +231,7 @@ function renderGames() {
 
 function createGameCard(game) {
     const card = document.createElement('div');
-    card.className = 'kt-media-card kt-media-card--interactive kt-media-card--flow';
+    card.className = 'kt-media-card kt-media-card--top kt-media-card--interactive kt-media-card--flow';
     card.onclick = (e) => {
         if (e.target.closest('a') || e.target.closest('button') || e.target.closest('.kt-thumb')) return;
         window.open(`https://boardgamegeek.com/boardgame/${game.objectId}`, '_blank');
@@ -276,7 +276,7 @@ function createGameCard(game) {
             </div>
             <div class="kt-mt-3">
                 <div class="kt-eyebrow kt-mb-2">Based on games you love</div>
-                <div class="kt-cluster" style="--kt-gap: 4px">
+                <div class="kt-cluster kt-gap-1">
                     ${sourcesHtml}
                 </div>
             </div>
