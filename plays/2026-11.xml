@@ -1,9 +1,17 @@
-<?xml version="1.0" encoding="utf-8"?><plays  username="koraytugay" userid="4151779" total="33" page="1" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse">
+<?xml version="1.0" encoding="utf-8"?><plays  username="koraytugay" userid="4151779" total="34" page="1" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse">
 <play id="121400230" date="2026-11-26" quantity="2" length="40" incomplete="0" nowinstats="0" location="">
 			<item name="Next Station: Paris" objecttype="thing" objectid="403116">
 				<subtypes>
 										<subtype value="boardgame" />
 										<subtype value="boardgameintegration" />
+									</subtypes>
+			</item>
+								</play>
+<play id="121420137" date="2026-11-26" quantity="1" length="60" incomplete="0" nowinstats="0" location="">
+			<item name="Witchcraft!" objecttype="thing" objectid="383499">
+				<subtypes>
+										<subtype value="boardgame" />
+										<subtype value="boardgameimplementation" />
 									</subtypes>
 			</item>
 								</play>
